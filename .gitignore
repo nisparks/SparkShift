@@ -1,0 +1,35 @@
+# Local secrets and machine-specific settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+machine_profiles/
+slicer_profiles/
+.idea/
+.vscode/
+
+# Caches and generated temporary files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.cache/
+*.log
+*.tmp
+*.temp
+*.bak
+*.lock
+~$*
+.~lock.*
+.autosave/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Printer output is not a repository deliverable.
+*.gcode
+*.gcode.gz
+*.bgcode
