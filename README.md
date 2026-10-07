@@ -21,15 +21,20 @@ clarity; the native model and STEP retain the complete assembly.
 
 | File / guide | Purpose |
 |---|---|
-| [SparkShift.f3d](cad/SparkShift.f3d) | One current editable Fusion assembly. |
+| [SparkShift.f3d](cad/SparkShift.f3d) | Visible, colored Fusion assembly with functional groups and native joints. |
 | [SparkShift.step](cad/SparkShift.step) | One complete assembly geometry exchange file. |
 | [16 current STL parts](stl) | Matching millimeter, bed-oriented preview meshes. |
+| [SparkShift motion helper](scripts/SparkShift_motion/SparkShift_motion.py) | Standalone Fusion script for coordinated CAD motion; [usage](PREVIEW.md#coordinated-native-motion). |
 | [Current hardware/BOM](BOM.md) | Current installed quantities, printed-part list, and actual-fit caveats. |
 | [Preview notes](PREVIEW.md) | Scope, review limits, and deferred work. |
 
 These are development-preview assets, not a qualified print or heated-operation
 release. Keep the supplied STL orientations and scale; use the native/STEP
 assembly for assembled placement. CPAP and sensor development remain deferred.
+
+The current set removes retired geometry while keeping the six optional
+adapter pilots and functional P12 spring pressure cup. Its 1.0mm
+heater-to-P01 gap is geometric clearance, not thermal qualification.
 
 ## Attribution
 

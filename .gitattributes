@@ -9,8 +9,9 @@
 *.jpg binary
 *.jpeg binary
 
-# Preserve handed-off CAD/mesh/image bytes and the original license text.
+# Preserve exact handoff bytes and the original license text.
 cad/** -text
 stl/** -text
 images/** -text
+scripts/SparkShift_motion/SparkShift_motion.py -text whitespace=cr-at-eol
 LICENSE -text whitespace=cr-at-eol

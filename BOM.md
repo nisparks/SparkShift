@@ -58,9 +58,19 @@ thread and length match. Engagement values in the model are not torque ratings.
 | M3 heat-set inserts, 4.6mm OD x 3mm long | 2 | Follower cheek and short upper spacer-retainer location. |
 | Small M3 tool-interface inserts | 4 | Match the smaller October reference envelope. Supplier/actual fit is a purchase hold; do not substitute the 4.6mm OD frame inserts blindly. |
 
-The six prepared accessory pilots can accept six additional optional inserts;
-these are **not** included in the mandatory quantities above. CPAP and sensor
-accessory design is deferred.
+## Optional adapter provisions
+
+These blind pilots are intentional future mounts, **not missing frame screws**.
+No adapters or sensor-specific hardware are supplied.
+
+| Location | Optional insert quantity | Future use |
+|---|---:|---|
+| Four front blind pilots | 4 | CPAP adapter |
+| Two lower P01 blind pilots | 2 | Cartographer/Beacon adapter |
+
+All six optional inserts are M3, 4.6mm OD x 4mm long. They are **not included**
+in the seven required 4mm inserts or the two required 3mm inserts listed above.
+Actual CPAP/probe-adapter design and sensing remain deferred.
 
 ## Current printed parts
 
@@ -86,6 +96,9 @@ not a qualified printing recipe.
 | P16 | [Right belt arch](stl/P16_Right_belt_arch.stl) | 1 | GPL-3.0 custom structure |
 | P17 | [HF tool carrier](stl/P17_HF_tool_carrier.stl) | 1 | GPL-3.0 custom structure |
 | P18 | [Tool docking backplate](stl/P18_Tool_docking_backplate.stl) | 1 | GPL-3.0 custom structure |
+
+P12 is the functional spring pressure cup; its upper round appearance does not
+make it a remnant. It remains an unchanged required print.
 
 ## Reference-only provisions
 
