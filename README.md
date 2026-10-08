@@ -43,9 +43,10 @@ not establish that the design works.
 
 ## Unresolved work
 
-- Actual servo model/spline and the metal cam-drive interface remain unresolved;
-  the torsion neck must be redesigned. MG90S is only an inventory candidate,
-  **not torque-qualified**.
+- **MG90S is the selected servo baseline**, reusing matching owned stock;
+  it is **not torque-qualified**. Its supplied matched horn and printed cam
+  remain a dimensional-fit prototype, not a verified all-metal drive.
+  Actual fit, long-term durability, and a future metal torque path remain open.
 - Spring load and physical HGX gear mesh/fits need validation.
 - Thermal behavior, cooling, and safe control remain unqualified. CPAP and
   sensor/probe accessories remain deferred.
@@ -53,6 +54,9 @@ not establish that the design works.
 Geometry, interfaces, and modeled hardware may change as development continues.
 The files and notes are not a complete build guide or evidence of a usable
 hotend-exchange system.
+
+See the [MG90S reuse and price-free sourcing notes](BOM.md#mg90s-selection-and-reuse).
+No alternative servo or metal horn is an approved drop-in substitute.
 
 ## Attribution
 

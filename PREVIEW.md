@@ -24,6 +24,41 @@ The stock steel hobs and original needles are unchanged. The current stack
 uses direct drivers and ordinary 3x14mm hob pins. The aligned same-plane
 37T hob-drive mesh remains a user-selected experiment, not a qualified mesh.
 
+## Selected servo and drive-interface limits
+
+**MG90S is the selected baseline**, not just an inventory candidate. Reuse one
+matching owned servo; order none if that stock matches. The
+[BOM's manufacturer references and sourcing notes](BOM.md#mg90s-selection-and-reuse)
+separate published body dimensions from unverified mounting/spline details.
+Neither the manufacturer's stall torque nor an earlier superseded load estimate
+establishes current cam torque headroom.
+
+The mounting prototype uses the 22.8x12.2x28.5mm body envelope and adjustable
+P02 slots/captive-nut channels. **27.8mm is the nominal mounting pitch, not an
+official factory dimension**. +/-0.4mm per-ear travel gives a
+27.0..28.6mm geometric pitch extent; that is **not universal case/ear/washer fit
+qualification**. The modeled stack uses 2mm ears, two 0.3mm flat M2 washers,
+two M2x6 socket-head screws replacing the former M2x5 screws, and two retained
+M2 hex nuts. Nominal support/front nut-loading checks pass in CAD; actual owned
+hardware still needs fitting. The [BOM](BOM.md) specifies the head and washer
+dimensions.
+
+The supplied MG90S-matched horn remains a **fit-check envelope**: its tooth
+count and retaining thread are not independently verified. The prototype keeps
+the existing cam profile, output axis, and HGX kinematics; it is not a completed
+all-metal redesign. A generic H25T horn does not automatically fit an MG90S.
+No MG90-specific off-the-shelf metal horn/shaft connection has been fully
+verified yet, but that does not prevent the mounting prototype from proceeding.
+
+The working printed cam/horn is retained as the user's observed-strong
+prototype. Its long-term durability remains unproven; no immediate-failure
+claim is made. The separate 3x12mm cam journal pin does not bridge the printed
+neck's torque path.
+
+TF-9512MG in its 180-degree version is an available backup, **not selected**.
+An intermediate class such as MG92B is only a future mounting-swap option if
+requested; neither is a substitute with demonstrated torque headroom here.
+
 ## Intentional features and current clearances
 
 | Feature | Purpose / limit |
@@ -37,7 +72,9 @@ Retired motor shaft/pinion bores in P01/P03, the former motor-relative P04
 relief, and P01's obsolete fixed-hob rear-bearing cavity are removed; the
 current fixed-hob bearing seats are in P03. Obsolete cartridge/frame cutouts
 and the duplicate Hall slot are also removed. Motor/shaft/hob dimensions,
-gear ratios, hardware quantities, and servo/cam location remain unchanged.
+gear ratios, and cam/output-axis location are retained. The selected servo's
+case/mounting update and screw/washer delta are described above, separately
+from that earlier geometry cleanup.
 
 The bottom hotend-to-P01 gap is increased to a **1.0mm native measured
 heater-to-P01 minimum**. This is geometric clearance, **not thermal-spacing or
@@ -47,7 +84,7 @@ their optional inserts are separate from the required frame hardware in the
 
 ## Coordinated native motion
 
-The native assembly retains 136 modeled parts / 16 prints in 13 functional
+The MG90S native model contains 138 modeled parts / 16 prints in 13 functional
 groups, with 12 real joints and four native gear links. The
 [standalone motion helper](scripts/SparkShift_motion/SparkShift_motion.py)
 coordinates nonlinear cam/follower motion and the orbiting hob, and updates
@@ -81,9 +118,10 @@ guides are still accessible. Match the distinct screw heads and insert lengths
 in the [current BOM](BOM.md); measure actual servo/horn, spring, and small
 tool-interface insert fits rather than treating supplier envelopes as orders.
 
-The shell is 45mm wide while the stock MGN12H is 45.4mm wide; the stock-envelope
-issue remains unwaived. Geometry clearance does not establish thermal spacing,
-material strength, bearing retention, or deposited-layer quality.
+The printed shells are 45.0mm wide; the carriage is nominally 45.4mm and the
+stock-inclusive CAD width measures 45.44mm. The stock-envelope issue remains
+unwaived. Geometry clearance does not establish thermal spacing, material
+strength, bearing retention, or deposited-layer quality.
 
 Continuous assembly/service, feed/reverse operation, manual release, complete
 tool withdrawal, and hot-life qualification remain physical-development gates.
