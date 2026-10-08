@@ -25,6 +25,11 @@ engineering archive, production product, or official Voron project.
 
 ![SparkShift CAD concept assembly and mechanism inset](images/SparkShift_preview.png)
 
+**Image colour key:** blue P01 backplate; purple P02 motor/servo spacer;
+amber P03 front clamshell; red P04 swing arm; green P17 tool carrier; lime P18
+tool backplate. Belt arches are cyan, tooth liners pink, and gears/cam
+gold/orange. These are inspection identifiers, not required filament colours.
+
 CAD illustration, not a tested assembly or product photograph. Geometric,
 native CAD-motion, and export checks exist, but they are **not hardware tests or
 real-world qualification**. The presence of F3D/STEP/STL files and images does
