@@ -5,13 +5,9 @@
 *.step binary
 *.stp binary
 *.stl binary
-*.png binary
-*.jpg binary
-*.jpeg binary
 
-# Preserve exact handoff bytes and the original license text.
+# Preserve approved WIP source/export bytes and the original license text.
 cad/** -text
-stl/** -text
-images/** -text
-scripts/SparkShift_motion/SparkShift_motion.py -text whitespace=cr-at-eol
+stl_v9/** -text
+scripts/*.py -text whitespace=cr-at-eol
 LICENSE -text whitespace=cr-at-eol

@@ -8,8 +8,8 @@ rights or imply manufacturer certification or official Voron endorsement.
 
 The CxChanger / Dumpling Lab YUDX-derived custom structure retains its existing
 GPL-3.0 attribution. The accompanying [LICENSE](LICENSE) is the unchanged GNU
-GPL version 3 text. SparkShift-authored documentation and the standalone motion
-helper are provided under that license.
+GPL version 3 text. SparkShift-authored documentation and the published CAD-tool
+source are provided under that license.
 
 Source projects:
 

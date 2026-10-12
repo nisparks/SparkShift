@@ -1,71 +1,79 @@
 # SparkShift
 
 > [!WARNING]
-> **WORK IN PROGRESS / UNTESTED / NOT READY FOR USE**
+> **WORK IN PROGRESS / NOT READY FOR PRINTING OR USE**
 >
-> This is an evolving CAD-only design, not a tested working extruder or
-> hotend-exchange assembly. **All files are for design review and contribution
-> only**, not print-ready parts or installation/operation instructions.
+> This is an evolving, untested mechanical CAD concept. All files are for
+> **inspection, design review, and development only**. Bed-oriented STLs and
+> successful digital checks do not make this a print-ready release.
 >
-> The design has **not been validated by complete physical assembly, functional
-> hotend exchange, loaded actuation, reliability, thermal, or safety testing**.
-> Do not treat it as ready to drop into a printer or operate heated/unattended.
+> Complete physical assembly, functional hotend exchange, loaded actuation,
+> reliability, thermal, and safety testing have not qualified the design.
+> Do not treat it as ready to install in a printer or operate heated/unattended.
 
 **HGX quick-change hotend system**
 
 *Same drive. New hotend.*
 
-SparkShift is a provisional name for this YUDX-derived community design. The
-concept keeps one permanent square NEMA14 motor and HGX drive on the carriage,
-with an independent servo-cam release intended to open the swinging driven hob.
-Ordinary forward or reverse extrusion must not open the arm.
+SparkShift is a provisional name for an original-inspired, YUDX-derived
+community design. One permanent LDO-36STH20-1004AHG(XH) factory-10T pancake motor
+and unmodified purchased HGX drive stay on the carriage; an independent MG90S
+cam releases the swinging driven hob. Ordinary forward/reverse extrusion must
+remain independent of arm opening.
 
-This private repository is a **latest-only collaborator preview**, not a local
-engineering archive, production product, or official Voron project.
+**Vibe developed:** this project's iterative mechanical CAD and tooling were
+AI-assisted under human direction, not professionally engineered or validated.
+That describes the SparkShift development process, **not the authorship of the
+upstream CxChanger/YUDX design or vendor parts**. Their credit and rights remain
+in [ATTRIBUTION.md](ATTRIBUTION.md).
 
-![SparkShift CAD concept assembly and mechanism inset](images/SparkShift_preview.png)
+## Current v9 inspection files
 
-**Image colour key:** blue P01 backplate; purple P02 motor/servo spacer;
-amber P03 front clamshell; red P04 swing arm; green P17 tool carrier; lime P18
-tool backplate. Belt arches are cyan, tooth liners pink, and gears/cam
-gold/orange. These are inspection identifiers, not required filament colours.
+**WIP / NOT READY FOR PRINTING:** use this one matched set for review only.
+There are no preview images, videos, alternate native models, assembly STEP,
+or qualified motion helper in the current tree.
 
-CAD illustration, not a tested assembly or product photograph. Geometric,
-native CAD-motion, and export checks exist, but they are **not hardware tests or
-real-world qualification**. The presence of F3D/STEP/STL files and images does
-not establish that the design works.
-
-## Design-review files
-
-| File / guide | Purpose |
+| File / guide | Inspection purpose |
 |---|---|
-| [SparkShift.f3d](cad/SparkShift.f3d) | Editable grouped/jointed CAD concept. |
-| [SparkShift.step](cad/SparkShift.step) | Assembly geometry for design review. |
-| [16 current STL parts](stl) | Millimeter, bed-oriented review meshes; not a print-ready release. |
-| [SparkShift motion helper](scripts/SparkShift_motion/SparkShift_motion.py) | CAD-only demonstration; [usage](PREVIEW.md#coordinated-native-motion). No printer commands. |
-| [Modeled hardware/BOM](BOM.md) | Current modeled quantities and fit caveats, not a complete or qualified build BOM. |
-| [Preview notes](PREVIEW.md) | CAD demonstration scope and limitations, not installation/operation instructions. |
+| [SparkShift AHG-min v9 F3D](cad/SparkShift_AHG_min_v9.f3d) | Current native assembly: 143 modeled bodies and 17 printed-part shapes. |
+| [17 v9 STLs](stl_v9) | Millimeter, bed-oriented review exports; **not ready for printing**, not support-free. |
+| [Preview and limitations](PREVIEW.md) | Current geometry, bounded digital evidence, unresolved issues. |
+| [Modeled hardware / print roles](BOM.md) | Reference quantities and fit holds, **not an approved shopping list or build guide**. |
+| [CAD-tool source notes](scripts/README.md) | Required adjacent Python tools and dependency/usage limits; not a one-command rebuild or printer controller. |
 
-## Unresolved work
+## What v9 contains
 
-- **MG90S is the selected servo baseline**, reusing matching owned stock;
-  it is **not torque-qualified**. Its supplied matched horn and printed cam
-  remain a dimensional-fit prototype, not a verified all-metal drive.
-  Actual fit, long-term durability, and a future metal torque path remain open.
-- Spring load and physical HGX gear mesh/fits need validation.
-- Thermal behavior, cooling, and safe control remain unqualified. CPAP and
-  sensor/probe accessories remain deferred.
+The 45mm printed core and four unchanged 9mm belt interfaces are retained.
+Translated circle/cone bands and planar ridge strips are consolidated while
+protecting bearing-seat support, full magnet backing, and the captured lower/
+belt band.
 
-Geometry, interfaces, and modeled hardware may change as development continues.
-The files and notes are not a complete build guide or evidence of a usable
-hotend-exchange system.
+The arm is **two-piece P04R/P04F**, with an upper M3x10 clamp, a lower M3x14
+button-head screw into a backed short M3 heat-set, and a rounded central key.
+The compact cam captures the supplied matching horn as its real spline insert
+and uses a short integral journal with an MF85ZZ bearing. No fabricated
+print-ready female spline teeth are supplied.
 
-See the [MG90S reuse and price-free sourcing notes](BOM.md#mg90s-selection-and-reuse).
-No alternative servo or metal horn is an approved drop-in substitute.
+## Still unresolved
 
-## Attribution
+Actual servo retaining thread/horn fit, printed-journal and insert fits, spring/
+servo margin, loaded strength and torsional stiffness, retention, hot creep/life,
+cooling, and safe controls are unqualified. The M2x16 cam center retainer is
+**reference only**, not a verified purchase.
 
-See [license and source attribution](ATTRIBUTION.md) and [LICENSE](LICENSE).
-The CxChanger/YUDX-derived custom structure retains GPL-3.0 attribution; the
-GT2 profile and derived toothed belt liners retain separate **CC BY-SA 3.0**
-notices. Vendor hardware and hotend references retain their respective rights.
+Small legacy gear gaps, the old native drive-link ratio, and nonstandard
+modeled compound-shaft lengths remain open. Sampled arm/cam and 35mm whole-tool
+travel checks are not continuous/full gear-phase or physical qualification.
+The user's pre-existing P01 `Extrude2` warning is preserved; this cleanup does
+not conceal it or claim a completely healthy feature history.
+
+CPAP and sensor/probe accessories remain deferred. MG90S is selected with reuse
+of matching owned stock, not a torque-headroom guarantee. Geometry and hardware
+may change before any usable design or print package exists.
+
+## Licences and sources
+
+The unchanged [LICENSE](LICENSE) retains GPL-3.0 for the CxChanger/YUDX-derived
+custom work. P13/P14 GT2 tooth liners retain separate **CC BY-SA 3.0** credit.
+Vendor hardware and hotend references are not blanket relicensed or
+manufacturer-certified. See [mixed-scope attribution](ATTRIBUTION.md).
