@@ -5,9 +5,13 @@
 *.step binary
 *.stp binary
 *.stl binary
+*.png binary
 
 # Preserve approved WIP source/export bytes and the original license text.
 cad/** -text
 stl_v9/** -text
+stl_v10/** -text
+images_v10/** -text
 scripts/*.py -text whitespace=cr-at-eol
+source_v10/*.py -text whitespace=cr-at-eol
 LICENSE -text whitespace=cr-at-eol

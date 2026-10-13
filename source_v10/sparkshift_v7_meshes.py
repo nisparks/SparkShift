@@ -59,8 +59,8 @@ def main():
     global ROOT
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT, help="AHG-min package directory")
-    parser.add_argument("--revision", choices=("v7", "v8", "v9"), default="v7")
-    parser.add_argument("--baseline", choices=("v6", "v7", "v8"), default="v6")
+    parser.add_argument("--revision", choices=("v7", "v8", "v9", "v10"), default="v7")
+    parser.add_argument("--baseline", choices=("v6", "v7", "v8", "v9"), default="v6")
     args = parser.parse_args()
     ROOT = args.root.resolve()
     manifest = ROOT / (args.revision + "_mesh_export.json")
