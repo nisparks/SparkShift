@@ -1,6 +1,6 @@
 # SparkShift: license and source attribution
 
-SparkShift is a provisional identity for a private community-development
+SparkShift is a provisional identity for a community-development
 preview. Renaming and curating the files do not replace the original authors'
 rights or imply manufacturer certification or official Voron endorsement.
 

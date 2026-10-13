@@ -125,6 +125,7 @@ def review_contacts(app,poses=None):
     limits.update({frozenset(("PRINT_RedLizard_HF_tool_carrier",n)):2.0
                    for n in ("OCT_TOOL_09_M3_heatset_nut_small:1","OCT_TOOL_20_M3_heatset_nut_small:2",
                              "OCT_TOOL_21_M3_heatset_nut_small:3","OCT_TOOL_22_M3_heatset_nut_small:4")})
+    limits.update(STATE.get("press_reference_limits",{}))
     overlaps=result["unexpected_overlaps"]+result["inherited_overlaps"]+result["press_fits"]
     unexpected=[r[:5] for r in overlaps if r[4]>limits.get(frozenset((r[2],r[3])),0)]
     report={"poses":result["poses"],"unexpected_overlaps":unexpected,
@@ -361,7 +362,7 @@ def clear_lower_arm_corner(app):
 
 
 def capture_views(app,slug,names,centre,extent,views=("front_iso",),
-                  arm_deg=0,cam_deg=0,clip=None,translations=None):
+                  arm_deg=0,cam_deg=0,clip=None,translations=None,extra_shapes=None):
     current=require_verified_geometry(app)
     if current!=STATE.get("exported_geometry_stats"):
         raise RuntimeError("The visual source differs from the current CAD exports")
@@ -378,7 +379,10 @@ def capture_views(app,slug,names,centre,extent,views=("front_iso",),
              "ARM_SPLIT_M3x10_SHCS_0":(235,190,50),
              "ARM_SPLIT_M3_INSERT_0":(210,150,50),
              "ARM_LOWER_M3x14_BUTTON_HEAD":(235,190,50),
-             "ARM_LOWER_M3_HEATSET_4p6x4":(210,150,50)}
+             "ARM_LOWER_M3_HEATSET_4p6x4":(210,150,50),
+             "CLAM_M3_FRAME_INSERT_2":(210,150,50),
+             "CLAM_M3_FRAME_INSERT_3":(210,150,50),
+             "SPRING_PRELOAD_M3_HEATSET":(210,150,50)}
     snapshots={n:w.stats(b) for n,b in by.items()}
     if translations is not None:
         if set(translations)!=set(names):
@@ -403,6 +407,15 @@ def capture_views(app,slug,names,centre,extent,views=("front_iso",),
             if not shape.lumps.count:
                 continue
         shapes.append((name,shape))
+    reference_names=[]
+    for name,shape,colour in extra_shapes or ():
+        if name in by or name in reference_names:
+            raise RuntimeError("A visual reference duplicates an assembly body")
+        if not shape.isSolid or not math.isfinite(shape.volume) or shape.volume<=0:
+            raise RuntimeError("The visual reference is not a valid solid")
+        shapes.append((name,s.tbm().copy(shape)))
+        colours[name]=colour
+        reference_names.append(name)
     if not shapes:
         raise RuntimeError("The documentation view contains no native solids")
     template=source_design.appearances.itemByName("SparkShift arm")
@@ -461,6 +474,7 @@ def capture_views(app,slug,names,centre,extent,views=("front_iso",),
             "section_box_mm":clip,"native_geometry_unchanged":True,
             "disposable_document_closed":True,
             "illustrative_translations_mm":translations,
+            "visual_only_reference_bodies":reference_names,
             "native_source_sha256":json.loads((OUT/"v10_cad_export.json").read_text())["exports"]["f3d"]["sha256"]}
     (OUT/("visual_"+slug+".json")).write_text(json.dumps(report,indent=2))
     return report
@@ -504,7 +518,7 @@ def capture_exploded_views(app):
             y=28.0
         if name in rear_supports:
             y=-25.0
-        if name.startswith("CLAM_M3x20_FRAME_"):
+        if name.startswith("CLAM_M3x") and "FRAME_" in name:
             y=105.0
         if name in ("ARM_SPLIT_M3x10_SHCS_0","ARM_LOWER_M3x14_BUTTON_HEAD"):
             y=-12.0

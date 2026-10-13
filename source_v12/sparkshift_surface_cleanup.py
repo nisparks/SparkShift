@@ -631,11 +631,12 @@ def contacts(app, names, poses=((0, 0), (90, -4.453), (150, -6.053), (0, .3), (0
     by = bodies(app)
     originals = STATE["before"]
     paths = {n: b.assemblyContext.fullPathName for n, b in by.items()}
+    current = {n: s.tbm().copy(b) for n, b in by.items()}
     report = {"parts": list(names), "poses": list(poses), "unexpected_overlaps": [], "inherited_overlaps": [],
               "press_fits": [], "near": [], "errors": []}
     for phi, arm in poses:
         shapes, baseline = {}, {}
-        for n, b in by.items():
+        for n, b in current.items():
             if "TEMP" in paths[n] or n == "CLOSING_SPRING_ENVELOPE":
                 continue
             rot = (w.STATE["C"], phi) if n in w.CAM_ROTATES else (
@@ -1041,7 +1042,7 @@ def export_meshes(app):
 def tool_travel(app):
     s,m,w=load("pancake_paths_study"),load("sparkshift_ahg_min"),load("sparkshift_cam_v8")
     by=bodies(app)
-    tools={n:b for n,b in by.items() if b.assemblyContext.fullPathName.startswith("12 ")
+    tools={n:s.tbm().copy(b) for n,b in by.items() if b.assemblyContext.fullPathName.startswith("12 ")
            and not n.startswith("REFERENCE_")}
     targets={}
     for n,b in by.items():
@@ -1053,7 +1054,7 @@ def tool_travel(app):
         elif any(g in path for g in m.ARM_GROUPS):
             targets[n]=m.rotated(b,w.STATE["Mv"],-6.053)
         else:
-            targets[n]=b
+            targets[n]=s.tbm().copy(b)
     distances=(0,2.5,5,7.5,10,15,20,25,30,35)
     report={"distances_mm":distances,"arm_deg":-6.053,"cam_deg":150,
             "tool_bodies":list(tools),"unexpected_overlaps":[],"errors":[],
