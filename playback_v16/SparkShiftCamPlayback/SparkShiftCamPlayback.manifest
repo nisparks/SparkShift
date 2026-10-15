@@ -1,0 +1,11 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "script",
+  "id": "c766956a-545f-4ca1-87dd-b624237ac762",
+  "author": "SparkShift",
+  "description": {
+    "": "Checked progressive-cam angle control and open/close playback. Kinematics only; no force simulation."
+  },
+  "version": "1.0.0",
+  "supportedOS": "windows|mac"
+}

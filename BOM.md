@@ -1,154 +1,187 @@
-# v12 modeled hardware and print roles
+# v16 generic per-build BOM -- one receiver plus one tool
 
 > [!WARNING]
-> **WIP / NOT READY FOR PRINTING OR USE.** This is a partial inspection
-> reference, **not shopping, fabrication, or assembly approval**. Supplier
-> parts, printed fits, snap retention, load, torque, and thermal life are
-> unqualified. No prices or AliExpress Choice/delivery guarantees are provided.
+> **WIP / FIT PENDING / NOT READY FOR PRINTING OR USE.** This substantial,
+> human-directed, AI-assisted **vibe developed** design has not qualified
+> physical fits, strength, torque, retention, thermal safety, or endurance.
+> This is a full generic reference inventory, **not purchasing, fabrication,
+> or assembly approval**. HOLD means the specification is unresolved.
 
-This substantial, human-directed, AI-assisted **vibe developed** revision
-retains the original toolhead and all four M2.5x8 hotend mounts. The approved
-143-body assembly includes references and purchased assemblies, not 143
-purchases. The matched v12 inspection set has fresh native/STEP readbacks
-and 17 mesh gates; all quantities below are modeled references, not
-supplier, fit, torque, or buying approval.
+Quantities include every modeled requirement for **one carriage receiver
+and one removable tool**, regardless of parts a particular builder has.
+Optional kit contents are possible coverage of these rows, not additional
+parts to buy twice. The 142-body prototype includes multi-body references,
+not 142 purchases. Actual supplier variants and head styles must match.
 
-## Flush heads and distinct insert hosts
+## Main purchased assemblies
 
-| Item | Modeled qty | Inspection reference / hold |
+| Item | Per build | Specification / verification hold |
 |---|---:|---|
-| Four case-clamp screws | 3 + 1 | **Three M3x25 (FRAME_0/1/2) and one M3x40 (FRAME_3)**. No current M3x20 case-clamp or 35mm lower-left trial. |
-| Separate upper frame screw | 1 | **M3x35** into P01's frame insert; actual head and hex socket are present. Not an additional case clamp. |
-| Case-clamp M3 heat-sets | 4 | Real heat-sets, no captive-nut substitution. FRAME_3's host is purple P02, not blue P01; count the relocated insert once. |
-| Lower-right FRAME_2 screw / insert | 1 of the four above | Unchanged fifth head reference; M3x25 on X18.2/Z-13.7, seat Y31.5, tip Y6.5; 4.6mm OD x 4mm insert at Y6..10 in P01. |
-| Rear-loaded backed insert seat | Printed case feature | 4.0mm pilot / 4.8mm outside-rear counterbore; 1.6mm prepared radial wall, 1.6mm forward backing, and 2.0mm material outside the full insert. Native footprint missing volume 0. |
-| Lower-left FRAME_3 screw / insert | 1 of the four above | M3x40, insert in P02 at X-16/Z-13, Y-3.7..0.3; blue P01 is the through-clearance sandwiched member. Raised axis does not extend purple lower bound Z-17.78. |
-| FRAME_3 front capture / pilot stock | Printed stack features | Blue annulus 1.6mm deep, 3.3mm through diameter below insert OD 4.6mm, missing material 0; purple radial stock 1.6mm, missing material 0. Not insert-fit, pullout, or load certification. |
-| Spring-preload M3 heat-set | 1, included below | Original insert, grub/ball, axis, and backing retained; distinct from the lower-right case clamp and arm inserts. |
-| Original HF hotend mounting screws | 4 | Original M2.5x8 references and axes/tips exactly restored; no shorter-screw substitution or lowered P17 shelf/counterbores. Actual supplier threads and torque unverified. |
+| Extrusion motor | 1 | LDO-36STH20-1004AHG(XH) factory-10T pancake reference; exact variant required. No separate 20T pinion or pinion grub. |
+| Release servo | 1 | MG90S-family reference, **not all clones interchangeable**. Independently verify 21T, 4.86mm crest OD, 3.36mm exposed height, M2.5 thread, ears/boss datum, stroke, and clocking. |
+| HGX hobs | 2 | Matching, unmodified purchased HGX steel hobs; kit coverage below. Needles and supports remain separate inventory rows. |
+| Closing/preload spring | 1 | Matching mechanical envelope required; actual rate, preload, solid height, force, and servo margin **HOLD**. |
+| HF hotend | 1 complete assembly | Eight CAD reference bodies, **not eight purchases** or a maker-certified mixed SKU. Select compatible heater, temperature sensor, nozzle, heatbreak, and ratings as a complete supplier system. |
+| MGN12H carriage | 1 | Match the actual rail/carriage and mounting envelope; linear rail length is printer-dependent. |
+| 9mm GT2 belt interface | 4 ends | Four ends, **not four loops**; routing and total belt length are printer-dependent. |
+| Bare A1104-family Hall sensor | 1 reference | Three-lead package, not a PCB module. Electrical variant/lead wiring and positive package cradle/retention **HOLD**; cross-web is not a qualified holder. |
 
-Four targeted heads move +1.70mm to **Y33.15 flush plane / Y31.5 seats**,
-matching the unchanged FRAME_2 fifth. Their standard lengths/blind-tip
-clearances preserve full 4mm nominal target-insert engagement; FRAME_2's
-separate nominal 3.5mm reference remains. No vendor thread/torque claim.
+The 21T count/crest OD/exposed height/thread describe the inspected reference
+unit only. Root diameter 4.62mm and sinusoidal flank form are photo-estimated
+fit trials with +0.025mm normal clearance, not certified teeth or universal
+printed fits. There is **no OEM horn**; P05 is one printed cam plus hub.
 
-**FRAME_2:** rear-load the bare P01 insert before actuator/motor plate closure.
-**FRAME_3:** front-load the bare purple P02 insert before blue P01 assembly.
-**Spring adjuster:** bench-install in the bare front case before case and
-arm/spring/ball closure. The 10mm-heater / 7mm-shaft / 4.6mm-end envelope
-is a stated reference, not universal actual-iron compatibility. Actual
-heat-staking, pilot/printer fit, and physical retention remain unqualified. See
-[snapshot and assembly-order limits](PREVIEW.md).
+## All 14 bearing references
 
-## Coupling pin and backing references
+Dimensions below are ID x OD x width in millimeters; flange/shoulder details
+also need matching. Bearings inside supplied motor/servo assemblies are not
+separate service items in this count.
 
-| Item | Modeled qty | Inspection reference / hold |
+| Bearing / role | Per build | Reference / hold |
 |---|---:|---|
-| Steel coupling locating pins | 6 | Nominal 1.5x5mm bought pins; captured CAD length is 4.9mm. Verify actual stock before interpreting nominal geometry as fit. |
-| Integral C capture bands | 2 per pin, part of P03 | Two short bands near each pin's ends with about 1.397mm nominal mouth. No separate keeper or glue is specified; actual insertion force, snap fit, pop-out retention, stiffness, and creep are unqualified. |
-| Tool locating balls | 4 | 4mm references; complete shared-datum paired docking symmetry and 0.05mm grid are unfinished, not placement approval. |
-| Tool/receiver magnets | 8 | 5x15x3mm references; exact paired placement symmetry, polarity, and physical retention remain unqualified. No mirrored/centered result is claimed from a model title. |
+| MF63ZZ flanged supports | 4 | 3x6x2.5mm; match flange and seat. |
+| MF74ZZ flanged supports | 3 | 4x7x2.5mm; do not reuse an earlier six-bearing count. |
+| 623ZZ cam follower | 1 | 3x10x4mm; distinct from its pin and two shims. |
+| MF85ZZ cam journal | 1 | 5x8x2.5mm; printed 4.95mm journal and fit/retention unqualified. |
+| 6700ZZ arm hinge | 1 | 10x15x4mm reference; loaded spacing/retention unqualified. |
+| Matching HGX needle bearings | 2 | 3x5x7mm references; confirm the actual hob kit needles. |
+| Rear MR74-type supports | 2 | **HOLD: modeled 4x7x2mm. Common MR74ZZ is 2.5mm wide and is not drop-in.** Supplier width/seat compatibility remains unresolved. |
+| **Total, including needles** | **14** | Kit-supplied matching items satisfy rows above; they do not increase this total. |
 
-The exposed middle steel tracks, both seating rails/lips, and axial stops are
-retained. Maxwell-style coupling contact geometry is not evidence of printed
-capture strength or resistance to popping out. The pin bands are printed
-features, not extra purchased parts or qualified material specifications.
-Four central path-wall plane edits are applied, not verification that every
-contact/pocket is centered. Do not round vendor gears or fit clearances to
-the nominal placement grid or force gear internals symmetric.
+## HGX Lite kit: possible coverage, not extra inventory
 
-| Sensor reference | Current limitation |
-|---|---|
-| Hall sensor / lead slot | Old package slot and lead geometry retained. Actual case cross-web is not a positive package cradle or retainer; no such holder is installed or qualified. |
+The illustrated bundle contains two hobs, two needles, two loose ball
+bearings, three pins, a spring, thumb adjuster, washer, and stock input gear.
+It **may cover** corresponding hob/needle/support/pin/spring requirements
+only after dimensions and quantities are checked. Do not assume the loose
+bearings or pins match any specific row, or count kit items and standalone
+items twice. Thumb adjuster/washer/input gear are not automatically the
+current printed preload assembly, M2.5 cam washer, or factory-10T input.
 
-## Arm and cam interfaces
+[AliExpress item 3256808598360212](https://www.aliexpress.com/item/3256808598360212.html)
+is an illustration/variant reference, **not a verified buy link**: anonymous
+variant dimensions were login-blocked. No prices, Choice status, dimensions,
+availability, delivery, or complete-kit compatibility are guaranteed.
 
-| Item | Modeled qty | Reference / hold |
+## Shafts, pins, balls, magnets, and spacers
+
+| Item | Per build | Reference / hold |
 |---|---:|---|
-| Upper arm clamp | 1 | M3x10 socket-head screw. |
-| Lower arm clamp | 1 | M3x14 button-head into a backed short M3 heat-set, not a loose lower hex nut. |
-| Short M3 arm heat-sets | 2 | 4.6mm OD x 4mm long reference. Both pilots are 4.0mm with short tapers to 4.4mm; actual insert family and printer/material fit require calibration. |
-| MG90S and supplied matching horn | 1 assembly | Selected baseline; one needed, zero to order if owned stock matches. Actual ears, spline, retaining thread, travel, and loaded torque need verification. |
-| Compact-cam center retainer | 1 reference | **M2x16 REFERENCE / VERIFY ACTUAL SERVO THREAD**. Permissible engagement, supplied horn, and printed-journal fit are not verified. Do not order or force the modeled thread. |
-| Cam center washer | 1 reference | 2.2mm ID x 5mm OD x 0.3mm; actual retainer/journal stack needs fitting. |
-| MF85ZZ cam bearing | 1 | 5x8x2.5mm flanged reference. Seat/journal fit and retention unqualified. |
-| Integral printed cam journal | Part of P05 | Captures the supplied horn as the actual spline insert; no fabricated print-ready female spline or separately purchased cam journal pin. |
+| 4mm compound shafts | 2 | **HOLD: standard lengths unresolved.** Modeled 26.3mm / 24.9mm lengths and old `4x25` / `4x24` names are **not buy/cut dimensions**. No shaft-machining instructions. |
+| HGX hob pins | 2 | Ordinary 3x14mm reference; verify actual kit stock and fits. |
+| Follower pin | 1 | 3x10mm reference for 623ZZ; not a cam journal pin. |
+| Coupling locating pins | 6 | Steel nominal 1.5x5mm; CAD length 4.9mm. Printed lips/rails/stops need actual snap-force/fit/retention qualification. |
+| Steel 4mm balls | 5 | Four tool locating balls plus one spring thrust ball; not two extra sets. |
+| Bar magnets | 8 | 5x15x3mm, four receiver plus four tool. Actual grade, polarity, retention, and paired placement require checks. |
+| Hall trigger disc magnet | 1 | 4x2mm reference; distinct from the eight coupling bars. |
+| Follower inner-ring shims | 2 | 3.2mm ID / 5mm OD / 0.5mm thick; keep outer ring free. |
+| Cam retainer washer | 1 | 2.7mm ID / 6mm OD / 0.5mm thick, not the servo-ear washer. |
+| Servo-ear washers | 2 | 2.2mm ID / 5mm OD / 0.3mm thick. |
+| PTFE inlet segment | 1 | 4mm OD / 2mm ID / 6mm length reference; actual cold-side path fit unqualified. |
 
-The outer 6.4mm cam-driver tunnel is closed. Internal inner-ring relief and
-the 5.7mm blind head/washer cavity remain, with 0.35mm nominal head axial gap.
-**Preassemble the cam/horn retainer before closing the case halves**; the local
-tool-top passage is not an exterior driver-access substitute.
+Disc magnets 6x3/6x4 are **research only**, not redesigned pockets or build
+defaults. The public reference remains eight bars plus the separate trigger
+disc. Paired Maxwell/magnet centering and the 0.05mm placement grid are
+unfinished; do not round vendor fits or gear internals to that grid.
 
-The arm insert reference is [ruthex RX-M3Sx4.0 short M3](https://www.ruthex.de/en/products/ruthex-gewindeeinsatz-m3s-100stuck-rx-m3x4-0-short-messing-gewindebuchsen-fur-3d-druck).
-That nominal pilot is not a universal M3 insert fit or pullout rating. The
-[MF85ZZ manufacturer reference](https://www.lily-bearing.com/products/mf85zz/)
-does not certify the printed seat or journal.
+## Full fastener inventory
 
-## Other unchanged modeled references
+Different head styles/functions are not interchangeable. Lengths are nominal
+CAD references, not verified screw engagement, torque, or actual supplier fit.
 
-| Item | Modeled qty | Current caveat |
+| Location | Per build | Reference |
 |---|---:|---|
-| LDO-36STH20-1004AHG(XH) pancake | 1 assembly | Factory 10T input; no separate square motor, 20T pinion, or pinion grub purchase. Match the exact supplier variant. |
-| HGX steel hobs / kit needles | 2 / 2 | Unmodified matching purchased geometry; physical mesh and fits unqualified. |
-| Hob MF63-type supports | 4 | 3x6x2.5mm flanged references; the cam uses MF85ZZ, not a fifth MF63. |
-| Remaining MF74-type supports | 3 | 4x7x2.5mm flanged references; not the earlier six-bearing proposal. |
-| Rear MR74-type axle supports | 2 | Inherited bodies labelled `4x7x2`; supplier width/seat fit remains unresolved, not a verified catalog match. |
-| 6700ZZ arm rear hinge | 1 | Modeled around the moving compound hub; loaded spacing and retention unqualified. |
-| Compound axles | 2 references | Nonstandard modeled lengths remain open. Do not order or machine from `AXLE_4x25_fixed` / `AXLE_4x24_moving` names. |
-| Hob pins | 2 | Ordinary 3x14mm reference; actual fits need calibration. |
-| 623 follower / follower pin | 1 / 1 | 3x10x4mm bearing and inherited 3x10mm double-shear pin reference; distinct from the integral cam journal. |
-| Closing/preload spring | 1 elastic reference | Actual rate, solid height, force, and servo/spring margin unverified. |
-| Follower inner-ring shims | 2 | 3.2x5x0.5mm references; outer ring must remain free in actual hardware. |
-| Preload thrust ball | 1 | 4mm reference, separate from the four tool-locating balls above. |
-| PTFE inlet segment | 1 | 4mm OD x 2mm ID x 6mm reference; check the actual cold-side path. |
-| HF hotend | 1 reference assembly | Eight bodies represent one hotend, including nominal nozzle/heater/thermistor references; not manufacturer-certified CAD or eight purchases. |
-| MGN12H / GT2 belt interfaces | 1 carriage / 4 ends | Existing carriage and four unchanged 9mm belt ends, not four extra loops. Printed core is 45mm; real stock envelope and belt fit remain review items. |
+| Cam center retainer | 1 | **M2.5x16 socket-head** envelope; coarse 0.45mm pitch assumed. Check actual thread and usable blind depth below. |
+| Servo ears | 2 | M2x6 socket-head, with two M2 nuts and two ear washers above. |
+| Motor ears | 2 | M3x18 ISO7380 button-head references. |
+| Motor/actuator plate retainers | 2 | M3x14 socket-head. |
+| Case clamps FRAME_0/1/2 | 3 | M3x25 socket-head. |
+| Case clamp FRAME_3 | 1 | M3x40 socket-head into P02 insert, not a 35mm trial. |
+| Separate upper frame | 1 | M3x35 into P01 insert; not an extra case-clamp row. |
+| Upper arm clamp | 1 | M3x10 socket-head. |
+| Lower arm clamp | 1 | M3x14 button-head into backed short M3 insert, not a loose nut. |
+| Carriage mount | 4 | M3x10. |
+| Belt draw screws | 4 | M3x16, with four captive M3 belt nuts. |
+| Spring preload | 1 | M3x6 flat-point grub through pressure cup/ball/spring. |
+| Hotend mount | 4 | Original M2.5x8; P17 shelf/counterbores retained, no short-bolt proposal. |
+| Tool screws | 4 | M3x6. |
+| Servo-ear nuts | 2 | M2, already paired with the two M2x6 screws above. |
+| Belt nuts | 4 | M3, already paired with four belt draw screws above; not case nuts. |
 
-## Selected fastener references
+With the selected center screw and washer, nominal retainer thread
+engagement is **2.96mm**. **Measure actual usable blind depth >=3.16mm
+before tightening**; external 3.36mm spline height is not blind depth.
+Do not force a bottomed screw. The 2.9mm passage leaves a 1.025mm radial
+wall in the 4.95mm journal; printed loaded strength remains unqualified.
 
-Different head styles and functions are not interchangeable. Modeled screw
-engagement does not qualify torque, insert pullout, or assembly access.
+## Full heat-set inventory -- do not double-count hosts
 
-| Location | Modeled qty | Reference |
+| Location | Per build | Reference / hold |
 |---|---:|---|
-| Motor ears | 2 | M3x18 ISO7380 rear-entry references. |
-| Motor/servo plate retainers | 2 | M3x14 socket-head references. |
-| Carriage / belt draw screws | 4 / 4 | M3x10 carriage and M3x16 belt references; four captive M3 belt nuts. |
-| Servo mounting | 2 screws + 2 washers + 2 nuts | M2x6 socket-head, 2.2/5.0/0.3mm washers, M2 nuts; actual MG90S case/ear fit unverified. |
-| Core/plate/preload heat-sets | 8 modeled entries | Four case-clamp, upper-frame, two plate, and spring-preload references; FRAME_3's relocation does not add an insert. Two short-M3 arm inserts are separate; actual fits unqualified. |
-| Preload grub | 1 | M3x6 flat-point reference through pressure cup/ball/spring, not an opening stop. |
-| Tool screws | 4 | Retained M3x6 references; four original hotend M2.5x8 mounts are listed above. Follow actual supplier requirements. |
-| Small tool heat-sets | 4 | Inherited tool-interface envelopes; supplier SKU and actual fit are a purchase hold. |
+| Case clamp inserts | 4 | Real M3 heat-sets; FRAME_3 is in P02, other case hosts retained. No case nut substitution. |
+| Separate upper frame insert | 1 | M3 reference in P01. |
+| Plate-retainer inserts | 2 | M3 reference family; actual pilot/stock/insert fit needs individual review. |
+| Spring-preload insert | 1 | M3 reference; retains its own axis/backing. |
+| Arm inserts | 2 | Short M3, 4.6mm OD x 4mm reference; 4.0mm pilots/4.4mm tapered entries, not universal fit/pullout approval. |
+| Small tool inserts | 4 | Inherited tool-interface envelopes; actual family, supplier SKU, and pilot fit **HOLD**. |
+| **Total modeled insert entries** | **14** | Eight core/plate/preload, two arm, four tool; not fourteen interchangeable inserts. |
 
-## 17 inspection meshes -- not ready for printing
+Bench-fit the cam/servo/bearing/washer/retainer before closing the front
+case: straight front-driver access is blocked. Rear-load FRAME_2's P01
+insert before plate closure; front-load FRAME_3's bare P02 insert before
+blue P01 captures it; bench-install the spring insert before case closure.
+These are geometric assembly-order references, not physical staking,
+thread, strength, or access qualification. See [inspection notes](PREVIEW.md).
 
-One of each current shape; retained IDs intentionally have gaps.
-**Bed orientation is not print-ready or support-free qualification.**
-The arm remains two-piece P04R/P04F; no one-piece P04 is supplied.
+## Printed and printer-dependent requirements
 
-| ID | Current review mesh | Licence scope |
+Use one of each of the **17 print roles** after reviewing the complete
+matched v16 set. P04 is split; P05 includes the direct hub, not an extra
+horn print. **NOT READY FOR PRINTING**;
+bed placement does not qualify supports, deposition, spline resolution,
+material choice, loaded strength, or hot creep.
+
+The [five-collar fit gauges](calibration_v16/README.md) are **optional
+calibration, not an 18th assembly part** or additional production cam.
+Their approximate tooth trials do not qualify real spline fit or torque.
+
+Meshes are **best-effort native inspection exports**, not guaranteed-clean
+STL normal metadata. Microscopic nondegenerate facets can have **zero stored
+STL normal vectors**. **Inspect each mesh and its warnings in a slicer**;
+the current set retains only three such P01 metadata warnings. Native bytes are not
+patched by facet deletion or normal rewriting to imply print readiness.
+
+| ID | Print role | Licence scope |
 |---|---|---|
-| P01 | [Back case](stl_v12/P01_Back_case.stl): rear-loaded FRAME_2, through-clearance FRAME_3 | GPL-3.0 custom work |
-| P02 | [Motor/actuator plate](stl_v12/P02_Motor_servo_plate.stl) with captured front-loaded FRAME_3 insert | GPL-3.0 custom work |
-| P03 | [User-refined front case](stl_v12/P03_Front_case.stl) and functional openings | GPL-3.0 custom work |
-| P04R | [Swing-arm rear half](stl_v12/P04R_Swing_arm_rear_half.stl) | GPL-3.0 custom work |
-| P04F | [Swing-arm front half](stl_v12/P04F_Swing_arm_front_half.stl) | GPL-3.0 custom work |
-| P05 | [Servo cam](stl_v12/P05_Servo_cam.stl) | GPL-3.0 custom work |
-| P06 | [Left 38T/14T compound](stl_v12/P06_Left_compound_38T_14T.stl) | GPL-3.0 custom work |
-| P07 | [Right 38T/14T compound](stl_v12/P07_Right_compound_38T_14T.stl) | GPL-3.0 custom work |
-| P08 | [Left 37T HGX drive](stl_v12/P08_Left_HGX_drive_37T.stl) | GPL-3.0 custom work |
-| P09 | [Right 37T HGX drive](stl_v12/P09_Right_HGX_drive_37T.stl) | GPL-3.0 custom work |
-| P12 | [Spring pressure cup](stl_v12/P12_Spring_pressure_cup.stl) | GPL-3.0 custom work |
-| P13 | [Left GT2 tooth liner](stl_v12/P13_Left_tooth_liner.stl) | **CC BY-SA 3.0** |
-| P14 | [Right GT2 tooth liner](stl_v12/P14_Right_tooth_liner.stl) | **CC BY-SA 3.0** |
-| P15 | [Left belt arch](stl_v12/P15_Left_belt_arch.stl) | GPL-3.0 custom work |
-| P16 | [Right belt arch](stl_v12/P16_Right_belt_arch.stl) | GPL-3.0 custom work |
-| P17 | [Original HF tool carrier](stl_v12/P17_HF_tool_carrier.stl); unchanged shelf/counterbores | GPL-3.0 custom work |
-| P18 | [Tool docking backplate](stl_v12/P18_Tool_docking_backplate.stl) | GPL-3.0 custom work |
+| P01 | [Back case](stl_v16/P01_Back_case.stl) | GPL-3.0 custom work |
+| P02 | [Motor/actuator plate](stl_v16/P02_Motor_servo_plate.stl) | GPL-3.0 custom work |
+| P03 | [Front case with M2.5 blind pockets](stl_v16/P03_Front_case.stl) | GPL-3.0 custom work |
+| P04R | [Swing-arm rear half](stl_v16/P04R_Swing_arm_rear_half.stl) | GPL-3.0 custom work |
+| P04F | [Swing-arm front half](stl_v16/P04F_Swing_arm_front_half.stl) | GPL-3.0 custom work |
+| P05 | [One-piece direct-output cam/hub, FIT PENDING](stl_v16/P05_Servo_cam.stl) | GPL-3.0 custom work |
+| P06 | [Left 38T/14T compound](stl_v16/P06_Left_compound_38T_14T.stl) | GPL-3.0 custom work |
+| P07 | [Right 38T/14T compound](stl_v16/P07_Right_compound_38T_14T.stl) | GPL-3.0 custom work |
+| P08 | [Left 37T HGX drive](stl_v16/P08_Left_HGX_drive_37T.stl) | GPL-3.0 custom work |
+| P09 | [Right 37T HGX drive](stl_v16/P09_Right_HGX_drive_37T.stl) | GPL-3.0 custom work |
+| P12 | [Spring pressure cup](stl_v16/P12_Spring_pressure_cup.stl) | GPL-3.0 custom work |
+| P13 | [Left GT2 tooth liner](stl_v16/P13_Left_tooth_liner.stl) | **CC BY-SA 3.0** |
+| P14 | [Right GT2 tooth liner](stl_v16/P14_Right_tooth_liner.stl) | **CC BY-SA 3.0** |
+| P15 | [Left belt arch](stl_v16/P15_Left_belt_arch.stl) | GPL-3.0 custom work |
+| P16 | [Right belt arch](stl_v16/P16_Right_belt_arch.stl) | GPL-3.0 custom work |
+| P17 | [Original HF tool carrier](stl_v16/P17_HF_tool_carrier.stl) | GPL-3.0 custom work |
+| P18 | [Tool docking backplate](stl_v16/P18_Tool_docking_backplate.stl) | GPL-3.0 custom work |
 
-CPAP/probe provisions remain deferred, not required purchases. The existing
-Hall slot/lead reference still needs positive package-support qualification.
-Generic H25T horns and alternative servos are not approved MG90S substitutes.
-See [snapshot and remaining limits](PREVIEW.md) and
-[mixed-scope attribution](ATTRIBUTION.md). No physical snap retention,
-strength/stiffness, loaded torque, safe operation, or hot-life claim is made.
+Wiring, connectors, strain relief, control interface, and adequately sized
+regulated **5V servo power/common ground** are printer-dependent; verify
+actual servo requirements and supply margins. Do not assume a controller's
+signal pin supplies suitable motor power. Hotend heater/sensor wiring and
+thermal protections follow the actual compatible supplier/printer system.
+No generic harness, controller configuration, or heater-use approval is supplied.
+
+CPAP and Beacon/probe accessories are deferred, not mandatory purchases.
+Positive bare-Hall-package support, loaded release, spring margin, thermal
+life, and endurance remain open. Read [mixed-scope attribution](ATTRIBUTION.md):
+original authorship and GPL/CC BY-SA notices are retained; vendor/hotend
+references keep their respective rights, not blanket certification or
+redistribution permission. No personal purchase list, prices, or stock
+deductions are part of this per-build BOM.
