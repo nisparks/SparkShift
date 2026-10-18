@@ -3,114 +3,87 @@
 > [!WARNING]
 > **WORK IN PROGRESS / FIT PENDING / NOT READY FOR PRINTING OR USE**
 >
-> CAD, meshes, and motion previews are for inspection and development only.
-> Spline fit, usable thread depth, clocking, printed strength, loaded motion,
-> thermal safety, and endurance are unqualified. Bed orientation is not
-> print-ready or support-free approval. Do not install or operate heated or
-> unattended on the strength of this model.
+> CAD, meshes, and renders are inspection references, not physical
+> qualification. Servo fit, screw engagement, printed strength, loaded
+> release, retention, thermal safety, and endurance remain unqualified.
+> Do not install or operate heated or unattended on the strength of this model.
 
 **HGX quick-change hotend system**
 
 *Same drive. New hotend.*
 
-SparkShift is a provisional name for an original-inspired, YUDX-derived
-community design: a factory-10T LDO-36STH20-1004AHG(XH) pancake motor and
-unmodified purchased HGX stay on the carriage, with an independent MG90S
-cam releasing the swinging hob. Forward/reverse extrusion must remain
-independent of release.
+SparkShift is a provisional name for a YUDX-derived community design. One
+factory-10T LDO-36STH20-1004AHG(XH) pancake motor and the purchased HGX drive
+stay on the carriage. An independent servo cam releases the swinging hob;
+ordinary forward/reverse extrusion must not open the arm.
 
-**Vibe developed:** substantial iterative mechanical CAD and tooling are
-AI-assisted under human direction, not professionally engineered or physically
-validated. This describes SparkShift's development process, **not upstream
-CxChanger/YUDX authorship or purchased hardware**. Their credit and rights
-remain in [ATTRIBUTION.md](ATTRIBUTION.md).
+**Vibe developed:** substantial iterative CAD and tooling are AI-assisted
+under human direction, not professionally engineered or physically validated.
+This describes SparkShift's development, **not upstream CxChanger/YUDX
+authorship or purchased hardware**. Their rights and credit remain in
+[ATTRIBUTION.md](ATTRIBUTION.md).
 
-## v16 direct-output cam -- fit pending
+## Current development: v26 open frame
 
-One printed P05 cam/hub keys directly to the servo output; **there is no OEM
-horn in this revision**. The reference unit was counted/measured as 21T,
-4.86mm crest OD, 3.36mm exposed spline height, and an M2.5 center thread.
-**Do not assume another MG90S clone matches.** The 4.62mm root/flank form is
-a photo-estimated sinusoidal fit trial, not a manufacturer spline standard.
+The current snapshot preserves the latest manual refinements and the
+v26 agreement/clearance pass:
 
-The selected M2.5x16 retainer and 2.7/6/0.5mm washer give 2.96mm nominal
-thread engagement. **Measure at least 3.16mm actual usable blind thread depth
-before tightening**; the external 3.36mm spline height does not establish
-that depth. Printed fit, thread/pitch, boss datum, and clocking need checks.
-Straight front-driver access is blocked: bench-preassemble servo, cam,
-bearing, washer, and retainer before closing the case.
+- Open structural P01/P03 frame with **bilateral cam bearings**: rear
+  **MR128ZZ 8x12x3.5mm** and front **MF85ZZ 5x8x2.5mm**.
+- **7mm P02** plate, rear MG90S/MG90D reference ear-seat frame,
+  **11.60 x 22.56mm** tangent servo window, and **11.5mm** motor-entry notch.
+- Mirrored upper case-bolt positions and lower X positions, with a deliberate
+  **0.15mm lower-right Z offset**, four modelled hex sockets, and a thicker
+  lower-left clamp post; this is not perfect all-feature symmetry.
+- YUDX-matched **teardrop Maxwell pin seats**, a shortened **G1-tangent
+  P04R manual lever**, aligned case decks, and continuous **R1.5 outer rounds**.
 
-The nominal hob-rim opening is **2.50mm at 170 degrees**, with a **0..175
-degree CAD command range** and **170..175 concentric open dwell**. Soft entry
-then reduced arm travel per cam degree increases ideal mechanical advantage,
-not proven servo torque margin. Dwell removes ideal normal-force backdrive
-torque, **not spring/bearing loads, friction, or the need for a real latch**.
-It is not a positive power-off latch.
+The tightened **11.6mm servo window still intersects the legacy 12.2mm
+`HOBBY_SERVO_ENVELOPE` reference**. The selected real servo must be measured
+and bench-fitted; neither MG90S/MG90D labels nor reference STEP fits guarantee
+clone compatibility. The direct printed 21T cam/hub has **no OEM horn**.
 
-## Inspection, playback, and a generic build
+![WIP v26 rendered closed assembly, not a photograph or print approval](images_v26/v26_assembly_closed_front_iso.png)
 
-**WIP / FIT PENDING / NOT READY FOR PRINTING:** use this matched set for
-inspection and development only, not manufacturing or operation approval.
+## Matched inspection package
 
-| File / folder | Content |
+| File / guide | Scope |
 |---|---|
-| [v16 F3D](cad/SparkShift_AHG_min_v16.f3d) | Directly editable 142-body native prototype, FIT PENDING. |
-| [v16 whole-assembly STEP](cad/SparkShift_AHG_min_v16.step) | All 142 bodies, not a two-part prototype export. |
-| [17 assembly STLs](stl_v16) | Complete Pxx inspection set; not print-ready or support-free. |
-| [Native gallery and motion](PREVIEW.md) | Six new labelled renders, current v16 GIF, and static poster. |
+| [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable snapshot: **135 native bodies**, timeline **1589**; native review reports 135/135 readback matches. |
+| [v26 whole-assembly STEP](cad/SparkShift_AHG_min_v26.step) | 135 solid BREP records; neutral inspection export, not a manufacturing qualification. |
+| [17 assembly STLs](stl_v26) | Complete matched inspection set, not print-ready or support-free. |
+| [Changes, digital checks, and six renders](PREVIEW.md) | v26a-f change notes, current geometry, exceptions, and evidence limits. |
+| [Generic per-build BOM](BOM.md) | Full reference inventory for one receiver plus one tool, not a personal shopping delta. |
+| [Incremental authoring source](source_v26/README.md) | Exactly **13 sealed modules**; prior live state and missing inputs prevent a clean one-command rebuild. |
+| [Next-session accessories plan](ACCESSORIES_PLAN.md) | EBB42 mounting/wiring, Beacon or Cartographer, CPAP duct/collar, hose, and stationary blower mount; **planned, not implemented**. |
 
-The current 17 native mesh exports total **134,652 facets**, each closed,
-manifold, coherently wound, and one positive-volume component, with no
-degenerate facets. They remain **best-effort native inspection exports**:
-P01 retains **three zero stored STL normal vectors** on microscopic,
-nondegenerate facets. No other stored-normal problems are reported.
-**Inspect each mesh and its warnings in a slicer**; topology checks are not
-clean normal-metadata or print approval. No facet deletion or normal
-rewriting is used; these warnings are retained, not silently repaired.
+The 17 raw native inspection meshes total **568,066 facets**. Each is one
+closed, manifold, coherently wound, positive-volume component, with zero
+degenerate facets and **no zero or inverted stored normals found** in this
+set. Native bytes are unchanged. These digital checks do not establish
+printability, deposition resolution, supports, fits, or safe use;
+**inspect every mesh in a slicer** before any later fabrication decision.
 
-| Guide | Scope |
-|---|---|
-| [Geometry and preview limits](PREVIEW.md) | Direct-mount dimensions, bench assembly, motion scope, and digital evidence boundaries. |
-| [Generic per-build BOM](BOM.md) | All reference hardware for one receiver plus one tool; not a personal shopping delta or approved purchasing list. |
-| [Portable playback guide](playback_v16/README.md) | Standalone Fusion script plus matching data/F3D; checked contact-curve forward kinematics, not forces or printer control. |
-| [Authoring source guide](source_v16/README.md) | Incremental engineering tools, prerequisites, and missing historical inputs; not a one-command rebuild. |
-| [Optional fit-gauge guide](calibration_v16/README.md) | Five small calibration collars, not an 18th assembly part or a qualified drive interface. |
+Only the matched v26 CAD, meshes, six static renders, and authoring snapshot
+are current. **No v26 portable playback, GIF, or calibration-gauge package
+is supplied.** Older files remain in Git history, not as compatible v26 tools.
+Drive Joint alone is not proof of synchronized cam/arm motion or force physics.
 
-The v16 prototype contains **142 native bodies**, not 143: the OEM horn
-is removed. Those bodies include reference hardware and assemblies, not
-142 separate purchases. The whole STEP now matches all 142 native bodies,
-with maximum symmetric difference about 1.34e-8mm3; independent scalar-mass
-equality is not claimed. The gallery and 177-frame animation are newly
-captured from this v16 source, not renamed v15 media.
+## Remaining work and next session
 
-### Native motion preview
+Actual servo body/spline fit, clocking, usable blind thread depth, spring
+rate/preload, torque margin, heat-set pullout, snap retention, gear phase,
+shaft sourcing, and thermal/endurance qualification remain open. Two rear
+4x7x2mm bearing references and both standard compound-shaft lengths remain
+**HOLD** in the [BOM](BOM.md). The bare Hall package still needs verified
+support/wiring; neither pin-seat agreement nor bolt alignment completes
+all coupling, magnet, or placement-grid checks.
 
-![WIP v16 native contact-curve cam opening animation, not force or spring-return simulation](images_v16/SparkShift_v16_cam_opening.gif)
-
-**Drive Joint alone does not synchronize cam and arm.** Portable playback
-drives both from checked contact-curve data. No extra non-printing drive
-bodies, spring-force simulation, simultaneous feed/release physics, or
-real-time physical simulation is supplied.
-
-![WIP v16 assembled closed native reference with the original HF tool, not a photograph](images_v16/v16_assembly_closed_front_iso.png)
-
-Colours and display omissions are inspection aids, not filament choices
-or printer-operation instructions. See the [full current gallery](PREVIEW.md).
-
-## Still unfinished
-
-Positive support for the bare Hall package, exact paired Maxwell/magnet
-symmetry, and the 0.05mm placement grid remain unfinished. The Hall cross-web
-is not an installed package cradle/retainer. Full gear phase, predecessor
-native ratio, standard compound-shaft lengths, actual fits, retention,
-spring/preload/servo margins, hot-life, and safe controls remain open.
-The [BOM](BOM.md) keeps the rear 4x7x2 bearing and two compound shafts on
-**HOLD**, and does not assume an HGX kit covers correctly sized parts.
-
-P01 `Extrude2` and P03 `Extrude14` are inherited warnings; the preserved
-`Extrude33`, `DeleteFace29`, `DeleteFace30`, `Extrude46`, `Extrude47`, and
-`DeleteFace46` suppressions are intentional, not an all-healthy history claim.
-CPAP and Beacon/probe accessories remain deferred.
+The [accessories plan](ACCESSORIES_PLAN.md) is the clean-session handoff:
+start from this **v26 / timeline 1589** F3D, confirm real board/probe/hose
+variants, then co-design probe and cooling clearances without moving the
+core datums by accident. No EBB42, probe, CPAP duct, hose, or blower mount
+is represented as finished or included in the current build inventory.
 
 ## Licences and sources
 

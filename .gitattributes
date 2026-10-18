@@ -14,14 +14,17 @@ stl_v9/** -text
 stl_v10/** -text
 stl_v12/** -text
 stl_v16/** -text
+stl_v26/** -text
 calibration_v16/*.stl -text
 images_v10/** -text
 images_v12/** -text
 images_v16/** -text
+images_v26/** -text
 scripts/*.py -text whitespace=cr-at-eol
 source_v10/*.py -text whitespace=cr-at-eol
 source_v12/*.py -text whitespace=cr-at-eol
 source_v16/*.py -text whitespace=cr-at-eol
+source_v26/*.py -text whitespace=cr-at-eol
 playback_v16/SparkShiftCamPlayback/*.py -text whitespace=cr-at-eol
 playback_v16/SparkShiftCamPlayback/*.manifest -text whitespace=cr-at-eol
 playback_v16/SparkShiftCamPlayback/cam_motion.json -text whitespace=cr-at-eol
