@@ -1,4 +1,4 @@
-# Next-session accessories plan -- v26h baseline
+# Next-session accessories plan -- v26i baseline
 
 > [!WARNING]
 > **PLAN ONLY / WIP / FIT PENDING / NOT READY FOR PRINTING OR USE.**
@@ -9,9 +9,10 @@
 ## Start a clean session from the final snapshot
 
 Use [SparkShift_AHG_min_v26.f3d](cad/SparkShift_AHG_min_v26.f3d),
-**timeline 1632 / 135 native bodies**, SHA-256
-`dda41c30d379930061c16e888b51b65f641c6bd47386086551236c59545db501`.
-Do not restart from the older timeline-1570 or timeline-1589 snapshots, replay all
+**timeline 1644 / 135 native bodies**, SHA-256
+`9d59eb88228c2efdfe6966537d10ed042603f9856a99ad3a6f20a11d0d12dcec`.
+Do not restart from the older timeline-1570, timeline-1589, or v26h
+timeline-1632 snapshots, replay all
 authoring scripts, or silently redesign the core to accommodate accessories.
 Keep a separately owned working copy and compare changes against this baseline.
 
@@ -30,7 +31,25 @@ P03's backing lies at Y=27.200..28.727 behind the +X magnets; P04F's
 native flat face is Y=26.850, with a rear blind insert pocket and 6.250mm
 of backing. These are protected core interfaces, not unused accessory stock.
 The [print-part notes](PRINT_PARTS.md) distinguish native datums from STL
-placement: P01's OpenCascade mesh is still in assembly coordinates.
+placement: **both P01 and P03 are now native Fusion binary STL exports
+in assembly coordinates**, not bed-oriented. Their intended bed-face
+references are P01 Y=0.30mm rear and P03 Y=31.50mm front.
+
+Also preserve the **v26i four-zone X-shear interlocks**. Do not use their
+mating faces or sockets as spare wire/board/hose clearance. Their nominal
+0.15mm clearance is a fit allowance, not physical creep or strength validation;
+accessory loads still require a load-path and long-term-creep review.
+
+| Protected interlock region | Assembly envelope / relationship |
+|---|---|
+| +X lower keyhole boss/foot/rib | Bolt (X18.50, Z-14.60); male stock X=15.35..21.00, Z=-19.25..-12.10, Y=25.90..29.00; P03 socket to Y=29.15. |
+| -X lower inner key | X=-13.50..-9.90, Z=-17.80..-12.00, Y=11.40..14.20; socket to Y=14.35. Preserve the neighbouring lower-right bolt/boss too. |
+| -X mid-column key | X=-19.00..-15.60, Z=21.50..28.50, Y=11.40..14.20; socket to Y=14.35. |
+| -X upper boss | R2.50 at (X-18.10, Z41.72), Y=11.40..14.20; R2.65 P03 socket to Y=14.35. |
+
+These core-interface regions need access and engagement, not just collision
+clearance. The existing case bolts remain necessary; adding an accessory
+must not prevent the P01/P03 pair fully seating.
 
 ## Frozen planning datums
 
@@ -45,7 +64,7 @@ These are CAD planning references, not supplier or printer-calibration values.
 | K1-heatsink reference | X=-11.00..11.00, Y=13.45..31.95, Z=-50.28..-24.28. These mixed hotend references do not certify a purchased assembly. |
 | Overall case width | X=-22.50..22.50, 45.0mm. |
 | P02 / rear servo frame | Plate Y=-6.70..0.30; frame extends to Y=-11.20. Preserve 11.60mm servo window and 11.5mm motor-entry notch for real-part fit/service review. |
-| P01 / P03 depth | P01 Y=0.30..11.40, with +X cheek reaching Y=25.90; P03 Y=11.40..33.15; removable tool carrier front Y=45.02. |
+| P01 / P03 depth | P01 base Y=0.30..11.40, +X cheek to Y=25.90 and new shear key to Y=29.00; P03 main joint Y=11.40..33.15, with front cam-tower stock extending rearward to Y=10.50; removable tool carrier front Y=45.02. These are interlocking extents, not disjoint slab envelopes. |
 | Deck / crown / lever | Deck Z=48.700; rear bearing/servo crown to Z=62.221; lever tip approximately Z=58.78 open / 60.72 closed. Preserve its swept envelope, not only endpoints. |
 | Rear motor keep-out | Axis (X-1.248, Z4.251), R18.25, Y=-16.70..0.30. Motor ears at (X-16.75, Z19.75) and (X14.25, Z-11.25). |
 | Motor XH2.54-4P exit | X=-19.35..-10.94, Y=-16.95..-11.45, Z=-13.85..-5.44; retain bend/plug-removal space beyond the CAD box. |

@@ -1,4 +1,4 @@
-# v26h generic per-build BOM -- one receiver plus one tool
+# v26i generic per-build BOM -- one receiver plus one tool
 
 > [!WARNING]
 > **WIP / FIT PENDING / NOT READY FOR PRINTING OR USE.** This substantial,
@@ -13,9 +13,12 @@ kit contents may cover rows; do not buy/count them twice. The **135 native
 bodies = 17 printed solids + 118 hardware/reference bodies**, not 135 purchases.
 The [current inspection notes](PREVIEW.md) distinguish the final v26
 geometry from superseded fastener and servo-mount arrangements.
-The **timeline-1632** P01/P03/P04F refinements change printed geometry,
+The **timeline-1644** P01/P03 shear-key reinforcement changes printed geometry,
 **not the hardware quantities**: 15 bearings, 29 screws plus four belt
 nuts, and 12 M3 heat-sets remain the generic per-build reference.
+The four-zone mortise-and-tenon/boss system adds **no metal keys, rods,
+extra bolts or inserts**. Existing case clamps remain required; nominal
+0.15mm mating clearance is not proof of a fit, load rating, or creep resistance.
 
 ## Main purchased assemblies
 
@@ -150,26 +153,29 @@ see [case-stack inspection notes](PREVIEW.md).
 
 One of each **17 print roles** belongs to the matched v26 set. P04 is split;
 P05 includes the direct hub, not an extra horn. The inspection
-meshes total **482,686 facets**, with one closed/wound/manifold positive
+meshes total **420,752 facets**, with one closed/wound/manifold positive
 component each, no degenerates, and no zero/inverted stored normals found.
 Bytes are not repaired or rewritten. **Inspect each mesh in a slicer**;
 digital topology does not qualify supports, material, spline resolution,
 hot creep, loaded strength, or safe use. **NOT READY FOR PRINTING.**
 
-**P01 is OpenCascade-tessellated from the current BRep and retains assembly
-coordinates, including negative Z; it is not bed-oriented.** Orient it
-deliberately rather than using the old mesh placement as a print preset.
+**P01 and P03 are native Fusion binary STL exports in assembly coordinates,
+including negative Z; neither is bed-oriented.** Intended bed references:
+**P01 Y=0.30mm rear face / P03 Y=31.50mm front face**. Check orientation
+deliberately rather than reusing old mesh placement as a print preset.
 P04F's Y=26.850mm flat face and restored **rear blind M3 insert pocket**
-replace the previous front-half geometry; P03 adds magnet backing and P01
-adds the rear top bridge. Use the matched parts together. See
+are retained. P01 now carries four-zone shear tenons/bosses and P03
+matching sockets, alongside the earlier magnet backing and rear top bridge.
+Use the **matched v26i P01/P03 pair**, not an older receiver with new keys.
+Do not use bolt force to seat binding printed interlocks. See
 [print-part inspection notes](PRINT_PARTS.md), not an exploded diagram,
 for the remaining orientation/fit gates.
 
 | ID | Print role | Licence scope |
 |---|---|---|
-| P01 | [Top-connected back case and carriage spine](stl_v26/P01_Back_case.stl) | GPL-3.0 custom work |
+| P01 | [Top-connected back case with shear tenons and carriage spine](stl_v26/P01_Back_case.stl) | GPL-3.0 custom work |
 | P02 | [7mm motor/servo plate and rear ear-seat frame](stl_v26/P02_Motor_servo_plate.stl) | GPL-3.0 custom work |
-| P03 | [Magnet-backed receiver/front case and cam tower](stl_v26/P03_Front_case.stl) | GPL-3.0 custom work |
+| P03 | [Magnet-backed receiver with matching shear sockets and cam tower](stl_v26/P03_Front_case.stl) | GPL-3.0 custom work |
 | P04R | [Swing-arm rear half with shortened manual lever](stl_v26/P04R_Swing_arm_rear_half.stl) | GPL-3.0 custom work |
 | P04F | [Flat-faced swing-arm front half with blind insert pocket](stl_v26/P04F_Swing_arm_front_half.stl) | GPL-3.0 custom work |
 | P05 | [Direct-output cam/hub, FIT PENDING](stl_v26/P05_Servo_cam.stl) | GPL-3.0 custom work |

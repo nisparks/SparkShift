@@ -23,11 +23,15 @@ This describes SparkShift's development, **not upstream CxChanger/YUDX
 authorship or purchased hardware**. Their rights and credit remain in
 [ATTRIBUTION.md](ATTRIBUTION.md).
 
-## Current development: v26h connected frame
+## Current development: v26i shear-keyed frame
 
-The current **timeline 1632** snapshot preserves the latest manual
-refinements and the v26 agreement/clearance work:
+The current **timeline 1644** snapshot adds four-zone P01/P03 interlocks
+to resist the front receiver's U legs spreading in either X direction,
+while preserving the earlier refinements:
 
+- **Mortise-and-tenon keys plus coaxial shear bosses** register the lower
+  legs, mid-column, and upper bolt interface with **0.15mm nominal mating
+  clearance**. They add a geometric shear load path, not extra hardware.
 - P01 now has a **continuous 1.85mm rear top bridge** joining the upper
   bolt towers, replacing the old square cutout while retaining the
   contoured arm clearance and **bilateral cam bearings**: rear
@@ -50,52 +54,62 @@ clone compatibility. The direct printed 21T cam/hub has **no OEM horn**.
 
 ![WIP v26 rendered closed assembly, not a photograph or print approval](images_v26/v26_assembly_closed_front_iso.png)
 
+The interlocks are intended to reduce reliance on bolt friction alone.
+They are **not a proven cure for creep or spreading**: clearance allows
+some movement before contact, and printed fit, material, bolt preload,
+temperature, cyclic load, and long-term creep still need physical checks.
+Keep the matched P01/P03 pair and existing case bolts; the keys do not
+replace the clamps or certify a force-fit. See [the four zones](PREVIEW.md)
+and [print-part fit/orientation notes](PRINT_PARTS.md).
+
 ## Exploded architecture and cam motion
 
-![WIP v26h exploded assembly architecture with printed parts and hardware references](images_v26/v26_exploded_assembly.png)
+![WIP v26i exploded assembly with shear-keyed P01/P03 and hardware references](images_v26/v26_exploded_assembly.png)
 
 The colour-coded exploded layout separates the removable tool, P03 receiver,
 split arm/gearing, connected P01 frame, and rear motor/servo plate.
-Offsets and guide lines explain architecture, **not a validated assembly
+Offsets and labels explain architecture, **not a validated assembly
 sequence, continuous removal path, or physical fastener access**.
 
-![WIP v26h dual-viewport cam and swing-arm animation, kinematics not force simulation](images_v26/v26_cam_opening_motion.gif)
+![WIP v26i dual-viewport cam and swing-arm animation, kinematics not force simulation](images_v26/v26_cam_opening_motion.gif)
 
-The **71-frame, 1280x784** GIF shows an opening/return cycle in **3.44
+The **72-frame, 1280x784** GIF shows an opening/return cycle in **3.44
 seconds of rendered playback**, not real servo timing. Its full-open
 labels show **175-degree cam / 7.87-degree swing arm / 2.73mm hob bite
 release gap**; the captioned gap is a CAD-preview metric, not a measured
 physical clearance or force result. Translucent/hidden parts expose the
 mechanism; ordinary extrusion remains independent of release.
 
-![WIP before-and-after P04F flat-face and P03 magnet-backing reinforcement retained in v26h](images_v26/v26_magnet_wall_reinforcement.png)
+![WIP historical v26g P04F flat-face and P03 magnet-backing comparison, before v26i shear sockets](images_v26/v26_magnet_wall_reinforcement.png)
 
-The comparison records the **v26g reinforcement retained in v26h**:
+The comparison records the **earlier v26g reinforcement**:
 P04F's shortened flat face allows **+1,041.652mm3** of P03 backing/side-wall
-material. This is a geometric change, not proven retention strength.
+material. The backing concept is retained, but this panel predates the
+v26i shear sockets; it is not an exact view or volume delta of the current
+P03. Neither that change nor the new keys proves retention strength.
 
 ## Matched inspection package
 
 | File / guide | Scope |
 |---|---|
-| [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable **v26h** snapshot: **135 native bodies**, timeline **1632**; native review reports 135/135 readback matches. |
+| [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable **v26i** snapshot: **135 native bodies**, timeline **1644**; native review reports 135/135 readback matches. |
 | [v26 whole-assembly STEP](cad/SparkShift_AHG_min_v26.step) | 135 solid BREP records; neutral inspection export, not a manufacturing qualification. |
 | [17 assembly STLs](stl_v26) | Complete matched inspection set, not print-ready or support-free. |
-| [Print-part inspection notes](PRINT_PARTS.md) | All 17 roles, current P01/P03/P04F changes, mesh provenance, and orientation limits. |
-| [Changes, digital checks, and gallery](PREVIEW.md) | v26a-h notes, six refreshed gallery views, exploded layout, GIF, and comparison. |
+| [Print-part inspection notes](PRINT_PARTS.md) | All 17 roles, interlock fit, current native meshes, and both case orientations. |
+| [Changes, digital checks, and gallery](PREVIEW.md) | v26a-i notes, four-zone dimensions, six refreshed views, exploded layout, GIF, and historical comparison. |
 | [Generic per-build BOM](BOM.md) | Full reference inventory for one receiver plus one tool, not a personal shopping delta. |
 | [Incremental authoring source](source_v26/README.md) | Exactly **13 sealed modules**; prior live state and missing inputs prevent a clean one-command rebuild. |
 | [Next-session accessories plan](ACCESSORIES_PLAN.md) | EBB42 mounting/wiring, Beacon or Cartographer, CPAP duct/collar, hose, and stationary blower mount; **planned, not implemented**. |
 
-The 17 inspection meshes total **482,686 facets**. Each is one
+The 17 inspection meshes total **420,752 facets**. Each is one
 closed, manifold, coherently wound, positive-volume component, with zero
 degenerate facets and **no zero or inverted stored normals found** in this
-set. All sealed bytes are unchanged. **P01 is an OpenCascade tessellation
-of the v26h BRep in assembly coordinates**, including negative Z, not a
-bed-oriented export; use the Y=0.30mm rear-face reference and check its
-orientation in a slicer. Its mesh/native
-volume difference is about **0.0417%**, not exact shape or mass equality.
-These digital checks do not establish
+set. All sealed bytes are preserved. **P01 and P03 are now native Fusion
+binary STL exports in assembly coordinates**, including negative Z, not
+bed-oriented exports. Their intended bed-face references are **P01
+Y=0.30mm rear / P03 Y=31.50mm front**; check orientation in a slicer.
+Mesh/native volume differences are approximately **0.0415% / 0.0196%**,
+not exact shape or mass equality. These digital checks do not establish
 printability, deposition resolution, supports, fits, or safe use;
 **inspect every mesh in a slicer** before any later fabrication decision.
 
@@ -116,7 +130,7 @@ support/wiring; neither pin-seat agreement nor bolt alignment completes
 all coupling, magnet, or placement-grid checks.
 
 The [accessories plan](ACCESSORIES_PLAN.md) is the clean-session handoff:
-start from this **v26h / timeline 1632** F3D, confirm real board/probe/hose
+start from this **v26i / timeline 1644** F3D, confirm real board/probe/hose
 variants, then co-design probe and cooling clearances without moving the
 core datums by accident. No EBB42, probe, CPAP duct, hose, or blower mount
 is represented as finished or included in the current build inventory.

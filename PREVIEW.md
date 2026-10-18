@@ -1,4 +1,4 @@
-# v26h inspection and change notes
+# v26i inspection and change notes
 
 > [!WARNING]
 > **WIP / FIT PENDING / NOT READY FOR PRINTING OR USE.** This substantial,
@@ -8,8 +8,8 @@
 
 Use the matched [v26 F3D](cad/SparkShift_AHG_min_v26.f3d),
 [whole-assembly STEP](cad/SparkShift_AHG_min_v26.step), and
-[17 inspection STLs](stl_v26). The editable F3D is the **timeline 1632,
-135-body v26h** snapshot, not the earlier timeline-1589 publication.
+[17 inspection STLs](stl_v26). The editable F3D is the **timeline 1644,
+135-body v26i** snapshot, not the earlier v26h publication.
 See [all print roles and orientation notes](PRINT_PARTS.md). Eight PNGs
 and one GIF are approved render/preview assets, not physical tests.
 
@@ -18,6 +18,7 @@ and one GIF are approved render/preview assets, not physical tests.
 | Area | Current v26 state |
 |---|---|
 | P01/P03 structure | Contoured arm clearance remains, but the old square opening is closed by a **1.85mm continuous rear top bridge**, joining the upper bolt towers outside the MR128 bore. P03 retains its compact receiver cross-tie below the retainer. |
+| New interlock load paths | **Four-zone X-shear mortise-and-tenon keys and coaxial bosses** in P01 engage matching P03 sockets with **0.15mm nominal mating clearance**, intended to restrain the receiver U legs in both X directions without extra fasteners. |
 | Cam support | Rear MR128ZZ **8x12x3.5mm**, Y=-1.05..2.45 across P02/P01; front MF85ZZ **5x8x2.5mm**, Y=10.70..13.20 in the P03 cam tower. |
 | P02 motor/servo plate | **7mm**, Y=-6.70..0.30. Continuous rear ear-seat frame reaches Y=-11.20; two **M2x8 self-tapping screws** use 1.7mm pilots. No servo-ear M2 nuts, washers, or M2 heat-sets. |
 | Latest servo window | **11.60 x 22.56mm**, X=4.70..16.30, Z=34.06..56.62, Y=-11.20..-6.00. R5.800 tower clearance at (X10.500, Z50.721) is tangent to the sides; R3.000 bump clearance is centred at (X10.550, Z44.620), to Y=-2.00. |
@@ -26,10 +27,10 @@ and one GIF are approved render/preview assets, not physical tests.
 | Lower-left post | Screw axis moved to (X18.50, Z-14.60), with a concentric R2.7742 boss and R1.6922 tangent blend, replacing the thin offset corner/notch. Nominal screw-hole wall is 1.124mm; that is not a strength rating. |
 | Maxwell interface | Six locating pins retain YUDX-matched axes; P03 uses full-length conformal **teardrop snap seats** instead of fragmented end-box seats. Balls and eight bar-magnet interfaces remain references needing real retention/fit checks. |
 | P04R/P04F arms | P04R retains its **15mm shorter G1-tangent** lever. P04F now has one flat Y=26.850mm print-face reference, unified X19.830mm side wall, restored rear blind insert pocket, and cleaned R9.35 gear-clearance arc. |
-| P03 magnet backing | Y=27.200..29.800mm reclaimed from the shortened P04F gives both +X receiver magnets **1.527mm continuous rear backing** and uninterrupted side walls. P03 gains **1,041.652mm3**; see the before/after comparison below. |
+| Retained magnet reinforcement | Earlier v26g reclaimed Y=27.200..29.800mm behind both +X receiver magnets for **1.527mm rear backing**. Its **+1,041.652mm3** comparison is historical; v26i additionally removes material for shear sockets. |
 | Case agreement | Z48.700 decks, aligned lower wire-slot surfaces, and continuous **R1.5 rounds along all four longitudinal outer edges** of the P01/P02/P03 assembly. Cam, bearing, insert, magnet, and pin interfaces were not made arbitrarily symmetric. |
 
-### v26a-h sequence, preserving manual edits
+### v26a-i sequence, preserving manual edits
 
 | Pass | Recorded change |
 |---|---|
@@ -41,21 +42,47 @@ and one GIF are approved render/preview assets, not physical tests.
 | v26f | Preserved the 11.6mm tangent servo-window/keyhole edits and matching outer rounds; this was the previous timeline-1589 publication. |
 | v26g | Kept the flat P04F face, restored the rear blind M3 insert/pocket, and reclaimed P03 magnet backing with full sampled cam clearance. |
 | v26h | Replaced P01's square upper cutout with a continuous rear top bridge and extended analytical arm-relief ramp; refreshed the matched exports and visual set at timeline 1632. |
+| v26i | Added four-zone P01 tenons/bosses and P03 sockets against X spreading; retained the top bridge, flat P04F, and magnet reinforcement; current snapshot is timeline 1644. |
 
 This is a change log, not instructions to replay older candidates. No
 intermediate exports, raw reports, or private authoring inputs are shipped.
 
-### Three revised printed parts
+### Current P01/P03 pair and retained P04F
 
 | Part | Current native review | Refinement / boundary |
 |---|---|---|
 | P04F | **3,854.094mm3 / 83 faces** | Front face pulled back **2.550mm** to Y=26.850mm, about 493mm2 flat contact area. Rear blind M3 pocket at native (X14.950, Z31.400), Y=15.60..20.60, retains **6.250mm** wall behind the print face; actual insert/material fit still needs checks. |
-| P03 | **30,344.189mm3 / 209 faces** | Pocket floor Y=27.200mm is nominally 0.350mm ahead of the P04F plane. +X magnets at Y=28.727..31.500 retain backing Y=27.200..28.727; that local plane gap is not a global minimum clearance. |
-| P01 | **33,757.291mm3 / 218 faces** | Extended the R9/sloped analytic ramp across Y=0.30..7.45. Rear bridge Y=0.30..2.15, X=-11.00..14.00, Z=26.50..48.70, outside the MR128 bore, connects the upper towers; no strength/deflection rating is implied. |
+| P03 | **30,070.439mm3 / 232 faces** | **-273.75mm3 vs v26h** for captured shear sockets; retains the earlier magnet-backing concept and nominal Y=27.200mm pocket floor, 0.350mm ahead of P04F. That local plane gap is not a global minimum clearance. |
+| P01 | **33,982.970mm3 / 242 faces** | **+225.68mm3 vs v26h** for tenons/bosses. Retains the R9/sloped arm ramp and rear bridge Y=0.30..2.15, X=-11.00..14.00, Z=26.50..48.70, outside the MR128 bore. No strength/deflection rating is implied. |
 
-The P03 reinforcement review reports **0.000mm3 overlap across 71 cam
-poses**, 0..175 degrees in 2.5-degree steps. Sampling is not proof of every
-continuous pose, deflection, snap force, or a real-world removal procedure.
+### Four-zone anti-spreading interlock
+
+All coordinates are **assembly millimetres**; bolt axes below use (X, Z).
+P01 carries the male geometry and P03 the matching mortises. The nominal
+**0.15mm mating clearance** is a geometric allowance, not a guaranteed
+printer/material fit or a preloaded joint.
+
+| Zone | P01 shear geometry | Matching P03 capture |
+|---|---|---|
+| **1: +X lower leg** | At bolt **(18.50, -14.60)**: R2.50 / 5.00mm-OD coaxial boss, Y=25.90..29.00 (**3.10mm deep**), fused to a lower-foot tenon X=15.35..20.65, Z=-19.25..-17.65 (**5.30 x 1.60mm**) and outer rib X=18.50..20.65, Z=-19.25..-12.10 (**2.15 x 7.15mm**). | Keyhole mortise, Y=25.90..29.15, captures the boss/foot/rib. |
+| **2: -X lower inner leg** | Rectangular tenon **3.60 x 5.80 x 2.80mm**, X=-13.50..-9.90, Z=-17.80..-12.00, Y=11.40..14.20; works with the existing R2.85 lower-right bolt boss at **(-18.50, -14.45)**. | Matching inner mortise to Y=14.35. |
+| **3: -X mid-column** | Rectangular key **3.40 x 7.00 x 2.80mm**, X=-19.00..-15.60, Z=21.50..28.50, Y=11.40..14.20. | Matching mid-column mortise to Y=14.35. |
+| **4: -X upper bolt** | At **(-18.10, 41.72)**: R2.50 / 5.00mm-OD coaxial shear boss, Y=11.40..14.20 (**2.80mm deep**). | R2.65 socket, Y=11.40..14.35. |
+
+These interfaces are intended to carry X shear through geometry rather
+than bolt friction alone. The existing case bolts still clamp the halves;
+keys are **not a substitute for clamps**, an interference fit, or proof
+that the housing cannot creep/spread. Clearance permits movement before
+contact. Printed tolerance, layer direction, material, preload, temperature,
+cyclic loads and long-term creep remain **unqualified**. Do not use bolt
+force to pull a binding or partially seated keyed pair together.
+
+The authoring review reports **0.000mm3 new static/dynamic clashes** across
+the 135-solid assembly and **71 cam poses**, 0..175 degrees in 2.5-degree
+steps. This preserves accepted reference contacts/overlaps, including the
+servo-envelope exception below; it is not an assertion that every original
+reference body is disjoint. Sampling does not prove continuous motion,
+deflection, strength, snap force, or a real-world assembly/removal procedure.
 
 ## Case bolts and assembly references
 
@@ -95,10 +122,11 @@ An earlier assembly's nominal engagement is not a v26 fit certificate.
 
 | Check on this source-bound package | Result / boundary |
 |---|---|
-| Native archive | **33,216,081 bytes; timeline 1632**; native review reports **135/135 body readback matches**, maximum difference 0.000mm3. This is not a physical fit/load test. |
-| Whole STEP | **21,706,844 bytes; 135/135 valid solid readbacks reported**, with 135 solid BREP records. Structural completeness does not claim independent STEP/native shape or scalar-mass equality. |
-| Inspection mesh set | **17 parts / 482,686 facets**; each one closed, manifold, coherently wound, positive-volume component; zero degenerate triangles. |
-| P01 tessellation | **11,578 facets**, generated directly from the v26h BRep using OpenCascade. Mesh volume 33,771.359mm3 vs analytic 33,757.291mm3: **0.0416741%** chordal approximation, not an exact volume/shape match. |
+| Native archive | **49,255,804 bytes; timeline 1644**; native review reports **135/135 body readback matches**, maximum difference 0.000mm3. This is not a physical fit/load test. |
+| Whole STEP | **49,866,116 bytes; 135/135 valid solid readbacks reported**, with 135 solid BREP records. Structural completeness does not claim independent STEP/native shape or scalar-mass equality. |
+| Inspection mesh set | **17 parts / 420,752 facets**; each one closed, manifold, coherently wound, positive-volume component; zero degenerate triangles. |
+| Current P01 STL | **Native Fusion binary export, 12,064 facets**. Mesh volume 33,997.081mm3 vs analytic 33,982.970mm3: approximately **0.0415%** tessellation difference, not exact volume/shape equality. |
+| Current P03 STL | **Native Fusion binary export, 12,426 facets**. Mesh volume 30,076.342mm3 vs analytic 30,070.439mm3: approximately **0.0196%** tessellation difference. |
 | Stored STL normals | **Zero zero-length or inverted stored normals found** in the current 17-part set. The older P01 metadata warning count is not carried into v26. |
 | Tool withdrawal | Native review reports **36/36 sampled offsets clear**. This does not prove every continuous path or a real removal procedure. |
 | Filament feed | Native review reports **48/48 sampled pairs clear**. This is not extrusion/load/thermal qualification. |
@@ -112,9 +140,12 @@ exit on the selected unit; do not describe this model as collision-free
 without that exception.
 
 The mesh bytes are preserved without repair, facet deletion, or normal
-rewriting. **P01 remains in assembly coordinates**, including negative Z,
-not on the print bed. Its tessellation is OpenCascade, not a Fusion native
-STL export. Other inspection orientations also require deliberate review;
+rewriting. **Both P01 and P03 remain in assembly coordinates**, including
+negative Z, not on the print bed. Their current bytes are native Fusion
+binary STL exports, replacing the previous P01 OpenCascade tessellation
+and the older bed-oriented P03. Intended bed-face references are **P01
+Y=0.30mm rear / P03 Y=31.50mm front**; check in a slicer rather than assuming
+the highest Y bound is the face plane. Other orientations also need review;
 none is support-free/print-ready approval. Small tessellation/float residues
 remain possible.
 **Inspect each mesh in a slicer**, including thin walls, surfaces, supports,
@@ -146,23 +177,24 @@ accessory design. The before/after panel labels the retained v26g change;
 its earlier view is explicitly historical, not the current P03 geometry.
 Colours, offsets, transparency, and hidden bodies are inspection aids.
 
-![WIP v26h exploded architecture, diagram offsets are not validated assembly paths](images_v26/v26_exploded_assembly.png)
+![WIP v26i exploded architecture showing shear-keyed housing, not validated assembly paths](images_v26/v26_exploded_assembly.png)
 
 The corrected exploded layout separates all 17 printed roles and selected
-hardware/hotend references. Separation arrows do not qualify assembly
+hardware/hotend references. Diagram offsets do not qualify assembly
 order, access tools, or a collision-free continuous withdrawal path.
 
-![WIP v26h dual-viewport cam opening and return, rendered kinematics only](images_v26/v26_cam_opening_motion.gif)
+![WIP v26i dual-viewport cam opening and return, rendered kinematics only](images_v26/v26_cam_opening_motion.gif)
 
-**71 frames / 1280x784 / 3.44 seconds**, fully decoded during publication
-checks. The GIF's frame count is not the 71-pose geometry sampling grid.
+**72 frames / 1280x784 / 3.44 seconds**, fully decoded during publication
+checks. The GIF's frame count is distinct from the 71-pose geometry sampling grid.
 Its playback rate is not physical servo speed, spring return, force,
 friction, thermal, or simultaneous feed/release simulation.
 
 ![WIP retained v26g P04F and P03 magnet-wall before-and-after comparison](images_v26/v26_magnet_wall_reinforcement.png)
 
-The two after-panels show P03 reinforcement and the shortened P04F together,
-not an additional printed part. The P01 top bridge is the subsequent v26h change.
+The two after-panels show the historical v26g reinforcement and shortened
+P04F, not an additional part or the final v26i socket geometry. The P01
+bridge came in v26h; the four-zone shear keys/sockets are the later v26i change.
 
 ![WIP v26 rendered closed assembly with removable tool, not a physical build](images_v26/v26_assembly_closed_front_iso.png)
 

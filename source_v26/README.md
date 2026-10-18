@@ -5,9 +5,9 @@ This substantial, human-directed, AI-assisted **vibe developed** toolkit is
 is the directly editable source. These **13 exact sealed Python modules**
 record incremental engineering work; filenames are not automatic build order.
 Their bytes are unchanged from the earlier v26 publication. The current
-editable snapshot is **v26h, timeline 1632**, SHA-256
-`dda41c30d379930061c16e888b51b65f641c6bd47386086551236c59545db501`;
-the latest user edits/bridge and all render preparation are not claimed
+editable snapshot is **v26i, timeline 1644**, SHA-256
+`9d59eb88228c2efdfe6966537d10ed042603f9856a99ad3a6f20a11d0d12dcec`;
+the latest user edits, bridge, four-zone shear interlocks and render preparation are not claimed
 to be reconstructible from this limited module set.
 
 | Module | Scope / limitation |
@@ -59,16 +59,17 @@ Source bytes, including CRLF/mixed endings, are preserved with
 substitution, or source-path rewriting accompanies migration. The approved
 CAD/mesh/image bytes, not the result of an unreviewed replay, define v26.
 
-The public package includes a [rendered v26h cam GIF](../images_v26/v26_cam_opening_motion.gif),
+The public package includes a [rendered v26i cam GIF](../images_v26/v26_cam_opening_motion.gif),
 not a runnable playback tool. It contains **no matched v26 standalone
 portable playback or fit-gauge STL**. Older playback/data are not silently reused with
 the changed model. Native Drive Joint alone does not establish synchronized
 cam/arm motion, spring forces, friction or real-time physics.
 
-The current P01 mesh was tessellated from the v26h BRep using OpenCascade
-and remains in assembly coordinates, not bed orientation. OpenCascade
-tessellation inputs/tooling are not added to these 13 sealed modules;
-no one-command mesh regeneration is implied. See [print-part notes](../PRINT_PARTS.md).
+The current P01 and P03 meshes are **native Fusion binary STL exports
+in assembly coordinates, not bed orientation**; this supersedes the
+previous P01 OpenCascade export and older P03 bed placement. These 13
+unchanged modules do not reconstruct the final shear-key edits or establish
+one-command mesh regeneration. See [print-part notes](../PRINT_PARTS.md).
 
 Mesh checks and native readback are digital inspection, not support,
 spline, screw-depth, strength, thermal or endurance qualification. Keep
