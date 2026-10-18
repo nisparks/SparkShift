@@ -5,9 +5,10 @@ This substantial, human-directed, AI-assisted **vibe developed** toolkit is
 is the directly editable source. These **13 exact sealed Python modules**
 record incremental engineering work; filenames are not automatic build order.
 Their bytes are unchanged from the earlier v26 publication. The current
-editable snapshot is **v26i, timeline 1644**, SHA-256
-`9d59eb88228c2efdfe6966537d10ed042603f9856a99ad3a6f20a11d0d12dcec`;
-the latest user edits, bridge, four-zone shear interlocks and render preparation are not claimed
+editable snapshot is **v26j, timeline 1648**, SHA-256
+`37e384e8fd53f517b94f7dba5751e773c36e82f79493535b5b7a12b53291631a`;
+the latest user edits, triple-bridged P03, P01 recess, four-zone shear
+interlocks and render preparation are not claimed
 to be reconstructible from this limited module set.
 
 | Module | Scope / limitation |
@@ -59,7 +60,7 @@ Source bytes, including CRLF/mixed endings, are preserved with
 substitution, or source-path rewriting accompanies migration. The approved
 CAD/mesh/image bytes, not the result of an unreviewed replay, define v26.
 
-The public package includes a [rendered v26i cam GIF](../images_v26/v26_cam_opening_motion.gif),
+The public package includes a [rendered v26j cam GIF](../images_v26/v26_cam_opening_motion.gif),
 not a runnable playback tool. It contains **no matched v26 standalone
 portable playback or fit-gauge STL**. Older playback/data are not silently reused with
 the changed model. Native Drive Joint alone does not establish synchronized
@@ -68,7 +69,7 @@ cam/arm motion, spring forces, friction or real-time physics.
 The current P01 and P03 meshes are **native Fusion binary STL exports
 in assembly coordinates, not bed orientation**; this supersedes the
 previous P01 OpenCascade export and older P03 bed placement. These 13
-unchanged modules do not reconstruct the final shear-key edits or establish
+unchanged modules do not reconstruct the final bridge/recess or shear-key edits or establish
 one-command mesh regeneration. See [print-part notes](../PRINT_PARTS.md).
 
 Mesh checks and native readback are digital inspection, not support,

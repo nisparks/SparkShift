@@ -1,4 +1,4 @@
-# Next-session accessories plan -- v26i baseline
+# Next-session accessories plan -- v26j baseline
 
 > [!WARNING]
 > **PLAN ONLY / WIP / FIT PENDING / NOT READY FOR PRINTING OR USE.**
@@ -9,10 +9,10 @@
 ## Start a clean session from the final snapshot
 
 Use [SparkShift_AHG_min_v26.f3d](cad/SparkShift_AHG_min_v26.f3d),
-**timeline 1644 / 135 native bodies**, SHA-256
-`9d59eb88228c2efdfe6966537d10ed042603f9856a99ad3a6f20a11d0d12dcec`.
+**timeline 1648 / 135 native bodies**, SHA-256
+`37e384e8fd53f517b94f7dba5751e773c36e82f79493535b5b7a12b53291631a`.
 Do not restart from the older timeline-1570, timeline-1589, or v26h
-timeline-1632 snapshots, replay all
+timeline-1632 or v26i timeline-1644 snapshots, replay all
 authoring scripts, or silently redesign the core to accommodate accessories.
 Keep a separately owned working copy and compare changes against this baseline.
 
@@ -51,6 +51,21 @@ These core-interface regions need access and engagement, not just collision
 clearance. The existing case bolts remain necessary; adding an accessory
 must not prevent the P01/P03 pair fully seating.
 
+Preserve the **v26j triple-bridged P03 ladder frame and matching P01
+lower-front recess** as well. Formerly open lower/middle space is not
+available for cable ties, probe hardware or duct routing by assumption:
+
+| New protected connection | Assembly envelope / boundary |
+|---|---|
+| P03 bottom cross-bridge | X=-13.70..13.70, Z=-19.08..-16.48, Y=9.35..11.65; 27.40 x 2.60 x 2.30mm overall. |
+| P03 full-depth +X foot | X=9.20..22.50, Z=-20.40..-17.50, Y=9.35..26.00; nests in P01's matching 0.15mm-clearance recess. Do not consume the remaining blue-housing wall for accessories. |
+| P03 mid-upper bridge | X=-3.50..3.50, Z=18.50..27.11, Y=16.01..19.50; behind the tool tongue (Y>=19.95) and in front of the rear arm (Y<=15.60). |
+
+Recheck bracket/hose insertion and removable-tool paths around those
+connections, not only the older shear-key envelope. The bridge changes
+do not qualify structural creep, printer supports, or accessory load capacity;
+the [print-part notes](PRINT_PARTS.md) keep support review separate.
+
 ## Frozen planning datums
 
 All dimensions below are **assembly millimetres**, not print-bed coordinates.
@@ -64,7 +79,7 @@ These are CAD planning references, not supplier or printer-calibration values.
 | K1-heatsink reference | X=-11.00..11.00, Y=13.45..31.95, Z=-50.28..-24.28. These mixed hotend references do not certify a purchased assembly. |
 | Overall case width | X=-22.50..22.50, 45.0mm. |
 | P02 / rear servo frame | Plate Y=-6.70..0.30; frame extends to Y=-11.20. Preserve 11.60mm servo window and 11.5mm motor-entry notch for real-part fit/service review. |
-| P01 / P03 depth | P01 base Y=0.30..11.40, +X cheek to Y=25.90 and new shear key to Y=29.00; P03 main joint Y=11.40..33.15, with front cam-tower stock extending rearward to Y=10.50; removable tool carrier front Y=45.02. These are interlocking extents, not disjoint slab envelopes. |
+| P01 / P03 depth | P01 base Y=0.30..11.40, +X cheek to Y=25.90 and shear key to Y=29.00, now relieved for the lower P03 beam/foot; P03 main joint Y=11.40..33.15, with lower bridge/foot reaching rearward to Y=9.35; removable tool carrier front Y=45.02. These are interlocking extents, not disjoint slab envelopes. |
 | Deck / crown / lever | Deck Z=48.700; rear bearing/servo crown to Z=62.221; lever tip approximately Z=58.78 open / 60.72 closed. Preserve its swept envelope, not only endpoints. |
 | Rear motor keep-out | Axis (X-1.248, Z4.251), R18.25, Y=-16.70..0.30. Motor ears at (X-16.75, Z19.75) and (X14.25, Z-11.25). |
 | Motor XH2.54-4P exit | X=-19.35..-10.94, Y=-16.95..-11.45, Z=-13.85..-5.44; retain bend/plug-removal space beyond the CAD box. |
