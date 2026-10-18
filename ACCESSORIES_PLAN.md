@@ -1,4 +1,4 @@
-# Next-session accessories plan -- v26 baseline
+# Next-session accessories plan -- v26h baseline
 
 > [!WARNING]
 > **PLAN ONLY / WIP / FIT PENDING / NOT READY FOR PRINTING OR USE.**
@@ -9,9 +9,9 @@
 ## Start a clean session from the final snapshot
 
 Use [SparkShift_AHG_min_v26.f3d](cad/SparkShift_AHG_min_v26.f3d),
-**timeline 1589 / 135 native bodies**, SHA-256
-`cf1c8e5563589184ebeaa60227c140081fb673d0ba218ecdf4d509485ada7e6f`.
-Do not restart from the older timeline-1570 v26e intermediate, replay all
+**timeline 1632 / 135 native bodies**, SHA-256
+`dda41c30d379930061c16e888b51b65f641c6bd47386086551236c59545db501`.
+Do not restart from the older timeline-1570 or timeline-1589 snapshots, replay all
 authoring scripts, or silently redesign the core to accommodate accessories.
 Keep a separately owned working copy and compare changes against this baseline.
 
@@ -20,6 +20,17 @@ Read the [current geometry/exception notes](PREVIEW.md) and
 fit, cam/retainer, Hall support, shafts/bearings, loads, and thermal gates.
 Accessories must not obstruct release, tool withdrawal, belt travel,
 motor/servo connectors, insert access, or hotend service.
+
+Carry forward the **v26h rear top bridge** and the paired **v26g flat P04F /
+P03 magnet-backing** changes, not the old square P01 cutout or thin P03 wall.
+The rear bridge occupies Y=0.30..2.15, X=-11.00..14.00, Z=26.50..48.70
+outside the MR128 bore; the contoured clearance extends across Y=0.30..7.45.
+Do not route wires, a bracket, or hose through that former opening.
+P03's backing lies at Y=27.200..28.727 behind the +X magnets; P04F's
+native flat face is Y=26.850, with a rear blind insert pocket and 6.250mm
+of backing. These are protected core interfaces, not unused accessory stock.
+The [print-part notes](PRINT_PARTS.md) distinguish native datums from STL
+placement: P01's OpenCascade mesh is still in assembly coordinates.
 
 ## Frozen planning datums
 

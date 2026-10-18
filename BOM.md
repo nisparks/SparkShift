@@ -1,4 +1,4 @@
-# v26 generic per-build BOM -- one receiver plus one tool
+# v26h generic per-build BOM -- one receiver plus one tool
 
 > [!WARNING]
 > **WIP / FIT PENDING / NOT READY FOR PRINTING OR USE.** This substantial,
@@ -13,6 +13,9 @@ kit contents may cover rows; do not buy/count them twice. The **135 native
 bodies = 17 printed solids + 118 hardware/reference bodies**, not 135 purchases.
 The [current inspection notes](PREVIEW.md) distinguish the final v26
 geometry from superseded fastener and servo-mount arrangements.
+The **timeline-1632** P01/P03/P04F refinements change printed geometry,
+**not the hardware quantities**: 15 bearings, 29 screws plus four belt
+nuts, and 12 M3 heat-sets remain the generic per-build reference.
 
 ## Main purchased assemblies
 
@@ -146,20 +149,29 @@ see [case-stack inspection notes](PREVIEW.md).
 ## Printed and printer-dependent requirements
 
 One of each **17 print roles** belongs to the matched v26 set. P04 is split;
-P05 includes the direct hub, not an extra horn. The raw native inspection
-meshes total **568,066 facets**, with one closed/wound/manifold positive
+P05 includes the direct hub, not an extra horn. The inspection
+meshes total **482,686 facets**, with one closed/wound/manifold positive
 component each, no degenerates, and no zero/inverted stored normals found.
 Bytes are not repaired or rewritten. **Inspect each mesh in a slicer**;
 digital topology does not qualify supports, material, spline resolution,
 hot creep, loaded strength, or safe use. **NOT READY FOR PRINTING.**
 
+**P01 is OpenCascade-tessellated from the current BRep and retains assembly
+coordinates, including negative Z; it is not bed-oriented.** Orient it
+deliberately rather than using the old mesh placement as a print preset.
+P04F's Y=26.850mm flat face and restored **rear blind M3 insert pocket**
+replace the previous front-half geometry; P03 adds magnet backing and P01
+adds the rear top bridge. Use the matched parts together. See
+[print-part inspection notes](PRINT_PARTS.md), not an exploded diagram,
+for the remaining orientation/fit gates.
+
 | ID | Print role | Licence scope |
 |---|---|---|
-| P01 | [Open-frame back case and carriage spine](stl_v26/P01_Back_case.stl) | GPL-3.0 custom work |
+| P01 | [Top-connected back case and carriage spine](stl_v26/P01_Back_case.stl) | GPL-3.0 custom work |
 | P02 | [7mm motor/servo plate and rear ear-seat frame](stl_v26/P02_Motor_servo_plate.stl) | GPL-3.0 custom work |
-| P03 | [Open receiver/front case and cam tower](stl_v26/P03_Front_case.stl) | GPL-3.0 custom work |
+| P03 | [Magnet-backed receiver/front case and cam tower](stl_v26/P03_Front_case.stl) | GPL-3.0 custom work |
 | P04R | [Swing-arm rear half with shortened manual lever](stl_v26/P04R_Swing_arm_rear_half.stl) | GPL-3.0 custom work |
-| P04F | [Swing-arm front half](stl_v26/P04F_Swing_arm_front_half.stl) | GPL-3.0 custom work |
+| P04F | [Flat-faced swing-arm front half with blind insert pocket](stl_v26/P04F_Swing_arm_front_half.stl) | GPL-3.0 custom work |
 | P05 | [Direct-output cam/hub, FIT PENDING](stl_v26/P05_Servo_cam.stl) | GPL-3.0 custom work |
 | P06 | [Left 38T/14T compound](stl_v26/P06_Left_compound_38T_14T.stl) | GPL-3.0 custom work |
 | P07 | [Right 38T/14T compound](stl_v26/P07_Right_compound_38T_14T.stl) | GPL-3.0 custom work |

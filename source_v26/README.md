@@ -4,6 +4,11 @@ This substantial, human-directed, AI-assisted **vibe developed** toolkit is
 **not a clean-checkout, one-command rebuild**. The [v26 native F3D](../cad/SparkShift_AHG_min_v26.f3d)
 is the directly editable source. These **13 exact sealed Python modules**
 record incremental engineering work; filenames are not automatic build order.
+Their bytes are unchanged from the earlier v26 publication. The current
+editable snapshot is **v26h, timeline 1632**, SHA-256
+`dda41c30d379930061c16e888b51b65f641c6bd47386086551236c59545db501`;
+the latest user edits/bridge and all render preparation are not claimed
+to be reconstructible from this limited module set.
 
 | Module | Scope / limitation |
 |---|---|
@@ -54,10 +59,16 @@ Source bytes, including CRLF/mixed endings, are preserved with
 substitution, or source-path rewriting accompanies migration. The approved
 CAD/mesh/image bytes, not the result of an unreviewed replay, define v26.
 
-The public package contains **no matched v26 standalone portable playback,
-GIF, or fit-gauge STL**. Older playback/data are not silently reused with
+The public package includes a [rendered v26h cam GIF](../images_v26/v26_cam_opening_motion.gif),
+not a runnable playback tool. It contains **no matched v26 standalone
+portable playback or fit-gauge STL**. Older playback/data are not silently reused with
 the changed model. Native Drive Joint alone does not establish synchronized
 cam/arm motion, spring forces, friction or real-time physics.
+
+The current P01 mesh was tessellated from the v26h BRep using OpenCascade
+and remains in assembly coordinates, not bed orientation. OpenCascade
+tessellation inputs/tooling are not added to these 13 sealed modules;
+no one-command mesh regeneration is implied. See [print-part notes](../PRINT_PARTS.md).
 
 Mesh checks and native readback are digital inspection, not support,
 spline, screw-depth, strength, thermal or endurance qualification. Keep

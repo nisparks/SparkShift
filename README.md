@@ -23,13 +23,18 @@ This describes SparkShift's development, **not upstream CxChanger/YUDX
 authorship or purchased hardware**. Their rights and credit remain in
 [ATTRIBUTION.md](ATTRIBUTION.md).
 
-## Current development: v26 open frame
+## Current development: v26h connected frame
 
-The current snapshot preserves the latest manual refinements and the
-v26 agreement/clearance pass:
+The current **timeline 1632** snapshot preserves the latest manual
+refinements and the v26 agreement/clearance work:
 
-- Open structural P01/P03 frame with **bilateral cam bearings**: rear
-  **MR128ZZ 8x12x3.5mm** and front **MF85ZZ 5x8x2.5mm**.
+- P01 now has a **continuous 1.85mm rear top bridge** joining the upper
+  bolt towers, replacing the old square cutout while retaining the
+  contoured arm clearance and **bilateral cam bearings**: rear
+  **MR128ZZ 8x12x3.5mm**, front **MF85ZZ 5x8x2.5mm**.
+- P04F has a single flat **Y=26.850mm** print-face reference and restored
+  blind M3 insert pocket. P03 reclaims the freed space for **1.527mm
+  continuous rear backing** behind both +X receiver magnets.
 - **7mm P02** plate, rear MG90S/MG90D reference ear-seat frame,
   **11.60 x 22.56mm** tangent servo window, and **11.5mm** motor-entry notch.
 - Mirrored upper case-bolt positions and lower X positions, with a deliberate
@@ -45,28 +50,59 @@ clone compatibility. The direct printed 21T cam/hub has **no OEM horn**.
 
 ![WIP v26 rendered closed assembly, not a photograph or print approval](images_v26/v26_assembly_closed_front_iso.png)
 
+## Exploded architecture and cam motion
+
+![WIP v26h exploded assembly architecture with printed parts and hardware references](images_v26/v26_exploded_assembly.png)
+
+The colour-coded exploded layout separates the removable tool, P03 receiver,
+split arm/gearing, connected P01 frame, and rear motor/servo plate.
+Offsets and guide lines explain architecture, **not a validated assembly
+sequence, continuous removal path, or physical fastener access**.
+
+![WIP v26h dual-viewport cam and swing-arm animation, kinematics not force simulation](images_v26/v26_cam_opening_motion.gif)
+
+The **71-frame, 1280x784** GIF shows an opening/return cycle in **3.44
+seconds of rendered playback**, not real servo timing. Its full-open
+labels show **175-degree cam / 7.87-degree swing arm / 2.73mm hob bite
+release gap**; the captioned gap is a CAD-preview metric, not a measured
+physical clearance or force result. Translucent/hidden parts expose the
+mechanism; ordinary extrusion remains independent of release.
+
+![WIP before-and-after P04F flat-face and P03 magnet-backing reinforcement retained in v26h](images_v26/v26_magnet_wall_reinforcement.png)
+
+The comparison records the **v26g reinforcement retained in v26h**:
+P04F's shortened flat face allows **+1,041.652mm3** of P03 backing/side-wall
+material. This is a geometric change, not proven retention strength.
+
 ## Matched inspection package
 
 | File / guide | Scope |
 |---|---|
-| [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable snapshot: **135 native bodies**, timeline **1589**; native review reports 135/135 readback matches. |
+| [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable **v26h** snapshot: **135 native bodies**, timeline **1632**; native review reports 135/135 readback matches. |
 | [v26 whole-assembly STEP](cad/SparkShift_AHG_min_v26.step) | 135 solid BREP records; neutral inspection export, not a manufacturing qualification. |
 | [17 assembly STLs](stl_v26) | Complete matched inspection set, not print-ready or support-free. |
-| [Changes, digital checks, and six renders](PREVIEW.md) | v26a-f change notes, current geometry, exceptions, and evidence limits. |
+| [Print-part inspection notes](PRINT_PARTS.md) | All 17 roles, current P01/P03/P04F changes, mesh provenance, and orientation limits. |
+| [Changes, digital checks, and gallery](PREVIEW.md) | v26a-h notes, six refreshed gallery views, exploded layout, GIF, and comparison. |
 | [Generic per-build BOM](BOM.md) | Full reference inventory for one receiver plus one tool, not a personal shopping delta. |
 | [Incremental authoring source](source_v26/README.md) | Exactly **13 sealed modules**; prior live state and missing inputs prevent a clean one-command rebuild. |
 | [Next-session accessories plan](ACCESSORIES_PLAN.md) | EBB42 mounting/wiring, Beacon or Cartographer, CPAP duct/collar, hose, and stationary blower mount; **planned, not implemented**. |
 
-The 17 raw native inspection meshes total **568,066 facets**. Each is one
+The 17 inspection meshes total **482,686 facets**. Each is one
 closed, manifold, coherently wound, positive-volume component, with zero
 degenerate facets and **no zero or inverted stored normals found** in this
-set. Native bytes are unchanged. These digital checks do not establish
+set. All sealed bytes are unchanged. **P01 is an OpenCascade tessellation
+of the v26h BRep in assembly coordinates**, including negative Z, not a
+bed-oriented export; use the Y=0.30mm rear-face reference and check its
+orientation in a slicer. Its mesh/native
+volume difference is about **0.0417%**, not exact shape or mass equality.
+These digital checks do not establish
 printability, deposition resolution, supports, fits, or safe use;
 **inspect every mesh in a slicer** before any later fabrication decision.
 
-Only the matched v26 CAD, meshes, six static renders, and authoring snapshot
-are current. **No v26 portable playback, GIF, or calibration-gauge package
-is supplied.** Older files remain in Git history, not as compatible v26 tools.
+The current set contains matched CAD/meshes, **eight PNGs and one GIF**,
+and the unchanged 13-module authoring snapshot. **No v26 standalone
+portable playback or calibration-gauge package is supplied.**
+Older files remain in Git history, not as compatible v26 tools.
 Drive Joint alone is not proof of synchronized cam/arm motion or force physics.
 
 ## Remaining work and next session
@@ -80,7 +116,7 @@ support/wiring; neither pin-seat agreement nor bolt alignment completes
 all coupling, magnet, or placement-grid checks.
 
 The [accessories plan](ACCESSORIES_PLAN.md) is the clean-session handoff:
-start from this **v26 / timeline 1589** F3D, confirm real board/probe/hose
+start from this **v26h / timeline 1632** F3D, confirm real board/probe/hose
 variants, then co-design probe and cooling clearances without moving the
 core datums by accident. No EBB42, probe, CPAP duct, hose, or blower mount
 is represented as finished or included in the current build inventory.
