@@ -29,7 +29,7 @@ and one GIF are approved render/preview assets, not physical tests.
 | Lower-left post | Screw axis moved to (X18.50, Z-14.60), with a concentric R2.7742 boss and R1.6922 tangent blend, replacing the thin offset corner/notch. Nominal screw-hole wall is 1.124mm; that is not a strength rating. |
 | Maxwell interface | Six locating pins retain YUDX-matched axes; P03 uses full-length conformal **teardrop snap seats** instead of fragmented end-box seats. Balls and eight bar-magnet interfaces remain references needing real retention/fit checks. |
 | P04R/P04F arms | P04R retains its **15mm shorter G1-tangent** lever. P04F now has one flat Y=26.850mm print-face reference, unified X19.830mm side wall, restored rear blind insert pocket, and cleaned R9.35 gear-clearance arc. |
-| Retained magnet reinforcement | Earlier v26g reclaimed Y=27.200..29.800mm behind both +X receiver magnets for **1.527mm rear backing**. Its **+1,041.652mm3** comparison is historical; v26i additionally removes material for shear sockets. |
+| Retained magnet reinforcement | Earlier v26g reclaimed Y=27.200..29.800mm behind both +X receiver magnets for **1.527mm rear backing**. That **+1,041.652mm3** change predates the later shear sockets and cross-bridges; the current comparison image shows v26h versus v26j. |
 | Case agreement | Z48.700 decks, aligned lower wire-slot surfaces, and continuous **R1.5 rounds along all four longitudinal outer edges** of the P01/P02/P03 assembly. Cam, bearing, insert, magnet, and pin interfaces were not made arbitrarily symmetric. |
 
 ### v26a-j sequence, preserving manual edits
@@ -202,8 +202,10 @@ appended features do not establish that all inherited history is warning-free.
 The **six refreshed gallery PNGs**, exploded architecture PNG, reinforcement
 comparison PNG, and dual-viewport GIF are **source-bound rendered inspection
 assets**, not native-UI screenshots, photographs, physical tests, or an
-accessory design. The before/after panel labels the retained v26g change;
-its earlier view is explicitly historical, not the current P03 geometry.
+accessory design. The annotated four-panel comparison shows historical
+**v26h before** versus **v26j after**, both with the toolhead hidden,
+plus isolated P03 inside and P01 mating views. It replaces the older
+magnet-wall-only comparison; the filename is retained.
 Colours, offsets, transparency, and hidden bodies are inspection aids.
 
 ![WIP v26j exploded architecture showing triple-bridged P03 and matching recessed P01](images_v26/v26_exploded_assembly.png)
@@ -221,12 +223,14 @@ checks. The GIF's frame count is distinct from the 71-pose geometry sampling gri
 Its playback rate is not physical servo speed, spring return, force,
 friction, thermal, or simultaneous feed/release simulation.
 
-![WIP retained v26g P04F and P03 magnet-wall before-and-after comparison](images_v26/v26_magnet_wall_reinforcement.png)
+![WIP four-panel v26h-before and v26j-after comparison with isolated P03 inside and P01 mating views](images_v26/v26_magnet_wall_reinforcement.png)
 
-The two after-panels show the historical v26g reinforcement and shortened
-P04F, not an additional part or the final v26j ladder-frame geometry.
-The P01 bridge came in v26h, keys/sockets in v26i, and lower/middle P03
-cross-bridges with the matching P01 recess in v26j.
+From left to right: v26h front **before**, v26j front **after**, the isolated
+**P03 rear/inside**, and the isolated **P01 front mating face**. P17 is
+hidden in both front views so the new mid-upper cross-bridge, bottom
+closed-loop bridge, and +X lower-foot extension can be seen. The inside
+and mating views expose the full-depth foot, recess, and retained shear
+interfaces; they are not extra parts or physical assembly instructions.
 
 ![WIP v26 rendered closed assembly with removable tool, not a physical build](images_v26/v26_assembly_closed_front_iso.png)
 
@@ -247,6 +251,9 @@ is hidden for inspection; its absence from the render is not a fit pass.
 Tool/interface bodies are selectively hidden to show the teardrop pin seats,
 bar-magnet pockets, case bolts, and new lower/middle connections; this is
 not a physical operating setup or a support-free printing claim.
+In particular, **P17 is hidden**: the docked removable toolhead covers
+these changes in the normal closed-assembly render. The README now shows
+this direct front view and the annotated comparison before that render.
 
 ![WIP v26 rendered rear ear-seat frame, tangent window and motor-entry notch](images_v26/v26_rear_servo_and_motor_plate.png)
 

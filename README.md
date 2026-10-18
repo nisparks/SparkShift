@@ -27,7 +27,27 @@ authorship or purchased hardware**. Their rights and credit remain in
 
 The current **timeline 1648** snapshot connects both sides of the front
 receiver at the bottom and middle. P03 is now a **triple-bridged closed-loop
-ladder frame**, rather than an inverted U, nested into a matching P01 recess:
+ladder frame**, rather than an inverted U, nested into a matching P01 recess.
+
+### See the changes with the toolhead hidden
+
+The docked **P17 removable toolhead hides P03's centre slot and new bridges**
+in the usual closed-assembly view. Here P17 is hidden for inspection so the
+orange receiver's **mid-upper bridge, bottom closed-loop bridge, and +X
+lower-foot extension** are visible:
+
+![WIP v26j direct front view with P17 toolhead hidden to reveal P03 middle and bottom bridges](images_v26/v26_front_case_and_bolts.png)
+
+![WIP four-panel v26h-before and v26j-after comparison with isolated P03 inside and P01 mating views](images_v26/v26_magnet_wall_reinforcement.png)
+
+Read the annotated panels **left to right**: **v26h before** with the
+toolhead hidden; **v26j after** with the middle/bottom bridges and lower
+foot called out; **P03 rear/inside** showing the connections; and **P01
+front mating face** showing the matching recess and four-zone shear keys.
+These are inspection renders, not new parts, physical tests, or an
+assembly sequence. The native CAD is still **v26j / timeline 1648**.
+
+### Structural changes retained in this snapshot
 
 - A **27.40 x 2.60 x 2.30mm bottom cross-bridge** and full-depth +X lower
   foot connect the receiver legs. P01 has a matching lower-front recess
@@ -87,14 +107,6 @@ release gap**; the captioned gap is a CAD-preview metric, not a measured
 physical clearance or force result. Translucent/hidden parts expose the
 mechanism; ordinary extrusion remains independent of release.
 
-![WIP historical v26g P04F flat-face and P03 magnet-backing comparison, before later shear sockets and bridges](images_v26/v26_magnet_wall_reinforcement.png)
-
-The comparison records the **earlier v26g reinforcement**:
-P04F's shortened flat face allows **+1,041.652mm3** of P03 backing/side-wall
-material. The backing concept is retained, but this panel predates the
-v26i shear sockets and v26j cross-bridges; it is not an exact view or volume
-delta of the current P03. None of these changes proves retention strength.
-
 ## Matched inspection package
 
 | File / guide | Scope |
@@ -103,7 +115,7 @@ delta of the current P03. None of these changes proves retention strength.
 | [v26 whole-assembly STEP](cad/SparkShift_AHG_min_v26.step) | 135 solid BREP records; neutral inspection export, not a manufacturing qualification. |
 | [17 assembly STLs](stl_v26) | Complete matched inspection set, not print-ready or support-free. |
 | [Print-part inspection notes](PRINT_PARTS.md) | All 17 roles, bridge-support review, interlock fit, current meshes, and both case orientations. |
-| [Changes, digital checks, and gallery](PREVIEW.md) | v26a-j notes, new cross-bridges/recess, retained four-zone dimensions, six refreshed views, exploded layout, GIF, and historical comparison. |
+| [Changes, digital checks, and gallery](PREVIEW.md) | v26a-j notes, new cross-bridges/recess, retained four-zone dimensions, six gallery views, exploded layout, GIF, and annotated v26h/v26j comparison. |
 | [Generic per-build BOM](BOM.md) | Full reference inventory for one receiver plus one tool, not a personal shopping delta. |
 | [Incremental authoring source](source_v26/README.md) | Exactly **13 sealed modules**; prior live state and missing inputs prevent a clean one-command rebuild. |
 | [Next-session accessories plan](ACCESSORIES_PLAN.md) | EBB42 mounting/wiring, Beacon or Cartographer, CPAP duct/collar, hose, and stationary blower mount; **planned, not implemented**. |
