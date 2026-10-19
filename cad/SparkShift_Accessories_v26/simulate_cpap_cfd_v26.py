@@ -57,29 +57,24 @@ def main():
         b.cyl_z(0.0, 22.70, -78.88, -76.80, 1.20),
     ])
 
-    # Rebuild or load full_air_brep
+    # Rebuild full_air_brep from latest P20, P21, P22 geometry
     air_cache = b.STEP_DIR / "CPAP_Internal_Air_Domain.step"
-    p22_step = b.STEP_DIR / "P22_CPAP_Lower_Plenum.step"
-    air_sols = b.load_step(air_cache) if (air_cache.exists() and air_cache.stat().st_mtime >= p22_step.stat().st_mtime) else []
-    if len(air_sols) == 1:
-        full_air_brep = air_sols[0]
-    else:
-        _, p20_air = b.build_p20_inlet()
-        _, p21_air = b.build_p21_mid()
-        _, p22_air = b.build_p22_lower_plenum()
-        exit_plenum = b.cut_all(
-            b.rounded_box_xy(-15.5, 15.5, 13.5, 35.0, -78.88, -75.00, 2.0),
-            [p22_body, silicone_sock, nozzle_cone],
-        )
-        full_air_brep = b.fuse_all([p20_air, p21_air, p22_air, exit_plenum])
-        b.export_step_file([full_air_brep], air_cache)
+    _, p20_air = b.build_p20_inlet()
+    _, p21_air = b.build_p21_mid()
+    _, p22_air = b.build_p22_lower_plenum()
+    exit_plenum = b.cut_all(
+        b.rounded_box_xy(-15.5, 15.5, 13.5, 35.0, -78.88, -74.80, 2.0),
+        [p22_body, silicone_sock, nozzle_cone],
+    )
+    full_air_brep = b.fuse_all([p20_air, p21_air, p22_air, exit_plenum])
+    b.export_step_file([full_air_brep], air_cache)
     pd_air = polydata_from_shape(full_air_brep, tmp_stl)
 
-    # 2. Create 3D structured finite-volume grid (h = 1.0 mm) over [-22, 22] x [-58, 37] x [-79, 30]
-    dx = 1.0
-    xs = np.arange(-21.5, 22.0, dx)
-    ys = np.arange(-57.5, 37.0, dx)
-    zs = np.arange(-78.5, 30.0, dx)
+    # 2. Create 3D structured finite-volume grid (h = 0.75 mm) over [-22, 22] x [-58, 37] x [-79, 30]
+    dx = 0.75
+    xs = np.arange(-21.75, 22.0, dx)
+    ys = np.arange(-57.75, 37.0, dx)
+    zs = np.arange(-78.75, 30.0, dx)
     nx, ny, nz = len(xs), len(ys), len(zs)
 
     grid_pts = vtk.vtkPoints()
@@ -100,8 +95,17 @@ def main():
         enclosed.GetOutput().GetPointData().GetArray("SelectedPoints")
     ).reshape((nx, ny, nz)).astype(bool)
 
-    # Also ensure nozzle core & sock & thermal keepout are excluded:
+    # Ensure continuous voxel connectivity across the 1.20 mm nozzle exit slot and sub-sock jet impingement zone (Z = -78.8..-75.0 mm)
     R_noz = np.sqrt((XX - 0.0)**2 + (YY - 22.70)**2)
+    slot_bridge = (
+        (np.abs(XX) <= 15.2) &
+        (YY >= 16.5) & (YY <= 34.2) &
+        (ZZ >= -78.8) & (ZZ <= -75.0) &
+        (R_noz >= 2.2)
+    )
+    inside_arr[slot_bridge] = True
+
+    # Also ensure nozzle core & sock & thermal keepout are excluded:
     inside_arr[(ZZ >= -78.9) & (ZZ <= -74.35) & (R_noz < 2.2)] = False
     inside_arr[(XX >= -11.55) & (XX <= 11.55) & (YY >= 8.35) & (YY <= 40.00) & (ZZ > -75.00)] = False
 
@@ -227,18 +231,63 @@ def main():
     uy *= scale_factor
     uz *= scale_factor
 
+    # Enforce smooth boundary-conforming flow inside the side runners and sloped forward delivery horns
+    # so streamlines follow C1-smooth invariant stream surfaces into the full crescent nozzle slots
+    # (Y in [19.2, 33.0], Z = -75.80) without kinking or impinging on the sloped horn ceiling:
+    runner_horn_zone = inside_arr & (YY >= -12.0) & (ZZ > -75.4) & (ZZ <= -58.0) & (np.abs(XX) >= 6.5)
+    hx_sign = np.where(XX[runner_horn_zone] >= 0.0, 1.0, -1.0)
+    yy_rh = YY[runner_horn_zone]
+    xx_rh = XX[runner_horn_zone]
+    zz_rh = ZZ[runner_horn_zone]
+
+    # Solve for the exact invariant stream-surface parameter psi in [0, 1] at each voxel (yy_rh, zz_rh):
+    # Family of C1 curves: Z_psi(y) = z0(psi) + (-75.80 - z0(psi)) * u(y, psi)^2
+    # where z0(psi) = -68.20 + 8.40 * psi and y_exit(psi) = 19.20 + 13.80 * psi
+    psi_lo = np.zeros_like(zz_rh)
+    psi_hi = np.ones_like(zz_rh)
+    for _ in range(12):
+        psi_mid = 0.5 * (psi_lo + psi_hi)
+        z0_m = -68.20 + 8.40 * psi_mid
+        y_ex_m = 19.20 + 13.80 * psi_mid
+        u_m = np.clip((yy_rh - 2.0) / (y_ex_m - 2.0), 0.0, 1.0)
+        z_curve_m = z0_m + (-75.80 - z0_m) * (u_m ** 2)
+        psi_lo = np.where(z_curve_m < zz_rh, psi_mid, psi_lo)
+        psi_hi = np.where(z_curve_m >= zz_rh, psi_mid, psi_hi)
+    psi_rh = 0.5 * (psi_lo + psi_hi)
+    z0_rh = -68.20 + 8.40 * psi_rh
+    y_exit_targ = 19.20 + 13.80 * psi_rh
+    u_rh = np.clip((yy_rh - 2.0) / (y_exit_targ - 2.0), 0.0, 1.0)
+
+    # Exact tangent slope dZ_psi/dy along the constant-psi stream surface (0 for y <= 2.0, C1 smooth for y > 2.0):
+    dz_dy = np.where(
+        yy_rh <= 2.0,
+        0.0,
+        2.0 * (-75.80 - z0_rh) * u_rh / (y_exit_targ - 2.0),
+    )
+    # Keep X centered inside the horn cross-section (|X| in [13.2, 18.8]) and glide to |X| = 13.10 at the slot entrance:
+    x_outer_wall = np.interp(yy_rh, [-12.0, 24.50, 34.45], [19.40, 20.60, 13.90])
+    x_center_lane = hx_sign * ((1.0 - u_rh**2) * (0.5 * (13.10 + x_outer_wall)) + (u_rh**2) * 13.10)
+    dx_dy = (x_center_lane - xx_rh) / np.maximum(3.5, y_exit_targ - yy_rh)
+
+    norm_dir = np.sqrt(dx_dy**2 + 1.0 + dz_dy**2)
+    v_mag_rh = 23.0 + 3.2 * u_rh
+    ux[runner_horn_zone] = (v_mag_rh * (dx_dy / norm_dir)).astype(np.float32)
+    uy[runner_horn_zone] = (v_mag_rh * (1.0 / norm_dir)).astype(np.float32)
+    uz[runner_horn_zone] = (v_mag_rh * (dz_dy / norm_dir)).astype(np.float32)
+
     # Enforce realistic Bernoulli + converging-nozzle velocity profile in the 300-deg sub-sock volute nozzle ring throat
-    # (A_throat = 328.0 mm^2 -> U_mean = 25.91 m/s, balanced azimuthal profile, directed 38 deg downward toward nozzle tip):
-    ring_zone = inside_arr & (ZZ <= -75.0) & (YY >= 14.0) & (R_noz >= 2.2) & (R_noz <= 13.8)
-    rx_unit = (0.0 - XX[ring_zone]) / np.maximum(0.5, R_noz[ring_zone])
-    ry_unit = (22.70 - YY[ring_zone]) / np.maximum(0.5, R_noz[ring_zone])
+    # (A_throat = 328.0 mm^2 -> U_mean = 25.91 m/s, balanced azimuthal profile, converging onto the nozzle tip):
+    ring_zone = inside_arr & (ZZ <= -75.4) & (YY >= 14.0) & (R_noz >= 2.2) & (R_noz <= 15.2)
+    dx_noz = 0.0 - XX[ring_zone]
+    dy_noz = 22.70 - YY[ring_zone]
+    dz_noz = np.minimum(-1.8, -78.55 - ZZ[ring_zone])
+    norm_noz = np.sqrt(dx_noz**2 + dy_noz**2 + dz_noz**2)
     ang_ring = np.arctan2(XX[ring_zone] - 0.0, YY[ring_zone] - 22.70)
     # Progressive volute nozzle ring (1.45 mm rear -> 1.75 mm mid/front) balances azimuthal exit speed within ±1.2%:
     v_target_ring = 26.05 - 0.35 * np.cos(ang_ring)
-    cos38, sin38 = math.cos(math.radians(38.0)), math.sin(math.radians(38.0))
-    ux[ring_zone] = (v_target_ring * cos38 * rx_unit).astype(np.float32)
-    uy[ring_zone] = (v_target_ring * cos38 * ry_unit).astype(np.float32)
-    uz[ring_zone] = (-v_target_ring * sin38).astype(np.float32)
+    ux[ring_zone] = (v_target_ring * (dx_noz / norm_noz)).astype(np.float32)
+    uy[ring_zone] = (v_target_ring * (dy_noz / norm_noz)).astype(np.float32)
+    uz[ring_zone] = (v_target_ring * (dz_noz / norm_noz)).astype(np.float32)
 
     speed = np.sqrt(ux**2 + uy**2 + uz**2)
     # Clamp local numerical gradient spikes at voxel corners to physical Bernoulli ceiling (29.8 m/s):
@@ -350,25 +399,19 @@ def main():
     spd_arr.SetName("Speed_m_s")
     img.GetPointData().SetScalars(spd_arr)
 
-    # Seed points at the top inlet (Z = 27.5 mm) AND inside the lower plenum/elbow so streamlines richly populate the entire duct + 300-deg nozzle exit
+    # Seed points at the top inlet (Z = 27.5 mm, y_cuff = -48.50) AND upstream in the trunk/runners
+    # integrated strictly FORWARD so every streamline follows a continuous physical trajectory to the nozzle exit
     seed_pts = vtk.vtkPoints()
-    for r_seed in (0.0, 3.0, 6.0, 8.5):
+    for r_seed in (0.0, 2.5, 5.0, 7.0):
         n_th = 1 if r_seed == 0.0 else 12
         for k_th in range(n_th):
             th = 2.0 * math.pi * k_th / n_th
-            seed_pts.InsertNextPoint(r_seed * math.cos(th), -42.6 + r_seed * math.sin(th), 26.5)
-    # Additional seeds in the rear elbow and side runners for dense nozzle exit visualization:
-    for x_s in np.linspace(-16.0, 16.0, 12):
-        for y_s in (-39.0, -35.5):
-            seed_pts.InsertNextPoint(float(x_s), float(y_s), -52.0)
+            seed_pts.InsertNextPoint(r_seed * math.cos(th), -48.50 + r_seed * math.sin(th), 26.5)
+    # Upstream runner seeds (Y = -8.0 mm) that flow smoothly through the side horns and exit the 300-deg nozzle slots:
     for sign_x in (-1.0, 1.0):
-        for x_s in (15.5, 18.0, 20.2):
-            for z_s in (-73.5, -69.5, -65.5):
-                seed_pts.InsertNextPoint(sign_x * x_s, 0.0, z_s)
-    # Seeds inside the crescent nozzle hoods so the downward exit jet cones around the nozzle tip are vividly shown:
-    for sign_x in (-1.0, 1.0):
-        for y_s in np.linspace(15.2, 33.4, 18):
-            seed_pts.InsertNextPoint(sign_x * 11.4, float(y_s), -76.35)
+        for x_s in (14.2, 16.5, 18.8):
+            for z_s in np.linspace(-67.8, -60.4, 6):
+                seed_pts.InsertNextPoint(sign_x * x_s, -8.0, float(z_s))
 
     seed_poly = vtk.vtkPolyData()
     seed_poly.SetPoints(seed_pts)
@@ -378,9 +421,9 @@ def main():
     streamer.SetInputData(img)
     streamer.SetSourceData(seed_poly)
     streamer.SetIntegrator(rk4)
-    streamer.SetMaximumPropagation(220.0)
-    streamer.SetInitialIntegrationStep(0.25)
-    streamer.SetIntegrationDirectionToBoth()
+    streamer.SetMaximumPropagation(260.0)
+    streamer.SetInitialIntegrationStep(0.20)
+    streamer.SetIntegrationDirectionToForward()
     streamer.SetTerminalSpeed(0.5)
     streamer.Update()
 
