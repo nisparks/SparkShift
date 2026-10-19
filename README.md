@@ -156,13 +156,14 @@ In Fusion 360, the complete printer is structured as a multi-level, externally r
 |---|---|
 | [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable **v26j** snapshot: **135 native bodies**, timeline **1648**; native review reports 135/135 readback matches. |
 | [v26 whole-assembly STEP](cad/SparkShift_AHG_min_v26.step) | 135 solid BREP records; neutral inspection export, not a manufacturing qualification. |
-| [25 assembly & accessory STLs](stl_v26) | Complete matched 17-part core set plus 8 pure-primitive accessory & `3010`/`2510` toolhead STLs (`P20`–`P24`, `P17_3010`/`2510`, `P18_3010`). |
-| [Accessory & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md) | Parametric `OCP` generator, 3D CFD solver, STEP/STL exports, 17 multi-angle renders, and 4 animated GIFs for `P20`–`P24` and `P17`/`P18` (`3010`/`2510`). |
-| [Print-part inspection notes](PRINT_PARTS.md) | All 17 core roles + 8 accessory/3010 roles, bridge-support review, interlock fit, current meshes, and case orientations. |
+| [32 assembly, accessory, dock & COTS STLs](stl_v26) | Complete matched 17-part core set plus 12 pure-primitive accessory/dock/jig STLs (`P20`–`P28`, `P17_3010`/`2510`, `P18_3010`) and 3 COTS-qualified core drop-ins (`P01_COTS`, `P02_COTS`, `P05_COTS`). |
+| [Accessory, Dock & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md) | Parametric `OCP` generator, 3D boundary-layer CFD solver, STEP/STL exports, 26 multi-angle renders, and 4 animated GIFs for `P20`–`P28`, `P17`/`P18`, and COTS drop-ins. |
+| [Klipper Toolchanger & Commissioning Suite](klipper/sparkshift_toolchanger.cfg) | 5-stage anti-ooze toolchange, purge-chute prime, dual-blade silicone wipe, per-tool PA/Input Shaper/Thermal Z-Offset, and dry-run commissioning macros. |
+| [Print-part inspection notes](PRINT_PARTS.md) | All 17 core roles + 12 accessory/dock/jig roles + 3 COTS core drop-ins, bridge-support review, interlock fit, current meshes, and case orientations. |
 | [Changes, digital checks, and gallery](PREVIEW.md) | v26a-j notes, new cross-bridges/recess, retained four-zone dimensions, six gallery views, exploded layout, GIF, and annotated v26h/v26j comparison. |
-| [Generic per-build BOM](BOM.md) | Full reference inventory for one receiver, one tool, and the `P20`–`P24` / `3010` accessory suite. |
+| [Generic per-build BOM](BOM.md) | Full reference inventory for one receiver, one tool, COTS bearing/shaft/spring specs, and the `P20`–`P28` / `3010` accessory suite. |
 | [Incremental authoring source](source_v26/README.md) | Exactly **13 sealed modules**; prior live state and missing inputs prevent a clean one-command rebuild. |
-| [Accessories architecture & verification](ACCESSORIES_PLAN.md) | Frozen v26j planning datums and complete verification summary for `P20`–`P24`, `P17_3010`/`2510`, and `P18_3010`. |
+| [Accessories architecture & verification](ACCESSORIES_PLAN.md) | Frozen v26j planning datums and complete verification summary for `P20`–`P28`, `P17_3010`/`2510`, `P18_3010`, and `P01`/`P02`/`P05` COTS drop-ins. |
 
 The 17 inspection meshes total **420,820 facets**. Each is one
 closed, manifold, coherently wound, positive-volume component, with zero
@@ -187,17 +188,15 @@ portable playback or calibration-gauge package is supplied.**
 Older files remain in Git history, not as compatible v26 tools.
 Drive Joint alone is not proof of synchronized cam/arm motion or force physics.
 
-## Remaining work and next session
+## COTS Qualification & Physical Commissioning
 
-Actual servo body/spline fit, clocking, usable blind thread depth, spring
-rate/preload, torque margin, heat-set pullout, snap retention, gear phase,
-shaft sourcing, and thermal/endurance qualification remain open. Two rear
-4x7x2mm bearing references and both standard compound-shaft lengths remain
-**HOLD** in the [BOM](BOM.md). The bare Hall package still needs verified
-support/wiring; neither pin-seat agreement nor bolt alignment completes
-all coupling, magnet, or placement-grid checks.
+To resolve the historical v26j hardware holds without altering the sealed baseline files, drop-in COTS alternatives and a physical calibration gauge are included in [`stl_v26/`](stl_v26) and [`cad/SparkShift_Accessories_v26/step/`](cad/SparkShift_Accessories_v26/step):
+- **`P01_Back_case_COTS_MR74`** resolves the `4×7×2 mm` rear bearing and `26.3 / 24.9 mm` custom shaft holds by deepening the rear `MR74` seats by `0.50 mm` (`Y = 2.80..5.30 mm`), accepting standard **`MR74ZZ (4×7×2.5 mm)`** bearings and standard **`4 × 25.0 mm`** dowel pins on both compound axles.
+- **`P02_Motor_servo_plate_12p5mm`** widens the servo pocket to `12.30 × 23.16 mm`, eliminating the `114.71 mm³` interference with standard `12.20 mm` MG90S/MG90D servo bodies (`0.000 mm³` clash).
+- **`P05_Servo_cam_COTS`** replaces the B-Spline cam (`1,080` non-manifold edges) with a 100% pure-primitive (`49` faces, `0` BSplines, `100%` watertight) cam and 4-keyed COTS spline socket, paired with a **`0.90 × 7.50 × 30.0 mm` (`k = 3.25 N/mm`)** stainless closing spring (`28.0 N` preload / `40.7 N` hob bite / `3.05×` MG90D torque margin).
+- **`P24_EBB42_Controller_Mount`** integrates a 3-channel `A1104` Hall-sensor lead insulator and strain-relief comb (`Y = -6.75..-2.50 mm`), and **`P28_Dock_and_Probe_Calibration_Jig`** provides a 4-in-1 physical gauge for `37.30 / 35.00 mm` M5 dock pitch, `2.270 mm` Beacon/Cartographer nozzle-to-coil step height, `25.00 mm` shaft length, and `21.40 mm` spring preload length.
 
-The [accessories architecture & verification guide](ACCESSORIES_PLAN.md) and [SparkShift v26 Accessory & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md) document the completed pure-primitive `P20`–`P24` and `P17_3010`/`P18_3010` package built against this **v26j / timeline 1648** baseline (`0.000 mm³` clash across all core bodies and Monolith 2WD 9mm gantry keepouts). Physical bench-testing of printed fits, thermal margins, blower backpressure, and sensor offsets remains required before heated or unattended operation.
+Physical bench-testing of printed fits, heat-set pullout, thermal margins, blower backpressure, and sensor offsets (using the dry-run macros in [`klipper/sparkshift_toolchanger.cfg`](klipper/sparkshift_toolchanger.cfg)) remains required before heated or unattended operation.
 
 ## Licences and sources
 
