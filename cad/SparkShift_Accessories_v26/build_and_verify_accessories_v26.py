@@ -1532,21 +1532,41 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
     p25_raw = dock_sols[0]
     sw_upper = dock_sols[1]
     sw_lower = dock_sols[2]
-    m5_l = dock_sols[4]
-    m5_r = dock_sols[5]
 
-    p25 = cut_all(p25_raw, [
-        box(10.0, 20.0, 39.5, 45.91, -81.65, -78.00),
-        box(-20.0, -10.0, 39.5, 45.91, -81.65, -78.00),
+    yf = 45.910082
+    yb = 74.910082
+    zb = -86.079400
+    zt_2020 = 17.220600
+    z_m5 = 7.220600
+
+    p25_base = cut_all(p25_raw, [box(-50.0, 50.0, -50.0, 100.0, -200.0, zb)])
+    fill1 = box(-17.0, 17.0, yf, yb, zb + 3.5, -53.0)
+    fill2 = box(-17.0, 17.0, yf, yb - 3.00, zb, zb + 5.0)
+    sh_r  = box( 11.0, 17.0, yf, 72.910082, zt_2020, 33.65991587)
+    sh_l  = box(-17.0, -11.0, yf, 72.910082, zt_2020, 33.65991587)
+    p25_fused = fuse_all([p25_base, fill1, fill2, sh_r, sh_l])
+
+    p25 = cut_all(p25_fused, [
+        cyl_y( 21.00, 33.65991587, 43.0, 74.0, 10.000839),
+        cyl_y(-21.00, 33.65991587, 43.0, 74.0, 10.000839),
+        box( 8.20, 20.0, 30.0, yf, -87.00, -78.00),
+        box(-20.0, -8.20, 30.0, yf, -87.00, -78.00),
         box(15.0, 20.0, 70.0, 76.0, -86.50, -83.00),
         box(-20.0, -15.0, 70.0, 76.0, -86.50, -83.00),
         rounded_box_xy(-3.20, 3.20, 23.50, 34.00, -84.20, -82.60, 0.7),
-        cyl_y(-11.50, -94.00, 42.00, 52.00, 1.60),
-        cyl_y( 11.50, -94.00, 42.00, 52.00, 1.60),
+        cyl_y(-10.0, z_m5, 63.0, 76.0, 2.60),
+        cyl_y( 10.0, z_m5, 63.0, 76.0, 2.60),
+        cyl_y(-10.0, z_m5, 70.110082, 76.0, 4.60),
+        cyl_y( 10.0, z_m5, 70.110082, 76.0, 4.60),
+        cyl_y(-11.75, -82.44, 44.0, 54.0, 1.55),
+        cyl_y( 11.75, -82.44, 44.0, 54.0, 1.55),
     ])
     u25 = ShapeUpgrade_UnifySameDomain(p25, True, True, True)
     u25.Build()
     p25 = u25.Shape()
+
+    m5_l = fuse_all([cyl_y(-10.0, z_m5, 58.110082, 70.110082, 2.50), cyl_y(-10.0, z_m5, 70.110082, 73.110082, 4.40)])
+    m5_r = fuse_all([cyl_y( 10.0, z_m5, 58.110082, 70.110082, 2.50), cyl_y( 10.0, z_m5, 70.110082, 73.110082, 4.40)])
 
     ooze_pad = intersect_all(
         rounded_box_xy(-3.80, 3.80, 21.11, 28.71, -85.98, -78.88, 1.2),
@@ -1557,30 +1577,30 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
     ooze_pad = u_pad.Shape()
 
     p26_chute = intersect_all(
-        rounded_box_xy(-10.50, 10.50, 8.00, 20.91, -105.00, -79.20, 2.0),
+        rounded_box_xy(-10.50, 10.50, 8.00, 20.91, -92.08, -78.80, 2.0),
         [prism_yz_r([
-            (8.00, -105.00), (16.50, -105.00), (20.91, -92.00),
-            (20.91, -79.20), (8.00, -79.20),
+            (8.00, -92.08), (15.50, -92.08), (20.91, zb),
+            (20.91, -78.80), (8.00, -78.80),
         ], 0.0, -12.0, 12.0)]
     )
-    p26_arm_l = rounded_box_xy(  8.50, 15.00, 15.00, 42.91, -99.00, -89.00, 1.5)
-    p26_arm_r = rounded_box_xy(-15.00, -8.50, 15.00, 42.91, -99.00, -89.00, 1.5)
+    p26_arm_l = rounded_box_xy(  8.50, 15.00, 15.00, yf, zb, -78.80, 1.5)
+    p26_arm_r = rounded_box_xy(-15.00, -8.50, 15.00, yf, zb, -78.80, 1.5)
     p26_outer = fuse_all([p26_chute, p26_arm_l, p26_arm_r])
     p26 = cut_all(p26_outer, [
-        rounded_box_xy(-7.60, 7.60, 12.80, 18.50, -92.00, -78.00, 1.2),
+        rounded_box_xy(-7.60, 7.60, 12.80, 18.50, -88.00, -78.00, 1.2),
         intersect_all(
-            rounded_box_xy(-7.60, 7.60, 9.80, 18.50, -102.50, -86.00, 1.2),
+            rounded_box_xy(-7.60, 7.60, 9.80, 18.50, -90.20, -83.50, 1.2),
             [prism_yz_r([
-                (9.80, -102.50), (15.00, -102.50), (18.50, -92.00),
-                (18.50, -85.00), (9.80, -85.00),
+                (9.80, -90.20), (14.50, -90.20), (18.50, -85.50),
+                (18.50, -83.00), (9.80, -83.00),
             ], 0.0, -9.0, 9.0)]
         ),
-        rounded_box_xy(-7.60, 7.60, 9.40, 12.00, -83.80, -79.00, 0.8),
+        rounded_box_xy(-7.60, 7.60, 9.40, 12.00, -83.80, -78.00, 0.8),
         rounded_box_xy(-7.00, 7.00, 7.50, 13.50, -80.20, -78.00, 1.0),
-        cyl_y(-11.50, -94.00, 14.00, 44.00, 1.65),
-        cyl_y( 11.50, -94.00, 14.00, 44.00, 1.65),
-        cyl_y(-11.50, -94.00, 14.00, 36.91, 2.75),
-        cyl_y( 11.50, -94.00, 14.00, 36.91, 2.75),
+        cyl_y(-11.75, -82.44, 14.00, 47.00, 1.65),
+        cyl_y( 11.75, -82.44, 14.00, 47.00, 1.65),
+        cyl_y(-11.75, -82.44, 14.00, 39.91, 2.75),
+        cyl_y( 11.75, -82.44, 14.00, 39.91, 2.75),
     ])
     u26 = ShapeUpgrade_UnifySameDomain(p26, True, True, True)
     u26.Build()
@@ -1603,7 +1623,7 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
     wiper_blades = uw.Shape()
 
     wiper_screws = [
-        fuse_all([cyl_y(sx * 11.50, -94.00, 36.91, 48.91, 1.50), cyl_y(sx * 11.50, -94.00, 34.50, 36.91, 2.60)])
+        fuse_all([cyl_y(sx * 11.75, -82.44, 39.91, 51.91, 1.50), cyl_y(sx * 11.75, -82.44, 36.91, 39.91, 2.60)])
         for sx in (-1.0, 1.0)
     ]
 
@@ -1680,11 +1700,72 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
     u28.Build()
     p28 = u28.Shape()
 
+    # Build P29_Dock_Rack_Gantry_Mount_L and P29_Dock_Rack_Gantry_Mount_R (Flying-Gantry 2020 Dock Crossbar Mounts):
+    def build_p29_side(is_right=False):
+        def xm(x0, x1):
+            return (350.0 - x1, 350.0 - x0) if is_right else (x0, x1)
+        def xp(x):
+            return 350.0 - x if is_right else x
+
+        rear_foot = rounded_box_xy(*xm(-79.5, -60.5), 22.0, 74.0, 163.5, 192.0, 2.5)
+        tslot_key = rounded_box_xy(*xm(-72.9, -67.1), 24.0, 72.0, 162.0, 165.0, 1.5)
+        bridge    = rounded_box_xy(*xm(-79.5, -35.0), 22.0, 48.0, 176.5, 208.5, 2.5)
+        fwd_arm   = rounded_box_xy(*xm(-58.0, -35.0), -29.0, 48.0, 176.5, 208.5, 2.5)
+        front_pad = rounded_box_xy(*xm(-58.0, -35.0), -29.0, 16.0, 173.5, 180.0, 2.5)
+        outer = fuse_all([rear_foot, tslot_key, bridge, fwd_arm, front_pad])
+        yz_env = prism_yz_r([
+            (-30.0, 160.0), (75.0, 160.0), (75.0, 184.0),
+            (10.0, 208.5), (-30.0, 208.5),
+        ], 3.0, *xm(-82.0, -32.0))
+        outer = intersect_all(outer, [yz_env])
+        cuts = [
+            box(*xm(-50.0, -33.0), -29.5, -9.0, 188.5, 209.0),
+            rounded_box_xy(*xm(-53.0, -40.0), 3.0, 40.0, 182.5, 210.0, 2.5),
+            cyl_z(xp(-70.0), 34.0, 160.0, 200.0, 2.65),
+            cyl_z(xp(-70.0), 60.0, 160.0, 200.0, 2.65),
+            cyl_z(xp(-70.0), 34.0, 173.5, 205.0, 4.60),
+            cyl_z(xp(-70.0), 60.0, 173.5, 205.0, 4.60),
+            cyl_x(-19.0, 198.5, *xm(-60.0, -48.0), 2.65),
+            cyl_x(-19.0, 198.5, *xm(-60.0, -54.0), 4.80),
+            cyl_z(xp(-42.5), -19.0, 170.0, 192.0, 2.65),
+            cyl_z(xp(-42.5), -19.0, 170.0, 180.5, 4.60),
+            cyl_y(xp(-42.5), 198.5, -12.0, 10.0, 2.65),
+            cyl_y(xp(-42.5), 198.5, -3.0, 42.0, 4.60),
+        ]
+        p29 = cut_all(outer, cuts)
+        u29 = ShapeUpgrade_UnifySameDomain(p29, True, True, True)
+        u29.Build()
+        return u29.Shape()
+
+    p29_l = build_p29_side(False)
+    p29_r = build_p29_side(True)
+
+    def build_p29_hardware():
+        sols = []
+        for is_r in (False, True):
+            s = -1.0 if is_r else 1.0
+            def xp(x):
+                return 350.0 - x if is_r else x
+            for yc in (34.0, 60.0):
+                sols.append(fuse_all([cyl_z(xp(-70.0), yc, 161.5, 173.5, 2.50), cyl_z(xp(-70.0), yc, 173.5, 176.5, 4.40)]))
+                sols.append(rounded_box_xy(xp(-70.0) - 5.0, xp(-70.0) + 5.0, yc - 7.0, yc + 7.0, 159.0, 162.8, 1.0))
+            sols.append(fuse_all([cyl_z(xp(-42.5), -19.0, 180.5, 192.5, 2.50), cyl_z(xp(-42.5), -19.0, 177.5, 180.5, 4.40)]))
+            sols.append(rounded_box_xy(xp(-42.5) - 7.0, xp(-42.5) + 7.0, -19.0 - 5.0, -19.0 + 5.0, 189.2, 193.0, 1.0))
+            sols.append(fuse_all([cyl_y(xp(-42.5), 198.5, -15.0, -3.0, 2.50), cyl_y(xp(-42.5), 198.5, -3.0, 0.0, 4.40)]))
+            sols.append(rounded_box_xy(xp(-42.5) - 7.0, xp(-42.5) + 7.0, -13.5, -9.8, 198.5 - 5.0, 198.5 + 5.0, 1.0))
+            x0, x1 = (xp(-54.0), xp(-42.0)) if not is_r else (xp(-42.0), xp(-54.0))
+            hx0, hx1 = (xp(-57.0), xp(-54.0)) if not is_r else (xp(-54.0), xp(-57.0))
+            sols.append(fuse_all([cyl_x(-19.0, 198.5, x0, x1, 2.50), cyl_x(-19.0, 198.5, hx0, hx1, 4.40)]))
+        return [p29_l, p29_r] + sols
+
     out = {
         "P25_SparkShift_3010_Dock": p25,
         "P26_Dock_Nozzle_Wiper_and_Purge_Chute": p26,
         "P27_CPAP_7040_Blower_Frame_Mount": p27,
         "P28_Dock_and_Probe_Calibration_Jig": p28,
+        "P29_Dock_Rack_Gantry_Mount_L": p29_l,
+        "P29_Dock_Rack_Gantry_Mount_R": p29_r,
+        "P29_Rack_Hardware_Solids": build_p29_hardware(),
         "Silicone_Ooze_Stopper_Pad": ooze_pad,
         "Silicone_Wiper_Blades": wiper_blades,
         "Dock_Complete_Solids": [p25, sw_upper, sw_lower, ooze_pad, m5_l, m5_r, p26, wiper_blades] + wiper_screws,
@@ -1976,6 +2057,8 @@ def main():
         "P26_Dock_Nozzle_Wiper_and_Purge_Chute",
         "P27_CPAP_7040_Blower_Frame_Mount",
         "P28_Dock_and_Probe_Calibration_Jig",
+        "P29_Dock_Rack_Gantry_Mount_L",
+        "P29_Dock_Rack_Gantry_Mount_R",
         "P01_Back_case_COTS_MR74",
         "P02_Motor_servo_plate_12p5mm",
         "P05_Servo_cam_COTS",
@@ -1998,6 +2081,7 @@ def main():
         print(f"[OK] {dname}: vol={dock_and_frame_reports[dname]['brep_volume_mm3']} mm3, bounds={min_v}..{max_v}, watertight={mesh_val['is_watertight_manifold']}")
 
     export_step_file(dock_suite["Dock_Complete_Solids"], STEP_DIR / "Dock_3010_Complete.step")
+    export_step_file(dock_suite["P29_Rack_Hardware_Solids"], STEP_DIR / "P29_Rack_Hardware_Complete.step")
 
     # Synchronize all printable STLs into root stl_v26/ directory:
     root_stl_dir = HERE.parent.parent / "stl_v26"

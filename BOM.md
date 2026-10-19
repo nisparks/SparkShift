@@ -205,10 +205,12 @@ for the remaining orientation/fit gates.
 | P22 | [CPAP lower plenum with ≥4.65mm sock thermal keepout & sub-sock crescent jets](stl_v26/P22_CPAP_Lower_Plenum.stl) | GPL-3.0 custom work |
 | P23 | [Shared forward Beacon RevH Normal / Cartographer V3 Flat Pack mount](stl_v26/P23_Beacon_Cartographer_Mount.stl) | GPL-3.0 custom work |
 | P24 | [Co-bolted BTT EBB42 CAN V1.2 rear controller mount with 3-slot Hall-sensor wire comb](stl_v26/P24_EBB42_Controller_Mount.stl) | GPL-3.0 custom work |
-| P25 | [34.0mm pure-primitive 3010 dock body with spring-leaf silicone ooze-stopper pocket](stl_v26/P25_SparkShift_3010_Dock.stl) | GPL-3.0 custom work |
-| P26 | [Front-bolted purge pellet chute & dual V-notched silicone nozzle wiper cassette](stl_v26/P26_Dock_Nozzle_Wiper_and_Purge_Chute.stl) | GPL-3.0 custom work |
+| P25 | [Compact stilt-free 34.0mm pure-primitive 3010 dock body with spring-leaf silicone ooze-stopper pocket](stl_v26/P25_SparkShift_3010_Dock.stl) | GPL-3.0 custom work |
+| P26 | [Flush under-slung purge pellet chute & dual V-notched silicone nozzle wiper cassette](stl_v26/P26_Dock_Nozzle_Wiper_and_Purge_Chute.stl) | GPL-3.0 custom work |
 | P27 | [Stationary 2020 frame mount for Trianglelab 7040 blower & CAN umbilical clamp](stl_v26/P27_CPAP_7040_Blower_Frame_Mount.stl) | GPL-3.0 custom work |
 | P28 | [4-in-1 dock pitch (37.3/35.0mm), probe Z-offset (2.27mm), 25mm shaft & 21.4mm spring calibration jig](stl_v26/P28_Dock_and_Probe_Calibration_Jig.stl) | GPL-3.0 custom work |
+| P29L | [Left gantry-mounted 2020 dock crossbar support bracket (`6x M5x10 BHCS + T-Nuts`)](stl_v26/P29_Dock_Rack_Gantry_Mount_L.stl) | GPL-3.0 custom work |
+| P29R | [Right gantry-mounted 2020 dock crossbar support bracket (`6x M5x10 BHCS + T-Nuts`)](stl_v26/P29_Dock_Rack_Gantry_Mount_R.stl) | GPL-3.0 custom work |
 | P01 (COTS) | [Drop-in back case with 2.5mm deep MR74ZZ seats for standard 4×25.0mm dowel pins](stl_v26/P01_Back_case_COTS_MR74.stl) | GPL-3.0 custom work |
 | P02 (COTS) | [Drop-in 7mm motor/servo plate with 12.30mm MG90S/MG90D window (0.0mm³ servo clash)](stl_v26/P02_Motor_servo_plate_12p5mm.stl) | GPL-3.0 custom work |
 | P05 (COTS) | [Pure-primitive watertight eccentric servo cam with 4-keyed COTS spline socket (0 BSplines)](stl_v26/P05_Servo_cam_COTS.stl) | GPL-3.0 custom work |
