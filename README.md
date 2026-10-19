@@ -132,7 +132,17 @@ Building directly on the frozen **v26j / timeline 1648** carriage with **zero mo
 | **Live Fusion 360 Section (`X = ±15.80 mm`) — Smooth `R = 61 mm` Sweep & Flat Floor** | **Dual Crescent Nozzle Jets & Thermal Keepout (`≥ 4.65 mm`)** |
 | ![Live Fusion 360 Section Wall Integrity](cad/SparkShift_Accessories_v26/images/20_p22_section_wall_integrity.png) | ![Nozzle Jet Impingement](cad/SparkShift_Accessories_v26/images/09_cpap_nozzle_jet_impingement_closeup.png) |
 
-👉 **[Full Accessory & 3010 Toolhead Documentation, B-Rep Audit, CFD Analysis, STEP & STL Files (`cad/SparkShift_Accessories_v26/README.md`)](cad/SparkShift_Accessories_v26/README.md)**
+### Modular Nested-XRef Complete Voron 2.4 350mm Printer Project (`SparkShift_Voron350_Master`)
+
+In Fusion 360, the complete printer is structured as a multi-level, externally referenced (**XRef**) cloud project (**`SparkShift_Voron350_Master`**) across **3 nested folders and 9 modular cloud documents (`00`–`08`)**, allowing any individual sub-assembly (`Toolhead`, `Accessories`, `Core Carriage`, `Dock Unit`, `Gantry`, or `Frame`) to be toggled **Editable**, modified independently, marked **Read-Only** (staying within Fusion 360's 10-document Personal Use limit), and propagated up to the master printer via **Get All Latest**:
+
+| Master Printer Assembly (`00_Complete_Printer_Voron24_350_SparkShift`) | Front 10-Dock Array (`T0`–`T9`) & Active SparkShift at Bay `T3` |
+| :---: | :---: |
+| ![Complete Printer Master XRef](cad/SparkShift_Accessories_v26/images/21_fusion360_complete_printer_master_xref.png) | ![Master Docks and SparkShift Closeup](cad/SparkShift_Accessories_v26/images/22_fusion360_master_docks_and_sparkshift_closeup.png) |
+| **Rear-Interior View (Monolith 2WD 9mm Gantry + 10 Parked Toolheads)** | **Modular Primary SparkShift Assembly (`04_Assembled_SparkShift_Primary`)** |
+| ![Master Rear Interior Iso](cad/SparkShift_Accessories_v26/images/23_fusion360_master_rear_interior_iso.png) | ![Assembled SparkShift Primary XRef](cad/SparkShift_Accessories_v26/images/24_fusion360_assembled_sparkshift_primary_xref.png) |
+
+👉 **[Full Accessory & 3010 Toolhead Documentation, Modular Fusion 360 Project Architecture (`00`–`08`), B-Rep Audit, CFD Analysis, STEP & STL Files (`cad/SparkShift_Accessories_v26/README.md`)](cad/SparkShift_Accessories_v26/README.md)**
 
 ## Matched inspection package
 

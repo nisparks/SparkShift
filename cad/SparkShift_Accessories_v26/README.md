@@ -136,10 +136,14 @@ With the `45.0 mm` wide carriage (`X ∈ [-22.42, +22.42] mm`), the usable docka
 
 ---
 
-## 5. Multi-Angle VTK & Live Fusion 360 Inspection Gallery (`images/01`–`20`)
+## 5. Multi-Angle VTK & Live Fusion 360 Inspection Gallery (`images/01`–`24`)
 
-| `18` Full-System Exploded View with Gantry (Front-Right Iso) | `19` Full-System Exploded View with Gantry (Rear-Left Iso) |
+| `21` Complete Voron 2.4 350mm Master XRef (`00_Complete_Printer_Voron24_350_SparkShift`) | `22` Front 10-Dock Array (`T0`–`T9`) & Active SparkShift at Bay `T3` |
 | :---: | :---: |
+| ![21 Complete Printer Master XRef](./images/21_fusion360_complete_printer_master_xref.png) | ![22 Master Docks and SparkShift Closeup](./images/22_fusion360_master_docks_and_sparkshift_closeup.png) |
+| **`23` Rear-Interior View (Monolith 2WD 9mm Gantry + 10-Bay Dock Bar)** | **`24` Modular Primary SparkShift XRef (`04_Assembled_SparkShift_Primary`)** |
+| ![23 Master Rear Interior Iso](./images/23_fusion360_master_rear_interior_iso.png) | ![24 Assembled SparkShift Primary XRef](./images/24_fusion360_assembled_sparkshift_primary_xref.png) |
+| **`18` Full-System Exploded View with Gantry (Front-Right Iso)** | **`19` Full-System Exploded View with Gantry (Rear-Left Iso)** |
 | ![18 Full Exploded Front Iso](./images/18_full_exploded_with_gantry_front_iso.png) | ![19 Full Exploded Rear Iso](./images/19_full_exploded_with_gantry_rear_iso.png) |
 | **`20` Live Fusion 360 Section (`X = ±15.80 mm`) — Smooth `R = 61 mm` Sweep & Flat Floor** | **`17` Live Fusion 360 Shaded with Visible Edges** |
 | ![20 Section Wall Integrity](./images/20_p22_section_wall_integrity.png) | ![17 Live Fusion 360](./images/17_fusion360_live_verified_geometry.png) |
@@ -239,4 +243,56 @@ initial_GREEN: 0.2
 initial_BLUE: 0.2
 initial_WHITE: 0.5
 ```
+
+---
+
+## 8. Modular Nested-XRef Fusion 360 Cloud Project Architecture (`SparkShift_Voron350_Master`)
+
+To assemble the complete **Voron 2.4R2 350mm** printer while keeping every subsystem independently editable and staying within Fusion 360's **10-editable-document Personal Use limit**, the project is organized as a 3-tier External Reference (**XRef**) hierarchy inside the **`SparkShift_Voron350_Master`** cloud project:
+
+```mermaid
+graph TD
+    A["<b>00_Complete_Printer_Voron24_350_SparkShift</b><br/>(Root Master Assembly — Editable)"]
+    B["<b>01_Voron24_350_Frame_and_Enclosure</b><br/>(01_Printer_and_Gantry — Read-Only, 26 bodies)"]
+    C["<b>02_Monolith_2WD_9mm_Gantry_System</b><br/>(01_Printer_and_Gantry — Read-Only, 347 bodies)"]
+    D["<b>03_Front_Dock_Rack_and_Docks</b><br/>(02_Dock_System — Read-Only, 55 rack bodies + 10× Docks)"]
+    E["<b>04_Assembled_SparkShift_Primary</b><br/>(03_SparkShift_System — Read-Only, Active at Bay T3)"]
+    F["<b>9× 07_SparkShift_Toolhead_3010_Assembly</b><br/>(03_SparkShift_System — Read-Only, Parked at Bays T0..T2, T4..T9)"]
+    G["<b>08_SparkShift_Dock_Unit_3010</b><br/>(02_Dock_System — Read-Only, 6 bodies)"]
+    H["<b>05_SparkShift_Core_Carriage_v26j</b><br/>(03_SparkShift_System — Read-Only, 101 bodies)"]
+    I["<b>06_SparkShift_Accessories_v26</b><br/>(03_SparkShift_System — Read-Only, 145 bodies)"]
+    J["<b>07_SparkShift_Toolhead_3010_Assembly</b><br/>(03_SparkShift_System — Read-Only, 37 bodies)"]
+
+    A -->|XRef| B
+    A -->|XRef| C
+    A -->|XRef| D
+    A -->|XRef @ T3| E
+    A -->|9× XRef @ T0..T2, T4..T9| F
+    D -->|10× XRef @ 37.30 mm pitch| G
+    E -->|XRef| H
+    E -->|XRef| I
+    E -->|XRef| J
+```
+
+### 8.1 Cloud Folder & Document Table (`SparkShift_Voron350_Master`)
+
+| Cloud Folder | Document Name | Default State | Linked Children / Sub-Components | Coordinate Frame & Placement |
+| :--- | :--- | :---: | :--- | :--- |
+| `(Project Root)` | **`00_Complete_Printer_Voron24_350_SparkShift`** | **Editable** | Links `01`, `02`, `03`, `04` (`1×`), and `07` (`9×`) | Voron 350 World Frame (`X ∈ [0, 350]`, `-Y` Front Door) |
+| `01_Printer_and_Gantry` | **`01_Voron24_350_Frame_and_Enclosure`** | `Read-Only` | `Bed`, `Door_buffer`, `Enclosure_panels_and_door` (`12%` opacity), `Frame_extrusions` (`26` bodies) | Voron 350 World Origin `(0, 0, 0)` |
+| `01_Printer_and_Gantry` | **`02_Monolith_2WD_9mm_Gantry_System`** | `Read-Only` | `Flying_Gantry` + `X_Gantry` (`347` bodies, 2020 X-beam at `Y = 208.23, Z = 153.50 mm`) | Voron 350 World Origin `(0, 0, 0)` |
+| `02_Dock_System` | **`03_Front_Dock_Rack_and_Docks`** | `Read-Only` | `Front_Dock_2020_Crossbar_and_Mounts` (`55` bodies) + `10×` linked `08_SparkShift_Dock_Unit_3010` | `R_Z(180°)` at `X_i = 7.0 + 37.3·i mm` (`i = 0..9`), `Y = 36.91, Z = 191.28 mm` |
+| `02_Dock_System` | **`08_SparkShift_Dock_Unit_3010`** ([`Dock_3010_Complete.step`](./step/Dock_3010_Complete.step)) | `Read-Only` | `P25_SparkShift_3010_Dock_Body`, `Latch_Roller_Switch_Upper/Lower`, `Silicone_Nozzle_Wiper_Pad`, `2× M5x12_Rack_Screw` (`6` bodies, `34.0 mm` width, `0.000 mm³` clash with `3010` toolhead) | SparkShift Local Toolhead Frame |
+| `03_SparkShift_System` | **`04_Assembled_SparkShift_Primary`** | `Read-Only` | Links `05_SparkShift_Core_Carriage_v26j` + `06_SparkShift_Accessories_v26` + `07_SparkShift_Toolhead_3010_Assembly` | SparkShift Local Frame (placed in `00` via `R_Z(180°)` at `X = 118.90, Y = 185.03, Z = 191.28 mm`) |
+| `03_SparkShift_System` | **`05_SparkShift_Core_Carriage_v26j`** | `Read-Only` | `13` sub-components (`P01`–`P16` + carriage hardware, `101` bodies) | SparkShift Local Frame |
+| `03_SparkShift_System` | **`06_SparkShift_Accessories_v26`** | `Read-Only` | `8` sub-components (`P20`–`P24`, `Beacon RevH`, `BTT EBB42`, `Sensor Cable`, `Fasteners`, `145` bodies) | SparkShift Local Frame |
+| `03_SparkShift_System` | **`07_SparkShift_Toolhead_3010_Assembly`** | `Read-Only` | `5` sub-components (`P17_HF_tool_carrier_3010`, `P18_Tool_docking_backplate_3010`, `3010_Axial_Fan`, `Volcano_Hotend`, `Silicone_Sock`, `37` bodies) | SparkShift Local Frame (parked in `00` via `R_Z(180°)` at `X_i = 7.0 + 37.3·i mm, Y = 36.91, Z = 191.28 mm`) |
+
+### 8.2 Individual Component Update Workflow (Managing the 10-Editable-Document Limit)
+1. **Open the leaf module you want to edit** (for example, `07_SparkShift_Toolhead_3010_Assembly` or `06_SparkShift_Accessories_v26` inside `03_SparkShift_System`).
+2. Toggle the document from **Read-Only** to **Editable** in the top bar (or via `ui.commandDefinitions.itemById("ActiveDocumentActivateCommand").execute()`).
+3. Make your CAD/appearance changes and **Save** (`Ctrl+S`), creating a new cloud version (`vN+1`).
+4. Toggle the leaf document back to **Read-Only** (`ui.commandDefinitions.itemById("ActiveDocumentDeactivateCommand").execute()`) to free its editable slot.
+5. Open **`00_Complete_Printer_Voron24_350_SparkShift`** (or `04_Assembled_SparkShift_Primary` if updating an intermediate sub-assembly) and click the yellow **Get All Latest** link icon in the toolbar (`UpdateAllReferencesCmd`) to pull the updated geometry across all linked instances automatically.
+
 
