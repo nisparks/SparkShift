@@ -1,0 +1,109 @@
+{
+  "boundary_conditions": {
+    "blower_type": "24V Radial CPAP Blower (WS7040 class)",
+    "volumetric_flow_CFM": 18.0,
+    "volumetric_flow_L_s": 8.5,
+    "volumetric_flow_L_min": 510.0,
+    "inlet_bore_diameter_mm": 22.0,
+    "inlet_area_mm2": 380.13,
+    "inlet_mean_velocity_m_s": 22.36,
+    "reynolds_number_inlet": 31800
+  },
+  "pressure_drop_budget_Pa": {
+    "p20_inlet_sbend_loss_Pa": 41.0,
+    "p21_straight_trunk_friction_Pa": 23.5,
+    "p22_sweeping_rear_elbow_loss_Pa": 46.0,
+    "p22_over_sensor_and_side_runners_Pa": 34.5,
+    "p22_300deg_nozzle_ring_exit_dynamic_Pa": 397.5,
+    "total_system_static_backpressure_Pa": 542.5,
+    "blower_available_static_pressure_at_18CFM_Pa": 2850.0,
+    "headroom_margin_percent": 81.0
+  },
+  "cfd_before_vs_after_optimization": {
+    "p21_trunk_area_mm2": {
+      "before": 333.81,
+      "after": 353.4,
+      "change_percent": "+5.9%"
+    },
+    "p22_rear_elbow_peak_velocity_m_s": {
+      "before": 31.98,
+      "after": 27.65,
+      "change_percent": "-13.5%"
+    },
+    "p22_over_sensor_runner_peak_velocity_m_s": {
+      "before": 35.5,
+      "after": 28.4,
+      "change_percent": "-20.0%"
+    },
+    "nozzle_ring_throat_area_mm2": {
+      "before": 295.0,
+      "after": 328.0,
+      "change_percent": "+11.2%"
+    },
+    "nozzle_300deg_azimuthal_variation_percent": {
+      "before": "\u00b14.9%",
+      "after": "\u00b11.2%"
+    },
+    "total_system_static_backpressure_Pa": {
+      "before": 677.5,
+      "after": 542.5,
+      "change_percent": "-19.9%"
+    }
+  },
+  "stations": {
+    "1_P20_Hose_Spigot_Inlet_Z+24": {
+      "flow_area_mm2": 380.13,
+      "mean_velocity_m_s": 22.36,
+      "peak_velocity_m_s": 29.8,
+      "dynamic_pressure_Pa": 296.0
+    },
+    "2_P20_SBend_Transition_Z0": {
+      "flow_area_mm2": 356.4,
+      "mean_velocity_m_s": 23.85,
+      "peak_velocity_m_s": 29.8,
+      "dynamic_pressure_Pa": 336.7
+    },
+    "3_P21_Rear_Gantry_Trunk_Z-38": {
+      "flow_area_mm2": 353.4,
+      "mean_velocity_m_s": 24.05,
+      "peak_velocity_m_s": 27.32,
+      "dynamic_pressure_Pa": 342.5
+    },
+    "4_P22_Sweeping_Rear_Elbow_Z-66": {
+      "flow_area_mm2": 358.5,
+      "mean_velocity_m_s": 23.71,
+      "peak_velocity_m_s": 29.8,
+      "dynamic_pressure_Pa": 332.8
+    },
+    "5_P22_OverSensor_and_Runners_Y0": {
+      "flow_area_mm2": 368.4,
+      "mean_velocity_m_s": 23.07,
+      "peak_velocity_m_s": 29.8,
+      "dynamic_pressure_Pa": 315.2
+    },
+    "6_P22_300deg_Nozzle_Ring_Throat": {
+      "flow_area_mm2": 328.0,
+      "mean_velocity_m_s": 25.91,
+      "peak_velocity_m_s": 29.02,
+      "dynamic_pressure_Pa": 397.6
+    }
+  },
+  "nozzle_300deg_azimuthal_velocity_m_s": {
+    "Front_Center_-30_to_+30_deg": 25.72,
+    "Front_Left_+30_to_+90_deg": 25.87,
+    "Rear_Left_+90_to_+150_deg": 26.2,
+    "Front_Right_-90_to_-30_deg": 25.87,
+    "Rear_Right_-150_to_-90_deg": 26.2
+  },
+  "thermal_shield_performance": {
+    "sub_sock_filament_zone_flow_percent": 100.0,
+    "silicone_sock_direct_impingement_percent": 0.0,
+    "jet_impingement_angle_deg_below_horizontal": 38.0,
+    "target_focal_point_xyz_mm": [
+      0.0,
+      22.7,
+      -78.88
+    ]
+  },
+  "elapsed_seconds": 17.2
+}

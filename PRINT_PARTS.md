@@ -127,12 +127,19 @@ No slicer profile, machine settings, or G-code is included.
 | P14 | [Right GT2 tooth liner](stl_v26/P14_Right_tooth_liner.stl) | 1 | **CC BY-SA 3.0** |
 | P15 | [Left belt arch](stl_v26/P15_Left_belt_arch.stl) | 1 | GPL-3.0 custom work |
 | P16 | [Right belt arch](stl_v26/P16_Right_belt_arch.stl) | 1 | GPL-3.0 custom work |
-| P17 | [HF tool carrier](stl_v26/P17_HF_tool_carrier.stl) | 1 | GPL-3.0 custom work |
-| P18 | [Tool docking backplate](stl_v26/P18_Tool_docking_backplate.stl) | 1 | GPL-3.0 custom work |
+| P17 | [HF tool carrier (baseline 2510 front)](stl_v26/P17_HF_tool_carrier.stl) | 1 | GPL-3.0 custom work |
+| P18 | [Tool docking backplate (baseline)](stl_v26/P18_Tool_docking_backplate.stl) | 1 | GPL-3.0 custom work |
+| P17 (3010) | [Pure-primitive 3010 HF tool carrier with quad lateral exhaust & wire chimneys](stl_v26/P17_HF_tool_carrier_3010.stl) | 1 | GPL-3.0 custom work |
+| P17 (2510) | [Pure-primitive 2510 HF tool carrier with quad lateral exhaust & wire chimneys](stl_v26/P17_HF_tool_carrier_2510.stl) | 1 | GPL-3.0 custom work |
+| P18 (3010) | [Counterbored tool docking backplate for 3010 fan clearance](stl_v26/P18_Tool_docking_backplate_3010.stl) | 1 | GPL-3.0 custom work |
+| P20 | [CPAP hose inlet with Trianglelab 7040 dual-barb spigot & co-bolted EBB42 wings](stl_v26/P20_CPAP_Hose_Inlet.stl) | 1 | GPL-3.0 custom work |
+| P21 | [CPAP rear gantry bridge behind Monolith 2WD 9mm X-beam](stl_v26/P21_CPAP_Gantry_Bridge.stl) | 1 | GPL-3.0 custom work |
+| P22 | [CPAP lower plenum with ≥4.65mm sock thermal keepout & sub-sock crescent jets](stl_v26/P22_CPAP_Lower_Plenum.stl) | 1 | GPL-3.0 custom work |
+| P23 | [Shared forward Beacon RevH Normal / Cartographer V3 Flat Pack mount](stl_v26/P23_Beacon_Cartographer_Mount.stl) | 1 | GPL-3.0 custom work |
+| P24 | [Co-bolted BTT EBB42 CAN V1.2 rear controller mount (17.4–21.8mm NEMA14 clearance)](stl_v26/P24_EBB42_Controller_Mount.stl) | 1 | GPL-3.0 custom work |
 
 The [exploded diagram and GIF](README.md) are architecture/kinematics aids,
 not assembly-path or print-process validation. Reference hardware and the
 hotend remain separately licensed vendor geometry, not printed parts.
 Preserve [mixed GPL / CC BY-SA / vendor attribution](ATTRIBUTION.md).
-Accessories remain [next-session plans](ACCESSORIES_PLAN.md), not extra
-current print roles.
+See the [SparkShift v26 Accessory & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md) and [ACCESSORIES_PLAN.md](ACCESSORIES_PLAN.md) for the complete pure-primitive B-Rep face/edge audit (`0` BSpline/mesh faces, `0` sliver faces `< 0.15 mm²`) and STEP/STL verification receipts.

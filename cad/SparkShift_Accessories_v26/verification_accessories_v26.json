@@ -1,0 +1,441 @@
+{
+  "passed": true,
+  "elapsed_seconds": 86.17,
+  "rear_gantry_corridor_air_area_mm2": 310.29,
+  "hose_spigot_bore_area_mm2": 380.13,
+  "cpap_flow_areas_mm2": {
+    "1_hose_inlet_id22": 380.13,
+    "2_rear_gantry_conduit_p21": 310.29,
+    "3_rear_bifurcation_split_p22": 324.6,
+    "4_side_plenum_runners_p22": 248.4,
+    "5_front_sweeping_horn_plenum_p22": 368.4,
+    "6_converging_nozzle_outlets_p22": 456.8
+  },
+  "beacon_revh_normal_datums": {
+    "orientation": "Forward-facing (+Y coil toward nozzle, -Y USB dome at rear)",
+    "coil_xyz_mm": [
+      0.0,
+      3.2,
+      -76.61
+    ],
+    "nozzle_offset_xy_mm": [
+      0.0,
+      -19.5
+    ],
+    "sensing_face_above_nozzle_mm": 2.269,
+    "pcb_seat_z_mm": -75.0,
+    "primary_mount_holes_xy_mm": [
+      [
+        -15.8,
+        -0.3
+      ],
+      [
+        15.8,
+        -0.3
+      ]
+    ],
+    "wire_route": "Exits rear dome (0, -12.9, -66.5) -> rises behind MGN12H carriage -> under X-beam (Z=-55.2) -> up P21 center-front raceway (X=0, Y=-34.5) -> EBB42 (0, -21.5, -14.2)",
+    "metal_in_20mm_top_keepout": []
+  },
+  "cartographer_v3_flat_pack_datums": {
+    "orientation": "Forward-facing (+Y coil toward nozzle, -Y MCU/JST at rear)",
+    "shared_mount_holes_xy_mm": [
+      [
+        -15.8,
+        -0.3
+      ],
+      [
+        15.8,
+        -0.3
+      ]
+    ],
+    "coil_xyz_mm": [
+      0.0,
+      2.88,
+      -76.6
+    ],
+    "nozzle_offset_xy_mm": [
+      0.0,
+      -19.82
+    ],
+    "sensing_face_above_nozzle_mm": 2.279,
+    "physical_clashes_with_v26_or_accessories": [],
+    "adxl345_note": "Onboard ADXL345 sits horizontal on the probe PCB (Z=-75.00 mm) directly behind the nozzle for low-mass input shaping."
+  },
+  "ebb42_can_v1p1_datums": {
+    "board_center_xz_mm": [
+      -1.248,
+      6.5
+    ],
+    "pcb_front_y_mm": -31.63,
+    "pcb_standoff_y_mm": -25.4,
+    "standoff_pattern_mm": "31.0 x 31.0 mm square (M3x4x4.2 heat-set inserts)",
+    "adxl345_orientation": "Orthogonal XZ plane (normal = (0, +1, 0), 0.0 deg tilt)",
+    "nema14_motor_clearance": {
+      "motor_mount_front_flange_face_y_mm": 3.3,
+      "motor_mount_rear_flange_face_y_mm": 0.3,
+      "cad_motor_36sth20_rear_face_y_mm": -16.7,
+      "p24_motor_bore_rear_limit_y_mm": -22.1,
+      "ebb42_nearest_component_in_motor_cyl_y_mm": -21.91,
+      "max_motor_thickness_from_front_flange_mm": 25.21,
+      "max_motor_can_behind_3mm_flange_mm": 22.21,
+      "clearance_at_17p4mm_motor_mm": 7.81,
+      "clearance_at_21p8mm_motor_from_front_flange_mm": 3.41,
+      "clearance_at_21p8mm_can_behind_flange_mm": 0.41
+    }
+  },
+  "tool_withdrawal_35mm_sweep_clashes": [],
+  "inter_part_overlaps": [],
+  "toolhead_fan_variants": {
+    "P17_HF_tool_carrier_2510": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 11098.13,
+      "min_mm": [
+        -12.4,
+        11.5,
+        -51.8
+      ],
+      "max_mm": [
+        12.4,
+        35.93,
+        48.74
+      ],
+      "stl_validation": {
+        "facets": 26904,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 11100.075,
+        "is_watertight_manifold": true
+      }
+    },
+    "P17_HF_tool_carrier_3010": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 11656.127,
+      "min_mm": [
+        -15.0,
+        11.5,
+        -52.5
+      ],
+      "max_mm": [
+        15.0,
+        35.93,
+        48.74
+      ],
+      "stl_validation": {
+        "facets": 27524,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 11658.445,
+        "is_watertight_manifold": true
+      }
+    },
+    "P18_Tool_docking_backplate_3010": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 2718.873,
+      "min_mm": [
+        -10.014,
+        35.928,
+        -22.45
+      ],
+      "max_mm": [
+        10.028,
+        45.017,
+        48.747
+      ],
+      "stl_validation": {
+        "facets": 5552,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 2718.903,
+        "is_watertight_manifold": true
+      }
+    }
+  },
+  "voron350_10_toolhead_evaluation": {
+    "2510_toolhead": {
+      "own_bay_withdrawal_clashes": [],
+      "pitch_37.3mm_clashes": [],
+      "pitch_35.0mm_clashes": [],
+      "pitch_34.2mm_clashes": [
+        {
+          "dx": -34.2,
+          "dy": 0.0,
+          "tool": "P17_2510",
+          "carr": "P22",
+          "vol": 12.8151
+        },
+        {
+          "dx": -34.2,
+          "dy": 5.0,
+          "tool": "P17_2510",
+          "carr": "P22",
+          "vol": 4.5414
+        },
+        {
+          "dx": 34.2,
+          "dy": 0.0,
+          "tool": "P17_2510",
+          "carr": "P22",
+          "vol": 12.8151
+        },
+        {
+          "dx": 34.2,
+          "dy": 5.0,
+          "tool": "P17_2510",
+          "carr": "P22",
+          "vol": 4.5414
+        }
+      ]
+    },
+    "3010_toolhead": {
+      "own_bay_withdrawal_clashes": [],
+      "pitch_37.3mm_clashes": [],
+      "pitch_35.0mm_clashes": [],
+      "pitch_34.2mm_clashes": [
+        {
+          "dx": -34.2,
+          "dy": 0.0,
+          "tool": "P17_3010",
+          "carr": "P01",
+          "vol": 0.3442
+        },
+        {
+          "dx": -34.2,
+          "dy": 0.0,
+          "tool": "P17_3010",
+          "carr": "P03",
+          "vol": 3.809
+        },
+        {
+          "dx": -34.2,
+          "dy": 0.0,
+          "tool": "P17_3010",
+          "carr": "P22",
+          "vol": 19.7074
+        },
+        {
+          "dx": -34.2,
+          "dy": 5.0,
+          "tool": "P17_3010",
+          "carr": "P03",
+          "vol": 2.8546
+        },
+        {
+          "dx": -34.2,
+          "dy": 5.0,
+          "tool": "P17_3010",
+          "carr": "P22",
+          "vol": 7.0232
+        },
+        {
+          "dx": -34.2,
+          "dy": 15.0,
+          "tool": "P17_3010",
+          "carr": "P03",
+          "vol": 1.0115
+        },
+        {
+          "dx": 34.2,
+          "dy": 0.0,
+          "tool": "P17_3010",
+          "carr": "P01",
+          "vol": 0.3442
+        },
+        {
+          "dx": 34.2,
+          "dy": 0.0,
+          "tool": "P17_3010",
+          "carr": "P03",
+          "vol": 3.8028
+        },
+        {
+          "dx": 34.2,
+          "dy": 0.0,
+          "tool": "P17_3010",
+          "carr": "P22",
+          "vol": 19.7074
+        },
+        {
+          "dx": 34.2,
+          "dy": 5.0,
+          "tool": "P17_3010",
+          "carr": "P03",
+          "vol": 2.8502
+        },
+        {
+          "dx": 34.2,
+          "dy": 5.0,
+          "tool": "P17_3010",
+          "carr": "P22",
+          "vol": 7.0232
+        },
+        {
+          "dx": 34.2,
+          "dy": 15.0,
+          "tool": "P17_3010",
+          "carr": "P03",
+          "vol": 1.0099
+        }
+      ]
+    }
+  },
+  "parts": {
+    "P20_CPAP_Hose_Inlet": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 7900.981,
+      "min_mm": [
+        -20.6,
+        -59.347,
+        -21.58
+      ],
+      "max_mm": [
+        20.6,
+        -27.6,
+        30.0
+      ],
+      "width_within_45mm": true,
+      "v26_clashes": [],
+      "gantry_clashes": [],
+      "beacon_clashes": [],
+      "ebb42_clash_mm3": 0.0,
+      "stl_validation": {
+        "facets": 11772,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 7897.338,
+        "is_watertight_manifold": true
+      },
+      "step_sha256": "eecc359419ac123fa1c9bbdce9db2e233754cdbe4214fb31225ae54ff8bbbf9c",
+      "stl_sha256": "c71f4a7b2884a55623c2564a8f7629c28f8c70b17068d6000ecfabba5496daf6"
+    },
+    "P21_CPAP_Gantry_Bridge": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 9969.258,
+      "min_mm": [
+        -21.0,
+        -45.4,
+        -61.0
+      ],
+      "max_mm": [
+        21.0,
+        0.3,
+        -17.78
+      ],
+      "width_within_45mm": true,
+      "v26_clashes": [],
+      "gantry_clashes": [],
+      "beacon_clashes": [],
+      "ebb42_clash_mm3": 0.0,
+      "stl_validation": {
+        "facets": 10180,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 9969.105,
+        "is_watertight_manifold": true
+      },
+      "step_sha256": "c4dcae3161f14141016df97b9981a1b67315028b725fb1c7f548f873e908ec63",
+      "stl_sha256": "b023062e1ae52918aae23d7ab24a9a738df51fb0fb16fd3a0ad1d3b20b1c8223"
+    },
+    "P22_CPAP_Lower_Plenum": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 11529.158,
+      "min_mm": [
+        -22.42,
+        -45.4,
+        -77.85
+      ],
+      "max_mm": [
+        22.42,
+        35.2,
+        -48.0
+      ],
+      "width_within_45mm": true,
+      "v26_clashes": [],
+      "gantry_clashes": [],
+      "beacon_clashes": [],
+      "ebb42_clash_mm3": 0.0,
+      "stl_validation": {
+        "facets": 13352,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 11529.246,
+        "is_watertight_manifold": true
+      },
+      "step_sha256": "4c71d46724ca68eefce55057b98f3601bf07a22a769b124f5bd7ae7afcdff682",
+      "stl_sha256": "9a9e70dbb47feac978b7effa0249e524608c4a6415b763187b68664d7c1d5f94"
+    },
+    "P23_Beacon_Cartographer_Mount": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 2397.871,
+      "min_mm": [
+        -19.2,
+        -14.2,
+        -75.0
+      ],
+      "max_mm": [
+        19.2,
+        11.55,
+        -70.8
+      ],
+      "width_within_45mm": true,
+      "v26_clashes": [],
+      "gantry_clashes": [],
+      "beacon_clashes": [],
+      "ebb42_clash_mm3": 0.0,
+      "stl_validation": {
+        "facets": 8520,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 2398.047,
+        "is_watertight_manifold": true
+      },
+      "step_sha256": "c40d3cf2c6a1237e3ab5b9c4bb03ed785e1ac92828647327aa5ece20055c5b70",
+      "stl_sha256": "25b12fb2fc843fb81b78aec747ae70c3fd5064809e0f5cf2ffa8a844a15f3b9e"
+    },
+    "P24_EBB42_Controller_Mount": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 8762.846,
+      "min_mm": [
+        -21.8,
+        -25.4,
+        -18.4
+      ],
+      "max_mm": [
+        22.1,
+        -2.5,
+        51.2
+      ],
+      "width_within_45mm": true,
+      "v26_clashes": [],
+      "gantry_clashes": [],
+      "beacon_clashes": [],
+      "ebb42_clash_mm3": 0.0,
+      "stl_validation": {
+        "facets": 17350,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 8764.199,
+        "is_watertight_manifold": true
+      },
+      "step_sha256": "bbb129cbd1ab2bf0c504cc85de67b2174f4daf2f6021b1418d7b07d6953f41b2",
+      "stl_sha256": "7383433f94b6053cb81e6101e178ec4d8dcbdaaf9e60ea254562fa1511fbd948"
+    }
+  },
+  "combined_step_sha256": "e59e1c5ed24c30f7d8470eec5edb68eac82bcc521e729ef52a8154a320ffab57"
+}

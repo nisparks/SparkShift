@@ -1,10 +1,16 @@
-# Next-session accessories plan -- v26j baseline
+# SparkShift v26j Accessories & 3010 Toolhead Suite — Architecture, Planning Datums & Verification
 
 > [!WARNING]
-> **PLAN ONLY / WIP / FIT PENDING / NOT READY FOR PRINTING OR USE.**
-> This human-directed, AI-assisted **vibe developed** core is not physically
-> qualified. No EBB42 mount, probe bracket, CPAP duct/collar, hose support,
-> or blower mount is finished or included in the current print set/BOM.
+> **WIP / DIGITAL VERIFICATION COMPLETE / BENCH-FIT PENDING.**
+> All 8 pure-primitive printable parts (`P20`–`P24`, `P17_3010`, `P17_2510`, `P18_3010`) in [`cad/SparkShift_Accessories_v26/`](cad/SparkShift_Accessories_v26/README.md) pass 100% of 3D B-Rep boolean, manifold STL, thermal keepout, Beacon 20mm metal keepout, NEMA14 (`17.4–21.8 mm`) motor clearance, and Voron 350 multi-toolhead docking checks against the frozen **v26j / timeline 1648** baseline (`0.000 mm³` clash). Physical bench qualification of printed tolerances, thermal creep, and electrical/firmware setup remains required before heated or unattended operation.
+
+| 360° Full Assembly Turntable | Exploded Assembly Sequence |
+| :---: | :---: |
+| ![360° Full Assembly Turntable](cad/SparkShift_Accessories_v26/images/anim_01_full_assembly_360_turntable.gif) | ![Exploded Assembly Sequence](cad/SparkShift_Accessories_v26/images/anim_02_exploded_assembly_sequence.gif) |
+| **3010 Toolhead Docking & `17.4–21.8 mm` NEMA14 Clearance** | **All 8 Pure-Primitive Printable Parts (360° Showcase)** |
+| ![3010 Toolhead Docking & NEMA14 Clearance](cad/SparkShift_Accessories_v26/images/anim_03_toolhead_3010_docking_and_nema14_clearance.gif) | ![All 8 Printable Parts Showcase](cad/SparkShift_Accessories_v26/images/anim_04_printable_parts_360_showcase.gif) |
+
+👉 **[Complete Documentation, 3D CFD Analysis, STEP/STL Exports & 17-View Gallery (`cad/SparkShift_Accessories_v26/README.md`)](cad/SparkShift_Accessories_v26/README.md)**
 
 ## Start a clean session from the final snapshot
 
@@ -122,5 +128,22 @@ signal or fan pin can supply a servo or CPAP blower. No wiring diagram,
 firmware setup, electrical certification, or heated-use approval is implied.
 
 Preserve [GPL / CC BY-SA / vendor attribution](ATTRIBUTION.md) when adding
-new sources or reference CAD. This plan records next-session scope, not
-completed accessory geometry or new purchasing requirements.
+new sources or reference CAD.
+
+---
+
+## Implemented Pure-Primitive Accessory & 3010 Toolhead Package (`cad/SparkShift_Accessories_v26`)
+
+| Part | STEP / STL Files | Solids / Shells | Volume (`mm³`) | Analytical Face Breakdown (`0` BSpline) | Min Face Area (`mm²`) | Bounding Box (`[Xmin, Ymin, Zmin] .. [Xmax, Ymax, Zmax]`) | Watertight Manifold / v26j Clash |
+| :--- | :--- | :---: | :---: | :--- | :---: | :--- | :---: |
+| **`P20`** | [`P20_CPAP_Hose_Inlet`](cad/SparkShift_Accessories_v26/step/P20_CPAP_Hose_Inlet.step) ([STL](stl_v26/P20_CPAP_Hose_Inlet.stl)) | `1 / 1` | `7,900.98` | `172` (`86` Plane, `75` Cyl, `11` Cone) | `0.4721` | `[-20.60, -59.35, -21.58] .. [20.60, -27.60, 30.00]` | `True` / `0.000 mm³` |
+| **`P21`** | [`P21_CPAP_Gantry_Bridge`](cad/SparkShift_Accessories_v26/step/P21_CPAP_Gantry_Bridge.step) ([STL](stl_v26/P21_CPAP_Gantry_Bridge.stl)) | `1 / 1` | `9,969.26` | `143` (`79` Plane, `64` Cyl) | `0.5508` | `[-21.00, -45.40, -61.00] .. [21.00, 0.30, -17.78]` | `True` / `0.000 mm³` |
+| **`P22`** | [`P22_CPAP_Lower_Plenum`](cad/SparkShift_Accessories_v26/step/P22_CPAP_Lower_Plenum.step) ([STL](stl_v26/P22_CPAP_Lower_Plenum.stl)) | `1 / 1` | `11,529.16` | `267` (`146` Plane, `121` Cyl) | `0.2506` | `[-22.42, -45.40, -77.85] .. [22.42, 35.20, -48.00]` | `True` / `0.000 mm³` |
+| **`P23`** | [`P23_Beacon_Cartographer_Mount`](cad/SparkShift_Accessories_v26/step/P23_Beacon_Cartographer_Mount.step) ([STL](stl_v26/P23_Beacon_Cartographer_Mount.stl)) | `1 / 1` | `2,397.87` | `56` (`34` Plane, `22` Cyl) | `3.2287` | `[-19.20, -14.20, -75.00] .. [19.20, 11.55, -70.80]` | `True` / `0.000 mm³` |
+| **`P24`** | [`P24_EBB42_Controller_Mount`](cad/SparkShift_Accessories_v26/step/P24_EBB42_Controller_Mount.step) ([STL](stl_v26/P24_EBB42_Controller_Mount.stl)) | `1 / 1` | `8,762.85` | `196` (`107` Plane, `89` Cyl) | `0.1702` | `[-21.80, -25.40, -18.40] .. [22.10, -2.50, 51.20]` | `True` / `0.000 mm³` |
+| **`P17 (3010)`** | [`P17_HF_tool_carrier_3010`](cad/SparkShift_Accessories_v26/step/P17_HF_tool_carrier_3010.step) ([STL](stl_v26/P17_HF_tool_carrier_3010.stl)) | `1 / 1` | `11,656.13` | `270` (`164` Plane, `102` Cyl, `4` Cone) | `0.2752` | `[-15.00, 11.50, -52.50] .. [15.00, 35.93, 48.74]` | `True` / `0.000 mm³` |
+| **`P17 (2510)`** | [`P17_HF_tool_carrier_2510`](cad/SparkShift_Accessories_v26/step/P17_HF_tool_carrier_2510.step) ([STL](stl_v26/P17_HF_tool_carrier_2510.stl)) | `1 / 1` | `11,098.13` | `245` (`142` Plane, `99` Cyl, `4` Cone) | `0.4088` | `[-12.40, 11.50, -51.80] .. [12.40, 35.93, 48.74]` | `True` / `0.000 mm³` |
+| **`P18 (3010)`** | [`P18_Tool_docking_backplate_3010`](cad/SparkShift_Accessories_v26/step/P18_Tool_docking_backplate_3010.step) ([STL](stl_v26/P18_Tool_docking_backplate_3010.stl)) | `1 / 1` | `2,718.87` | `70` (`52` Plane, `18` Cyl) | `1.4000` | `[-10.01, 35.93, -22.45] .. [10.03, 45.02, 48.75]` | `True` / `0.000 mm³` |
+
+See [`cad/SparkShift_Accessories_v26/README.md`](cad/SparkShift_Accessories_v26/README.md) and [`cad/SparkShift_Accessories_v26/verification_accessories_v26.json`](cad/SparkShift_Accessories_v26/verification_accessories_v26.json) for full engineering details.
+

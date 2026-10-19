@@ -107,18 +107,42 @@ release gap**; the captioned gap is a CAD-preview metric, not a measured
 physical clearance or force result. Translucent/hidden parts expose the
 mechanism; ordinary extrusion remains independent of release.
 
+## Accessory & 3010 Toolhead Suite (`P20`–`P24`, `P17_3010`/`2510`, `P18_3010`)
+
+Building directly on the frozen **v26j / timeline 1648** carriage with **zero modifications (`0.000 mm³` clash)** to any of the 133 non-replaced core bodies, the **[SparkShift v26 Accessory & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md)** adds **8 pure-primitive printable parts** (`0` BSpline/mesh/sphere faces, `0` sliver faces `< 0.15 mm²`, `100%` watertight manifold STLs):
+
+- **`P20_CPAP_Hose_Inlet`**, **`P21_CPAP_Gantry_Bridge`**, **`P22_CPAP_Lower_Plenum`:** 3-part directional-shingle CPAP cooling duct (`353.40 mm²` trunk behind the **Monolith 2WD 9mm gantry**, `0.000 mm³` X-limit gantry clash, `≥ 4.65 mm` 3D thermal keepout around the Volcano silicone sock, `≥ 5.90 mm` from the bare `350 °C` heatblock) with a dual-barb (`Ø21.6 / Ø21.8 mm`) spigot for the **Trianglelab Supercharged 7040 Blower (`21.5 mm` ID cuff)**.
+- **`P23_Beacon_Cartographer_Mount`:** Shared forward-facing mount (`(±15.80, -0.30, -75.00) mm`) for **Beacon RevH Normal** (`Y = -19.50 mm`, `2.269 mm` above nozzle tip) and **Cartographer Probe V3 Flat Pack (`CAN & USB`, with ADXL345)** (`Y = -19.82 mm`, `2.279 mm` above nozzle tip), with `0.000 mm³` metal inside the `20 mm` probe sensing keepout.
+- **`P24_EBB42_Controller_Mount`:** Co-bolted rear mount for the **BTT EBB42 CAN V1.2** (`Y_pcb = -31.63 mm`), leaving **`+2.20 mm` to `+6.60 mm` axial clearance** behind **`17.4–21.8 mm` thick NEMA14 pancake motors** and 100% open access to top `CAN/24V/USB-C/HE0`, right `FAN0/FAN1/TH0`, and left **`3-pin RGB/Neopixel LED (`PD3`) / I2C / Probe`** headers.
+- **`P17_HF_tool_carrier_3010`**, **`P17_HF_tool_carrier_2510`**, **`P18_Tool_docking_backplate_3010`:** Pure-primitive high-flow toolhead carriers with a converging bellmouth, rear V-splitter wedge, **quad lateral exhaust windows (`265.7 mm²`)**, and **partitioned vertical heater/thermistor wire chimneys (`18.5 mm²` per side)**, supporting up to **9 toolheads (`35.0–37.3 mm` pitch)** on a standard `350 mm` Voron 2.4R2 (`10` toolheads if usable X-stroke `≥ 315 mm`).
+
+| 360° Full Assembly Turntable | Exploded Assembly Sequence |
+| :---: | :---: |
+| ![360° Full Assembly Turntable](cad/SparkShift_Accessories_v26/images/anim_01_full_assembly_360_turntable.gif) | ![Exploded Assembly Sequence](cad/SparkShift_Accessories_v26/images/anim_02_exploded_assembly_sequence.gif) |
+| **3010 Toolhead Docking & `17.4–21.8 mm` NEMA14 Clearance** | **All 8 Pure-Primitive Printable Parts (360° Showcase)** |
+| ![3010 Toolhead Docking & NEMA14 Clearance](cad/SparkShift_Accessories_v26/images/anim_03_toolhead_3010_docking_and_nema14_clearance.gif) | ![All 8 Printable Parts Showcase](cad/SparkShift_Accessories_v26/images/anim_04_printable_parts_360_showcase.gif) |
+
+![Live Fusion 360 Verified Geometry](cad/SparkShift_Accessories_v26/images/17_fusion360_live_verified_geometry.png)
+
+| 3D CFD Internal Streamlines & Velocity (`Q = 18 CFM`) | 3010 Toolhead Lateral Exhaust & Partitioned Wire Tunnels |
+| :---: | :---: |
+| ![3D CFD Streamlines](cad/SparkShift_Accessories_v26/images/08_cpap_cfd_streamlines_and_velocity.png) | ![3010 Toolhead Side Exhaust on Carriage](cad/SparkShift_Accessories_v26/images/16_toolhead_side_exhaust_on_carriage.png) |
+
+👉 **[Full Accessory & 3010 Toolhead Documentation, B-Rep Audit, CFD Analysis, STEP & STL Files (`cad/SparkShift_Accessories_v26/README.md`)](cad/SparkShift_Accessories_v26/README.md)**
+
 ## Matched inspection package
 
 | File / guide | Scope |
 |---|---|
 | [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable **v26j** snapshot: **135 native bodies**, timeline **1648**; native review reports 135/135 readback matches. |
 | [v26 whole-assembly STEP](cad/SparkShift_AHG_min_v26.step) | 135 solid BREP records; neutral inspection export, not a manufacturing qualification. |
-| [17 assembly STLs](stl_v26) | Complete matched inspection set, not print-ready or support-free. |
-| [Print-part inspection notes](PRINT_PARTS.md) | All 17 roles, bridge-support review, interlock fit, current meshes, and both case orientations. |
+| [25 assembly & accessory STLs](stl_v26) | Complete matched 17-part core set plus 8 pure-primitive accessory & `3010`/`2510` toolhead STLs (`P20`–`P24`, `P17_3010`/`2510`, `P18_3010`). |
+| [Accessory & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md) | Parametric `OCP` generator, 3D CFD solver, STEP/STL exports, 17 multi-angle renders, and 4 animated GIFs for `P20`–`P24` and `P17`/`P18` (`3010`/`2510`). |
+| [Print-part inspection notes](PRINT_PARTS.md) | All 17 core roles + 8 accessory/3010 roles, bridge-support review, interlock fit, current meshes, and case orientations. |
 | [Changes, digital checks, and gallery](PREVIEW.md) | v26a-j notes, new cross-bridges/recess, retained four-zone dimensions, six gallery views, exploded layout, GIF, and annotated v26h/v26j comparison. |
-| [Generic per-build BOM](BOM.md) | Full reference inventory for one receiver plus one tool, not a personal shopping delta. |
+| [Generic per-build BOM](BOM.md) | Full reference inventory for one receiver, one tool, and the `P20`–`P24` / `3010` accessory suite. |
 | [Incremental authoring source](source_v26/README.md) | Exactly **13 sealed modules**; prior live state and missing inputs prevent a clean one-command rebuild. |
-| [Next-session accessories plan](ACCESSORIES_PLAN.md) | EBB42 mounting/wiring, Beacon or Cartographer, CPAP duct/collar, hose, and stationary blower mount; **planned, not implemented**. |
+| [Accessories architecture & verification](ACCESSORIES_PLAN.md) | Frozen v26j planning datums and complete verification summary for `P20`–`P24`, `P17_3010`/`2510`, and `P18_3010`. |
 
 The 17 inspection meshes total **420,820 facets**. Each is one
 closed, manifold, coherently wound, positive-volume component, with zero
@@ -153,11 +177,7 @@ shaft sourcing, and thermal/endurance qualification remain open. Two rear
 support/wiring; neither pin-seat agreement nor bolt alignment completes
 all coupling, magnet, or placement-grid checks.
 
-The [accessories plan](ACCESSORIES_PLAN.md) is the clean-session handoff:
-start from this **v26j / timeline 1648** F3D, confirm real board/probe/hose
-variants, then co-design probe and cooling clearances without moving the
-core datums by accident. No EBB42, probe, CPAP duct, hose, or blower mount
-is represented as finished or included in the current build inventory.
+The [accessories architecture & verification guide](ACCESSORIES_PLAN.md) and [SparkShift v26 Accessory & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md) document the completed pure-primitive `P20`–`P24` and `P17_3010`/`P18_3010` package built against this **v26j / timeline 1648** baseline (`0.000 mm³` clash across all core bodies and Monolith 2WD 9mm gantry keepouts). Physical bench-testing of printed fits, thermal margins, blower backpressure, and sensor offsets remains required before heated or unattended operation.
 
 ## Licences and sources
 

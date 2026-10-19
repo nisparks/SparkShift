@@ -195,8 +195,16 @@ for the remaining orientation/fit gates.
 | P14 | [Right GT2 tooth liner](stl_v26/P14_Right_tooth_liner.stl) | **CC BY-SA 3.0** |
 | P15 | [Left belt arch](stl_v26/P15_Left_belt_arch.stl) | GPL-3.0 custom work |
 | P16 | [Right belt arch](stl_v26/P16_Right_belt_arch.stl) | GPL-3.0 custom work |
-| P17 | [HF tool carrier](stl_v26/P17_HF_tool_carrier.stl) | GPL-3.0 custom work |
-| P18 | [Tool docking backplate](stl_v26/P18_Tool_docking_backplate.stl) | GPL-3.0 custom work |
+| P17 | [HF tool carrier (baseline)](stl_v26/P17_HF_tool_carrier.stl) | GPL-3.0 custom work |
+| P18 | [Tool docking backplate (baseline)](stl_v26/P18_Tool_docking_backplate.stl) | GPL-3.0 custom work |
+| P17 (3010) | [Pure-primitive 3010 HF tool carrier with quad lateral exhaust & wire chimneys](stl_v26/P17_HF_tool_carrier_3010.stl) | GPL-3.0 custom work |
+| P17 (2510) | [Pure-primitive 2510 HF tool carrier with quad lateral exhaust & wire chimneys](stl_v26/P17_HF_tool_carrier_2510.stl) | GPL-3.0 custom work |
+| P18 (3010) | [Counterbored tool docking backplate for 3010 fan clearance](stl_v26/P18_Tool_docking_backplate_3010.stl) | GPL-3.0 custom work |
+| P20 | [CPAP hose inlet with Trianglelab 7040 dual-barb spigot & co-bolted EBB42 wings](stl_v26/P20_CPAP_Hose_Inlet.stl) | GPL-3.0 custom work |
+| P21 | [CPAP rear gantry bridge behind Monolith 2WD 9mm X-beam](stl_v26/P21_CPAP_Gantry_Bridge.stl) | GPL-3.0 custom work |
+| P22 | [CPAP lower plenum with ≥4.65mm sock thermal keepout & sub-sock crescent jets](stl_v26/P22_CPAP_Lower_Plenum.stl) | GPL-3.0 custom work |
+| P23 | [Shared forward Beacon RevH Normal / Cartographer V3 Flat Pack mount](stl_v26/P23_Beacon_Cartographer_Mount.stl) | GPL-3.0 custom work |
+| P24 | [Co-bolted BTT EBB42 CAN V1.2 rear controller mount (17.4–21.8mm NEMA14 clearance)](stl_v26/P24_EBB42_Controller_Mount.stl) | GPL-3.0 custom work |
 
 Wiring, connectors, strain relief, signal/control interface, and adequately
 sized regulated **5V servo power/common ground** are printer-dependent;
@@ -204,10 +212,7 @@ verify the selected servo and supply. A controller signal pin is not a motor
 power supply. Heater/sensor wiring and thermal protection follow the actual
 compatible supplier/printer system, not the reference geometry.
 
-**EBB42, Beacon/Cartographer, CPAP duct/collar, hose, and blower mounting are
-next-session plans**, not mandatory core purchases or included finished
-prints. Select actual revisions and dimensions before adding accessory
-hardware to this BOM; see the [accessories plan](ACCESSORIES_PLAN.md).
+See the [SparkShift v26 Accessory & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md) and [ACCESSORIES_PLAN.md](ACCESSORIES_PLAN.md) for the accessory fastener, heat-set insert, sensor, EBB42, and 3010/2510 fan BOM.
 
 Read [mixed-scope attribution](ATTRIBUTION.md): GPL/CC BY-SA notices and
 upstream authorship remain intact, and vendor/hotend references retain
