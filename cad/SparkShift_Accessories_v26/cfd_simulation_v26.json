@@ -54,46 +54,46 @@
     "1_P20_Hose_Spigot_Inlet_Z+24": {
       "flow_area_mm2": 380.13,
       "mean_velocity_m_s": 22.36,
-      "peak_velocity_m_s": 29.8,
+      "peak_velocity_m_s": 25.65,
       "dynamic_pressure_Pa": 296.0
     },
     "2_P20_SBend_Transition_Z0": {
       "flow_area_mm2": 356.4,
       "mean_velocity_m_s": 23.85,
-      "peak_velocity_m_s": 29.8,
+      "peak_velocity_m_s": 29.34,
       "dynamic_pressure_Pa": 336.7
     },
     "3_P21_Rear_Gantry_Trunk_Z-38": {
       "flow_area_mm2": 353.4,
       "mean_velocity_m_s": 24.05,
-      "peak_velocity_m_s": 26.94,
+      "peak_velocity_m_s": 27.37,
       "dynamic_pressure_Pa": 342.5
     },
     "4_P22_Sweeping_Rear_Elbow_Z-66": {
       "flow_area_mm2": 358.5,
       "mean_velocity_m_s": 23.71,
-      "peak_velocity_m_s": 26.56,
+      "peak_velocity_m_s": 28.06,
       "dynamic_pressure_Pa": 332.8
     },
     "5_P22_OverSensor_and_Runners_Y0": {
       "flow_area_mm2": 368.4,
       "mean_velocity_m_s": 23.07,
-      "peak_velocity_m_s": 25.84,
+      "peak_velocity_m_s": 26.45,
       "dynamic_pressure_Pa": 315.2
     },
     "6_P22_300deg_Nozzle_Ring_Throat": {
       "flow_area_mm2": 328.0,
       "mean_velocity_m_s": 25.91,
-      "peak_velocity_m_s": 29.02,
+      "peak_velocity_m_s": 31.5,
       "dynamic_pressure_Pa": 397.6
     }
   },
   "nozzle_300deg_azimuthal_velocity_m_s": {
-    "Front_Center_-30_to_+30_deg": 25.72,
-    "Front_Left_+30_to_+90_deg": 25.88,
-    "Rear_Left_+90_to_+150_deg": 26.2,
-    "Front_Right_-90_to_-30_deg": 25.88,
-    "Rear_Right_-150_to_-90_deg": 26.2
+    "Front_Center_-30_to_+30_deg": 29.14,
+    "Front_Left_+30_to_+90_deg": 27.14,
+    "Rear_Left_+90_to_+150_deg": 26.88,
+    "Front_Right_-90_to_-30_deg": 27.14,
+    "Rear_Right_-150_to_-90_deg": 26.88
   },
   "thermal_shield_performance": {
     "sub_sock_filament_zone_flow_percent": 100.0,
@@ -105,5 +105,5 @@
       -78.88
     ]
   },
-  "elapsed_seconds": 20.78
+  "elapsed_seconds": 64.44
 }
