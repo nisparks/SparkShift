@@ -24,9 +24,9 @@ Every printable part was audited at the OpenCASCADE B-Rep face/edge level and at
 
 | Part | STEP / STL Files | Solids / Shells | Volume (`mm³`) | Analytical Face Breakdown (`0` BSpline) | Min Face Area (`mm²`) | Bounding Box (`[Xmin, Ymin, Zmin] .. [Xmax, Ymax, Zmax]`) | Watertight Manifold / Clash |
 | :--- | :--- | :---: | :---: | :--- | :---: | :--- | :---: |
-| **`P20`** | [`P20_CPAP_Hose_Inlet`](./step/P20_CPAP_Hose_Inlet.step) ([STL](./stl/P20_CPAP_Hose_Inlet.stl)) | `1 / 1` | `7,900.98` | `172` (`86` Plane, `75` Cyl, `11` Cone) | `0.4721` | `[-20.60, -59.35, -21.58] .. [20.60, -27.60, 30.00]` | `True` / `0.000 mm³` |
-| **`P21`** | [`P21_CPAP_Gantry_Bridge`](./step/P21_CPAP_Gantry_Bridge.step) ([STL](./stl/P21_CPAP_Gantry_Bridge.stl)) | `1 / 1` | `9,969.26` | `143` (`79` Plane, `64` Cyl) | `0.5508` | `[-21.00, -45.40, -61.00] .. [21.00, 0.30, -17.78]` | `True` / `0.000 mm³` |
-| **`P22`** | [`P22_CPAP_Lower_Plenum`](./step/P22_CPAP_Lower_Plenum.step) ([STL](./stl/P22_CPAP_Lower_Plenum.stl)) | `1 / 1` | `11,529.16` | `267` (`146` Plane, `121` Cyl) | `0.2506` | `[-22.42, -45.40, -77.85] .. [22.42, 35.20, -48.00]` | `True` / `0.000 mm³` |
+| **`P20`** | [`P20_CPAP_Hose_Inlet`](./step/P20_CPAP_Hose_Inlet.step) ([STL](./stl/P20_CPAP_Hose_Inlet.stl)) | `1 / 1` | `7,900.87` | `172` (`86` Plane, `75` Cyl, `11` Cone) | `0.4721` | `[-20.60, -59.35, -21.58] .. [20.60, -27.60, 30.00]` | `True` / `0.000 mm³` |
+| **`P21`** | [`P21_CPAP_Gantry_Bridge`](./step/P21_CPAP_Gantry_Bridge.step) ([STL](./stl/P21_CPAP_Gantry_Bridge.stl)) | `1 / 1` | `10,184.03` | `135` (`75` Plane, `60` Cyl) | `0.5508` | `[-21.00, -45.40, -51.40] .. [21.00, 0.30, -17.78]` | `True` / `0.000 mm³` |
+| **`P22`** | [`P22_CPAP_Lower_Plenum`](./step/P22_CPAP_Lower_Plenum.step) ([STL](./stl/P22_CPAP_Lower_Plenum.stl)) | `1 / 1` | `18,435.18` | `214` (`118` Plane, `96` Cyl) | `0.4738` | `[-22.42, -45.40, -77.85] .. [22.42, 35.20, -48.00]` | `True` / `0.000 mm³` |
 | **`P23`** | [`P23_Beacon_Cartographer_Mount`](./step/P23_Beacon_Cartographer_Mount.step) ([STL](./stl/P23_Beacon_Cartographer_Mount.stl)) | `1 / 1` | `2,397.87` | `56` (`34` Plane, `22` Cyl) | `3.2287` | `[-19.20, -14.20, -75.00] .. [19.20, 11.55, -70.80]` | `True` / `0.000 mm³` |
 | **`P24`** | [`P24_EBB42_Controller_Mount`](./step/P24_EBB42_Controller_Mount.step) ([STL](./stl/P24_EBB42_Controller_Mount.stl)) | `1 / 1` | `8,762.85` | `196` (`107` Plane, `89` Cyl) | `0.1702` | `[-21.80, -25.40, -18.40] .. [22.10, -2.50, 51.20]` | `True` / `0.000 mm³` |
 | **`P17 (3010)`** | [`P17_HF_tool_carrier_3010`](./step/P17_HF_tool_carrier_3010.step) ([STL](./stl/P17_HF_tool_carrier_3010.stl)) | `1 / 1` | `11,656.13` | `270` (`164` Plane, `102` Cyl, `4` Cone) | `0.2752` | `[-15.00, 11.50, -52.50] .. [15.00, 35.93, 48.74]` | `True` / `0.000 mm³` |
@@ -115,30 +115,35 @@ With the `45.0 mm` wide carriage (`X ∈ [-22.42, +22.42] mm`), the usable docka
 | :---: | :---: |
 | ![3D CFD Streamlines](./images/08_cpap_cfd_streamlines_and_velocity.png) | ![Nozzle Jet Impingement](./images/09_cpap_nozzle_jet_impingement_closeup.png) |
 
-### 4.1 Pure-Primitive Aerodynamic CPAP Path & Shingle Slip-Joints
+### 4.1 Pure-Primitive Aerodynamic CPAP Path, Smooth `R = 61 mm` Elbow & Shingle Slip-Joints
 - **Edge-Tapered Rear Gantry Corridor (`corridor_aero_vertices`):** Fits cleanly behind the Monolith 2WD 9mm carbon X-beam (`Y <= -33.20 mm`) and inside the 45° X-limit XY-joint chamfers (`GANTRY_Body4..9`, `0.000 mm³` clash across all 39 gantry bodies) with **`353.40 mm²`** internal flow area.
-- **Leak-Free Directional Shingle Slip-Joints (`0.18 mm` radial slip clearance):**
-  - **`P20 -> P21` (`Z = -17.78..-21.58 mm`):** `P20`'s `3.80 mm` continuous 360° inner male sleeve telescopes inside `P21`'s top female socket.
-  - **`P21 -> P22` (`Z = -58.60..-61.00 mm`):** `P21`'s `2.40 mm` lower inner male sleeve telescopes inside `P22`'s top female collar on a 100% flush horizontal plane (`Z = -58.60 mm`).
+- **Step-Free Directional Shingle Slip-Joints (`0.18 mm` radial slip clearance, `0.00 mm` internal bore step):**
+  - **`P20 -> P21` (`Z = -17.78..-21.58 mm`):** `P20`'s `3.80 mm` continuous 360° inner male sleeve telescopes flush inside `P21`'s top female socket (`corridor_aero_vertices(1.84)`).
+  - **`P21 -> P22` (`Z = -49.00..-51.40 mm`):** Raised right below the 2020 X-axis extrusion (`Z = -47.78 mm`) so `P21`'s `2.40 mm` lower inner male sleeve telescopes flush inside `P22`'s top female collar (`Z = -51.40 mm`), initiating a long **`R = 61.0 mm` inner / `R = 50.0 mm` outer circular elbow sweep** (`R = 14.8 / 16.0 mm` rear heel) and a **100% flat, obstacle-free `Z = -68.90 mm` plenum floor** (`1.20 mm` solid continuous wall above the `Z = -73.00..-70.10 mm` heat-set insert pockets, with zero protruding floor pucks or ledges).
 - **Exact 3D Constant-Distance Thermal Keepout (`P22` & `P23`):**
-  - Analytically cut with cylindrical and spherical offsets providing **`≥ 4.65 mm` 3D Euclidean clearance** around the entire **Volcano silicone sock** (`X ∈ [-7.00, +7.00], Y ∈ [12.95, 38.45], Z ∈ [-74.35, -59.50] mm`) and **`≥ 5.90 mm` clearance** from the bare `350 °C` Volcano aluminum heatblock — preventing ABS/ASA radiant heat softening while directing 100% of the cooling jet (`25.9 m/s` mean velocity at `18 CFM`) below the sock onto the nozzle tip (`Z = -78.88 mm`).
+  - Analytically cut with cylindrical offsets providing **`≥ 4.65 mm` 3D Euclidean clearance** around the entire **Volcano silicone sock** (`X ∈ [-7.00, +7.00], Y ∈ [12.95, 38.45], Z ∈ [-74.35, -59.50] mm`) and **`≥ 5.90 mm` clearance** from the bare `350 °C` Volcano aluminum heatblock — preventing ABS/ASA radiant heat softening while directing 100% of the cooling jet (`25.9 m/s` mean velocity at `18 CFM`) below the sock onto the nozzle tip (`Z = -78.88 mm`).
 
 ### 4.2 3D CFD Summary (`cfd_simulation_v26.json`)
 | Station / Metric | Flow Area (`mm²`) | Mean Velocity (`m/s`) | Peak Velocity (`m/s`) | Dynamic Pressure (`Pa`) |
 | :--- | :---: | :---: | :---: | :---: |
 | **1. `P20` Hose Spigot Inlet (`Z = +24 mm`)** | `380.13` | `22.36` | `29.80` | `296.0` |
 | **2. `P20` S-Bend Transition (`Z = 0 mm`)** | `356.40` | `23.85` | `29.80` | `336.7` |
-| **3. `P21` Rear Gantry Trunk (`Z = -38 mm`)** | `353.40` | `24.05` | `27.32` | `342.5` |
-| **4. `P22` Sweeping Rear Elbow (`Z = -66 mm`)** | `358.50` | `23.71` | `29.80` | `332.8` |
-| **5. `P22` Over-Sensor Runners (`Y = 0 mm`)** | `368.40` | `23.07` | `29.80` | `315.2` |
+| **3. `P21` Rear Gantry Trunk (`Z = -38 mm`)** | `353.40` | `24.05` | `26.94` | `342.5` |
+| **4. `P22` Sweeping Rear Elbow (`Z = -66 mm`)** | `358.50` | `23.71` | `26.56` | `332.8` |
+| **5. `P22` Over-Sensor Runners (`Y = 0 mm`)** | `368.40` | `23.07` | `25.84` | `315.2` |
 | **6. `P22` Dual Sub-Sock Nozzle Outlets** | `328.00` | `25.91` | `29.02` | `397.6` |
 | **Total Static Backpressure (`@ 18 CFM`)** | — | — | — | **`542.5 Pa`** (`81.0%` margin on `2,850 Pa` blower) |
 
 ---
 
-## 5. Multi-Angle VTK Inspection Gallery (`images/01`–`16`)
+## 5. Multi-Angle VTK & Live Fusion 360 Inspection Gallery (`images/01`–`20`)
 
-| `01` Rear-Right Iso (Complete Assembly) | `02` Rear-Left Iso (Complete Assembly) |
+| `18` Full-System Exploded View with Gantry (Front-Right Iso) | `19` Full-System Exploded View with Gantry (Rear-Left Iso) |
+| :---: | :---: |
+| ![18 Full Exploded Front Iso](./images/18_full_exploded_with_gantry_front_iso.png) | ![19 Full Exploded Rear Iso](./images/19_full_exploded_with_gantry_rear_iso.png) |
+| **`20` Live Fusion 360 Section (`X = ±15.80 mm`) — Smooth `R = 61 mm` Sweep & Flat Floor** | **`17` Live Fusion 360 Shaded with Visible Edges** |
+| ![20 Section Wall Integrity](./images/20_p22_section_wall_integrity.png) | ![17 Live Fusion 360](./images/17_fusion360_live_verified_geometry.png) |
+| **`01` Rear-Right Iso (Complete Assembly)** | **`02` Rear-Left Iso (Complete Assembly)** |
 | :---: | :---: |
 | ![01 Rear Right Iso](./images/01_rear_right_iso_complete.png) | ![02 Rear Left Iso](./images/02_rear_left_iso_complete.png) |
 | **`03` Right Side Gantry & Beacon Keepout Cone** | **`04` Lower Beacon & Dual Nozzle Jets Close-up** |

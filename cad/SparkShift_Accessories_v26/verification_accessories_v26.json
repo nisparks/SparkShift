@@ -1,11 +1,11 @@
 {
   "passed": true,
-  "elapsed_seconds": 86.17,
-  "rear_gantry_corridor_air_area_mm2": 310.29,
+  "elapsed_seconds": 94.58,
+  "rear_gantry_corridor_air_area_mm2": 201.88,
   "hose_spigot_bore_area_mm2": 380.13,
   "cpap_flow_areas_mm2": {
     "1_hose_inlet_id22": 380.13,
-    "2_rear_gantry_conduit_p21": 310.29,
+    "2_rear_gantry_conduit_p21": 201.88,
     "3_rear_bifurcation_split_p22": 324.6,
     "4_side_plenum_runners_p22": 248.4,
     "5_front_sweeping_horn_plenum_p22": 368.4,
@@ -90,7 +90,7 @@
     "P17_HF_tool_carrier_2510": {
       "solids": 1,
       "shells": 1,
-      "brep_volume_mm3": 11098.13,
+      "brep_volume_mm3": 11102.142,
       "min_mm": [
         -12.4,
         11.5,
@@ -102,18 +102,18 @@
         48.74
       ],
       "stl_validation": {
-        "facets": 26904,
+        "facets": 26896,
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
-        "mesh_volume_mm3": 11100.075,
+        "mesh_volume_mm3": 11104.089,
         "is_watertight_manifold": true
       }
     },
     "P17_HF_tool_carrier_3010": {
       "solids": 1,
       "shells": 1,
-      "brep_volume_mm3": 11656.127,
+      "brep_volume_mm3": 11660.14,
       "min_mm": [
         -15.0,
         11.5,
@@ -125,11 +125,11 @@
         48.74
       ],
       "stl_validation": {
-        "facets": 27524,
+        "facets": 27516,
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
-        "mesh_volume_mm3": 11658.445,
+        "mesh_volume_mm3": 11662.459,
         "is_watertight_manifold": true
       }
     },
@@ -289,7 +289,7 @@
     "P20_CPAP_Hose_Inlet": {
       "solids": 1,
       "shells": 1,
-      "brep_volume_mm3": 7900.981,
+      "brep_volume_mm3": 7900.873,
       "min_mm": [
         -20.6,
         -59.347,
@@ -310,20 +310,20 @@
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
-        "mesh_volume_mm3": 7897.338,
+        "mesh_volume_mm3": 7897.229,
         "is_watertight_manifold": true
       },
-      "step_sha256": "eecc359419ac123fa1c9bbdce9db2e233754cdbe4214fb31225ae54ff8bbbf9c",
-      "stl_sha256": "c71f4a7b2884a55623c2564a8f7629c28f8c70b17068d6000ecfabba5496daf6"
+      "step_sha256": "ddfe5eef37f80a4b8d25bcb6ab943a824662a132998b75d2682567e5a9452611",
+      "stl_sha256": "5c1addfcbd6b923e39442ba930f0302b1758c1723b3b542af1c6e9bf70935e4b"
     },
     "P21_CPAP_Gantry_Bridge": {
       "solids": 1,
       "shells": 1,
-      "brep_volume_mm3": 9969.258,
+      "brep_volume_mm3": 10184.032,
       "min_mm": [
         -21.0,
         -45.4,
-        -61.0
+        -51.4
       ],
       "max_mm": [
         21.0,
@@ -336,20 +336,20 @@
       "beacon_clashes": [],
       "ebb42_clash_mm3": 0.0,
       "stl_validation": {
-        "facets": 10180,
+        "facets": 9084,
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
-        "mesh_volume_mm3": 9969.105,
+        "mesh_volume_mm3": 10183.833,
         "is_watertight_manifold": true
       },
-      "step_sha256": "c4dcae3161f14141016df97b9981a1b67315028b725fb1c7f548f873e908ec63",
-      "stl_sha256": "b023062e1ae52918aae23d7ab24a9a738df51fb0fb16fd3a0ad1d3b20b1c8223"
+      "step_sha256": "6a15a3cd9fc5e41a7244565ea6707ae83b79305f5ec78db2de36d54c17ec2c0c",
+      "stl_sha256": "c55f17babae592aba2635869cef10f2f79d235b30bffabf0de44af4d28510039"
     },
     "P22_CPAP_Lower_Plenum": {
       "solids": 1,
       "shells": 1,
-      "brep_volume_mm3": 11529.158,
+      "brep_volume_mm3": 18435.177,
       "min_mm": [
         -22.42,
         -45.4,
@@ -366,15 +366,15 @@
       "beacon_clashes": [],
       "ebb42_clash_mm3": 0.0,
       "stl_validation": {
-        "facets": 13352,
+        "facets": 11630,
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
-        "mesh_volume_mm3": 11529.246,
+        "mesh_volume_mm3": 18435.645,
         "is_watertight_manifold": true
       },
-      "step_sha256": "4c71d46724ca68eefce55057b98f3601bf07a22a769b124f5bd7ae7afcdff682",
-      "stl_sha256": "9a9e70dbb47feac978b7effa0249e524608c4a6415b763187b68664d7c1d5f94"
+      "step_sha256": "ae96ba5a524d88524e6a3613707348a7fd93fc927e5eb589ed5763a59acc7c92",
+      "stl_sha256": "6799dd0370b3deb86104c68c3fbbd754fee3b7a49a179fe785f2e6873a43a236"
     },
     "P23_Beacon_Cartographer_Mount": {
       "solids": 1,
@@ -403,7 +403,7 @@
         "mesh_volume_mm3": 2398.047,
         "is_watertight_manifold": true
       },
-      "step_sha256": "c40d3cf2c6a1237e3ab5b9c4bb03ed785e1ac92828647327aa5ece20055c5b70",
+      "step_sha256": "7bf83755716d005e4c9215a18e84492620c9c113eba1497f716c2733eafba059",
       "stl_sha256": "25b12fb2fc843fb81b78aec747ae70c3fd5064809e0f5cf2ffa8a844a15f3b9e"
     },
     "P24_EBB42_Controller_Mount": {
@@ -433,9 +433,9 @@
         "mesh_volume_mm3": 8764.199,
         "is_watertight_manifold": true
       },
-      "step_sha256": "bbb129cbd1ab2bf0c504cc85de67b2174f4daf2f6021b1418d7b07d6953f41b2",
+      "step_sha256": "bef50e228d1685dc1d7ff55597f77597e304b9057b5155e82a2c0d7aedece669",
       "stl_sha256": "7383433f94b6053cb81e6101e178ec4d8dcbdaaf9e60ea254562fa1511fbd948"
     }
   },
-  "combined_step_sha256": "e59e1c5ed24c30f7d8470eec5edb68eac82bcc521e729ef52a8154a320ffab57"
+  "combined_step_sha256": "26f1a44dda7c4e8c2f40ae9ac3f72eb8976e437431d07c990f2f20ac9b9233dd"
 }

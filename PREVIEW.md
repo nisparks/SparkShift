@@ -285,16 +285,19 @@ or vendor envelopes must not be changed merely to make a render look clean.
 The complete accessory and 3010 high-flow toolhead suite is located in [`cad/SparkShift_Accessories_v26/`](cad/SparkShift_Accessories_v26/README.md) alongside the updated [accessories plan](ACCESSORIES_PLAN.md), [print parts guide](PRINT_PARTS.md), and [generic BOM](BOM.md):
 
 - **Pure-Primitive B-Rep Solids**: All 8 printable parts (`P20_CPAP_Hose_Inlet`, `P21_CPAP_Gantry_Bridge`, `P22_CPAP_Lower_Plenum`, `P23_Beacon_Cartographer_Mount`, `P24_EBB42_Controller_Mount`, `P17_HF_tool_carrier_3010`, `P17_HF_tool_carrier_2510`, and `P18_Tool_docking_backplate_3010`) are constructed 100% from analytical OpenCascade primitives (`0` BSpline/Bezier/Sphere faces, `0` sliver faces `< 0.15 mm²`, `1` solid / `1` shell, `100%` watertight manifold STLs, and `0.000 mm³` interference against the `v26j` carriage).
-- **NEMA14 Stepper Pancake Clearance**: Verified `27.39 mm` unobstructed axial pocket (`Z = -48.61 mm` to `-21.22 mm`), accommodating all `17.4–21.8 mm` NEMA14 pancake motors with `+5.59 mm` to `+9.99 mm` axial headroom and a `39.70 mm` upper wire-egress bay.
-- **3010 Side Exhaust & Wire Routing**: `P17_HF_tool_carrier_3010` features bilateral `12.7 × 14.0 mm` side exhaust windows (`252.8 mm²` total area) and an enlarged `6.0 × 6.5 mm` (`39.0 mm²`) vertical heater/thermistor wire channel with a `1.40 mm` heatbreak cooling-air divider wall.
+- **Smooth Sweeping `P21`–`P22` Elbow & Obstacle-Free Airway**: Raised the `P21`-to-`P22` shingle split line to `Z = -49.00 mm` right below the 2020 X-axis extrusion, providing a long, tangent `R = 61.0 mm` inner / `R = 50.0 mm` outer circular elbow sweep (`R = 14.8 / 16.0 mm` rear heel), `0.00 mm` shingle bore steps, a single `G1`-continuous inner horn wall, and a 100% flat, bump-free `Z = -68.90 mm` floor (`1.20 mm` solid continuous wall above the `P23` heat-set insert pockets).
+- **NEMA14 Stepper Pancake Clearance**: Verified unobstructed axial clearance behind `P02_Upper_Body` (`Y = -6.50 mm`), accommodating all `17.4–21.8 mm` NEMA14 pancake motors with `+2.20 mm` to `+6.60 mm` axial headroom to the `P24` standoffs (`+3.33 mm` to `+7.73 mm` to the `EBB42` PCB).
+- **3010 Side Exhaust & Wire Routing**: `P17_HF_tool_carrier_3010` features quad lateral exhaust windows (`265.7 mm²` total area) and partitioned vertical heater/thermistor wire chimneys (`18.5 mm²` per side) isolated behind the exhaust windows.
 
-![SparkShift v26 Complete Assembly Hero Render](cad/SparkShift_Accessories_v26/images/01_hero_3quarter_front_right.png)
+| Rear-Right Iso (Complete Assembly) | Rear-Left Iso (Complete Assembly) |
+| :---: | :---: |
+| ![SparkShift v26 Complete Assembly Rear-Right Iso](cad/SparkShift_Accessories_v26/images/01_rear_right_iso_complete.png) | ![SparkShift v26 Complete Assembly Rear-Left Iso](cad/SparkShift_Accessories_v26/images/02_rear_left_iso_complete.png) |
+| **Full-System Exploded View with Monolith 2WD 9mm Gantry (Front-Right Iso)** | **Full-System Exploded View with Monolith 2WD 9mm Gantry (Rear-Left Iso)** |
+| ![Full System Exploded Front Iso](cad/SparkShift_Accessories_v26/images/18_full_exploded_with_gantry_front_iso.png) | ![Full System Exploded Rear Iso](cad/SparkShift_Accessories_v26/images/19_full_exploded_with_gantry_rear_iso.png) |
+| **Live Fusion 360 Section (`X = ±15.80 mm`) — Smooth `R = 61 mm` Sweep & Flat Floor** | **3D CPAP CFD Streamlines & Velocity Map (`Q = 18 CFM`)** |
+| ![Live Fusion 360 Section Wall Integrity](cad/SparkShift_Accessories_v26/images/20_p22_section_wall_integrity.png) | ![SparkShift v26 3D CPAP CFD Streamlines & Velocity Map](cad/SparkShift_Accessories_v26/images/08_cpap_cfd_streamlines_and_velocity.png) |
+| **3010 Toolhead Side Exhaust & Partitioned Wire Channels** | **360° Full Assembly Turntable Animation** |
+| ![SparkShift v26 3010 Toolhead Side Exhaust & Wire Channels](cad/SparkShift_Accessories_v26/images/15_toolhead_rear_vent_and_wire_channels.png) | ![SparkShift v26 360-Degree Turntable Animation](cad/SparkShift_Accessories_v26/images/anim_01_full_assembly_360_turntable.gif) |
 
-![SparkShift v26 3010 Toolhead Side Exhaust & Enlarged Wire Channel](cad/SparkShift_Accessories_v26/images/15_toolhead_3010_exhaust_and_wire_channels.png)
-
-![SparkShift v26 3D CPAP CFD Streamlines & Velocity Map](cad/SparkShift_Accessories_v26/images/08_cpap_cfd_streamlines_and_velocity.png)
-
-![SparkShift v26 360-Degree Turntable Animation](cad/SparkShift_Accessories_v26/images/anim_01_turntable_360.gif)
-
-See [`cad/SparkShift_Accessories_v26/README.md`](cad/SparkShift_Accessories_v26/README.md) for the complete 17-image + 4-animation gallery, B-Rep verification audit, CFD results, and 350mm 8-tool / 9-tool Voron 2.4R2 dock layout. See [mixed-scope attribution](ATTRIBUTION.md) for GPL-3.0 custom work, separate CC BY-SA 3.0 P13/P14 liners, and vendor-reference rights.
+See [`cad/SparkShift_Accessories_v26/README.md`](cad/SparkShift_Accessories_v26/README.md) for the complete 20-image + 4-animation gallery, B-Rep verification audit, CFD results, and 350mm 9-tool / 10-tool Voron 2.4R2 dock layout. See [mixed-scope attribution](ATTRIBUTION.md) for GPL-3.0 custom work, separate CC BY-SA 3.0 P13/P14 liners, and vendor-reference rights.
 

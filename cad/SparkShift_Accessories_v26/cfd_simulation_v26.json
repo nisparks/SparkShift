@@ -72,7 +72,7 @@
     "4_P22_Sweeping_Rear_Elbow_Z-66": {
       "flow_area_mm2": 358.5,
       "mean_velocity_m_s": 23.71,
-      "peak_velocity_m_s": 29.8,
+      "peak_velocity_m_s": 26.56,
       "dynamic_pressure_Pa": 332.8
     },
     "5_P22_OverSensor_and_Runners_Y0": {
@@ -105,5 +105,5 @@
       -78.88
     ]
   },
-  "elapsed_seconds": 26.16
+  "elapsed_seconds": 20.78
 }

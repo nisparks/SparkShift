@@ -324,7 +324,9 @@ def rounded_polygon_wire_2d(vertices, radii):
         if r <= 1e-6 or abs(theta - math.pi) < 1e-6:
             arcs.append({"entry": v, "exit": v, "mid": None})
             continue
-        max_tan = 0.45 * min(l1, l2)
+        lim1 = (0.98 if radii[i - 1] <= 1e-6 else 0.45) * l1
+        lim2 = (0.98 if radii[(i + 1) % n] <= 1e-6 else 0.45) * l2
+        max_tan = min(lim1, lim2)
         tan_len = min(r / math.tan(theta / 2.0), max_tan)
         r_eff = tan_len * math.tan(theta / 2.0)
         bx, by = u1[0] + u2[0], u1[1] + u2[1]
@@ -736,16 +738,17 @@ def build_p20_inlet():
 
 def build_p21_mid():
     """
-    Prismatic vertical gantry conduit (Z = -58.60 to -17.78 mm, plus 2.40 mm lower inner male shingle sleeve)
+    Prismatic vertical gantry conduit (Z = -49.00 to -17.78 mm, plus 2.40 mm lower inner male shingle sleeve)
     built 100% from orthogonal extrusions, cylinders, and boolean cuts (0 BSpline faces):
     - Top female shingle socket (Z = -21.80 to -17.78 mm) receives P20's 360-deg continuous inner male sleeve.
     - Upper bridge (up_fairing & up_saddle at Z = -24.10..-18.40 mm) bolts directly to the bottom of P24
       via 2x M3x8 vertical screws + 2x M3 heat-set inserts at (X = ±6.00, Y = -15.80, Z = -18.40 mm).
-    - Bottom inner male shingle sleeve (Z = -61.00 to -58.60 mm) telescopes inside P22's top female collar.
+    - Bottom inner male shingle sleeve (Z = -51.40 to -49.00 mm) telescopes inside P22's top female collar
+      right below the 2020 X-axis extrusion (Z_min = -47.78 mm) so P22 can sweep smoothly forward immediately.
     """
     z_top = -17.780
-    z_bot = -58.600
-    z_sleeve_bot = -61.000
+    z_bot = -49.000
+    z_sleeve_bot = -51.400
 
     # Single unbroken vertical extrusion for main conduit + stepped lower inner male shingle sleeve:
     conduit_outer = fuse_all([
@@ -753,20 +756,11 @@ def build_p21_mid():
         prism_xy_r(corridor_aero_vertices(1.02), 2.5, z_sleeve_bot, z_bot + 0.50),
     ])
 
-    # Smooth internal bore (1.15 mm low-loss mid-trunk wall, 1.84 mm wall at top/bottom shingle joints):
-    conduit_inner_loft = fuse_all([
-        prism_xy_r(corridor_aero_vertices(1.84), 2.0, z_sleeve_bot - 0.50, z_top + 1.00),
-        intersect_all(
-            prism_xy_r(corridor_aero_vertices(1.15), 3.2, z_bot, -21.80),
-            [prism_yz_r([
-                (-45.40, z_bot + 1.20), (-33.20, z_bot + 1.20),
-                (-33.20, -23.00), (-45.40, -23.00),
-            ], 1.0, -22.0, 22.0)]
-        ),
-    ])
-    # Top female socket recess (Z = -21.80 to -17.78 mm, wall = 0.84 mm 2-perimeter -> 0.18 mm radial slip clearance):
+    # Constant, step-free internal bore (corridor_aero_vertices(1.84)) matching P20's male sleeve and P22's bore 100% flush:
+    conduit_inner_loft = prism_xy_r(corridor_aero_vertices(1.84), 2.0, z_sleeve_bot - 0.50, z_top + 1.00)
+    # Top female socket recess (Z = -21.58 to -17.78 mm, wall = 0.84 mm 2-perimeter -> 0.18 mm radial slip clearance):
     top_socket_recess = cut_all(
-        prism_xy_r(corridor_aero_vertices(0.84), 2.7, -21.80, z_top + 0.50),
+        prism_xy_r(corridor_aero_vertices(0.84), 2.7, -21.58, z_top + 0.50),
         [prism_xy_r([(-2.80, -25.00), (-2.80, -37.30), (2.80, -37.30), (2.80, -25.00)], 2.40, -22.50, z_top + 1.0)],
     )
     cable_boss_excl = prism_xy_r([(-3.65, -25.00), (-3.65, -38.15), (3.65, -38.15), (3.65, -25.00)], 3.00, z_sleeve_bot - 2.0, z_top + 1.0)
@@ -807,7 +801,6 @@ def build_p21_mid():
         cyl_z( 6.00, -15.80, -25.00, -22.00, 1.65),
         cyl_z(0.0, -34.50, z_sleeve_bot - 1.0, z_top + 1.0, 1.95),
         box(-1.95, 1.95, -34.50, -30.00, z_sleeve_bot - 1.0, z_top + 1.0),
-        box(-1.95, 1.95, -34.50, -25.00, z_bot - 0.50, -53.20),
     ]
     body = cut_all(body, cutters)
     body = intersect_all(body, [box(-22.497, 22.497, -50.0, 25.0, z_sleeve_bot, z_top)])
@@ -829,109 +822,77 @@ def build_p22_lower_plenum():
     """
     Lower CPAP Plenum built 100% from analytical primitives, orthogonal XY/YZ extrusions,
     cylinders, spheres, and boolean cuts (0 BSpline faces):
-    - Top female shingle socket (Z = -61.20 to -58.60 mm) slides over P21's inner male sleeve.
-    - Radiused 90-deg rear elbow (Z = -58.60 down to -70.80 mm) built from orthogonal XY + YZ extrusions.
-    - Aerodynamic teardrop prow splitters at the rear cable bifurcation and over-sensor central plenum.
-    - Side delivery horns built from intersecting XY top-profile and YZ side-profile extrusions.
+    - Top female shingle socket (Z = -51.60 to -49.00 mm) slides over P21's inner male sleeve
+      just below the 2020 X-axis extrusion (Z_min = -47.78 mm) with 0.00 mm internal bore step.
+    - Unified YZ internal sweep (R_in = 61.0 mm / R_out = 50.0 mm upper sweep, R_in = 14.8 mm /
+      R_out = 16.0 mm lower heel, and a 100% flat, bump-free floor at Z = -68.90 mm).
+    - Parallel G1-continuous center island (inner air boundary) and center valley (outer shell boundary)
+      guaranteeing a uniform >= 1.40 mm wall thickness with zero steps, zero dead-end pockets, and zero breaches.
     - Exact 3D constant-distance thermal keepout (R = 4.65 mm cylindrical + spherical offset around the
       Volcano silicone sock and >= 5.90 mm from the 350C bare Volcano heatblock).
     """
-    z_top = -58.600
+    z_top = -49.000
     socket_recess = cut_all(
-        prism_xy_r(corridor_aero_vertices(0.84), 2.7, -61.20, z_top + 0.50),
-        [prism_xy_r([(-2.80, -25.00), (-2.80, -37.30), (2.80, -37.30), (2.80, -25.00)], 2.40, -61.50, z_top + 1.0)],
+        prism_xy_r(corridor_aero_vertices(0.84), 2.7, -51.40, z_top + 0.50),
+        [prism_xy_r([(-2.80, -25.00), (-2.80, -37.30), (2.80, -37.30), (2.80, -25.00)], 2.40, -52.00, z_top + 1.0)],
     )
 
-    elbow_xy_out = prism_xy_r([
-        (-20.60, -25.30), (-20.60, -38.20), (-13.00, -45.40),
-        ( 13.00, -45.40), ( 20.60, -38.20), ( 20.60, -25.30),
-    ], [0.0, 3.5, 3.5, 3.5, 3.5, 0.0], -70.80, z_top)
-    elbow_yz_out = prism_yz_r([
-        (-45.40,  z_top), (-25.30,  z_top),
-        (-25.30, -70.80), (-36.60, -70.80),
-        (-45.40, -62.00),
-    ], [0, 0, 0, 8.5, 8.5], -22.5, 22.5)
-    collar_outer = intersect_all(elbow_xy_out, [elbow_yz_out])
-
-    elbow_xy_in = prism_xy_r([
-        (-19.40, -26.50), (-19.40, -37.70), (-12.40, -44.20),
-        ( 12.40, -44.20), ( 19.40, -37.70), ( 19.40, -26.50),
-    ], 2.5, -69.60, z_top + 0.50)
-    elbow_yz_in = prism_yz_r([
-        (-44.20, z_top + 0.50), (-35.04, z_top + 0.50),
-        (-35.04, -61.20), (-26.50, -61.20),
-        (-26.50, -69.60), (-35.60, -69.60),
-        (-44.20, -61.50),
-    ], [0, 0, 0, 0, 0, 6.0, 6.0], -22.0, 22.0)
-    collar_inner = intersect_all(elbow_xy_in, [elbow_yz_in])
-
     horn_yz_out = prism_yz_r([
-        (-32.00, -70.80), (-32.00, -58.60),
-        (-11.80, -58.60), ( -5.85, -57.36),
+        (-45.40, -70.80), (-45.40,  z_top),
+        (-33.20,  z_top), (-33.20, -49.50),
+        (-20.736,-57.36), (  0.00, -57.36),
         ( 11.20, -57.36), ( 24.50, -61.20),
         ( 35.20, -72.40), ( 35.20, -77.85),
         ( 16.50, -77.85), ( 11.20, -70.80),
-    ], [0, 0, 0.0, 4.0, 12.0, 12.0, 0.8, 0.8, 3.5, 3.5], -23.0, 23.0)
+    ], [16.0, 0, 0, 0, 50.0, 0, 14.0, 14.0, 0.8, 0.8, 3.5, 3.5], -23.0, 23.0)
 
     horn_yz_in = prism_yz_r([
-        (-31.50, -69.60), (-31.50, -59.80),
-        (-11.80, -59.80), ( -5.85, -58.56),
-        ( 11.20, -58.56), ( 24.50, -62.40),
-        ( 34.45, -73.60), ( 34.45, -76.95),
-        ( 16.80, -76.95), ( 12.60, -69.60),
-    ], [0, 0, 3.0, 4.0, 11.0, 11.0, 0.5, 0.5, 3.0, 3.0], -22.5, 22.5)
+        (-43.56, -68.90), (-43.56,  z_top + 0.50),
+        (-35.04,  z_top + 0.50), (-35.04, -51.40),
+        (-21.413,-58.60), (  0.00, -58.60),
+        ( 10.60, -58.60), ( 23.60, -62.45),
+        ( 33.90, -73.60), ( 33.90, -76.65),
+        ( 17.20, -76.65), ( 13.00, -68.90),
+    ], [14.8, 0, 0, 0, 61.0, 0, 12.0, 12.0, 0.5, 0.5, 2.5, 2.5], -22.5, 22.5)
 
-    ducts_outer = []
-    ducts_inner = []
+    xy_outer_full = prism_xy_r([
+        (-13.00, -45.40), (-20.60, -38.20), (-20.60, -25.30),
+        (-22.42, -19.50), (-22.42,  24.50), (-16.40,  35.20),
+        ( -9.80,  35.20), ( -9.80,  11.20), (  9.80,  11.20),
+        (  9.80,  35.20), ( 16.40,  35.20), ( 22.42,  24.50),
+        ( 22.42, -19.50), ( 20.60, -25.30), ( 20.60, -38.20),
+        ( 13.00, -45.40),
+    ], [3.5, 3.5, 16.0, 16.0, 8.0, 1.5, 0.8, 0.0, 0.0, 0.8, 1.5, 8.0, 16.0, 16.0, 3.5, 3.5], -78.00, z_top)
+
+    xy_inner_full = prism_xy_r([
+        (-12.16, -43.56), (-18.76, -37.36), (-18.76, -26.50),
+        (-21.15, -19.50), (-21.15,  24.30), (-15.40,  33.90),
+        (-12.85,  33.90), ( 12.85,  33.90), ( 15.40,  33.90),
+        ( 21.15,  24.30), ( 21.15, -19.50), ( 18.76, -26.50),
+        ( 18.76, -37.36), ( 12.16, -43.56),
+    ], [2.0, 2.0, 14.0, 14.0, 6.8, 1.2, 0.0, 0.0, 1.2, 6.8, 14.0, 14.0, 2.0, 2.0], -77.50, z_top + 0.50)
+
+    cable_boss_nose = prism_xy_r([(-3.65, -20.00), (-3.65, -38.15), (3.65, -38.15), (3.65, -20.00)], 3.00, -78.00, z_top + 1.00)
+    center_island_body = prism_xy_r([
+        (-3.65, -36.50), (-3.65, -31.00), (-12.85, -16.50),
+        (-12.85, 35.00), (12.85,  35.00), ( 12.85, -16.50),
+        ( 3.65, -31.00), ( 3.65, -36.50),
+    ], [0.0, 14.0, 14.0, 0.0, 0.0, 14.0, 14.0, 0.0], -78.00, z_top + 1.00)
+    center_island_excl = fuse_all([cable_boss_nose, center_island_body])
+
+    center_valley_upper = prism_xy_r([
+        (-2.25, -33.20), (-2.25, -30.50), (-11.45, -16.00),
+        (-11.45, -5.40), (11.45,  -5.40), ( 11.45, -16.00),
+        ( 2.25, -30.50), ( 2.25, -33.20),
+    ], [0.0, 12.6, 12.6, 0.0, 0.0, 12.6, 12.6, 0.0], -58.60, z_top + 1.00)
+
+    center_valley_lower = prism_xy_r([
+        (-2.25, -29.50), (-11.45, -15.50), (-11.45, -5.40),
+        (11.45,  -5.40), ( 11.45, -15.50), (  2.25, -29.50),
+    ], [4.0, 12.6, 0.0, 0.0, 12.6, 4.0], -78.00, -58.00)
+
+    cheeks = []
     for sign in (-1, 1):
-        pts_xy_out = [
-            (sign *  5.00, -31.00),
-            (sign * 20.60, -31.00),
-            (sign * 20.60, -25.30),
-            (sign * 22.42, -19.50),
-            (sign * 22.42,  24.50),
-            (sign * 16.40,  35.20),
-            (sign *  9.80,  35.20),
-            (sign *  9.80,  13.50),
-            (sign * 11.65,  11.20),
-            (sign *  6.00,   7.50),
-            (sign *  6.00,  -4.50),
-            (sign * 11.15,  -5.85),
-            (sign * 11.15, -14.50),
-            (sign *  5.00, -17.50),
-        ]
-        rads_xy_out = [1.5, 0.0, 4.0, 6.0, 8.0, 1.5, 0.8, 1.0, 1.5, 2.5, 2.0, 1.5, 2.0, 2.0]
-        if sign < 0:
-            pts_xy_out = pts_xy_out[::-1]
-            rads_xy_out = rads_xy_out[::-1]
-        horn_xy_o = prism_xy_r(pts_xy_out, rads_xy_out, -78.00, -57.00)
-
-        pts_xy_in = [
-            (sign *  6.15, -31.00),
-            (sign * 19.40, -31.00),
-            (sign * 19.40, -26.50),
-            (sign * 21.25, -19.50),
-            (sign * 21.25,  24.50),
-            (sign * 14.00,  34.45),
-            (sign * 12.65,  34.45),
-            (sign * 12.65,  11.80),
-            (sign *  7.10,   7.00),
-            (sign *  7.10,  -4.00),
-            (sign * 12.25,  -5.85),
-            (sign * 12.25, -14.50),
-            (sign *  6.15, -17.50),
-        ]
-        rads_xy_in = [1.0, 0.0, 3.5, 5.0, 7.0, 1.2, 0.5, 2.0, 2.0, 1.8, 1.5, 2.0, 2.0]
-        if sign < 0:
-            pts_xy_in = pts_xy_in[::-1]
-            rads_xy_in = rads_xy_in[::-1]
-        horn_xy_i = prism_xy_r(pts_xy_in, rads_xy_in, -77.50, -58.00)
-
-        hood_slot_in = rounded_box_xy(sign * 9.00, sign * 13.40, 18.60, 33.80, -76.95, -75.75, 0.5)
-
-        ducts_outer.append(intersect_all(horn_xy_o, [horn_yz_out]))
-        ducts_inner.append(fuse_all([intersect_all(horn_xy_i, [horn_yz_in]), hood_slot_in]))
-
         cheek_pts = [
             (sign * 13.95, 11.48),
             (sign * 22.42, 11.48),
@@ -949,24 +910,7 @@ def build_p22_lower_plenum():
                 (19.80, -48.00), (11.48, -48.00),
             ], [0, 1.0, 1.0, 0], -23.0, 23.0)]
         )
-        ducts_outer.append(cheek)
-
-    over_sensor_out = intersect_all(
-        rounded_box_xy(-10.00, 10.00, -5.85, 8.30, -70.80, -57.36, 1.5),
-        [prism_yz_r([
-            (-5.85, -70.80), ( 8.30, -70.80),
-            ( 8.30, -61.50), ( 5.50, -57.36),
-            (-5.85, -57.36),
-        ], [0, 0, 2.0, 2.5, 0], -13.0, 13.0)]
-    )
-    over_sensor_in = intersect_all(
-        rounded_box_xy(-11.20, 11.20, -4.20, 7.20, -69.60, -58.56, 1.2),
-        [prism_yz_r([
-            (-4.20, -69.60), ( 7.20, -69.60),
-            ( 7.20, -62.50), ( 4.80, -58.56),
-            (-2.50, -58.56), (-4.20, -62.50),
-        ], [0, 0, 1.5, 2.0, 2.0, 1.5], -12.0, 12.0)]
-    )
+        cheeks.append(cheek)
 
     probe_spigots = [
         cyl_z( 15.80,   8.50, -72.60, -70.00, 3.05),
@@ -975,28 +919,17 @@ def build_p22_lower_plenum():
         cyl_z(-15.80, -11.50, -72.60, -70.00, 3.05),
     ]
 
-    body = fuse_all([collar_outer, *ducts_outer, over_sensor_out, *probe_spigots])
-    air  = fuse_all([collar_inner, *ducts_inner, over_sensor_in])
-
-    rear_prow_excl = prism_xy_r([
-        ( 0.00, -32.00),
-        (-6.15, -26.50),
-        (-6.15, -15.50),
-        ( 6.15, -15.50),
-        ( 6.15, -26.50),
-    ], 1.5, -75.00, -55.00)
-
-    air = cut_all(
-        air,
-        [
-            rear_prow_excl,
-            prism_xy_r([(-3.65, -25.00), (-3.65, -38.15), (3.65, -38.15), (3.65, -25.00)], 3.00, -62.00, z_top + 1.00),
-            cut_all(
-                box(-25, 25, -50, -20, -61.20, z_top + 1.0),
-                [prism_xy_r(corridor_aero_vertices(1.84), 2.0, -61.50, z_top + 1.5)]
-            ),
-        ],
+    body = cut_all(
+        fuse_all([intersect_all(xy_outer_full, [horn_yz_out]), *cheeks, *probe_spigots]),
+        [center_valley_upper, center_valley_lower]
     )
+
+    xy_air_combined = cut_all(xy_inner_full, [center_island_excl])
+    hood_slots = [
+        rounded_box_xy(sign * 9.00, sign * 13.40, 19.20, 33.20, -76.65, -75.75, 0.5)
+        for sign in (-1, 1)
+    ]
+    air = fuse_all([intersect_all(xy_air_combined, [horn_yz_in]), *hood_slots])
 
     # Exact analytical 3D constant-distance thermal keepout (R = 4.65 mm around silicone sock, >= 5.90 mm from bare heatblock):
     r_off = 4.65
@@ -1018,17 +951,19 @@ def build_p22_lower_plenum():
         # Clear P23 (Y <= 11.56 mm, Z = -77.00..-70.80 mm) and Beacon/Cartographer PCB front edge (Y <= 11.75 mm, Z <= -74.98 mm):
         box(-19.50, 19.50, -15.00, 11.56, -77.00, -70.80),
         box(-19.50, 19.50, -15.00, 11.75, -77.00, -74.98),
-        box(-22.50, 22.50, -46.00, -33.20, -58.00, -47.00),
+        cyl_z(0.0, -34.50, -58.60, z_top + 1.0, 1.95),
+        box(-1.95, 1.95, -34.50, -30.00, -58.60, z_top + 1.0),
+        box(-1.95, 1.95, -34.50, -25.00, -58.60, -53.20),
         cyl_y( 18.0, -52.78, 11.0, 15.95, 4.02),
         cyl_y(-18.0, -52.78, 11.0, 15.95, 4.02),
         cyl_y( 18.0, -52.78, 15.5, 21.0, 1.65),
         cyl_y(-18.0, -52.78, 15.5, 21.0, 1.65),
         cyl_y( 18.0, -52.78, 18.2, 21.0, 3.00),
         cyl_y(-18.0, -52.78, 18.2, 21.0, 3.00),
-        cyl_z( 15.80,   8.50, -73.00, -70.00, 2.27),
-        cyl_z(-15.80,   8.50, -73.00, -70.00, 2.27),
-        cyl_z( 15.80, -11.50, -73.00, -70.00, 2.27),
-        cyl_z(-15.80, -11.50, -73.00, -70.00, 2.27),
+        cyl_z( 15.80,   8.50, -73.00, -70.10, 2.27),
+        cyl_z(-15.80,   8.50, -73.00, -70.10, 2.27),
+        cyl_z( 15.80, -11.50, -73.00, -70.10, 2.27),
+        cyl_z(-15.80, -11.50, -73.00, -70.10, 2.27),
     ]
     body = cut_all(body, cutters)
     body = intersect_all(body, [box(-22.497, 22.497, -50.0, 36.0, -78.20, -47.50)])

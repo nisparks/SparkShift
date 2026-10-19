@@ -17,7 +17,7 @@ from OCP.BRepBuilderAPI import BRepBuilderAPI_Transform
 import json
 import math
 from build_and_verify_accessories_v26 import (
-    HERE, STL_DIR, IMG_DIR, WORK, SENSOR_DIR,
+    HERE, STL_DIR, STEP_DIR, IMG_DIR, WORK, SENSOR_DIR,
     load_brep_list, load_step, export_stl_file, box, cyl_z, rounded_box_xy, intersect_all, cut_all, make_loft_along_y,
     build_p20_inlet, build_p21_mid, build_p22_lower_plenum,
     build_p23_probe_mount, build_p24_ebb42_mount, build_accessory_hardware,
@@ -466,7 +466,337 @@ def main():
         out_png=IMG_DIR / "16_toolhead_side_exhaust_on_carriage.png", zoom=1.85, depth_peeling=True
     )
 
+    render_full_exploded_views(
+        v26_meta, v26_raw, gantry_meta, gantry_raw,
+        p20_body, p21_body, p22_body, p23_body, p24_body,
+        sensor_cable, acc_hw, beacon_phys, ebb_world,
+        th_vars, silicone_sock_shape, tmp_stl
+    )
+
     print("Rendered VTK views in", IMG_DIR)
+
+
+def set_actor_pos(actor, dx, dy, dz):
+    actor.SetPosition(dx, dy, dz)
+    if hasattr(actor, "_edge_actor"):
+        actor._edge_actor.SetPosition(dx, dy, dz)
+
+
+def build_exploded_groups(
+    v26_meta, v26_raw, gantry_meta, gantry_raw,
+    p20_body, p21_body, p22_body, p23_body, p24_body,
+    sensor_cable, acc_hw, beacon_phys, ebb_world,
+    th_vars, silicone_sock_shape, tmp_stl
+):
+    """
+    Build all actors for the complete SparkShift v26j + Monolith 2WD 9mm Gantry +
+    P20..P24 Accessories + EBB42 + Beacon + 3010 Toolhead system, returning a list
+    of (actor, (dx, dy, dz)) tuples for exploded-view interpolation t in [0, 1].
+    """
+    items = []
+
+    # 1. Detailed Monolith 2WD 9mm Gantry (2020 X-Beam, MGN12 Rail, 9mm GT2 Belt Loops, and Left/Right XY-Joint Assemblies)
+    mono_sols = load_step(STEP_DIR / "Monolith_2WD_9mm_X_Axis_and_Belts.step")
+    beam_clip = box(-88.0, 88.0, -60.0, 30.0, -70.0, 10.0)
+    rail_clip = box(-82.0, 82.0, -60.0, 30.0, -70.0, 10.0)
+    for g_idx, gs in enumerate(mono_sols):
+        if g_idx == 0:
+            # 2020 Carbon/Alu X-Beam (stationary datum)
+            s_b = intersect_all(gs, [beam_clip])
+            items.append((make_actor(shape_to_polydata(s_b, tmp_stl), (0.26, 0.30, 0.36), 1.0, edge_vis=True), (0.0, 0.0, 0.0)))
+        elif g_idx == 1:
+            # MGN12 Linear Rail on front face of X-Beam
+            s_r = intersect_all(gs, [rail_clip])
+            items.append((make_actor(shape_to_polydata(s_r, tmp_stl), (0.74, 0.78, 0.84), 1.0, edge_vis=True), (0.0, 10.0, 0.0)))
+        elif g_idx in (2, 3):
+            # Upper (g_idx=2) and Lower (g_idx=3) 9mm GT2 Belt Loops
+            dz_b = 14.0 if g_idx == 2 else -14.0
+            items.append((make_actor(shape_to_polydata(gs, tmp_stl), (0.20, 0.22, 0.26), 0.85, edge_vis=True), (0.0, 0.0, dz_b)))
+        elif 4 <= g_idx <= 33:
+            # Right (-X) Monolith 2WD 9mm XY-Joint Assembly (shifted inward by +66mm to sit at X=-88mm beam end, explodes outward -28mm in X)
+            tr_in = gp_Trsf()
+            tr_in.SetTranslation(gp_Vec(66.0, 0.0, 0.0))
+            gs_in = BRepBuilderAPI_Transform(gs, tr_in, True).Shape()
+            is_housing = g_idx in (21, 22)
+            col = (0.78, 0.56, 0.26) if is_housing else (0.74, 0.76, 0.80)
+            dz_j = 10.0 if g_idx == 21 else (-10.0 if g_idx == 22 else 0.0)
+            items.append((make_actor(shape_to_polydata(gs_in, tmp_stl), col, 1.0, edge_vis=is_housing), (-28.0, 0.0, dz_j)))
+        elif 34 <= g_idx <= 63:
+            # Left (+X) Monolith 2WD 9mm XY-Joint Assembly (shifted inward by -66mm to sit at X=+88mm beam end, explodes outward +28mm in X)
+            tr_in = gp_Trsf()
+            tr_in.SetTranslation(gp_Vec(-66.0, 0.0, 0.0))
+            gs_in = BRepBuilderAPI_Transform(gs, tr_in, True).Shape()
+            is_housing = g_idx in (34, 35)
+            col = (0.78, 0.56, 0.26) if is_housing else (0.74, 0.76, 0.80)
+            dz_j = 10.0 if g_idx == 34 else (-10.0 if g_idx == 35 else 0.0)
+            items.append((make_actor(shape_to_polydata(gs_in, tmp_stl), col, 1.0, edge_vis=is_housing), (28.0, 0.0, dz_j)))
+
+    # 2. Core v26j Carriage, Belt Clamps, HGX Drive, Swing Arm, Receiver Case, Motor & Servo
+    for m, (s, _) in zip(v26_meta, v26_raw):
+        idx = m["idx"]
+        name = m["name"]
+        if "ENVELOPE" in name and "SERVO" not in name:
+            continue
+        if name in ("PRINT_RedLizard_HF_tool_carrier", "TOOL_06_Tool_head_back_part_1", "PRINT_Tool_docking_backplate"):
+            continue
+        pd = shape_to_polydata(s, tmp_stl)
+
+        if idx == 17:
+            # MONO_CART_MGN12H linear block
+            items.append((make_actor(pd, (0.45, 0.50, 0.56), 1.0, edge_vis=True), (0.0, 20.0, 0.0)))
+        elif idx in (34, 35, 36, 37):
+            # MGN12H M3x10 mount screws
+            items.append((make_actor(pd, (0.78, 0.78, 0.82), 1.0), (0.0, 32.0, 0.0)))
+        elif idx in (18, 19, 20, 21, 26, 28, 30, 32):
+            # Left (+X) belt liner P13, belt arch P15, belt teeth & draw bolts/nuts
+            col = (0.38, 0.62, 0.76) if m["is_print"] else ((0.22, 0.24, 0.28) if idx in (30, 32) else (0.78, 0.78, 0.82))
+            items.append((make_actor(pd, col, 1.0, edge_vis=m["is_print"]), (34.0, 34.0, 0.0)))
+        elif idx in (22, 23, 24, 25, 27, 29, 31, 33):
+            # Right (-X) belt liner P14, belt arch P16, belt teeth & draw bolts/nuts
+            col = (0.38, 0.62, 0.76) if m["is_print"] else ((0.22, 0.24, 0.28) if idx in (31, 33) else (0.78, 0.78, 0.82))
+            items.append((make_actor(pd, col, 1.0, edge_vis=m["is_print"]), (-34.0, 34.0, 0.0)))
+        elif idx in (54, 3, 45, 57, 130, 131):
+            # P01 Core Extruder Frame + rear cam bearing + hall sensor
+            col = (0.20, 0.45, 0.78) if idx == 54 else (0.75, 0.76, 0.80)
+            items.append((make_actor(pd, col, 1.0, edge_vis=(idx == 54)), (0.0, 44.0, 0.0)))
+        elif idx in (58, 59, 60, 61, 62, 63, 64, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85):
+            # HGX Gear Train (P06..P09) + Direct Servo Cam (P05)
+            col = (0.30, 0.78, 0.48) if m["is_print"] else (0.74, 0.76, 0.80)
+            items.append((make_actor(pd, col, 1.0, edge_vis=m["is_print"]), (0.0, 72.0, 0.0)))
+        elif idx in (46, 47, 48, 49, 65, 66, 67, 68, 69, 70, 71, 72, 73, 86, 132):
+            # Split Swing Arm (P04R/P04F) + Spring Cup (P12) + Follower
+            col = (0.86, 0.26, 0.26) if m["is_print"] else (0.76, 0.78, 0.82)
+            items.append((make_actor(pd, col, 1.0, edge_vis=m["is_print"]), (0.0, 96.0, 0.0)))
+        elif idx in (53, 0, 1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 39, 41, 43):
+            # P03 Triple-Bridged Front Receiver Case + Maxwell pins/magnets
+            col = (0.88, 0.72, 0.18) if idx == 53 else (0.76, 0.78, 0.82)
+            items.append((make_actor(pd, col, 1.0, edge_vis=(idx == 53)), (0.0, 122.0, 0.0)))
+        elif idx in (38, 40, 42, 44):
+            # 4 Long Case Clamp Bolts in front of P03
+            items.append((make_actor(pd, (0.82, 0.82, 0.86), 1.0), (0.0, 142.0, 0.0)))
+        elif idx in (50, 51, 52):
+            # P02 Rear Motor/Servo Spacer Plate
+            col = (0.58, 0.35, 0.72) if idx == 50 else (0.78, 0.78, 0.82)
+            items.append((make_actor(pd, col, 1.0, edge_vis=(idx == 50)), (0.0, -14.0, 22.0)))
+        elif idx in (5, 55, 56, 121, 122, 123, 124, 125, 126, 127, 128, 129, 133, 134):
+            # NEMA14 Pancake Stepper + MG90S Servo Envelope
+            if idx == 5:
+                col = (0.25, 0.55, 0.85)
+            elif idx in (121, 123):
+                col = (0.68, 0.70, 0.74)
+            elif idx == 122:
+                col = (0.24, 0.26, 0.30)
+            else:
+                col = (0.78, 0.72, 0.45)
+            items.append((make_actor(pd, col, 1.0, edge_vis=(idx in (5, 121, 122, 123))), (0.0, -34.0, 32.0)))
+        elif idx in (87, 103, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119):
+            # Toolhead kinematic balls, magnets & M3x6 screws (grouped with P18_3010)
+            items.append((make_actor(pd, (0.78, 0.78, 0.82), 1.0), (0.0, 162.0, 0.0)))
+        elif idx in range(88, 100):
+            # K1 Heatsink + Volcano Hotend + Brass Nozzle + Heater/Thermistor
+            if "HF_00" in name:
+                col = (0.82, 0.22, 0.20)
+            elif "HF_04" in name or "HF_05" in name:
+                col = (0.85, 0.58, 0.20)
+            else:
+                col = (0.74, 0.76, 0.80)
+            items.append((make_actor(pd, col, 1.0, edge_vis=("HF_00" in name)), (0.0, 184.0, -12.0)))
+
+    # 3. Removable 3010 High-Flow Toolhead Printed Parts, Sock & Fan
+    items.append((
+        make_actor(shape_to_polydata(th_vars["P18_Tool_docking_backplate_3010"], tmp_stl), (0.22, 0.68, 0.42), 1.0, edge_vis=True),
+        (0.0, 162.0, 0.0)
+    ))
+    items.append((
+        make_actor(shape_to_polydata(silicone_sock_shape, tmp_stl), (0.15, 0.55, 0.92), 0.78),
+        (0.0, 184.0, -12.0)
+    ))
+    items.append((
+        make_actor(shape_to_polydata(th_vars["P17_HF_tool_carrier_3010"], tmp_stl), (0.92, 0.52, 0.16), 1.0, edge_vis=True),
+        (0.0, 206.0, 0.0)
+    ))
+    items.append((
+        make_actor(shape_to_polydata(th_vars["Fan_3010_Axial"], tmp_stl), (0.16, 0.18, 0.22), 1.0, edge_vis=True),
+        (0.0, 232.0, 0.0)
+    ))
+    for sc in th_vars["Fan_3010_Screws"]:
+        items.append((make_actor(shape_to_polydata(sc, tmp_stl), (0.82, 0.80, 0.75), 1.0), (0.0, 246.0, 0.0)))
+
+    # 4. Accessories Suite (P20..P24 + EBB42 + Beacon + Sensor Cable + Hardware)
+    items.append((
+        make_actor(shape_to_polydata(p24_body, tmp_stl), (0.94, 0.56, 0.14), 1.0, edge_vis=True),
+        (0.0, -56.0, 44.0)
+    ))
+    for idx_e, es in enumerate(ebb_world):
+        col = (0.14, 0.16, 0.20) if idx_e == 0 else (0.82, 0.82, 0.85)
+        items.append((make_actor(shape_to_polydata(es, tmp_stl), col, 1.0), (0.0, -80.0, 48.0)))
+
+    # Vertical CPAP Column (P20 -> P21 -> P22) aligned cleanly behind EBB42 & Gantry at Y = -112 mm
+    items.append((
+        make_actor(shape_to_polydata(p20_body, tmp_stl), (0.14, 0.72, 0.64), 1.0, edge_vis=True),
+        (0.0, -112.0, 56.0)
+    ))
+    items.append((
+        make_actor(shape_to_polydata(p21_body, tmp_stl), (0.90, 0.36, 0.26), 1.0, edge_vis=True),
+        (0.0, -112.0, 0.0)
+    ))
+    items.append((
+        make_actor(shape_to_polydata(sensor_cable, tmp_stl), (0.95, 0.22, 0.58), 1.0),
+        (0.0, -96.0, -8.0)
+    ))
+    for _, hs in acc_hw:
+        items.append((make_actor(shape_to_polydata(hs, tmp_stl), (0.78, 0.76, 0.70), 1.0), (0.0, -88.0, 20.0)))
+
+    items.append((
+        make_actor(shape_to_polydata(p22_body, tmp_stl), (0.16, 0.76, 0.52), 1.0, edge_vis=True),
+        (0.0, -112.0, -50.0)
+    ))
+    items.append((
+        make_actor(shape_to_polydata(p23_body, tmp_stl), (0.20, 0.52, 0.92), 1.0, edge_vis=True),
+        (0.0, -18.0, -60.0)
+    ))
+    for bs in beacon_phys:
+        items.append((make_actor(shape_to_polydata(bs, tmp_stl), (0.14, 0.17, 0.22), 1.0), (0.0, -18.0, -84.0)))
+
+    return items
+
+
+def render_exploded_sheet(items, cam_pos, focal_pt, view_up, zoom, title_text, subtitle_text, out_png, width=1920, height=1200):
+    ren = vtk.vtkRenderer()
+    ren.SetBackground(0.09, 0.11, 0.14)
+    ren.SetBackground2(0.14, 0.17, 0.22)
+    ren.GradientBackgroundOn()
+    ren.SetUseDepthPeeling(1)
+    ren.SetMaximumNumberOfPeels(20)
+    ren.SetOcclusionRatio(0.02)
+
+    for act, (dx, dy, dz) in items:
+        set_actor_pos(act, dx, dy, dz)
+        ren.AddActor(act)
+        if hasattr(act, "_edge_actor"):
+            ren.AddActor(act._edge_actor)
+
+    cam = ren.GetActiveCamera()
+    cam.SetPosition(*cam_pos)
+    cam.SetFocalPoint(*focal_pt)
+    cam.SetViewUp(*view_up)
+    cam.ParallelProjectionOn()
+    ren.ResetCamera()
+    cur_fp = cam.GetFocalPoint()
+    cur_pos = cam.GetPosition()
+    ox, oy, oz = focal_pt[0] - cur_fp[0], focal_pt[1] - cur_fp[1], focal_pt[2] - cur_fp[2]
+    cam.SetFocalPoint(*focal_pt)
+    cam.SetPosition(cur_pos[0] + ox, cur_pos[1] + oy, cur_pos[2] + oz)
+    cam.SetClippingRange(1.0, 3000.0)
+    cam.Zoom(zoom)
+
+    ren.RemoveAllLights()
+    for pos, inten in [((0.55, 0.85, 0.75), 0.90), ((-0.85, -0.45, -0.30), 0.38), ((0.0, 0.90, -0.80), 0.28)]:
+        lt = vtk.vtkLight()
+        lt.SetLightTypeToCameraLight()
+        lt.SetPosition(*pos)
+        lt.SetIntensity(inten)
+        ren.AddLight(lt)
+
+    rw = vtk.vtkRenderWindow()
+    rw.SetOffScreenRendering(1)
+    rw.SetAlphaBitPlanes(1)
+    rw.SetMultiSamples(0)
+    rw.SetSize(width, height)
+    rw.AddRenderer(ren)
+    rw.Render()
+
+    w2i = vtk.vtkWindowToImageFilter()
+    w2i.SetInput(rw)
+    w2i.SetInputBufferTypeToRGB()
+    w2i.Update()
+    vtk_img = w2i.GetOutput()
+    from vtk.util import numpy_support
+    import numpy as np
+    arr = numpy_support.vtk_to_numpy(vtk_img.GetPointData().GetScalars()).reshape((height, width, 3))[::-1, :, :]
+    img = Image.fromarray(arr, mode="RGB")
+    draw = ImageDraw.Draw(img)
+
+    try:
+        font_title = ImageFont.truetype("C:/Windows/Fonts/segoeuib.ttf", 22)
+        font_sub   = ImageFont.truetype("C:/Windows/Fonts/segoeui.ttf", 16)
+        font_card_t = ImageFont.truetype("C:/Windows/Fonts/segoeuib.ttf", 16)
+        font_card_b = ImageFont.truetype("C:/Windows/Fonts/segoeui.ttf", 14)
+    except Exception:
+        font_title = font_sub = font_card_t = font_card_b = ImageFont.load_default()
+
+    # Top header banner
+    draw.rectangle([0, 0, width, 74], fill=(16, 20, 26))
+    draw.line([0, 74, width, 74], fill=(45, 55, 70), width=2)
+    draw.text((28, 14), title_text, fill=(240, 244, 250), font=font_title)
+    draw.text((28, 44), subtitle_text, fill=(170, 182, 198), font=font_sub)
+
+    # Bottom 6-column architecture legend banner
+    draw.rectangle([0, height - 118, width, height], fill=(16, 20, 26))
+    draw.line([0, height - 118, width, height - 118], fill=(45, 55, 70), width=2)
+
+    cards = [
+        ("1. 3010 Toolhead (P17/P18)", "3010 Fan + Bellmouth + Side Vents\nK1 Heatsink + Volcano Hotend/Sock", (235, 133, 41)),
+        ("2. Receiver & Arm (P03/P04)", "Triple-Bridged P03 + Case Bolts\nP04F/P04R Arm + P05 Cam + HGX", (224, 184, 46)),
+        ("3. Core Frame & Belts (P01)", "P01 Core Mount + Shear Tenons\nP13-P16 Belt Clamps + MGN12H", (51, 115, 199)),
+        ("4. Monolith 2WD 9mm Gantry", "2020 Carbon X-Beam + MGN12 Rail\nDual 9mm GT2 Belts + XY Keepouts", (153, 117, 77)),
+        ("5. Rear Drive & EBB42 (P02/P24)", "P02 Plate + 17.4-21.8mm NEMA14\nMG90S Servo + P24 EBB42 Mount", (240, 143, 36)),
+        ("6. CPAP & Probe (P20-P23)", "P20 3-Barb Inlet -> P21 Gantry Trunk\nP22 300° Plenum + P23 Beacon/Carto", (36, 184, 163)),
+    ]
+    margin_x = 20
+    gap = 14
+    card_w = (width - 2 * margin_x - (len(cards) - 1) * gap) // len(cards)
+    for idx_c, (ctitle, cbody, ccol) in enumerate(cards):
+        x0 = margin_x + idx_c * (card_w + gap)
+        y0 = height - 104
+        x1 = x0 + card_w
+        y1 = height - 14
+        draw.rectangle([x0, y0, x1, y1], fill=(22, 27, 35), outline=ccol, width=2)
+        draw.text((x0 + 12, y0 + 8), ctitle, fill=ccol, font=font_card_t)
+        draw.text((x0 + 12, y0 + 34), cbody, fill=(210, 218, 228), font=font_card_b)
+
+    img.save(str(out_png))
+    for act, _ in items:
+        set_actor_pos(act, 0.0, 0.0, 0.0)
+
+
+def render_full_exploded_views(
+    v26_meta, v26_raw, gantry_meta, gantry_raw,
+    p20_body, p21_body, p22_body, p23_body, p24_body,
+    sensor_cable, acc_hw, beacon_phys, ebb_world,
+    th_vars, silicone_sock_shape, tmp_stl
+):
+    items = build_exploded_groups(
+        v26_meta, v26_raw, gantry_meta, gantry_raw,
+        p20_body, p21_body, p22_body, p23_body, p24_body,
+        sensor_cable, acc_hw, beacon_phys, ebb_world,
+        th_vars, silicone_sock_shape, tmp_stl
+    )
+
+    # View 18: Front-Right 3/4 Full-System Exploded View (Toolhead -> P03 -> P04/HGX -> P01 -> Gantry -> P02/NEMA14/EBB42 & P20-P23 CPAP/Beacon)
+    render_exploded_sheet(
+        items,
+        cam_pos=(-360.0, -165.0, 125.0),
+        focal_pt=(0.0, 56.0, -5.0),
+        view_up=(0.0, 0.0, 1.0),
+        zoom=1.38,
+        title_text="SparkShift v26j — Full-System Exploded Architecture with Monolith 2WD 9mm Gantry (Front-Right Isometric)",
+        subtitle_text="Left-to-Right: (1) 3010 Toolhead P17/P18 <- (2) P03 Receiver & P04/P05/HGX Drive <- (3) P01 Core & P13-P16 Belt Clamps <- (4) Monolith Gantry & MGN12H -> (5) P02/NEMA14/Servo & P24/EBB42 -> (6) P20-P22 CPAP & P23 Beacon",
+        out_png=IMG_DIR / "18_full_exploded_with_gantry_front_iso.png",
+    )
+
+    # View 19: Rear-Left 3/4 Full-System Exploded View (Highlighting Behind-Gantry CPAP Stack P20->P21->P22, EBB42 Mount P24, Monolith X-Beam/Belts & Probe P23)
+    render_exploded_sheet(
+        items,
+        cam_pos=(340.0, -245.0, 115.0),
+        focal_pt=(0.0, 44.0, -5.0),
+        view_up=(0.0, 0.0, 1.0),
+        zoom=1.38,
+        title_text="SparkShift v26j — Full-System Exploded Architecture with Monolith 2WD 9mm Gantry (Rear-Left Isometric)",
+        subtitle_text="Rear-to-Front: (6) P20 3-Barb Inlet, P21 Gantry Trunk, P22 300° Plenum & P23 Beacon -> (5) EBB42 & P24 Mount + NEMA14/Servo/P02 -> (4) Monolith 2WD 9mm X-Beam, Rail, Belts & XY Keepouts -> (3..1) Carriage & 3010 Toolhead",
+        out_png=IMG_DIR / "19_full_exploded_with_gantry_rear_iso.png",
+    )
+
 
 
 if __name__ == "__main__":

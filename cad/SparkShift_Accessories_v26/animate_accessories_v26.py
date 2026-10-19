@@ -26,7 +26,7 @@ from build_and_verify_accessories_v26 import (
     build_toolhead_fan_variants,
     box, cyl_z, rounded_box_xy, cut_all, intersect_all,
 )
-from render_accessories_v26 import IMG_DIR, shape_to_polydata, make_actor
+from render_accessories_v26 import IMG_DIR, shape_to_polydata, make_actor, build_exploded_groups, set_actor_pos
 
 
 def make_render_window(width=960, height=680, depth_peeling=False):
@@ -231,48 +231,38 @@ def main():
     save_gif(frames_1, IMG_DIR / "anim_01_full_assembly_360_turntable.gif", duration_ms=65)
 
     # -------------------------------------------------------------------------
-    # ANIMATION 2: Exploded Assembly Sequence (P20..P24 + EBB42 + Beacon + 3010 Toolhead)
+    # ANIMATION 2: Exploded Assembly Sequence (Full Gantry + v26j + P20..P24 + EBB42 + Beacon + 3010 Toolhead)
     # -------------------------------------------------------------------------
+    rw2, ren2 = make_render_window(960, 680, depth_peeling=True)
+    exploded_items = build_exploded_groups(
+        v26_meta, v26_raw, gantry_meta, gantry_raw,
+        p20_body, p21_body, p22_body, p23_body, p24_body,
+        sensor_cable, acc_hw, beacon_phys, ebb_world,
+        th_vars, silicone_sock_shape, tmp_stl
+    )
+    for act, _ in exploded_items:
+        ren2.AddActor(act)
+        if hasattr(act, "_edge_actor"):
+            ren2.AddActor(act._edge_actor)
+
     frames_2 = []
     n_frames_2 = 32
     for i in range(n_frames_2):
         # Smooth 0 -> 1 -> 0 cosine pulse
         t = 0.5 * (1.0 - math.cos(2.0 * math.pi * i / n_frames_2))
-        set_actor_translation(act_p20, 0.0, -28.0 * t, 36.0 * t)
-        set_actor_translation(act_p21, 0.0, -32.0 * t, 0.0)
-        set_actor_translation(act_p22, 0.0, -18.0 * t, -26.0 * t)
-        set_actor_translation(act_p23, 0.0, 0.0, -44.0 * t)
-        for ab in act_beacon:
-            set_actor_translation(ab, 0.0, 0.0, -60.0 * t)
-        set_actor_translation(act_p24, 0.0, -22.0 * t, 18.0 * t)
-        for ae in act_ebb:
-            set_actor_translation(ae, 0.0, -44.0 * t, 18.0 * t)
-        set_actor_translation(act_cable, 0.0, -36.0 * t, -10.0 * t)
-        for ah in act_hw:
-            set_actor_translation(ah, 0.0, -38.0 * t, 12.0 * t)
+        for act, (dx, dy, dz) in exploded_items:
+            set_actor_pos(act, dx * t, dy * t, dz * t)
 
-        # Toolhead explosion forward (+Y)
-        for th_a in tool_hotend_actors:
-            set_actor_translation(th_a, 0.0, 26.0 * t, 0.0)
-        set_actor_translation(act_p17_3010, 0.0, 44.0 * t, 0.0)
-        set_actor_translation(act_p18_3010, 0.0, 62.0 * t, 0.0)
-        set_actor_translation(act_fan_3010, -28.0 * t, 44.0 * t, 0.0)
-        for sc_a in act_fan_screws:
-            set_actor_translation(sc_a, -42.0 * t, 44.0 * t, 0.0)
-
-        az = -0.65 + 0.35 * math.sin(2.0 * math.pi * i / n_frames_2)
-        cam = ren.GetActiveCamera()
-        cam.SetPosition(250.0 * math.cos(az), -250.0 * math.sin(az) - 40.0, 40.0)
-        cam.SetFocalPoint(0.0, -5.0, -18.0)
+        az = -0.70 + 0.30 * math.sin(2.0 * math.pi * i / n_frames_2)
+        cam = ren2.GetActiveCamera()
+        cam.SetPosition(520.0 * math.cos(az), 520.0 * math.sin(az) + 45.0, 210.0)
+        cam.SetFocalPoint(0.0, 45.0 * t, -18.0)
         cam.SetViewUp(0, 0, 1)
-        ren.ResetCamera()
-        cam.Zoom(1.22)
-        ren.ResetCameraClippingRange()
-        frames_2.append(capture_frame(rw))
+        ren2.ResetCamera()
+        cam.Zoom(1.42)
+        ren2.ResetCameraClippingRange()
+        frames_2.append(capture_frame(rw2))
 
-    # Reset all actor positions back to (0,0,0)
-    for a in all_full_actors:
-        set_actor_translation(a, 0.0, 0.0, 0.0)
     save_gif(frames_2, IMG_DIR / "anim_02_exploded_assembly_sequence.gif", duration_ms=70)
 
     # -------------------------------------------------------------------------
