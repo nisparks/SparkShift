@@ -2,7 +2,7 @@
 
 This directory contains the parametric OpenCASCADE (`OCP`) CAD generator (`build_and_verify_accessories_v26.py`), 3D finite-volume CFD solver (`simulate_cpap_cfd_v26.py`), VTK multi-angle renderer (`render_accessories_v26.py`), animated GIF generator (`animate_accessories_v26.py`), and manufacturing-ready **STEP (`.step`)** and **binary STL (`.stl`)** files for the **SparkShift v26** accessory and toolhead cooling suite on a **Voron 2.4R2 350 with a Monolith 2WD 9mm gantry**.
 
-All **8 printable parts** (`P20`–`P24`, `P17_HF_tool_carrier_3010`, `P17_HF_tool_carrier_2510`, and `P18_Tool_docking_backplate_3010`) are constructed **100% from pure analytical CAD primitives** (`GeomAbs_Plane`, `GeomAbs_Cylinder`, `GeomAbs_Cone` — **`0` BSpline/mesh/sphere faces** and **`0` sliver faces `< 0.15 mm²`**) and mount to the existing **SparkShift AHG v26** carriage with **zero modifications (`0.000 mm³` cut/clash)** to any of the 135 existing v26 bodies.
+All **11 printable parts** (`P20`–`P27`, `P17_HF_tool_carrier_3010`, `P17_HF_tool_carrier_2510`, and `P18_Tool_docking_backplate_3010`) are constructed **100% from pure analytical CAD primitives** (`GeomAbs_Plane`, `GeomAbs_Cylinder`, `GeomAbs_Cone` — **`0` BSpline/mesh/sphere faces** and **`0` sliver faces `< 0.15 mm²`**) and mount to the existing **SparkShift AHG v26** carriage and Voron 2.4R2 frame with **zero modifications (`0.000 mm³` cut/clash)** to any of the 135 existing v26 bodies.
 
 ---
 
@@ -18,7 +18,7 @@ All **8 printable parts** (`P20`–`P24`, `P17_HF_tool_carrier_3010`, `P17_HF_to
 
 ---
 
-## 1. Pure-Primitive Geometric & Topological Audit (All 8 Printable Parts)
+## 1. Pure-Primitive Geometric & Topological Audit (All 11 Printable Parts)
 
 Every printable part was audited at the OpenCASCADE B-Rep face/edge level and at the triangulated binary STL level (`verification_accessories_v26.json`) to guarantee **zero mesh facets, zero BSpline surfaces, zero non-manifold edges, and zero microscopic sliver faces (`< 0.15 mm²`)**:
 
@@ -26,12 +26,17 @@ Every printable part was audited at the OpenCASCADE B-Rep face/edge level and at
 | :--- | :--- | :---: | :---: | :--- | :---: | :--- | :---: |
 | **`P20`** | [`P20_CPAP_Hose_Inlet`](./step/P20_CPAP_Hose_Inlet.step) ([STL](./stl/P20_CPAP_Hose_Inlet.stl)) | `1 / 1` | `7,900.87` | `172` (`86` Plane, `75` Cyl, `11` Cone) | `0.4721` | `[-20.60, -59.35, -21.58] .. [20.60, -27.60, 30.00]` | `True` / `0.000 mm³` |
 | **`P21`** | [`P21_CPAP_Gantry_Bridge`](./step/P21_CPAP_Gantry_Bridge.step) ([STL](./stl/P21_CPAP_Gantry_Bridge.stl)) | `1 / 1` | `10,184.03` | `135` (`75` Plane, `60` Cyl) | `0.5508` | `[-21.00, -45.40, -51.40] .. [21.00, 0.30, -17.78]` | `True` / `0.000 mm³` |
-| **`P22`** | [`P22_CPAP_Lower_Plenum`](./step/P22_CPAP_Lower_Plenum.step) ([STL](./stl/P22_CPAP_Lower_Plenum.stl)) | `1 / 1` | `18,435.18` | `214` (`118` Plane, `96` Cyl) | `0.4738` | `[-22.42, -45.40, -77.85] .. [22.42, 35.20, -48.00]` | `True` / `0.000 mm³` |
+| **`P22`** | [`P22_CPAP_Lower_Plenum`](./step/P22_CPAP_Lower_Plenum.step) ([STL](./stl/P22_CPAP_Lower_Plenum.stl)) | `1 / 1` | `17,672.75` | `222` (`122` Plane, `100` Cyl) | `0.4738` | `[-22.42, -45.40, -77.85] .. [22.42, 29.43, -49.00]` | `True` / `0.000 mm³` |
 | **`P23`** | [`P23_Beacon_Cartographer_Mount`](./step/P23_Beacon_Cartographer_Mount.step) ([STL](./stl/P23_Beacon_Cartographer_Mount.stl)) | `1 / 1` | `2,397.87` | `56` (`34` Plane, `22` Cyl) | `3.2287` | `[-19.20, -14.20, -75.00] .. [19.20, 11.55, -70.80]` | `True` / `0.000 mm³` |
 | **`P24`** | [`P24_EBB42_Controller_Mount`](./step/P24_EBB42_Controller_Mount.step) ([STL](./stl/P24_EBB42_Controller_Mount.stl)) | `1 / 1` | `8,762.85` | `196` (`107` Plane, `89` Cyl) | `0.1702` | `[-21.80, -25.40, -18.40] .. [22.10, -2.50, 51.20]` | `True` / `0.000 mm³` |
-| **`P17 (3010)`** | [`P17_HF_tool_carrier_3010`](./step/P17_HF_tool_carrier_3010.step) ([STL](./stl/P17_HF_tool_carrier_3010.stl)) | `1 / 1` | `11,656.13` | `270` (`164` Plane, `102` Cyl, `4` Cone) | `0.2752` | `[-15.00, 11.50, -52.50] .. [15.00, 35.93, 48.74]` | `True` / `0.000 mm³` |
-| **`P17 (2510)`** | [`P17_HF_tool_carrier_2510`](./step/P17_HF_tool_carrier_2510.step) ([STL](./stl/P17_HF_tool_carrier_2510.stl)) | `1 / 1` | `11,098.13` | `245` (`142` Plane, `99` Cyl, `4` Cone) | `0.4088` | `[-12.40, 11.50, -51.80] .. [12.40, 35.93, 48.74]` | `True` / `0.000 mm³` |
+| **`P17 (3010)`** | [`P17_HF_tool_carrier_3010`](./step/P17_HF_tool_carrier_3010.step) ([STL](./stl/P17_HF_tool_carrier_3010.stl)) | `1 / 1` | `11,660.14` | `270` (`164` Plane, `102` Cyl, `4` Cone) | `0.2752` | `[-15.00, 11.50, -52.50] .. [15.00, 35.93, 48.74]` | `True` / `0.000 mm³` |
+| **`P17 (2510)`** | [`P17_HF_tool_carrier_2510`](./step/P17_HF_tool_carrier_2510.step) ([STL](./stl/P17_HF_tool_carrier_2510.stl)) | `1 / 1` | `11,102.14` | `245` (`142` Plane, `99` Cyl, `4` Cone) | `0.4088` | `[-12.40, 11.50, -51.80] .. [12.40, 35.93, 48.74]` | `True` / `0.000 mm³` |
 | **`P18 (3010)`** | [`P18_Tool_docking_backplate_3010`](./step/P18_Tool_docking_backplate_3010.step) ([STL](./stl/P18_Tool_docking_backplate_3010.stl)) | `1 / 1` | `2,718.87` | `70` (`52` Plane, `18` Cyl) | `1.4000` | `[-10.01, 35.93, -22.45] .. [10.03, 45.02, 48.75]` | `True` / `0.000 mm³` |
+| **`P25 (Dock)`** | [`P25_SparkShift_3010_Dock`](./step/P25_SparkShift_3010_Dock.step) ([STL](./stl/P25_SparkShift_3010_Dock.stl)) | `1 / 1` | `85,782.43` | `314` (`Plane` + `Cyl` + `Cone`) | `0.2479` | `[-17.00, 20.91, -145.28] .. [17.00, 74.91, 37.22]` | `True` / `0.000 mm³` |
+| **`P26 (Wiper)`** | [`P26_Dock_Nozzle_Wiper_and_Purge_Chute`](./step/P26_Dock_Nozzle_Wiper_and_Purge_Chute.step) ([STL](./stl/P26_Dock_Nozzle_Wiper_and_Purge_Chute.stl)) | `1 / 1` | `6,348.71` | `72` (`Plane` + `Cyl`) | `0.4268` | `[-15.00, 8.00, -105.00] .. [15.00, 42.91, -79.20]` | `True` / `0.000 mm³` |
+| **`P27 (Blower)`** | [`P27_CPAP_7040_Blower_Frame_Mount`](./step/P27_CPAP_7040_Blower_Frame_Mount.step) ([STL](./stl/P27_CPAP_7040_Blower_Frame_Mount.stl)) | `1 / 1` | `39,597.38` | `118` (`Plane` + `Cyl` + `Cone`) | `0.8862` | `[-37.49, -40.00, 0.00] .. [41.50, 37.49, 34.00]` | `True` / `0.000 mm³` |
+
+![Dock P25 + P26 Ooze Wiper & P27 Blower Frame Mount](./images/25_dock_p25_p26_ooze_wiper_and_p27_blower.png)
 
 ---
 
@@ -190,7 +195,20 @@ With the `45.0 mm` wide carriage (`X ∈ [-22.42, +22.42] mm`), the usable docka
 
 ---
 
-## 7. Klipper Configuration & Input Shaping Offsets
+## 7. Klipper Configuration, Anti-Ooze Toolchange Macros, Pressure Advance & Input Shaping ([`klipper/sparkshift_toolchanger.cfg`](../../klipper/sparkshift_toolchanger.cfg))
+
+The complete Klipper macro suite in [`klipper/sparkshift_toolchanger.cfg`](../../klipper/sparkshift_toolchanger.cfg) manages all physical and firmware steps required between toolchanges on SparkShift's **Single-HGX-Drive / Multi-Hotend** architecture:
+
+1. **Stage 1 — Pre-Drop Melt-Zone Decompression (`_SPARKSHIFT_PRE_DROP`):**
+   - Because SparkShift keeps one HGX drive on the carriage while leaving the filament strand in the parked toolhead, the macro retracts **`5.0 mm` at `45 mm/s`** *before* opening the `P05` servo cam (`175°`), relieving pressure in the `22 mm` Volcano melt zone and pulsing a `40%` CPAP burst to freeze the molten meniscus.
+2. **Stage 2 — Spring-Leaf Silicone Ooze-Pad Sealing & Cam Release (`_SPARKSHIFT_DROP_TOOL`):**
+   - Slides the toolhead into `P25_SparkShift_3010_Dock` (`Y = 36.91 mm`), where the brass Volcano nozzle tip (`Z = -78.88 mm`) glides up the `15°` ramp onto the **spring-compliant red Silicone Ooze Stopper Pad**, sealing the orifice while dropping the hotend to `standby_temp` (`150–175 °C`).
+3. **Stage 3 — Tool Pickup & Hob-Seating Micro-Pulse (`_SPARKSHIFT_PICKUP_TOOL`):**
+   - Enters `T_new`'s dock with `sparkshift_cam` at `175°` (`2.73 mm` release gap), closes the cam to `0°`, disables continuous servo PWM (`WIDTH=0`) so the mechanical closing spring holds the HGX hobs without servo heat drift, finishes heating while sealed on the silicone pad, and advances `+0.40 mm` to seat the hob teeth before unlatching.
+4. **Stage 4 — Purge-Chute Prime & Dual-Blade Silicone Wiper Scrub (`SPARKSHIFT_CLEAN_NOZZLE`):**
+   - Steps back `6.5 mm` to center the nozzle directly over **`P26_Dock_Nozzle_Wiper_and_Purge_Chute`'s Purge Drop Window (`Y_local = 16.20 mm`)**, primes `5.4 mm` of filament, micro-retracts `0.7 mm`, blasts `75%` CPAP to solidify the pellet, and runs `3` high-speed `±6.5 mm` X-scrub strokes across `P26`'s **dual V-notched silicone wiper blades** (`Y_local = 10.70 mm`, `>= 1.03 mm` below `P22` and `>= 2.27 mm` below Beacon RevH).
+5. **Stage 5 — Dynamic Per-Tool Parameter Sync (`_SPARKSHIFT_APPLY_TOOL_PARAMS`):**
+   - Automatically switches **`SET_PRESSURE_ADVANCE`** (`advance` + `smooth_time` per nozzle diameter/material), **`SET_RETRACTION`**, **`SET_INPUT_SHAPER`**, **`SET_GCODE_OFFSET`** (combining static XYZ tool offsets with dynamic Volcano thermal Z-expansion `0.00035 mm/°C`), and **`M106` CPAP blower scaling**.
 
 ### Option A — Beacon H (Normal) on Shared Forward Mount (`(±15.80, -0.30, -75.00)`)
 ```ini

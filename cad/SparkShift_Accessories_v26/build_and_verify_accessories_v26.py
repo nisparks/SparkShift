@@ -1494,6 +1494,175 @@ def build_toolhead_fan_variants(v26_by_name):
     }
 
 
+def build_dock_and_stationary_accessories():
+    """
+    Build the pure-primitive Dock, Anti-Ooze / Nozzle Wiper / Purge Chute, and Stationary 7040 Blower Mount:
+      1. P25_SparkShift_3010_Dock:
+         - 34.00 mm wide (X in [-17.00, +17.00] mm) modular toolhead dock body with 0 BSpline/Sphere faces
+           and 0 sliver faces (< 0.15 mm²).
+         - Includes a compliant spring-leaf relief slot (Z = -84.20..-82.40 mm) beneath the high-temp
+           Silicone_Ooze_Stopper_Pad pocket (Z = -78.88 mm, with 15-deg lead-in ramp at Y = 21.11..22.11 mm)
+           so the parked Volcano nozzle orifice stays positively sealed against gravity ooze.
+         - Includes 2x M3 mounting holes at (X = ±11.50, Z = -82.50, Y = 20.91..28.50 mm) for attaching P26.
+      2. P26_Dock_Nozzle_Wiper_and_Purge_Chute:
+         - Bolts onto the front face of P25's lower arm (Y = 8.00..20.91 mm, Z = -105.00..-79.20 mm).
+         - Provides an open Purge Drop Window (Y = 12.80..18.50 mm, X = -8.60..+8.60 mm) directly beneath
+           the priming station (Y_nozzle = 16.20 mm) feeding a 45-deg sloped pellet deflector chute and
+           catch basin (Z = -102.50..-86.00 mm).
+         - Holds a replaceable dual-blade Silicone_Wiper_Blades cassette (Y = 9.45..11.95 mm, Z_top = -78.88 mm)
+           that wipes the brass Volcano nozzle tip during -Y withdrawal and ±X scrub passes while remaining
+           >= 1.03 mm below P22_CPAP_Lower_Plenum (Z_min = -77.85 mm) and >= 2.27 mm below Beacon RevH (Z_min = -76.61 mm).
+      3. P27_CPAP_7040_Blower_Frame_Mount:
+         - Stationary Voron 2020 extrusion bracket for the Trianglelab Supercharged 7040 Centrifugal Blower
+           (24V, 67W), with 4x M5x10 BHCS mounting holes, 3x M3 blower mounting bosses, concentric intake
+           finger-guard grille, matching dual-barb (Ø21.6 / Ø21.8 mm) CPAP hose outlet spigot, and an
+           integrated CAN + 24V umbilical strain-relief clamp with dual zip-tie slots.
+    """
+    dock_sols = load_step(STEP_DIR / "Dock_3010_Complete.step")
+    p25_raw = dock_sols[0]
+    sw_upper = dock_sols[1]
+    sw_lower = dock_sols[2]
+    m5_l = dock_sols[4]
+    m5_r = dock_sols[5]
+
+    p25 = cut_all(p25_raw, [
+        box(10.0, 20.0, 39.5, 45.91, -81.65, -78.00),
+        box(-20.0, -10.0, 39.5, 45.91, -81.65, -78.00),
+        box(15.0, 20.0, 70.0, 76.0, -86.50, -83.00),
+        box(-20.0, -15.0, 70.0, 76.0, -86.50, -83.00),
+        rounded_box_xy(-3.20, 3.20, 23.50, 34.00, -84.20, -82.60, 0.7),
+        cyl_y(-11.50, -94.00, 42.00, 52.00, 1.60),
+        cyl_y( 11.50, -94.00, 42.00, 52.00, 1.60),
+    ])
+    u25 = ShapeUpgrade_UnifySameDomain(p25, True, True, True)
+    u25.Build()
+    p25 = u25.Shape()
+
+    ooze_pad = intersect_all(
+        rounded_box_xy(-3.80, 3.80, 21.11, 28.71, -85.98, -78.88, 1.2),
+        [prism_yz_r([(21.11, -85.98), (28.71, -85.98), (28.71, -78.88), (22.11, -78.88), (21.11, -79.48)], 0.0, -4.0, 4.0)]
+    )
+    u_pad = ShapeUpgrade_UnifySameDomain(ooze_pad, True, True, True)
+    u_pad.Build()
+    ooze_pad = u_pad.Shape()
+
+    p26_chute = intersect_all(
+        rounded_box_xy(-10.50, 10.50, 8.00, 20.91, -105.00, -79.20, 2.0),
+        [prism_yz_r([
+            (8.00, -105.00), (16.50, -105.00), (20.91, -92.00),
+            (20.91, -79.20), (8.00, -79.20),
+        ], 0.0, -12.0, 12.0)]
+    )
+    p26_arm_l = rounded_box_xy(  8.50, 15.00, 15.00, 42.91, -99.00, -89.00, 1.5)
+    p26_arm_r = rounded_box_xy(-15.00, -8.50, 15.00, 42.91, -99.00, -89.00, 1.5)
+    p26_outer = fuse_all([p26_chute, p26_arm_l, p26_arm_r])
+    p26 = cut_all(p26_outer, [
+        rounded_box_xy(-7.60, 7.60, 12.80, 18.50, -92.00, -78.00, 1.2),
+        intersect_all(
+            rounded_box_xy(-7.60, 7.60, 9.80, 18.50, -102.50, -86.00, 1.2),
+            [prism_yz_r([
+                (9.80, -102.50), (15.00, -102.50), (18.50, -92.00),
+                (18.50, -85.00), (9.80, -85.00),
+            ], 0.0, -9.0, 9.0)]
+        ),
+        rounded_box_xy(-7.60, 7.60, 9.40, 12.00, -83.80, -79.00, 0.8),
+        rounded_box_xy(-7.00, 7.00, 7.50, 13.50, -80.20, -78.00, 1.0),
+        cyl_y(-11.50, -94.00, 14.00, 44.00, 1.65),
+        cyl_y( 11.50, -94.00, 14.00, 44.00, 1.65),
+        cyl_y(-11.50, -94.00, 14.00, 36.91, 2.75),
+        cyl_y( 11.50, -94.00, 14.00, 36.91, 2.75),
+    ])
+    u26 = ShapeUpgrade_UnifySameDomain(p26, True, True, True)
+    u26.Build()
+    p26 = u26.Shape()
+
+    wiper_blades = cut_all(
+        fuse_all([
+            rounded_box_xy(-7.50, 7.50, 9.45, 11.95, -83.75, -80.40, 0.7),
+            rounded_box_xy(-6.80, 6.80, 9.50, 10.35, -80.60, -78.88, 0.3),
+            rounded_box_xy(-6.80, 6.80, 11.05, 11.90, -80.60, -78.88, 0.3),
+        ]),
+        [
+            cyl_y(-2.20, -78.88, 9.0, 12.5, 0.75),
+            cyl_y( 0.00, -78.88, 9.0, 12.5, 0.75),
+            cyl_y( 2.20, -78.88, 9.0, 12.5, 0.75),
+        ]
+    )
+    uw = ShapeUpgrade_UnifySameDomain(wiper_blades, True, True, True)
+    uw.Build()
+    wiper_blades = uw.Shape()
+
+    wiper_screws = [
+        fuse_all([cyl_y(sx * 11.50, -94.00, 36.91, 48.91, 1.50), cyl_y(sx * 11.50, -94.00, 34.50, 36.91, 2.60)])
+        for sx in (-1.0, 1.0)
+    ]
+
+    # Build P27_CPAP_7040_Blower_Frame_Mount:
+    base_ring = cyl_z(0.0, 0.0, 0.0, 16.0, 37.5)
+    spine_2020 = rounded_box_xy(-22.0, 22.0, -40.0, -28.0, 0.0, 34.0, 2.0)
+    umbilical_arm = rounded_box_xy(-32.0, -20.0, -39.0, -24.0, 0.0, 20.0, 1.8)
+    bosses_m3 = [
+        cyl_z( 37.0,   0.0, 0.0, 16.0, 4.5),
+        cyl_z(-26.2,  26.2, 0.0, 16.0, 4.5),
+        cyl_z(-26.2, -26.2, 0.0, 16.0, 4.5),
+    ]
+    ox, oy = 16.0, -14.0
+    spigot_pad = cyl_z(ox, oy, 0.0, 16.0, 12.5)
+    spigot_barbs = fuse_all([
+        cyl_z(ox, oy, 16.0, 18.5, 11.30),
+        cyl_z(ox, oy, 18.5, 22.5, 10.10),
+        cone_z(ox, oy, 22.5, 24.0, 10.10, 10.90),
+        cyl_z(ox, oy, 24.0, 25.5, 10.90),
+        cyl_z(ox, oy, 25.5, 28.5, 10.10),
+        cone_z(ox, oy, 28.5, 30.0, 10.10, 10.80),
+        cyl_z(ox, oy, 30.0, 31.5, 10.80),
+        cone_z(ox, oy, 31.5, 33.5, 10.80, 9.65),
+    ])
+    p27_outer = fuse_all([base_ring, spine_2020, umbilical_arm, spigot_pad, spigot_barbs] + bosses_m3)
+    p27_cuts = [
+        cut_all(cyl_z(0.0, 0.0, 3.0, 17.0, 33.5), [cyl_z(ox, oy, 0.0, 17.5, 12.5)]),
+        cut_all(
+            cyl_z(0.0, 0.0, -1.0, 4.0, 22.0),
+            [
+                box(-2.0, 2.0, -24.0, 24.0, -1.0, 4.0),
+                box(-24.0, 24.0, -2.0, 2.0, -1.0, 4.0),
+                cut_all(cyl_z(0.0, 0.0, -1.0, 4.0, 12.5), [cyl_z(0.0, 0.0, -1.5, 4.5, 9.5)]),
+            ]
+        ),
+        cyl_z(ox, oy, -1.0, 35.0, 8.80),
+        cyl_z( 37.0,   0.0, -1.0, 17.0, 1.65),
+        cyl_z(-26.2,  26.2, -1.0, 17.0, 1.65),
+        cyl_z(-26.2, -26.2, -1.0, 17.0, 1.65),
+        cyl_z( 37.0,   0.0, 11.5, 17.0, 2.30),
+        cyl_z(-26.2,  26.2, 11.5, 17.0, 2.30),
+        cyl_z(-26.2, -26.2, 11.5, 17.0, 2.30),
+        cyl_y(-12.0,  9.0, -41.0, -27.0, 2.65),
+        cyl_y( 12.0,  9.0, -41.0, -27.0, 2.65),
+        cyl_y(-12.0, 25.0, -41.0, -27.0, 2.65),
+        cyl_y( 12.0, 25.0, -41.0, -27.0, 2.65),
+        cyl_y(-12.0,  9.0, -41.0, -36.5, 4.80),
+        cyl_y( 12.0,  9.0, -41.0, -36.5, 4.80),
+        cyl_y(-12.0, 25.0, -41.0, -36.5, 4.80),
+        cyl_y( 12.0, 25.0, -41.0, -36.5, 4.80),
+        cyl_z(-26.0, -39.0, -1.0, 21.0, 3.80),
+        rounded_box_xy(-33.0, -19.0, -35.5, -32.0, 4.5, 8.0, 0.8),
+        rounded_box_xy(-33.0, -19.0, -35.5, -32.0, 12.5, 16.0, 0.8),
+    ]
+    p27 = cut_all(p27_outer, p27_cuts)
+    u27 = ShapeUpgrade_UnifySameDomain(p27, True, True, True)
+    u27.Build()
+    p27 = u27.Shape()
+
+    return {
+        "P25_SparkShift_3010_Dock": p25,
+        "P26_Dock_Nozzle_Wiper_and_Purge_Chute": p26,
+        "P27_CPAP_7040_Blower_Frame_Mount": p27,
+        "Silicone_Ooze_Stopper_Pad": ooze_pad,
+        "Silicone_Wiper_Blades": wiper_blades,
+        "Dock_Complete_Solids": [p25, sw_upper, sw_lower, ooze_pad, m5_l, m5_r, p26, wiper_blades] + wiper_screws,
+    }
+
+
 def export_step_file(shapes, out_path):
     writer = STEPControl_Writer()
     comp = TopoDS_Compound()
@@ -1729,6 +1898,36 @@ def main():
         STEP_DIR / "Toolhead_3010_Complete.step",
     )
 
+    # Build and verify Dock (P25), Nozzle Wiper & Purge Chute (P26), and Stationary 7040 Blower Mount (P27):
+    dock_suite = build_dock_and_stationary_accessories()
+    dock_and_frame_reports = {}
+    for dname in ("P25_SparkShift_3010_Dock", "P26_Dock_Nozzle_Wiper_and_Purge_Chute", "P27_CPAP_7040_Blower_Frame_Mount"):
+        dshape = dock_suite[dname]
+        d_step = STEP_DIR / f"{dname}.step"
+        d_stl = STL_DIR / f"{dname}.stl"
+        export_step_file([dshape], d_step)
+        export_stl_file(dshape, d_stl)
+        min_v, max_v, _ = exact_vertex_bounds_from_stl(d_stl)
+        mesh_val = validate_binary_stl(d_stl)
+        dock_and_frame_reports[dname] = {
+            "solids": solid_count(dshape),
+            "shells": shell_count(dshape),
+            "brep_volume_mm3": round(vol_of(dshape), 3),
+            "min_mm": min_v,
+            "max_mm": max_v,
+            "stl_validation": mesh_val,
+        }
+        print(f"[OK] {dname}: vol={dock_and_frame_reports[dname]['brep_volume_mm3']} mm3, bounds={min_v}..{max_v}, watertight={mesh_val['is_watertight_manifold']}")
+
+    export_step_file(dock_suite["Dock_Complete_Solids"], STEP_DIR / "Dock_3010_Complete.step")
+
+    # Synchronize all printable STLs into root stl_v26/ directory:
+    root_stl_dir = HERE.parent.parent / "stl_v26"
+    if root_stl_dir.exists():
+        import shutil
+        for stl_file in STL_DIR.glob("*.stl"):
+            shutil.copy2(stl_file, root_stl_dir / stl_file.name)
+
     # Verify 35 mm tool-withdrawal & 10-toolhead Voron 350 (37.30 mm pitch) neighbor clearance for both 2510 and 3010 toolheads:
     carriage_check_parts = [
         ("P01", v26_by_name["PRINT_motor_mount"][0]),
@@ -1866,6 +2065,7 @@ def main():
         "tool_withdrawal_35mm_sweep_clashes": withdrawal_clashes,
         "inter_part_overlaps": inter_part_overlaps,
         "toolhead_fan_variants": toolhead_reports,
+        "dock_and_stationary_accessories": dock_and_frame_reports,
         "voron350_10_toolhead_evaluation": voron350_pitch_eval,
         "parts": part_reports,
         "combined_step_sha256": hashlib.sha256(combo_step.read_bytes()).hexdigest(),

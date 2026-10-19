@@ -137,6 +137,9 @@ No slicer profile, machine settings, or G-code is included.
 | P22 | [CPAP lower plenum with ≥4.65mm sock thermal keepout & sub-sock crescent jets](stl_v26/P22_CPAP_Lower_Plenum.stl) | 1 | GPL-3.0 custom work |
 | P23 | [Shared forward Beacon RevH Normal / Cartographer V3 Flat Pack mount](stl_v26/P23_Beacon_Cartographer_Mount.stl) | 1 | GPL-3.0 custom work |
 | P24 | [Co-bolted BTT EBB42 CAN V1.2 rear controller mount (17.4–21.8mm NEMA14 clearance)](stl_v26/P24_EBB42_Controller_Mount.stl) | 1 | GPL-3.0 custom work |
+| P25 | [34.0mm pure-primitive 3010 dock body with spring-leaf silicone ooze-stopper pocket](stl_v26/P25_SparkShift_3010_Dock.stl) | 1 per tool | GPL-3.0 custom work |
+| P26 | [Front-bolted purge pellet chute & dual V-notched silicone nozzle wiper cassette](stl_v26/P26_Dock_Nozzle_Wiper_and_Purge_Chute.stl) | 1 per tool | GPL-3.0 custom work |
+| P27 | [Stationary 2020 frame mount for Trianglelab 7040 blower & CAN umbilical clamp](stl_v26/P27_CPAP_7040_Blower_Frame_Mount.stl) | 1 | GPL-3.0 custom work |
 
 The [exploded diagram and GIF](README.md) are architecture/kinematics aids,
 not assembly-path or print-process validation. Reference hardware and the
