@@ -1058,9 +1058,18 @@ def build_p24_ebb42_mount():
 
     bar_left    = rounded_box_xy( 12.00,  22.10, -22.10, -13.50, -16.80, 27.50, 1.4)
     bar_right   = rounded_box_xy(-21.80, -13.70, -22.10, -14.00,   7.00, 48.70, 1.4)
-    # Bottom crossbar & bridge plate sitting flush on P21's up_fairing at Z = -18.40 mm and bolting to P21 at (±6.00, -15.80):
+    # Bottom crossbar & bridge plate sitting flush on P21's up_fairing at Z = -18.40 mm and bolting to P21 at (±6.00, -15.80),
+    # plus forward 3-channel A1104 Hall-sensor lead insulator & strain-relief saddle (Y = -13.50..-6.75 mm):
     bar_bot_low = rounded_box_xy(-20.00,  17.50, y_standoff, -19.50, -16.80, -13.70, 1.2)
     bridge_p21  = rounded_box_xy( -9.50,   9.50, -23.50, -12.60, -18.40, -13.70, 1.4)
+    hall_comb_saddle = cut_all(
+        rounded_box_xy(-4.50, 3.50, -13.50, -6.75, -18.40, -14.30, 0.8),
+        [
+            box(-2.20, -1.30, -14.00, -6.50, -16.10, -14.20),
+            box(-0.45,  0.45, -14.00, -6.50, -16.10, -14.20),
+            box( 1.30,  2.20, -14.00, -6.50, -16.10, -14.20),
+        ]
+    )
     bridge_r    = rounded_box_xy(-17.50,  -8.50, -22.10, -11.00, -16.80, -13.70, 1.0)
     # Corner standoff support legs keeping the internal wiring bay open between the extruder motor and EBB42:
     leg_br = rounded_box_xy(-20.00, -13.95, y_standoff, -19.50, -16.80, -5.80, 1.2)
@@ -1089,7 +1098,7 @@ def build_p24_ebb42_mount():
     hook_ur = rounded_box_xy(-20.80, -12.50, -15.00, -2.50, 48.70, 51.20, 1.5)
 
     body = fuse_all([
-        *bosses, bar_left, bar_right, bar_bot_low, bridge_p21, bridge_r,
+        *bosses, bar_left, bar_right, bar_bot_low, bridge_p21, hall_comb_saddle, bridge_r,
         leg_br, leg_bl, leg_tr, leg_tl,
         foot_ul, foot_bl, pad_bl_low, col_r_front, foot_ur, hook_ur,
     ])
@@ -1494,9 +1503,10 @@ def build_toolhead_fan_variants(v26_by_name):
     }
 
 
-def build_dock_and_stationary_accessories():
+def build_dock_and_stationary_accessories(v26_by_name=None):
     """
-    Build the pure-primitive Dock, Anti-Ooze / Nozzle Wiper / Purge Chute, and Stationary 7040 Blower Mount:
+    Build the pure-primitive Dock, Anti-Ooze / Nozzle Wiper / Purge Chute, Stationary 7040 Blower Mount,
+    Master Calibration Jig (P28), and COTS-qualified Core Drop-In Variants (P01_COTS, P02_COTS, P05_COTS):
       1. P25_SparkShift_3010_Dock:
          - 34.00 mm wide (X in [-17.00, +17.00] mm) modular toolhead dock body with 0 BSpline/Sphere faces
            and 0 sliver faces (< 0.15 mm²).
@@ -1653,14 +1663,73 @@ def build_dock_and_stationary_accessories():
     u27.Build()
     p27 = u27.Shape()
 
-    return {
+    # Build P28_Dock_and_Probe_Calibration_Jig (100% pure-primitive 4-in-1 commissioning & calibration gauge):
+    jig_base = rounded_box_xy(-25.00, 25.00, -12.00, 12.00, 0.00, 8.00, 2.5)
+    pins_37p3 = [cyl_z(sx * 18.65,  5.50, 8.00, 14.50, 2.42) for sx in (-1.0, 1.0)]
+    pins_35p0 = [cyl_z(sx * 17.50, -5.50, 8.00, 14.50, 2.42) for sx in (-1.0, 1.0)]
+    probe_step_pad = rounded_box_xy(-9.00, 9.00, -12.00, -3.50, 8.00, 10.27, 1.5)
+    p28 = cut_all(
+        fuse_all([jig_base, probe_step_pad] + pins_37p3 + pins_35p0),
+        [
+            box(-12.50, 12.50, -2.05, 2.05, 5.50, 8.50),
+            rounded_box_xy(-10.70, 10.70, 2.50, 9.50, 4.50, 8.50, 1.2),
+            cyl_z(0.0, -7.50, -1.0, 12.0, 2.60),
+        ]
+    )
+    u28 = ShapeUpgrade_UnifySameDomain(p28, True, True, True)
+    u28.Build()
+    p28 = u28.Shape()
+
+    out = {
         "P25_SparkShift_3010_Dock": p25,
         "P26_Dock_Nozzle_Wiper_and_Purge_Chute": p26,
         "P27_CPAP_7040_Blower_Frame_Mount": p27,
+        "P28_Dock_and_Probe_Calibration_Jig": p28,
         "Silicone_Ooze_Stopper_Pad": ooze_pad,
         "Silicone_Wiper_Blades": wiper_blades,
         "Dock_Complete_Solids": [p25, sw_upper, sw_lower, ooze_pad, m5_l, m5_r, p26, wiper_blades] + wiper_screws,
     }
+    if v26_by_name is not None:
+        # 1. P01_Back_case_COTS_MR74: deepens rear Ø7.04 mm MR74 seats to Y=2.80..5.30 mm for standard 2.5mm MR74ZZ & 4x25mm shafts
+        p01_cots = cut_all(v26_by_name["PRINT_motor_mount"][0], [
+            cyl_y(-9.50, 13.10, 2.80, 5.35, 3.52),
+            cyl_y( 9.50, 13.10, 2.80, 5.35, 3.52),
+        ])
+        # 2. P02_Motor_servo_plate_12p5mm: widens MG90S/MG90D window to X in [4.35, 16.65] mm (0.000 mm3 clash with 12.2mm servo envelope)
+        p02_cots = cut_all(v26_by_name["PRINT_REAR_MOTOR_SERVO_SPACER"][0], [
+            box(4.35, 16.65, -11.25, -6.70, 33.80, 56.85),
+            box(4.35, 16.65,  -6.75, -2.60, 45.00, 56.85),
+        ])
+        # 3. P05_Servo_cam_COTS: 100% pure-primitive cam (0 BSpline faces, 100% watertight) with analytical keyed COTS spline hub
+        lobe = intersect_all(
+            prism_xz_r([
+                ( 2.48, 45.73), ( 4.67, 43.29), (14.80, 45.20),
+                (16.10, 51.00), (14.15, 54.54), ( 4.80, 55.80),
+            ], [2.2, 3.0, 4.0, 4.0, 4.0, 3.2], 4.85, 9.20),
+            [cyl_y(10.50, 50.72, 4.80, 9.25, 9.444)]
+        )
+        p05_cots = cut_all(
+            fuse_all([
+                cyl_y(10.50, 50.72, -2.00, 2.65, 3.975),
+                cyl_y(10.50, 50.72,  2.65, 4.85, 4.500),
+                lobe,
+                cone_y(10.50, 50.72, 9.20, 10.50, 3.600, 2.475),
+                cyl_y(10.50, 50.72, 10.50, 13.70, 2.475),
+            ]),
+            [
+                cyl_y(10.50, 50.72, -2.10, 14.00, 1.450),
+                cyl_y(10.50, 50.72, -2.10,  1.16, 2.480),
+                rounded_box_xy(10.50 - 2.85, 10.50 + 2.85, -2.10, 1.16, 50.72 - 0.75, 50.72 + 0.75, 0.25),
+                rounded_box_xy(10.50 - 0.75, 10.50 + 0.75, -2.10, 1.16, 50.72 - 2.85, 50.72 + 2.85, 0.25),
+            ]
+        )
+        u05 = ShapeUpgrade_UnifySameDomain(p05_cots, True, True, True)
+        u05.Build()
+        p05_cots = u05.Shape()
+        out["P01_Back_case_COTS_MR74"] = p01_cots
+        out["P02_Motor_servo_plate_12p5mm"] = p02_cots
+        out["P05_Servo_cam_COTS"] = p05_cots
+    return out
 
 
 def export_step_file(shapes, out_path):
@@ -1898,10 +1967,19 @@ def main():
         STEP_DIR / "Toolhead_3010_Complete.step",
     )
 
-    # Build and verify Dock (P25), Nozzle Wiper & Purge Chute (P26), and Stationary 7040 Blower Mount (P27):
-    dock_suite = build_dock_and_stationary_accessories()
+    # Build and verify Dock (P25), Nozzle Wiper & Purge Chute (P26), Stationary 7040 Blower Mount (P27),
+    # Master Calibration Jig (P28), and COTS Core Drop-Ins (P01_COTS, P02_COTS, P05_COTS):
+    dock_suite = build_dock_and_stationary_accessories(v26_by_name)
     dock_and_frame_reports = {}
-    for dname in ("P25_SparkShift_3010_Dock", "P26_Dock_Nozzle_Wiper_and_Purge_Chute", "P27_CPAP_7040_Blower_Frame_Mount"):
+    for dname in (
+        "P25_SparkShift_3010_Dock",
+        "P26_Dock_Nozzle_Wiper_and_Purge_Chute",
+        "P27_CPAP_7040_Blower_Frame_Mount",
+        "P28_Dock_and_Probe_Calibration_Jig",
+        "P01_Back_case_COTS_MR74",
+        "P02_Motor_servo_plate_12p5mm",
+        "P05_Servo_cam_COTS",
+    ):
         dshape = dock_suite[dname]
         d_step = STEP_DIR / f"{dname}.step"
         d_stl = STL_DIR / f"{dname}.stl"

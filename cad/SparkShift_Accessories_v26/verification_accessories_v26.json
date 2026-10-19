@@ -226,6 +226,98 @@
         "mesh_volume_mm3": 39592.529,
         "is_watertight_manifold": true
       }
+    },
+    "P28_Dock_and_Probe_Calibration_Jig": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 9384.035,
+      "min_mm": [
+        -25.0,
+        -12.0,
+        0.0
+      ],
+      "max_mm": [
+        25.0,
+        12.0,
+        14.5
+      ],
+      "stl_validation": {
+        "facets": 4120,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 9383.864,
+        "is_watertight_manifold": true
+      }
+    },
+    "P01_Back_case_COTS_MR74": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 33425.13,
+      "min_mm": [
+        -22.5,
+        0.3,
+        -57.279
+      ],
+      "max_mm": [
+        22.5,
+        29.0,
+        62.221
+      ],
+      "stl_validation": {
+        "facets": 26468,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 33428.455,
+        "is_watertight_manifold": true
+      }
+    },
+    "P02_Motor_servo_plate_12p5mm": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 14689.072,
+      "min_mm": [
+        -22.5,
+        -11.2,
+        -17.78
+      ],
+      "max_mm": [
+        22.5,
+        0.3,
+        62.221
+      ],
+      "stl_validation": {
+        "facets": 14184,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 14691.596,
+        "is_watertight_manifold": true
+      }
+    },
+    "P05_Servo_cam_COTS": {
+      "solids": 1,
+      "shells": 1,
+      "brep_volume_mm3": 858.472,
+      "min_mm": [
+        2.681,
+        -2.0,
+        43.518
+      ],
+      "max_mm": [
+        15.865,
+        13.7,
+        55.439
+      ],
+      "stl_validation": {
+        "facets": 4678,
+        "degenerate_facets": 0,
+        "non_manifold_edges": 0,
+        "winding_errors": 0,
+        "mesh_volume_mm3": 858.245,
+        "is_watertight_manifold": true
+      }
     }
   },
   "voron350_10_toolhead_evaluation": {
@@ -452,7 +544,7 @@
     "P24_EBB42_Controller_Mount": {
       "solids": 1,
       "shells": 1,
-      "brep_volume_mm3": 8762.846,
+      "brep_volume_mm3": 8924.453,
       "min_mm": [
         -21.8,
         -25.4,
@@ -469,11 +561,11 @@
       "beacon_clashes": [],
       "ebb42_clash_mm3": 0.0,
       "stl_validation": {
-        "facets": 17350,
+        "facets": 17690,
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
-        "mesh_volume_mm3": 8764.199,
+        "mesh_volume_mm3": 8925.71,
         "is_watertight_manifold": true
       },
       "step_sha256": "02f0cbe382f8903feb4a79ec33d8462d8c926ba6840361ff264f929b86d50cfe",

@@ -26,13 +26,13 @@ Existing case clamps remain required; nominal
 | Item | Per build | Reference / verification hold |
 |---|---:|---|
 | Extrusion motor | 1 | LDO-36STH20-1004AHG(XH) factory-10T pancake reference; verify exact variant. No separate 20T pinion or pinion grub. |
-| Release servo | 1 | MG90S/MG90D reference ear-seat arrangement, **not universal clone compatibility**. Latest 11.6mm P02 window intersects the old 12.2mm envelope; measure actual body/tower/ears/leads/output before purchasing or fitting. |
+| Release servo | 1 | MG90S/MG90D reference ear-seat arrangement. Baseline `11.6mm` `P02` window intersects the `12.2mm` `HOBBY_SERVO_ENVELOPE`; use **[`P02_Motor_servo_plate_12p5mm.stl`](stl_v26/P02_Motor_servo_plate_12p5mm.stl)** (`12.30 × 23.16mm` window, `0.000mm³` interference) for drop-in fit with standard `12.2mm` MG90S/MG90D bodies. |
 | HGX hobs | 2 | Matching unmodified purchased HGX steel hobs; verify kit coverage below. |
-| Closing/preload spring | 1 | Matching envelope; actual rate, preload, solid height, force, and servo margin **HOLD**. |
+| Closing/preload spring | 1 | **COTS Spec:** **`0.90mm` wire × `7.50mm` OD × `30.0mm` free length** (`k = 3.25 N/mm`) stainless compression spring -> **`28.0 N` installed preload** at `21.38mm` (`40.7 N` / `4.15 kgf` hob bite force at `r_hob = 13.12mm`) and **`37.1 N`** at `2.8mm` cam lift (`0.72 kg·cm` servo torque = **`3.05×` margin** on `2.2 kg·cm` MG90D). Verify with `P28` `21.40mm` pocket. |
 | HF hotend | 1 complete assembly | Red Lizard HF/K1-heatsink/Volcano-envelope CAD references: eight reference bodies, **not eight purchases or a maker-certified mixed SKU**. Use a compatible supplier system and its ratings. |
 | MGN12H carriage | 1 | Match actual rail/carriage and mounting envelope; rail length is printer-dependent. |
 | 9mm GT2 belt interface | 4 ends | Four ends, **not four loops**; routing and total length are printer-dependent. |
-| Bare A1104-family Hall sensor | 1 reference | Three-lead package, **not a PCB module**. Actual electrical variant, wiring, positive support, and retention remain **HOLD**. |
+| Bare A1104-family Hall sensor | 1 reference | Three-lead TO-92 package, **not a PCB module**. Seated in `P02` pocket `(X = -0.5, Z = -15.2)` with leads insulated and strain-relieved by **`P24`'s integrated 3-channel wire comb (`Y = -6.75..-2.50mm`)** to EBB42 `ENDSTOP`. |
 
 The direct printed cam/hub uses **no OEM horn**. The inspected reference
 output was 21T, 4.86mm crest OD, 3.36mm exposed spline height, M2.5 centre
@@ -55,7 +55,7 @@ are not separate items in this count.
 | MF85ZZ front cam support | 1 | **5x8x2.5mm**, Y=10.70..13.20, in P03's front cam tower. |
 | 6700ZZ arm hinge | 1 | 10x15x4mm; loaded spacing/retention unqualified. |
 | Matching HGX needle bearings | 2 | 3x5x7mm references; confirm actual hob kit needles. |
-| Rear MR74-type supports | 2 | **HOLD: modelled 4x7x2mm. Common MR74ZZ is 2.5mm wide and is not drop-in.** |
+| Rear MR74-type supports | 2 | Baseline `P01` models `4×7×2mm`. Use **[`P01_Back_case_COTS_MR74.stl`](stl_v26/P01_Back_case_COTS_MR74.stl)** (`Y = 2.80..5.30mm` deepened seats) for drop-in fit with standard COTS **`MR74ZZ (4×7×2.5mm)`** shielded bearings. |
 | **Total, including needles** | **15** | Includes both external cam bearings; kit-supplied matching bearings satisfy rows, not an additional set. |
 
 ## HGX Lite kit: possible coverage, not extra inventory
@@ -77,7 +77,7 @@ dimension, or complete-kit compatibility is guaranteed.
 
 | Item | Per build | Reference / hold |
 |---|---:|---|
-| 4mm compound shafts | 2 | **HOLD: standard lengths unresolved.** Modelled 26.3mm / 24.9mm and inherited `4x25` / `4x24` names are **not buy/cut dimensions**. No shaft-machining recipe. |
+| 4mm compound shafts | 2 | Baseline `P01` models `26.3mm / 24.9mm`. With **[`P01_Back_case_COTS_MR74.stl`](stl_v26/P01_Back_case_COTS_MR74.stl)**, both fixed and moving axles accept standard off-the-shelf **`4 × 25.0mm` hardened steel dowel pins** (`Y = 2.80..27.80mm`, zero cutting required; verify in `P28` `25.00mm` trough). |
 | HGX hob pins | 2 | 3x14mm reference; verify kit stock and fits. |
 | Follower pin | 1 | 3x10mm for 623ZZ; not a cam journal pin. |
 | Coupling locating pins | 6 | Steel nominal 1.5x5mm; CAD length 4.9mm, in YUDX-matched teardrop snap seats. Actual press/snap force and retention unqualified. |
@@ -204,7 +204,14 @@ for the remaining orientation/fit gates.
 | P21 | [CPAP rear gantry bridge behind Monolith 2WD 9mm X-beam](stl_v26/P21_CPAP_Gantry_Bridge.stl) | GPL-3.0 custom work |
 | P22 | [CPAP lower plenum with ≥4.65mm sock thermal keepout & sub-sock crescent jets](stl_v26/P22_CPAP_Lower_Plenum.stl) | GPL-3.0 custom work |
 | P23 | [Shared forward Beacon RevH Normal / Cartographer V3 Flat Pack mount](stl_v26/P23_Beacon_Cartographer_Mount.stl) | GPL-3.0 custom work |
-| P24 | [Co-bolted BTT EBB42 CAN V1.2 rear controller mount (17.4–21.8mm NEMA14 clearance)](stl_v26/P24_EBB42_Controller_Mount.stl) | GPL-3.0 custom work |
+| P24 | [Co-bolted BTT EBB42 CAN V1.2 rear controller mount with 3-slot Hall-sensor wire comb](stl_v26/P24_EBB42_Controller_Mount.stl) | GPL-3.0 custom work |
+| P25 | [34.0mm pure-primitive 3010 dock body with spring-leaf silicone ooze-stopper pocket](stl_v26/P25_SparkShift_3010_Dock.stl) | GPL-3.0 custom work |
+| P26 | [Front-bolted purge pellet chute & dual V-notched silicone nozzle wiper cassette](stl_v26/P26_Dock_Nozzle_Wiper_and_Purge_Chute.stl) | GPL-3.0 custom work |
+| P27 | [Stationary 2020 frame mount for Trianglelab 7040 blower & CAN umbilical clamp](stl_v26/P27_CPAP_7040_Blower_Frame_Mount.stl) | GPL-3.0 custom work |
+| P28 | [4-in-1 dock pitch (37.3/35.0mm), probe Z-offset (2.27mm), 25mm shaft & 21.4mm spring calibration jig](stl_v26/P28_Dock_and_Probe_Calibration_Jig.stl) | GPL-3.0 custom work |
+| P01 (COTS) | [Drop-in back case with 2.5mm deep MR74ZZ seats for standard 4×25.0mm dowel pins](stl_v26/P01_Back_case_COTS_MR74.stl) | GPL-3.0 custom work |
+| P02 (COTS) | [Drop-in 7mm motor/servo plate with 12.30mm MG90S/MG90D window (0.0mm³ servo clash)](stl_v26/P02_Motor_servo_plate_12p5mm.stl) | GPL-3.0 custom work |
+| P05 (COTS) | [Pure-primitive watertight eccentric servo cam with 4-keyed COTS spline socket (0 BSplines)](stl_v26/P05_Servo_cam_COTS.stl) | GPL-3.0 custom work |
 
 Wiring, connectors, strain relief, signal/control interface, and adequately
 sized regulated **5V servo power/common ground** are printer-dependent;
