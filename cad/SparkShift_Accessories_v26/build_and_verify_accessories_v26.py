@@ -1392,6 +1392,11 @@ def build_toolhead_fan_variants(v26_by_name):
         box(-9.58, -3.38, 31.90, 35.15, -4.35,  7.85),
         box( 3.38,  9.58, 31.90, 35.15, 20.65, 32.85),
         box(-9.58, -3.38, 31.90, 35.15, 20.65, 32.85),
+        # Internal T-slot epoxy-lock undercut cavities at pocket base (Y = 33.95..35.15 mm, ±0.60 mm Z overhang):
+        box( 4.30,  8.65, 33.95, 35.15, -6.50, 10.00),
+        box(-8.65, -4.30, 33.95, 35.15, -6.50, 10.00),
+        box( 4.30,  8.65, 33.95, 35.15, 18.50, 35.00),
+        box(-8.65, -4.30, 33.95, 35.15, 18.50, 35.00),
         *(cyl_y(sx * 6.50, zc, 31.90, 35.15, 3.06) for sx in (-1.0, 1.0) for zc in (30.50, 23.00, 5.50, -2.00)),
         cyl_y(-6.865, -11.255, 31.0, 37.0, 2.05),
         cyl_y( 6.855, -11.265, 31.0, 37.0, 2.05),
@@ -1493,6 +1498,8 @@ def build_toolhead_fan_variants(v26_by_name):
         cyl_y( 6.00,  -2.00, 41.67, 46.00, 3.06),
         box(-7.62, 7.62, 42.67, 46.00, -4.58, 0.58),
         box(-6.12, 6.12, 42.67, 46.00, -5.12, 1.12),
+        # Internal T-slot epoxy-lock undercut cavity at pocket base (Y = 42.67..43.87 mm, ±0.63 mm Z overhang):
+        box(-4.50, 4.50, 42.67, 43.87, -5.75, 1.75),
     ])
     u18 = ShapeUpgrade_UnifySameDomain(p18_3010, True, True, True)
     u18.Build()
@@ -1599,11 +1606,13 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
         cyl_y( 6.00, 22.00, 45.0, yf + 5.50, 3.52),
         cyl_y(-6.00, 22.00, 45.0, yf + 12.00, 2.58),
         cyl_y( 6.00, 22.00, 45.0, yf + 12.00, 2.58),
-        # Universal N52 Dock Magnet pocket at Z=-2.00 accepting 1x horizontal 15x5x3mm bar, 1x horizontal 12x6x3mm bar, OR 2x Ø6x4mm/Ø6x3mm discs:
+        # Universal N52 Dock Magnet pocket at Z=-2.00 accepting 1x horizontal 15x5x3mm bar, 1x horizontal 12x6x3mm bar, OR 2x Ø6x4mm/Ø6x3mm discs
+        # with an internal T-slot epoxy-lock undercut cavity at the pocket base (Y = yf+1.88..yf+3.08 mm):
         cyl_y(-6.00, -2.00, 45.0, yf + 4.08, 3.06),
         cyl_y( 6.00, -2.00, 45.0, yf + 4.08, 3.06),
         box(-7.62, 7.62, 45.0, yf + 3.08, -4.58, 0.58),
         box(-6.12, 6.12, 45.0, yf + 3.08, -5.12, 1.12),
+        box(-4.50, 4.50, yf + 1.88, yf + 3.08, -5.75, 1.75),
     ])
     u25 = ShapeUpgrade_UnifySameDomain(p25, True, True, True)
     u25.Build()
@@ -1861,13 +1870,18 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
         u05.Build()
         p05_cots = u05.Shape()
         # 4. P03_Front_case_COTS: 3-in-1 universal vertical magnet pockets accepting 4x 15x5x3mm bars,
-        # 4x 12x6x3mm bars, OR 8x Ø6x4mm/Ø6x3mm discs at (X=±6.50, Z=[30.50, 23.00, 5.50, -2.00] mm):
+        # 4x 12x6x3mm bars, OR 8x Ø6x4mm/Ø6x3mm discs at (X=±6.50, Z=[30.50, 23.00, 5.50, -2.00] mm)
+        # with internal T-slot epoxy-lock undercut cavities at the pocket base (Y = 28.68..29.88 mm):
         p03_cots = cut_all(v26_by_name["PRINT_000_outer_shell_of_extruder_1"][0], [
             *(cyl_y(sx * 6.50, zc, 27.70, 32.00, 3.06) for sx in (-1.0, 1.0) for zc in (30.50, 23.00, 5.50, -2.00)),
             box( 3.38,  9.58, 28.68, 32.00, 20.65, 32.85),
             box(-9.58, -3.38, 28.68, 32.00, 20.65, 32.85),
             box( 3.38,  9.58, 28.68, 32.00, -4.35,  7.85),
             box(-9.58, -3.38, 28.68, 32.00, -4.35,  7.85),
+            box( 4.50,  8.50, 28.68, 29.88, -6.40,  9.90),
+            box(-8.50, -4.50, 28.68, 29.88, -6.40,  9.90),
+            box( 4.50,  8.50, 28.68, 29.88, 18.60, 34.90),
+            box(-8.50, -4.50, 28.68, 29.88, 18.60, 34.90),
         ])
         u03 = ShapeUpgrade_UnifySameDomain(p03_cots, True, True, True)
         u03.Build()
