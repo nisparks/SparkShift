@@ -1376,6 +1376,13 @@ def build_toolhead_fan_variants(v26_by_name):
     common_stem_cuts = [
         hs_pocket, bot_open, side_vent_lower, side_vent_upper, stem_wire_enlarge,
         hgx_window,
+        # Positive catch pocket for P04F_Swing_arm_front_half_COTS cam-actuated locking hook
+        # (leaves 4.00 mm solid rear locking shoulder at Y = 19.40..23.40 mm, X = -0.10..+3.00 mm):
+        prism_xy_r([
+            (-0.10, 23.40), (3.50, 23.40),
+            ( 3.50, 32.10), (-0.10, 32.10),
+        ], [0.3, 0.0, 0.0, 0.3], -15.00, -8.70),
+        box(-3.50, -0.95, 19.00, 23.80, -6.00, 6.00),
         cyl_y(0.0, -12.78, 19.00, 21.45, 2.05),
         box( 3.80,  9.15, 31.90, 35.15, -5.86,  9.34),
         box(-9.15, -3.80, 31.90, 35.15, -5.86,  9.34),
@@ -1462,12 +1469,12 @@ def build_toolhead_fan_variants(v26_by_name):
 
     # Trim lower blank skirt of P18 to Z=-22.45 mm, add a 5.00 x 0.85 mm rear wire relief groove,
     # and integrate StealthChanger 2x Ø5x12mm rounded dowel pin bosses at (X=±6.00, Z=22.00)
-    # plus 2x Ø6x4mm (or Ø6x3mm) N52 dock retention magnet bosses at (X=±6.00, Z=-2.00):
+    # plus 2x close-gap (Y=45.75mm, 0.16mm air gap to P25) Ø6x4mm/Ø6x3mm N52 dock magnet bosses at (X=±6.00, Z=-2.00):
     p18_sc_bosses = [
         rounded_box_xy( 2.50,  9.80, 37.00, 45.00, 17.80, 26.20, 1.5),
         rounded_box_xy(-9.80, -2.50, 37.00, 45.00, 17.80, 26.20, 1.5),
-        rounded_box_xy( 2.50,  9.80, 37.00, 45.00, -6.00,  2.00, 1.5),
-        rounded_box_xy(-9.80, -2.50, 37.00, 45.00, -6.00,  2.00, 1.5),
+        rounded_box_xy( 2.50,  9.80, 37.00, 45.75, -6.00,  2.00, 1.5),
+        rounded_box_xy(-9.80, -2.50, 37.00, 45.75, -6.00,  2.00, 1.5),
     ]
     p18_3010 = cut_all(fuse_all([p18_orig] + p18_sc_bosses), [
         box(-15.0, 15.0, 34.0, 46.0, -28.0, -22.45),
@@ -1478,8 +1485,8 @@ def build_toolhead_fan_variants(v26_by_name):
         cyl_y( 5.99, -19.26, 37.40, 42.0, 1.95),
         cyl_y(-6.00,  22.00, 38.50, 45.50, 2.49),
         cyl_y( 6.00,  22.00, 38.50, 45.50, 2.49),
-        cyl_y(-6.00,  -2.00, 40.92, 45.50, 3.06),
-        cyl_y( 6.00,  -2.00, 40.92, 45.50, 3.06),
+        cyl_y(-6.00,  -2.00, 41.67, 46.00, 3.06),
+        cyl_y( 6.00,  -2.00, 41.67, 46.00, 3.06),
     ])
     u18 = ShapeUpgrade_UnifySameDomain(p18_3010, True, True, True)
     u18.Build()
@@ -1510,7 +1517,7 @@ def build_toolhead_fan_variants(v26_by_name):
         for sx in (-1.0, 1.0)
     ]
     sc_mags_3010 = [
-        cyl_y(sx * 6.00, -2.00, 40.95, 44.95, 3.00)
+        cyl_y(sx * 6.00, -2.00, 41.70, 45.70, 3.00)
         for sx in (-1.0, 1.0)
     ]
     return {
@@ -1851,9 +1858,26 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
             cyl_y(sx * 6.50, zc, 27.70, 32.00, 3.06)
             for sx in (-1.0, 1.0) for zc in (30.50, 23.00, 5.50, -2.00)
         ])
+        # 5. P04F_Swing_arm_front_half_COTS: adds a pure-primitive Cam-Actuated Positive Toolhead Locking Hook
+        # at Z = -15.00 .. -10.00 mm, Y = 23.65 .. 26.85 mm, X = 3.95 .. 9.20 mm (flush with the Y = 26.850 mm print bed face).
+        # When Cam = 0 deg (Closed, +7.87 deg arm rotation), the hook swings -3.51 mm inward in -X into P17's catch pocket
+        # (22.77 mm3 positive shear lock behind P17's Y = 19.40..23.40 mm shoulder). When Cam = 175 deg (Open), it retracts to X >= 3.95 mm (0.000 mm3 clash).
+        p04f_hook = prism_xy_r([
+            (3.95, 23.65), (9.20, 23.65),
+            (9.20, 26.85), (3.95, 26.85),
+        ], [0.4, 0.0, 0.0, 0.4], -15.00, -10.00)
+        p04f_cots = cut_all(
+            fuse_all([v26_by_name["PRINT_arm_front_half"][0], p04f_hook]),
+            [cyl_y(11.63, -13.26, 9.0, 26.0, 1.70)]
+        )
+        u04 = ShapeUpgrade_UnifySameDomain(p04f_cots, True, True, True)
+        u04.Build()
+        p04f_cots = u04.Shape()
+
         out["P01_Back_case_COTS_MR74"] = p01_cots
         out["P02_Motor_servo_plate_12p5mm"] = p02_cots
         out["P03_Front_case_COTS"] = p03_cots
+        out["P04F_Swing_arm_front_half_COTS"] = p04f_cots
         out["P05_Servo_cam_COTS"] = p05_cots
     return out
 
@@ -2108,6 +2132,7 @@ def main():
         "P01_Back_case_COTS_MR74",
         "P02_Motor_servo_plate_12p5mm",
         "P03_Front_case_COTS",
+        "P04F_Swing_arm_front_half_COTS",
         "P05_Servo_cam_COTS",
     ):
         dshape = dock_suite[dname]

@@ -215,6 +215,7 @@ for the remaining orientation/fit gates.
 | P01 (COTS) | [Drop-in back case with 2.5mm deep MR74ZZ seats for standard 4×25.0mm dowel pins](stl_v26/P01_Back_case_COTS_MR74.stl) | GPL-3.0 custom work |
 | P02 (COTS) | [Drop-in 7mm motor/servo plate with 12.30mm MG90S/MG90D window (0.0mm³ servo clash)](stl_v26/P02_Motor_servo_plate_12p5mm.stl) | GPL-3.0 custom work |
 | P03 (COTS) | [Drop-in front receiver case with dual-compatible `8× Ø6×4mm / Ø6×3mm` N52 disc + `4× 15×5×3mm` bar magnet pockets](stl_v26/P03_Front_case_COTS.stl) | GPL-3.0 custom work |
+| P04F (COTS) | [Drop-in front swing-arm half with cam-actuated positive toolhead locking hook (`22.8 mm³` shear lock at `0°`, `0.0 mm³` open at `175°`)](stl_v26/P04F_Swing_arm_front_half_COTS.stl) | GPL-3.0 custom work |
 | P05 (COTS) | [Pure-primitive watertight eccentric servo cam with 4-keyed COTS spline socket (0 BSplines)](stl_v26/P05_Servo_cam_COTS.stl) | GPL-3.0 custom work |
 
 Wiring, connectors, strain relief, signal/control interface, and adequately
