@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "elapsed_seconds": 154.76,
+  "elapsed_seconds": 117.98,
   "rear_gantry_corridor_air_area_mm2": 201.88,
   "hose_spigot_bore_area_mm2": 380.13,
   "cpap_flow_areas_mm2": {
@@ -540,7 +540,7 @@
         "mesh_volume_mm3": 7897.229,
         "is_watertight_manifold": true
       },
-      "step_sha256": "80a41b721fb3bdd3f578377d91542e4a9d3afcd1c951407ad7b8e3d46e43a4c9",
+      "step_sha256": "2c220129e4071d84344368d8fdc178bc60d4c2af2314e25485769335c4f9ebf5",
       "stl_sha256": "5c1addfcbd6b923e39442ba930f0302b1758c1723b3b542af1c6e9bf70935e4b"
     },
     "P21_CPAP_Gantry_Bridge": {
@@ -570,7 +570,7 @@
         "mesh_volume_mm3": 10183.833,
         "is_watertight_manifold": true
       },
-      "step_sha256": "db4a6b819b450c4a2d0570a50e2543dfaab77b773d7cd7b5c65baf9b300df0e8",
+      "step_sha256": "181011c57ee4f766bbd9221f354d5fbdffd37a0c522d78a10d985eeb837d9142",
       "stl_sha256": "c55f17babae592aba2635869cef10f2f79d235b30bffabf0de44af4d28510039"
     },
     "P22_CPAP_Lower_Plenum": {
@@ -600,7 +600,7 @@
         "mesh_volume_mm3": 17672.769,
         "is_watertight_manifold": true
       },
-      "step_sha256": "f42d2a552e590d773f547811b7df0770273fdb638557414e75ed48f571bd3766",
+      "step_sha256": "e597e191dcc35caab51f6dd80a7ca3c3e8d34b8f2aa9384bb9418e83f0f9090e",
       "stl_sha256": "34269bf400c1366acc73a0e8baa3edc28d4d8d6c874276338141dd5bff47257f"
     },
     "P23_Beacon_Cartographer_Mount": {
@@ -630,13 +630,13 @@
         "mesh_volume_mm3": 2398.047,
         "is_watertight_manifold": true
       },
-      "step_sha256": "5af9e2ca696544594377d8405facfed7873da013e829e99a74e793c2d743fbd5",
+      "step_sha256": "862080d52fb5f1426335f2fd1ced7f85543450a127fc4f470551907c42d8ad52",
       "stl_sha256": "25b12fb2fc843fb81b78aec747ae70c3fd5064809e0f5cf2ffa8a844a15f3b9e"
     },
     "P24_EBB42_Controller_Mount": {
       "solids": 1,
       "shells": 1,
-      "brep_volume_mm3": 8924.453,
+      "brep_volume_mm3": 9724.161,
       "min_mm": [
         -21.8,
         -25.4,
@@ -653,16 +653,16 @@
       "beacon_clashes": [],
       "ebb42_clash_mm3": 0.0,
       "stl_validation": {
-        "facets": 17690,
+        "facets": 17990,
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
-        "mesh_volume_mm3": 8925.71,
+        "mesh_volume_mm3": 9725.191,
         "is_watertight_manifold": true
       },
-      "step_sha256": "6426661c51599b3b711d1f6fd51ccb899de6c04e196a09498807a0f63ae73790",
-      "stl_sha256": "fb16e3f818747df0c6a10f875bbc677de3333ea59a35b3478cb2f221b7cf88cd"
+      "step_sha256": "95a83a52f1e72f4335b068cb400f7ce4bd2ceb62fd08c9d06645b4d1aa4cd3b0",
+      "stl_sha256": "9db1b03f562dcf5d76f4b613dad3461bdcde1077ae07226aba9ba7a0c03e9502"
     }
   },
-  "combined_step_sha256": "9395a92b7091b6a63fd45268abc839f0cdf965dc40cb67e5f3a90b199d9a8560"
+  "combined_step_sha256": "1a1a3b5d36622dd6707bcc11ad765c8e5f76c8e5fd2b9322c0993c85b578edee"
 }

@@ -1060,7 +1060,7 @@ def build_p24_ebb42_mount():
     bar_right   = rounded_box_xy(-21.80, -13.70, -22.10, -14.00,   7.00, 48.70, 1.4)
     # Bottom crossbar & bridge plate sitting flush on P21's up_fairing at Z = -18.40 mm and bolting to P21 at (±6.00, -15.80),
     # plus forward 3-channel A1104 Hall-sensor lead insulator & strain-relief saddle (Y = -13.50..-6.75 mm):
-    bar_bot_low = rounded_box_xy(-20.00,  17.50, y_standoff, -19.50, -16.80, -13.70, 1.2)
+    bar_bot_low = rounded_box_xy(-20.00,  18.00, y_standoff, -19.50, -16.80, -13.70, 1.2)
     bridge_p21  = rounded_box_xy( -9.50,   9.50, -23.50, -12.60, -18.40, -13.70, 1.4)
     hall_comb_saddle = cut_all(
         rounded_box_xy(-4.50, 3.50, -13.50, -6.75, -18.40, -14.30, 0.8),
@@ -1073,9 +1073,9 @@ def build_p24_ebb42_mount():
     bridge_r    = rounded_box_xy(-17.50,  -8.50, -22.10, -11.00, -16.80, -13.70, 1.0)
     # Corner standoff support legs keeping the internal wiring bay open between the extruder motor and EBB42:
     leg_br = rounded_box_xy(-20.00, -13.95, y_standoff, -19.50, -16.80, -5.80, 1.2)
-    leg_bl = rounded_box_xy( 11.00,  17.50, y_standoff, -19.50, -16.80, -5.80, 1.2)
-    leg_tr = rounded_box_xy(-20.00, -13.80, y_standoff, -14.00, 19.60, 25.20, 1.2)
-    leg_tl = rounded_box_xy( 11.00,  17.50, y_standoff, -14.00, 19.60, 25.20, 1.2)
+    leg_bl = rounded_box_xy( 11.00,  18.00, y_standoff, -19.50, -16.80, -5.80, 1.2)
+    leg_tr = rounded_box_xy(-20.00, -13.80, y_standoff, -14.00, 19.60, 25.50, 1.2)
+    leg_tl = rounded_box_xy( 11.00,  18.00, y_standoff, -14.00, 19.60, 25.50, 1.2)
 
     # Pure orthogonal extrusions for foot_ul, foot_bl, foot_ur (0 BSpline faces):
     foot_ul = intersect_all(
@@ -1109,18 +1109,14 @@ def build_p24_ebb42_mount():
         box(-19.60, -10.50, -21.20, -11.20, -14.10, -5.20),
         box(-22.50, -13.00, -15.00, -13.40, -19.80, -7.40),
         cyl_y(-16.748,  19.750, -16.80, 0.50, 3.10),
-        # Lower-left stepped M3 counterbore at (14.252, -11.249) with full rear-to-front hex driver access tunnel:
-        cyl_y( 14.252, -11.249, -29.00, 0.50, 1.65),
+        # Motor ear button-head screw pocket at (14.252, -11.249) stopping at Y = -8.40 mm (13.1 mm forward of EBB42 boss):
         cyl_y( 14.252, -11.249,  -8.40, 0.50, 3.10),
-        cyl_y( 14.252, -11.249, -29.00, -12.00, 3.10),
-        # Upper-left M3 counterbore at (17.250, 23.720) into SPACER_M3_HEATSET_0:
-        cyl_y( 17.250,  23.720, -29.00, 0.50, 1.65),
+        # Plate-to-P01 button-head screw pocket at (17.250, 23.720) stopping at Y = -9.00 mm (12.5 mm forward of EBB42 boss):
         cyl_y( 17.250,  23.720,  -9.00, 0.50, 3.10),
-        cyl_y( 17.250,  23.720, -29.00, -11.50, 3.10),
         # Upper-right M3 counterbore at (-18.100, 41.720) into UPPER_RIGHT_REAR_M3_HEATSET_4p6x4:
         cyl_y(-18.100,  41.720, -29.00, 0.50, 1.65),
         cyl_y(-18.100,  41.720, -29.00, -10.50, 3.10),
-        # Lower-right M3 counterbore at (-18.500, -14.450) with full rear-to-front hex driver access tunnel:
+        # Lower-right M3 counterbore at (-18.500, -14.450):
         cyl_y(-18.500, -14.450, -29.00, 0.50, 1.65),
         cyl_y(-18.500, -14.450, -29.00, -9.80, 2.85),
         # P24-to-P21 vertical M3 mounting holes & counterbores at (X = ±6.00, Y = -15.80, Z = -18.40):
@@ -1128,7 +1124,8 @@ def build_p24_ebb42_mount():
         cyl_z( 6.00, -15.80, -19.00, -13.00, 1.65),
         cyl_z(-6.00, -15.80, -15.40, -13.00, 3.00),
         cyl_z( 6.00, -15.80, -15.40, -13.00, 3.00),
-        *(cyl_y(cx, cz, y_standoff - 0.2, -19.00, 2.15) for cx, cz in corners),
+        *(cyl_y(cx, cz, y_standoff - 0.2, -21.40, 2.15) for cx, cz in corners),
+        *(cyl_y(cx, cz, -21.50, -19.00, 1.65) for cx, cz in corners),
         # Full clearance under and in front of EBB[58] Hotend Heater Screw Terminal & EBB[57] Thermistor:
         box(-13.95,  -6.20, -36.00, -18.40, -19.00,  -5.80),
         # Full +Y plug-in clearance windows for Left headers (EBB[44] PT100, EBB[1..4] I2C, EBB[45..47] RGB LEDs, EBB[48..52] Probe)
