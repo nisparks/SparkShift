@@ -82,8 +82,8 @@ dimension, or complete-kit compatibility is guaranteed.
 | Follower pin | 1 | 3x10mm for 623ZZ; not a cam journal pin. |
 | Coupling locating pins | 6 | Steel nominal 1.5x5mm; CAD length 4.9mm, in YUDX-matched teardrop snap seats. Actual press/snap force and retention unqualified. |
 | Steel 4mm balls | 5 | Four tool locating balls plus one spring thrust ball. |
-| Bar OR N52 Disc magnets | 8 bars OR 16 discs | Baseline `P03`/`P17` use `8× 15×5×3mm` bars (`4` receiver + `4` tool). **`P17_HF_tool_carrier_3010` / `2510`** and **[`P03_Front_case_COTS.stl`](stl_v26/P03_Front_case_COTS.stl)** feature **dual-compatible figure-8 pockets** (`X = ±6.50mm, Z = [30.5, 23.0, 5.5, -2.0]mm`) accepting **either `8× Ø6×4mm / Ø6×3mm` N52 discs** (`8` in `P03_COTS` + `8× Ø6×3mm` in `P17`) **or `4× 15×5×3mm` bars**. |
-| StealthChanger dock pins & bushings | 2 pins + 2 bushings + 4 discs per tool | **[`P18_Tool_docking_backplate_3010.stl`](stl_v26/P18_Tool_docking_backplate_3010.stl)** & **[`P25_SparkShift_3010_Dock.stl`](stl_v26/P25_SparkShift_3010_Dock.stl)** integrate **`2× Ø5×12mm` rounded dowel pin seats** (`P18` at `X = ±6.00, Z = +22.00mm`), **`2× Ø5mm` (`5×7×5.5mm`) bushing counterbores** (`P25`), and **`4× Ø6×4mm` (or `Ø6×3mm`) N52 dock retention magnet pockets** (`X = ±6.00, Z = -2.00mm`) alongside the standard T-lugs. |
+| Bar OR N52 Disc magnets | 8 bars OR 16 discs | Baseline `P03`/`P17` use `8× 15×5×3mm` bars (`4` receiver + `4` tool). **`P17_HF_tool_carrier_3010` / `2510`** and **[`P03_Front_case_COTS.stl`](stl_v26/P03_Front_case_COTS.stl)** feature **3-in-1 universal vertical pockets** (`X = ±6.50mm, Z = [30.5, 23.0, 5.5, -2.0]mm`) accepting **`4× 15×5×3mm` N52 bars**, **`4× 12×6×3mm` N52 bars**, **or `8× Ø6×4mm / Ø6×3mm` N52 discs** (`8` in `P03_COTS` + `8× Ø6×3mm` in `P17`). |
+| StealthChanger dock pins & bushings | 2 pins + 2 bushings + 2 bars (or 4 discs) per tool | **[`P18_Tool_docking_backplate_3010.stl`](stl_v26/P18_Tool_docking_backplate_3010.stl)** & **[`P25_SparkShift_3010_Dock.stl`](stl_v26/P25_SparkShift_3010_Dock.stl)** integrate **`2× Ø5×12mm` rounded dowel pin seats** (`P18` at `X = ±6.00, Z = +22.00mm`), **`2× Ø5mm` (`5×7×5.5mm`) bushing counterbores** (`P25`), and **universal horizontal/round N52 dock magnet pockets** (`Z = -2.00mm`) accepting **either `1× 15×5×3mm` horizontal bar, `1× 12×6×3mm` horizontal bar, or `2× Ø6×4mm / Ø6×3mm` discs per side**. |
 | Hall trigger disc magnet | 1 | 4x2mm reference, distinct from the eight coupling bars. |
 | Follower inner-ring shims | 2 | M3-size reference, approximately 3.2mm ID / 5mm OD / 0.5mm thick; keep outer ring free. |
 | Cam retainer washer | 1 | 2.7mm ID / 6mm OD / 0.5mm thick, Y=13.70..14.20. No servo-ear washer row. |
@@ -198,15 +198,15 @@ for the remaining orientation/fit gates.
 | P16 | [Right belt arch](stl_v26/P16_Right_belt_arch.stl) | GPL-3.0 custom work |
 | P17 | [HF tool carrier (baseline)](stl_v26/P17_HF_tool_carrier.stl) | GPL-3.0 custom work |
 | P18 | [Tool docking backplate (baseline)](stl_v26/P18_Tool_docking_backplate.stl) | GPL-3.0 custom work |
-| P17 (3010) | [Pure-primitive 3010 HF tool carrier with dual-compatible `6×3mm`/`15×5×3mm` magnet pockets & quad exhaust](stl_v26/P17_HF_tool_carrier_3010.stl) | GPL-3.0 custom work |
-| P17 (2510) | [Pure-primitive 2510 HF tool carrier with dual-compatible `6×3mm`/`15×5×3mm` magnet pockets & quad exhaust](stl_v26/P17_HF_tool_carrier_2510.stl) | GPL-3.0 custom work |
-| P18 (3010) | [StealthChanger-compatible `3010` docking backplate (`2× Ø5×12mm` rounded pins + `2× Ø6×4mm` magnets + T-lugs)](stl_v26/P18_Tool_docking_backplate_3010.stl) | GPL-3.0 custom work |
+| P17 (3010) | [Pure-primitive 3010 HF tool carrier with 3-in-1 universal (`15×5×3` / `12×6×3` / `Ø6×3mm`) vertical magnet pockets & quad exhaust](stl_v26/P17_HF_tool_carrier_3010.stl) | GPL-3.0 custom work |
+| P17 (2510) | [Pure-primitive 2510 HF tool carrier with 3-in-1 universal (`15×5×3` / `12×6×3` / `Ø6×3mm`) vertical magnet pockets & quad exhaust](stl_v26/P17_HF_tool_carrier_2510.stl) | GPL-3.0 custom work |
+| P18 (3010) | [StealthChanger-compatible `3010` docking backplate (`2× Ø5×12mm` rounded pins + universal horizontal `15×5×3`/`12×6×3` or `2× Ø6×4mm` dock magnet pocket)](stl_v26/P18_Tool_docking_backplate_3010.stl) | GPL-3.0 custom work |
 | P20 | [CPAP hose inlet with Trianglelab 7040 dual-barb spigot & co-bolted EBB42 wings](stl_v26/P20_CPAP_Hose_Inlet.stl) | GPL-3.0 custom work |
 | P21 | [CPAP rear gantry bridge behind Monolith 2WD 9mm X-beam](stl_v26/P21_CPAP_Gantry_Bridge.stl) | GPL-3.0 custom work |
 | P22 | [CPAP lower plenum with ≥4.65mm sock thermal keepout & sub-sock crescent jets](stl_v26/P22_CPAP_Lower_Plenum.stl) | GPL-3.0 custom work |
 | P23 | [Shared forward Beacon RevH Normal / Cartographer V3 Flat Pack mount](stl_v26/P23_Beacon_Cartographer_Mount.stl) | GPL-3.0 custom work |
 | P24 | [Co-bolted BTT EBB42 CAN V1.2 rear controller mount with 3-slot Hall-sensor wire comb](stl_v26/P24_EBB42_Controller_Mount.stl) | GPL-3.0 custom work |
-| P25 | [Compact stilt-free 34.0mm pure-primitive 3010 dock with StealthChanger `Ø5mm` bushing & `Ø6×4mm` magnet seats](stl_v26/P25_SparkShift_3010_Dock.stl) | GPL-3.0 custom work |
+| P25 | [Compact stilt-free 34.0mm pure-primitive 3010 dock with StealthChanger `Ø5mm` bushing & universal `15×5×3`/`12×6×3`/`Ø6×4mm` magnet seats](stl_v26/P25_SparkShift_3010_Dock.stl) | GPL-3.0 custom work |
 | P26 | [Flush under-slung purge pellet chute & dual V-notched silicone nozzle wiper cassette](stl_v26/P26_Dock_Nozzle_Wiper_and_Purge_Chute.stl) | GPL-3.0 custom work |
 | P27 | [Stationary 2020 frame mount for Trianglelab 7040 blower & CAN umbilical clamp](stl_v26/P27_CPAP_7040_Blower_Frame_Mount.stl) | GPL-3.0 custom work |
 | P28 | [4-in-1 dock pitch (37.3/35.0mm), probe Z-offset (2.27mm), 25mm shaft & 21.4mm spring calibration jig](stl_v26/P28_Dock_and_Probe_Calibration_Jig.stl) | GPL-3.0 custom work |
@@ -214,7 +214,7 @@ for the remaining orientation/fit gates.
 | P29R | [Right gantry-mounted 2020 dock crossbar support bracket (`6x M5x10 BHCS + T-Nuts`)](stl_v26/P29_Dock_Rack_Gantry_Mount_R.stl) | GPL-3.0 custom work |
 | P01 (COTS) | [Drop-in back case with 2.5mm deep MR74ZZ seats for standard 4×25.0mm dowel pins](stl_v26/P01_Back_case_COTS_MR74.stl) | GPL-3.0 custom work |
 | P02 (COTS) | [Drop-in 7mm motor/servo plate with 12.30mm MG90S/MG90D window (0.0mm³ servo clash)](stl_v26/P02_Motor_servo_plate_12p5mm.stl) | GPL-3.0 custom work |
-| P03 (COTS) | [Drop-in front receiver case with dual-compatible `8× Ø6×4mm / Ø6×3mm` N52 disc + `4× 15×5×3mm` bar magnet pockets](stl_v26/P03_Front_case_COTS.stl) | GPL-3.0 custom work |
+| P03 (COTS) | [Drop-in front receiver case with 3-in-1 universal (`15×5×3mm` / `12×6×3mm` / `Ø6×4mm` / `Ø6×3mm`) vertical N52 magnet pockets](stl_v26/P03_Front_case_COTS.stl) | GPL-3.0 custom work |
 | P04F (COTS) | [Drop-in front swing-arm half with cam-actuated positive toolhead locking hook (`22.8 mm³` shear lock at `0°`, `0.0 mm³` open at `175°`)](stl_v26/P04F_Swing_arm_front_half_COTS.stl) | GPL-3.0 custom work |
 | P05 (COTS) | [Pure-primitive watertight eccentric servo cam with 4-keyed COTS spline socket (0 BSplines)](stl_v26/P05_Servo_cam_COTS.stl) | GPL-3.0 custom work |
 

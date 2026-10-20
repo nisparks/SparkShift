@@ -1388,6 +1388,10 @@ def build_toolhead_fan_variants(v26_by_name):
         box(-9.15, -3.80, 31.90, 35.15, -5.86,  9.34),
         box( 3.80,  9.15, 31.90, 35.15, 19.14, 34.34),
         box(-9.15, -3.80, 31.90, 35.15, 19.14, 34.34),
+        box( 3.38,  9.58, 31.90, 35.15, -4.35,  7.85),
+        box(-9.58, -3.38, 31.90, 35.15, -4.35,  7.85),
+        box( 3.38,  9.58, 31.90, 35.15, 20.65, 32.85),
+        box(-9.58, -3.38, 31.90, 35.15, 20.65, 32.85),
         *(cyl_y(sx * 6.50, zc, 31.90, 35.15, 3.06) for sx in (-1.0, 1.0) for zc in (30.50, 23.00, 5.50, -2.00)),
         cyl_y(-6.865, -11.255, 31.0, 37.0, 2.05),
         cyl_y( 6.855, -11.265, 31.0, 37.0, 2.05),
@@ -1469,12 +1473,12 @@ def build_toolhead_fan_variants(v26_by_name):
 
     # Trim lower blank skirt of P18 to Z=-22.45 mm, add a 5.00 x 0.85 mm rear wire relief groove,
     # and integrate StealthChanger 2x Ø5x12mm rounded dowel pin bosses at (X=±6.00, Z=22.00)
-    # plus 2x close-gap (Y=45.75mm, 0.16mm air gap to P25) Ø6x4mm/Ø6x3mm N52 dock magnet bosses at (X=±6.00, Z=-2.00):
+    # plus universal close-gap (Y=45.75mm, 0.16mm air gap to P25) dock magnet pocket at Z=-2.00
+    # accepting 1x horizontal 15x5x3mm bar, 1x horizontal 12x6x3mm bar, OR 2x Ø6x4mm/Ø6x3mm discs:
     p18_sc_bosses = [
         rounded_box_xy( 2.50,  9.80, 37.00, 45.00, 17.80, 26.20, 1.5),
         rounded_box_xy(-9.80, -2.50, 37.00, 45.00, 17.80, 26.20, 1.5),
-        rounded_box_xy( 2.50,  9.80, 37.00, 45.75, -6.00,  2.00, 1.5),
-        rounded_box_xy(-9.80, -2.50, 37.00, 45.75, -6.00,  2.00, 1.5),
+        rounded_box_xy(-9.80,  9.80, 37.00, 45.75, -6.20,  2.20, 1.5),
     ]
     p18_3010 = cut_all(fuse_all([p18_orig] + p18_sc_bosses), [
         box(-15.0, 15.0, 34.0, 46.0, -28.0, -22.45),
@@ -1487,6 +1491,8 @@ def build_toolhead_fan_variants(v26_by_name):
         cyl_y( 6.00,  22.00, 38.50, 45.50, 2.49),
         cyl_y(-6.00,  -2.00, 41.67, 46.00, 3.06),
         cyl_y( 6.00,  -2.00, 41.67, 46.00, 3.06),
+        box(-7.62, 7.62, 42.67, 46.00, -4.58, 0.58),
+        box(-6.12, 6.12, 42.67, 46.00, -5.12, 1.12),
     ])
     u18 = ShapeUpgrade_UnifySameDomain(p18_3010, True, True, True)
     u18.Build()
@@ -1593,9 +1599,11 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
         cyl_y( 6.00, 22.00, 45.0, yf + 5.50, 3.52),
         cyl_y(-6.00, 22.00, 45.0, yf + 12.00, 2.58),
         cyl_y( 6.00, 22.00, 45.0, yf + 12.00, 2.58),
-        # StealthChanger 2x Ø6x4mm (or Ø6x3mm) N52 Dock Magnet pockets (Ø6.12mm x 4.08mm deep) at (X=±6.00, Z=-2.00):
+        # Universal N52 Dock Magnet pocket at Z=-2.00 accepting 1x horizontal 15x5x3mm bar, 1x horizontal 12x6x3mm bar, OR 2x Ø6x4mm/Ø6x3mm discs:
         cyl_y(-6.00, -2.00, 45.0, yf + 4.08, 3.06),
         cyl_y( 6.00, -2.00, 45.0, yf + 4.08, 3.06),
+        box(-7.62, 7.62, 45.0, yf + 3.08, -4.58, 0.58),
+        box(-6.12, 6.12, 45.0, yf + 3.08, -5.12, 1.12),
     ])
     u25 = ShapeUpgrade_UnifySameDomain(p25, True, True, True)
     u25.Build()
@@ -1852,12 +1860,18 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
         u05 = ShapeUpgrade_UnifySameDomain(p05_cots, True, True, True)
         u05.Build()
         p05_cots = u05.Shape()
-        # 4. P03_Front_case_COTS: adds 8x Ø6.12 mm x 4.03 mm deep cylindrical magnet lobes at (X=±6.50, Z=[30.50, 23.00, 5.50, -2.00] mm)
-        # while retaining the 3.00 mm deep rectangular corner ledges — natively accepts 8x Ø6x4mm N52 discs, 8x Ø6x3mm N52 discs, OR 4x 15x5x3mm bars
+        # 4. P03_Front_case_COTS: 3-in-1 universal vertical magnet pockets accepting 4x 15x5x3mm bars,
+        # 4x 12x6x3mm bars, OR 8x Ø6x4mm/Ø6x3mm discs at (X=±6.50, Z=[30.50, 23.00, 5.50, -2.00] mm):
         p03_cots = cut_all(v26_by_name["PRINT_000_outer_shell_of_extruder_1"][0], [
-            cyl_y(sx * 6.50, zc, 27.70, 32.00, 3.06)
-            for sx in (-1.0, 1.0) for zc in (30.50, 23.00, 5.50, -2.00)
+            *(cyl_y(sx * 6.50, zc, 27.70, 32.00, 3.06) for sx in (-1.0, 1.0) for zc in (30.50, 23.00, 5.50, -2.00)),
+            box( 3.38,  9.58, 28.68, 32.00, 20.65, 32.85),
+            box(-9.58, -3.38, 28.68, 32.00, 20.65, 32.85),
+            box( 3.38,  9.58, 28.68, 32.00, -4.35,  7.85),
+            box(-9.58, -3.38, 28.68, 32.00, -4.35,  7.85),
         ])
+        u03 = ShapeUpgrade_UnifySameDomain(p03_cots, True, True, True)
+        u03.Build()
+        p03_cots = u03.Shape()
         # 5. P04F_Swing_arm_front_half_COTS: adds a pure-primitive Cam-Actuated Positive Toolhead Locking Hook
         # at Z = -15.00 .. -10.00 mm, Y = 23.65 .. 26.85 mm, X = 3.95 .. 9.20 mm (flush with the Y = 26.850 mm print bed face).
         # When Cam = 0 deg (Closed, +7.87 deg arm rotation), the hook swings -3.51 mm inward in -X into P17's catch pocket
