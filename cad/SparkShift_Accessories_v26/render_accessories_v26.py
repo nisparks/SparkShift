@@ -390,6 +390,10 @@ def main():
         ]
         for sc in fan_sc_list:
             acts.append(make_actor(shape_to_polydata(BRepBuilderAPI_Transform(sc, t_sh, True).Shape(), tmp_stl), (0.82, 0.80, 0.75), 1.0))
+        for pin_s in th_vars.get("SC_Pins_5x12", []):
+            acts.append(make_actor(shape_to_polydata(BRepBuilderAPI_Transform(pin_s, t_sh, True).Shape(), tmp_stl), (0.84, 0.86, 0.90), 1.0, edge_vis=True))
+        for mag_s in th_vars.get("SC_Magnets_6x4", []):
+            acts.append(make_actor(shape_to_polydata(BRepBuilderAPI_Transform(mag_s, t_sh, True).Shape(), tmp_stl), (0.76, 0.80, 0.86), 1.0, edge_vis=True))
         for hn in tool_hotend_names:
             hs = BRepBuilderAPI_Transform(v26_by_name[hn][0], t_sh, True).Shape()
             col = (0.82, 0.22, 0.20) if "HF_00" in hn else ((0.85, 0.68, 0.22) if "HF_05" in hn else (0.72, 0.74, 0.78))
@@ -407,6 +411,12 @@ def main():
         make_actor(shape_to_polydata(BRepBuilderAPI_Transform(v26_by_name["HF_04_Creality_Ender_3_Volcano_Hotend_v14"][0], t_sh_r, True).Shape(), tmp_stl), (0.72, 0.74, 0.78), 1.0),
         make_actor(shape_to_polydata(BRepBuilderAPI_Transform(v26_by_name["HF_05_HF03_NOMINAL_VOLCANO_NOZZLE_NOT_VENDOR_CAD"][0], t_sh_r, True).Shape(), tmp_stl), (0.85, 0.68, 0.22), 1.0),
         make_actor(shape_to_polydata(BRepBuilderAPI_Transform(silicone_sock_shape, t_sh_r, True).Shape(), tmp_stl), (0.15, 0.55, 0.92), 0.75),
+    ] + [
+        make_actor(shape_to_polydata(BRepBuilderAPI_Transform(cyl_y(sx * 6.50, zc, 32.05, 35.05, 3.00), t_sh_r, True).Shape(), tmp_stl), (0.78, 0.82, 0.88), 1.0, edge_vis=True)
+        for sx in (-1.0, 1.0) for zc in (30.50, 23.00, 5.50, -2.00)
+    ] + [
+        make_actor(shape_to_polydata(BRepBuilderAPI_Transform(pin_s, t_sh_r, True).Shape(), tmp_stl), (0.84, 0.86, 0.90), 1.0, edge_vis=True)
+        for pin_s in th_vars.get("SC_Pins_5x12", [])
     ]
     render_view(
         comp_3010_left + bare_3010_acts,

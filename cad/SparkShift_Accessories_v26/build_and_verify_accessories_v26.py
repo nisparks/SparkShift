@@ -1381,6 +1381,7 @@ def build_toolhead_fan_variants(v26_by_name):
         box(-9.15, -3.80, 31.90, 35.15, -5.86,  9.34),
         box( 3.80,  9.15, 31.90, 35.15, 19.14, 34.34),
         box(-9.15, -3.80, 31.90, 35.15, 19.14, 34.34),
+        *(cyl_y(sx * 6.50, zc, 31.90, 35.15, 3.06) for sx in (-1.0, 1.0) for zc in (30.50, 23.00, 5.50, -2.00)),
         cyl_y(-6.865, -11.255, 31.0, 37.0, 2.05),
         cyl_y( 6.855, -11.265, 31.0, 37.0, 2.05),
         cyl_y(-7.475,  38.740, 31.0, 37.0, 2.05),
@@ -1459,14 +1460,26 @@ def build_toolhead_fan_variants(v26_by_name):
     )
     front_neck_bridge = box(-9.00, 9.00, 32.05, y_front_bed, -22.50, -19.2794)
 
-    # Trim lower blank skirt of P18 to Z=-22.45 mm and add a 5.00 x 0.85 mm rear wire relief groove:
-    p18_3010 = cut_all(p18_orig, [
+    # Trim lower blank skirt of P18 to Z=-22.45 mm, add a 5.00 x 0.85 mm rear wire relief groove,
+    # and integrate StealthChanger 2x Ø5x12mm rounded dowel pin bosses at (X=±6.00, Z=22.00)
+    # plus 2x Ø6x4mm (or Ø6x3mm) N52 dock retention magnet bosses at (X=±6.00, Z=-2.00):
+    p18_sc_bosses = [
+        rounded_box_xy( 2.50,  9.80, 37.00, 45.00, 17.80, 26.20, 1.5),
+        rounded_box_xy(-9.80, -2.50, 37.00, 45.00, 17.80, 26.20, 1.5),
+        rounded_box_xy( 2.50,  9.80, 37.00, 45.00, -6.00,  2.00, 1.5),
+        rounded_box_xy(-9.80, -2.50, 37.00, 45.00, -6.00,  2.00, 1.5),
+    ]
+    p18_3010 = cut_all(fuse_all([p18_orig] + p18_sc_bosses), [
         box(-15.0, 15.0, 34.0, 46.0, -28.0, -22.45),
         prism_xy_r([(-2.50, 35.50), (2.50, 35.50), (2.50, 36.88), (-2.50, 36.88)], 0.6, -22.50, 49.00),
         cyl_y(-5.97,  44.75, 37.40, 42.0, 1.95),
         cyl_y( 6.03,  44.74, 37.40, 42.0, 1.95),
         cyl_y(-6.01, -19.25, 37.40, 42.0, 1.95),
         cyl_y( 5.99, -19.26, 37.40, 42.0, 1.95),
+        cyl_y(-6.00,  22.00, 38.50, 45.50, 2.49),
+        cyl_y( 6.00,  22.00, 38.50, 45.50, 2.49),
+        cyl_y(-6.00,  -2.00, 40.92, 45.50, 3.06),
+        cyl_y( 6.00,  -2.00, 40.92, 45.50, 3.06),
     ])
     u18 = ShapeUpgrade_UnifySameDomain(p18_3010, True, True, True)
     u18.Build()
@@ -1492,6 +1505,14 @@ def build_toolhead_fan_variants(v26_by_name):
 
     fan2510_body, fan2510_screws = build_axial_fan_assembly(25, -39.30, y_front_bed)
     fan3010_body, fan3010_screws = build_axial_fan_assembly(30, -37.50, y_front_bed)
+    sc_pins_3010 = [
+        fuse_all([cyl_y(sx * 6.00, 22.00, 38.50, 48.50, 2.48), cone_y(sx * 6.00, 22.00, 48.50, 50.50, 2.48, 1.00)])
+        for sx in (-1.0, 1.0)
+    ]
+    sc_mags_3010 = [
+        cyl_y(sx * 6.00, -2.00, 40.95, 44.95, 3.00)
+        for sx in (-1.0, 1.0)
+    ]
     return {
         "P17_HF_tool_carrier_2510": p17_2510,
         "P17_HF_tool_carrier_3010": p17_3010,
@@ -1500,6 +1521,8 @@ def build_toolhead_fan_variants(v26_by_name):
         "Fan_2510_Screws": fan2510_screws,
         "Fan_3010_Axial": fan3010_body,
         "Fan_3010_Screws": fan3010_screws,
+        "SC_Pins_5x12": sc_pins_3010,
+        "SC_Magnets_6x4": sc_mags_3010,
     }
 
 
@@ -1530,8 +1553,8 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
     """
     dock_sols = load_step(STEP_DIR / "Dock_3010_Complete.step")
     p25_raw = dock_sols[0]
-    sw_upper = dock_sols[1]
-    sw_lower = dock_sols[2]
+    sw_upper = cut_all(dock_sols[1], [box(-10.0, 10.0, 42.0, 43.85, -20.0, 40.0)])
+    sw_lower = cut_all(dock_sols[2], [box(-10.0, 10.0, 42.0, 43.85, -20.0, 40.0)])
 
     yf = 45.910082
     yb = 74.910082
@@ -1539,12 +1562,10 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
     zt_2020 = 17.220600
     z_m5 = 7.220600
 
-    p25_base = cut_all(p25_raw, [box(-50.0, 50.0, -50.0, 100.0, -200.0, zb)])
-    fill1 = box(-17.0, 17.0, yf, yb, zb + 3.5, -53.0)
-    fill2 = box(-17.0, 17.0, yf, yb - 3.00, zb, zb + 5.0)
-    sh_r  = box( 11.0, 17.0, yf, 72.910082, zt_2020, 33.65991587)
-    sh_l  = box(-17.0, -11.0, yf, 72.910082, zt_2020, 33.65991587)
-    p25_fused = fuse_all([p25_base, fill1, fill2, sh_r, sh_l])
+    p25_base = cut_all(p25_raw, [box(-50.0, 50.0, -50.0, 100.0, -200.0, zb)]) if bbox_of(p25_raw)[2] < zb - 0.1 else p25_raw
+    fill_sc_mag = box(-10.50, 10.50, yf, 54.00, -6.50, 2.50)
+    probe_sc = box(-0.5, 0.5, 49.0, 51.0, -0.5, 0.5)
+    p25_fused = fuse_all([p25_base, fill_sc_mag]) if vol_of(BRepAlgoAPI_Common(p25_base, probe_sc).Shape()) < 0.5 else p25_base
 
     p25 = cut_all(p25_fused, [
         cyl_y( 21.00, 33.65991587, 43.0, 74.0, 10.000839),
@@ -1560,6 +1581,14 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
         cyl_y( 10.0, z_m5, 70.110082, 76.0, 4.60),
         cyl_y(-11.75, -82.44, 44.0, 54.0, 1.55),
         cyl_y( 11.75, -82.44, 44.0, 54.0, 1.55),
+        # StealthChanger 2x Ø5mm Bushing counterbores (Ø7.04mm x 5.50mm deep) + Ø5.15mm pin bores at (X=±6.00, Z=22.00):
+        cyl_y(-6.00, 22.00, 45.0, yf + 5.50, 3.52),
+        cyl_y( 6.00, 22.00, 45.0, yf + 5.50, 3.52),
+        cyl_y(-6.00, 22.00, 45.0, yf + 12.00, 2.58),
+        cyl_y( 6.00, 22.00, 45.0, yf + 12.00, 2.58),
+        # StealthChanger 2x Ø6x4mm (or Ø6x3mm) N52 Dock Magnet pockets (Ø6.12mm x 4.08mm deep) at (X=±6.00, Z=-2.00):
+        cyl_y(-6.00, -2.00, 45.0, yf + 4.08, 3.06),
+        cyl_y( 6.00, -2.00, 45.0, yf + 4.08, 3.06),
     ])
     u25 = ShapeUpgrade_UnifySameDomain(p25, True, True, True)
     u25.Build()
@@ -1758,6 +1787,15 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
             sols.append(fuse_all([cyl_x(-19.0, 198.5, x0, x1, 2.50), cyl_x(-19.0, 198.5, hx0, hx1, 4.40)]))
         return [p29_l, p29_r] + sols
 
+    sc_bushings_dock = [
+        cut_all(cyl_y(sx * 6.00, 22.00, yf, yf + 5.45, 3.50), [cyl_y(sx * 6.00, 22.00, yf - 0.5, yf + 6.00, 2.52)])
+        for sx in (-1.0, 1.0)
+    ]
+    sc_mags_dock = [
+        cyl_y(sx * 6.00, -2.00, yf + 0.05, yf + 4.05, 3.00)
+        for sx in (-1.0, 1.0)
+    ]
+
     out = {
         "P25_SparkShift_3010_Dock": p25,
         "P26_Dock_Nozzle_Wiper_and_Purge_Chute": p26,
@@ -1768,7 +1806,7 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
         "P29_Rack_Hardware_Solids": build_p29_hardware(),
         "Silicone_Ooze_Stopper_Pad": ooze_pad,
         "Silicone_Wiper_Blades": wiper_blades,
-        "Dock_Complete_Solids": [p25, sw_upper, sw_lower, ooze_pad, m5_l, m5_r, p26, wiper_blades] + wiper_screws,
+        "Dock_Complete_Solids": [p25, sw_upper, sw_lower, ooze_pad, m5_l, m5_r, p26, wiper_blades] + wiper_screws + sc_bushings_dock + sc_mags_dock,
     }
     if v26_by_name is not None:
         # 1. P01_Back_case_COTS_MR74: deepens rear Ø7.04 mm MR74 seats to Y=2.80..5.30 mm for standard 2.5mm MR74ZZ & 4x25mm shafts
@@ -1807,8 +1845,15 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
         u05 = ShapeUpgrade_UnifySameDomain(p05_cots, True, True, True)
         u05.Build()
         p05_cots = u05.Shape()
+        # 4. P03_Front_case_COTS: adds 8x Ø6.12 mm x 4.03 mm deep cylindrical magnet lobes at (X=±6.50, Z=[30.50, 23.00, 5.50, -2.00] mm)
+        # while retaining the 3.00 mm deep rectangular corner ledges — natively accepts 8x Ø6x4mm N52 discs, 8x Ø6x3mm N52 discs, OR 4x 15x5x3mm bars
+        p03_cots = cut_all(v26_by_name["PRINT_000_outer_shell_of_extruder_1"][0], [
+            cyl_y(sx * 6.50, zc, 27.70, 32.00, 3.06)
+            for sx in (-1.0, 1.0) for zc in (30.50, 23.00, 5.50, -2.00)
+        ])
         out["P01_Back_case_COTS_MR74"] = p01_cots
         out["P02_Motor_servo_plate_12p5mm"] = p02_cots
+        out["P03_Front_case_COTS"] = p03_cots
         out["P05_Servo_cam_COTS"] = p05_cots
     return out
 
@@ -2044,7 +2089,8 @@ def main():
         STEP_DIR / "Toolhead_2510_Complete.step",
     )
     export_step_file(
-        [th_variants["P17_HF_tool_carrier_3010"], th_variants["P18_Tool_docking_backplate_3010"], th_variants["Fan_3010_Axial"]] + th_variants["Fan_3010_Screws"],
+        [th_variants["P17_HF_tool_carrier_3010"], th_variants["P18_Tool_docking_backplate_3010"], th_variants["Fan_3010_Axial"]]
+        + th_variants["Fan_3010_Screws"] + th_variants["SC_Pins_5x12"] + th_variants["SC_Magnets_6x4"],
         STEP_DIR / "Toolhead_3010_Complete.step",
     )
 
@@ -2061,6 +2107,7 @@ def main():
         "P29_Dock_Rack_Gantry_Mount_R",
         "P01_Back_case_COTS_MR74",
         "P02_Motor_servo_plate_12p5mm",
+        "P03_Front_case_COTS",
         "P05_Servo_cam_COTS",
     ):
         dshape = dock_suite[dname]
