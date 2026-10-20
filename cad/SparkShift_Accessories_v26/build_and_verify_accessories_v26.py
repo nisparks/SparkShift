@@ -1579,10 +1579,38 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
     zt_2020 = 17.220600
     z_m5 = 7.220600
 
-    p25_base = cut_all(p25_raw, [box(-50.0, 50.0, -50.0, 100.0, -200.0, zb)]) if bbox_of(p25_raw)[2] < zb - 0.1 else p25_raw
+    p25_base = cut_all(p25_raw, [
+        box(-50.0, 50.0, -50.0, 100.0, -200.0, zb),
+        box(-25.0, -17.0, -50.0, 100.0, -100.0, 50.0),
+        box( 17.0,  25.0, -50.0, 100.0, -100.0, 50.0),
+    ])
     fill_sc_mag = box(-10.50, 10.50, yf, 54.00, -6.50, 2.50)
     probe_sc = box(-0.5, 0.5, 49.0, 51.0, -0.5, 0.5)
     p25_fused = fuse_all([p25_base, fill_sc_mag]) if vol_of(BRepAlgoAPI_Common(p25_base, probe_sc).Shape()) < 0.5 else p25_base
+
+    # Widen the 2020-extrusion C-clamp collar of P25 from 34.00 mm (±17.00 mm) to the exact 37.30 mm dock pitch (±18.65 mm)
+    # so adjacent docks touch directly edge-to-edge along the 2020 crossbar with zero cumulative spacing error:
+    c_clamp_local_yz = [
+        (45.910082, -8.000000),
+        (74.910082, -8.000000),
+        (74.910082, 22.000000),
+        (45.910082, 22.000000),
+        (45.910082, 17.220600),
+        (65.910082, 17.220600),
+        (65.910082, 10.220600),
+        (63.910082, 10.220600),
+        (63.910082,  4.220600),
+        (65.910082,  4.220600),
+        (65.910082, -2.779400),
+        (58.910082, -2.779400),
+        (57.910082, -1.779400),
+        (53.910082, -1.779400),
+        (52.910082, -2.779400),
+        (45.910082, -2.779400),
+    ]
+    c_clamp_local_radii = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    p25_collar_l = prism_yz_r(c_clamp_local_yz, c_clamp_local_radii, -18.65, -15.50)
+    p25_collar_r = prism_yz_r(c_clamp_local_yz, c_clamp_local_radii,  15.50,  18.65)
 
     p25 = cut_all(p25_fused, [
         cyl_y( 21.00, 33.65991587, 43.0, 74.0, 10.000839),
@@ -1611,6 +1639,7 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
         box(-6.12, 6.12, 45.0, yf + 3.08, -5.12, 1.12),
         box(-4.50, 4.50, yf + 1.88, yf + 3.08, -5.75, 1.75),
     ])
+    p25 = fuse_all([p25, p25_collar_l, p25_collar_r])
     u25 = ShapeUpgrade_UnifySameDomain(p25, True, True, True)
     u25.Build()
     p25 = u25.Shape()
@@ -1790,6 +1819,54 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
     p29_l = build_p29_side(False)
     p29_r = build_p29_side(True)
 
+    # Build P30_Dock_Side_Spacer_L (23.35 mm, X_world in [-35.00, -11.65] mm for Tool 0) and
+    # P30_Dock_Side_Spacer_R (23.65 mm, X_world in [361.35, 385.00] mm for Tool n-1 = Tool 9):
+    # Snap-on 2020 C-clamp side datum spacers that lock the 10-dock array (10 x 37.30 mm = 373.00 mm)
+    # solidly across the full 420.00 mm span between P29_L (X = -35.00 mm) and P29_R (X = +385.00 mm):
+    c_clamp_world_yz = [
+        ( -9.000000, 183.279400),
+        (-38.000000, 183.279400),
+        (-38.000000, 213.279400),
+        ( -9.000000, 213.279400),
+        ( -9.000000, 208.500000),
+        (-16.200000, 208.500000),
+        (-17.000000, 207.700000),
+        (-21.000000, 207.700000),
+        (-21.800000, 208.500000),
+        (-29.000000, 208.500000),
+        (-29.000000, 201.500000),
+        (-27.000000, 201.500000),
+        (-27.000000, 195.500000),
+        (-29.000000, 195.500000),
+        (-29.000000, 188.500000),
+        (-22.000000, 188.500000),
+        (-21.000000, 189.500000),
+        (-17.000000, 189.500000),
+        (-16.000000, 188.500000),
+        ( -9.000000, 188.500000),
+    ]
+    c_clamp_world_radii = [0.0]*11 + [1.0, 1.0] + [0.0]*7
+
+    def build_p30_side_spacer(x0, x1, is_right=False):
+        xc = 0.5 * (x0 + x1)
+        body = prism_yz_r(c_clamp_world_yz, c_clamp_world_radii, x0, x1)
+        cuts = [
+            cyl_y(xc, 198.50, -39.0, -27.0, 2.60),
+            cyl_y(xc, 198.50, -39.0, -33.2, 4.60),
+        ]
+        if not is_right:
+            cuts.append(cyl_y(xc, 213.2794, -39.0, -35.0, 1.50))
+        else:
+            cuts.append(cyl_y(xc - 3.5, 213.2794, -39.0, -35.0, 1.50))
+            cuts.append(cyl_y(xc + 3.5, 213.2794, -39.0, -35.0, 1.50))
+        res = cut_all(body, cuts)
+        u30s = ShapeUpgrade_UnifySameDomain(res, True, True, True)
+        u30s.Build()
+        return u30s.Shape()
+
+    p30_l = build_p30_side_spacer(-35.00, -11.65, False)
+    p30_r = build_p30_side_spacer(361.35, 385.00, True)
+
     def build_p29_hardware():
         sols = []
         for is_r in (False, True):
@@ -1806,7 +1883,10 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
             x0, x1 = (xp(-54.0), xp(-42.0)) if not is_r else (xp(-42.0), xp(-54.0))
             hx0, hx1 = (xp(-57.0), xp(-54.0)) if not is_r else (xp(-54.0), xp(-57.0))
             sols.append(fuse_all([cyl_x(-19.0, 198.5, x0, x1, 2.50), cyl_x(-19.0, 198.5, hx0, hx1, 4.40)]))
-        return [p29_l, p29_r] + sols
+        for xc_s in (-23.325, 373.175):
+            sols.append(fuse_all([cyl_y(xc_s, 198.5, -33.2, -21.2, 2.50), cyl_y(xc_s, 198.5, -36.2, -33.2, 4.40)]))
+            sols.append(rounded_box_xy(xc_s - 7.0, xc_s + 7.0, -28.2, -24.5, 198.5 - 5.0, 198.5 + 5.0, 1.0))
+        return [p29_l, p29_r, p30_l, p30_r] + sols
 
     sc_bushings_dock = [
         cut_all(cyl_y(sx * 6.00, 22.00, yf, yf + 5.45, 3.50), [cyl_y(sx * 6.00, 22.00, yf - 0.5, yf + 6.00, 2.52)])
@@ -1824,6 +1904,8 @@ def build_dock_and_stationary_accessories(v26_by_name=None):
         "P28_Dock_and_Probe_Calibration_Jig": p28,
         "P29_Dock_Rack_Gantry_Mount_L": p29_l,
         "P29_Dock_Rack_Gantry_Mount_R": p29_r,
+        "P30_Dock_Side_Spacer_L": p30_l,
+        "P30_Dock_Side_Spacer_R": p30_r,
         "P29_Rack_Hardware_Solids": build_p29_hardware(),
         "Silicone_Ooze_Stopper_Pad": ooze_pad,
         "Silicone_Wiper_Blades": wiper_blades,
@@ -2154,6 +2236,8 @@ def main():
         "P28_Dock_and_Probe_Calibration_Jig",
         "P29_Dock_Rack_Gantry_Mount_L",
         "P29_Dock_Rack_Gantry_Mount_R",
+        "P30_Dock_Side_Spacer_L",
+        "P30_Dock_Side_Spacer_R",
         "P01_Back_case_COTS_MR74",
         "P02_Motor_servo_plate_12p5mm",
         "P03_Front_case_COTS",
