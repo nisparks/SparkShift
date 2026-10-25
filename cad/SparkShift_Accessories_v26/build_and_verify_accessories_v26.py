@@ -1531,98 +1531,196 @@ def build_toolhead_fan_variants(v26_by_name):
         for sx in (-1.0, 1.0)
     ]
 
-    # --- 3. Build Bambu Lab P2S / Voron V2.4 Quick-Release Hotend Toolhead Variants ---
-    # Reference COTS CAD for "Quick-Release Hotend For Voron V2.4 / V0.2 (Upgraded With Bambu Lab P2S Hotend Nozzle)":
-    bambu_hs_core = intersect_all(cyl_z(0.0, 22.70, -50.28, -24.28, 7.50), [box(-11.0, 11.0, 13.365, 32.035, -51.0, -24.0)])
-    bambu_hs_fins = [intersect_all(cyl_z(0.0, 22.70, -27.28, -24.28, 11.00), [box(-11.0, 11.0, 13.365, 32.035, -28.0, -24.0)])]
-    for z_fin_bot in (-31.88, -36.48, -41.08, -45.68, -50.28):
-        bambu_hs_fins.append(intersect_all(cyl_z(0.0, 22.70, z_fin_bot, z_fin_bot + 1.80, 11.00), [box(-11.0, 11.0, 13.365, 32.035, z_fin_bot - 0.1, z_fin_bot + 1.9)]))
-    bambu_top_collar = cyl_z(0.0, 22.68, -24.28, -22.48, 3.50)
-    bambu_hs_cuts = [box(-7.20, 7.20, 19.20, 33.00, -50.50, -37.80), cyl_z(0.0, 22.68, -51.00, -22.00, 2.05)]
-    for sx in (-5.657, 5.657):
-        for sy in (17.043, 28.357):
-            bambu_hs_cuts.append(cyl_z(sx, sy, -30.50, -24.00, 1.25))
-    bambu_heatsink = cut_all(fuse_all([bambu_hs_core, bambu_top_collar] + bambu_hs_fins), bambu_hs_cuts)
+    # --- 3. Build Bambu Lab A1 / H2D / P2S Quick-Swap Hotend Heating Assembly + Snap-In 7-Fin Nozzle Variants ---
+    # Models the complete two-part Bambu Lab quick-swap hotend system:
+    #   Part A (Bolt-On Hotend Heating Assembly):
+    #     1. White Zirconia Ceramic Heat Insulation Block (18.0 x 4.2 x 28.8 mm, Z = -65.93..-37.13 mm, Y = 14.30..18.50 mm)
+    #        with 3x M3 triangular counterbored mounting holes at (X = ±6.00, Z = -40.13 mm) and (X = 0.00, Z = -50.63 mm).
+    #     2. 3x M3x10 SHCS Mounting Screws threading into P17_Bambu_P2S's rear vertical mounting wall (Y = 11.50..14.30 mm).
+    #     3. Embedded Retaining Magnet (16.6 x 2.0 x 5.2 mm, Z = -42.63..-37.43 mm) that grabs the snap-in heatsink.
+    #     4. Silver Die-Cast Aluminum Heater Cradle + Ceramic Heater + NTC Sensor (Z = -75.48..-53.18 mm, X = -8.50..+8.50 mm).
+    #     5. Hinged Stainless Wire Bail (Wireclip) + Stamped Stainless Buckle Latch (Clip) (Z = -64.41..-53.34 mm, Y = 21.50..27.60 mm).
+    #   Part B (Snap-In 1-Piece Bambu Finned Hotend Nozzle + Silicone Sock):
+    #     6. Snap-In 7-Fin Rectangular Heatsink (16.6 x 11.2 x 17.3 mm, Z = -49.68..-32.38 mm) + top Ø4.75 mm filament stub
+    #        (Z = -32.38..-29.48 mm) + Ø2.50/4.20 mm titanium heatbreak throat + faceted melt-zone block (10.0 x 5.6 x 20.2 mm,
+    #        Z = -73.70..-53.50 mm) + conical nozzle tip at the SparkShift master nozzle datum (X = 0.00, Y = 22.70, Z = -78.88 mm).
+    #     7. Bambu Silicone Sock (Z = -75.50..-53.00 mm) with front latch window and stepped grip ribs.
+    zirconia_outer = rounded_box_xy(-9.00, 9.00, 14.30, 18.50, -65.93, -37.13, 1.2)
+    zirconia_cuts = [
+        # 3x M3 triangular mounting holes (2x upper at X=±6.00, Z=-40.13; 1x lower-center at X=0.00, Z=-50.63):
+        cyl_y(-6.00, -40.13, 14.00, 18.80, 1.55),
+        cyl_y( 6.00, -40.13, 14.00, 18.80, 1.55),
+        cyl_y( 0.00, -50.63, 14.00, 18.80, 1.55),
+        cyl_y(-6.00, -40.13, 16.00, 18.80, 2.85),
+        cyl_y( 6.00, -40.13, 16.00, 18.80, 2.85),
+        cyl_y( 0.00, -50.63, 16.50, 18.80, 2.85),
+        # Center thermal-relief bore and 4x M1.4 cradle screw holes:
+        cyl_y( 0.00, -43.63, 14.00, 18.80, 1.70),
+        cyl_y(-6.00, -55.93, 14.00, 18.80, 1.00),
+        cyl_y( 6.00, -55.93, 14.00, 18.80, 1.00),
+        cyl_y(-6.00, -63.93, 14.00, 18.80, 1.00),
+        cyl_y( 6.00, -63.93, 14.00, 18.80, 1.00),
+        # Front pocket for retaining magnet (between and below upper M3 counterbores):
+        box(-8.35, 8.35, 17.10, 18.60, -46.80, -42.80),
+    ]
+    bambu_zirconia_block = cut_all(zirconia_outer, zirconia_cuts)
 
-    bambu_nz_spine = box(-3.50, 3.50, 20.00, 26.20, -50.00, -38.00)
-    bambu_nz_fins = [box(-7.00, 7.00, 20.00, 26.80, zf, zf + 1.40) for zf in (-49.80, -46.20, -42.60, -39.40)]
-    bambu_nz_throat = cyl_z(0.0, 22.70, -55.00, -49.50, 2.10)
-    bambu_nz_block = prism_xy_r([(-3.50, 19.30), (3.50, 19.30), (4.40, 22.70), (3.20, 26.10), (-3.20, 26.10), (-4.40, 22.70)], 0.6, -73.30, -54.50)
-    bambu_nz_cone = fuse_all([cone_z(0.0, 22.70, -76.80, -73.30, 1.80, 3.10), cone_z(0.0, 22.70, -78.88, -76.80, 0.55, 1.80)])
-    bambu_nozzle = cut_all(fuse_all([bambu_nz_spine, bambu_nz_throat, bambu_nz_block, bambu_nz_cone] + bambu_nz_fins), [cyl_z(0.0, 22.70, -79.00, -37.50, 1.00)])
+    bambu_m3_screws = []
+    for sx, sz in ((-6.00, -40.13), (6.00, -40.13), (0.00, -50.63)):
+        sc_sh = cut_all(
+            fuse_all([
+                cyl_y(sx, sz, 11.80, 16.55, 1.45),
+                cyl_y(sx, sz, 16.55, 18.45, 2.65),
+            ]),
+            [cyl_y(sx, sz, 17.30, 18.60, 1.25)]
+        )
+        bambu_m3_screws.append(sc_sh)
 
-    bambu_heater_base = cut_all(
-        rounded_box_xy(-5.80, 5.80, 15.20, 25.00, -72.80, -53.80, 1.0),
-        [box(-4.55, 4.55, 19.15, 26.50, -73.50, -53.50)]
+    bambu_magnet = cut_all(
+        rounded_box_xy(-8.25, 8.25, 17.15, 18.48, -46.70, -42.90, 0.5),
+        [box(-2.00, 2.00, 17.00, 18.60, -44.80, -42.80)]
     )
-    bambu_standoffs = [cyl_z(sx * 5.00, 17.20, -54.00, -50.28, 1.25) for sx in (-1.0, 1.0)]
-    bambu_wire_clip = box(5.60, 6.80, 16.50, 21.50, -61.50, -53.80)
-    bambu_bail_latch = fuse_all([
-        box(-5.80, -4.60, 24.50, 28.80, -65.50, -63.50),
-        box( 4.60,  5.80, 24.50, 28.80, -65.50, -63.50),
-        box(-5.80,  5.80, 27.40, 28.80, -66.50, -61.50),
-    ])
-    bambu_heater_latch = fuse_all([bambu_heater_base, bambu_wire_clip, bambu_bail_latch] + bambu_standoffs)
 
-    bambu_sock = cut_all(rounded_box_xy(-6.60, 6.60, 14.40, 28.20, -75.20, -54.20, 1.5), [
-        rounded_box_xy(-5.90, 5.90, 15.10, 26.50, -73.50, -53.50, 0.8),
-        cyl_z(0.0, 22.70, -76.00, -72.50, 3.40),
-        box(-6.00, 6.00, 24.00, 29.00, -67.00, -61.00),
-        box( 5.40, 7.00, 16.20, 21.80, -62.00, -53.50),
-    ])
-    bambu_hotend_solids = [bambu_heatsink, bambu_nozzle, bambu_heater_latch, bambu_sock]
+    cradle_upper = rounded_box_xy(-8.50, 8.50, 18.50, 23.60, -65.93, -53.18, 1.0)
+    cradle_lower = rounded_box_xy(-6.00, 6.00, 17.50, 23.20, -75.48, -65.50, 1.0)
+    cradle_hinge_l = rounded_box_xy(-8.50, -6.20, 21.00, 25.00, -64.50, -54.00, 0.6)
+    cradle_hinge_r = rounded_box_xy( 6.20,  8.50, 21.00, 25.00, -64.50, -54.00, 0.6)
+    bambu_alu_cradle = cut_all(
+        fuse_all([cradle_upper, cradle_lower, cradle_hinge_l, cradle_hinge_r]),
+        [
+            box(-5.05, 5.05, 19.55, 25.50, -75.60, -53.00),
+            box(-6.80, 6.80, 22.80, 25.50, -62.50, -56.50),
+            cyl_y(-6.00, -55.93, 18.00, 24.00, 0.85),
+            cyl_y( 6.00, -55.93, 18.00, 24.00, 0.85),
+            cyl_y(-6.00, -63.93, 18.00, 24.00, 0.85),
+            cyl_y( 6.00, -63.93, 18.00, 24.00, 0.85),
+        ]
+    )
 
-    # Bambu-P2S-specific carrier cuts:
-    # 1. Top Ø7.30 x 2.08 mm alignment collar counterbore + 45-deg print-safe conical transition at Z = -24.28..-20.65 mm:
-    bambu_collar_cut = fuse_all([
-        cyl_z(0.000, 22.680, -25.00, -22.20, 3.65),
-        cone_z(0.000, 22.680, -22.20, -20.65, 3.65, 2.10),
+    bail_latch_outer = fuse_all([
+        # Left & right bail arms + front wire bail crossbars:
+        rounded_box_xy(-8.10, -6.60, 22.00, 27.40, -64.20, -62.60, 0.4),
+        rounded_box_xy(-8.10, -6.60, 22.00, 27.40, -55.80, -54.20, 0.4),
+        rounded_box_xy( 6.60,  8.10, 22.00, 27.40, -64.20, -62.60, 0.4),
+        rounded_box_xy( 6.60,  8.10, 22.00, 27.40, -55.80, -54.20, 0.4),
+        # Stamped stainless front buckle clip plate:
+        rounded_box_xy(-7.60,  7.60, 25.25, 27.60, -64.20, -54.20, 0.6),
+        cyl_z( 6.25, 23.50, -64.40, -54.00, 0.65),
+        cyl_z(-6.80, 23.50, -64.40, -54.00, 0.65),
     ])
-    # 2. Lower quick-release nozzle & side-wire clip access relief (45-deg roof at Z = -48.50..-46.50 mm):
-    bambu_qr_relief = prism_xz_r([
-        (-8.20, -54.00), ( 8.20, -54.00),
-        ( 8.20, -48.50), ( 6.20, -46.50),
-        (-6.20, -46.50), (-8.20, -48.50),
-    ], 0.0, 18.50, 31.20)
-    # 3. Dual side ID notches on upper stem ribs (Z = 33.00..37.00 mm) to distinguish Bambu P2S carriers from Volcano carriers:
-    bambu_id_l = prism_xz_r([(8.80, 34.70), (10.50, 33.00), (10.50, 37.00), (8.80, 35.30)], 0.0, 32.00, 36.50)
-    bambu_id_r = prism_xz_r([(-10.50, 33.00), (-8.80, 34.70), (-8.80, 35.30), (-10.50, 37.00)], 0.0, 32.00, 36.50)
+    bambu_bail_latch = cut_all(
+        bail_latch_outer,
+        [
+            box(-6.00, 6.00, 24.80, 26.40, -64.50, -53.90),
+            box(-4.80, -0.80, 26.00, 28.00, -62.20, -56.20),
+            box( 0.80,  4.80, 26.00, 28.00, -62.20, -56.20),
+        ]
+    )
 
-    p17_bambu_3010 = cut_all(p17_3010, [bambu_collar_cut, bambu_qr_relief, bambu_id_l, bambu_id_r])
+    # Snap-In 1-Piece Bambu 7-Fin Hotend Nozzle:
+    nz_top_stub = cyl_z(0.0, 22.70, -32.38, -29.48, 2.375)
+    nz_hs_spine = rounded_box_xy(-3.80, 3.80, 18.50, 26.80, -49.68, -32.38, 0.6)
+    nz_hs_backplate = rounded_box_xy(-8.30, 8.30, 18.50, 20.10, -49.68, -32.38, 0.8)
+    nz_hs_fins = [
+        rounded_box_xy(-8.30, 8.30, 18.50, 29.70, zf, zf + 1.25, 0.8)
+        for zf in (-49.68, -47.00, -44.32, -41.64, -38.96, -36.28, -33.63)
+    ]
+    nz_throat = fuse_all([
+        cyl_z(0.0, 22.70, -53.60, -49.50, 1.65),
+        cyl_z(0.0, 22.70, -50.80, -49.50, 2.25),
+    ])
+    nz_melt_block = prism_xy_r([
+        (-5.00, 19.60), ( 5.00, 19.60),
+        ( 5.00, 23.60), ( 3.40, 25.20),
+        (-3.40, 25.20), (-5.00, 23.60),
+    ], 0.5, -73.70, -53.50)
+    nz_tip_cone = fuse_all([
+        cone_z(0.0, 22.70, -76.80, -73.70, 1.80, 2.90),
+        cone_z(0.0, 22.70, -78.88, -76.80, 0.55, 1.80),
+    ])
+    bambu_nozzle = cut_all(
+        fuse_all([nz_top_stub, nz_hs_spine, nz_hs_backplate, nz_throat, nz_melt_block, nz_tip_cone] + nz_hs_fins),
+        [cyl_z(0.0, 22.70, -79.00, -29.00, 1.00)]
+    )
+
+    bambu_sock = cut_all(
+        rounded_box_xy(-7.00, 7.00, 16.80, 27.00, -75.50, -53.00, 1.4),
+        [
+            rounded_box_xy(-5.90, 5.90, 17.30, 25.80, -74.00, -52.50, 0.8),
+            cyl_z(0.0, 22.70, -76.00, -73.00, 3.10),
+            box(-7.50, 7.50, 23.80, 28.00, -64.60, -53.80),
+        ]
+    )
+
+    # Order of Bambu_P2S_Hotend_Solids:
+    # [0] White Zirconia Block, [1] Silver Alu Heater Cradle, [2] Stainless Wire Bail & Buckle Latch,
+    # [3] Snap-In 7-Fin Bambu Nozzle, [4] Silicone Sock, [5] Retaining Magnet, [6..8] 3x M3x10 Mounting Screws
+    bambu_hotend_solids = [
+        bambu_zirconia_block,
+        bambu_alu_cradle,
+        bambu_bail_latch,
+        bambu_nozzle,
+        bambu_sock,
+        bambu_magnet,
+    ] + bambu_m3_screws
+
+    # Bambu-P2S-specific carrier features on P17_Bambu_P2S_tool_carrier_3010 & 2510:
+    # 1. Integral upper filament guide block (Z = -32.38..-19.2794 mm) with bottom Ø5.10 mm socket for the
+    #    Bambu nozzle's Ø4.75 mm top stub (eliminating any loose spacer) AND integral lower rear vertical mounting apron
+    #    (Y = 11.50..14.30 mm, Z = -65.93..-19.2794 mm) supporting the full 28.80 mm height of the White Zirconia Block:
+    bambu_upper_boss = rounded_box_xy(-9.20, 9.20, 11.50, 31.20, -32.38, -19.2794, 1.5)
+    bambu_rear_apron = intersect_all(
+        rounded_box_xy(-9.20, 9.20, 11.50, 16.50, -65.93, -32.00, 1.2),
+        [prism_yz_r([
+            (11.50, -65.93), (14.30, -65.93),
+            (14.30, -52.50), (16.50, -50.30),
+            (16.50, -32.00), (11.50, -32.00),
+        ], 0.0, -9.50, 9.50)]
+    )
+    # 2. Rectangular pocket for the bolt-on White Zirconia Block (Y = 14.30..18.50 mm) and 7-Fin Heatsink (Y = 18.50..30.50 mm),
+    #    plus the 3x M3 triangular mounting holes at (X = ±6.00, Z = -40.13 mm) and (X = 0.00, Z = -50.63 mm):
+    bambu_bay_cuts = [
+        # Rectangular hotend & heatsink bay below Z = -32.38 mm:
+        box(-9.25, 9.25, 14.30, 31.50, -66.50, -32.38),
+        # Bottom Ø5.10 mm alignment socket (Z = -32.50..-29.30 mm) + 45-deg print-safe conical transition + Ø4.20 mm filament bore:
+        cyl_z(0.000, 22.700, -32.60, -29.30, 2.55),
+        cone_z(0.000, 22.700, -29.30, -28.60, 2.55, 2.10),
+        cyl_z(0.000, 22.680, -29.00, -18.88, 2.10),
+        # 3x M3 triangular mounting holes through the Y = 11.50..14.30 mm rear mounting wall:
+        cyl_y(-6.00, -40.13, 11.00, 16.00, 1.45),
+        cyl_y( 6.00, -40.13, 11.00, 16.00, 1.45),
+        cyl_y( 0.00, -50.63, 11.00, 16.00, 1.45),
+        # Rear clearance dimples for the 4x M1.4 cradle screw tips on the back of the White Zirconia Block:
+        cyl_y(-6.00, -55.93, 13.40, 15.00, 1.60),
+        cyl_y( 6.00, -55.93, 13.40, 15.00, 1.60),
+        cyl_y(-6.00, -63.93, 13.40, 15.00, 1.60),
+        cyl_y( 6.00, -63.93, 13.40, 15.00, 1.60),
+        # Dual side ID notches on upper stem ribs (Z = 33.00..37.00 mm) to distinguish Bambu P2S carriers from Volcano carriers:
+        prism_xz_r([(8.80, 34.70), (10.50, 33.00), (10.50, 37.00), (8.80, 35.30)], 0.0, 32.00, 36.50),
+        prism_xz_r([(-10.50, 33.00), (-8.80, 34.70), (-8.80, 35.30), (-10.50, 37.00)], 0.0, 32.00, 36.50),
+    ]
+
+    p17_bambu_3010 = cut_all(
+        fuse_all([p17_3010, bambu_upper_boss, bambu_rear_apron]),
+        bambu_bay_cuts + [fan_air_3010, wire_ch_l_3010, wire_ch_r_3010, side_vent_lower, side_vent_upper] + holes_3010
+    )
     u_b30 = ShapeUpgrade_UnifySameDomain(p17_bambu_3010, True, True, True)
     u_b30.Build()
     p17_bambu_3010 = u_b30.Shape()
 
-    p17_bambu_2510 = cut_all(p17_2510, [bambu_collar_cut, bambu_qr_relief, bambu_id_l, bambu_id_r])
+    p17_bambu_2510 = cut_all(
+        fuse_all([p17_2510, bambu_upper_boss, bambu_rear_apron]),
+        bambu_bay_cuts + [fan_air_2510, wire_ch_l_2510, wire_ch_r_2510, side_vent_lower, side_vent_upper] + holes_2510
+    )
     u_b25 = ShapeUpgrade_UnifySameDomain(p17_bambu_2510, True, True, True)
     u_b25.Build()
     p17_bambu_2510 = u_b25.Shape()
-
-    # 4. P17B_Bambu_Short_Hotend_Spacer (6.10 mm Z-datum adapter for 48.5 mm short-body Voron/Bambu hotends):
-    spacer_outer = fuse_all([
-        intersect_all(cyl_z(0.0, 22.70, -30.3794, -24.2794, 10.80), [box(-10.80, 10.80, 13.45, 31.95, -31.0, -24.0)]),
-        cyl_z(0.0, 22.68, -24.2794, -22.4794, 3.50),
-        cone_z(0.0, 22.68, -22.4794, -21.0794, 3.50, 2.10),
-    ])
-    spacer_cuts = [
-        cyl_z(0.0, 22.68, -31.00, -28.28, 3.65),
-        cone_z(0.0, 22.68, -28.28, -26.73, 3.65, 2.10),
-        cyl_z(0.0, 22.68, -31.00, -20.50, 2.10),
-    ]
-    for sx in (-5.657, 5.657):
-        for sy in (17.043, 28.357):
-            spacer_cuts.append(cyl_z(sx, sy, -31.00, -23.50, 1.35))
-    p17b_spacer = cut_all(spacer_outer, spacer_cuts)
-    u_sp = ShapeUpgrade_UnifySameDomain(p17b_spacer, True, True, True)
-    u_sp.Build()
-    p17b_spacer = u_sp.Shape()
 
     return {
         "P17_HF_tool_carrier_2510": p17_2510,
         "P17_HF_tool_carrier_3010": p17_3010,
         "P17_Bambu_P2S_tool_carrier_2510": p17_bambu_2510,
         "P17_Bambu_P2S_tool_carrier_3010": p17_bambu_3010,
-        "P17B_Bambu_Short_Hotend_Spacer": p17b_spacer,
         "P18_Tool_docking_backplate_3010": p18_3010,
         "Fan_2510_Axial": fan2510_body,
         "Fan_2510_Screws": fan2510_screws,
@@ -2291,7 +2389,6 @@ def main():
         "P17_HF_tool_carrier_3010",
         "P17_Bambu_P2S_tool_carrier_2510",
         "P17_Bambu_P2S_tool_carrier_3010",
-        "P17B_Bambu_Short_Hotend_Spacer",
         "P18_Tool_docking_backplate_3010",
     ):
         tshape = th_variants[tname]
@@ -2413,10 +2510,11 @@ def main():
             ("P17_Bambu_3010", th_variants["P17_Bambu_P2S_tool_carrier_3010"]),
             ("P18_3010", th_variants["P18_Tool_docking_backplate_3010"]),
             ("Fan_3010", th_variants["Fan_3010_Axial"]),
-            ("Bambu_HS", th_variants["Bambu_P2S_Hotend_Solids"][0]),
-            ("Bambu_NZ", th_variants["Bambu_P2S_Hotend_Solids"][1]),
-            ("Bambu_HL", th_variants["Bambu_P2S_Hotend_Solids"][2]),
-            ("Bambu_Sock", th_variants["Bambu_P2S_Hotend_Solids"][3]),
+            ("Bambu_Zirconia", th_variants["Bambu_P2S_Hotend_Solids"][0]),
+            ("Bambu_Alu_Cradle", th_variants["Bambu_P2S_Hotend_Solids"][1]),
+            ("Bambu_Bail_Latch", th_variants["Bambu_P2S_Hotend_Solids"][2]),
+            ("Bambu_7Fin_Nozzle", th_variants["Bambu_P2S_Hotend_Solids"][3]),
+            ("Bambu_Sock", th_variants["Bambu_P2S_Hotend_Solids"][4]),
         ]),
     ]:
         # 1. Self-withdrawal check (dx=0, dy=0..35 mm):

@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "elapsed_seconds": 110.19,
+  "elapsed_seconds": 120.13,
   "rear_gantry_corridor_air_area_mm2": 201.88,
   "hose_spigot_bore_area_mm2": 380.13,
   "cpap_flow_areas_mm2": {
@@ -136,11 +136,11 @@
     "P17_Bambu_P2S_tool_carrier_2510": {
       "solids": 1,
       "shells": 1,
-      "brep_volume_mm3": 10734.472,
+      "brep_volume_mm3": 13863.527,
       "min_mm": [
         -12.4,
         11.5,
-        -51.8
+        -65.93
       ],
       "max_mm": [
         12.4,
@@ -148,22 +148,22 @@
         48.74
       ],
       "stl_validation": {
-        "facets": 28254,
+        "facets": 28948,
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
-        "mesh_volume_mm3": 10736.379,
+        "mesh_volume_mm3": 13865.014,
         "is_watertight_manifold": true
       }
     },
     "P17_Bambu_P2S_tool_carrier_3010": {
       "solids": 1,
       "shells": 1,
-      "brep_volume_mm3": 11291.846,
+      "brep_volume_mm3": 14258.453,
       "min_mm": [
         -15.0,
         11.5,
-        -52.5
+        -65.93
       ],
       "max_mm": [
         15.0,
@@ -171,34 +171,11 @@
         48.74
       ],
       "stl_validation": {
-        "facets": 28874,
+        "facets": 30024,
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
-        "mesh_volume_mm3": 11294.169,
-        "is_watertight_manifold": true
-      }
-    },
-    "P17B_Bambu_Short_Hotend_Spacer": {
-      "solids": 1,
-      "shells": 1,
-      "brep_volume_mm3": 1849.94,
-      "min_mm": [
-        -10.8,
-        13.45,
-        -30.379
-      ],
-      "max_mm": [
-        10.8,
-        31.95,
-        -21.079
-      ],
-      "stl_validation": {
-        "facets": 4644,
-        "degenerate_facets": 0,
-        "non_manifold_edges": 0,
-        "winding_errors": 0,
-        "mesh_volume_mm3": 1849.46,
+        "mesh_volume_mm3": 14260.27,
         "is_watertight_manifold": true
       }
     },
@@ -242,7 +219,7 @@
         37.221
       ],
       "stl_validation": {
-        "facets": 20484,
+        "facets": 20500,
         "degenerate_facets": 0,
         "non_manifold_edges": 0,
         "winding_errors": 0,
@@ -732,7 +709,7 @@
         "mesh_volume_mm3": 7897.229,
         "is_watertight_manifold": true
       },
-      "step_sha256": "2688f0e7d46452547565f5307435b0e9294d7d625d61ca23bbd3ced23ef23c16",
+      "step_sha256": "f95ed85838f945616e5b270df8ad0f07b6dba5dc39effab4b5ece631a9e7eb74",
       "stl_sha256": "5c1addfcbd6b923e39442ba930f0302b1758c1723b3b542af1c6e9bf70935e4b"
     },
     "P21_CPAP_Gantry_Bridge": {
@@ -762,7 +739,7 @@
         "mesh_volume_mm3": 10183.833,
         "is_watertight_manifold": true
       },
-      "step_sha256": "206b1a8c4b395a423f6b516aa8797a7ecfce43d1ca78cd7d73e7b585221d202b",
+      "step_sha256": "5877acd8192eeef02f41c67402711f4f5416e554fde33c519efe30e3cd3b9ba4",
       "stl_sha256": "c55f17babae592aba2635869cef10f2f79d235b30bffabf0de44af4d28510039"
     },
     "P22_CPAP_Lower_Plenum": {
@@ -792,7 +769,7 @@
         "mesh_volume_mm3": 17672.769,
         "is_watertight_manifold": true
       },
-      "step_sha256": "35d8bbba482a8115ab1771aeadda496e48b9e1d803242448aca80d89d50fb137",
+      "step_sha256": "2015a9f5c21350d82c526f3b94ed0798180fa20209eb8c00c0efaff09b597b70",
       "stl_sha256": "34269bf400c1366acc73a0e8baa3edc28d4d8d6c874276338141dd5bff47257f"
     },
     "P23_Beacon_Cartographer_Mount": {
@@ -822,7 +799,7 @@
         "mesh_volume_mm3": 2398.047,
         "is_watertight_manifold": true
       },
-      "step_sha256": "93eef21b6a8839ee1a5ba94251bb50075f3306ed1a7d706e578357671f6d82cd",
+      "step_sha256": "2f5e09e0debba5f0c124ac4ff508cf8954ab09186a6fe4de85db45af08b9093a",
       "stl_sha256": "25b12fb2fc843fb81b78aec747ae70c3fd5064809e0f5cf2ffa8a844a15f3b9e"
     },
     "P24_EBB42_Controller_Mount": {
@@ -852,9 +829,9 @@
         "mesh_volume_mm3": 9725.191,
         "is_watertight_manifold": true
       },
-      "step_sha256": "996fc47fff3e2eef6502e42e9d6d3e85feeb305fc2a6ffab1dae901ffe73b292",
+      "step_sha256": "f654dfba89067c4a3e399cec70c63fc05bd9ca88c5fd64146f0a416f792431b2",
       "stl_sha256": "9db1b03f562dcf5d76f4b613dad3461bdcde1077ae07226aba9ba7a0c03e9502"
     }
   },
-  "combined_step_sha256": "5dab1390db6c3b33f34757cae4471d7e0ea2eab8847317197fe76c1572904b37"
+  "combined_step_sha256": "4c663a24a094a28208dc24d27b30aeed3d9d3e430c0621b88d06ed86bc2176bb"
 }
