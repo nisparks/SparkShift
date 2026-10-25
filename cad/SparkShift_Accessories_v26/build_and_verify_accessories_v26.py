@@ -1530,9 +1530,99 @@ def build_toolhead_fan_variants(v26_by_name):
         cyl_y(sx * 6.00, -2.00, 41.70, 45.70, 3.00)
         for sx in (-1.0, 1.0)
     ]
+
+    # --- 3. Build Bambu Lab P2S / Voron V2.4 Quick-Release Hotend Toolhead Variants ---
+    # Reference COTS CAD for "Quick-Release Hotend For Voron V2.4 / V0.2 (Upgraded With Bambu Lab P2S Hotend Nozzle)":
+    bambu_hs_core = intersect_all(cyl_z(0.0, 22.70, -50.28, -24.28, 7.50), [box(-11.0, 11.0, 13.365, 32.035, -51.0, -24.0)])
+    bambu_hs_fins = [intersect_all(cyl_z(0.0, 22.70, -27.28, -24.28, 11.00), [box(-11.0, 11.0, 13.365, 32.035, -28.0, -24.0)])]
+    for z_fin_bot in (-31.88, -36.48, -41.08, -45.68, -50.28):
+        bambu_hs_fins.append(intersect_all(cyl_z(0.0, 22.70, z_fin_bot, z_fin_bot + 1.80, 11.00), [box(-11.0, 11.0, 13.365, 32.035, z_fin_bot - 0.1, z_fin_bot + 1.9)]))
+    bambu_top_collar = cyl_z(0.0, 22.68, -24.28, -22.48, 3.50)
+    bambu_hs_cuts = [box(-7.20, 7.20, 19.20, 33.00, -50.50, -37.80), cyl_z(0.0, 22.68, -51.00, -22.00, 2.05)]
+    for sx in (-5.657, 5.657):
+        for sy in (17.043, 28.357):
+            bambu_hs_cuts.append(cyl_z(sx, sy, -30.50, -24.00, 1.25))
+    bambu_heatsink = cut_all(fuse_all([bambu_hs_core, bambu_top_collar] + bambu_hs_fins), bambu_hs_cuts)
+
+    bambu_nz_spine = box(-3.50, 3.50, 20.00, 26.20, -50.00, -38.00)
+    bambu_nz_fins = [box(-7.00, 7.00, 20.00, 26.80, zf, zf + 1.40) for zf in (-49.80, -46.20, -42.60, -39.40)]
+    bambu_nz_throat = cyl_z(0.0, 22.70, -55.00, -49.50, 2.10)
+    bambu_nz_block = prism_xy_r([(-3.50, 19.30), (3.50, 19.30), (4.40, 22.70), (3.20, 26.10), (-3.20, 26.10), (-4.40, 22.70)], 0.6, -73.30, -54.50)
+    bambu_nz_cone = fuse_all([cone_z(0.0, 22.70, -76.80, -73.30, 1.80, 3.10), cone_z(0.0, 22.70, -78.88, -76.80, 0.55, 1.80)])
+    bambu_nozzle = cut_all(fuse_all([bambu_nz_spine, bambu_nz_throat, bambu_nz_block, bambu_nz_cone] + bambu_nz_fins), [cyl_z(0.0, 22.70, -79.00, -37.50, 1.00)])
+
+    bambu_heater_base = cut_all(
+        rounded_box_xy(-5.80, 5.80, 15.20, 25.00, -72.80, -53.80, 1.0),
+        [box(-4.55, 4.55, 19.15, 26.50, -73.50, -53.50)]
+    )
+    bambu_standoffs = [cyl_z(sx * 5.00, 17.20, -54.00, -50.28, 1.25) for sx in (-1.0, 1.0)]
+    bambu_wire_clip = box(5.60, 6.80, 16.50, 21.50, -61.50, -53.80)
+    bambu_bail_latch = fuse_all([
+        box(-5.80, -4.60, 24.50, 28.80, -65.50, -63.50),
+        box( 4.60,  5.80, 24.50, 28.80, -65.50, -63.50),
+        box(-5.80,  5.80, 27.40, 28.80, -66.50, -61.50),
+    ])
+    bambu_heater_latch = fuse_all([bambu_heater_base, bambu_wire_clip, bambu_bail_latch] + bambu_standoffs)
+
+    bambu_sock = cut_all(rounded_box_xy(-6.60, 6.60, 14.40, 28.20, -75.20, -54.20, 1.5), [
+        rounded_box_xy(-5.90, 5.90, 15.10, 26.50, -73.50, -53.50, 0.8),
+        cyl_z(0.0, 22.70, -76.00, -72.50, 3.40),
+        box(-6.00, 6.00, 24.00, 29.00, -67.00, -61.00),
+        box( 5.40, 7.00, 16.20, 21.80, -62.00, -53.50),
+    ])
+    bambu_hotend_solids = [bambu_heatsink, bambu_nozzle, bambu_heater_latch, bambu_sock]
+
+    # Bambu-P2S-specific carrier cuts:
+    # 1. Top Ø7.30 x 2.08 mm alignment collar counterbore + 45-deg print-safe conical transition at Z = -24.28..-20.65 mm:
+    bambu_collar_cut = fuse_all([
+        cyl_z(0.000, 22.680, -25.00, -22.20, 3.65),
+        cone_z(0.000, 22.680, -22.20, -20.65, 3.65, 2.10),
+    ])
+    # 2. Lower quick-release nozzle & side-wire clip access relief (45-deg roof at Z = -48.50..-46.50 mm):
+    bambu_qr_relief = prism_xz_r([
+        (-8.20, -54.00), ( 8.20, -54.00),
+        ( 8.20, -48.50), ( 6.20, -46.50),
+        (-6.20, -46.50), (-8.20, -48.50),
+    ], 0.0, 18.50, 31.20)
+    # 3. Dual side ID notches on upper stem ribs (Z = 33.00..37.00 mm) to distinguish Bambu P2S carriers from Volcano carriers:
+    bambu_id_l = prism_xz_r([(8.80, 34.70), (10.50, 33.00), (10.50, 37.00), (8.80, 35.30)], 0.0, 32.00, 36.50)
+    bambu_id_r = prism_xz_r([(-10.50, 33.00), (-8.80, 34.70), (-8.80, 35.30), (-10.50, 37.00)], 0.0, 32.00, 36.50)
+
+    p17_bambu_3010 = cut_all(p17_3010, [bambu_collar_cut, bambu_qr_relief, bambu_id_l, bambu_id_r])
+    u_b30 = ShapeUpgrade_UnifySameDomain(p17_bambu_3010, True, True, True)
+    u_b30.Build()
+    p17_bambu_3010 = u_b30.Shape()
+
+    p17_bambu_2510 = cut_all(p17_2510, [bambu_collar_cut, bambu_qr_relief, bambu_id_l, bambu_id_r])
+    u_b25 = ShapeUpgrade_UnifySameDomain(p17_bambu_2510, True, True, True)
+    u_b25.Build()
+    p17_bambu_2510 = u_b25.Shape()
+
+    # 4. P17B_Bambu_Short_Hotend_Spacer (6.10 mm Z-datum adapter for 48.5 mm short-body Voron/Bambu hotends):
+    spacer_outer = fuse_all([
+        intersect_all(cyl_z(0.0, 22.70, -30.3794, -24.2794, 10.80), [box(-10.80, 10.80, 13.45, 31.95, -31.0, -24.0)]),
+        cyl_z(0.0, 22.68, -24.2794, -22.4794, 3.50),
+        cone_z(0.0, 22.68, -22.4794, -21.0794, 3.50, 2.10),
+    ])
+    spacer_cuts = [
+        cyl_z(0.0, 22.68, -31.00, -28.28, 3.65),
+        cone_z(0.0, 22.68, -28.28, -26.73, 3.65, 2.10),
+        cyl_z(0.0, 22.68, -31.00, -20.50, 2.10),
+    ]
+    for sx in (-5.657, 5.657):
+        for sy in (17.043, 28.357):
+            spacer_cuts.append(cyl_z(sx, sy, -31.00, -23.50, 1.35))
+    p17b_spacer = cut_all(spacer_outer, spacer_cuts)
+    u_sp = ShapeUpgrade_UnifySameDomain(p17b_spacer, True, True, True)
+    u_sp.Build()
+    p17b_spacer = u_sp.Shape()
+
     return {
         "P17_HF_tool_carrier_2510": p17_2510,
         "P17_HF_tool_carrier_3010": p17_3010,
+        "P17_Bambu_P2S_tool_carrier_2510": p17_bambu_2510,
+        "P17_Bambu_P2S_tool_carrier_3010": p17_bambu_3010,
+        "P17B_Bambu_Short_Hotend_Spacer": p17b_spacer,
         "P18_Tool_docking_backplate_3010": p18_3010,
         "Fan_2510_Axial": fan2510_body,
         "Fan_2510_Screws": fan2510_screws,
@@ -1540,6 +1630,7 @@ def build_toolhead_fan_variants(v26_by_name):
         "Fan_3010_Screws": fan3010_screws,
         "SC_Pins_5x12": sc_pins_3010,
         "SC_Magnets_6x4": sc_mags_3010,
+        "Bambu_P2S_Hotend_Solids": bambu_hotend_solids,
     }
 
 
@@ -2195,7 +2286,14 @@ def main():
     # Build and verify 2510 and 3010 Toolhead Fan variants & Voron 350 10-toolhead packing:
     th_variants = build_toolhead_fan_variants(v26_by_name)
     toolhead_reports = {}
-    for tname in ("P17_HF_tool_carrier_2510", "P17_HF_tool_carrier_3010", "P18_Tool_docking_backplate_3010"):
+    for tname in (
+        "P17_HF_tool_carrier_2510",
+        "P17_HF_tool_carrier_3010",
+        "P17_Bambu_P2S_tool_carrier_2510",
+        "P17_Bambu_P2S_tool_carrier_3010",
+        "P17B_Bambu_Short_Hotend_Spacer",
+        "P18_Tool_docking_backplate_3010",
+    ):
         tshape = th_variants[tname]
         t_step = STEP_DIR / f"{tname}.step"
         t_stl = STL_DIR / f"{tname}.stl"
@@ -2215,6 +2313,7 @@ def main():
 
     export_step_file([th_variants["Fan_2510_Axial"]] + th_variants["Fan_2510_Screws"], STEP_DIR / "Fan_2510_Axial.step")
     export_step_file([th_variants["Fan_3010_Axial"]] + th_variants["Fan_3010_Screws"], STEP_DIR / "Fan_3010_Axial.step")
+    export_step_file(th_variants["Bambu_P2S_Hotend_Solids"], STEP_DIR / "Hotend_Voron_Bambu_P2S.step")
     export_step_file(
         [th_variants["P17_HF_tool_carrier_2510"], v26_by_name["TOOL_06_Tool_head_back_part_1"][0], th_variants["Fan_2510_Axial"]] + th_variants["Fan_2510_Screws"],
         STEP_DIR / "Toolhead_2510_Complete.step",
@@ -2223,6 +2322,16 @@ def main():
         [th_variants["P17_HF_tool_carrier_3010"], th_variants["P18_Tool_docking_backplate_3010"], th_variants["Fan_3010_Axial"]]
         + th_variants["Fan_3010_Screws"] + th_variants["SC_Pins_5x12"] + th_variants["SC_Magnets_6x4"],
         STEP_DIR / "Toolhead_3010_Complete.step",
+    )
+    export_step_file(
+        [th_variants["P17_Bambu_P2S_tool_carrier_2510"], v26_by_name["TOOL_06_Tool_head_back_part_1"][0], th_variants["Fan_2510_Axial"]]
+        + th_variants["Fan_2510_Screws"] + th_variants["Bambu_P2S_Hotend_Solids"],
+        STEP_DIR / "Toolhead_Bambu_P2S_2510_Complete.step",
+    )
+    export_step_file(
+        [th_variants["P17_Bambu_P2S_tool_carrier_3010"], th_variants["P18_Tool_docking_backplate_3010"], th_variants["Fan_3010_Axial"]]
+        + th_variants["Fan_3010_Screws"] + th_variants["SC_Pins_5x12"] + th_variants["SC_Magnets_6x4"] + th_variants["Bambu_P2S_Hotend_Solids"],
+        STEP_DIR / "Toolhead_Bambu_P2S_3010_Complete.step",
     )
 
     # Build and verify Dock (P25), Nozzle Wiper & Purge Chute (P26), Stationary 7040 Blower Mount (P27),
@@ -2299,6 +2408,15 @@ def main():
             ("Fan_3010", th_variants["Fan_3010_Axial"]),
             ("HF_00", v26_by_name["HF_00_K1_heatsink"][0]),
             ("HF_04", v26_by_name["HF_04_Creality_Ender_3_Volcano_Hotend_v14"][0]),
+        ]),
+        ("3010_bambu_p2s_toolhead", [
+            ("P17_Bambu_3010", th_variants["P17_Bambu_P2S_tool_carrier_3010"]),
+            ("P18_3010", th_variants["P18_Tool_docking_backplate_3010"]),
+            ("Fan_3010", th_variants["Fan_3010_Axial"]),
+            ("Bambu_HS", th_variants["Bambu_P2S_Hotend_Solids"][0]),
+            ("Bambu_NZ", th_variants["Bambu_P2S_Hotend_Solids"][1]),
+            ("Bambu_HL", th_variants["Bambu_P2S_Hotend_Solids"][2]),
+            ("Bambu_Sock", th_variants["Bambu_P2S_Hotend_Solids"][3]),
         ]),
     ]:
         # 1. Self-withdrawal check (dx=0, dy=0..35 mm):
