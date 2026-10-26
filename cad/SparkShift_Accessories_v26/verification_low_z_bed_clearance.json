@@ -1,0 +1,746 @@
+{
+  "status": "BLOCKED_LOW_Z_BED_COLLISION",
+  "failures": [
+    {
+      "check": "Gantry-mounted parked tools/docks intersect bed at first-layer height",
+      "colliding_cases": 40,
+      "total_cases": 40
+    }
+  ],
+  "tool_sources": {
+    "Bambu": {
+      "tool_file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T0_Bambu.step",
+      "tool_sha256": "5ebb803025d54c3cf70281ba4eb08a45080d88b3191551e1fe7f67cddcbf80e5",
+      "dock_file": "21_Bambu_Closed_Panel_Dock_Complete_REVIEW.step",
+      "dock_sha256": "e4a896a8857f28c3355d5fcda9021871b426085a714806522fdb05828a19d41e"
+    },
+    "RedLizard": {
+      "tool_file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T1_RedLizard.step",
+      "tool_sha256": "f24120767af38ff6418d8d793fc64e03f4a2afd904767148d70b3eff6a1f32a4",
+      "dock_file": "21_RedLizard_Closed_Panel_Dock_Complete_REVIEW.step",
+      "dock_sha256": "d2fb5f56442cd711b79f066ddc47a861cf422605f1e1609f7cdf4fdd9f7172c3"
+    }
+  },
+  "low_z_bed_clearance": {
+    "bed_source": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_Bed_world.step",
+      "sha256": "1b13fbfcdc4f4151932b4461190a703a9f7a5e7343e9673769fa5c47c3af871f",
+      "metadata_sha256": "d6a8574e99d461016683f0d050e4539ba8acd2fa4fa683e9cc4d67b08959e478",
+      "bounds_mm": [
+        0.0,
+        350.0,
+        9.0,
+        359.0,
+        -8.0,
+        0.0
+      ]
+    },
+    "world_y_offset_mm": 43.41,
+    "world_z_offset_mm": 191.2794,
+    "active_nozzle_world_z_mm": 0.2,
+    "cases": [
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 0,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855463,
+          "Silicone_Ooze_Pad": 154.47689513094682,
+          "P26_Entry_Relieved_Chute": 1079.0746914975316,
+          "Silicone_Wiper": 175.02355931912973
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 1,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855463,
+          "Silicone_Ooze_Pad": 154.47689513094684,
+          "P26_Entry_Relieved_Chute": 1742.4901967871554,
+          "Silicone_Wiper": 179.30085299166575
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 2,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785546,
+          "Silicone_Ooze_Pad": 154.47689513094676,
+          "P26_Entry_Relieved_Chute": 1742.4901967871574,
+          "Silicone_Wiper": 179.30085299166575
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 3,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855463,
+          "Silicone_Ooze_Pad": 154.4768951309468,
+          "P26_Entry_Relieved_Chute": 1742.4901967871538,
+          "Silicone_Wiper": 179.30085299166575
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 4,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785544,
+          "Silicone_Ooze_Pad": 154.47689513094667,
+          "P26_Entry_Relieved_Chute": 1742.4901967871565,
+          "Silicone_Wiper": 179.30085299166572
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 5,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785544,
+          "Silicone_Ooze_Pad": 154.47689513094664,
+          "P26_Entry_Relieved_Chute": 1742.4901967871558,
+          "Silicone_Wiper": 179.30085299166572
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 6,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785549,
+          "Silicone_Ooze_Pad": 154.47689513094653,
+          "P26_Entry_Relieved_Chute": 1742.4901967871558,
+          "Silicone_Wiper": 179.3008529916657
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 7,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855537,
+          "Silicone_Ooze_Pad": 154.47689513094747,
+          "P26_Entry_Relieved_Chute": 1742.4901967871556,
+          "Silicone_Wiper": 179.3008529916657
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 8,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.025232678554,
+          "Silicone_Ooze_Pad": 154.47689513094744,
+          "P26_Entry_Relieved_Chute": 1742.4901967871551,
+          "Silicone_Wiper": 179.3008529916657
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bay": 9,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855537,
+          "Silicone_Ooze_Pad": 154.47689513094744,
+          "P26_Entry_Relieved_Chute": 1090.5553388142546,
+          "Silicone_Wiper": 177.84620617416002
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 0,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855463,
+          "Silicone_Ooze_Pad": 122.34379553225979,
+          "P26_Entry_Relieved_Chute": 1079.0746914975316,
+          "Silicone_Wiper": 151.1428061157457,
+          "Parked_Tool_Solid_6": 1.4505830706216363
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 1,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855463,
+          "Silicone_Ooze_Pad": 122.34379553225982,
+          "P26_Entry_Relieved_Chute": 1742.4901967871554,
+          "Silicone_Wiper": 154.63931234033168,
+          "Parked_Tool_Solid_6": 1.450583070621636
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 2,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785546,
+          "Silicone_Ooze_Pad": 122.3437955322598,
+          "P26_Entry_Relieved_Chute": 1742.4901967871574,
+          "Silicone_Wiper": 154.63931234033168,
+          "Parked_Tool_Solid_6": 1.450583070621628
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 3,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855463,
+          "Silicone_Ooze_Pad": 122.3437955322598,
+          "P26_Entry_Relieved_Chute": 1742.4901967871538,
+          "Silicone_Wiper": 154.63931234033168,
+          "Parked_Tool_Solid_6": 1.450583070621628
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 4,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785544,
+          "Silicone_Ooze_Pad": 122.34379553225958,
+          "P26_Entry_Relieved_Chute": 1742.4901967871565,
+          "Silicone_Wiper": 154.63931234033168,
+          "Parked_Tool_Solid_6": 1.4505830706216296
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 5,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785544,
+          "Silicone_Ooze_Pad": 122.34379553225959,
+          "P26_Entry_Relieved_Chute": 1742.4901967871558,
+          "Silicone_Wiper": 154.63931234033168,
+          "Parked_Tool_Solid_6": 1.4505830706216296
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 6,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785549,
+          "Silicone_Ooze_Pad": 122.34379553225959,
+          "P26_Entry_Relieved_Chute": 1742.4901967871558,
+          "Silicone_Wiper": 154.6393123403317,
+          "Parked_Tool_Solid_6": 1.45058307062163
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 7,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855537,
+          "Silicone_Ooze_Pad": 122.34379553226024,
+          "P26_Entry_Relieved_Chute": 1742.4901967871556,
+          "Silicone_Wiper": 154.63931234033174,
+          "Parked_Tool_Solid_6": 1.4505830706216611
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 8,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.025232678554,
+          "Silicone_Ooze_Pad": 122.34379553226027,
+          "P26_Entry_Relieved_Chute": 1742.4901967871551,
+          "Silicone_Wiper": 154.6393123403317,
+          "Parked_Tool_Solid_6": 1.4505830706216614
+        }
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bay": 9,
+        "gantry_z_delta_mm": -112.9482,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855537,
+          "Silicone_Ooze_Pad": 122.34379553226027,
+          "P26_Entry_Relieved_Chute": 1090.5553388142546,
+          "Silicone_Wiper": 153.45020024250215,
+          "Parked_Tool_Solid_6": 1.4505830706216614
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 0,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785547,
+          "Silicone_Ooze_Pad": 113.04751638841046,
+          "P26_Entry_Relieved_Chute": 1094.984447946107,
+          "Silicone_Wiper": 160.83522610971366
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 1,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855463,
+          "Silicone_Ooze_Pad": 113.04751638841044,
+          "P26_Entry_Relieved_Chute": 1743.3420750879407,
+          "Silicone_Wiper": 165.11251978224973
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 2,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785545,
+          "Silicone_Ooze_Pad": 113.04751638841046,
+          "P26_Entry_Relieved_Chute": 1743.3420750879422,
+          "Silicone_Wiper": 165.11251978224973
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 3,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855474,
+          "Silicone_Ooze_Pad": 113.04751638841046,
+          "P26_Entry_Relieved_Chute": 1743.3420750879402,
+          "Silicone_Wiper": 165.11251978224973
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 4,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785546,
+          "Silicone_Ooze_Pad": 113.04751638841034,
+          "P26_Entry_Relieved_Chute": 1743.3420750879434,
+          "Silicone_Wiper": 165.11251978224954
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 5,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785545,
+          "Silicone_Ooze_Pad": 113.04751638841037,
+          "P26_Entry_Relieved_Chute": 1743.3420750879425,
+          "Silicone_Wiper": 165.11251978224954
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 6,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.025232678555,
+          "Silicone_Ooze_Pad": 113.04751638841027,
+          "P26_Entry_Relieved_Chute": 1743.342075087943,
+          "Silicone_Wiper": 165.11251978224954
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 7,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785554,
+          "Silicone_Ooze_Pad": 113.04751638841097,
+          "P26_Entry_Relieved_Chute": 1743.342075087942,
+          "Silicone_Wiper": 165.11251978224954
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 8,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785541,
+          "Silicone_Ooze_Pad": 113.047516388411,
+          "P26_Entry_Relieved_Chute": 1743.3420750879416,
+          "Silicone_Wiper": 165.11251978224956
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bay": 9,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855537,
+          "Silicone_Ooze_Pad": 113.04751638841097,
+          "P26_Entry_Relieved_Chute": 1106.95831040834,
+          "Silicone_Wiper": 163.65787296474386
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 0,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785547,
+          "Silicone_Ooze_Pad": 112.1854476193051,
+          "P26_Entry_Relieved_Chute": 1094.984447946107,
+          "Silicone_Wiper": 148.06137693527097
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 1,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855463,
+          "Silicone_Ooze_Pad": 112.1854476193051,
+          "P26_Entry_Relieved_Chute": 1743.3420750879407,
+          "Silicone_Wiper": 151.5578831598569
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 2,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785545,
+          "Silicone_Ooze_Pad": 112.18544761930508,
+          "P26_Entry_Relieved_Chute": 1743.3420750879422,
+          "Silicone_Wiper": 151.55788315985689
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 3,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855474,
+          "Silicone_Ooze_Pad": 112.1854476193051,
+          "P26_Entry_Relieved_Chute": 1743.3420750879402,
+          "Silicone_Wiper": 151.55788315985686
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 4,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785546,
+          "Silicone_Ooze_Pad": 112.185447619305,
+          "P26_Entry_Relieved_Chute": 1743.3420750879434,
+          "Silicone_Wiper": 151.5578831598568
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 5,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785545,
+          "Silicone_Ooze_Pad": 112.18544761930497,
+          "P26_Entry_Relieved_Chute": 1743.3420750879425,
+          "Silicone_Wiper": 151.5578831598568
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 6,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.025232678555,
+          "Silicone_Ooze_Pad": 112.18544761930488,
+          "P26_Entry_Relieved_Chute": 1743.342075087943,
+          "Silicone_Wiper": 151.55788315985683
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 7,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785554,
+          "Silicone_Ooze_Pad": 112.18544761930553,
+          "P26_Entry_Relieved_Chute": 1743.342075087942,
+          "Silicone_Wiper": 151.5578831598569
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 8,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.0252326785541,
+          "Silicone_Ooze_Pad": 112.1854476193055,
+          "P26_Entry_Relieved_Chute": 1743.3420750879416,
+          "Silicone_Wiper": 151.55788315985694
+        }
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bay": 9,
+        "gantry_z_delta_mm": -112.19999521522821,
+        "bed_intersections_mm3": {
+          "P25_Refined_Dock": 334.02523267855537,
+          "Silicone_Ooze_Pad": 112.1854476193055,
+          "P26_Entry_Relieved_Chute": 1106.95831040834,
+          "Silicone_Wiper": 150.36877106202732
+        }
+      }
+    ],
+    "clearance_boundaries": [
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "parked_lowest_z_over_bed_footprint_mm": 99.19940000000001,
+        "active_nozzle_z_at_first_bed_top_contact_mm": 13.948799999999991,
+        "same_orientation_low_hardware_ymin_mm": -31.50008200000002
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "parked_lowest_z_over_bed_footprint_mm": 99.19940000000001,
+        "active_nozzle_z_at_first_bed_top_contact_mm": 13.200595215228205,
+        "same_orientation_low_hardware_ymin_mm": -31.50008200000002
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "parked_lowest_z_over_bed_footprint_mm": 99.19940000000001,
+        "active_nozzle_z_at_first_bed_top_contact_mm": 13.948799999999991,
+        "same_orientation_low_hardware_ymin_mm": -31.50008200000002
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "parked_lowest_z_over_bed_footprint_mm": 99.19940000000001,
+        "active_nozzle_z_at_first_bed_top_contact_mm": 13.200595215228205,
+        "same_orientation_low_hardware_ymin_mm": -31.50008200000002
+      }
+    ],
+    "forward_translation_for_1mm_bed_edge_gap_mm": 27.41000000000019,
+    "same_orientation_rear_translation_for_1mm_bed_edge_gap_mm": 391.500082,
+    "collision_case_count": 40,
+    "qualification": "Source-world rigid bed contact at first-layer height; no printed-object, heater wiring, thermal expansion or bed-motion envelope is included. Reserving a print-area strip does not prevent the dock hardware itself hitting the bed."
+  },
+  "forward_relocation_screen": {
+    "rack_world_y_translation_mm": -27.41000000000019,
+    "gantry_intersections_mm3": {
+      "6:M5x10 BHCS": 54.51589974720987,
+      "7:M5x10 BHCS (1)": 54.52659640648708,
+      "12:Printed_V2_9mm_front_motorless_mount_a": 1748.220950276426,
+      "13:Printed_V2_9mm_front_motorless_mount_a (1)": 1751.6045629081727,
+      "14:Printed_V2_9mm_front_motorless_mount_b": 1290.0544951970655,
+      "15:Printed_V2_9mm_front_motorless_mount_b (1)": 1261.1796402050409,
+      "16:M5 washer": 2.2085137550808494,
+      "17:M5 washer (1)": 2.2085137616248667
+    },
+    "named_bearing_reference_y_envelope_mm": [
+      3.2499997873067628,
+      43.14999978730777
+    ],
+    "nominal_y_rail_extent_mm": [
+      15.0,
+      415.0
+    ],
+    "named_bearing_references_within_rail_length": false,
+    "source_hashes": {
+      "rack_audit_X_Gantry_world.step": "d305bc3b1744aa1574e10ea42cdf2583e68293f14ba4e0ac65a2d72ddffd46bb",
+      "rack_audit_Flying_Gantry_world.step": "c5452f4f9958a51360d3868bf8dfe7fd1481de34e66cefde95a6bc3de12843c2"
+    },
+    "qualification": "Necessary X-gantry reach screen only; not a redesigned support or docking path. Only the four named bearings' own Y-rail contacts are exempted."
+  },
+  "same_orientation_rear_relocation_screen": {
+    "rack_world_y_translation_mm": 391.500082,
+    "gantry_intersections_mm3": {
+      "56:Printed_V2_9mm_rear_motor_mount_a": 13793.44662928119,
+      "57:Printed_V2_9mm_rear_motor_mount_b": 13281.776103223252,
+      "58:Printed_9mm_tensioner_a": 6604.466831650648,
+      "59:Printed_9mm_tensioner_a (1)": 6136.333498438464,
+      "60:Printed_9mm_tensioner_a (2)": 23.267618522413642,
+      "61:Printed_9mm_tensioner_a (3)": 23.26761852242313,
+      "68:M3x45 SHCS": 386.80770794302475,
+      "69:M3x45 SHCS (1)": 386.80770794305863,
+      "70:M3x35 SHCS": 87.8745565582832,
+      "71:M3x35 SHCS (1)": 87.87455652909682,
+      "72:M5x10 BHCS": 92.24688071557136,
+      "73:M5x10 BHCS (1)": 92.29824127190665,
+      "74:Printed_9mm_tensioner_b": 2299.9055950542916,
+      "75:Printed_9mm_tensioner_b (1)": 2299.9055950542493,
+      "76:M4x2.5 set screw": 9.737630905101822,
+      "77:M4x2.5 set screw (1)": 9.737630889439943,
+      "78:GT2 20T 9mm pulley de-hubbed ": 1188.5143126354455,
+      "79:GT2 20T 9mm pulley de-hubbed  (1)": 1188.514312389426,
+      "80:GT2 20T 9mm pulley": 1579.3197672612387,
+      "81:GT2 20T 9mm pulley (1)": 1579.3197691203188,
+      "82:GT2 20T 9mm pulley (2)": 24.67063448223965,
+      "83:GT2 20T 9mm pulley (3)": 24.670634482240246,
+      "86:Printed_V2_9mm_rear_motor_mount_a (1)": 16468.29666426535,
+      "87:Printed_V2_9mm_rear_motor_mount_b (1)": 10967.725800276363,
+      "88:R1_GANTRY_REAR_2020_340_NOMINAL": 95948.55615368042,
+      "89:M3 washer": 18.265219687970017,
+      "90:M3 washer (1)": 18.26521968797175,
+      "91:M3 washer (2)": 18.26521968796997,
+      "92:M3 washer (3)": 18.2652196879717,
+      "93:M3 2020 drop-in T-nut": 287.44469476705694,
+      "94:M3 2020 drop-in T-nut (1)": 287.4446947670827,
+      "95:M3 2020 drop-in T-nut (2)": 287.4446947670545,
+      "96:M3 2020 drop-in T-nut (3)": 287.44469476708434,
+      "97:M3x10 SHCS": 130.0756842618556,
+      "98:M3x10 SHCS (1)": 130.07568426185532,
+      "99:M3x16 SHCS": 163.5835182060765,
+      "100:M3x16 SHCS (1)": 163.5835182060747,
+      "101:M3 washer (4)": 15.874451771052964,
+      "102:M3 washer (5)": 15.874451771053549,
+      "103:M5 washer": 1.2154791631809467,
+      "104:M5 washer (1)": 1.2154791926086843,
+      "113:M5x16 BHCS": 93.26880069366725,
+      "114:M5x16 BHCS (1)": 93.26880069366698,
+      "115:M5x16 BHCS (2)": 93.26880069387096,
+      "116:M5x16 BHCS (3)": 93.26880069387096,
+      "117:M5x16 BHCS (4)": 93.2688006938635,
+      "118:M5x16 BHCS (5)": 93.26880069387066,
+      "119:M5x16 BHCS (6)": 93.26880069367412,
+      "120:M5x16 BHCS (7)": 93.26880069367432,
+      "129:D5x25 smooth pin": 210.71882453350005,
+      "130:D5x25 smooth pin (1)": 204.9164686032536,
+      "131:Shim 0.5mm (2)": 12.891354068923691,
+      "132:Shim 0.5mm (2) (1)": 10.494094196611442,
+      "133:Shim 0.5mm (2) (2)": 2.9234348272389585,
+      "134:Shim 0.5mm (2) (3)": 12.891354068870728,
+      "135:Shim 0.5mm (2) (4)": 10.494094196611176,
+      "136:Shim 0.5mm (2) (5)": 2.9234348272389736,
+      "137:F695 flanged bearing (2)": 423.4176197504102,
+      "138:F695 flanged bearing (2) (1)": 255.4482013854727,
+      "139:F695 flanged bearing (2) (2)": 436.21941236969514,
+      "140:F695 flanged bearing (2) (3)": 295.55923839626837,
+      "141:F695 flanged bearing (2) (4)": 436.21941131615733,
+      "142:F695 flanged bearing (2) (5)": 295.55923840097853,
+      "143:F695 flanged bearing (2) (6)": 419.09420728161894,
+      "144:F695 flanged bearing (2) (7)": 423.4176197520507,
+      "145:F695 flanged bearing (2) (8)": 172.9630397252157,
+      "146:F695 flanged bearing (2) (9)": 419.8679599326909,
+      "147:M4x2.5 set screw (2)": 13.980273119453079,
+      "148:M4x2.5 set screw (3)": 13.980275809329756,
+      "149:695 bearing (2)": 177.73194721547097,
+      "150:695 bearing (2) (1)": 177.73194721562126,
+      "151:Printed_spacer (2)": 32.301457060701786,
+      "152:Printed_spacer (2) (1)": 26.663354243345168,
+      "153:Printed_spacer (2) (2)": 26.663353769123155,
+      "154:Printed_spacer (2) (3)": 32.30145894417375,
+      "155:GT2 20T 9mm pulley (4)": 24.67063448223995,
+      "156:GT2 20T 9mm pulley (5)": 24.670634482238757,
+      "157:D5x40 smooth pin (2)": 405.2231457436581,
+      "158:D5x40 smooth pin (2) (1)": 405.2290837854732,
+      "159:Printed_long_shaft_double_shear_twist_lock": 54.11509988476477,
+      "160:Printed_long_shaft_double_shear_twist_lock (1)": 54.117056634376226,
+      "161:M3x45 SHCS (2)": 202.25443273392705,
+      "163:M3x45 SHCS (4)": 73.23696013334703,
+      "164:M3x45 SHCS (5)": 202.25440650216126,
+      "165:M3x45 SHCS (6)": 73.23696013378675,
+      "167:Printed_long_shaft_double_shear_housing": 999.1301573445837,
+      "168:Printed_long_shaft_double_shear_housing (1)": 170.52391205058578,
+      "177:_S45R shaft": 769.5059138683214,
+      "178:_S45R shaft (1)": 769.5068960621702,
+      "179:_stepper": 627.3167186992619,
+      "180:_stepper (1)": 615.6990380188997
+    },
+    "named_bearing_reference_y_envelope_mm": [
+      422.160081787307,
+      462.060081787308
+    ],
+    "nominal_y_rail_extent_mm": [
+      15.0,
+      415.0
+    ],
+    "named_bearing_references_within_rail_length": false,
+    "source_hashes": {
+      "rack_audit_X_Gantry_world.step": "d305bc3b1744aa1574e10ea42cdf2583e68293f14ba4e0ac65a2d72ddffd46bb",
+      "rack_audit_Flying_Gantry_world.step": "c5452f4f9958a51360d3868bf8dfe7fd1481de34e66cefde95a6bc3de12843c2"
+    },
+    "qualification": "Necessary X-gantry reach screen only; not a redesigned support or docking path. Only the four named bearings' own Y-rail contacts are exempted."
+  },
+  "audit_regression_checks": {
+    "first_layer_colliding_cases": 40,
+    "dock_only_positive_control_at_nozzle_z_mm": 15,
+    "positive_control_combinations": 4,
+    "positive_controls": [
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "Bambu",
+        "bed_intersections_mm3": {}
+      },
+      {
+        "active_hotend": "Bambu",
+        "parked_hotend": "RedLizard",
+        "bed_intersections_mm3": {}
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "Bambu",
+        "bed_intersections_mm3": {}
+      },
+      {
+        "active_hotend": "RedLizard",
+        "parked_hotend": "RedLizard",
+        "bed_intersections_mm3": {}
+      }
+    ],
+    "qualification": "Positive control distinguishes low-Z contact from an always-colliding or misframed bed test; not print-volume approval."
+  },
+  "diagnostic_archive": {
+    "file": "22_Low_Z_Bed_Interference_DIAGNOSTIC.f3d",
+    "sha256": "aa902d879241433bc5741b8614186146a2a839cbc54d4841f85db76d45592c5d",
+    "reopened_body_count": 739,
+    "Bambu_nozzle_world_z_mm": 0.2000000000000135,
+    "bed_top_world_z_mm": 0.0,
+    "review_only": true
+  },
+  "diagnostic_image": {
+    "file": "images/44_low_z_bed_collision_diagnostic.png",
+    "sha256": "e921c0adcb1efd9adf95dd5498090cf6f2b1b84acbcdde50723e8e3390f5a0d3"
+  },
+  "passed": false
+}

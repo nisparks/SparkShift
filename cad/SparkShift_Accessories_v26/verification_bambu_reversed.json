@@ -1,0 +1,287 @@
+{
+  "status": "CAD_REVIEW_NOT_PHYSICALLY_QUALIFIED",
+  "rotation": "180 degrees about vertical filament axis X0 Y22.7; no translation",
+  "hotend_mount": {
+    "thread": "M2.5 x 0.45",
+    "inserts": "User-supplied M2.5 x length4 x OD3.5 mm",
+    "entry": "Front +Y face Y37.9; insertion toward -Y",
+    "insert_range_y_mm": [
+      33.9,
+      37.9
+    ],
+    "retaining_shoulder_mm": 2.8,
+    "wall_thickness_mm": 6.8,
+    "pilot_diameter_mm": 3.1,
+    "hardware": "3 x M2.5x10 low-head screws, head maximum OD4.5 x H1.7; upper two 0.5 mm washers OD4.5 ID2.7",
+    "thread_engagement_mm": 4,
+    "front_screw_protrusion_mm": 1,
+    "load_direction": "-Y, into the shoulder, away from the front insert mouth"
+  },
+  "shelf_clamp": "2 x M2.5x20; rear-entry user inserts; independent of carriage fan",
+  "unused_top_holes_removed": 4,
+  "checks": {
+    "Blue_Upper_Carrier": {
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0
+    },
+    "Yellow_Reversed_Adapter": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0
+    },
+    "Reversed_Hotend_Reference": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0
+    },
+    "M2_5_Hardware": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0
+    },
+    "blue_adapter": 0,
+    "adapter_hotend": 0,
+    "hardware_hotend": 0
+  },
+  "limitations": [
+    "Reconstructed Bambu geometry, not certified exact H2D vendor CAD.",
+    "Select actual screw heads and coupon-calibrate the insert pilot.",
+    "No physical torque, creep, thermal, cooling or repeatability qualification.",
+    "Original synthetic nozzle tip ends at Z-78.1312, not the intended -78.88; reference unchanged.",
+    "Rear-facing nozzle service is intended with tool removed from carriage.",
+    "Sampled removal path is exploratory and excludes native fixed assembly latch kinematics.",
+    "Heater wiring needs rear-facing strain relief and physical fit assessment."
+  ],
+  "inherited_blue_P18_mm3": 0.010260487035725048,
+  "insert_seats": [
+    {
+      "axis_xz_mm": [
+        -6.0,
+        -40.13
+      ],
+      "missing_shoulder_mm3": 0,
+      "missing_surround_mm3": 0,
+      "pilot_obstruction_mm3": 0
+    },
+    {
+      "axis_xz_mm": [
+        6.0,
+        -40.13
+      ],
+      "missing_shoulder_mm3": 0,
+      "missing_surround_mm3": 0,
+      "pilot_obstruction_mm3": 0
+    },
+    {
+      "axis_xz_mm": [
+        0.0,
+        -50.63
+      ],
+      "missing_shoulder_mm3": 0,
+      "missing_surround_mm3": 0,
+      "pilot_obstruction_mm3": 0
+    }
+  ],
+  "shelf_insert_seats": [
+    {
+      "x_mm": -6,
+      "missing_shoulder_mm3": 0,
+      "missing_surround_mm3": 0
+    },
+    {
+      "x_mm": 6,
+      "missing_shoulder_mm3": 0,
+      "missing_surround_mm3": 0
+    }
+  ],
+  "screw_printed_parts_clearance_mm3": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "service_path": [
+    {
+      "down_mm": 0,
+      "rearward_mm": 0,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 0
+    },
+    {
+      "down_mm": 1,
+      "rearward_mm": 0,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 0
+    },
+    {
+      "down_mm": 2,
+      "rearward_mm": 0,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 0
+    },
+    {
+      "down_mm": 3,
+      "rearward_mm": 0,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 0,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 2,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 4,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 6,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 238.83163035850475
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 8,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 580.3861470408212
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 10,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 1001.2377808844561
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 12,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 1380.4423474225805
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 14,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 1796.2396337651635
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 16,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 158.29055918067397
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 18,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 2155.7152522636575
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 20,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 2096.2933724189393
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 22,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 1963.3702021093707
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 24,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 1770.0108865077098
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 26,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 1503.3343228229203
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 28,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 1187.245874890948
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 30,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 820.9547792440118
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 32,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 451.32998996443644
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 34,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 287.44688417787745
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 36,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 73.03728136999717
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 38,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 40,
+      "printed_mount_overlap_mm3": 0,
+      "carriage_overlap_mm3": 0
+    }
+  ],
+  "in_carriage_sampled_path_clear": false,
+  "removed_top_hole_missing_material_mm3": [
+    27.88433913304301,
+    52.250455902343276,
+    27.884124431985036,
+    52.25063540478526
+  ],
+  "removed_top_hole_missing_combined_material_mm3": [
+    27.88433913304301,
+    29.203919227123265,
+    27.884124431985036,
+    29.203780619584656
+  ],
+  "persisted_assembly_valid": true,
+  "persisted_assembly_solids": 20
+}

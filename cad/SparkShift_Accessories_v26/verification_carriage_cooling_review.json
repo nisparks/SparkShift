@@ -1,0 +1,543 @@
+{
+  "status": "OWNERSHIP_AND_CLEARANCE_REVIEW_NOT_PRINT_RELEASE",
+  "ownership": {
+    "carriage": [
+      "Carriage_3010_Fan",
+      "Carriage_Side_Duct",
+      "Carriage_Bracket_Proposal"
+    ],
+    "dock": [
+      "Dock_3010_Fan",
+      "Dock_Opposite_Side_Duct"
+    ],
+    "tool": [
+      "Bambu_Upper_Carrier_No_Front_Frame",
+      "Existing fixed heating assembly"
+    ]
+  },
+  "fan_mounting": "Only two upper fan holes; lower fan holes unused",
+  "carriage_bracket_mount": "Outboard bracket with integral tubular stand-offs to existing left core X-axis fasteners at Y5.3, Z-22.4794/-53.0794; screw engagement and contact tolerance need qualification",
+  "cooling": "Carriage feeds -X heatsink face; dock feeds +X face so the two supplies do not occupy the same space at pickup",
+  "checks": {
+    "Carriage_3010_Fan": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    },
+    "Carriage_Side_Duct": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    },
+    "Carriage_Bracket_Proposal": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    },
+    "Dock_3010_Fan": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    },
+    "Dock_Opposite_Side_Duct": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    },
+    "Bambu_Upper_Carrier_No_Front_Frame": {
+      "P18_Tool_docking_backplate_3010": 0.010260487035725048,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    },
+    "Bambu_Yellow_Fixed_Heating_Mount": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    },
+    "Bambu_Fixed_Retainer_Left": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    },
+    "Bambu_Fixed_Retainer_Right": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    },
+    "Dock_Cooling_Bracket": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "core": 0,
+      "hotend": 0
+    }
+  },
+  "limitations": [
+    "Carriage attachment is a proposal, not a load-qualified mount or fastener specification.",
+    "Dock revision adds two outward bosses at Y60, Z-30/-42; only this separate P25 variant is modified.",
+    "M2.5 insert retainers capture fixed ceramic side edges; physical ceramic load and heat-creep qualification remain required.",
+    "No actual H2D release kinematics or finger envelope available; service samples are exploratory.",
+    "Dock pitch, rack layout, whole-printer X travel and cable routing are not qualified.",
+    "No airflow, pressure-loss, thermal or heat-creep qualification.",
+    "Dock fan controls must run throughout standby and cooldown with a cooling-loss heater interlock."
+  ],
+  "carriage_vs_dock_cooling_mm3": 0,
+  "dock_cooling_vs_P25_mm3": 0,
+  "dock_bracket_vs_P25_mm3": 0,
+  "dock_revision_valid": true,
+  "proposed_bracket_vs_duct_mm3": 0,
+  "internal_cooling_intersections_mm3": {
+    "Carriage_3010_Fan__Carriage_Side_Duct": 0,
+    "Carriage_3010_Fan__Carriage_Bracket_Proposal": 0,
+    "Carriage_3010_Fan__Dock_3010_Fan": 0,
+    "Carriage_3010_Fan__Dock_Opposite_Side_Duct": 0,
+    "Carriage_3010_Fan__Dock_Cooling_Bracket": 0,
+    "Carriage_Side_Duct__Carriage_Bracket_Proposal": 0,
+    "Carriage_Side_Duct__Dock_3010_Fan": 0,
+    "Carriage_Side_Duct__Dock_Opposite_Side_Duct": 0,
+    "Carriage_Side_Duct__Dock_Cooling_Bracket": 0,
+    "Carriage_Bracket_Proposal__Dock_3010_Fan": 0,
+    "Carriage_Bracket_Proposal__Dock_Opposite_Side_Duct": 0,
+    "Carriage_Bracket_Proposal__Dock_Cooling_Bracket": 0,
+    "Dock_3010_Fan__Dock_Opposite_Side_Duct": 0,
+    "Dock_3010_Fan__Dock_Cooling_Bracket": 0,
+    "Dock_Opposite_Side_Duct__Dock_Cooling_Bracket": 0
+  },
+  "exploratory_service_path": [
+    {
+      "down_mm": 0,
+      "forward_mm": 0,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 1,
+      "forward_mm": 0,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 2,
+      "forward_mm": 0,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 3,
+      "forward_mm": 0,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 0,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 2,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 4,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 6,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 8,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 10,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 12,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 14,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 16,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 18,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 20,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 22,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 24,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 26,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 28,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 30,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 32,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 34,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 36,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 38,
+      "new_cooling_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 40,
+      "new_cooling_overlap_mm3": 0
+    }
+  ],
+  "exploratory_dock_retreat_minus_y": [
+    {
+      "travel_mm": 0,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 2,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 4,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 6,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 8,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 10,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 12,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 14,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 16,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 18,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 20,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 22,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 24,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 26,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 28,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 30,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 32,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 34,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 36,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 38,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 40,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 42,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 44,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 46,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 48,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 50,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 52,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 54,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 56,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 58,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    },
+    {
+      "travel_mm": 60,
+      "cooling_to_cooling_overlap_mm3": 0,
+      "cooling_to_parked_tool_overlap_mm3": 0,
+      "cooling_to_P25_overlap_mm3": 0
+    }
+  ],
+  "fan_hardware": "Two upper M2.5x18 screws; user OD3.5 x L3 rear receivers at X-24..-21; opposing insertion from +X",
+  "new_hardware_external_intersections_mm3": {
+    "P18_Tool_docking_backplate_3010": 0,
+    "P20_CPAP_Hose_Inlet": 0,
+    "P21_CPAP_Gantry_Bridge": 0,
+    "P22_CPAP_Lower_Plenum": 0,
+    "P23_Beacon_Cartographer_Mount": 0,
+    "P24_EBB42_Controller_Mount": 0,
+    "core": 0,
+    "hotend": 0
+  },
+  "shelf_hardware_checks_mm3": {
+    "P18_Tool_docking_backplate_3010": 0,
+    "P20_CPAP_Hose_Inlet": 0,
+    "P21_CPAP_Gantry_Bridge": 0,
+    "P22_CPAP_Lower_Plenum": 0,
+    "P23_Beacon_Cartographer_Mount": 0,
+    "P24_EBB42_Controller_Mount": 0,
+    "core": 0,
+    "hotend": 0
+  },
+  "fan_options": {
+    "3010": {
+      "body_size_mm": [
+        30,
+        30,
+        10
+      ],
+      "center_mm": [
+        -30,
+        36,
+        -36
+      ],
+      "body_clashes_mm3": {
+        "P18_Tool_docking_backplate_3010": 0,
+        "P20_CPAP_Hose_Inlet": 0,
+        "P21_CPAP_Gantry_Bridge": 0,
+        "P22_CPAP_Lower_Plenum": 0,
+        "P23_Beacon_Cartographer_Mount": 0,
+        "P24_EBB42_Controller_Mount": 0,
+        "core": 0,
+        "hotend": 0
+      },
+      "selection": "Preferred pending mount and thermal qualification"
+    },
+    "2510": {
+      "body_size_mm": [
+        25,
+        25,
+        10
+      ],
+      "center_mm": [
+        -30,
+        36,
+        -36
+      ],
+      "body_clashes_mm3": {
+        "P18_Tool_docking_backplate_3010": 0,
+        "P20_CPAP_Hose_Inlet": 0,
+        "P21_CPAP_Gantry_Bridge": 0,
+        "P22_CPAP_Lower_Plenum": 0,
+        "P23_Beacon_Cartographer_Mount": 0,
+        "P24_EBB42_Controller_Mount": 0,
+        "core": 0,
+        "hotend": 0
+      },
+      "selection": "Smaller fallback; different shroud required"
+    }
+  },
+  "dual_2510": {
+    "status": "NOT_SELECTED",
+    "reason": "Opposite-side carriage pull fan would occupy dock cooling space at pickup. Requires a separate dock interface and thermal justification."
+  },
+  "export_solid_count": 134
+}

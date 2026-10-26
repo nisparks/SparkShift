@@ -498,13 +498,12 @@ def make_loft_along_y(stations_xz, ruled=True):
     return BRepBuilderAPI_Transform(loft_loc, trsf, True).Shape()
 
 
-def make_cable_pipe(r_pipe=1.50, z_top_turn=-15.80):
+def make_cable_pipe(r_pipe=1.50, z_top_turn=-15.80, y_back=-34.50):
     from OCP.gp import gp_Circ
     from OCP.BRepOffsetAPI import BRepOffsetAPI_MakePipe
     r_bend = 5.0
     c1 = r_bend * math.cos(math.pi / 4.0)
     y_front = -12.90
-    y_back  = -34.50
     z_under = -55.20
 
     wb = BRepBuilderAPI_MakeWire()
@@ -818,8 +817,11 @@ def build_p21_mid():
     return body, air
 
 
-def build_p22_lower_plenum():
+def build_p22_lower_plenum(mount_dz=0.0):
     """
+    mount_dz lowers (negative) the two P01 front-boss screws, their cuts and the cheek tops together;
+    0.0 reproduces the released part.
+
     Lower CPAP Plenum built 100% from analytical primitives, orthogonal XY/YZ extrusions,
     cylinders, spheres, and boolean cuts (0 BSpline faces):
     - Top female shingle socket (Z = -51.60 to -49.00 mm) slides over P21's inner male sleeve
@@ -919,6 +921,8 @@ def build_p22_lower_plenum():
                 ], [0, 1.0, 1.0, 0], -23.0, 23.0),
             ]
         )
+        if mount_dz:
+            cheek = intersect_all(cheek, [box(-23.0, 23.0, 11.0, 21.0, -66.5, z_top + mount_dz)])
         cheeks.append(cheek)
 
     probe_spigots = [
@@ -972,12 +976,12 @@ def build_p22_lower_plenum():
         cyl_z(0.0, -34.50, -58.60, z_top + 1.0, 1.95),
         box(-1.95, 1.95, -34.50, -30.00, -58.60, z_top + 1.0),
         box(-1.95, 1.95, -34.50, -25.00, -58.60, -53.20),
-        cyl_y( 18.0, -52.78, 11.0, 15.95, 4.02),
-        cyl_y(-18.0, -52.78, 11.0, 15.95, 4.02),
-        cyl_y( 18.0, -52.78, 15.5, 21.0, 1.65),
-        cyl_y(-18.0, -52.78, 15.5, 21.0, 1.65),
-        cyl_y( 18.0, -52.78, 18.2, 21.0, 3.00),
-        cyl_y(-18.0, -52.78, 18.2, 21.0, 3.00),
+        cyl_y( 18.0, -52.78 + mount_dz, 11.0, 15.95, 4.02),
+        cyl_y(-18.0, -52.78 + mount_dz, 11.0, 15.95, 4.02),
+        cyl_y( 18.0, -52.78 + mount_dz, 15.5, 21.0, 1.65),
+        cyl_y(-18.0, -52.78 + mount_dz, 15.5, 21.0, 1.65),
+        cyl_y( 18.0, -52.78 + mount_dz, 18.2, 21.0, 3.00),
+        cyl_y(-18.0, -52.78 + mount_dz, 18.2, 21.0, 3.00),
         cyl_z( 15.80,   8.50, -73.00, -70.10, 2.27),
         cyl_z(-15.80,   8.50, -73.00, -70.10, 2.27),
         cyl_z( 15.80, -11.50, -73.00, -70.10, 2.27),
@@ -1153,7 +1157,8 @@ def build_sensor_cable():
     return make_cable_pipe(1.50, -15.80)
 
 
-def build_accessory_hardware():
+def build_accessory_hardware(mount_dz=0.0):
+    """mount_dz moves the P22-to-P01 front-boss screws and heat-sets with build_p22_lower_plenum(mount_dz)."""
     hw = []
     # 1. Upper CPAP Inlet to Mid Bridge: 2x M3x8 + 2x M3x3x4.6 heat-set at (±4.50, -31.20, -17.78)
     for i, x in enumerate((-4.50, 4.50)):
@@ -1164,9 +1169,10 @@ def build_accessory_hardware():
         hw.append((f"ACC_EBB42_BRIDGE_M3x8_{i}", fuse_all([cyl_z(x, -15.80, -22.2, -15.4, 1.5), cyl_z(x, -15.80, -15.4, -13.8, 2.75)])))
         hw.append((f"ACC_EBB42_BRIDGE_HEATSET_{i}", cut_all(cyl_z(x, -15.80, -22.4, -18.4, 2.25), [cyl_z(x, -15.80, -22.6, -18.2, 1.5)])))
     # 3. Lower Plenum Upper Cheeks to P01 Front Bosses: 2x M3x10 + 2x M3x4x4.6 heat-set at (±18.0, -52.78, Y=11.4..15.9)
+    zb = -52.78 + mount_dz
     for i, x in enumerate((-18.0, 18.0)):
-        hw.append((f"ACC_CASE_BOSS_M3x10_{i}", fuse_all([cyl_y(x, -52.78, 11.8, 18.2, 1.5), cyl_y(x, -52.78, 18.2, 19.8, 2.85)])))
-        hw.append((f"ACC_CASE_BOSS_HEATSET_{i}", cut_all(cyl_y(x, -52.78, 11.9, 15.9, 2.25), [cyl_y(x, -52.78, 11.7, 16.1, 1.5)])))
+        hw.append((f"ACC_CASE_BOSS_M3x10_{i}", fuse_all([cyl_y(x, zb, 11.8, 18.2, 1.5), cyl_y(x, zb, 18.2, 19.8, 2.85)])))
+        hw.append((f"ACC_CASE_BOSS_HEATSET_{i}", cut_all(cyl_y(x, zb, 11.9, 15.9, 2.25), [cyl_y(x, zb, 11.7, 16.1, 1.5)])))
     # 5. Probe Mount to Lower Plenum: 4x M3x5 + 4x M3x3x4.6 heat-set in downward spigot bosses at (±15.80, +8.50) and (±15.80, -11.50), Z=-72.60..-70.00 (0.00 mm protrusion into air channel)
     for i, (x, y) in enumerate([(-15.80, 8.50), (15.80, 8.50), (-15.80, -11.50), (15.80, -11.50)]):
         hw.append((f"ACC_PROBE_BRIDGE_M3x8_{i}", fuse_all([cyl_z(x, y, -73.6, -70.1, 1.5), cyl_z(x, y, -74.9, -73.6, 2.85)])))

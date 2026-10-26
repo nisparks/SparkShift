@@ -1,0 +1,222 @@
+{
+  "status": "LOCAL_CAD_REVIEW_NOT_PRINT_THERMAL_OR_MACHINE_QUALIFICATION",
+  "supersedes": "Revisions 25-28 (patch series rejected on visual review)",
+  "baseline": {
+    "file": "Bambu_One_Piece_Shelf_Clearance_R22_REVIEW.step",
+    "sha256": "35afc7443484a4ad70124eb2a88865e3ef55624f9e5394299da2c0f0f022c282"
+  },
+  "operations": [
+    {
+      "operation": "legacy front seat block and ring outside apron",
+      "removed_mm3": 32.0241
+    },
+    {
+      "operation": "legacy front ring below shelf corner",
+      "removed_mm3": 0.0585
+    },
+    {
+      "operation": "legacy rear ring below shelf",
+      "removed_mm3": 19.2112
+    },
+    {
+      "operation": "0.05 mm membrane over fan recess",
+      "removed_mm3": 3.667
+    },
+    {
+      "operation": "0.1 mm legacy ring remnant proud of apron front face",
+      "removed_mm3": 0.1687
+    },
+    {
+      "operation": "restore shelf/apron through corridor Y15.5",
+      "added_mm3": 222.6957
+    },
+    {
+      "operation": "restore shelf/apron through corridor Y35.5",
+      "added_mm3": 216.594
+    },
+    {
+      "operation": "restored P17 front neck",
+      "added_mm3": 287.7595
+    },
+    {
+      "operation": "fill legacy counterbore crescent X-6",
+      "added_mm3": 3.64
+    },
+    {
+      "operation": "fill legacy counterbore crescent X+6",
+      "added_mm3": 2.8258
+    },
+    {
+      "operation": "P18 insert bore X-6",
+      "removed_mm3": 31.3394
+    },
+    {
+      "operation": "P18 insert bore X+6",
+      "removed_mm3": 31.3394
+    },
+    {
+      "operation": "shelf-to-front-boss bridge",
+      "added_mm3": 23.8826
+    },
+    {
+      "operation": "fan boss Y15.5",
+      "added_mm3": 73.7739
+    },
+    {
+      "operation": "fan boss Y35.5",
+      "added_mm3": 53.8273
+    },
+    {
+      "operation": "L4 heat-set pilot Y15.5",
+      "removed_mm3": 33.9646
+    },
+    {
+      "operation": "pilot entry chamfer Y15.5",
+      "removed_mm3": 0.4665
+    },
+    {
+      "operation": "L4 heat-set pilot Y35.5",
+      "removed_mm3": 33.9646
+    },
+    {
+      "operation": "pilot entry chamfer Y35.5",
+      "removed_mm3": 0.4665
+    },
+    {
+      "operation": "inlet socket sleeve",
+      "added_mm3": 226.7361
+    },
+    {
+      "operation": "socket around inlet tube",
+      "removed_mm3": 24.2452
+    },
+    {
+      "operation": "socket entry chamfer",
+      "removed_mm3": 0.7191
+    },
+    {
+      "operation": "2.3 mm filament guide",
+      "removed_mm3": 9.4728
+    },
+    {
+      "operation": "funnel into existing guide bore",
+      "removed_mm3": 8.7011
+    }
+  ],
+  "feature_gauges_mm3": {
+    "front_neck_unfilled_mm3": 0,
+    "wire_trough_blocked_mm3": 0,
+    "wire_trough_bottom_entry_blocked_mm3": 0,
+    "membrane_remaining_mm3": 0,
+    "socket_wall_missing_mm3": 0,
+    "socket_blocked_mm3": 0,
+    "filament_path_blocked_mm3": 0,
+    "corridor_15p5_open_mm3": 0,
+    "boss_15p5_wall_missing_mm3": 0,
+    "pilot_15p5_blocked_mm3": 0,
+    "corridor_35p5_open_mm3": 0,
+    "boss_35p5_wall_missing_mm3": 0,
+    "pilot_35p5_blocked_mm3": 0,
+    "p18_bore_x-6_wall_missing_mm3": 0,
+    "p18_bore_x-6_blocked_mm3": 0,
+    "p18_bore_x+6_wall_missing_mm3": 0,
+    "p18_bore_x+6_blocked_mm3": 0
+  },
+  "protected_intersections_mm3": {},
+  "bounds_mm": [
+    -13.5,
+    15.0,
+    11.5,
+    37.900000000000134,
+    -65.93,
+    48.7400001
+  ],
+  "baseline_bounds_mm": [
+    -13.5,
+    15.0,
+    11.5,
+    38.0,
+    -65.93,
+    48.7400001
+  ],
+  "body_volume_mm3": 14455.672883796635,
+  "net_change_vs_r22_mm3": 881.9262937491258,
+  "static_failures": [],
+  "motion": {
+    "dock_samples": 121,
+    "dock_hits": [],
+    "carriage_retreat_hits": [],
+    "hotend_service_samples": 57,
+    "hotend_service_hits": [],
+    "neighbour_checks": [
+      {
+        "variant": "Bambu",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": []
+      },
+      {
+        "variant": "Bambu",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": []
+      },
+      {
+        "variant": "RedLizard",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": []
+      },
+      {
+        "variant": "RedLizard",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": []
+      }
+    ]
+  },
+  "complete_assembly": {
+    "solids": 145,
+    "regression_checks": 142,
+    "max_increase_mm3": 0
+  },
+  "exports": [
+    {
+      "file": "step\\Bambu_Clean_Rebuild_R29_REVIEW.step",
+      "sha256": "d74ee3384a0ae79b6d700753178d02de65816cb4528bdf0d148a97d630b44e97"
+    },
+    {
+      "file": "stl\\Bambu_Clean_Rebuild_R29_REVIEW.stl",
+      "sha256": "140f7d109bb0608fb3724a3d3e24c55f77622488cecde0c839c705d565f96880"
+    },
+    {
+      "file": "step\\Bambu_Fan_Side_M2p5_L4_Inserts_R29_REVIEW.step",
+      "sha256": "578baf2bd11ad5731e78511bca77842f87a8c557d67e832e47ba4fe3b6374c25"
+    },
+    {
+      "file": "step\\29_Bambu_Clean_Toolhead_REVIEW.step",
+      "sha256": "1bcdaf86bc1997fc4ac69d9b77997952541bcade7a76d6d574a0fd8f4ce27d09"
+    },
+    {
+      "file": "step\\29_Bambu_Clean_Complete_REVIEW.step",
+      "sha256": "67a96b4e510cd3a7c0c9d1d9f5ef1076ce48dd8edb22ec8c58e75fc4766dc428"
+    }
+  ],
+  "design": {
+    "fan_center_mm": [
+      16.45,
+      25.5,
+      -35.3
+    ],
+    "fan_seat_x_mm": 11.45,
+    "fan_inserts": "M2.5 L4 OD3.5, installed from the fan side before fitting the fan; 3.1 mm pilots 4.5 mm deep with 0.3 mm entry chamfer; existing M2.5x14 low-head screws engage 4 mm.",
+    "front_insert_wall_mm": 0.65,
+    "inlet_socket": "8 mm OD sleeve, 5.25 mm socket over the 4.75 mm inlet tube (0.25 mm radial, 0.20 mm axial clearance), 0.92 mm overlap below the inlet top; 2.3 mm guide with 45-degree funnel into the existing 4.2 mm bore.",
+    "front_neck": "Restored P17 front neck: X+/-9.25 from the apron top to the P18 underside plane, X+/-9 up to the coupling flange; stem wire trough X+/-2.55 kept open; P18 insert bores now fully enclosed."
+  },
+  "limitations": [
+    "Fixed-rack low-Z bed collision and inherited probe-cable entry issue remain unresolved.",
+    "Front fan insert has a 0.65 mm wall to the apron front face, as in the inherited design.",
+    "Insert pullout, printed strength, thermal behaviour at the inlet socket and fan cooling are unqualified."
+  ]
+}

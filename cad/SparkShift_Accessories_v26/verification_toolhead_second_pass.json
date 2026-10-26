@@ -1,0 +1,302 @@
+{
+  "status": "CAD_AUDIT_ONLY_NOT_PRINT_THERMAL_OR_FULL_MACHINE_QUALIFICATION",
+  "fan_center_mm": [
+    16.45,
+    25.5,
+    -35.3
+  ],
+  "failures": [],
+  "findings_requiring_physical_confirmation": [],
+  "parts": {
+    "Body": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 13665.68930101443,
+      "bounds_mm": [
+        -15.0,
+        15.0,
+        11.5,
+        38.0,
+        -65.93,
+        48.7400001
+      ]
+    },
+    "Hotend": {
+      "valid": true,
+      "solids": 6,
+      "volume_mm3": 7079.376216200554,
+      "bounds_mm": [
+        -9.0000001,
+        9.0000001,
+        15.699999999999998,
+        31.100000000000005,
+        -78.1312,
+        -29.48
+      ]
+    },
+    "Screws": {
+      "valid": true,
+      "solids": 3,
+      "volume_mm3": 228.37415096189125,
+      "bounds_mm": [
+        -8.25,
+        8.25,
+        27.2,
+        38.9,
+        -52.88,
+        -37.88
+      ]
+    },
+    "Inserts": {
+      "valid": true,
+      "solids": 3,
+      "volume_mm3": 73.89025921243368,
+      "bounds_mm": [
+        -7.75,
+        7.75,
+        33.9,
+        37.9,
+        -52.38,
+        -38.38
+      ]
+    },
+    "Washers": {
+      "valid": true,
+      "solids": 2,
+      "volume_mm3": 10.17876019763115,
+      "bounds_mm": [
+        -8.25,
+        8.25,
+        28.9,
+        29.4,
+        -42.38,
+        -37.88
+      ]
+    },
+    "Fan": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6249.999999999998,
+      "bounds_mm": [
+        11.45,
+        21.45,
+        13.0,
+        38.0,
+        -47.8,
+        -22.8
+      ]
+    },
+    "Fan_Screws": {
+      "valid": true,
+      "solids": 2,
+      "volume_mm3": 162.89157908862865,
+      "bounds_mm": [
+        7.45,
+        22.25,
+        13.25,
+        37.75,
+        -27.55,
+        -23.05
+      ]
+    },
+    "Fan_Inserts": {
+      "valid": true,
+      "solids": 2,
+      "volume_mm3": 36.94512960621677,
+      "bounds_mm": [
+        7.45,
+        10.45,
+        13.75,
+        37.25,
+        -27.05,
+        -23.55
+      ]
+    }
+  },
+  "pairwise_intersections_mm3": [
+    {
+      "a": "Body",
+      "b": "Inserts",
+      "volume_mm3": 24.881413816431845,
+      "classification": "Heatset interference in undersized pilot"
+    },
+    {
+      "a": "Body",
+      "b": "Fan_Inserts",
+      "volume_mm3": 12.440706908215578,
+      "classification": "Heatset interference in undersized pilot"
+    },
+    {
+      "a": "Screws",
+      "b": "Inserts",
+      "volume_mm3": 17.34159144781613,
+      "classification": "Nominal screw/insert thread engagement"
+    },
+    {
+      "a": "Fan_Screws",
+      "b": "Fan_Inserts",
+      "volume_mm3": 8.670795723908007,
+      "classification": "Nominal screw/insert thread engagement"
+    }
+  ],
+  "tool_to_stationary_intersections_mm3": {
+    "Body": {},
+    "Hotend": {},
+    "Screws": {},
+    "Inserts": {},
+    "Washers": {},
+    "Fan": {},
+    "Fan_Screws": {},
+    "Fan_Inserts": {}
+  },
+  "inherited_reference_intersections_mm3": [
+    {
+      "a": "P18_Tool_docking_backplate_3010",
+      "b": "P25_SparkShift_3010_Dock",
+      "volume_mm3": 55.056974934371674,
+      "changed": false
+    }
+  ],
+  "printed_meshes": {
+    "Body": {
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1
+    }
+  },
+  "revision16_to18_body_mm3": {
+    "previous_total_print_volume": 13482.526690255538,
+    "current_print_volume": 13665.68930101443,
+    "net_change": 183.16261075889452
+  },
+  "approved_fan_unchanged": true,
+  "fastener_access": [
+    {
+      "joint": "Hotend -6.0/-40.13, detached tool with snap-in nozzle removed",
+      "driver_diameter_mm": 3,
+      "blocked_by": {}
+    },
+    {
+      "joint": "Hotend heatset -6.0/-40.13, before hotend installation",
+      "tool_diameter_mm": 4.4,
+      "blocked_by": {}
+    },
+    {
+      "joint": "Hotend 6.0/-40.13, detached tool with snap-in nozzle removed",
+      "driver_diameter_mm": 3,
+      "blocked_by": {}
+    },
+    {
+      "joint": "Hotend heatset 6.0/-40.13, before hotend installation",
+      "tool_diameter_mm": 4.4,
+      "blocked_by": {}
+    },
+    {
+      "joint": "Hotend 0.0/-50.63, detached tool with snap-in nozzle removed",
+      "driver_diameter_mm": 3,
+      "blocked_by": {}
+    },
+    {
+      "joint": "Hotend heatset 0.0/-50.63, before hotend installation",
+      "tool_diameter_mm": 4.4,
+      "blocked_by": {}
+    },
+    {
+      "joint": "Fan 15.5",
+      "driver_diameter_mm": 3,
+      "blocked_by": {}
+    },
+    {
+      "joint": "Fan heatset 15.5, before hotend installation",
+      "tool_diameter_mm": 4.4,
+      "blocked_by": {}
+    },
+    {
+      "joint": "Fan 35.5",
+      "driver_diameter_mm": 3,
+      "blocked_by": {}
+    },
+    {
+      "joint": "Fan heatset 35.5, before hotend installation",
+      "tool_diameter_mm": 4.4,
+      "blocked_by": {}
+    }
+  ],
+  "assembly_sequence": "Install heatsets before heating assembly/fan. Install the three heating-assembly screws with the snap-in nozzle removed, then install nozzle. Remove complete tool before nozzle service.",
+  "thread_engagement_mm": {
+    "fan_M2_5x14_L3": 3,
+    "hotend_M2_5x10_L4": 4
+  },
+  "retaining_shoulder_thickness_mm": {
+    "fan": 1,
+    "hotend": 2.8
+  },
+  "minimum_radial_heatset_wall_mm": 0.75,
+  "hotend_full_seat_checks": [
+    {
+      "axis_xz_mm": [
+        -6.0,
+        -40.13
+      ],
+      "missing_surround_mm3": 0
+    },
+    {
+      "axis_xz_mm": [
+        6.0,
+        -40.13
+      ],
+      "missing_surround_mm3": 0
+    },
+    {
+      "axis_xz_mm": [
+        0.0,
+        -50.63
+      ],
+      "missing_surround_mm3": 0
+    }
+  ],
+  "filament_path_obstruction_mm3": 0,
+  "functional_stem_preservation": {
+    "volume_difference_mm3": 3.6248029573471285e-06,
+    "tessellation_tolerance_mm": 0.15,
+    "maximum_boundary_sample_distance_mm": 6.058392542426022e-13,
+    "boundary_samples": 12606
+  },
+  "backplate_lower_passage_obstruction_mm3": [
+    0,
+    0
+  ],
+  "tool_to_gantry_electronics_and_cable_mm3": {
+    "Body": {},
+    "Hotend": {},
+    "Screws": {},
+    "Inserts": {},
+    "Washers": {},
+    "Fan": {},
+    "Fan_Screws": {},
+    "Fan_Inserts": {}
+  },
+  "beacon_top_keepout_metal_mm3": {},
+  "beacon_top_keepout_core_screen": [
+    {
+      "core_solid": 54,
+      "volume_mm3": 121.89314785612675,
+      "matched_source": "PRINT_motor_mount",
+      "classification": "Source-identified printed polymer, not metal"
+    }
+  ],
+  "probe_qualification": "Beacon supplied top/bottom keepouts checked; Cartographer physical reference checked, not a separate manufacturer-specific electromagnetic keepout certification.",
+  "input_shaping": "Existing Cartographer onboard ADXL345 and EBB42 board references retained; no new accelerometer bracket, wiring, firmware or resonance measurement.",
+  "forward_tool_withdrawal": [],
+  "path_sampling_mm": 1,
+  "limitations": [
+    "35 mm straight forward translation is a sampled geometry screen, not continuous cam/latch/dock motion.",
+    "No detailed fan connector, motor internals, heater leads, cable bend or dock electrical interface.",
+    "45 mm cross-section/neighbor checks do not establish ten-tool rack capacity.",
+    "P18/dock inherited overlap is reported separately, not silently treated as collision-free.",
+    "Nominal nozzle reference tip differs from intended master datum; physical Z calibration required.",
+    "No thermal, structural, insert torque/creep, airflow, material or physical fit qualification."
+  ],
+  "assembly_sha256": "9fe2f4b702e465012602f78e90d40b695d71dcae6669e6e8a1d61b89c8dc8002",
+  "passed_hard_geometry_checks": true
+}

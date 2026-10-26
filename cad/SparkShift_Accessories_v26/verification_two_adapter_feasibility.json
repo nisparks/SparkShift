@@ -1,0 +1,40 @@
+{
+  "status": "HISTORICAL_AUDIT_SUPERSEDED_BY_V2",
+  "resolution": "See verification_two_hotend_adapters.json. V2 uses forward M2 OD3.2 x L2 heatsets for the common joint and captured M2.5 thin nuts for Bambu hotend retention.",
+  "reference_layout": "User revision 4; common carrier unchanged",
+  "red_lizard_reference": "step/P17M_RedLizard_Hotend_Reference.step",
+  "red_lizard_reference_source": "Identity-transformed RedLizard_K1_HF_Hotend_and_Volcano component from open 07_SparkShift_Toolhead_3010_Assembly",
+  "existing_fastener_conflicts": {
+    "method": "CadQuery solid intersection against exported installed hotend reference, including reference fasteners",
+    "shared_axes_xz_mm": [[-12, -49.5], [-12, -25.5], [12, -49.5], [12, -25.5]],
+    "lower_M2_5_insert_envelope_overlap_mm3_each": 7.15483,
+    "lower_M2_5_shank_overlap_mm3_each": 0.032073,
+    "upper_M2_5_shank_overlap_mm3_each": 0.707554,
+    "insert_envelope": "4 mm OD, 4 mm long; lower Y20.3..24.3",
+    "shank_envelope": "2.5 mm diameter; insert shoulder to Y32.05"
+  },
+  "compact_alternative_investigation": {
+    "hypothetical_insert": "M2, OD3.2 x 3 mm at Y28..31",
+    "hypothetical_shank": "M2, Y28..45.93",
+    "hotend_reference_overlap_mm3": 0,
+    "status": "NOT_IMPLEMENTED_OR_APPROVED",
+    "remaining_requirements": [
+      "Select actual insert hardware and installation pilot",
+      "Rebuild yellow rail bores and verify retaining shoulder and surrounding material",
+      "Check installation access with hotend removed",
+      "Check joint strength, fan screw-head seating and screw engagement",
+      "Does not resolve the independent Bambu hotend retention blocker"
+    ]
+  },
+  "bambu_hotend_retention": {
+    "wall_thickness_mm": 2.8,
+    "rear_core_clearance_mm_approx": 0.1,
+    "status": "BLOCKED",
+    "reason": "A normal 4 mm rear-entry M3 heatset plus retaining shoulder cannot fit. Rear boss extensions interfere with the core."
+  },
+  "preservation": [
+    "User Fusion document 09 version 4 was not modified",
+    "Current Fusion document 11 was not replaced by an unverified adapter",
+    "Rejected experimental Red Lizard generator was removed; no adapter was exported as approved"
+  ]
+}

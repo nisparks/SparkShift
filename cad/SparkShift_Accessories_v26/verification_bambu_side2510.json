@@ -1,0 +1,247 @@
+{
+  "status": "SERVICE_LAYOUT_REVIEW_NOT_PRINT_RELEASE",
+  "fan": {
+    "size_mm": [
+      25,
+      25,
+      10
+    ],
+    "center_mm": [
+      -21,
+      35,
+      -37.5
+    ],
+    "flow": "+X through fin channels; opposite side exhaust",
+    "reference": "Generic envelope, not a selected fan or measured performance"
+  },
+  "retention": "M2.5 x L3 x OD3.5 user heatsets; rear installation; M2.5x10 retainer screws",
+  "removed_bambu_top_holes": 4,
+  "parts": {
+    "Upper_Carrier": {
+      "volume_mm3": 5047.212477427386,
+      "clashes_mm3": {
+        "P20_CPAP_Hose_Inlet": 0,
+        "P21_CPAP_Gantry_Bridge": 0,
+        "P22_CPAP_Lower_Plenum": 0,
+        "P23_Beacon_Cartographer_Mount": 0,
+        "P24_EBB42_Controller_Mount": 0,
+        "core": 0
+      }
+    },
+    "Yellow_Heating_Mount": {
+      "volume_mm3": 7514.813688744575,
+      "clashes_mm3": {
+        "P18_Tool_docking_backplate_3010": 0,
+        "P20_CPAP_Hose_Inlet": 0,
+        "P21_CPAP_Gantry_Bridge": 0,
+        "P22_CPAP_Lower_Plenum": 0,
+        "P23_Beacon_Cartographer_Mount": 0,
+        "P24_EBB42_Controller_Mount": 0,
+        "core": 0,
+        "hotend": 0,
+        "blue": 0
+      }
+    },
+    "Retainer_Left": {
+      "volume_mm3": 251.1261604168024,
+      "clashes_mm3": {
+        "P18_Tool_docking_backplate_3010": 0,
+        "P20_CPAP_Hose_Inlet": 0,
+        "P21_CPAP_Gantry_Bridge": 0,
+        "P22_CPAP_Lower_Plenum": 0,
+        "P23_Beacon_Cartographer_Mount": 0,
+        "P24_EBB42_Controller_Mount": 0,
+        "core": 0,
+        "hotend": 0,
+        "blue": 0
+      }
+    },
+    "Retainer_Right": {
+      "volume_mm3": 251.1261567235009,
+      "clashes_mm3": {
+        "P18_Tool_docking_backplate_3010": 0,
+        "P20_CPAP_Hose_Inlet": 0,
+        "P21_CPAP_Gantry_Bridge": 0,
+        "P22_CPAP_Lower_Plenum": 0,
+        "P23_Beacon_Cartographer_Mount": 0,
+        "P24_EBB42_Controller_Mount": 0,
+        "core": 0,
+        "hotend": 0,
+        "blue": 0
+      }
+    },
+    "2510_Fan_Envelope": {
+      "volume_mm3": 2027.620933758978,
+      "clashes_mm3": {
+        "P18_Tool_docking_backplate_3010": 0,
+        "P20_CPAP_Hose_Inlet": 0,
+        "P21_CPAP_Gantry_Bridge": 0,
+        "P22_CPAP_Lower_Plenum": 0,
+        "P23_Beacon_Cartographer_Mount": 0,
+        "P24_EBB42_Controller_Mount": 0,
+        "core": 0,
+        "hotend": 0,
+        "blue": 0
+      }
+    },
+    "Side_Shroud": {
+      "volume_mm3": 738.0679012345679,
+      "clashes_mm3": {
+        "P18_Tool_docking_backplate_3010": 0,
+        "P20_CPAP_Hose_Inlet": 0,
+        "P21_CPAP_Gantry_Bridge": 0,
+        "P22_CPAP_Lower_Plenum": 0,
+        "P23_Beacon_Cartographer_Mount": 0,
+        "P24_EBB42_Controller_Mount": 0,
+        "core": 0,
+        "hotend": 0,
+        "blue": 0
+      }
+    },
+    "Retainer_0": {
+      "bearing_mm2": 5.434196631264654,
+      "adapter_overlap_mm3": 0
+    },
+    "Retainer_1": {
+      "bearing_mm2": 5.434469285283569,
+      "adapter_overlap_mm3": 0
+    }
+  },
+  "limitations": [
+    "Exploratory service layout, not a qualified printable assembly.",
+    "Shroud-to-fan attachment and cartridge-to-carrier attachment are not yet designed.",
+    "Upper shelf fastener hardware and access are not qualified.",
+    "Reconstructed Bambu reference does not establish exact H2D latch kinematics.",
+    "No cooling, thermal, strength, dock-spacing or full motion qualification.",
+    "Sampled nozzle path excludes stationary vendor assembly; it is not proof of the real release sequence."
+  ],
+  "inherited_upper_P18_overlap_mm3": 0.010260487035725048,
+  "sampled_removal_path": [
+    {
+      "down_mm": 0,
+      "forward_mm": 0,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 1,
+      "forward_mm": 0,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 2,
+      "forward_mm": 0,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 3,
+      "forward_mm": 0,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 0,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 2,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 4,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 6,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 8,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 10,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 12,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 14,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 16,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 18,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 20,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 22,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 24,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 26,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 28,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 30,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 32,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 34,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 36,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 38,
+      "new_parts_overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "forward_mm": 40,
+      "new_parts_overlap_mm3": 0
+    }
+  ],
+  "sampled_path_clear": true
+}

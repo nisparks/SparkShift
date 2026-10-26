@@ -1,0 +1,92 @@
+{
+  "status": "GEOMETRIC_FEASIBILITY_NOT_THERMALLY_OR_PHYSICALLY_QUALIFIED",
+  "fan_center_mm": [
+    16.45,
+    25.5,
+    -35.3
+  ],
+  "mount": "Two +Y-edge holes, upper and lower, instead of two upper holes; 5 mm edge rail, no airflow shroud",
+  "hardware": "Two M2.5x14 OD<=4.5 H<=0.8 heads; two inner-entry M2.5 L3 OD3.5 inserts, 1 mm outer shoulders",
+  "hotend_retention": "Original four vertical M2.5x8 heatsink screws retained in reference; no shelf joint",
+  "fan_to_hotend_gap_mm": 0.44999999999986606,
+  "fan_to_references_mm": {
+    "Core": 0.9799999999999969,
+    "P18_Tool_docking_backplate_3010": 1.5049090158718532,
+    "P20_CPAP_Hose_Inlet": 41.44819394082326,
+    "P21_CPAP_Gantry_Bridge": 12.7,
+    "P22_CPAP_Lower_Plenum": 1.2000000000000028,
+    "P23_Beacon_Cartographer_Mount": 23.045661196850048,
+    "P24_EBB42_Controller_Mount": 20.185390756683407,
+    "P25_SparkShift_3010_Dock": 7.910081649177997
+  },
+  "body_valid": true,
+  "body_solids": 1,
+  "failures": [],
+  "heatset_checks": [
+    {
+      "z_mm": -25.3,
+      "missing_shoulder_mm3": 0,
+      "missing_surround_mm3": 0
+    },
+    {
+      "z_mm": -45.3,
+      "missing_shoulder_mm3": 0,
+      "missing_surround_mm3": 0
+    }
+  ],
+  "access_checks": [
+    {
+      "z_mm": -25.3,
+      "operation": "heatset before hotend",
+      "hits": {}
+    },
+    {
+      "z_mm": -25.3,
+      "operation": "screwdriver",
+      "hits": {}
+    },
+    {
+      "z_mm": -45.3,
+      "operation": "heatset before hotend",
+      "hits": {}
+    },
+    {
+      "z_mm": -45.3,
+      "operation": "screwdriver",
+      "hits": {}
+    }
+  ],
+  "static_intersections_mm3": {
+    "Body": {},
+    "Fan": {},
+    "Screws": {},
+    "Inserts": {}
+  },
+  "internal_intersections_mm3": {
+    "fan_body": 0,
+    "screws_body": 0,
+    "screws_fan": 0
+  },
+  "new_cooling_beacon_metal_keepout_mm3": {},
+  "red_lizard_beacon_metal_keepout_mm3": {},
+  "forward_withdrawal_intersections": [],
+  "assembly_width_excluding_core_mm": 44.840000200000006,
+  "adjacent_45mm_pitch_new_cooling_mm3": {
+    "-45": 0,
+    "45": 0
+  },
+  "mesh": {
+    "watertight": true,
+    "components": 1
+  },
+  "limitations": [
+    "0.45 mm nominal fan/heatsink gap needs actual fan, heatsink and thermal tolerance confirmation.",
+    "Geometric fin coverage is not airflow/heat-creep qualification; cylinder fins do not prove equivalent Bambu cooling.",
+    "Front-edge upper/lower retention differs from the user's earlier upper-only preference to avoid fin interference.",
+    "No exact connector/wire-bend, stress, insert torque, full rack pitch or continuous dock/cam validation.",
+    "Dock unchanged; inherited P18/dock overlap still unresolved. No thermal or physical approval."
+  ],
+  "passed": true,
+  "export_solids": 127,
+  "assembly_sha256": "956b91b691be88f016bc518405317995fec98266a7d09971a6822b4e7b28c35f"
+}

@@ -1,0 +1,1668 @@
+{
+  "status": "CAD_REVIEW_NOT_PHYSICAL_THERMAL_OR_PRINT_QUALIFICATION",
+  "failures": [],
+  "printed_parts": {
+    "P25_Closed_Panel_Side2510_Dock_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 81937.83234464967,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -18.650000099999993,
+        18.650000100000007,
+        20.910081649178,
+        81.410082,
+        -86.07940009999,
+        37.22060010000301
+      ]
+    },
+    "P26_Nozzle_Entry_Clearance_Chute_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3254.9167438233394,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -15.00059190128403,
+        15.000591901283906,
+        7.999397537392406,
+        45.91059494969867,
+        -92.08060246260759,
+        -78.79939753739241
+      ]
+    },
+    "RedLizard_Side2510_Clearance_Refined_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 8352.15751073486,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -14.00000010000018,
+        15.00000010000018,
+        11.499389226608999,
+        38.000000100000015,
+        -47.80000010000001,
+        48.74215906712453
+      ]
+    },
+    "Bambu_One_Piece_Docking_Audited_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 13604.394160369802,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -14.000683667555272,
+        15.000000100002746,
+        11.499488816329734,
+        38.00182779347517,
+        -65.93000010000334,
+        48.74215906712453
+      ]
+    },
+    "Bambu_Dock_Ooze_Pad_SILICONE_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 164.63524304380658,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -3.8003615175645558,
+        3.800370347803368,
+        21.10962965219663,
+        28.710361517564557,
+        -81.07977034780338,
+        -78.13082965219664
+      ]
+    },
+    "Bambu_Dock_Wiper_SILICONE_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 182.38228217211238,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -7.500210926912659,
+        7.500210926912659,
+        9.449789073087342,
+        11.950210926912657,
+        -83.75021092691266,
+        -78.13096678650061
+      ]
+    },
+    "RedLizard_Dock_Ooze_Pad_SILICONE_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 122.34379553215663,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -3.8003615175645558,
+        3.800370347803368,
+        21.10962965219663,
+        28.710361517564557,
+        -81.07977034780338,
+        -78.87903443696842
+      ]
+    },
+    "RedLizard_Dock_Wiper_SILICONE_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 154.6393123402651,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -7.500210926912659,
+        7.500210926912659,
+        9.449789073087342,
+        11.950210926912657,
+        -83.75021092691266,
+        -78.8791715712724
+      ]
+    }
+  },
+  "variants": {
+    "Bambu": {
+      "nozzle_tip_z_mm": -78.1312,
+      "pad_top_z_mm": -78.13082965219664,
+      "wiper_top_z_mm": -78.13096678650061,
+      "pad_floor_z_mm": -81.07977034780338,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_center_mm": [
+        16.45,
+        25.5,
+        -35.3
+      ],
+      "fan_screw_outer_x_mm": 22.25,
+      "nozzle_contact_height_error_mm": 0.00037034780336853146,
+      "pad_support_area_finite_shift_mm2": 29.591006384669004,
+      "dock_pairwise_intersections": [
+        {
+          "a": "Dock_0",
+          "b": "Dock_1",
+          "hits": {
+            "Dock_1": 14.6790109771357
+          },
+          "classification": "Preserved flexible snap detent"
+        },
+        {
+          "a": "Dock_0",
+          "b": "Dock_2",
+          "hits": {
+            "Dock_2": 14.67901097712221
+          },
+          "classification": "Preserved flexible snap detent"
+        }
+      ],
+      "parked_intersections": {
+        "body": {},
+        "hotend": {},
+        "fan": {},
+        "fan_screws": {},
+        "inserts": {},
+        "hardware": {},
+        "Backplate": {},
+        "Coupling": {}
+      },
+      "new_metal_probe_keepout": {},
+      "fan_heatset_checks": [
+        {
+          "axis_yz_mm": [
+            15.5,
+            -25.3
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0
+        },
+        {
+          "axis_yz_mm": [
+            35.5,
+            -25.3
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0
+        }
+      ],
+      "hotend_mount_checks": [
+        {
+          "axis_xz_mm": [
+            -6.0,
+            -40.13
+          ],
+          "missing_seat_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            6.0,
+            -40.13
+          ],
+          "missing_seat_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            0.0,
+            -50.63
+          ],
+          "missing_seat_mm3": 0
+        }
+      ],
+      "approach_and_retreat_samples": 121,
+      "approach_hits": [],
+      "carriage_retreat_hits": [],
+      "tool_x_bounds_mm": [
+        -14.000683667555272,
+        22.25
+      ],
+      "export": {
+        "solids": 145,
+        "expected_solids": 145,
+        "valid": true,
+        "sha256": "71f4be6e325ef9f34b639c8ed45d763830db1934d4a75af1c07bd8bca9d82d24"
+      }
+    },
+    "RedLizard": {
+      "nozzle_tip_z_mm": -78.8794047847718,
+      "pad_top_z_mm": -78.87903443696842,
+      "wiper_top_z_mm": -78.8791715712724,
+      "pad_floor_z_mm": -81.07977034780338,
+      "fan_to_hotend_mm": 0.5999999999998664,
+      "fan_center_mm": [
+        16.599999999999998,
+        25.5,
+        -35.3
+      ],
+      "fan_screw_outer_x_mm": 22.4,
+      "nozzle_contact_height_error_mm": 0.00037034780336853146,
+      "pad_support_area_finite_shift_mm2": 29.591006384677353,
+      "dock_pairwise_intersections": [
+        {
+          "a": "Dock_0",
+          "b": "Dock_1",
+          "hits": {
+            "Dock_1": 14.6790109771357
+          },
+          "classification": "Preserved flexible snap detent"
+        },
+        {
+          "a": "Dock_0",
+          "b": "Dock_2",
+          "hits": {
+            "Dock_2": 14.67901097712221
+          },
+          "classification": "Preserved flexible snap detent"
+        }
+      ],
+      "parked_intersections": {
+        "body": {},
+        "hotend": {},
+        "fan": {},
+        "fan_screws": {},
+        "inserts": {},
+        "Backplate": {},
+        "Coupling": {}
+      },
+      "new_metal_probe_keepout": {},
+      "fan_heatset_checks": [
+        {
+          "axis_yz_mm": [
+            35.5,
+            -25.3
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0
+        },
+        {
+          "axis_yz_mm": [
+            35.5,
+            -45.3
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0
+        }
+      ],
+      "hotend_mount_checks": [
+        {
+          "axis_xy_mm": [
+            -5.657,
+            17.043
+          ],
+          "missing_bearing_mm3": 0
+        },
+        {
+          "axis_xy_mm": [
+            -5.657,
+            28.357
+          ],
+          "missing_bearing_mm3": 0
+        },
+        {
+          "axis_xy_mm": [
+            5.657,
+            17.043
+          ],
+          "missing_bearing_mm3": 0
+        },
+        {
+          "axis_xy_mm": [
+            5.657,
+            28.357
+          ],
+          "missing_bearing_mm3": 0
+        }
+      ],
+      "approach_and_retreat_samples": 121,
+      "approach_hits": [],
+      "carriage_retreat_hits": [],
+      "tool_x_bounds_mm": [
+        -14.00000010000018,
+        22.4
+      ],
+      "export": {
+        "solids": 144,
+        "expected_solids": 144,
+        "valid": true,
+        "sha256": "10c319650ee8fc4b5d46f885326972343a8c6a18348dc73a5942a76721f499c6"
+      }
+    }
+  },
+  "dock_relief": {
+    "baseline_backplate_overlap_mm3": 55.05697493437278,
+    "removed_dock_volume_mm3": 91.66450693612569,
+    "motion_sampling_mm": 0.5,
+    "lip_clearance_mm": 0.2,
+    "backplate_changed": false
+  },
+  "obsolete_cooling_cleanup": {
+    "description": "Close legacy front-fan exhaust grille with 2mm panel; fill four unused blind fan bores.",
+    "added_volume_mm3": 1076.177157368249,
+    "missing_panel_mm3": 0,
+    "retained": "Hollow weight-relief recess, coupling jaws, rail collar, silicone pad flexure and purge/wiper openings"
+  },
+  "dock_section_review": {
+    "m5_head_bearing_seats": [
+      {
+        "x_mm": -10,
+        "missing_bearing_seat_mm3": 0
+      },
+      {
+        "x_mm": 10,
+        "missing_bearing_seat_mm3": 0
+      }
+    ],
+    "magnet_backing_gauges": [
+      {
+        "pocket_x_mm": -6,
+        "offset_xz_mm": [
+          0,
+          0
+        ],
+        "backing_y_thickness_mm": 2.310093403489418
+      },
+      {
+        "pocket_x_mm": -6,
+        "offset_xz_mm": [
+          -2,
+          0
+        ],
+        "backing_y_thickness_mm": 2.310093403489418
+      },
+      {
+        "pocket_x_mm": -6,
+        "offset_xz_mm": [
+          2,
+          0
+        ],
+        "backing_y_thickness_mm": 2.310093403489425
+      },
+      {
+        "pocket_x_mm": -6,
+        "offset_xz_mm": [
+          0,
+          -2
+        ],
+        "backing_y_thickness_mm": 10.0
+      },
+      {
+        "pocket_x_mm": -6,
+        "offset_xz_mm": [
+          0,
+          2
+        ],
+        "backing_y_thickness_mm": 2.269918000001809
+      },
+      {
+        "pocket_x_mm": 6,
+        "offset_xz_mm": [
+          0,
+          0
+        ],
+        "backing_y_thickness_mm": 2.310093403489425
+      },
+      {
+        "pocket_x_mm": 6,
+        "offset_xz_mm": [
+          -2,
+          0
+        ],
+        "backing_y_thickness_mm": 2.310093403489425
+      },
+      {
+        "pocket_x_mm": 6,
+        "offset_xz_mm": [
+          2,
+          0
+        ],
+        "backing_y_thickness_mm": 2.310093403489425
+      },
+      {
+        "pocket_x_mm": 6,
+        "offset_xz_mm": [
+          0,
+          -2
+        ],
+        "backing_y_thickness_mm": 10.0
+      },
+      {
+        "pocket_x_mm": 6,
+        "offset_xz_mm": [
+          0,
+          2
+        ],
+        "backing_y_thickness_mm": 2.269918000001809
+      }
+    ],
+    "gauge_length_mm": 10,
+    "minimum_sampled_magnet_backing_mm": 2.269918000001809,
+    "sampled_backing_target_mm": 2,
+    "qualification": "Local stock gauges only, not a global wall-thickness or strength analysis. Stock readings are capped at the gauge length. Slicer/retention review is still required; no printable-wall or load rating is certified."
+  },
+  "rack_mount_refinement": {
+    "tool_and_dock_front_world_y_shift_mm": 6.5,
+    "unchanged": "Crossbar, P29/P30 mounts and X center datums",
+    "collar_profile_allowance_mm": 0.15,
+    "fasteners": "Replace two M5x12 references with M5x10 into matching 2020 M5 T-nuts",
+    "reason": "Original dock magnets penetrated extrusion by 73.546mm3 each; M5x12 tips also hit slot floor. A 5mm standoff cleared hardware but left only 0.770mm backing at sampled magnet gauges; 6.5mm preserves over 2mm sampled backing.",
+    "nut_qualification": "Actual T-nut geometry, thread engagement and clamp torque require selected hardware."
+  },
+  "motor_lead_refinement": {
+    "reference_only": "AHG red/green/yellow/blue flexible leads; rigid core solids unchanged",
+    "connector_endpoints_preserved": true,
+    "routing": "4mm nominal upward bend with separated Y lanes; restrain actual wires in this envelope",
+    "qualification": "Illustrative flexible routing, not wire-length, insulation or strain-relief qualification",
+    "bounds_mm": [
+      -24.92505827433994,
+      -13.056503089059099,
+      -18.349999999999998,
+      -13.649999999999999,
+      -13.765075853905854,
+      -4.825668630454798
+    ],
+    "source_core_sha256": "d1da649968153d00171df2f7f3762393896a57cf3af26b3baa2e2ca61c097284",
+    "connector_termination_overlap_mm3": 6.687061487434089
+  },
+  "coupling": {
+    "pin_diameter_mm": 4.96,
+    "bushing_bore_mm": 5.04,
+    "diametral_clearance_mm": 0.08,
+    "tool_dock_magnet_face_gap_mm": 0.26008199999999704,
+    "pin_and_tool_magnet_backplate_interference_mm3": 0
+  },
+  "inherited_snap_detents_mm3": {
+    "1": 14.6790109771357,
+    "2": 14.67901097712221
+  },
+  "snap_detent_note": "Two 0.9 mm side nibs on each jaw geometrically overlap the dock; preserved as snap retention, not counted as rigid collision-free or physically qualified.",
+  "coupling_retention_note": "Pin/bushing engagement and magnet gap retained; magnet holding force, jaw deflection, wear and T-lug load capacity are not validated.",
+  "chute_refinement": {
+    "removed_mm3": 10.307888082344562,
+    "entry_relief": "Radius1.6 longitudinal nozzle-tip clearance at purge-window rear lip"
+  },
+  "probe_cable_refinement": {
+    "rear_center_y_mm": -34.9,
+    "previous_y_mm": -34.5,
+    "endpoints_and_bend_radius_unchanged": true,
+    "inherited_P24_route_overlap_mm3": 15.493296341331732,
+    "qualification": "P24 entry overlap is inherited, unchanged, and needs a later cable/mount routing audit."
+  },
+  "neighbor_checks": [
+    {
+      "tool": "Bambu",
+      "neighbor": "Bambu",
+      "pitch_x_mm": -37.3,
+      "hits": []
+    },
+    {
+      "tool": "Bambu",
+      "neighbor": "Bambu",
+      "pitch_x_mm": 37.3,
+      "hits": []
+    },
+    {
+      "tool": "Bambu",
+      "neighbor": "RedLizard",
+      "pitch_x_mm": -37.3,
+      "hits": []
+    },
+    {
+      "tool": "Bambu",
+      "neighbor": "RedLizard",
+      "pitch_x_mm": 37.3,
+      "hits": []
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "Bambu",
+      "pitch_x_mm": -37.3,
+      "hits": []
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "Bambu",
+      "pitch_x_mm": 37.3,
+      "hits": []
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "RedLizard",
+      "pitch_x_mm": -37.3,
+      "hits": []
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "RedLizard",
+      "pitch_x_mm": 37.3,
+      "hits": []
+    }
+  ],
+  "rack": {
+    "pitch_mm": 37.3,
+    "collars_touch": true,
+    "centers_x_mm": [
+      7.0,
+      44.3,
+      81.6,
+      118.89999999999999,
+      156.2,
+      193.5,
+      230.79999999999998,
+      268.09999999999997,
+      305.4,
+      342.7
+    ],
+    "center_span_mm": 335.7,
+    "software_travel_assumed_mm": [
+      0,
+      350
+    ],
+    "unchanged": "P29 rack mounts, P30 end spacers, existing 2020 crossbar stock and X center datums",
+    "qualification": "See full_ten_tool_rack for all-bay hardware, rail stroke and X-traverse checks."
+  },
+  "shelf_refinement": "Unused left shelf edge trimmed from X-15 to X-14 below Z-22.5 on both variants. Functional upper stems, coupling pockets and hotend mounts are not changed.",
+  "full_ten_tool_rack": {
+    "frames": {
+      "core_mid_transform_cm": [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0,
+        11.889999999999999,
+        1.2246467991473532e-16,
+        -1.0,
+        0.0,
+        18.502608000000002,
+        0.0,
+        0.0,
+        1.0,
+        19.127940000000002,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tool0_dock_transform_cm": [
+        -1.0,
+        -1.2246467991473532e-16,
+        0.0,
+        0.7,
+        1.2246467991473532e-16,
+        -1.0,
+        0.0,
+        3.691,
+        0.0,
+        0.0,
+        1.0,
+        19.127940000000002,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "x_gantry_y_shift_to_dock_mm": -141.61608000000004,
+      "world_z_offset_mm": 191.2794,
+      "world_y_offset_mm": 43.41,
+      "original_world_y_offset_mm": 36.91,
+      "dock_standoff_mm": 6.5
+    },
+    "sources": {
+      "Flying_Gantry": {
+        "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_Flying_Gantry_world.step",
+        "sha256": "c5452f4f9958a51360d3868bf8dfe7fd1481de34e66cefde95a6bc3de12843c2",
+        "solids": 267,
+        "bounds_mm": [
+          -80.3500007891397,
+          430.35000078914004,
+          -39.000000100001046,
+          474.1000000000032,
+          125.14999656203169,
+          220.50000010001327
+        ]
+      },
+      "X_Gantry": {
+        "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_X_Gantry_world.step",
+        "sha256": "d305bc3b1744aa1574e10ea42cdf2583e68293f14ba4e0ac65a2d72ddffd46bb",
+        "solids": 80,
+        "bounds_mm": [
+          -57.99999999060873,
+          407.99999999060907,
+          168.9860796873075,
+          218.2260798875369,
+          133.34999989999798,
+          175.150000100048
+        ]
+      },
+      "crossbar": {
+        "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_crossbar_world.step",
+        "sha256": "9f21e17a3b552e60d7956449e372c3558fdfe173fb873570e9070949177e3a9a",
+        "solids": 1,
+        "bounds_mm": [
+          -49.99999999999871,
+          400.0,
+          -29.0000000000019,
+          -9.000000000001663,
+          188.50999999999993,
+          208.51000000000008
+        ]
+      },
+      "Bed_envelope": {
+        "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_Bed_world.json",
+        "sha256": "d6a8574e99d461016683f0d050e4539ba8acd2fa4fa683e9cc4d67b08959e478",
+        "source_document": "00_Complete_Printer_Voron24_350_SparkShift",
+        "occurrence": "01_Voron24_350_Frame_and_Enclosure:1+Bed:1",
+        "body": "R1_BED_350_NOMINAL",
+        "min_mm": [
+          0.0,
+          9.0,
+          -8.0
+        ],
+        "max_mm": [
+          350.0,
+          359.0,
+          0.0
+        ],
+        "purpose": "Source modeled bed envelope only; not a measured physical bed or commissioned printer coordinates."
+      }
+    },
+    "bay_checks": [
+      {
+        "bay": 0,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 0,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 1,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 1,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 2,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 2,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 3,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 3,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 4,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 4,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 5,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 5,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 6,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 6,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 7,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 7,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 8,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 8,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 9,
+        "variant": "Bambu",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      },
+      {
+        "bay": 9,
+        "variant": "RedLizard",
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "carriage_is_subset_of_active_assembly": true
+      }
+    ],
+    "stationary_checks": [
+      {
+        "bay": 0,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 0,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 1,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 1,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 2,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 2,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 3,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 3,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 4,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 4,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 5,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 5,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 6,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 6,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 7,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 7,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 8,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 8,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 9,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {}
+      },
+      {
+        "bay": 9,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {}
+      }
+    ],
+    "crossbeam_motion_hits": [],
+    "lateral_motion_screens": [
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": -6.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_-37.3": 358.44276922883216
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": -1.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_-37.3": 0.18932029723725696
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": 1.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_37.3": 0.1893202972372574
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": 6.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_37.3": 356.65207634416583
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": -6.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_-37.3": 143.02060049713674
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": -1.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_-37.3": 4.97275967712267
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": 1.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_37.3": 4.972759677122671
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": 6.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_37.3": 191.73831395465635
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": -6.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": -1.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": 1.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "Bambu",
+        "local_x_mm": 6.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": -6.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_-37.3": 403.8050585125751
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": -1.5,
+        "retreat_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": 1.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_37.3": 1.5820016170905564
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": 6.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_37.3": 340.55106068749467
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": -6.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_-37.3": 120.63962311604709
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": -1.5,
+        "retreat_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": 1.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_37.3": 1.5820016170905542
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": 6.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_37.3": 166.64410704649825
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": -6.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": -1.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": 1.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbor": "RedLizard",
+        "local_x_mm": 6.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": -6.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_-37.3": 318.809785130089
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": -1.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_-37.3": 1.5820016170906026
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": 1.5,
+        "retreat_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": 6.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_37.3": 378.2694876042133
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": -6.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_-37.3": 101.07607310613179
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": -1.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_-37.3": 1.582901193345339
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": 1.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_37.3": 6.630346236163168
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": 6.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_37.3": 196.12659156652614
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": -6.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": -1.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": 1.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "Bambu",
+        "local_x_mm": 6.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": -6.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_-37.3": 345.8237515463936
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": -1.5,
+        "retreat_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": 1.5,
+        "retreat_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": 6.5,
+        "retreat_mm": 0,
+        "hits": {
+          "Neighbor_37.3": 343.8201490800154
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": -6.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_-37.3": 95.35677096260888
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": -1.5,
+        "retreat_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": 1.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_37.3": 2.034521782341842
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": 6.5,
+        "retreat_mm": 12.7,
+        "hits": {
+          "Neighbor_37.3": 183.87958147465056
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": -6.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": -1.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": 1.5,
+        "retreat_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbor": "RedLizard",
+        "local_x_mm": 6.5,
+        "retreat_mm": 60,
+        "hits": {}
+      }
+    ],
+    "full_x_traverse": [
+      {
+        "variant": "Bambu",
+        "retreat_y_mm": 60,
+        "x_range_mm": [
+          0,
+          350
+        ],
+        "step_mm": 1,
+        "hits": []
+      },
+      {
+        "variant": "RedLizard",
+        "retreat_y_mm": 60,
+        "x_range_mm": [
+          0,
+          350
+        ],
+        "step_mm": 1,
+        "hits": []
+      }
+    ],
+    "pitch_mm": 37.3,
+    "centers_x_mm": [
+      7.0,
+      44.3,
+      81.6,
+      118.89999999999999,
+      156.2,
+      193.5,
+      230.79999999999998,
+      268.09999999999997,
+      305.4,
+      342.7
+    ],
+    "parked_fan_intake_review": {
+      "nominal_port_outer_inner_radius_mm": [
+        11,
+        4
+      ],
+      "checks": [
+        {
+          "tool": "Bambu",
+          "neighbor": "Bambu",
+          "gauge_limit_mm": 20,
+          "nearest_annular_intake_obstruction_mm": 1.8499999000000003,
+          "slab_obstruction_samples": [
+            {
+              "gap_mm": 2,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 13.536004798986758,
+              "fraction_of_nominal_annular_port": 0.04103470616141637
+            },
+            {
+              "gap_mm": 5,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 13.53600479898676,
+              "fraction_of_nominal_annular_port": 0.04103470616141638
+            },
+            {
+              "gap_mm": 10,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 170.3810340072559,
+              "fraction_of_nominal_annular_port": 0.5165139765973923
+            }
+          ]
+        },
+        {
+          "tool": "Bambu",
+          "neighbor": "RedLizard",
+          "gauge_limit_mm": 20,
+          "nearest_annular_intake_obstruction_mm": 4.849999899999997,
+          "slab_obstruction_samples": [
+            {
+              "gap_mm": 2,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 0,
+              "fraction_of_nominal_annular_port": 0.0
+            },
+            {
+              "gap_mm": 5,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 12.792960169065204,
+              "fraction_of_nominal_annular_port": 0.038782149479703924
+            },
+            {
+              "gap_mm": 10,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 104.70668566890485,
+              "fraction_of_nominal_annular_port": 0.3174206971233433
+            }
+          ]
+        },
+        {
+          "tool": "RedLizard",
+          "neighbor": "Bambu",
+          "gauge_limit_mm": 20,
+          "nearest_annular_intake_obstruction_mm": 1.6999999000000017,
+          "slab_obstruction_samples": [
+            {
+              "gap_mm": 2,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 13.536004798986758,
+              "fraction_of_nominal_annular_port": 0.04103470616141637
+            },
+            {
+              "gap_mm": 5,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 13.536004798986758,
+              "fraction_of_nominal_annular_port": 0.04103470616141637
+            },
+            {
+              "gap_mm": 10,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 170.2776561242395,
+              "fraction_of_nominal_annular_port": 0.5162005841957079
+            }
+          ]
+        },
+        {
+          "tool": "RedLizard",
+          "neighbor": "RedLizard",
+          "gauge_limit_mm": 20,
+          "nearest_annular_intake_obstruction_mm": 4.699999899999998,
+          "slab_obstruction_samples": [
+            {
+              "gap_mm": 2,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 0,
+              "fraction_of_nominal_annular_port": 0.0
+            },
+            {
+              "gap_mm": 5,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 16.560537684503046,
+              "fraction_of_nominal_annular_port": 0.05020364633806229
+            },
+            {
+              "gap_mm": 10,
+              "slab_thickness_mm": 0.1,
+              "mean_obstruction_area_mm2": 108.67296799573151,
+              "fraction_of_nominal_annular_port": 0.32944457213310496
+            }
+          ]
+        }
+      ],
+      "qualification": "Geometric space gauges for the generic fan reference, not CFD or a certified airflow gap. Neighbor tools partially obstruct the intake corridor. Confirm selected fan orientation, hot-soak cooling and actual wire exits with all parked fans powered.",
+      "final_fusion_snapshot_sources": [
+        {
+          "component": "T0_Bambu",
+          "bodies": 25,
+          "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T0_Bambu.step",
+          "world_y_offset_mm": 43.41,
+          "world_z_offset_mm": 191.2794,
+          "bay_x_mm": 7,
+          "full_rack_source_sha256": "e2ebd90ae5a2fc26fde46921b41b68247265643030f9b72f0f4d0875ce93fdb9",
+          "sha256": "5ebb803025d54c3cf70281ba4eb08a45080d88b3191551e1fe7f67cddcbf80e5"
+        },
+        {
+          "component": "T1_RedLizard",
+          "bodies": 24,
+          "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T1_RedLizard.step",
+          "world_y_offset_mm": 43.41,
+          "world_z_offset_mm": 191.2794,
+          "bay_x_mm": 44.3,
+          "full_rack_source_sha256": "e2ebd90ae5a2fc26fde46921b41b68247265643030f9b72f0f4d0875ce93fdb9",
+          "sha256": "f24120767af38ff6418d8d793fc64e03f4a2afd904767148d70b3eff6a1f32a4"
+        }
+      ]
+    },
+    "spacer_stack_mm": [
+      23.35,
+      373.0,
+      23.65
+    ],
+    "rack_inner_span_mm": 420.0,
+    "minimum_parked_tool_x_gap_mm": 0.8993163324447266,
+    "software_x_range_mm": [
+      0,
+      350
+    ],
+    "end_center_software_margin_mm": [
+      7,
+      7.3
+    ],
+    "inherited_bearing_rail_contacts": {
+      "at_dock_mm3": {
+        "Y_Rails": 11.12629014398308
+      },
+      "at_withdrawal_mm3": {
+        "Y_Rails": 11.12629014398308
+      },
+      "classification": "Inherited MGN9H/rail CAD overlaps, reported separately; no new rigid dock collision or physical bearing qualification."
+    },
+    "rail_x_bounds_mm": [
+      -25.0,
+      375.0
+    ],
+    "carriage_block_length_mm": 45.4,
+    "physical_rail_center_stroke_mm": [
+      -2.3000000000000007,
+      352.3
+    ],
+    "end_rail_margins_mm": [
+      9.3,
+      9.600000000000023
+    ],
+    "front_service_strip": {
+      "parked_tool_dock_world_bounds_mm": [
+        -15.400000000000002,
+        361.3500001,
+        -38.000082000000006,
+        35.41000000000019,
+        99.19940000000001,
+        240.02620952018648
+      ],
+      "conservative_nozzle_y_for_whole_envelope_separation_mm": 63.21000000000019,
+      "boundary_offset_from_modeled_bed_front_mm": 54.21000000000019,
+      "coordinate_note": "Source-world bed datums, not commissioned Klipper coordinates.",
+      "audited_x_corridor_nozzle_y_mm": 80.71,
+      "qualification": "Conservative bounding-envelope separation, not a certified printable-volume boundary. Reserve the front rack/service strip; full 350x350 printing is not established."
+    },
+    "nonadjacent_broadphase_candidates": [],
+    "docking_path_constraint": "Approach/withdraw along Y at fixed bay X. No inherited lateral peel or X-wiper scrub is approved inside the rack. Lateral tests are diagnostic, not an implemented machine sequence.",
+    "sample_scope": "20 tool/bay cases against crossbar, P29/P30 hardware and flying gantry; complete X-gantry sweep against all 20 possible parked tool/dock cases, Y0..60 every 0.5mm. All 8 mixed immediate-neighbor cases checked separately; farther bays separated in X.",
+    "export": {
+      "file": "21_Ten_Tool_Side2510_Rack_REVIEW.step",
+      "solids": 738,
+      "expected_solids": 738,
+      "valid": true,
+      "sha256": "e2ebd90ae5a2fc26fde46921b41b68247265643030f9b72f0f4d0875ce93fdb9"
+    }
+  },
+  "limitations": [
+    "Physical docking repeatability, jaw snap strain, magnet strength and collision margins need measurement.",
+    "Cam actuation/servo/peel moves are not simulated; straight approach/retreat is not a complete machine sequence.",
+    "Fan cooling, polymer creep, vibration, inserts, screw availability and actual connectors remain unqualified.",
+    "Red Lizard minimum fan gap improves from 0.45 to 0.60 mm; actual tolerance stack may still require more clearance.",
+    "No parked fan power contacts/control/interlock implemented; fan must remain powered through cooldown.",
+    "Pads/wipers are silicone references, not ordinary rigid filament prints. Fit their heights to measured physical nozzle datum.",
+    "Bambu tip is the reconstructed reference; do not shift hotend just to make synthetic CAD match intended datum.",
+    "Beacon geometry and Cartographer physical reference checked, not RF/EM calibration or thermal certification."
+  ],
+  "passed": true,
+  "native_archive_verification": {
+    "Bambu": {
+      "file": "21_Bambu_Toolhead_And_Closed_Panel_Dock_REVIEW.f3d",
+      "sha256": "22370d2d3e448598fd4c65c5fa0c9ca65c4367c2873de4b8f38286eba17da7b1",
+      "source_step_sha256": "71f4be6e325ef9f34b639c8ed45d763830db1934d4a75af1c07bd8bca9d82d24",
+      "reopened_bodies": 145,
+      "all_bodies_solid": true,
+      "core_bodies": 101,
+      "lead_bounds_errors_mm": [
+        3.552713678800501e-15,
+        3.552713678800501e-15,
+        1.7763568394002505e-15,
+        3.552713678800501e-15
+      ],
+      "lead_bounds_tolerance_mm": 0.02,
+      "dock_ymax_mm": 81.410082
+    },
+    "RedLizard": {
+      "file": "21_RedLizard_Toolhead_And_Closed_Panel_Dock_REVIEW.f3d",
+      "sha256": "a2fb745a88d67df670a88ad88c59e348e5d3df0ae73c227f1a9dd512751c8aa6",
+      "source_step_sha256": "10c319650ee8fc4b5d46f885326972343a8c6a18348dc73a5942a76721f499c6",
+      "reopened_bodies": 144,
+      "all_bodies_solid": true,
+      "core_bodies": 101,
+      "lead_bounds_errors_mm": [
+        3.552713678800501e-15,
+        3.552713678800501e-15,
+        1.7763568394002505e-15,
+        3.552713678800501e-15
+      ],
+      "lead_bounds_tolerance_mm": 0.02,
+      "dock_ymax_mm": 81.410082
+    },
+    "FullRack": {
+      "file": "21_Ten_Tool_Side2510_Rack_REVIEW.f3d",
+      "sha256": "5009275b9f790d113a5c35b39c86591da67cff6decf3d547c8562b6f06a675ae",
+      "source_step_sha256": "e2ebd90ae5a2fc26fde46921b41b68247265643030f9b72f0f4d0875ce93fdb9",
+      "reopened_bodies": 738,
+      "all_bodies_solid": true,
+      "tools": [
+        "T0_Bambu",
+        "T1_RedLizard",
+        "T2_Bambu",
+        "T3_RedLizard",
+        "T4_Bambu",
+        "T5_RedLizard",
+        "T6_Bambu",
+        "T7_RedLizard",
+        "T8_Bambu",
+        "T9_RedLizard"
+      ],
+      "lead_bounds_errors_mm": [
+        7.005951374594588e-12,
+        9.976020010071807e-12,
+        1.000444171950221e-11,
+        4.000355602329364e-12
+      ],
+      "lead_bounds_tolerance_mm": 0.02,
+      "hidden_for_clarity_only": [
+        "Monolith_X_Gantry_At_Dock",
+        "Carriage_At_T0"
+      ]
+    }
+  },
+  "preview_images": {
+    "40_bambu_closed_panel_dock.png": "4f5e438188db5062b89eacacc53a56a951ec66169286305cf4da1c5d786d9c92",
+    "40_redlizard_closed_panel_dock.png": "dd5369c17eb7b68fb83ba4eebebfb12bf5bfda883d059f33673df12bdad68720",
+    "41_ten_tool_closed_panel_rack_fusion.png": "4436da25d9b6f06bfd8c39b595dd536744ebd474a71c762e18e6d8c873752b0d",
+    "42_ten_parked_tools_unobstructed_fusion.png": "a3f3757d2707640faa1dd63255b7aea4b83cbc4b57d293642c234a097bcb7cd5"
+  },
+  "machine_qualification_update": {
+    "status": "BLOCKED_LOW_Z_BED_COLLISION",
+    "blocking_report": "verification_low_z_bed_clearance.json",
+    "note": "The original passed field covers only the recorded revision-21 lateral/static/toolchange checks. The subsequent forty-case actual-bed/low-Z audit fails. This rack position is not build-approved."
+  }
+}

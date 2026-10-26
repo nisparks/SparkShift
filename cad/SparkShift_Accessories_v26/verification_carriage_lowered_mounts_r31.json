@@ -1,0 +1,297 @@
+{
+  "status": "LOCAL_CAD_REVIEW_NOT_PRINT_OR_MACHINE_QUALIFICATION",
+  "change": "P22-to-P01 front accessory mounts lowered 1.5 mm (axis Z-52.78 -> Z-54.28)",
+  "sources": {
+    "P01_Back_case_COTS_MR74": {
+      "file": "P01_Back_case_COTS_MR74.step",
+      "sha256": "ade4781b5af2b944b5732b134fd2d9107ba3388fbb52b1a96c043fb847f0e477"
+    },
+    "P22_CPAP_Lower_Plenum": {
+      "file": "P22_CPAP_Lower_Plenum.step",
+      "sha256": "2015a9f5c21350d82c526f3b94ed0798180fa20209eb8c00c0efaff09b597b70"
+    },
+    "Core_With_Restrained_AHG_Lead_References_REVIEW": {
+      "file": "Core_With_Restrained_AHG_Lead_References_REVIEW.step",
+      "sha256": "3af5126b9daff825eab903bfec77c4d9677fe7ea36944904ed128c501797d6c9"
+    },
+    "30_Bambu_Compact_Complete_REVIEW": {
+      "file": "30_Bambu_Compact_Complete_REVIEW.step",
+      "sha256": "369f63b73ec15131de1118fe6b69dc9166c350db5708630af318c2b618634c16"
+    }
+  },
+  "operations": [
+    {
+      "operation": "remove the two lower front accessory bosses at Z-52.78",
+      "removed_mm3": 306.6943
+    },
+    {
+      "operation": "R4 bosses at Z-54.28",
+      "added_mm3": 452.3891
+    },
+    {
+      "operation": "4.54 mm heat-set pockets, Y11.4..15.9",
+      "removed_mm3": 145.6949
+    }
+  ],
+  "p01": {
+    "volume_mm3": 33425.13025559458,
+    "released_volume_mm3": 33425.13038934191,
+    "net_change_mm3": -0.00013374732952797785,
+    "outside_zones_new": {
+      "volume_mm3": 33117.02867515662,
+      "area_mm2": 19756.08403337578,
+      "centroid_mm": [
+        0.28487418083766336,
+        6.737104999857227,
+        -5.1206504360671135
+      ]
+    },
+    "outside_zones_released": {
+      "volume_mm3": 33117.02867515662,
+      "area_mm2": 19756.08403337578,
+      "centroid_mm": [
+        0.28487418083766414,
+        6.737104999857227,
+        -5.120650436067109
+      ]
+    },
+    "unchanged_outside_zones": true,
+    "inside_zones_mm3": {
+      "new": 308.1015695519019,
+      "released": 308.10156955185323
+    },
+    "faces": 249,
+    "released_faces": 247,
+    "identical_to_core_reference_p01": true,
+    "bounds_mm": [
+      -22.50000000000003,
+      22.50000000000004,
+      0.2999999999999994,
+      29.0,
+      -58.28,
+      62.22059521522802
+    ],
+    "boss_x-18_z_range_mm": [
+      -58.28,
+      -50.28
+    ],
+    "boss_x+18_z_range_mm": [
+      -58.28,
+      -50.28
+    ]
+  },
+  "p22": {
+    "parameterised_builder_reproduces_released_p22": true,
+    "volume_mm3": 17467.872653668757,
+    "released_volume_mm3": 17672.75099065986,
+    "outside_zones_new": {
+      "volume_mm3": 16963.7439457874,
+      "area_mm2": 16023.530164880589,
+      "centroid_mm": [
+        -1.251218033504496e-05,
+        -10.191502312077098,
+        -63.67432268402659
+      ]
+    },
+    "outside_zones_released": {
+      "volume_mm3": 16963.74410550077,
+      "area_mm2": 16023.52976597021,
+      "centroid_mm": [
+        -1.2583725023053494e-05,
+        -10.191502020333408,
+        -63.674322736670426
+      ]
+    },
+    "unchanged_outside_zones": true,
+    "inside_zones_mm3": {
+      "new": 504.14148388721446,
+      "released": 709.0199414713975
+    },
+    "boss_clearance_to_cpap_duct_wall_mm": {
+      "released": 2.6960274439544474,
+      "r31": 1.2874568273876505
+    },
+    "cheek_top_z_mm": {
+      "X-18": -50.4999999,
+      "X+18": -50.4999999
+    },
+    "air_volume_mm3": {
+      "released": 17061.2262526784,
+      "r31": 17061.2262526784
+    },
+    "bounds_mm": [
+      -22.420000100000003,
+      22.420000100000003,
+      -45.40000010000001,
+      29.433235973277846,
+      -77.8500001,
+      -48.9999999
+    ]
+  },
+  "fit": {
+    "released_intersections_mm3": {
+      "P01|core_40": 16.21061809252872,
+      "P01|core_44": 16.21061809252378,
+      "P01|core_50": 16.210618092523774,
+      "P01|core_56": 1.0506999999999982
+    },
+    "r31_intersections_mm3": {
+      "P01|core_40": 16.21061809252872,
+      "P01|core_44": 16.21061809252378,
+      "P01|core_50": 16.210618092523774,
+      "P01|core_56": 1.0506999999999982
+    },
+    "p01_boss_to_p22_mm": {
+      "released": 0.019999956662373634,
+      "r31": 0.019999956666458946
+    },
+    "heatset_to_p01_overlap_mm3": 0,
+    "screw_to_p22_overlap_mm3": 0
+  },
+  "static_failures": [],
+  "clearances": {
+    "Bambu R30 | own fan, carriage retreating": {
+      "released": {
+        "mm": 0.980000000000004,
+        "carriage_part": "P01",
+        "tool_part": "fan",
+        "carriage_dy_mm": 0
+      },
+      "r31": {
+        "mm": 1.5999999999999996,
+        "carriage_part": "P01",
+        "tool_part": "fan",
+        "carriage_dy_mm": 0
+      }
+    },
+    "Bambu R30 | parked neighbour at X-37.3": {
+      "released": {
+        "mm": 0.980000000000004,
+        "carriage_part": "P01",
+        "tool_part": "fan",
+        "carriage_dy_mm": 0
+      },
+      "r31": {
+        "mm": 1.5999999999999996,
+        "carriage_part": "P01",
+        "tool_part": "fan",
+        "carriage_dy_mm": 0
+      }
+    },
+    "Bambu R30 | parked neighbour at X+37.3": {
+      "released": {
+        "mm": 1.3038404810404916,
+        "carriage_part": "P01",
+        "tool_part": "R30 body",
+        "carriage_dy_mm": 0
+      },
+      "r31": {
+        "mm": 1.3038404810405269,
+        "carriage_part": "P01",
+        "tool_part": "R30 body",
+        "carriage_dy_mm": 0
+      }
+    },
+    "RedLizard R30 | own fan, carriage retreating": {
+      "released": {
+        "mm": 0.9799999999999898,
+        "carriage_part": "P01",
+        "tool_part": "fan",
+        "carriage_dy_mm": 0
+      },
+      "r31": {
+        "mm": 1.5999999999999943,
+        "carriage_part": "P01",
+        "tool_part": "fan",
+        "carriage_dy_mm": 0
+      }
+    },
+    "RedLizard R30 | parked neighbour at X-37.3": {
+      "released": {
+        "mm": 0.9799999999999898,
+        "carriage_part": "P01",
+        "tool_part": "fan",
+        "carriage_dy_mm": 0
+      },
+      "r31": {
+        "mm": 1.3499999999999996,
+        "carriage_part": "P01",
+        "tool_part": "R30 trimmed body",
+        "carriage_dy_mm": 0
+      }
+    },
+    "RedLizard R30 | parked neighbour at X+37.3": {
+      "released": {
+        "mm": 1.303840481040495,
+        "carriage_part": "P01",
+        "tool_part": "R30 trimmed body",
+        "carriage_dy_mm": 0
+      },
+      "r31": {
+        "mm": 1.3038404810405269,
+        "carriage_part": "P01",
+        "tool_part": "R30 trimmed body",
+        "carriage_dy_mm": 0
+      }
+    },
+    "vertical_gap_fan_bottom_to_p01_p22_under_fan_mm": {
+      "released": 0.980000000000004,
+      "r31": 2.480000000000004
+    }
+  },
+  "motion": {
+    "own_tool_samples": 121,
+    "neighbour_samples": 61,
+    "hits": []
+  },
+  "complete_assembly": {
+    "solids": 149,
+    "regression_checks": 143,
+    "max_increase_mm3": 1.1461054327810416e-11
+  },
+  "exports": [
+    {
+      "file": "step\\P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW.step",
+      "sha256": "71ad2f5f08943b3a749bdf0de0aaeaeca11993408ee1a547e39f577f7c483ac1"
+    },
+    {
+      "file": "stl\\P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW.stl",
+      "sha256": "a6dc34d5e62277a06deab0fb1c2a07ba733ba4f3bc930b481b4573ea420ae03a"
+    },
+    {
+      "file": "step\\P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW.step",
+      "sha256": "c1d5a1519420fb1501c960e746b3b2a0f852210978d79ae90e2cb900b370d7ca"
+    },
+    {
+      "file": "stl\\P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW.stl",
+      "sha256": "1c8fc915e92982e8f9dc377634df54c592de2d813ad7e63348cefa89570b6578"
+    },
+    {
+      "file": "step\\P22_P01_Mount_Hardware_R31_REVIEW.step",
+      "sha256": "cac4789c80653b47d5ac13aa92247ad4fbb10c9719d5471de4d3428e5884adb7"
+    },
+    {
+      "file": "step\\Core_With_Lowered_P01_Bosses_R31_REVIEW.step",
+      "sha256": "8b21f102577ad521176544a6db5ddf32b94bdf745cf7f3038ee0dde4b3d8734c"
+    },
+    {
+      "file": "step\\31_Carriage_Lowered_Mounts_Complete_REVIEW.step",
+      "sha256": "38cfba9cdbe4a03a91e3e28eb6687725001e0643214b3bb6c6524d080ed41955"
+    }
+  ],
+  "design": {
+    "boss_axis_z_mm": -54.28,
+    "boss_top_z_mm": -50.28,
+    "boss_bottom_z_mm": -58.28,
+    "p01_bottom_face_z_mm": -57.279,
+    "boss_wall_around_pocket_mm": 1.73,
+    "p22_cheek_top_z_mm": -50.5,
+    "p22_material_above_counterbore_mm": 0.7800000000000011,
+    "hardware": "Unchanged parts: 2x M3x4x4.6 heat-sets (Y11.9..15.9) and 2x M3 screws, moved with the bosses."
+  },
+  "limitations": [
+    "P01 is frozen v26j geometry; the native model needs the same boss move before printing this pair.",
+    "Each boss hangs 1.0 mm below the P01 bottom face in front of the wall; in the rear-face-down print orientation this is a 1.0 mm unsupported crescent at the start of each boss.",
+    "Insert pull-out, printed strength and probe stiffness through the lowered mounts are unqualified."
+  ]
+}

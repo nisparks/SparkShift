@@ -1,5 +1,12 @@
 # SparkShift v26 Accessory & 3010 Toolhead Suite — Beacon RevH / Cartographer V3, Pure-Primitive CPAP Ducting, BTT EBB42 CAN Mount & 3010/2510 High-Flow Toolhead Carriers
 
+**Current status: blocked by low-Z bed collision.** The
+[latest review](#33-one-piece-bambu-toolhead-with-side-2510) finds that the
+gantry-mounted docks hit the bed at printing height. Ten tools fit laterally,
+but the current rack is **not a usable or build-approved printer layout**.
+Earlier front-fan, vented-dock and firmware descriptions below are historical;
+their qualification claims do not apply to the current CAD-review-only design.
+
 This directory contains the parametric OpenCASCADE (`OCP`) CAD generator (`build_and_verify_accessories_v26.py`), 3D finite-volume CFD solver (`simulate_cpap_cfd_v26.py`), VTK multi-angle renderer (`render_accessories_v26.py`), animated GIF generator (`animate_accessories_v26.py`), and manufacturing-ready **STEP (`.step`)** and **binary STL (`.stl`)** files for the **SparkShift v26** accessory and toolhead cooling suite on a **Voron 2.4R2 350 with a Monolith 2WD 9mm gantry**.
 
 All **14 pure-primitive accessory/dock/rack/jig parts** (`P20`–`P29_L/R`, `P17_HF_tool_carrier_3010`, `P17_HF_tool_carrier_2510`, and `P18_Tool_docking_backplate_3010`) plus **5 COTS-qualified core drop-in parts** (`P01_Back_case_COTS_MR74`, `P02_Motor_servo_plate_12p5mm`, `P03_Front_case_COTS`, `P04F_Swing_arm_front_half_COTS`, and `P05_Servo_cam_COTS`) are constructed from **analytical CAD primitives** (`GeomAbs_Plane`, `GeomAbs_Cylinder`, `GeomAbs_Cone` — **`0` BSpline/mesh/sphere faces** and **`0` sliver faces `< 0.15 mm²`** on all 16 pure-primitive parts) and mount to the existing **SparkShift AHG v26** carriage and Voron 2.4R2 frame with **zero unintended modifications (`0.000 mm³` cut/clash)** to any of the 135 existing v26 bodies.
@@ -162,6 +169,1069 @@ For the two-part **"Hotend Heating Assembly For Bambu Lab H2C / H2D / X2D / P2S 
 3. **Upper Stem Side ID Notches (`Z = 33.00..37.00 mm`):**
    - Dual side V-notches on the upper stem ribs distinguish `P17_Bambu_P2S` from Volcano `P17_HF` carriers at a glance.
 
+### 3.3 One-Piece Bambu Toolhead with Side 2510
+
+#### Current Bambu body: compact fan side, closed P18 bores (revision 30)
+
+Revision 30 is rebuilt from revision 22 in one sequence, like revision 29, and keeps all
+of its fixes: enclosed inlet, restored front neck, filled corridors and round fan bosses.
+It changes three things, driven by dock spacing and review of revision 29.
+
+![Revision 29 compared with revision 30 from the rear, the fan side and below](./images/58_bambu_compact_r30_before_after.png)
+
+1. **Tighter fan side.** The fan moves 1.65 mm toward the hotend: seat face X9.80,
+   centre X14.80, Y25.50, Z-35.30 mm. That leaves a **1.5 mm air gap** to the heatsink
+   fins, 0.8 mm to the heating-assembly plate and 0.55 mm to the printed apron. The fan
+   top stays 0.35 mm under P18's lower edge. Fan screw heads now end at **X20.60**
+   instead of X22.25.
+2. **Carriage clearance at the dock.** The shelf's fan-side face is now one flat face at
+   X9.55 under the upper shelf layer. This removes a 1.25 mm strip behind the fan that
+   ran out to X15. With a tool parked on the -X side of the active bay, that strip sat
+   inside the active carriage's footprint, **0.10 mm** in front of the carriage frame.
+3. **Closed P18 bores.** The two lower P18 insert bores broke through the shelf top
+   behind the flange, leaving the small half-moon slots. Behind the flange the shelf top
+   is only 1.98 mm above the bore axis, while the bore radius is 2.28 mm. The pockets now
+   end inside the flange: 4.56 mm diameter, 3.38 mm deep, with a 0.5 mm rear wall. The
+   old slots are filled flush with the shelf top. **These two positions take M3 x 3 mm
+   heat-set inserts**; a 4 mm insert would reach behind the flange and break through
+   again. The upper P18 pair is unchanged.
+
+![Closed P18 bore ends, and the shelf strip that crowded the active carriage frame](./images/59_bambu_compact_r30_details.png)
+
+Dock and neighbour clearances, minimum distances with the tool fully assembled:
+
+| Case | Revision 29 | Revision 30 |
+| --- | --- | --- |
+| Active carriage to a parked Bambu neighbour | 0.10 mm | 0.98 mm |
+| Parked Bambu next to parked Bambu (fan side) | 1.55 mm | 3.20 mm |
+| Parked Bambu fan side next to a Red Lizard | 1.05 mm | 2.70 mm |
+| Parked Red Lizard fan side next to a Bambu | 1.84 mm | 1.84 mm |
+
+The 0.98 mm case is now vertical: the carriage frame passes under a parked neighbour's
+fan. Docks and carriage both ride on the gantry, so this gap does not change with Z
+moves, but it does depend on printed-part and dock-mounting tolerances. The Red Lizard
+rows use the revision-21 parked Red Lizard snapshot. The revision-31 carriage review
+below lowers those mounts and opens this gap to 2.48 mm.
+
+The Red Lizard body had the same strip.
+[Revision 30 Red Lizard](./step/RedLizard_Side2510_Strip_Trim_R30_REVIEW.step)
+([STL](./stl/RedLizard_Side2510_Strip_Trim_R30_REVIEW.stl)) removes only that strip
+(6.30 mm³), raising its carriage clearance from 0.10 mm to 1.30 mm
+([report](./verification_redlizard_strip_trim_r30.json), `python build_redlizard_strip_trim_r30.py`).
+
+Verification (`python build_bambu_clean_r30.py`,
+[report](./verification_bambu_compact_r30.json)):
+
+- One valid solid with one closed shell, exported as one watertight STL shell. Every
+  change against revision 22 lies inside the declared edit zones.
+- Zero-volume witnesses: front neck filled; wire trough open; corridors closed; boss
+  walls complete and pilots clear; P18 pockets clear, walled and closed at the rear,
+  with the old slots filled and nothing above the shelf top; inlet socket and filament
+  path; no fan-recess membrane or rear strip left.
+- No intersection with the core, P18, P20-P24, hotend, hotend hardware, fan envelope or
+  fan screws.
+- Sampled motion: dock approach and withdrawal and carriage retreat over 60 mm (121
+  samples each) with the changed parts, removed-hotend service path (57 samples), and the
+  full tool past Bambu and Red Lizard neighbours at +/-37.3 mm (4 x 61 samples) found no
+  intersections.
+- The 139 unchanged solids in the complete carriage/dock assembly show no new
+  intersection.
+
+Files: [print STEP](./step/Bambu_Compact_Fan_Closed_Bores_R30_REVIEW.step),
+[STL](./stl/Bambu_Compact_Fan_Closed_Bores_R30_REVIEW.stl),
+[20-solid toolhead](./step/30_Bambu_Compact_Toolhead_REVIEW.step),
+[145-solid complete assembly](./step/30_Bambu_Compact_Complete_REVIEW.step),
+[fan and screws](./step/Bambu_Fan_2510_And_Screws_R30_REVIEW.step) and
+[L4 fan inserts](./step/Bambu_Fan_Side_M2p5_L4_Inserts_R30_REVIEW.step).
+Render the comparison with `python render_bambu_clean_r30.py`.
+
+Limitations: the front fan insert keeps a 0.65 mm wall to the apron front face. Fan
+cooling at the 1.5 mm gap, insert pullout, printed strength and socket temperature are
+unqualified. The ten-tool rack and low-Z bed audits were not rerun. The fixed-rack low-Z
+bed collision and the probe-cable entry issue remain unresolved.
+
+**Split toolhead considered, not adopted.** A common upper part, with the Red Lizard
+bolted on through its four M2.5 heatsink screws and a Bambu lower module on the same
+pattern, would not change the tool's width at the dock. It would add a four-bolt plastic
+joint at the root of the 45 mm hotend overhang, where wiping and docking loads are
+highest. The spacing problems were the shelf strip and the fan gap, both fixed above in
+one piece.
+
+#### Carriage: lowered P22-to-P01 front mounts (revision 31 review)
+
+Each tool's side 2510 fan ends at Z-47.8. The closest carriage parts below it were the
+two lower front accessory bosses on P01 (X±18, R4) and the P22 cheeks bolted to them:
+**0.98 mm** to the boss tops and 1.20 mm to the cheek tops. The own fan passes over them
+whenever a tool is picked up or parked. A tool parked one bay to the -X side passes its
+fan over them whenever the active carriage enters or leaves a bay.
+
+Revision 31 moves both mounts **1.5 mm lower**, from screw axis Z-52.78 to Z-54.28. This
+covers the P01 bosses and their M3×4×4.6 heat-set pockets, the M3 screws, the P22 boss
+clearances, screw holes and counterbores, and the P22 cheek tops (Z-49.0 to Z-50.5).
+Nothing else changes, and the hardware list stays the same.
+
+![Revision 30 and 31 mounts under the fans: Fusion view, sections at X±18 and a close-up](./images/60_carriage_lowered_mounts_r31_before_after.png)
+
+| Minimum distance | Released | Revision 31 |
+| --- | --- | --- |
+| Fan bottom to the mounts below it (vertical) | 0.98 mm | 2.48 mm |
+| Own fan to the carriage (Bambu or Red Lizard) | 0.98 mm | 1.60 mm |
+| Active carriage to a parked Bambu at -37.3 mm | 0.98 mm | 1.60 mm |
+| Active carriage to a parked Red Lizard at -37.3 mm | 0.98 mm | 1.35 mm |
+| Active carriage to a parked tool at +37.3 mm | 1.30 mm | 1.30 mm |
+
+The vertical gap is no longer the limit. The 1.60 mm is the fixed gap between the fan's
+rear face and the P01 front wall in the docked position; it opens as the carriage
+retreats. The 1.35 mm and 1.30 mm rows are side clearances between P01 and the
+neighbour's printed body, which this change does not touch; revision 32 below removes
+both.
+
+1.5 mm is the practical limit. The P22 boss clearance sits above the CPAP duct roof, and
+the wall between them drops from 2.70 mm to 1.29 mm, against the duct's existing 1.24 mm
+roof wall. The air path is unchanged. Each boss keeps its R4 shape and 1.73 mm wall around
+the insert, so it now hangs **1.0 mm below the P01 bottom face** (Z-57.28) in front of the
+wall. In the rear-face-down print orientation, each boss starts with a 1.0 mm
+unsupported crescent.
+
+The Z-53.079 cross-bore and nut slots on the P01 rear face, below the rail block, were
+considered as a mount and not reused. They already clamp the belt side plates, a
+screwdriver cannot reach them behind the rail block, and a mount there would leave the
+probe end of P22 cantilevered.
+
+**Core change note.** P01 is frozen v26j geometry, so this is a review proposal, not an
+edit of the native model. To adopt it, move the two lower front accessory bosses in the
+native P01 from Z-52.780 to Z-54.280, keeping the R4 × 4.5 mm boss and the 4.54 mm ×
+4.5 mm insert pocket, and print the revision-31 P22 with it. Do not mix the released and
+revision-31 P01/P22.
+
+Verification (`python build_carriage_lowered_mounts_r31.py`,
+[report](./verification_carriage_lowered_mounts_r31.json)):
+
+- P01: the boss move is volume-neutral. Outside the two boss zones, its volume, surface
+  area and centroid match the released part. P22 is likewise unchanged outside the cheek
+  zones, and its CPAP air domain is identical. The parameterised P22 generator reproduces
+  the released P22 at `mount_dz=0`.
+- No new intersection with the core, P20-P24 or the mount hardware. Inserts and screws
+  clear P01 and P22, and the 0.02 mm boss clearance is kept.
+- Carriage retreat from its own Bambu and Red Lizard tool (121 samples each), and past
+  both tool types parked at ±37.3 mm (61 samples each), found no intersections.
+- The 143 unchanged solids in the complete assembly show no new intersection.
+
+Files: [P01 STEP](./step/P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW.step)
+([STL](./stl/P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW.stl)),
+[P22 STEP](./step/P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW.step)
+([STL](./stl/P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW.stl)),
+[mount hardware](./step/P22_P01_Mount_Hardware_R31_REVIEW.step),
+[101-solid core reference](./step/Core_With_Lowered_P01_Bosses_R31_REVIEW.step) and
+[149-solid complete assembly](./step/31_Carriage_Lowered_Mounts_Complete_REVIEW.step).
+Render with `python render_carriage_lowered_mounts_r31.py`. Insert pull-out, printed
+strength and probe stiffness through the lowered mounts are unqualified.
+
+#### Side clearances: flush non-fan side, Red Lizard fan skin (revision 32)
+
+With the revision-31 carriage, two leftovers on the printed bodies set the closest
+approach to the tools parked beside the active carriage. Revision 32 removes both, from
+both bodies where they exist. Nothing else changes.
+
+1. **Non-fan (-X) shelf lip.** On both bodies, the lower shelf layer (Z-26..-22.5) still
+   reached X-13.5, 1.1 mm beyond everything else on that side. Revision 22 had already
+   trimmed this edge from X-14 as unused stock. Its rear corner sat **1.30 mm** from the
+   P01 front corner whenever the tool was parked on the +X side of the active bay. Both
+   bodies are now X±12.40 below the flange, the original P17 carrier width. On the Red
+   Lizard, this also removes a 0.1–0.2 mm sliver beside the old Y-axis bore groove under
+   the shelf.
+2. **Red Lizard fan-recess skin.** A 0.05 mm skin under the Red Lizard upper shelf
+   (Z-22.55..-22.5), 0.25 mm above its fan, reached X15.0 and Y12.75. It sat **1.35 mm**
+   in front of the P01 front face when a Red Lizard was parked on the -X side. Revision 29
+   removed the same skin from the Bambu body.
+
+![Revision 30 and 32: P01-to-neighbour gap in plan, both non-fan sides, and the Red Lizard skin](./images/61_side_clearance_r32_before_after.png)
+
+Minimum distances, all with the revision-31 carriage:
+
+| Case | Revision 30 bodies | Revision 32 bodies |
+| --- | --- | --- |
+| Active carriage to a tool parked at +37.3 mm | 1.30 mm | 1.73 mm |
+| Active carriage to a Red Lizard parked at -37.3 mm | 1.35 mm | 1.60 mm |
+| Active carriage to a Bambu parked at -37.3 mm, or to its own fan | 1.60 mm | 1.60 mm |
+| Parked Red Lizard fan side next to a Bambu | 1.84 mm | 2.77 mm |
+| Parked Red Lizard fan side next to a Red Lizard | 1.94 mm | 2.84 mm |
+| Parked Bambu fan side next to either tool | 3.20 mm | 4.30 mm |
+
+On the +X side, P01 to the neighbour's body is now 2.40 mm. The 1.73 mm limit there is
+a pair the lip used to hide, the same with the released and revision-31 P22: P22's
+rounded lower outer edge passes 1.73 mm from the top edge of the neighbouring dock's P26
+nozzle chute (X±15.0 in its own frame). The same pair sets 1.73 mm on the -X side.
+Narrowing that chute to X±14.0 raises this pair to 2.50 mm, leaving P01 to the
+neighbour's body (2.40 mm) as the +X limit; that is a dock change and is not made here.
+
+**What still sets 1.60 mm.** The fan's back face (Y13.0) sits 1.6 mm in front of the P01
+front face (Y11.4), for the tool's own fan and for the fan of a tool parked on the -X
+side. It is a Y gap at full insertion: X error does not reduce it, and the tool body
+seats 0.1 mm from P01, so the active carriage can only reach a neighbour's fan if that
+neighbour sits more than 1.6 mm out of its dock. Raising it means moving the fan
+forward. The dock leaves about 28 mm free directly in front of the fan, but each 0.5 mm
+costs 0.5 mm of the 0.65 mm wall around the front fan insert, so the apron would need a
+local boss. It also moves the airflow further off the heatsink: on the Bambu the hotend
+body (Y15.7..26.9) is already centred 4.2 mm behind the fan centre. Not adopted.
+
+Verification (`python build_side_clearance_r32.py`,
+[report](./verification_side_clearance_r32.json)):
+
+- Removal only: each body loses exactly the material inside its cut zones (Bambu
+  79.12 mm³; Red Lizard 30.54 mm³ lip and 3.43 mm³ skin), nothing is left inside them,
+  and each stays one valid solid with one shell. The Red Lizard keeps 4.26 mm of material
+  at the new face above the old groove (Z-23.54..-19.28).
+- Each revision-32 body is a subset of its revision-30 body, so the earlier dock,
+  carriage-retreat, service and neighbour sweeps and the revision-31 carriage sweeps
+  still hold. The 148 unchanged solids in the complete assembly show no new intersection.
+
+Files: [Bambu STEP](./step/Bambu_Compact_Flush_Side_R32_REVIEW.step)
+([STL](./stl/Bambu_Compact_Flush_Side_R32_REVIEW.stl)),
+[Red Lizard STEP](./step/RedLizard_Side2510_Flush_Side_R32_REVIEW.step)
+([STL](./stl/RedLizard_Side2510_Flush_Side_R32_REVIEW.stl)),
+[20-solid Bambu toolhead](./step/32_Bambu_Flush_Side_Toolhead_REVIEW.step) and
+[149-solid complete assembly](./step/32_Bambu_Flush_Side_Complete_REVIEW.step) with the
+revision-31 carriage. Render with `python render_side_clearance_r32.py`.
+
+#### Superseded: revisions 25-29
+
+These are kept for history. Revisions 25-28 patched on top of each other: revision 25
+added the inlet sleeve but kept the corridor scallops and only partly filled the front
+slot; revision 26 closed the corridors with full-width blocks and added stock behind the
+core; revision 27 tapered those blocks into wedges; revision 28 cut them back to
+half-cylinders. Revision 29 rebuilt cleanly from revision 22 and restored the front neck,
+but kept the fan 1.65 mm further out, the shelf strip near the carriage and the open P18
+bore slots. Reports:
+[R25](./verification_bambu_continuous_guide_r25.json),
+[R26](./verification_bambu_closed_mounts_r26.json),
+[R27](./verification_bambu_blended_mounts_r27.json),
+[R28](./verification_bambu_flat_shelf_r28.json),
+[R29](./verification_bambu_clean_r29.json).
+
+#### Latest refinement and low-Z blocker (revision 22)
+
+**Do not build or commission the current rack position.** The previous
+revision-21 checks established lateral packing and the sampled toolchange
+paths, but did not lower the gantry to printing height over the actual bed.
+The new [bed-clearance audit](./verification_low_z_bed_clearance.json)
+finds rigid intersections in **all 40 cases**: two active-hotend heights,
+both parked hotends, and all ten bays, with the active nozzle at world
+Z0.2 mm and the bed top at Z0.
+
+The fixed bed occupies world X0..350, Y9..359, Z-8..0 mm.
+The parked purge chutes extend below the active nozzle and over its footprint.
+They first touch the bed top when the active nozzle is still approximately
+**13.95 mm above it for Bambu, or 13.20 mm for Red Lizard**.
+The dock body, silicone pad and wiper also intersect at first-layer height.
+Reserving a front print-area strip does **not** prevent this physical collision.
+
+Moving the current rack forward by **27.41 mm** would put its complete
+parked envelope 1 mm outside the bed's front edge, but the necessary
+X-gantry docking position collides with the existing Monolith front
+motorless mounts and their fasteners. It is not a usable translation-only
+fix; the named bearing references also extend beyond the front rail ends.
+
+A straight rear relocation **with the existing orientation** requires
+**391.50 mm** of Y translation to keep the low hardware 1 mm beyond the
+rear bed edge. That position intersects 91 fixed gantry bodies and puts
+the named bearing references at Y422.16..462.06 mm, outside the existing
+Y15..415 mm rails. Neither simple translation is a usable fix. These are
+necessary reach screens, not redesigned supports, docking paths or an
+assessment of every possible rear-facing arrangement.
+A different rack location or docking geometry needs a design decision;
+the original gantry and bed have not been modified.
+
+The [native diagnostic assembly](./22_Low_Z_Bed_Interference_DIAGNOSTIC.f3d)
+shows the revision-21 geometry lowered to first-layer height with the actual
+fixed bed included. The moving beam/carriage are hidden only for clarity.
+
+![Blocked: parked docks penetrate the fixed bed at first-layer height](./images/44_low_z_bed_collision_diagnostic.png)
+
+The revision-22 shelf candidate removes only another **0.5 mm** from the
+unused left shelf edge, from X-14 to X-13.5 mm, leaving the fans, hotend
+mounts, coupling and rack pitch unchanged. The resulting one-solid bodies
+are exported as
+[Bambu](./step/Bambu_One_Piece_Shelf_Clearance_R22_REVIEW.step) /
+[Red Lizard](./step/RedLizard_Side2510_Shelf_Clearance_R22_REVIEW.step).
+Their nominal parked X gap improves to approximately **1.40 mm**.
+This local refinement does not fix the low-Z blocker; revision 22 has
+**not** completed full rack qualification, and its partial assembly
+exports are not approved successors to revision 21.
+
+The cable-route screen also confirms that simply raising the upper cable
+bend is not a fix: at Z-12 mm it clears P24 by 0.2 mm but intersects P20
+by approximately 6.10 mm3. The existing P24 entry interference remains
+unresolved, and neither accessory print has been modified to conceal it.
+
+`build_refined_docking_review.py` now targets revision 22 and includes a
+mandatory low-Z bed gate before the full-rack qualification. Use
+`python audit_low_z_bed_clearance.py` for the focused reproducible audit;
+its nonzero exit is the expected failure while this blocker remains.
+Each run also repeats four dock-only controls at nozzle Z15 mm and verifies
+the saved diagnostic archive/image hashes before retaining their evidence.
+A changed geometry source or diagnostic file raises an explicit error
+rather than silently reusing stale native evidence.
+
+#### Independent lifting-rack feasibility study (revision 23 concept only)
+
+The separate [native motion study](./23_Independent_Rack_Lift_Kinematic_CONCEPT.f3d)
+shows **nine raised parked tools plus one active Bambu tool**, all ten docks
+and the crossbar raised 15 mm, and the X beam/carriage withdrawn 60 mm.
+The actual bed remains fixed. Original rigid rack mounts are hidden,
+incompatible reference geometry, not working supports for the raised rack.
+**No guides, lift actuator or replacement supports have been designed.**
+This is a possible direction for a later mechanism change, not an approved
+revision of the printer or a resolution of the current fixed-rack blocker.
+
+![Independent 15 mm rack lift: kinematic concept only, no guides or actuator](./images/45_independent_rack_lift_kinematic_concept.png)
+
+The [reproducible lift screen](./verification_independent_rack_lift.json)
+checks both parked variants in every bay. At an active nozzle height of
+0.2 mm, all 40 bed cases are clear, with the lowest parked hardware at
+**Z1.2512 mm**. Conservative per-solid boxes enclosing the entire 0..15 mm
+lift clear the modeled flying gantry and withdrawn X beam by at least
+**10.00 mm**. After 60 mm withdrawal, the complete modeled active
+tool/carriage envelope has **17.50 mm** of Y separation from the raised
+rack, independent of X position. This does not include flexible cable
+motion or any future lift mechanism.
+
+The [native readback record](./verification_lifting_rack_native.json)
+confirms 739 bodies, unchanged occurrence transforms on archive reopening,
+the active Bambu tip at Z0.2 and the lowest dock at Z1.2512 mm.
+The archive includes the 26 hidden original rigid-mount reference bodies;
+those bodies are not part of the collision-screened moving assembly.
+The study uses revision-21 tool geometry, not an unqualified full-rack
+revision-22 assembly.
+
+Necessary changes are recorded rather than applied to the inherited design:
+
+| Required change | Constraint for a future implementation |
+|---|---|
+| Independent guided rack motion | Replace rigid support attachment, partition spacers/fasteners correctly, preserve the lowered dock coupling datums and ten-bay pitch. |
+| Actuation and retention | Synchronize both ends under load, prove repeatability, and prevent a power-loss drop toward the bed or print. |
+| Motion interlocks | Confirm active-tool retention and carriage withdrawal before lifting. A nominal 15 mm Z hop above the current print plane is needed before lowering the existing dock geometry; check top travel before allowing it. These are requirements, not commissioned macros. |
+| Wiring and travel | Accommodate parked-fan wiring, full enclosure/top-Z clearance and the added moving load. |
+
+The raised rack reaches approximately Z142.08 mm with the active Bambu
+nozzle at Z0.2 mm, about 1.51 mm above the current carriage reference.
+This is a height requirement for a later enclosure/travel audit, not a
+verified maximum printer Z. Loads, deflection, guides, fail-safe retention,
+actuation and firmware remain unqualified. Run
+`python audit_independent_rack_lift.py` to reproduce the limited geometry
+screen; its clear status must not be interpreted as machine approval.
+
+#### Bambu side-fan placement review (alignment study 24)
+
+**Retain the current fan position within the unchanged design.**
+The [Bambu-specific alignment study](./verification_bambu_fan_alignment.json)
+identifies seven fins spanning local Y15.70..26.02 and Z-49.68..-32.38 mm.
+Their projected center is Y20.86, Z-41.03 mm, compared with the current
+fan center Y25.50, Z-35.30 mm. However, moving the fan to that center
+intersects both P22 and the existing core. Geometric centering is not a
+drop-in improvement.
+
+| Candidate relative to current fan | Projected annular coverage | Constraint |
+|---|---:|---|
+| Current | 56.1% | No screened envelope intersections; 1.20 mm P22 clearance. |
+| 0.5 mm lower | 58.2% | No screened envelope intersections, but P22 clearance falls to 0.70 mm. |
+| 1 mm lower | 60.5% | Core interference; P22 clearance only 0.20 mm. |
+| Centered: Y-4.64, Z-5.73 mm | 71.8% | P22 interference about 103.78 mm3 and core interference about 808.31 mm3. |
+| 1 mm inward only | 56.1% | Existing printed-mount interference about 62.72 mm3; hotend clearance falls from 2.45 to 1.45 mm. |
+
+Coverage measures the overlap of the fin-stack side-projected rectangle
+with a generic radius-11 mm fan opening excluding a radius-4 mm hub.
+It is **not fin cooling efficiency, airflow coverage or thermal proof**.
+Forward-only offsets also hit the existing print and do not improve this
+annular metric. A 0.5 mm lowering is too small a demonstrated geometric
+benefit to justify sacrificing the approved clearance cushion without
+thermal evidence. The proposed lower/forward position is therefore not
+adopted; printed parts, fan hardware and approved fan coordinates are unchanged.
+
+The [comparison STEP](./step/24_Bambu_Fan_Alignment_Comparison_UNMOUNTED.step)
+overlays current and centered **unmounted** fan envelopes for inspection;
+the centered envelope intentionally intersects unchanged parts. It is not
+a toolhead assembly to manufacture. Run `python audit_bambu_fan_alignment.py`
+to reproduce the twelve-position screen. Actual fan CAD, parked intake
+behavior and a hot-soak test are needed before claiming an optimal placement.
+
+#### Historical marked-region investigation (superseded by revisions 29-30)
+
+The [focused region audit](./verification_bambu_marked_regions.json) examines
+the earlier revision-21 body, before the user's clarification and the
+revision-29/30 rebuilds above. Its unresolved status describes that historical
+investigation, not the current body. No gray
+core/accessory solid intersects the modeled fan's straight-through annular
+projection, but that does **not** positively identify the gray patch in the
+image: perspective sight lines and airflow projections are different.
+Yellow printed material does occupy part of that projected corridor.
+
+The revision-21 Bambu body examined here was one valid, watertight, connected solid.
+A small continuous material witness through the central spine crosses
+Z-23..-15 mm at X0, Y20 mm. This rules out a wholly detached upper body,
+not a locally weak outer junction. The circled outer step still needs
+positive face identification and its intended correction before cutting
+or bridging it. No wall-strength, assembly-access or thermal approval is
+implied, and no geometry was changed in response to these ambiguous marks.
+Run `python audit_bambu_marked_regions.py` to reproduce this limited audit.
+
+![Color-separated Bambu junction and fan inspection](./images/46_bambu_marked_region_identity.png)
+
+The comparison above sections away material outside local Z-58..-10 mm
+for visibility only; it does not modify the design. Blue identifies the
+fan, gray the core/hotend, magenta P18 and cyan P22. The right panel hides
+the fan, core and backplate to expose the yellow upper transition and
+fan-mount ears. Reproduce it with `python render_bambu_marked_regions.py`.
+It is an identification aid, not evidence that either user-marked feature
+has been repaired.
+
+The follow-up audit records twelve horizontal section profiles through the
+upper transition. Individual loop areas include holes and must not be
+summed as net structural area. Both upper fan screw heads have a clear
+radius-2.25 mm, 4 mm-long outward entry gauge against the listed print,
+core and accessories. This does not certify a full driver, docked neighbors
+or the circled outer upright's fastening access. These checks do not
+establish a defect that can safely be repaired without identifying the
+intended change.
+
+#### Historical ten-tool / closed-panel dock review (revision 21)
+
+The current rack review is the native Fusion archive
+[`21_Ten_Tool_Side2510_Rack_REVIEW.f3d`](./21_Ten_Tool_Side2510_Rack_REVIEW.f3d)
+([STEP exchange file](./step/21_Ten_Tool_Side2510_Rack_REVIEW.step)).
+It shows ten complete parked side-fan tools (five Bambu and five Red Lizard),
+their matching docks, the existing crossbar and P29/P30 hardware, the
+Monolith X gantry at the dock, and the carriage at T0. It is not ten copies
+of the carriage: the carriage, CPAP and controller travel with the active
+tool only.
+The native archive contains 738 solid bodies and was reopened to verify
+all ten tools and the restrained motor leads. `Monolith_X_Gantry_At_Dock`
+and `Carriage_At_T0` are hidden only for an unobstructed parked-tool view;
+turn their visibility on to inspect the complete in-situ assembly.
+
+![All ten parked tools; moving beam and carriage hidden only for clarity](./images/42_ten_parked_tools_unobstructed_fusion.png)
+![Complete rack with moving beam and carriage visible](./images/41_ten_tool_closed_panel_rack_fusion.png)
+
+The collar pitch remains **37.30 mm**, with centers
+**7.0, 44.3, 81.6, 118.9, 156.2, 193.5, 230.8, 268.1, 305.4, 342.7 mm**.
+Ten collars occupy 373 mm, inside the 420 mm mount-to-mount span with the
+existing 23.35 / 23.65 mm side spacers. No rack length or machine travel
+increase is assumed. The existing crossbar reference is **450 mm long**
+(X-50..400); 420 mm is the support-datum span, not its stock length. These
+dimensions must match the physical rack. The modeled 400 mm rail spans
+X-25..375; the unchanged
+45.4 mm carriage block gives a center stroke of X-2.3..352.3. T0/T9 have
+9.3 / 9.6 mm physical rail-end margins and 7.0 / 7.3 mm margins to the
+assumed X0..350 software limits.
+The ten collars touch nominally; this is not an assembly or thermal-expansion
+allowance. Check the printed collar/spacer stack at operating temperature
+before fixing the end stops. Do not force an oversized stack into the supports.
+
+The least nominal parked-tool X separation is **0.899 mm**, including
+mixed hotends and their fan screws. This is not a large tolerance allowance:
+measure printed pitch, selected fan frames and hardware before commissioning.
+
+**Obsolete cooling cleanup:** P25's old front-fan exhaust grille is closed
+with a continuous **2 mm wall**, and its four unused blind fan-mounting
+bores are filled. The hollow recess remains as weight relief, not a cooling
+passage. The clamp collar, jaw/coupling geometry, lower pad flexure,
+purge window and silicone-wiper seats are retained. Nothing is added
+around the side-fan opening. Use
+`step/P25_Closed_Panel_Side2510_Dock_REVIEW.step` and its matching STL,
+not the older vented P25.
+
+**Crossbar fit correction:** the previous dock references put each rear
+magnet 73.546 mm3 into the actual extrusion and let the M5x12 screw tips
+enter the rear slot floor. The revised collar incorporates a **6.5 mm
+standoff**: the tool, coupling face, jaws and lower dock sit 6.5 mm farther
+forward (+world Y), while the crossbar, P29/P30 parts and every X center
+stay put. No metal is removed from the rail. The collar is relieved to
+the actual extrusion profile with 0.15 mm assembly allowance. Use
+**two M5x10 screws**, not the old M5x12 references, with appropriate 2020
+M5 T-nuts. Actual nut geometry/thread engagement and torque need confirmation.
+The lower jaw has 0.2 mm relief in the new web while its original seat
+and both snap detents are preserved. Update docking Y coordinates by
+**+6.5 mm in the displayed world frame**; nozzle Z and X offsets are unchanged.
+The extra section audit found only 0.770 mm of magnet-pocket backing with
+the initial 5 mm standoff. Increasing it to 6.5 mm provides a sampled minimum of
+about 2.27 mm at the ten sampled backing gauges, while retaining the M5 head
+bearing seats. These are local stock measurements, not a global
+wall-thickness, printability or retention-strength qualification.
+
+The separate assembled reviews are
+[Bambu](./step/21_Bambu_Toolhead_And_Closed_Panel_Dock_REVIEW.step) /
+[Red Lizard](./step/21_RedLizard_Toolhead_And_Closed_Panel_Dock_REVIEW.step);
+their native Fusion archives are
+[Bambu](./21_Bambu_Toolhead_And_Closed_Panel_Dock_REVIEW.f3d) /
+[Red Lizard](./21_RedLizard_Toolhead_And_Closed_Panel_Dock_REVIEW.f3d),
+reopened with 145 / 144 solid bodies respectively.
+Standalone 14-solid docks are
+[Bambu](./step/21_Bambu_Closed_Panel_Dock_Complete_REVIEW.step) /
+[Red Lizard](./step/21_RedLizard_Closed_Panel_Dock_Complete_REVIEW.step).
+The one-piece bodies, fan positions and hotend-specific silicone pieces
+remain those of revision 20 below.
+
+The revision-21 report is
+[`verification_ten_tool_closed_panel_dock.json`](./verification_ten_tool_closed_panel_dock.json).
+Its recorded pass covers the following checks, not the later low-Z bed
+test; see the blocking revision-22 finding above before interpreting it.
+In addition to the tool/dock checks below, this pass uses world-frame
+geometry snapshots from the open Fusion Monolith/rack documents, records
+their fingerprints and transforms, and checks **both hotends in all ten
+bays** against the actual crossbar, P29/P30 hardware and flying gantry.
+It includes the physical Beacon, EBB42, probe cable and accessory fasteners
+in the moving carriage. The X-gantry sweep is checked against every possible
+parked tool variant. Immediate-neighbor pairs cover all mixed combinations;
+nonadjacent tools are separated by their complete X envelopes. Thus the
+alternating display is not a restriction to that particular tool ordering.
+The final recorded CAD pass has no failures across the 20 bay/hotend
+cases, eight mixed-neighbor cases, the sampled X-gantry withdrawal and
+both X0..350 traverses at 60 mm withdrawal. The inherited reference
+intersections described below are reported separately, not concealed.
+
+**Do not inherit the old lateral docking moves.** The +/-1.5 mm peel and
++/-6.5 mm X scrub screens collide with neighboring side-fan tools inside
+the rack, including at the wiper station. Use fixed-X, straight-Y insertion
+and withdrawal with the Y wiper; the audited clearance route withdraws
+**60 mm before X travel**. Cam/servo release must be established independently
+before attempting this route. No Klipper macros or interlocks are installed
+by this CAD generator.
+The repository's `klipper/sparkshift_toolchanger.cfg` is still a **legacy
+nine-bay T0..T8 template**, with different X positions, the old docking Y
+and unsafe lateral scrubs for these side-fan tools. Its header now warns
+against using it with revision 21. Ten-bay firmware configuration and
+commissioning are not delivered by this mechanical audit.
+
+The probe cable's rear leg moves from local Y-34.5 to **Y-34.9**, keeping
+its endpoints and 5 mm bend radii unchanged. This removes its 0.2 mm
+intrusion into the actual X extrusion and leaves 0.2 mm nominal clearance
+without changing CPAP printed parts. Two inherited reference issues are
+reported separately, not silently declared clear: four MGN9H reference
+bodies overlap their own Y rails by 11.126 mm3 total, and the unchanged
+upper cable entry overlaps P24 by 15.493 mm3. The latter needs a future
+cable/entry clearance refinement; P24 and the rigid core parts are not modified here.
+All other X-gantry/rail pairs remain in the rigid-collision checks.
+
+The right-end audit also found the **loose yellow/blue AHG motor-lead
+references** clipping the right XY joint at T9 and beyond. The current
+review bends all four flexible lead envelopes upward in separated Y lanes,
+retaining their motor-connector endpoints and staying inside the previous
+X envelope. Only these flexible reference bodies change; no rigid core
+part or original core document is edited. Restrain the real leads to this
+space before using the end bay. These are clearance envelopes with a
+nominal 4 mm bend, not validated wire lengths or strain-relief hardware.
+
+**Reserve the front rack/service strip.** Ten parked tools do not establish
+a usable 350 x 350 mm print area. Their nozzles and chutes descend with the
+flying gantry; printed objects and arbitrary X moves must stay clear.
+The audit reports the parked envelope and a conservative whole-envelope
+Y-separation boundary. The 6.5 mm standoff moves this occupied strip 6.5 mm
+farther forward into the modeled bed frame. The 60 mm withdrawal corridor
+is an access path, not an approved printable-volume configuration.
+The source bed spans world Y9..359 mm. The parked tool/dock envelope
+reaches Y35.41 mm; conservative whole-envelope separation places the active
+nozzle at Y63.21 mm, **54.21 mm from the modeled bed's front edge**.
+The audited X-traverse corridor is at nozzle Y80.71 mm. These are world-frame
+CAD datums and conservative clearance bounds, not commissioned Klipper
+coordinates or a certified printable-area limit.
+
+![Bambu with closed-panel dock](./images/40_bambu_closed_panel_dock.png)
+![Red Lizard with closed-panel dock](./images/40_redlizard_closed_panel_dock.png)
+
+**Qualification limits remain:** these are rigid CAD models and sampled
+paths, not continuous machine-motion, jaw-flexure or thermal certification.
+Actual fan frames, wire exits, hose/umbilical motion, side-to-side hot-air
+recirculation, retention forces and print tolerances need physical checks.
+The parked fan power/control system is still not implemented.
+The additional intake-space review also finds nearby tool material in front
+of the nominal fan annulus: the closest features are 1.70..4.85 mm away,
+depending on the neighboring hotend. At the 2 mm section, a Bambu neighbor
+occupies about 4.1% of the nominal annular port projection. This is a
+geometric obstruction measurement, **not** an airflow-loss or cooling
+prediction. Keep the approved fan positions; verify all-ten-parked hot-soak
+temperatures and the actual fan/wire envelopes before approving operation.
+
+#### Historical toolhead/dock refinement (revision 20)
+
+This review consists of **one whole printed toolhead per hotend**,
+one tool-owned side 2510 fan, and the refined shared dock/chute. Complete
+assemblies, including the unchanged core and CPAP/probe/controller mounts:
+
+- [Bambu toolhead and dock](./step/20_Bambu_Toolhead_And_Refined_Dock_REVIEW.step).
+- [Red Lizard toolhead and dock](./step/20_RedLizard_Toolhead_And_Refined_Dock_REVIEW.step).
+- Standalone docks:
+  [Bambu](./step/20_Bambu_Refined_Dock_Complete_REVIEW.step) /
+  [Red Lizard](./step/20_RedLizard_Refined_Dock_Complete_REVIEW.step).
+
+Native archives are saved alongside this README as
+`20_Bambu_Toolhead_And_Refined_Dock_REVIEW.f3d` and
+`20_RedLizard_Toolhead_And_Refined_Dock_REVIEW.f3d`. Both were reopened in
+Fusion: 145 and 144 assembly bodies respectively. Each standalone dock
+reimports as 14 solids; each new rigid printed part is one valid solid
+with a connected, watertight, consistently wound STL.
+
+Use `Bambu_One_Piece_Docking_Audited_REVIEW` or
+`RedLizard_Side2510_Clearance_Refined_REVIEW` for the respective body,
+`P25_Side_Fan_Refined_Dock_REVIEW` for the rigid dock, and
+`P26_Nozzle_Entry_Clearance_Chute_REVIEW` for the chute. Each has STEP/STL
+geometry under `step` / `stl`. They supersede the corresponding older
+review parts below, not the unchanged printer/core/rack components.
+
+The approved **Bambu fan center stays (16.45, 25.5, -35.3) mm**. Red Lizard
+retains its narrow two-hole edge rail, shifted outward just 0.15 mm with
+the fan/hardware: center (16.60, 25.5, -35.3) mm, nominal fan-to-hotend gap
+**0.60 mm**, outer screw face X22.40 mm. Both keep the same ultra-low-head
+M2.5x14 screws and L3 x OD3.5 inserts. There is no added shroud.
+An unused left shelf strip is trimmed from X-15 to X-14 below Z-22.5 on
+both bodies to clear adjacent tools at 37.3 mm pitch; the upper stems,
+hotend mounting seats and coupling interfaces are retained.
+
+Two targeted P25 entry-lip cuts remove 91.665 mm3, resolving the inherited
+55.057 mm3 P18 interference without modifying P18, the pin/bushing seats
+or snap detents. P26 has a radius1.6 longitudinal nozzle-entry relief at
+its rear purge-window lip, removing the Red Lizard tip's grazing contact.
+The ooze pads now sit on the existing Z-81.0794 rigid floor instead of
+penetrating it. **Use hotend-specific silicone pads/wipers:** Bambu contact
+top Z-78.1312; Red Lizard Z-78.8794, following the supplied reference tips.
+Do not print these contact pieces in ordinary rigid filament, and do not
+move the hotend merely to force the synthetic reference onto a nominal datum.
+
+The reproducible modeled audit is
+[`verification_refined_toolhead_dock.json`](./verification_refined_toolhead_dock.json),
+from the revision-20 generator run. The current generator produces
+revision 21 above. This earlier audit checks rigid
+interferences, screw/heatset access and material support, nozzle-pad
+height/support, probe keepouts for new cooling/coupling hardware, printed
+solid/mesh integrity, and exported STEP reimport. Straight tool approach
+and carriage retreat are sampled from Y0 to Y-60 at 0.5 mm increments.
+All Bambu/Red Lizard immediate-neighbor combinations on both sides are
+sampled at 1 mm increments at **37.3 mm pitch**, retaining the ten center
+positions X7..342.7 mm and unchanged rack mounts/spacers.
+The final report passes with no unexpected intersections above the
+0.001 mm3 static / 0.01 mm3 motion reporting thresholds. These thresholds
+are Boolean-volume tolerances, not guaranteed physical clearance margins.
+
+![Bambu toolhead and refined dock](./images/39_bambu_refined_toolhead_dock.png)
+![Red Lizard toolhead and refined dock](./images/39_redlizard_refined_toolhead_dock.png)
+
+**CAD review, not print-ready machine qualification.** The two inherited
+flexible jaw detents retain 14.679 mm3 nominal overlap each; this is
+intentional snap geometry, not rigid clearance or validated flexure.
+Pin/bushing diametral clearance remains 0.08 mm and magnet face gap
+0.260 mm. Jaw strain, magnet retention, tolerances, thermal performance,
+rail strength and insert fit require physical qualification. The Red
+Lizard's 0.60 mm nominal fan gap remains tolerance-sensitive. The fan is
+a generic envelope, not selected manufacturer CAD. Sampled translations
+do not prove continuous clearance or simulate the cam/servo/peel sequence.
+Printer X-end hardware limits are not re-certified. Existing CPAP,
+Beacon/Cartographer and EBB42 geometry is retained; this does not certify
+probe electromagnetic behavior, firmware or resonance measurements.
+Parked fan power contacts/control/interlocks are **not implemented**;
+each fan must remain powered through cooldown.
+
+#### Historical Bambu one-piece baseline (revision 18)
+
+**Revision 18: one complete hotend-specific printed body, not a modular
+carrier/adapter pair.** Open
+[`step/18_One_Piece_Bambu_Toolhead_2510_REVIEW.step`](./step/18_One_Piece_Bambu_Toolhead_2510_REVIEW.step)
+for the complete assembly. The individual printable-body geometry is
+`step/Tool2510_One_Piece_Bambu_Toolhead_REVIEW.step` /
+`stl/Tool2510_One_Piece_Bambu_Toolhead_REVIEW.stl`.
+The native archive `18_One_Piece_Bambu_Toolhead_2510_REVIEW.f3d` is also
+saved locally and was reopened in Fusion with 128 assembly bodies and
+exactly one printed-toolhead body.
+The STL is in assembly coordinates, not a qualified slicer orientation.
+Each hotend variant is to have its own whole toolhead print. This revision
+implements the Bambu variant; the older Red Lizard studies below are not
+updated one-piece cooling variants. See the separate Red Lizard side-fan
+feasibility revision below.
+
+![One-piece Bambu toolhead with approved side-mounted fan](./images/37_one_piece_bambu_2510_fusion.png)
+
+[Full assembly view in Fusion](./images/38_one_piece_bambu_full_assembly_fusion.png)
+
+The fan placement approved in revision 16 is unchanged: center
+**(16.45, 25.5, -35.3) mm**, one tool-owned 25 x 25 x 10 mm fan on +X,
+no shroud, duct, baffle, lower frame or outboard support. The two upper
+mounting ears are integral to the toolhead. The former shelf joint,
+two M2.5x20 screws, two shelf heatsets and unnecessary clamp ears are gone.
+Obsolete 3010 bores and old clamp reliefs are filled within the shelf/apron
+outline. The original lower P18 attachment passages are restored, and the
+fan heatset installation corridors clear the entire fused body.
+The inherited tiny carrier/P18 overlap is trimmed from the toolhead only.
+The supplied core, physical hotend, CPAP, probe/controller mounts and dock
+geometry are not modified. Older STEP/Fusion documents remain historical
+snapshots, not the current printable-body definition.
+
+The fan inner face is X11.45 mm, 3.15 mm from the modeled fin edge.
+Its body ends at X21.45 mm; two **M2.5x14 ultra-low-head screws, maximum
+OD4.5 x H0.8 mm**, end at X22.25 mm. Actual screws must match this envelope;
+ordinary 1.5 mm heads exceed the width limit. Fan inserts are the user's
+M2.5 x L3 x OD3.5, entering from -X through diameter4.4 corridors, with
+1 mm outer retaining shoulders opposing the screw heads.
+The heating assembly retains three M2.5x10 screws, two upper 0.5 mm washers,
+and front-entry M2.5 x L4 x OD3.5 inserts with 2.8 mm retaining shoulders.
+Install all heatsets before the hotend/fan. Fit the three heating-assembly
+screws **with the snap-in nozzle removed**; the fins otherwise block the
+straight driver approach. Then fit the snap-in nozzle. Routine nozzle
+service remains intended with the complete tool removed from the carriage.
+
+**Second-pass CAD audit:** one valid connected, watertight printed body;
+128 solids in the reimported full STEP; no unexpected modeled tool
+intersections with the core, P18/P20-P25, supplied gantry, accessory
+fasteners, Beacon/Cartographer bodies, EBB42 or probe cable. Diameter3
+straight screwdriver approaches and diameter4.4 heatset approaches are
+clear in the documented assembly sequence. The filament passage, heatset
+shoulders/surrounds, lower backplate passages and sampled upper
+guide/coupling boundary preservation are checked. The 35 mm forward
+withdrawal screen is clear at 1 mm increments; the exploratory detached-tool
+nozzle path also remains clear. These are sampled translations, not a
+continuous cam/latch/docking simulation.
+
+The tool/accessories span **44.84 mm**, excluding the previously reported
+inherited core overhangs. The fan retains **1.2 mm to P22, 0.98 mm to the core,
+and 1.50 mm to P18**. New cooling clears neighboring supplied tool/dock
+copies at +/-45 mm pitch; this does not establish ten-tool rack capacity.
+The supplied Beacon top metal and bottom keepouts are checked. An inherited
+printed motor-mount portion occupies the top region, classified as polymer
+from the original source metadata, not metal. Cartographer physical fit is
+checked, not a separate manufacturer-specific electromagnetic certification.
+Existing probe/EBB42 accelerometer references are retained; no firmware,
+wiring or resonance measurements are implemented.
+
+**Still unqualified:** actual 2510 frame/hole pitch/connector and wire bends,
+ultra-low-head hardware availability, thermal movement, airflow/heat creep,
+printed-part strength/creep and physical insert fit. The supplied P18/dock
+references have an inherited **55.057 mm3 overlap**; neither is altered,
+and that docking interface still needs resolution/qualification. The
+synthetic nozzle tip also differs from the intended master Z datum.
+Full-machine travel, ten-tool layout, exact H2D latch/finger access and
+parked fan power/control remain outside this geometric pass. Keep each
+parked fan powered through cooldown.
+
+Reports: [`verification_tool_owned_2510.json`](./verification_tool_owned_2510.json)
+and [`verification_toolhead_second_pass.json`](./verification_toolhead_second_pass.json).
+Regenerate with
+`python build_tool_owned_2510_review.py --core-reference <identity-transformed-core.step>`,
+then run
+`python audit_tool_owned_2510.py --core-reference <identity-transformed-core.step>`.
+
+#### Historical Red Lizard side-fan feasibility (revision 19)
+
+`step/19_One_Piece_Red_Lizard_Side2510_REVIEW.step` is the complete review
+assembly. `step/RedLizard_One_Piece_Side2510_REVIEW.step` and the matching
+STL contain the single printed Red Lizard body. The Bambu revision is not
+changed. The fan uses the same center (16.45, 25.5, -35.3) mm and the same
+44.84 mm assembly envelope, excluding inherited core overhangs.
+
+The existing top-pair fan heatsets cannot be reused: the rear boss enters
+the Red Lizard fins. This variant instead uses the **two +Y-edge fan holes,
+one upper and one lower**, on a 5 mm wide integral edge rail. It is not a
+shroud and does not bridge across the fan opening. The same two M2.5x14
+ultra-low-head screws and inner-entry L3 inserts are used, with 1 mm retaining
+shoulders. Install inserts before the hotend. The original four vertical
+M2.5x8 heatsink screws are retained; the old front fan frame/shared shelf
+joint is not.
+
+The generic fan envelope clears the metal heatsink by only **0.45 mm**.
+This is geometric feasibility, not physical or cooling approval. Actual
+frame tolerances, screw heads, wire exit, thermal motion, cantilevered rail
+strength and heat-creep performance require confirmation before printing.
+The Bambu top-only mounting preference cannot be preserved at this exact
+fan position on the Red Lizard.
+
+The CAD audit checks static fit, fan screw/insert access, full insert
+surrounds/shoulders, Beacon metal keepout, sampled 35 mm forward withdrawal,
+45 mm adjacent cooling clearance, one-piece watertight STL and STEP
+reimport. See
+[`verification_red_lizard_side2510.json`](./verification_red_lizard_side2510.json);
+regenerate with `python build_red_lizard_side2510.py`.
+The dock is unchanged: the inherited P18/dock overlap and full docking
+motion still require a separate dock revision. A side fan is geometrically
+possible on both hotends, but this does not establish cooling performance
+or approve the existing ten-tool rack.
+
+**Historical modular mounting study: reversed assembly with 4 mm M2.5 inserts.**
+`step/Bambu_Reversed_M2_5_Adapter_REVIEW.step` rotates the reconstructed
+heating/nozzle assembly 180 degrees about the existing vertical filament
+axis, without translating the nozzle. Its yellow front wall is 6.8 mm
+thick and contains three front-entry **M2.5 x L4 x OD3.5 mm** inserts.
+The 2.8 mm retaining shoulders oppose the rear screw heads, so tightening
+pulls the inserts into the shoulders, away from their installation mouths.
+The provisional installation pilot is diameter3.1 mm; calibrate it with
+the actual inserts and polymer.
+
+![Reversed Bambu adapter with front heatsets](./images/34_reversed_bambu_m2_5_review.png)
+
+Three M2.5x10 low-head screws provide 4 mm engagement and protrude 1 mm
+beyond the insert mouths. Maximum head envelope is OD4.5 x H1.7 mm.
+The upper pair uses 0.5 mm washers, OD4.5/ID2.7 mm, to accommodate the
+different counterbore depths. Two separate M2.5x20 shelf-clamp screws use
+3 mm inserts; the fan does not clamp the tool together. The four original
+vertical Red Lizard mounting holes are filled; the filament passage remains.
+The user's 5 mm inserts are available but not needed for this layout.
+
+**Service limitation:** rearward nozzle removal clears the new printed
+mount in the exploratory sampled path, but collides with the core during
+part of that path. Remove the tool from the carriage before a nozzle
+change. Exact H2D latch motion, finger access and wiring are not certified
+by this reconstructed reference. The reversed carrier is a separate
+revision, not an overwrite of the saved Fusion V2 design.
+
+Both printed parts are single connected, watertight meshes; the persisted
+20-solid assembly reimports as valid. Static checks cover core, P18 and
+P20-P24, including fastener-to-hotend clearance and complete hotend insert
+shoulders/surrounds. No physical print, torque, thermal-creep, repeatability
+or cooling qualification is implied.
+All five screw paths clear the printed parts. The shelf-clamp heads have
+front driver-access bores, and both shelf insert seats have complete
+retaining shoulders. `_REVIEW_PRINT.stl` files are oriented with their
+chosen planar faces toward the bed and minimum Z at zero; this is not
+slicer/support qualification. The native Fusion V2 remains unchanged;
+the reversed assembly is delivered as a separate STEP review.
+See [`verification_bambu_reversed.json`](./verification_bambu_reversed.json).
+Regenerate with
+`python build_reversed_bambu_adapter.py --core-reference <identity-transformed-core.step>`.
+
+**Rejected historical study: outboard carriage/dock cooling.**
+`step/Carriage_And_Dock_Cooling_CONCEPT.step` and
+`step/13_Reversed_Bambu_Full_Cooling_Review.step` exceed the required
+45 mm lateral envelope and are not candidates for the ten-tool layout.
+Do not use their side brackets or separate dock fans. The single,
+tool-owned shroudless 2510 review above supersedes this direction.
+
+![Carriage and dock cooling ownership study](./images/33_carriage_dock_cooling_study.png)
+
+The rejected single 3010 had its center at `(-30, 36, -36) mm`, feeding
+the left heatsink face through a short offset duct and leaves the front
+open. The mirrored dock outlet feeds the right side. Both cooling units
+clear the supplied core, P18, P20-P24 and reconstructed Bambu reference;
+the dock cooling clears P25. A sampled 60 mm negative-Y carriage retreat
+shows no cooling-to-cooling collision. A sampled 4 mm downward disengagement
+followed by 40 mm forward nozzle withdrawal clears the new cooling parts.
+These are exploratory paths, **not verified real latch/docking kinematics**.
+The outboard support now clears the fan housing, with integral tubular
+stand-offs toward the existing left carriage fastener axes. Two upper
+M2.5x18 fan screws and the user's OD3.5 x L3 mm heatset envelopes are
+included; there are no lower fan mounting fasteners. All cooling-part
+pairs clear each other, and the sampled retreat also clears the parked
+hotend reference and P25. The model deliberately retains mounting and
+thermal qualification warnings rather than implying physical approval.
+
+Substituting a 2510 at that same outboard center does not fix the envelope.
+The briefly considered dual-2510 push-pull direction was also superseded
+by the user's single tool-owned fan decision.
+
+**Not installation-ready:** carriage stand-off contact/fastener engagement,
+the dock bracket, yellow heating-assembly retention, rack pitch, complete
+motion paths, cooling controls and thermal qualification remain unfinished.
+Parked hot tools need dock cooling through standby and cooldown, plus a
+heater interlock for cooling loss. No firmware control is implemented here.
+Do not print the failed intermediate V4 adapters or treat the incomplete
+side-2510 experiment as an accepted design.
+
+Regenerate the study with
+`python build_carriage_cooling_review.py --core-reference <identity-transformed-core.step>`.
+See [`verification_carriage_cooling_review.json`](./verification_carriage_cooling_review.json)
+for measured intersections, exploratory paths and explicit limitations.
+
+**Current two-adapter revision: V2.** Open the saved Fusion design
+`12_Two_Hotend_Adapters_V2_Review` for the Red Lizard assembly on the left
+and Bambu assembly on the right. Both use the unchanged blue carrier from
+the user-defined version 4 split and the restored YUDX guide. Fans are hidden
+in the overview to expose the yellow adapters; they remain available in the
+component tree. The assemblies are spaced 90 mm apart for comparison only.
+
+![Two yellow adapters on the common blue carrier](./images/31_two_yellow_hotend_adapters.png)
+
+![Yellow adapters isolated with their rear receivers](./images/32_yellow_adapters_and_rear_receivers.png)
+
+| Interface | V2 implementation |
+|---|---|
+| Common blue/yellow joint | Four rear-entry M2 heatsets, OD3.2 x L2 mm, at the existing fan axes |
+| Heatset pockets | Diameter2.8 mm provisional pilots, Y29..31; inserts pull into a 1.05 mm front retaining shoulder |
+| Insert surround | At least 0.75 mm verified around the full installed OD envelope |
+| Fan/joint screws | Four M2x18 with 0.5 mm thick, OD4.5 mm washers; 2 mm insert engagement |
+| Red Lizard hotend | Original four M2.5x8 screws into the metal K1 heatsink; cylindrical clearance and original top pattern |
+| Bambu hotend | Three M2.5x5 low-head screws, maximum head OD4.5 x H1.7 mm; rear-captured AF5 x 1.6 mm thin steel nuts |
+| Bambu upper screw seating | Two OD4.5 x ID2.7 x 0.5 mm washers bridge the different ceramic counterbore depths; lower screw seats directly |
+| Bambu nut shoulders | Complete 1.1 mm thick retaining wall; nuts draw forward into it rather than toward their rear openings |
+
+The Bambu hotend-specific joint intentionally uses **captured nuts, not
+heatsets**: normal inserts plus retaining shoulders do not fit its existing
+2.8 mm wall. Both yellow adapters still contain the four shared heatsets.
+No ceramic, heatsink, core, nozzle position, docking or CPAP geometry was
+changed to force a fit. The forward compact inserts replace the earlier
+long M2.5 scheme, which must not be used with these V2 adapters.
+
+Install inserts and Bambu nuts from the rear with the adapter removed.
+Mount the hotend before assembling the yellow adapter to the blue carrier,
+so the Red Lizard top screws remain accessible. Finally install the fan and
+four common screws. Do not overtighten the printed shoulders or ceramic;
+torque limits require material/hardware testing.
+
+**Current exports:** `step/P17M_RedLizard_Adapter_V2_REVIEW.step` and
+`step/P17M_Bambu_Adapter_V2_REVIEW.step`, matching STL and `_PRINT.stl`
+files, and separate `P17M_*_Hardware_V2_REVIEW.step` envelopes.
+Regenerate with
+`python build_two_hotend_adapters.py --core-reference <identity-transformed-core.step>`.
+This reads the earlier common-carrier/Bambu review files as baselines and
+does not overwrite them. The
+[`V2 verification report`](./verification_two_hotend_adapters.json) records
+zero new adapter/hardware interference with the supplied core, hotends,
+fan, P18 and P20-P24; full insert/nut shoulders; screw-head seating; and
+connected watertight meshes. Finite-shift mating contact is approximately
+215 mm2 for Red Lizard and 206 mm2 for Bambu.
+
+The inserts use a [commercially listed short M2 envelope](https://www.amazon.com/kvohlum-Threaded-Inserts-Nut/dp/B0D3B4VDH4).
+[Low-head M2.5 dimensions](https://monsterbolts.com/pages/m2-5-bolt-size)
+fit the modeled head envelope; verify the selected supplier's drawing.
+Pilots still require print coupons. These remain **CAD review parts**:
+no physical strength, thermal-creep, slicer/support or repeatability
+qualification is implied. The narrow Bambu rear/core clearance and its
+existing synthetic nozzle-tip discrepancy still require physical checks.
+
+**Historical prototype notes below refer to the earlier M2.5 revision,
+not the V2 hardware or adapters above.**
+
+![Modular carrier and replaceable Bambu adapter](./images/28_modular_toolhead_review.png)
+
+**Review prototype, not a print-qualified release.** This additive variant follows
+the user's revised two-body construction in `09_Modular_Toolhead_3010_Review`
+version 4, preserved in
+[`P17_Modular_User_Revision_v4_Reference.step`](./step/P17_Modular_User_Revision_v4_Reference.step).
+It does not overwrite the monolithic carriers or modify the printer master.
+The refined Fusion document is **`11_User_Layout_Refined_3010`**, in
+`SparkShift_Voron350_Master / 03_SparkShift_System`. The user's saved version 4
+is untouched. `10_Modular_Toolhead_Cutout_Audit` is an earlier architecture,
+not the current design reference.
+
+![Opposite-side insert seats, rear view](./images/29_modular_rear_insert_seats.png)
+
+- **Blue reusable carrier:** retains the upper coupling, filament feed and 3010
+  fan frame. The lower frame retains its original outside envelope but replaces
+  the overlapping K1 heatsink pocket and breached wire tunnels with one lofted
+  airflow passage. The front frame remains only `3.88 mm` deep at the fan.
+  The original blind fan holes become through clearance holes.
+- **Yellow hotend-specific adapter:** retains the Bambu filament socket, heating
+  assembly mounting wall, upper seating shelf and full-depth upper corner rails.
+  Local lower rear recesses clear P22 and expose the lower insert seats. Two
+  3 mm high side bridges support those lower seats; their effect on exhaust area
+  still needs a cooling review.
+- **Common interface:** shelf at `Z = -17.2794 mm`, front/rear seam at
+  `Y = 32.05 mm`, four Y-axis screws at `X = +/-12 mm`,
+  `Z = -49.50 / -25.50 mm`. Width remains `30 mm`. Future adapters must locate
+  their nozzle at the intended `(0, 22.70, -78.88) mm` datum and independently
+  satisfy cooling, wiring, thermal and collision constraints. Other hotends are
+  not yet modeled or qualified.
+
+The provisional joint uses **two upper M2.5 x 35 screws with 1 mm washers**
+and **two lower M2.5 x 25 screws without washers**, through a 10 mm fan and the
+carrier's `2.8 mm` holes, into short inserts installed **from the opposite, rear
+side**, not the seam. Upper seats start at the rear rail face, `Y = 11.50 mm`;
+lower recessed seats start at `Y = 20.30 mm` to avoid the CPAP plenum.
+Adapter pilots are `3.2 mm` diameter and `4.0 mm` deep; the insert
+envelope is **maximum 4.0 mm OD x 4.0 mm length**, leaving at least `0.75 mm`
+nominal wall on the inboard side and `1.0 mm` outboard/vertically.
+The narrow inboard wall needs an insert coupon and load test. These are **fit-study
+dimensions, not a selected manufacturer's insert specification**. Select the
+hardware and test an insert coupon before printing the adapter. The printed
+shoulders have only a `2.8 mm` shank hole, with material extending from the
+insert ends at `Y = 15.50 mm` (upper) / `24.30 mm` (lower) to the seam at
+`Y = 32.05 mm`.
+Tightening pulls the insert toward this shoulder and clamps the adapter and
+carrier, rather than pulling it toward its installation opening. Nominal screw
+engagement is `3.57 mm` upper and `3.37 mm` lower. This does not eliminate shoulder fracture, thread
+stripping, installation damage or temperature-dependent creep. Extra washers,
+gaskets or a different fan thickness require revisiting screw length. Fastener
+envelopes are reference geometry, not thread-accurate hardware. The four screws
+also retain the fan, so removing the adapter releases that fan; the upper carrier
+does not need reprinting.
+
+Print `P17M_Reusable_Carrier_3010_REVIEW_PRINT.stl` front-face down and
+`P17M_Bambu_Adapter_3010_REVIEW_PRINT.stl` rear-face down. These exports are
+already rotated onto the bed. Nominal bed contact is approximately `1,238 mm2`
+and `953 mm2`, respectively. Recessed ledges and horizontal bores still require
+a slicer/support review. Keep the mating faces free of support damage and
+elephant-foot interference. The stepped shoulder seats the adapter, but clearance
+screws do not provide precision X registration: do not assume repeatable nozzle
+offsets after adapter changes. Layer adhesion, insert pullout, fan-frame
+compression, chamber-temperature creep and the existing three Bambu mounting
+holes' retention remain unqualified.
+
+#### Circled-cutout audit
+
+| Concern | Disposition |
+| :--- | :--- |
+| Large central opening and upper/lower filament guide lips | **Restored from YUDX.** The custom rectangular opening and extra `4.9 mm` bore reliefs had removed the close filament guides. The upstream curved hob opening and `2.3 mm` guide bore are restored locally, with `0.65 mm` tapers to the existing `3.6 mm` bore at the replacement boundaries. Upper geometry outside that region is unchanged. |
+| Cam-hook pocket, magnet pockets and epoxy-lock undercuts | **Retained.** Functional locking and coupling geometry; not filled for appearance. |
+| Small crescents below the two lower backplate attachment holes | Holes are retained at their original centers and diameter; the lower frame is rebuilt without intersecting legacy wire cavities. |
+| Narrow openings next to the stem/fan transition | The functional central stem wire trough is retained; the fragmented lower tunnel geometry is removed. |
+| Triangular bites around the fan aperture | **Removed.** A single round-to-rounded-rectangle loft replaces the overlapping K1 bore, bellmouth and tunnel cuts. |
+| Tiny nick on the adapter side crossbar | Obsolete K1-pocket remnants are filled. The rear apron and sidebar now share the same `+/-9.25 mm` edge, eliminating the separate `0.05 mm` lower transition step. Existing mounting holes and screw-tip relief dimples are retained. |
+| Side wiring | Fragmented tunnels are removed from the thin blue frame. The yellow cradle still carries legacy internal reliefs; a complete cable route, exit bends and strain relief need a separate fit check. |
+| Four adapter insert seats | Rear-entry stepped seats with complete printed shoulders; no crescent-shaped access skins. |
+
+![Restored YUDX hob opening and filament guides](./images/30_yudx_restored_hob_guides.png)
+
+Guide source: Dumpling Lab [YUDX `CAD/Tool.step`](https://github.com/dumplinglab/YUDX-tool-changer/blob/52e8ef6e04b93c1fa63bea4beb5c3a67a4b704aa/CAD/Tool.step),
+commit `52e8ef6e04b93c1fa63bea4beb5c3a67a4b704aa`, under the existing
+GPL-3.0 attribution. The cropped reference is
+`step/P17_YUDX_Hob_Guide_Reference.step`. Alignment is a 180-degree Y rotation,
+then translation `(0, 37.98, 31.24) mm`, matching the filament axis and paired
+upper/lower coupling-hole Z datums. Only the local
+`X = +/-3.1, Y = 19..26.1, Z = -8.3..8.5 mm` region is replaced.
+This is a geometry restoration, not physical qualification of hob-to-filament
+engagement or printed guide tolerances.
+
+**Hotend mounting blocker found during this audit:** the existing three Bambu
+`M3` holes pass through only `2.8 mm` of rear wall, with approximately `0.1 mm`
+clearance to the live core carriage. A normal `4 mm` rear insert plus a retaining
+shoulder cannot fit there. Rear boss extensions were checked and rejected because
+they collide with the core; they are **not** included in the saved model.
+Those three holes remain unchanged and are **not an approved fastener joint**.
+The modular fan joint now follows the opposite-side insert requirement, but the
+hotend mount needs a separate retention redesign before printing. The existing
+lower Bambu screw-head reference also overlaps the synthetic sock by about
+`0.224 mm3`; verify actual screw-head/sock clearance rather than cutting the
+vendor part speculatively.
+
+Regenerate with `python build_modular_toolhead.py` from this directory
+(CadQuery 2.8 and trimesh required). STEP and assembled-coordinate STL outputs
+are under `step/` and `stl/`; `_PRINT.stl` files are printing orientations.
+[`verification_modular_toolhead.json`](./verification_modular_toolhead.json)
+records solid/mesh connectivity, shared fastener paths, full insert shoulders,
+upper-interface preservation and interference with P20-P24, P18, the fan and
+the existing Bambu hotend reference. Pass
+`--core-reference <identity-transformed-core.step>` to additionally compare
+against the live core carriage (used for this audit). The new fastener envelopes stay
+above the existing Beacon/Cartographer 20 mm top-metal keepout's Z range.
+This does **not** requalify the complete printer's motion envelope, all sensor
+variants or material performance.
+
+**Existing nozzle-model discrepancy:** the intended nozzle datum remains
+`Z = -78.88 mm`, but the current synthetic Bambu STEP ends near `-78.13 mm`.
+Its through-bore removes the narrow end of the modeled tip. This review leaves
+that reference and the CPAP geometry unchanged; physical nozzle alignment must
+be confirmed before treating the earlier exact-tip claim as verified.
+
+**Two-adapter feasibility audit (not a completed adapter set):** the installed
+Red Lizard assembly is preserved in
+`step/P17M_RedLizard_Hotend_Reference.step`. Its heatsink conflicts with the
+current long-through-fan M2.5 fasteners: each lower insert envelope overlaps
+the reference by approximately `7.155 mm3`, and the upper bolt shanks also
+clip the heatsink. Do not copy the Bambu rail seats onto a Red Lizard adapter
+and assume compatibility. The original four top screws engage the metal
+K1 heatsink; these metal threads do not require printed heatset seats.
+
+A shorter M2 fastener/forward-seat alternative clears the hotend reference
+in an envelope-only check, but its insert hardware, printed shoulders,
+surrounding material and assembly access remain unqualified. It is not
+implemented, and it does not solve the independent Bambu M3 retention
+blocker above. The common carrier and saved Fusion refinement were left
+unchanged rather than replacing them with an unverified two-adapter design.
+See [`verification_two_adapter_feasibility.json`](./verification_two_adapter_feasibility.json).
+
 ---
 
 ## 4. X-Edge Gantry Keepouts, Thermal Clearance & 3D CFD (`P20`–`P22`)
@@ -228,7 +1298,7 @@ For the two-part **"Hotend Heating Assembly For Bambu Lab H2C / H2D / X2D / P2S 
 - **Voron-standard M3×4×4.6 Heat-Set Inserts (`12×`):**
   - `2×` in `P21_CPAP_Gantry_Bridge` top flange (`(±4.50, -31.20, -17.78)`)
   - `2×` in `P21_CPAP_Gantry_Bridge` upper bridge saddle (`(±6.00, -15.80, -18.40)`)
-  - `2×` in `P01_Drive_Frame` front upper bosses (`(±18.00, +11.90..15.90, -52.78)`)
+  - `2×` in `P01_Drive_Frame` front upper bosses (`(±18.00, +11.90..15.90, -52.78)`; revision-31 review: `Z = -54.28`)
   - `4×` in `P22_CPAP_Lower_Plenum` bottom registering spigots (`(±15.80, +8.50, -70.80)` & `(±15.80, -11.50, -70.80)`)
   - `2×` in `P24_EBB42_Controller_Mount` upper standoffs (`(-16.748, -21.40, +22.00)` & `(+14.252, -21.40, +22.00)`)
 - **M3 Hex Nuts (`2×`):**
@@ -236,7 +1306,7 @@ For the two-part **"Hotend Heating Assembly For Bambu Lab H2C / H2D / X2D / P2S 
 - **M3 Socket Head Cap Screws (`18×`):**
   - `2× M3×8 SHCS` — `P20` rear lugs down into `P21` (`(±4.50, -31.20)`)
   - `2× M3×8 SHCS` — `P24` lower horizontal foot down into `P21` upper bridge (`(±6.00, -15.80)`)
-  - `2× M3×10 SHCS` — `P22` front upper cheeks into `P01` (`(±18.00, -52.78)`)
+  - `2× M3×10 SHCS` — `P22` front upper cheeks into `P01` (`(±18.00, -52.78)`; revision-31 review: `Z = -54.28`)
   - `4× M3×8 SHCS` — `P23` upward into `P22` (`(±15.80, +8.50)` & `(±15.80, -11.50)`)
   - `2× M3×8 Low-Profile SHCS` — Beacon H Normal or Cartographer V3 into `P23` (`(±15.80, -0.30)`)
   - `2× M3×12 SHCS` — `P24` lower EBB42 standoffs (`Z = -9.00 mm`, from rear through `P24` into EBB42 pre-soldered standoffs)
@@ -362,5 +1432,3 @@ graph TD
 3. Make your CAD/appearance changes and **Save** (`Ctrl+S`), creating a new cloud version (`vN+1`).
 4. Toggle the leaf document back to **Read-Only** (`ui.commandDefinitions.itemById("ActiveDocumentDeactivateCommand").execute()`) to free its editable slot.
 5. Open **`00_Complete_Printer_Voron24_350_SparkShift`** (or `04_Assembled_SparkShift_Primary` if updating an intermediate sub-assembly) and click the yellow **Get All Latest** link icon in the toolbar (`UpdateAllReferencesCmd`) to pull the updated geometry across all linked instances automatically.
-
-

@@ -1,0 +1,307 @@
+{
+  "status": "CAD_REVIEW_NOT_PRINT_OR_THERMALLY_QUALIFIED",
+  "ownership": "One-piece hotend-specific printed toolhead; one 2510 remains on each tool, including when parked",
+  "airflow": "From +X side toward -X through heatsink; fan rotation/strut side must match actual airflow arrow",
+  "fan_reference": "Generic 25x25x10 mm body, assumed 20 mm mounting pitch and diameter2.8 holes; not vendor CAD",
+  "fan_center_mm": [
+    16.45,
+    25.5,
+    -35.3
+  ],
+  "shift_from_revision14_mm": [
+    0.65,
+    -4,
+    1
+  ],
+  "shift_from_revision15_mm": [
+    0,
+    -4,
+    0
+  ],
+  "fasteners": "Two upper M2.5x14 ultra-low-head screws, OD<=4.5 H<=0.8; lower mounting holes unused; actual hardware must be sourced/confirmed",
+  "inserts": "M2.5 x L3 x OD3.5, inner entry X7.45, seat X7.45..10.45, outer shoulder X10.45..11.45",
+  "insert_load_direction": "+X toward 1 mm printed shoulder, away from inner insertion mouth",
+  "unchanged": "Physical hotend reference, core and P18/P20-P25",
+  "construction": "Upper carrier and reversed Bambu mount fused into one connected printed solid; no modular shelf joint",
+  "removed_hardware": "Two shelf M2.5x20 screws and two L3 inserts; no replacement joint hardware",
+  "cleanup_revision": "18: obsolete clamp ears, clamp bores and 3010 bores removed; original P18 attachment passages restored; fan heatset corridors cut through entire body",
+  "shroud": "None: two integrated upper mounting ears only; no duct, mask, lip, baffle or lower frame",
+  "fan_inner_face_x_mm": 11.450000000000001,
+  "nominal_side_gap_to_fin_edge_mm": 3.15,
+  "heatset_installation": "Before hotend/fan assembly, from -X through diameter4.4 access corridors to the inner insert mouths",
+  "limitations": [
+    "Actual fan hole pitch, frame, connector and cable bend require vendor/physical confirmation.",
+    "Inherited core overhangs outside X+/-22.5 are reported, not silently removed.",
+    "Nominal fan-to-P22 clearance is 1.2 mm; physical tolerances and thermal movement still need assessment.",
+    "Ultra-low-head screws must fit the explicit 0.8 mm head-height envelope; ordinary 1.5 mm heads exceed the width limit.",
+    "No airflow, pressure-drop, heat-creep, bracket strength or physical insert qualification.",
+    "Sampled rear nozzle path does not certify native H2D latch/finger access.",
+    "Dock power/fan control must remain available after carriage separation; no electrical or firmware implementation is implied.",
+    "Ten-tool rack pitch and full-machine motion are not certified by a 45 mm cross-section check."
+  ],
+  "fan_clearances_mm": {
+    "P18_Tool_docking_backplate_3010": 1.5049090158718543,
+    "P20_CPAP_Hose_Inlet": 41.44819394082326,
+    "P21_CPAP_Gantry_Bridge": 12.7,
+    "P22_CPAP_Lower_Plenum": 1.2000000000000028,
+    "P23_Beacon_Cartographer_Mount": 23.045661196850048,
+    "P24_EBB42_Controller_Mount": 20.185390756683407,
+    "P25_SparkShift_3010_Dock": 7.910081649177997,
+    "Core": 0.9799999999999969,
+    "Hotend": 2.450000000000001,
+    "Existing_Hardware": 3.200000000000001
+  },
+  "static_intersections_mm3": {
+    "Fan": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "P25_SparkShift_3010_Dock": 0,
+      "Core": 0,
+      "Hotend": 0,
+      "Existing_Hardware": 0
+    },
+    "One_Piece_Body": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "P25_SparkShift_3010_Dock": 0,
+      "Core": 0,
+      "Hotend": 0,
+      "Existing_Hardware": 0
+    },
+    "Fan_Screws": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "P25_SparkShift_3010_Dock": 0,
+      "Core": 0,
+      "Hotend": 0,
+      "Existing_Hardware": 0
+    },
+    "Fan_Inserts": {
+      "P18_Tool_docking_backplate_3010": 0,
+      "P20_CPAP_Hose_Inlet": 0,
+      "P21_CPAP_Gantry_Bridge": 0,
+      "P22_CPAP_Lower_Plenum": 0,
+      "P23_Beacon_Cartographer_Mount": 0,
+      "P24_EBB42_Controller_Mount": 0,
+      "P25_SparkShift_3010_Dock": 0,
+      "Core": 0,
+      "Hotend": 0,
+      "Existing_Hardware": 0
+    }
+  },
+  "screws_to_print_mm3": 0,
+  "fan_to_print_mm3": 0,
+  "insert_seat_checks": [
+    {
+      "y": 15.5,
+      "shoulder_missing_mm3": 0,
+      "surround_missing_mm3": 0,
+      "installation_corridor_obstruction_mm3": 0
+    },
+    {
+      "y": 35.5,
+      "shoulder_missing_mm3": 0,
+      "surround_missing_mm3": 0,
+      "installation_corridor_obstruction_mm3": 0
+    }
+  ],
+  "existing_insert_shoulders_missing_mm3": [
+    0,
+    0,
+    0
+  ],
+  "complete_tool_bounds_x_mm": [
+    -15.0,
+    22.25
+  ],
+  "tool_and_accessory_bounds_x_mm_excluding_inherited_core": [
+    -22.420000100000003,
+    22.420000100000003
+  ],
+  "inherited_core_overhangs": [
+    {
+      "solid": 16,
+      "xmin": -22.69999999999992,
+      "xmax": 22.700000000000156
+    },
+    {
+      "solid": 29,
+      "xmin": 15.2216591,
+      "xmax": 22.680000000000117
+    },
+    {
+      "solid": 30,
+      "xmin": -22.6799999999999,
+      "xmax": -15.2216590999999
+    },
+    {
+      "solid": 31,
+      "xmin": 15.2216591000001,
+      "xmax": 22.680000000000117
+    },
+    {
+      "solid": 32,
+      "xmin": -22.6799999999999,
+      "xmax": -15.221659099999881
+    },
+    {
+      "solid": 92,
+      "xmin": -25.006607691111803,
+      "xmax": -16.4506156387546
+    },
+    {
+      "solid": 93,
+      "xmin": -23.875236841213304,
+      "xmax": -15.3192447888561
+    },
+    {
+      "solid": 94,
+      "xmin": -22.743865991314802,
+      "xmax": -14.1878739389576
+    }
+  ],
+  "adjacent_45mm_pitch_overlap_mm3": {
+    "-45": 0,
+    "45": 0
+  },
+  "removed_tool_sampled_nozzle_path": [
+    {
+      "down_mm": 0,
+      "rearward_mm": 0,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 1,
+      "rearward_mm": 0,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 2,
+      "rearward_mm": 0,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 3,
+      "rearward_mm": 0,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 0,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 2,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 4,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 6,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 8,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 10,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 12,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 14,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 16,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 18,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 20,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 22,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 24,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 26,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 28,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 30,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 32,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 34,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 36,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 38,
+      "overlap_mm3": 0
+    },
+    {
+      "down_mm": 4,
+      "rearward_mm": 40,
+      "overlap_mm3": 0
+    }
+  ],
+  "export_solids": 128
+}

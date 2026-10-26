@@ -109,6 +109,37 @@ mechanism; ordinary extrusion remains independent of release.
 
 ## Accessory, Dock, Crossbar Mount, Calibration Jig & COTS Core Upgrade Suite (`P20`–`P29_L/R`, `P17_3010`/`2510`, `P18_3010`, `P01_COTS`, `P02_COTS`, `P05_COTS`)
 
+**Current side-fan mechanical review: blocked by bed collision.** See
+[revision 22: low-Z audit and shelf refinement](cad/SparkShift_Accessories_v26/README.md#33-one-piece-bambu-toolhead-with-side-2510).
+The current Bambu printed body is **revision 30**, rebuilt from revision 22.
+It encloses the filament path at the hotend inlet, restores the solid front
+neck under P18, fills the old fan-insert grooves, closes the lower P18 insert
+pockets inside the flange, and seats the fan on two round heat-set bosses
+with a 1.5 mm air gap to the heatsink. The fan is 1.65 mm closer to the
+hotend than in revision 29, and a shelf strip that sat 0.10 mm from the
+active carriage at the dock is removed (also on the Red Lizard body).
+A revision-31 carriage review lowers the P22-to-P01 front mounts 1.5 mm,
+raising the gap under every tool's side fan from 0.98 mm to 2.48 mm; it
+needs the same boss move in the native P01 before use. Revision 32 trims
+both printed bodies to the original ±12.40 mm width on the non-fan side
+and removes a 0.05 mm Red Lizard skin, raising the closest side clearance
+to the active carriage from 1.30 mm to 1.73 mm.
+Revisions 25-29 are superseded. It remains a review candidate, not print or
+machine approval, and does not resolve the machine-layout blocker.
+The gantry-mounted docks hit the actual bed at first-layer height.
+Ten tools fit laterally, but the rack is **not build-approved**.
+Moving it far enough forward also exceeds collision-free gantry reach.
+The earlier revision-21 lateral/path pass did not include this bed-height test.
+A separate 15 mm independent-rack-lift motion study clears the modeled
+bed/gantry envelopes, but requires new guides, supports, retention and
+actuation. It is **a kinematic concept only**, not a buildable replacement;
+the inherited bed, gantry and toolheads have not been altered for it.
+Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
+6.5 mm forward dock standoff and requires straight-Y withdrawal before X
+travel. The Klipper file below is a historical **nine-bay** template, not a
+commissioned configuration for these ten side-fan tools. Its lateral wipes
+must not be used with the current rack.
+
 Building directly on the frozen **v26j / timeline 1648** carriage with **zero unintended modifications (`0.000 mm³` clash)** to any of the 135 core bodies, the **[SparkShift v26 Accessory & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md)** and **[Klipper Toolchanger Macro Suite (`klipper/sparkshift_toolchanger.cfg`)](klipper/sparkshift_toolchanger.cfg)** add **14 pure-primitive accessory/dock/rack/jig parts** (`0` BSpline/mesh/sphere faces, `0` sliver faces `< 0.15 mm²`, `100%` watertight manifold STLs) plus **3 COTS-qualified core drop-in parts**:
 
 - **`P20_CPAP_Hose_Inlet`**, **`P21_CPAP_Gantry_Bridge`**, **`P22_CPAP_Lower_Plenum`:** 3-part directional-shingle CPAP cooling duct (`353.40 mm²` trunk behind the **Monolith 2WD 9mm gantry**, `0.000 mm³` X-limit gantry clash, `0.00 mm` internal shingle bore steps, sweeping `R = 61.0 mm` inner / `R = 50.0 mm` outer elbow curve, inward-curving tapered volute gooseneck (`Y_max = 29.43 mm`, `0.0 mm³` dead-end pocket) feeding a `35°` sub-sock nozzle louver throat, `≥ 4.65 mm` 3D thermal keepout around the Volcano silicone sock, `≥ 5.90 mm` from the bare `350 °C` heatblock) with a dual-barb (`Ø21.6 / Ø21.8 mm`) spigot for the **Trianglelab Supercharged 7040 Blower (`21.5 mm` ID cuff)**.

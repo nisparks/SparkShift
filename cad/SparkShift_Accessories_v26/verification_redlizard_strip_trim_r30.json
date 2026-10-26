@@ -1,0 +1,49 @@
+{
+  "status": "LOCAL_CAD_REVIEW_NOT_PRINT_OR_MACHINE_QUALIFICATION",
+  "baseline": {
+    "file": "RedLizard_Side2510_Shelf_Clearance_R22_REVIEW.step",
+    "sha256": "900421273a5ac01868e825484253a7d50b552ee004d5a4007177705236c30610"
+  },
+  "change": "Removal only: shelf strip behind the fan beyond the X11.45 fan face (Y11.5..12.75, below Z-22.5).",
+  "removed_mm3": 6.3005525771538196,
+  "volume_conservation_error_mm3": 2.1206237459381327e-05,
+  "bounds_mm": [
+    -13.500599246777984,
+    15.000000100000179,
+    11.499400753222016,
+    38.000000100000015,
+    -47.80000010000001,
+    48.74215906712453
+  ],
+  "baseline_bounds_mm": [
+    -13.5,
+    15.0,
+    11.5,
+    38.0,
+    -47.8,
+    48.7400001
+  ],
+  "minimum_distances": {
+    "active_carriage_to_parked_redlizard_body_before": {
+      "mm": 0.09999999999999964,
+      "neighbour_dx_mm": -37.3,
+      "carriage_dy_mm": 0
+    },
+    "active_carriage_to_parked_redlizard_body_after": {
+      "mm": 1.303840481040495,
+      "neighbour_dx_mm": 37.3,
+      "carriage_dy_mm": 0
+    }
+  },
+  "note": "Body-only distances; the Red Lizard hotend, fan and hardware are unchanged. Removal cannot create new interference, so revision-22 motion checks still apply.",
+  "exports": [
+    {
+      "file": "step\\RedLizard_Side2510_Strip_Trim_R30_REVIEW.step",
+      "sha256": "9b9b5b9bbecc6d1a32bdeabdc708f15e4b9057a92b6d8969a6c7cf67ceb5483f"
+    },
+    {
+      "file": "stl\\RedLizard_Side2510_Strip_Trim_R30_REVIEW.stl",
+      "sha256": "01c9b41135c709435def319fd2e619c8c50f62b580034d47d0b569c75f7fdc26"
+    }
+  ]
+}

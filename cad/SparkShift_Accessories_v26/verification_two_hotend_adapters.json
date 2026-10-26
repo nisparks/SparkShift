@@ -1,0 +1,260 @@
+{
+  "status": "CAD_REVIEW_PHYSICAL_QUALIFICATION_REQUIRED",
+  "common_carrier": "P17M_Reusable_Carrier_3010_REVIEW; unchanged",
+  "interface": {
+    "seam_y_mm": 32.05,
+    "shared_axes_xz_mm": [
+      [
+        -12.0,
+        -49.5
+      ],
+      [
+        -12.0,
+        -25.5
+      ],
+      [
+        12.0,
+        -49.5
+      ],
+      [
+        12.0,
+        -25.5
+      ]
+    ],
+    "inserts": "4 x M2 OD3.2 x L2, rear-entry at Y29, pilot diameter2.8",
+    "insert_shoulder_mm": 1.05,
+    "verified_insert_surround_mm": 0.75,
+    "screws": "4 x M2x18 with 0.5 mm washers, through 10 mm fan and blue carrier",
+    "thread_engagement_mm": 2.0,
+    "load_direction": "+Y, into the printed shoulder, opposite rear insertion opening"
+  },
+  "bambu_retention": {
+    "hardware": "3 x M2x5 button-head screws (maximum OD3.5 x H1.3), rear-entry M2 OD3.2 x L2 heatsets, and two upper OD4.5 x ID2.2 x 0.5 mm washers",
+    "insert_entry_y_mm": 11.5,
+    "insert_shoulder_y_mm": 13.5,
+    "pilot_diameter_mm": 2.8,
+    "retaining_wall_mm": 0.8,
+    "thread_engagement_mm": 2.0,
+    "reason": "Compact M2 heatsets fit the original 2.8 mm wall; ceramic holes and hotend datum unchanged",
+    "removed_top_holes_xy_mm": [
+      [
+        -5.657,
+        17.043
+      ],
+      [
+        -5.657,
+        28.357
+      ],
+      [
+        5.657,
+        17.043
+      ],
+      [
+        5.657,
+        28.357
+      ]
+    ]
+  },
+  "red_lizard_retention": "Original 4 x M2.5x8 screws into the metal heatsink; no inserts in metal threads",
+  "hardware_sources": {
+    "M2_short_insert_envelope": "https://www.amazon.com/kvohlum-Threaded-Inserts-Nut/dp/B0D3B4VDH4",
+    "M2_button_head_dimensions": "https://monsterbolts.com/pages/m2-bolt-size"
+  },
+  "parts": {
+    "Bambu": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 8026.104498024852,
+      "checks": {
+        "blue_overlap_mm3": 0,
+        "hotend_overlap_mm3": 0,
+        "P18_Tool_docking_backplate_3010_overlap_mm3": 0,
+        "P20_CPAP_Hose_Inlet_overlap_mm3": 0,
+        "P21_CPAP_Gantry_Bridge_overlap_mm3": 0,
+        "P22_CPAP_Lower_Plenum_overlap_mm3": 0,
+        "P23_Beacon_Cartographer_Mount_overlap_mm3": 0,
+        "P24_EBB42_Controller_Mount_overlap_mm3": 0,
+        "core_overlap_mm3": 0,
+        "fan_overlap_mm3": 0,
+        "P18_Tool_docking_backplate_3010_hardware_overlap_mm3": 0,
+        "P20_CPAP_Hose_Inlet_hardware_overlap_mm3": 0,
+        "P21_CPAP_Gantry_Bridge_hardware_overlap_mm3": 0,
+        "P22_CPAP_Lower_Plenum_hardware_overlap_mm3": 0,
+        "P23_Beacon_Cartographer_Mount_hardware_overlap_mm3": 0,
+        "P24_EBB42_Controller_Mount_hardware_overlap_mm3": 0,
+        "core_hardware_overlap_mm3": 0,
+        "fan_hardware_overlap_mm3": 0,
+        "hotend_hardware_overlap_mm3": 0
+      },
+      "seats": [
+        {
+          "axis_xz_mm": [
+            -12.0,
+            -49.5
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0,
+          "blocked_pilot_mm3": 0,
+          "blocked_shank_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            -12.0,
+            -25.5
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0,
+          "blocked_pilot_mm3": 0,
+          "blocked_shank_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            12.0,
+            -49.5
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0,
+          "blocked_pilot_mm3": 0,
+          "blocked_shank_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            12.0,
+            -25.5
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0,
+          "blocked_pilot_mm3": 0,
+          "blocked_shank_mm3": 0
+        }
+      ],
+      "front_contact_finite_shift_mm2": 205.63233748842447,
+      "mesh_watertight": true
+    },
+    "RedLizard": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4732.865947229433,
+      "checks": {
+        "blue_overlap_mm3": 0,
+        "hotend_overlap_mm3": 0,
+        "P18_Tool_docking_backplate_3010_overlap_mm3": 0,
+        "P20_CPAP_Hose_Inlet_overlap_mm3": 0,
+        "P21_CPAP_Gantry_Bridge_overlap_mm3": 0,
+        "P22_CPAP_Lower_Plenum_overlap_mm3": 0,
+        "P23_Beacon_Cartographer_Mount_overlap_mm3": 0,
+        "P24_EBB42_Controller_Mount_overlap_mm3": 0,
+        "core_overlap_mm3": 0,
+        "fan_overlap_mm3": 0,
+        "P18_Tool_docking_backplate_3010_hardware_overlap_mm3": 0,
+        "P20_CPAP_Hose_Inlet_hardware_overlap_mm3": 0,
+        "P21_CPAP_Gantry_Bridge_hardware_overlap_mm3": 0,
+        "P22_CPAP_Lower_Plenum_hardware_overlap_mm3": 0,
+        "P23_Beacon_Cartographer_Mount_hardware_overlap_mm3": 0,
+        "P24_EBB42_Controller_Mount_hardware_overlap_mm3": 0,
+        "core_hardware_overlap_mm3": 0,
+        "fan_hardware_overlap_mm3": 0,
+        "hotend_hardware_overlap_mm3": 0
+      },
+      "seats": [
+        {
+          "axis_xz_mm": [
+            -12.0,
+            -49.5
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0,
+          "blocked_pilot_mm3": 0,
+          "blocked_shank_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            -12.0,
+            -25.5
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0,
+          "blocked_pilot_mm3": 0,
+          "blocked_shank_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            12.0,
+            -49.5
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0,
+          "blocked_pilot_mm3": 0,
+          "blocked_shank_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            12.0,
+            -25.5
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0,
+          "blocked_pilot_mm3": 0,
+          "blocked_shank_mm3": 0
+        }
+      ],
+      "front_contact_finite_shift_mm2": 214.87921966944617,
+      "mesh_watertight": true
+    }
+  },
+  "limitations": [
+    "CAD review only: no physical print, heat-creep, torque or repeatability qualification.",
+    "M2 insert pilot must be coupon-calibrated for selected supplier and polymer.",
+    "Do not substitute the old long M2.5 fan screws or old 4 mm inserts.",
+    "Bambu's 0.8 mm retaining shoulders require physical torque and heat-creep qualification.",
+    "Bambu synthetic nozzle tip discrepancy remains; CPAP and hotend references are unchanged.",
+    "Metal clearance checks retain the existing sensor top-keepout Z datum, not full sensor certification.",
+    "Do not assume support-free printing from oriented exports; inspect slicer bridges and overhangs."
+  ],
+  "red_lizard_head_seating_contact_mm2": [
+    10.178760197534244,
+    10.178760197534244,
+    10.178760197534244,
+    10.178760197534244
+  ],
+  "bambu_hotend_insert_seats": [
+    {
+      "axis_xz_mm": [
+        -6.0,
+        -40.13
+      ],
+      "missing_retaining_wall_mm3": 0,
+      "missing_insert_surround_mm3": 0,
+      "blocked_pilot_mm3": 0,
+      "blocked_shank_mm3": 0
+    },
+    {
+      "axis_xz_mm": [
+        6.0,
+        -40.13
+      ],
+      "missing_retaining_wall_mm3": 0,
+      "missing_insert_surround_mm3": 0,
+      "blocked_pilot_mm3": 0,
+      "blocked_shank_mm3": 0
+    },
+    {
+      "axis_xz_mm": [
+        0.0,
+        -50.63
+      ],
+      "missing_retaining_wall_mm3": 0,
+      "missing_insert_surround_mm3": 0,
+      "blocked_pilot_mm3": 0,
+      "blocked_shank_mm3": 0
+    }
+  ],
+  "bambu_removed_top_holes_missing_material_mm3": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "new_metal_min_z_mm": -52.38,
+  "comparison_step_solid_count": 57
+}

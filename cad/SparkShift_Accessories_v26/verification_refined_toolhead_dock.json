@@ -1,0 +1,447 @@
+{
+  "status": "CAD_REVIEW_NOT_PHYSICAL_THERMAL_OR_PRINT_QUALIFICATION",
+  "failures": [],
+  "printed_parts": {
+    "P25_Side_Fan_Refined_Dock_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 74723.54329008448,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -18.650000000000002,
+        18.650000000000002,
+        20.910081649178,
+        74.910082,
+        -86.07940009999,
+        37.22060010000301
+      ]
+    },
+    "P26_Nozzle_Entry_Clearance_Chute_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3254.9167438233394,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -15.00059190128403,
+        15.000591901283906,
+        7.999397537392406,
+        45.91059494969867,
+        -92.08060246260759,
+        -78.79939753739241
+      ]
+    },
+    "RedLizard_Side2510_Clearance_Refined_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 8352.15751073486,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -14.00000010000018,
+        15.00000010000018,
+        11.499389226608999,
+        38.000000100000015,
+        -47.80000010000001,
+        48.74215906712453
+      ]
+    },
+    "Bambu_One_Piece_Docking_Audited_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 13604.394160369802,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -14.000683667555272,
+        15.000000100002746,
+        11.499488816329734,
+        38.00182779347517,
+        -65.93000010000334,
+        48.74215906712453
+      ]
+    },
+    "Bambu_Dock_Ooze_Pad_SILICONE_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 164.63524304380658,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -3.8003615175645558,
+        3.800370347803368,
+        21.10962965219663,
+        28.710361517564557,
+        -81.07977034780338,
+        -78.13082965219664
+      ]
+    },
+    "Bambu_Dock_Wiper_SILICONE_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 182.38228217211238,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -7.500210926912659,
+        7.500210926912659,
+        9.449789073087342,
+        11.950210926912657,
+        -83.75021092691266,
+        -78.13096678650061
+      ]
+    },
+    "RedLizard_Dock_Ooze_Pad_SILICONE_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 122.34379553215663,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -3.8003615175645558,
+        3.800370347803368,
+        21.10962965219663,
+        28.710361517564557,
+        -81.07977034780338,
+        -78.87903443696842
+      ]
+    },
+    "RedLizard_Dock_Wiper_SILICONE_REVIEW": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 154.6393123402651,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "bounds_mm": [
+        -7.500210926912659,
+        7.500210926912659,
+        9.449789073087342,
+        11.950210926912657,
+        -83.75021092691266,
+        -78.8791715712724
+      ]
+    }
+  },
+  "variants": {
+    "Bambu": {
+      "nozzle_tip_z_mm": -78.1312,
+      "pad_top_z_mm": -78.13082965219664,
+      "wiper_top_z_mm": -78.13096678650061,
+      "pad_floor_z_mm": -81.07977034780338,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_center_mm": [
+        16.45,
+        25.5,
+        -35.3
+      ],
+      "fan_screw_outer_x_mm": 22.25,
+      "nozzle_contact_height_error_mm": 0.00037034780336853146,
+      "pad_support_area_finite_shift_mm2": 29.591006384669004,
+      "dock_pairwise_intersections": [
+        {
+          "a": "Dock_0",
+          "b": "Dock_1",
+          "hits": {
+            "Dock_1": 14.6790109771357
+          },
+          "classification": "Preserved flexible snap detent"
+        },
+        {
+          "a": "Dock_0",
+          "b": "Dock_2",
+          "hits": {
+            "Dock_2": 14.67901097712221
+          },
+          "classification": "Preserved flexible snap detent"
+        }
+      ],
+      "parked_intersections": {
+        "body": {},
+        "hotend": {},
+        "fan": {},
+        "fan_screws": {},
+        "inserts": {},
+        "hardware": {},
+        "Backplate": {},
+        "Coupling": {}
+      },
+      "new_metal_probe_keepout": {},
+      "fan_heatset_checks": [
+        {
+          "axis_yz_mm": [
+            15.5,
+            -25.3
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0
+        },
+        {
+          "axis_yz_mm": [
+            35.5,
+            -25.3
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0
+        }
+      ],
+      "hotend_mount_checks": [
+        {
+          "axis_xz_mm": [
+            -6.0,
+            -40.13
+          ],
+          "missing_seat_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            6.0,
+            -40.13
+          ],
+          "missing_seat_mm3": 0
+        },
+        {
+          "axis_xz_mm": [
+            0.0,
+            -50.63
+          ],
+          "missing_seat_mm3": 0
+        }
+      ],
+      "approach_and_retreat_samples": 121,
+      "approach_hits": [],
+      "carriage_retreat_hits": [],
+      "tool_x_bounds_mm": [
+        -14.000683667555272,
+        22.25
+      ],
+      "export": {
+        "solids": 145,
+        "expected_solids": 145,
+        "valid": true,
+        "sha256": "999a7fad30f134dea31abce6ded3058b8f35101969ea5eb497d268b2a462f101"
+      }
+    },
+    "RedLizard": {
+      "nozzle_tip_z_mm": -78.8794047847718,
+      "pad_top_z_mm": -78.87903443696842,
+      "wiper_top_z_mm": -78.8791715712724,
+      "pad_floor_z_mm": -81.07977034780338,
+      "fan_to_hotend_mm": 0.5999999999998664,
+      "fan_center_mm": [
+        16.599999999999998,
+        25.5,
+        -35.3
+      ],
+      "fan_screw_outer_x_mm": 22.4,
+      "nozzle_contact_height_error_mm": 0.00037034780336853146,
+      "pad_support_area_finite_shift_mm2": 29.591006384677353,
+      "dock_pairwise_intersections": [
+        {
+          "a": "Dock_0",
+          "b": "Dock_1",
+          "hits": {
+            "Dock_1": 14.6790109771357
+          },
+          "classification": "Preserved flexible snap detent"
+        },
+        {
+          "a": "Dock_0",
+          "b": "Dock_2",
+          "hits": {
+            "Dock_2": 14.67901097712221
+          },
+          "classification": "Preserved flexible snap detent"
+        }
+      ],
+      "parked_intersections": {
+        "body": {},
+        "hotend": {},
+        "fan": {},
+        "fan_screws": {},
+        "inserts": {},
+        "Backplate": {},
+        "Coupling": {}
+      },
+      "new_metal_probe_keepout": {},
+      "fan_heatset_checks": [
+        {
+          "axis_yz_mm": [
+            35.5,
+            -25.3
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0
+        },
+        {
+          "axis_yz_mm": [
+            35.5,
+            -45.3
+          ],
+          "missing_shoulder_mm3": 0,
+          "missing_surround_mm3": 0
+        }
+      ],
+      "hotend_mount_checks": [
+        {
+          "axis_xy_mm": [
+            -5.657,
+            17.043
+          ],
+          "missing_bearing_mm3": 0
+        },
+        {
+          "axis_xy_mm": [
+            -5.657,
+            28.357
+          ],
+          "missing_bearing_mm3": 0
+        },
+        {
+          "axis_xy_mm": [
+            5.657,
+            17.043
+          ],
+          "missing_bearing_mm3": 0
+        },
+        {
+          "axis_xy_mm": [
+            5.657,
+            28.357
+          ],
+          "missing_bearing_mm3": 0
+        }
+      ],
+      "approach_and_retreat_samples": 121,
+      "approach_hits": [],
+      "carriage_retreat_hits": [],
+      "tool_x_bounds_mm": [
+        -14.00000010000018,
+        22.4
+      ],
+      "export": {
+        "solids": 144,
+        "expected_solids": 144,
+        "valid": true,
+        "sha256": "83e7c9b7ad981295bd9496abcc8242a64c90e5d8d841afa42971d67ee40e40c4"
+      }
+    }
+  },
+  "dock_relief": {
+    "baseline_backplate_overlap_mm3": 55.05697493437278,
+    "removed_dock_volume_mm3": 91.66450693612569,
+    "motion_sampling_mm": 0.5,
+    "lip_clearance_mm": 0.2,
+    "backplate_changed": false
+  },
+  "coupling": {
+    "pin_diameter_mm": 4.96,
+    "bushing_bore_mm": 5.04,
+    "diametral_clearance_mm": 0.08,
+    "tool_dock_magnet_face_gap_mm": 0.26008199999999704,
+    "pin_and_tool_magnet_backplate_interference_mm3": 0
+  },
+  "inherited_snap_detents_mm3": {
+    "1": 14.6790109771357,
+    "2": 14.67901097712221
+  },
+  "snap_detent_note": "Two 0.9 mm side nibs on each jaw geometrically overlap the dock; preserved as snap retention, not counted as rigid collision-free or physically qualified.",
+  "coupling_retention_note": "Pin/bushing engagement and magnet gap retained; magnet holding force, jaw deflection, wear and T-lug load capacity are not validated.",
+  "chute_refinement": {
+    "removed_mm3": 10.307888082344562,
+    "entry_relief": "Radius1.6 longitudinal nozzle-tip clearance at purge-window rear lip"
+  },
+  "neighbor_checks": [
+    {
+      "tool": "Bambu",
+      "neighbor": "Bambu",
+      "pitch_x_mm": -37.3,
+      "hits": []
+    },
+    {
+      "tool": "Bambu",
+      "neighbor": "Bambu",
+      "pitch_x_mm": 37.3,
+      "hits": []
+    },
+    {
+      "tool": "Bambu",
+      "neighbor": "RedLizard",
+      "pitch_x_mm": -37.3,
+      "hits": []
+    },
+    {
+      "tool": "Bambu",
+      "neighbor": "RedLizard",
+      "pitch_x_mm": 37.3,
+      "hits": []
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "Bambu",
+      "pitch_x_mm": -37.3,
+      "hits": []
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "Bambu",
+      "pitch_x_mm": 37.3,
+      "hits": []
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "RedLizard",
+      "pitch_x_mm": -37.3,
+      "hits": []
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "RedLizard",
+      "pitch_x_mm": 37.3,
+      "hits": []
+    }
+  ],
+  "rack": {
+    "pitch_mm": 37.3,
+    "collars_touch": true,
+    "centers_x_mm": [
+      7.0,
+      44.3,
+      81.6,
+      118.89999999999999,
+      156.2,
+      193.5,
+      230.79999999999998,
+      268.09999999999997,
+      305.4,
+      342.7
+    ],
+    "center_span_mm": 335.7,
+    "software_travel_assumed_mm": [
+      0,
+      350
+    ],
+    "unchanged": "P29 rack mounts, P30 end spacers, 2020 collar and existing center datums",
+    "qualification": "Mixed immediate-neighbor sampled clearance only; printer X-end and hardware limits not re-certified."
+  },
+  "shelf_refinement": "Unused left shelf edge trimmed from X-15 to X-14 below Z-22.5 on both variants. Functional upper stems, coupling pockets and hotend mounts are not changed.",
+  "limitations": [
+    "Physical docking repeatability, jaw snap strain, magnet strength and collision margins need measurement.",
+    "Cam actuation/servo/peel moves are not simulated; straight approach/retreat is not a complete machine sequence.",
+    "Fan cooling, polymer creep, vibration, inserts, screw availability and actual connectors remain unqualified.",
+    "Red Lizard minimum fan gap improves from 0.45 to 0.60 mm; actual tolerance stack may still require more clearance.",
+    "No parked fan power contacts/control/interlock implemented; fan must remain powered through cooldown.",
+    "Pads/wipers are silicone references, not ordinary rigid filament prints. Fit their heights to measured physical nozzle datum.",
+    "Bambu tip is the reconstructed reference; do not shift hotend just to make synthetic CAD match intended datum.",
+    "Beacon geometry and Cartographer physical reference checked, not RF/EM calibration or thermal certification."
+  ],
+  "passed": true
+}

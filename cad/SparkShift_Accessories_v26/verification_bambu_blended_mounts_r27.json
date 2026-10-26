@@ -1,0 +1,113 @@
+{
+  "native_fusion_readback": {
+    "archive": "27_Bambu_Blended_Mounts_Complete_REVIEW.f3d (session artifacts)",
+    "archive_sha256": "2dbc15cef0c89a65cf56660409569da8ac03784e3fe7965190bbb04422043b11",
+    "document": "27 Bambu - Refined Webs - Native Review",
+    "body_count": 145,
+    "all_bodies_solid": true,
+    "printed_body_volume_mm3_very_high_accuracy": 15202.407132314414,
+    "volume_difference_from_cadquery_mm3": -0.0013003150452277623,
+    "inspection_images": [
+      "images/52_bambu_r27_fusion_inner_review.png",
+      "images/53_bambu_r27_fusion_fan_seats.png"
+    ],
+    "note": "Native archive exported and reopened. Other assembly references are retained but hidden for local inspection. This evidence applies to the export fingerprints below; rerunning the builder regenerates the report and requires a fresh native readback."
+  },
+  "status": "LOCAL_GEOMETRY_REFINEMENT_NOT_PRINT_OR_MACHINE_APPROVAL",
+  "source_report_sha256": "6eb1417d29a50cac2367ab680b43970ffecde2234d3b5e966da37ca3aa6da230",
+  "source_body_sha256": "ebebee5ade56d73d66779e5fa6e1e322dbaee711a59c0acaf1d14ea7e3d9f7db",
+  "bounds_mm": [
+    -13.5,
+    15.0,
+    11.5,
+    38.0,
+    -65.93,
+    48.7400001
+  ],
+  "body_volume_mm3": 15202.40843262946,
+  "removed_vs_r26_mm3": 309.019341796542,
+  "additions_outside_r26_mm3": 0,
+  "common_with_r26_mm3": 15202.408462961224,
+  "feature_gauges_mm3": {
+    "seat_15.5_missing_wall_mm3": 0,
+    "seat_15.5_blocked_pilot_mm3": 0,
+    "old_access_axis_15.5_unfilled_mm3": 0,
+    "seat_35.5_missing_wall_mm3": 0,
+    "seat_35.5_blocked_pilot_mm3": 0,
+    "old_access_axis_35.5_unfilled_mm3": 0,
+    "connector_pocket_blocked_mm3": 0,
+    "fan_recess_razor_lip_remaining_mm3": 0,
+    "upper_rear_screw_seats_removed_mm3": -2.7284841053187847e-12,
+    "upper_coupling_removed_mm3": 0.0,
+    "hotend_mount_and_enclosed_guide_removed_mm3": 9.094947017729282e-13,
+    "filament_axis_blocked_mm3": 0,
+    "inlet_sleeve_missing_wall_mm3": 0
+  },
+  "protected_intersections_mm3": {},
+  "changes": [
+    "Tapered web undersides run from the inherited Z-26 shelf to full-depth Z-28.3 seats at X7.2; no new bounding space.",
+    "R1.2 rear and R0.8 front exposed inner pad corners; R0.5 upper rear external corners.",
+    "Removed added 0.2mm top lips without trimming the inherited print or upper rear attachment.",
+    "Removed 0.05-0.15mm front membrane remnants; planar Y11.8 interface setback.",
+    "Consolidated three tiny core connector cutouts and fragile separating webs into one 3.74mm-wide by1.1294mm-high clearance pocket, ending at Y16.",
+    "Removed the inherited 0.05mm overhanging membrane along the top of the fan recess; retained the adjacent solid shelf and insert seats."
+  ],
+  "unchanged": "Fan position, L4 outer-entry inserts, fan screw engagement, hotend mount, guide/socket, upper rear screw seats and coupling, core, dock, 37.3mm pitch and hardware.",
+  "inherited_clearance_evidence": {
+    "basis": "Verified R27 is a subtractive subset of hash-matched R26. All other assembly solids are reused unchanged; subtraction cannot increase swept rigid intersection volume.",
+    "r26_dock_samples": 121,
+    "r26_neighbor_checks": [
+      {
+        "variant": "Bambu",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": []
+      },
+      {
+        "variant": "Bambu",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": []
+      },
+      {
+        "variant": "RedLizard",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": []
+      },
+      {
+        "variant": "RedLizard",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": []
+      }
+    ],
+    "r26_hotend_service_samples": 57,
+    "note": "Not a new continuous-motion or structural qualification."
+  },
+  "limitations": [
+    "Existing original rack bed collision and probe cable entry issue remain.",
+    "Required clearance to a separate core/backplate is not a gap that may be arbitrarily bridged.",
+    "Cool-side guide/socket fit and temperature, structural behavior, fan cooling and insert pullout are unqualified.",
+    "Outer-entry heatsets require physical pullout, material and tightening qualification.",
+    "Core-clearance pocket and tapered web stiffness require print/fit review; this is not acceptance by visual appearance alone."
+  ],
+  "exports": [
+    {
+      "file": "step\\Bambu_Blended_Closed_Fan_Seats_R27_REVIEW.step",
+      "sha256": "f8666e0e2d5282fae46bceb5099f516026cdd6ab97659e336954e34f8573a948"
+    },
+    {
+      "file": "stl\\Bambu_Blended_Closed_Fan_Seats_R27_REVIEW.stl",
+      "sha256": "50a98e21c732ab75a668bdd5b64d026b68329ae8149d7a5ec6962cb68f88c712"
+    },
+    {
+      "file": "step\\27_Bambu_Blended_Mounts_Toolhead_REVIEW.step",
+      "sha256": "d0c58f4b7aec70cbcf746803c462b646e9e739c4e8c58ac2d5c4fd1e8840eb89"
+    },
+    {
+      "file": "step\\27_Bambu_Blended_Mounts_Complete_REVIEW.step",
+      "sha256": "780893f4eb9133227ff9a8b4b1cdc3ad7189ca762eefa0c95d773d48d6db73c0"
+    }
+  ]
+}

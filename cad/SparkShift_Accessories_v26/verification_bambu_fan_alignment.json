@@ -1,0 +1,312 @@
+{
+  "status": "ALIGNMENT_STUDY_ONLY_NO_MOUNT_OR_THERMAL_APPROVAL",
+  "fin_face_count": 14,
+  "fin_bounds_mm": [
+    -8.300000000000002,
+    8.300000000000002,
+    15.699999999999998,
+    26.02,
+    -49.68,
+    -32.38
+  ],
+  "fin_projected_center_yz_mm": [
+    20.86,
+    -41.03
+  ],
+  "candidates": [
+    {
+      "name": "Current",
+      "center_mm": [
+        16.45,
+        25.5,
+        -35.3
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.7104612177145821,
+      "annular_coverage_fraction": 0.560929448562125,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 1.2000000000000028,
+      "fan_to_core_mm": 0.980000000000004,
+      "fan_envelope_intersections_mm3": {}
+    },
+    {
+      "name": "Halfway_to_fin_center",
+      "center_mm": [
+        16.45,
+        23.18,
+        -38.165
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        -2.3200000000000003,
+        -2.865000000000002
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.9297540263573305,
+      "annular_coverage_fraction": 0.6734222859031033,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 0.0,
+      "fan_to_core_mm": 0.0,
+      "fan_envelope_intersections_mm3": {
+        "Existing_printed_body": 1.486562500000004,
+        "P22_CPAP_Lower_Plenum": 59.96912168795988,
+        "Core_With_Restrained_AHG_Lead_References_REVIEW": 211.70043030338346
+      }
+    },
+    {
+      "name": "Fin_center",
+      "center_mm": [
+        16.45,
+        20.86,
+        -41.03
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        -4.640000000000001,
+        -5.730000000000004
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 1.0,
+      "annular_coverage_fraction": 0.7184574401944892,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 0.0,
+      "fan_to_core_mm": 0.0,
+      "fan_envelope_intersections_mm3": {
+        "P22_CPAP_Lower_Plenum": 103.78085041440643,
+        "Core_With_Restrained_AHG_Lead_References_REVIEW": 808.3088975671094
+      }
+    },
+    {
+      "name": "Fin_center_inward_1mm",
+      "center_mm": [
+        15.45,
+        20.86,
+        -41.03
+      ],
+      "center_offset_from_current_mm": [
+        -1.0,
+        -4.640000000000001,
+        -5.730000000000004
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 1.0,
+      "annular_coverage_fraction": 0.7184574401944892,
+      "fan_to_hotend_mm": 1.4499999999999993,
+      "fan_to_P22_mm": 0.0,
+      "fan_to_core_mm": 0.0,
+      "fan_envelope_intersections_mm3": {
+        "P22_CPAP_Lower_Plenum": 83.8353970671411,
+        "Core_With_Restrained_AHG_Lead_References_REVIEW": 781.0977025414493
+      }
+    },
+    {
+      "name": "Inward_only_1mm",
+      "center_mm": [
+        15.45,
+        25.5,
+        -35.3
+      ],
+      "center_offset_from_current_mm": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.7104612177145821,
+      "annular_coverage_fraction": 0.560929448562125,
+      "fan_to_hotend_mm": 1.4499999999999993,
+      "fan_to_P22_mm": 1.2000000000000028,
+      "fan_to_core_mm": 0.980000000000004,
+      "fan_envelope_intersections_mm3": {
+        "Existing_printed_body": 62.721472299036265
+      }
+    },
+    {
+      "name": "Lower_only_0p5mm",
+      "center_mm": [
+        16.45,
+        25.5,
+        -35.8
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        0.0,
+        -0.5
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.7393629518186314,
+      "annular_coverage_fraction": 0.5815756191435557,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 0.7000000000000028,
+      "fan_to_core_mm": 0.480000000000004,
+      "fan_envelope_intersections_mm3": {}
+    },
+    {
+      "name": "Lower_only_1mm",
+      "center_mm": [
+        16.45,
+        25.5,
+        -36.3
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.7682646859226727,
+      "annular_coverage_fraction": 0.6046969506606337,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 0.20000000000000284,
+      "fan_to_core_mm": 0.0,
+      "fan_envelope_intersections_mm3": {
+        "Core_With_Restrained_AHG_Lead_References_REVIEW": 0.030910122966099036
+      }
+    },
+    {
+      "name": "Lower_only_2mm",
+      "center_mm": [
+        16.45,
+        25.5,
+        -37.3
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        0.0,
+        -2.0
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.8260681541307666,
+      "annular_coverage_fraction": 0.6620620488568896,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 0.0,
+      "fan_to_core_mm": 0.0,
+      "fan_envelope_intersections_mm3": {
+        "P22_CPAP_Lower_Plenum": 30.824530420057492,
+        "Core_With_Restrained_AHG_Lead_References_REVIEW": 10.825048522286576
+      }
+    },
+    {
+      "name": "Forward_only_0p5mm",
+      "center_mm": [
+        16.45,
+        25.0,
+        -35.3
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        -0.5,
+        0.0
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.7259234869200066,
+      "annular_coverage_fraction": 0.5572291120041575,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 1.2000000000000028,
+      "fan_to_core_mm": 0.980000000000004,
+      "fan_envelope_intersections_mm3": {
+        "Existing_printed_body": 2.840000000000003
+      }
+    },
+    {
+      "name": "Forward_only_1mm",
+      "center_mm": [
+        16.45,
+        24.5,
+        -35.3
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.7390240513383595,
+      "annular_coverage_fraction": 0.551538015824027,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 1.2000000000000028,
+      "fan_to_core_mm": 0.5999999999999996,
+      "fan_envelope_intersections_mm3": {
+        "Existing_printed_body": 8.520000000000008
+      }
+    },
+    {
+      "name": "Forward_only_2mm",
+      "center_mm": [
+        16.45,
+        23.5,
+        -35.3
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        -2.0,
+        0.0
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.759208768731239,
+      "annular_coverage_fraction": 0.5361213090197253,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 1.2000000000000028,
+      "fan_to_core_mm": 0.0,
+      "fan_envelope_intersections_mm3": {
+        "Existing_printed_body": 14.200000000000014,
+        "Core_With_Restrained_AHG_Lead_References_REVIEW": 96.51389510131266
+      }
+    },
+    {
+      "name": "Forward_lower_0p5mm",
+      "center_mm": [
+        16.45,
+        25.0,
+        -35.8
+      ],
+      "center_offset_from_current_mm": [
+        0.0,
+        -0.5,
+        -0.5
+      ],
+      "projected_rectangle_area_mm2": 178.53599999999997,
+      "disk_coverage_fraction": 0.7548252210240588,
+      "annular_coverage_fraction": 0.5764750047704725,
+      "fan_to_hotend_mm": 2.4499999999999993,
+      "fan_to_P22_mm": 0.7000000000000028,
+      "fan_to_core_mm": 0.480000000000004,
+      "fan_envelope_intersections_mm3": {
+        "Existing_printed_body": 2.396250000000003
+      }
+    }
+  ],
+  "limitations": [
+    "Side-projected rectangular coverage is a geometry comparison, not airflow or heat-transfer prediction.",
+    "Generic fan opening radius11 and hub radius4; actual blade sweep and frame require vendor confirmation.",
+    "Lowering or translating the fan requires redesigned mounting ears and screw/insert access.",
+    "No candidate is installed into the existing body or released for manufacture.",
+    "Neighbor intake, complete carriage wiring, probe-metal keepout and full-machine paths require re-audit after any mounting redesign.",
+    "Existing low-Z rack/bed blocker is unchanged."
+  ],
+  "comparison_export": {
+    "file": "24_Bambu_Fan_Alignment_Comparison_UNMOUNTED.step",
+    "sha256": "dfed129688ad9db4ce198f649d5433a95b3f45a8e7f36c0d213e220fbaa630a5",
+    "solid_count": 9,
+    "valid": true
+  },
+  "geometry_source_sha256": {
+    "Tool2510_Reversed_Bambu_Reference_REVIEW": "862bcf00d8b93dfbd165c00ea1248dbd7d1ed53c256a226891140020cfbc348a",
+    "Bambu_One_Piece_Docking_Audited_REVIEW": "643b49e4a6475b5c335f5aa9ea046c947f39b6a9e24f524f11d3cc3169fee387",
+    "Tool2510_Existing_Tool_M2_5_Hardware_REVIEW": "70709acbd57d1d4b19b785b2ef032a1396f268ff89156ae5cf0e7ef4f4449631",
+    "21_Bambu_Closed_Panel_Dock_Complete_REVIEW": "e4a896a8857f28c3355d5fcda9021871b426085a714806522fdb05828a19d41e",
+    "P18_Tool_docking_backplate_3010": "0defb9063804adf357c44d2408533985afe172fa130514fd793bb58021be05a2",
+    "P20_CPAP_Hose_Inlet": "f95ed85838f945616e5b270df8ad0f07b6dba5dc39effab4b5ece631a9e7eb74",
+    "P21_CPAP_Gantry_Bridge": "5877acd8192eeef02f41c67402711f4f5416e554fde33c519efe30e3cd3b9ba4",
+    "P22_CPAP_Lower_Plenum": "2015a9f5c21350d82c526f3b94ed0798180fa20209eb8c00c0efaff09b597b70",
+    "P23_Beacon_Cartographer_Mount": "2f5e09e0debba5f0c124ac4ff508cf8954ab09186a6fe4de85db45af08b9093a",
+    "P24_EBB42_Controller_Mount": "f654dfba89067c4a3e399cec70c63fc05bd9ca88c5fd64146f0a416f792431b2",
+    "Core_With_Restrained_AHG_Lead_References_REVIEW": "3af5126b9daff825eab903bfec77c4d9677fe7ea36944904ed128c501797d6c9"
+  },
+  "decision": "Retain current position within the unchanged design. The 0.5mm lower candidate improves projected annular coverage only from about56.1% to58.2% while reducing P22 clearance from1.2 to0.7mm. Larger lowering/centering collides with rigid existing parts. Inward-only movement requires printed-mount changes and does not improve projected alignment. No demonstrated thermal benefit justifies sacrificing the approved clearance cushion."
+}

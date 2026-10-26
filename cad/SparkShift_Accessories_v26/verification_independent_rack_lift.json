@@ -1,0 +1,931 @@
+{
+  "status": "LIMITED_LIFT_GEOMETRY_SCREEN_CLEAR_NOT_BUILD_APPROVED",
+  "lift_mm": 15.0,
+  "x_gantry_withdrawal_mm": 60,
+  "source_low_z_report_sha256": "81a2aa264a7a13752fbda996ba3ebbe0cb1ed8f826c40d02c2b9027561d0c4d0",
+  "tool_sources": {
+    "Bambu": {
+      "tool_file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T0_Bambu.step",
+      "tool_sha256": "5ebb803025d54c3cf70281ba4eb08a45080d88b3191551e1fe7f67cddcbf80e5",
+      "dock_file": "21_Bambu_Closed_Panel_Dock_Complete_REVIEW.step",
+      "dock_sha256": "e4a896a8857f28c3355d5fcda9021871b426085a714806522fdb05828a19d41e"
+    },
+    "RedLizard": {
+      "tool_file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T1_RedLizard.step",
+      "tool_sha256": "f24120767af38ff6418d8d793fc64e03f4a2afd904767148d70b3eff6a1f32a4",
+      "dock_file": "21_RedLizard_Closed_Panel_Dock_Complete_REVIEW.step",
+      "dock_sha256": "d2fb5f56442cd711b79f066ddc47a861cf422605f1e1609f7cdf4fdd9f7172c3"
+    }
+  },
+  "sources": {
+    "Flying_Gantry": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_Flying_Gantry_world.step",
+      "sha256": "c5452f4f9958a51360d3868bf8dfe7fd1481de34e66cefde95a6bc3de12843c2",
+      "solids": 267,
+      "bounds_mm": [
+        -80.3500007891397,
+        430.35000078914004,
+        -39.000000100001046,
+        474.1000000000032,
+        125.14999656203169,
+        220.50000010001327
+      ]
+    },
+    "X_Gantry": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_X_Gantry_world.step",
+      "sha256": "d305bc3b1744aa1574e10ea42cdf2583e68293f14ba4e0ac65a2d72ddffd46bb",
+      "solids": 80,
+      "bounds_mm": [
+        -57.99999999060873,
+        407.99999999060907,
+        168.9860796873075,
+        218.2260798875369,
+        133.34999989999798,
+        175.150000100048
+      ]
+    },
+    "crossbar": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_crossbar_world.step",
+      "sha256": "9f21e17a3b552e60d7956449e372c3558fdfe173fb873570e9070949177e3a9a",
+      "solids": 1,
+      "bounds_mm": [
+        -49.99999999999871,
+        400.0,
+        -29.0000000000019,
+        -9.000000000001663,
+        188.50999999999993,
+        208.51000000000008
+      ]
+    }
+  },
+  "bed_checks": [
+    {
+      "bay": 0,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 0,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 0,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 0,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 1,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 1,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 1,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 1,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 2,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 2,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 2,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 2,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 3,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 3,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 3,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 3,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 4,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 4,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 4,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 4,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 5,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 5,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 5,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 5,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 6,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 6,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 6,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 6,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 7,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 7,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 7,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 7,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 8,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 8,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 8,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 8,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 9,
+      "parked_variant": "Bambu",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 9,
+      "parked_variant": "Bambu",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    },
+    {
+      "bay": 9,
+      "parked_variant": "RedLizard",
+      "active_variant": "Bambu",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.2512000000000114
+    },
+    {
+      "bay": 9,
+      "parked_variant": "RedLizard",
+      "active_variant": "RedLizard",
+      "bed_intersections_mm3": {},
+      "lowest_parked_world_z_mm": 1.999404784771798
+    }
+  ],
+  "raised_parked_checks": [
+    {
+      "bay": 0,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 1,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 1,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 2,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 2,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 3,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 3,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 5,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 5,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 6,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 6,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 7,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 7,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 8,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 8,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "Bambu",
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "RedLizard",
+      "intersections_mm3": {}
+    }
+  ],
+  "lift_path_samples": [
+    {
+      "bay": 0,
+      "variant": "Bambu",
+      "lift_mm": 0,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "Bambu",
+      "lift_mm": 2.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "Bambu",
+      "lift_mm": 5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "Bambu",
+      "lift_mm": 7.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "Bambu",
+      "lift_mm": 10,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "Bambu",
+      "lift_mm": 12.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "Bambu",
+      "lift_mm": 15,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "RedLizard",
+      "lift_mm": 0,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "RedLizard",
+      "lift_mm": 2.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "RedLizard",
+      "lift_mm": 5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "RedLizard",
+      "lift_mm": 7.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "RedLizard",
+      "lift_mm": 10,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "RedLizard",
+      "lift_mm": 12.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 0,
+      "variant": "RedLizard",
+      "lift_mm": 15,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "Bambu",
+      "lift_mm": 0,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "Bambu",
+      "lift_mm": 2.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "Bambu",
+      "lift_mm": 5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "Bambu",
+      "lift_mm": 7.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "Bambu",
+      "lift_mm": 10,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "Bambu",
+      "lift_mm": 12.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "Bambu",
+      "lift_mm": 15,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "RedLizard",
+      "lift_mm": 0,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "RedLizard",
+      "lift_mm": 2.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "RedLizard",
+      "lift_mm": 5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "RedLizard",
+      "lift_mm": 7.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "RedLizard",
+      "lift_mm": 10,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "RedLizard",
+      "lift_mm": 12.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 4,
+      "variant": "RedLizard",
+      "lift_mm": 15,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "Bambu",
+      "lift_mm": 0,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "Bambu",
+      "lift_mm": 2.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "Bambu",
+      "lift_mm": 5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "Bambu",
+      "lift_mm": 7.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "Bambu",
+      "lift_mm": 10,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "Bambu",
+      "lift_mm": 12.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "Bambu",
+      "lift_mm": 15,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "RedLizard",
+      "lift_mm": 0,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "RedLizard",
+      "lift_mm": 2.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "RedLizard",
+      "lift_mm": 5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "RedLizard",
+      "lift_mm": 7.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "RedLizard",
+      "lift_mm": 10,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "RedLizard",
+      "lift_mm": 12.5,
+      "intersections_mm3": {}
+    },
+    {
+      "bay": 9,
+      "variant": "RedLizard",
+      "lift_mm": 15,
+      "intersections_mm3": {}
+    }
+  ],
+  "conservative_swept_box_checks": [
+    {
+      "bay": 0,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 24.49999999999769
+    },
+    {
+      "bay": 0,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 24.349999999996506
+    },
+    {
+      "bay": 1,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 61.79999999999769
+    },
+    {
+      "bay": 1,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 61.6499999999965
+    },
+    {
+      "bay": 2,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 2,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 3,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 3,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 4,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 4,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 5,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 5,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 6,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 6,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 7,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 7,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 75.88849971647511
+    },
+    {
+      "bay": 8,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 62.43999989151803
+    },
+    {
+      "bay": 8,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 62.43999989151803
+    },
+    {
+      "bay": 9,
+      "variant": "Bambu",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 25.13999989151796
+    },
+    {
+      "bay": 9,
+      "variant": "RedLizard",
+      "potential_intersections_mm3": {},
+      "minimum_distance_mm": 25.13999989151796
+    }
+  ],
+  "limitations": [
+    "Independent rack motion requires new supports, guides, retention and actuation; none are designed here.",
+    "Existing P29/P30 rack mounts cannot remain rigidly attached across an independent lift.",
+    "The moving assembly assumed here consists of crossbar, docks and parked tools only.",
+    "The X beam and active assembly must withdraw 60 mm before lift. Carriage contents are limited to the 246-body source reference.",
+    "Per-solid swept bounding boxes give a sufficient clearance proof only where no target intersection is reported; potential hits are inconclusive.",
+    "Flexible umbilical motion and added lifting-rack wiring are not modeled.",
+    "No top-of-machine travel, enclosure, load, deflection, synchronization, thermal or firmware qualification.",
+    "A clear bed result alone does not establish safe toolchange paths or usable print volume."
+  ],
+  "crossbar_lift_samples": [
+    {
+      "lift_mm": 0,
+      "intersections_mm3": {}
+    },
+    {
+      "lift_mm": 2.5,
+      "intersections_mm3": {}
+    },
+    {
+      "lift_mm": 5,
+      "intersections_mm3": {}
+    },
+    {
+      "lift_mm": 7.5,
+      "intersections_mm3": {}
+    },
+    {
+      "lift_mm": 10,
+      "intersections_mm3": {}
+    },
+    {
+      "lift_mm": 12.5,
+      "intersections_mm3": {}
+    },
+    {
+      "lift_mm": 15,
+      "intersections_mm3": {}
+    }
+  ],
+  "crossbar_conservative_swept_box": {
+    "potential_intersections_mm3": {},
+    "minimum_distance_mm": 9.999999210864985
+  },
+  "active_assembly_whole_envelope_separation": {
+    "carriage_source": {
+      "source_archive": "22_Low_Z_Bed_Interference_DIAGNOSTIC.f3d",
+      "source_archive_sha256": "aa902d879241433bc5741b8614186146a2a839cbc54d4841f85db76d45592c5d",
+      "component": "Carriage_At_T0",
+      "bodies": 246,
+      "bounds_mm": [
+        -15.720000000000054,
+        31.94505827434,
+        70.24,
+        162.77999999999997,
+        0.011200000000020083,
+        140.57179521522008
+      ],
+      "frame": "Bambu active nozzle Z0.2; X gantry and carriage withdrawn Y60; conservative Fusion occurrence bounding box"
+    },
+    "carriage_metadata_sha256": "82603045ad1a25722af7cffefcec8c5763626e392cdbd0b7cfcab37c15ab1b7c",
+    "lifted_rack_ymax_mm": 35.41000000000019,
+    "checks": [
+      {
+        "variant": "Bambu",
+        "active_assembly_ymin_mm": 52.91,
+        "y_gap_mm": 17.499999999999808
+      },
+      {
+        "variant": "RedLizard",
+        "active_assembly_ymin_mm": 52.91,
+        "y_gap_mm": 17.499999999999808
+      }
+    ],
+    "qualification": "Positive Y-envelope separation proves rigid active tool/carriage to raised rack clearance at any X and any lift in 0..15 mm, only after the specified 60 mm withdrawal."
+  },
+  "raised_rack_height_requirement": {
+    "highest_rack_source_world_z_mm": 255.02620952017847,
+    "highest_rack_z_with_active_Bambu_nozzle_at_z_0_2_mm": 142.07800952017845,
+    "carriage_source_world_zmax_at_nozzle_z_0_2_mm": 140.57179521522008,
+    "qualification": "Record for future enclosure/top-travel checking; not a verified machine Z limit."
+  },
+  "unimplemented_mechanism_requirements": {
+    "minimum_lift_for_1mm_clearance_above_active_nozzle_plane_mm": 14.948799999999991,
+    "nominal_lift_mm": 15.0,
+    "nominal_z_hop_before_lowering_rack_relative_to_current_print_plane_mm": 15,
+    "required_withdrawal_before_lift_mm": 60,
+    "requirements": [
+      "Replace rigid rack supports with guided independent Z motion while preserving dock-down coupling datums.",
+      "Account for P30 spacers and all crossbar-mounted hardware in the final moving/fixed partition.",
+      "Positively retain and synchronize both crossbar ends; verify loaded repeatability at every bay.",
+      "Provide raised-state retention on power loss; an unpowered rack must not fall toward the bed or print.",
+      "Interlock rack position, coupling state and machine Z; do not lower over an existing print without the required Z clearance.",
+      "Lift only after carriage withdrawal and secured active-tool pickup; the selected dock must be empty.",
+      "Provide flexible fan-power wiring for all parked tools and the additional rack stroke.",
+      "Verify highest machine Z, enclosure clearance, loads, deflection and physical motion before release."
+    ],
+    "firmware_implemented": false,
+    "qualification": "Design requirements only; not executable motion instructions or an approved lifting mechanism."
+  },
+  "summary": {
+    "bed_collision_cases": 0,
+    "raised_parked_collision_cases": 0,
+    "sampled_lift_collision_cases": 0,
+    "crossbar_collision_samples": 0,
+    "conservative_swept_box_potential_hits": 0,
+    "active_assembly_envelope_overlap_cases": 0,
+    "minimum_conservative_swept_clearance_mm": 9.999999210864985,
+    "minimum_parked_z_at_active_nozzle_z_0_2_mm": 1.2512000000000114
+  }
+}

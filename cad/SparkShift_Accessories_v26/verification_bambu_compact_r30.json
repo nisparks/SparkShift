@@ -1,0 +1,269 @@
+{
+  "status": "LOCAL_CAD_REVIEW_NOT_PRINT_THERMAL_OR_MACHINE_QUALIFICATION",
+  "supersedes": "Revision 29 (fan 1.65 mm further out, rear shelf strip near the carriage, open P18 bore slots)",
+  "baseline": {
+    "file": "Bambu_One_Piece_Shelf_Clearance_R22_REVIEW.step",
+    "sha256": "35afc7443484a4ad70124eb2a88865e3ef55624f9e5394299da2c0f0f022c282"
+  },
+  "operations": [
+    {
+      "operation": "legacy front seat block outside apron",
+      "removed_mm3": 32.0241
+    },
+    {
+      "operation": "legacy front ring below shelf corner",
+      "removed_mm3": 0.0585
+    },
+    {
+      "operation": "legacy rear ring below shelf",
+      "removed_mm3": 19.2112
+    },
+    {
+      "operation": "0.1 mm ring remnant proud of apron front face",
+      "removed_mm3": 0.1687
+    },
+    {
+      "operation": "fan-side face to X9.55 incl. rear strip",
+      "removed_mm3": 132.0512
+    },
+    {
+      "operation": "restore shelf/apron through corridor Y15.5",
+      "added_mm3": 222.6957
+    },
+    {
+      "operation": "restore shelf/apron through corridor Y35.5",
+      "added_mm3": 216.594
+    },
+    {
+      "operation": "restored P17 front neck",
+      "added_mm3": 287.7596
+    },
+    {
+      "operation": "fill legacy counterbore crescent X-6",
+      "added_mm3": 3.64
+    },
+    {
+      "operation": "fill legacy counterbore crescent X+6",
+      "added_mm3": 2.8258
+    },
+    {
+      "operation": "close bore slot under shelf top X-6",
+      "added_mm3": 17.0577
+    },
+    {
+      "operation": "pocket rear wall inside flange X-6",
+      "added_mm3": 3.7372
+    },
+    {
+      "operation": "M3 x 3 mm insert pocket X-6",
+      "removed_mm3": 27.3008
+    },
+    {
+      "operation": "close bore slot under shelf top X+6",
+      "added_mm3": 17.0577
+    },
+    {
+      "operation": "pocket rear wall inside flange X+6",
+      "added_mm3": 3.7372
+    },
+    {
+      "operation": "M3 x 3 mm insert pocket X+6",
+      "removed_mm3": 27.3008
+    },
+    {
+      "operation": "shelf-to-front-boss bridge",
+      "added_mm3": 3.6742
+    },
+    {
+      "operation": "fan boss Y15.5",
+      "added_mm3": 66.9464
+    },
+    {
+      "operation": "fan boss Y35.5",
+      "added_mm3": 24.8545
+    },
+    {
+      "operation": "L4 heat-set pilot Y15.5",
+      "removed_mm3": 33.9646
+    },
+    {
+      "operation": "pilot entry chamfer Y15.5",
+      "removed_mm3": 0.4665
+    },
+    {
+      "operation": "L4 heat-set pilot Y35.5",
+      "removed_mm3": 33.9646
+    },
+    {
+      "operation": "pilot entry chamfer Y35.5",
+      "removed_mm3": 0.4665
+    },
+    {
+      "operation": "inlet socket sleeve",
+      "added_mm3": 226.736
+    },
+    {
+      "operation": "socket around inlet tube",
+      "removed_mm3": 24.2452
+    },
+    {
+      "operation": "socket entry chamfer",
+      "removed_mm3": 0.7191
+    },
+    {
+      "operation": "2.3 mm filament guide",
+      "removed_mm3": 9.4728
+    },
+    {
+      "operation": "funnel into existing guide bore",
+      "removed_mm3": 8.7011
+    }
+  ],
+  "feature_gauges_mm3": {
+    "front_neck_unfilled_mm3": 0,
+    "wire_trough_blocked_mm3": 0,
+    "wire_trough_bottom_entry_blocked_mm3": 0,
+    "fan_recess_membrane_mm3": 0,
+    "rear_strip_remaining_mm3": 0,
+    "socket_wall_missing_mm3": 0,
+    "socket_blocked_mm3": 0,
+    "filament_path_blocked_mm3": 0,
+    "corridor_15p5_open_mm3": 0,
+    "boss_15p5_wall_missing_mm3": 0,
+    "pilot_15p5_blocked_mm3": 0,
+    "corridor_35p5_open_mm3": 0,
+    "boss_35p5_wall_missing_mm3": 0,
+    "pilot_35p5_blocked_mm3": 0,
+    "p18_pocket_x-6_wall_missing_mm3": 0,
+    "p18_pocket_x-6_blocked_mm3": 0,
+    "p18_pocket_x-6_rear_wall_missing_mm3": 0,
+    "p18_old_slot_x-6_open_mm3": 0,
+    "p18_bump_above_shelf_x-6_mm3": 0,
+    "p18_pocket_x+6_wall_missing_mm3": 0,
+    "p18_pocket_x+6_blocked_mm3": 0,
+    "p18_pocket_x+6_rear_wall_missing_mm3": 0,
+    "p18_old_slot_x+6_open_mm3": 0,
+    "p18_bump_above_shelf_x+6_mm3": 0
+  },
+  "protected_intersections_mm3": {},
+  "fan_air_gaps_mm": {
+    "heatsink_fins": 1.4999999999999982,
+    "heating_assembly_plate": 0.7999999999999989,
+    "apron": 0.5499999999999989,
+    "p18": 0.3500000000000014
+  },
+  "bounds_mm": [
+    -13.5,
+    12.400000000003889,
+    11.5,
+    37.900000000000134,
+    -65.93,
+    48.7400001
+  ],
+  "baseline_bounds_mm": [
+    -13.5,
+    15.0,
+    11.5,
+    38.0,
+    -65.93,
+    48.7400001
+  ],
+  "body_volume_mm3": 14320.946795668957,
+  "net_change_vs_r22_mm3": 747.2002056214478,
+  "static_failures": [],
+  "motion": {
+    "dock_samples": 121,
+    "dock_hits": [],
+    "carriage_retreat_hits": [],
+    "hotend_service_samples": 57,
+    "hotend_service_hits": [],
+    "neighbour_checks": [
+      {
+        "variant": "Bambu R30",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": []
+      },
+      {
+        "variant": "Bambu R30",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": []
+      },
+      {
+        "variant": "RedLizard (R21 snapshot)",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": []
+      },
+      {
+        "variant": "RedLizard (R21 snapshot)",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": []
+      }
+    ],
+    "minimum_distances": {
+      "parked_bambu_to_bambu_mm": 3.1999999999999957,
+      "parked_bambu_fan_side_to_redlizard_mm": 2.6999999999999957,
+      "parked_redlizard_fan_side_to_bambu_mm": 1.8439088914585755,
+      "active_carriage_to_parked_bambu_min": {
+        "mm": 0.980000000000004,
+        "neighbour_dx_mm": -37.3,
+        "carriage_dy_mm": 0
+      }
+    }
+  },
+  "complete_assembly": {
+    "solids": 145,
+    "regression_checks": 139,
+    "max_increase_mm3": 0
+  },
+  "exports": [
+    {
+      "file": "step\\Bambu_Compact_Fan_Closed_Bores_R30_REVIEW.step",
+      "sha256": "a7b4952dbcac59e2b7118177c1ca838733cf8e90e398afb0c0a70b0e52710b9c"
+    },
+    {
+      "file": "stl\\Bambu_Compact_Fan_Closed_Bores_R30_REVIEW.stl",
+      "sha256": "34b21eb3aeb128e8febd870d883139f2e4e34676b3165fbfe38d5e677f5c4cb2"
+    },
+    {
+      "file": "step\\Bambu_Fan_Side_M2p5_L4_Inserts_R30_REVIEW.step",
+      "sha256": "62a7e721eab96efc391a13d3916cd65950a7e142839b8c08e795ed6a454d5d7a"
+    },
+    {
+      "file": "step\\Bambu_Fan_2510_And_Screws_R30_REVIEW.step",
+      "sha256": "8d395bbd79681ef1778dcb8d7668eecc63c5eea156a015554f50ba0448a10357"
+    },
+    {
+      "file": "step\\30_Bambu_Compact_Toolhead_REVIEW.step",
+      "sha256": "b3133fd7b220f101fbb97abd2a1a95fc65d1b647e6a5f6949a1621b615679f80"
+    },
+    {
+      "file": "step\\30_Bambu_Compact_Complete_REVIEW.step",
+      "sha256": "369f63b73ec15131de1118fe6b69dc9166c350db5708630af318c2b618634c16"
+    }
+  ],
+  "design": {
+    "fan_center_mm": [
+      14.799999999999999,
+      25.5,
+      -35.3
+    ],
+    "fan_seat_x_mm": 9.799999999999999,
+    "shelf_fan_face_x_mm": 9.549999999999999,
+    "fan_air_gap_to_heatsink_fins_mm": 1.4999999999999982,
+    "fan_screw_head_outer_x_mm": 20.6,
+    "fan_inserts": "M2.5 L4 OD3.5, installed from the fan side before fitting the fan; 3.1 mm pilots 4.5 mm deep with 0.3 mm entry chamfer; existing M2.5x14 low-head screws engage 4 mm.",
+    "lower_p18_inserts": "M3 x 3 mm heat-set inserts in 4.56 mm pockets 3.38 mm deep, closed by a 0.5 mm rear wall inside the flange. The upper P18 pair is unchanged.",
+    "inlet_socket": "8 mm OD sleeve, 5.25 mm socket over the 4.75 mm inlet tube (0.25 mm radial, 0.20 mm axial clearance), 0.92 mm overlap below the inlet top; 2.3 mm guide with 45-degree funnel into the existing 4.2 mm bore.",
+    "front_neck": "Restored P17 front neck under P18; stem wire trough kept open."
+  },
+  "limitations": [
+    "Fixed-rack low-Z bed collision and inherited probe-cable entry issue remain unresolved.",
+    "Front fan insert keeps a 0.65 mm wall to the apron front face (fan hole 2.5 mm from the fan edge).",
+    "Red Lizard neighbour checks use the revision-21 parked snapshot; the Red Lizard shelf strip is removed separately (verification_redlizard_strip_trim_r30.json).",
+    "Insert pullout, printed strength, thermal behaviour at the inlet socket and fan cooling at the 1.5 mm gap are unqualified."
+  ]
+}

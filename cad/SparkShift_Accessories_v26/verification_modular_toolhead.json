@@ -1,0 +1,258 @@
+{
+  "status": "REVIEW_ONLY_NOT_PRINT_QUALIFIED",
+  "reference": "User revised 09_Modular_Toolhead_3010_Review version 4",
+  "interface": {
+    "fan_axes_xz_mm": [
+      [
+        -12.0,
+        -49.5
+      ],
+      [
+        -12.0,
+        -25.5
+      ],
+      [
+        12.0,
+        -49.5
+      ],
+      [
+        12.0,
+        -25.5
+      ]
+    ],
+    "seam_y_mm": 32.05,
+    "upper_shoulder_z_mm": -17.2794,
+    "carrier_clearance_diameter_mm": 2.8,
+    "adapter_insert_pilot_diameter_mm": 3.2,
+    "adapter_insert_pilot_depth_mm": 4.0,
+    "adapter_insert_entry_y_mm": {
+      "upper": 11.5,
+      "lower": 20.3
+    },
+    "adapter_insert_shoulder_y_mm": {
+      "upper": 15.5,
+      "lower": 24.3
+    },
+    "adapter_shoulder_thickness_mm": {
+      "upper": 16.55,
+      "lower": 7.75
+    },
+    "adapter_shoulder_hole_diameter_mm": 2.8,
+    "insertion_direction": "+Y from rear rail face (upper) or rear recess (lower); bolt head on +Y front",
+    "pull_direction": "+Y, into the smaller-diameter printed shoulder, not toward the pocket mouth",
+    "provisional_insert": "M2.5, maximum OD 4.0 mm, length 4.0 mm; select and coupon-test before printing",
+    "provisional_screw": "Upper: 2 x M2.5 x 35 with 1 mm washer; lower: 2 x M2.5 x 25 without washer; assumes 10 mm fan",
+    "insert_outer_edge_wall_min_mm": 1.0,
+    "insert_all_sides_wall_min_mm": 0.75,
+    "screw_thread_engagement_mm": {
+      "upper": 3.57,
+      "lower": 3.37
+    },
+    "screw_tip_to_rear_entry_mm": {
+      "upper": 0.43,
+      "lower": 0.63
+    },
+    "intended_nozzle_datum_mm": [
+      0,
+      22.7,
+      -78.88
+    ]
+  },
+  "parts": {
+    "P17M_Reusable_Carrier_3010_REVIEW": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 6500.947115248343,
+      "bounds_mm": [
+        -15.000000100000003,
+        15.000000100000003,
+        17.229999899999996,
+        35.93000000000001,
+        -52.5000001,
+        48.7400001
+      ],
+      "mesh_watertight": true,
+      "mesh_components": 1,
+      "bed_contact_mm2": 1237.661094090206,
+      "print_mesh_min_z_mm": -1.5099033558418603e-15
+    },
+    "P17M_Bambu_Adapter_3010_REVIEW": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 7681.240466292302,
+      "bounds_mm": [
+        -15.0,
+        15.0,
+        11.5,
+        32.050000000004,
+        -65.93,
+        -17.279399899999998
+      ],
+      "mesh_watertight": true,
+      "mesh_components": 1,
+      "bed_contact_mm2": 953.4311699511027,
+      "print_mesh_min_z_mm": 0.0
+    }
+  },
+  "clashes_mm3": {
+    "P20_CPAP_Hose_Inlet": {
+      "before": 0,
+      "after": 0,
+      "increase": 0,
+      "new_hardware": 0,
+      "inherited_hardware": 0.0
+    },
+    "P21_CPAP_Gantry_Bridge": {
+      "before": 0,
+      "after": 0,
+      "increase": 0,
+      "new_hardware": 0,
+      "inherited_hardware": 0.0
+    },
+    "P22_CPAP_Lower_Plenum": {
+      "before": 44.801407501438874,
+      "after": 0,
+      "increase": -44.801407501438874,
+      "new_hardware": 0,
+      "inherited_hardware": 0.0
+    },
+    "P23_Beacon_Cartographer_Mount": {
+      "before": 0,
+      "after": 0,
+      "increase": 0,
+      "new_hardware": 0,
+      "inherited_hardware": 0.0
+    },
+    "P24_EBB42_Controller_Mount": {
+      "before": 0,
+      "after": 0,
+      "increase": 0,
+      "new_hardware": 0,
+      "inherited_hardware": 0.0
+    },
+    "Hotend_Voron_Bambu_P2S": {
+      "before": 0,
+      "after": 0,
+      "increase": 0,
+      "new_hardware": 0,
+      "inherited_hardware": 0.22375773440789629
+    },
+    "P18_Tool_docking_backplate_3010": {
+      "before": 0.010260487035724429,
+      "after": 0.010260487035724429,
+      "increase": 0.0,
+      "new_hardware": 0,
+      "inherited_hardware": 0.0
+    },
+    "Fan_3010_Axial": {
+      "before": 0,
+      "after": 0,
+      "increase": 0,
+      "new_hardware": 0,
+      "inherited_hardware": 0.0
+    }
+  },
+  "limitations": [
+    "No slicer/support qualification, FEA, thermal-creep or physical repeatability testing.",
+    "Insert dimensions are a provisional envelope, not a selected manufacturer's specification.",
+    "3010 interface only; other hotends need adapter-specific cooling, wiring and clearance checks.",
+    "No new nozzle metal, sensor mount, gantry, docking geometry or CPAP geometry is generated.",
+    "Existing synthetic Bambu nozzle ends above the intended Z datum; unchanged here.",
+    "BLOCKER: three existing Bambu M3 holes are in a 2.8 mm wall with only 0.1 mm rear clearance to the core. A 4 mm rear insert plus shoulder cannot fit; mounting retention is not approved.",
+    "Rear-face inserts resist withdrawal toward the seam; plastic shoulder failure and thermal creep remain possible.",
+    "Thin front frame no longer contains breached wire tunnels. Yellow cradle retains internal reliefs; complete cable routing still needs a fit check.",
+    "Existing lower Bambu screw-head/sock model overlap: 0.2238 mm3; actual screw head and physical sock relief need verification."
+  ],
+  "interpart_overlap_mm3": 0,
+  "fan_paths": [
+    {
+      "axis_xz_mm": [
+        -12.0,
+        -49.5
+      ],
+      "carrier_obstruction_mm3": 0,
+      "adapter_pilot_obstruction_mm3": 0,
+      "adapter_shank_obstruction_mm3": 0,
+      "shoulder_material_mm3": 16.02212253330796,
+      "missing_insert_surround_mm3": 0
+    },
+    {
+      "axis_xz_mm": [
+        -12.0,
+        -25.5
+      ],
+      "carrier_obstruction_mm3": 0,
+      "adapter_pilot_obstruction_mm3": 0,
+      "adapter_shank_obstruction_mm3": 0,
+      "shoulder_material_mm3": 16.022122533307947,
+      "missing_insert_surround_mm3": 0
+    },
+    {
+      "axis_xz_mm": [
+        12.0,
+        -49.5
+      ],
+      "carrier_obstruction_mm3": 0,
+      "adapter_pilot_obstruction_mm3": 0,
+      "adapter_shank_obstruction_mm3": 0,
+      "shoulder_material_mm3": 16.02212253330796,
+      "missing_insert_surround_mm3": 0
+    },
+    {
+      "axis_xz_mm": [
+        12.0,
+        -25.5
+      ],
+      "carrier_obstruction_mm3": 0,
+      "adapter_pilot_obstruction_mm3": 0,
+      "adapter_shank_obstruction_mm3": 0,
+      "shoulder_material_mm3": 16.022122533307947,
+      "missing_insert_surround_mm3": 0
+    }
+  ],
+  "hotend_mount_audit": {
+    "axes_xz_mm": [
+      [
+        -6.0,
+        -40.13
+      ],
+      [
+        6.0,
+        -40.13
+      ],
+      [
+        0.0,
+        -50.63
+      ]
+    ],
+    "status": "BLOCKED_NOT_APPROVED_FOR_PRINT",
+    "wall_thickness_mm": 2.8,
+    "rear_clearance_to_live_core_mm": 0.1,
+    "reason": "A 4 mm rear heatset plus load-bearing shoulder cannot fit without changing this mounting architecture. Original holes retained, not represented as an approved joint."
+  },
+  "cutout_audit": {
+    "HGX_hob_access_window_and_filament_guides": "Restored from official YUDX Tool.step commit 52e8ef6e04b93c1fa63bea4beb5c3a67a4b704aa. Local 2.3 mm bore, tapered to existing 3.6 mm bore at replacement boundaries.",
+    "cam_hook_and_magnet_pockets": "Retained; locking and coupling interfaces.",
+    "upper_geometry_change_outside_guide_region_mm3": 0,
+    "P18_lower_attachment_holes": "Retained and recut through clean material; old intersecting wire cuts removed below seam.",
+    "fan_opening_notches": "Replaced overlapping K1 bore and enclosed tunnels with a single lofted air passage.",
+    "fan_air_obstruction_mm3": 0,
+    "wiring": "Upper stem trough retained; lower yellow cradle reliefs require cable routing and strain-relief review.",
+    "adapter_pinhole_remnants": "Two 0.05 mm K1-pocket remnants filled; tiny cylindrical faces removed.",
+    "lower_apron_sidebar_step": "Rear wall normalized to X=+/-9.25 mm; obsolete rounded transition and 0.05 mm ledges removed, original holes and tip dimples recut.",
+    "lower_adapter_pad_connection": "Two 3 mm high side bridges join the rear-access pads to the adapter; reduced exhaust opening remains unqualified.",
+    "insert_access": "Upper inserts at the outer rear rail face; lower rear recesses clear P22. User seam remains Y=32.05.",
+    "guide_reference_missing_mm3": 0,
+    "guide_reference_extra_mm3": 0,
+    "guide_filament_path_obstruction_mm3": 0,
+    "remaining_tiny_K1_pocket_faces": 0
+  },
+  "new_metal_min_z_mm": -51.75,
+  "sensor_keepout_top_z_mm": -56.6,
+  "new_metal_above_sensor_keepout_mm": 4.850000000000001,
+  "core_interface_audit_mm3": {
+    "before": 13.500730427921571,
+    "after": 0,
+    "new_hardware": 0
+  }
+}

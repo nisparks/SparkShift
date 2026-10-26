@@ -1,0 +1,1079 @@
+{
+  "status": "LOCAL_BAMBU_GEOMETRY_REVIEW_NOT_MACHINE_OR_THERMAL_QUALIFICATION",
+  "failures": [],
+  "baseline": {
+    "file": "Bambu_One_Piece_Shelf_Clearance_R22_REVIEW.step",
+    "sha256": "35afc7443484a4ad70124eb2a88865e3ef55624f9e5394299da2c0f0f022c282"
+  },
+  "fan_center_mm": [
+    16.45,
+    25.5,
+    -35.3
+  ],
+  "filament_transition": {
+    "axis_xy_mm": [
+      0,
+      22.7
+    ],
+    "legacy_guide_axis_y_mm": 22.68,
+    "existing_exposed_axial_gap_mm": 3.48,
+    "guide_outer_diameter_mm": 8,
+    "guide_bore_diameter_mm": 2.3,
+    "guide_sleeve_bottom_z_mm": -30.4,
+    "hotend_inlet_top_z_mm": -29.48,
+    "socket_top_z_mm": -29.28,
+    "socket_diameter_mm": 5.25,
+    "inlet_outer_diameter_mm": 4.75,
+    "nominal_socket_radial_clearance_mm": 0.25,
+    "nominal_internal_axial_clearance_mm": 0.2,
+    "sleeve_overlap_below_inlet_top_mm": 0.92,
+    "qualification": "An enclosing socket removes the exposed filament span; internal assembly clearance is intentional. Cool-side polymer temperature, print accuracy and actual hotend inlet dimensions require physical confirmation."
+  },
+  "front_fill": {
+    "blank_bounds_mm": [
+      -10.0,
+      10.0,
+      31.8,
+      35.93,
+      -19.6,
+      -16.8
+    ],
+    "front_riser_bounds_mm": [
+      -9.0,
+      9.000000000000002,
+      11.55,
+      12.5,
+      -19.6,
+      -17.2794
+    ],
+    "front_riser_core_relief_removed_mm3": 10.461361528234953,
+    "core_relief_note": "The unwanted front undercut is filled except where actual fixed-core material and a 0.15 mm translated clearance screen require relief.",
+    "preserved_P18_passages": "X+/-6, Z-19.26, diameter4.56 along Y"
+  },
+  "fan_holes": {
+    "axes_yz_mm": [
+      [
+        15.5,
+        -25.3
+      ],
+      [
+        35.5,
+        -25.3
+      ]
+    ],
+    "boss_outer_diameter_mm": 6,
+    "boss_edge_limits_y_mm": [
+      13,
+      38
+    ],
+    "insert_seat_x_mm": [
+      7.45,
+      10.45
+    ],
+    "insert_pilot_diameter_mm": 3.1,
+    "screw_clearance_diameter_mm": 2.8,
+    "outer_edge_chamfer_mm": 0.3,
+    "inner_insert_access_diameter_mm": 4.4,
+    "hardware": "Unchanged two M2.5x14 ultra-low-head screws and M2.5 L3 OD3.5 heatsets.",
+    "qualification": "Only the two upper printed mounting seats are used. Lower fan-frame holes remain unused reference geometry; the fan frame is not a printed shroud."
+  },
+  "unchanged": "Fan pose and hardware, physical hotend, core, CPAP, probe/EBB42, P18, dock geometry and pitch.",
+  "body_intersections_mm3": {},
+  "geometry_checks": {
+    "missing_enclosing_sleeve_wall_mm3": 0,
+    "guide_bore_obstruction_mm3": 0,
+    "inlet_socket_obstruction_mm3": 0,
+    "continuous_filament_axis_obstruction_mm3": 0,
+    "missing_front_fill_mm3": 0,
+    "missing_front_riser_mm3": 0,
+    "fan_15.5_pilot_obstruction_mm3": 0,
+    "fan_15.5_screw_obstruction_mm3": 0,
+    "fan_15.5_insert_access_obstruction_mm3": 0,
+    "fan_15.5_missing_retaining_shoulder_mm3": 0,
+    "fan_15.5_missing_insert_surround_mm3": 0,
+    "fan_35.5_pilot_obstruction_mm3": 0,
+    "fan_35.5_screw_obstruction_mm3": 0,
+    "fan_35.5_insert_access_obstruction_mm3": 0,
+    "fan_35.5_missing_retaining_shoulder_mm3": 0,
+    "fan_35.5_missing_insert_surround_mm3": 0,
+    "hotend_-6.0_-40.13_missing_shoulder_mm3": 0,
+    "hotend_6.0_-40.13_missing_shoulder_mm3": 0,
+    "hotend_0.0_-50.63_missing_shoulder_mm3": 0
+  },
+  "dock_path_samples": [],
+  "dock_path_scope": "Fixed-X local Y0..-60 sampled every0.5mm; inherited dock remains unchanged.",
+  "neighbor_motion": [
+    {
+      "variant": "Bambu",
+      "dx_mm": -37.3,
+      "hits": []
+    },
+    {
+      "variant": "Bambu",
+      "dx_mm": 37.3,
+      "hits": []
+    },
+    {
+      "variant": "RedLizard",
+      "dx_mm": -37.3,
+      "hits": []
+    },
+    {
+      "variant": "RedLizard",
+      "dx_mm": 37.3,
+      "hits": []
+    }
+  ],
+  "hotend_service_samples": [],
+  "hotend_service_scope": "Removed tool: down0..4 every0.25mm, then rearward0..40 every1mm; native latch/finger motion unqualified.",
+  "printed_body": {
+    "valid": true,
+    "solids": 1,
+    "bounds_mm": [
+      -13.5,
+      15.0,
+      11.5,
+      38.0000001,
+      -65.93,
+      48.7400001
+    ],
+    "volume_mm3": 13894.69909534209,
+    "net_volume_change_mm3": 320.952505294581,
+    "watertight": true,
+    "winding_consistent": true,
+    "mesh_components": 1,
+    "step_sha256": "a96735594e99203f8834385aa1bab1902e7010e9e0bfd1b0e9a6d2dff2929023",
+    "stl_sha256": "d7883ef0e92b0c34af4cddee48d74cb5d72dd42d82b7050a74b3e9271db03310"
+  },
+  "assembly_export": {
+    "file": "25_Bambu_Continuous_Guide_Toolhead_REVIEW.step",
+    "solids": 20,
+    "valid": true,
+    "sha256": "40a1e0b469bee60b7ffe63a11d885d73256e3c2640fe5c93c32719347368002b"
+  },
+  "complete_assembly_interference_regression": {
+    "reference_solids_checked": 144,
+    "maximum_increase_mm3": 8.881784197001252e-15,
+    "checks": [
+      {
+        "reference_solid_index": 1,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 2,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 3,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 4,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 5,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 6,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 7,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 8,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 9,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 10,
+        "prior_intersection_mm3": 6.220353454107852,
+        "revised_intersection_mm3": 6.220353454107861,
+        "increase_mm3": 8.881784197001252e-15
+      },
+      {
+        "reference_solid_index": 11,
+        "prior_intersection_mm3": 6.220353454107854,
+        "revised_intersection_mm3": 6.220353454107845,
+        "increase_mm3": -8.881784197001252e-15
+      },
+      {
+        "reference_solid_index": 12,
+        "prior_intersection_mm3": 8.293804605477284,
+        "revised_intersection_mm3": 8.293804605477284,
+        "increase_mm3": 0.0
+      },
+      {
+        "reference_solid_index": 13,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 14,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 15,
+        "prior_intersection_mm3": 8.293804605477284,
+        "revised_intersection_mm3": 8.293804605477284,
+        "increase_mm3": 0.0
+      },
+      {
+        "reference_solid_index": 16,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 17,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 18,
+        "prior_intersection_mm3": 8.293804605477277,
+        "revised_intersection_mm3": 8.293804605477277,
+        "increase_mm3": 0.0
+      },
+      {
+        "reference_solid_index": 19,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 20,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 21,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 22,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 23,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 24,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 25,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 26,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 27,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 28,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 29,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 30,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 31,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 32,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 33,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 34,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 35,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 36,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 37,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 38,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 39,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 40,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 41,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 42,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 43,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 44,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 45,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 46,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 47,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 48,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 49,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 50,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 51,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 52,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 53,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 54,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 55,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 56,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 57,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 58,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 59,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 60,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 61,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 62,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 63,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 64,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 65,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 66,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 67,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 68,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 69,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 70,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 71,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 72,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 73,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 74,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 75,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 76,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 77,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 78,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 79,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 80,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 81,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 82,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 83,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 84,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 85,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 86,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 87,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 88,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 89,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 90,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 91,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 92,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 93,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 94,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 95,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 96,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 97,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 98,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 99,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 100,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 101,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 102,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 103,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 104,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 105,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 106,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 107,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 108,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 109,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 110,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 111,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 112,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 113,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 114,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 115,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 116,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 117,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 118,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 119,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 120,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 121,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 122,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 123,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 124,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 125,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 126,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 127,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 128,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 129,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 130,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 131,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 132,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 133,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 134,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 135,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 136,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 137,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 138,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 139,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 140,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 141,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 142,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 143,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      },
+      {
+        "reference_solid_index": 144,
+        "prior_intersection_mm3": 0,
+        "revised_intersection_mm3": 0,
+        "increase_mm3": 0
+      }
+    ],
+    "qualification": "Existing intentional insert interference remains; no increased intersection with any other complete-assembly solid."
+  },
+  "complete_assembly_export": {
+    "file": "25_Bambu_Complete_Carriage_And_Dock_REVIEW.step",
+    "valid": true,
+    "solids": 145,
+    "sha256": "c2522b47ea07ff6912e08d3b2e47bbb6b544669365f52f953a786e1a80ad80a3",
+    "source_file": "21_Bambu_Toolhead_And_Closed_Panel_Dock_REVIEW.step",
+    "source_sha256": "71f4be6e325ef9f34b639c8ed45d763830db1934d4a75af1c07bd8bca9d82d24",
+    "replaced_body_index": 0,
+    "qualification": "Only the printed Bambu body replaced; all other source solids retain their poses and geometry. Existing rack bed blocker and flexible cable-entry issue remain."
+  },
+  "limitations": [
+    "Current rack low-Z bed collision remains unresolved; this is a local toolhead revision only.",
+    "No physical thermal, strength, insert-pullout, fan airflow or machine commissioning.",
+    "Enclosing guide socket must not be mistaken for a load-bearing hotend clamp or a zero-clearance polymer/metal fit."
+  ],
+  "unchanged_source_sha256": {
+    "P18_Tool_docking_backplate_3010": "0defb9063804adf357c44d2408533985afe172fa130514fd793bb58021be05a2",
+    "P20_CPAP_Hose_Inlet": "f95ed85838f945616e5b270df8ad0f07b6dba5dc39effab4b5ece631a9e7eb74",
+    "P21_CPAP_Gantry_Bridge": "5877acd8192eeef02f41c67402711f4f5416e554fde33c519efe30e3cd3b9ba4",
+    "P22_CPAP_Lower_Plenum": "2015a9f5c21350d82c526f3b94ed0798180fa20209eb8c00c0efaff09b597b70",
+    "P23_Beacon_Cartographer_Mount": "2f5e09e0debba5f0c124ac4ff508cf8954ab09186a6fe4de85db45af08b9093a",
+    "P24_EBB42_Controller_Mount": "f654dfba89067c4a3e399cec70c63fc05bd9ca88c5fd64146f0a416f792431b2",
+    "Core_With_Restrained_AHG_Lead_References_REVIEW": "3af5126b9daff825eab903bfec77c4d9677fe7ea36944904ed128c501797d6c9",
+    "Tool2510_Reversed_Bambu_Reference_REVIEW": "862bcf00d8b93dfbd165c00ea1248dbd7d1ed53c256a226891140020cfbc348a",
+    "Tool2510_Single_Tool_Owned_2510_Nominal_Reference_REVIEW": "882c36f41d790a270907cc39f2fe746c0533720292fd50c4c55eacea5f2233ef",
+    "Tool2510_Two_Upper_M2_5_Low_Head_Screws_REVIEW": "41d8120a35aa8758c971e1f5a6f482fac63954e6448436cd1bf93c650bcf12b1",
+    "Tool2510_Two_Inner_Entry_L3_Heatsets_REVIEW": "85e31b1f12922bb53eb26dc9aa4073848137dfcb8c7b0596020b6ed321aacea0",
+    "Tool2510_Existing_Tool_M2_5_Hardware_REVIEW": "70709acbd57d1d4b19b785b2ef032a1396f268ff89156ae5cf0e7ef4f4449631",
+    "21_Bambu_Closed_Panel_Dock_Complete_REVIEW": "e4a896a8857f28c3355d5fcda9021871b426085a714806522fdb05828a19d41e"
+  },
+  "neighbor_source_evidence": {
+    "Bambu": {
+      "tool_file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T0_Bambu.step",
+      "tool_sha256": "5ebb803025d54c3cf70281ba4eb08a45080d88b3191551e1fe7f67cddcbf80e5",
+      "dock_file": "21_Bambu_Closed_Panel_Dock_Complete_REVIEW.step",
+      "dock_sha256": "e4a896a8857f28c3355d5fcda9021871b426085a714806522fdb05828a19d41e"
+    },
+    "RedLizard": {
+      "tool_file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T1_RedLizard.step",
+      "tool_sha256": "f24120767af38ff6418d8d793fc64e03f4a2afd904767148d70b3eff6a1f32a4",
+      "dock_file": "21_RedLizard_Closed_Panel_Dock_Complete_REVIEW.step",
+      "dock_sha256": "d2fb5f56442cd711b79f066ddc47a861cf422605f1e1609f7cdf4fdd9f7172c3"
+    }
+  },
+  "images": [
+    {
+      "file": "images/47_bambu_continuous_guide_before_after.png",
+      "sha256": "0ec7648eda37a7496af1bc8dda6ef2b8eac0ceb176ccc14ecfde31d6c3ed4204"
+    },
+    {
+      "file": "images/48_bambu_continuous_guide_with_fan.png",
+      "sha256": "b6e689765958ccf61b8dcd50a1136f913f871c7ed8f921f98aedbf793d0db0ef"
+    }
+  ]
+}

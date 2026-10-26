@@ -1,0 +1,246 @@
+{
+  "status": "LOCAL_CAD_REVIEW_NOT_PRINT_OR_MACHINE_QUALIFICATION",
+  "Bambu": {
+    "baseline": {
+      "file": "Bambu_Compact_Fan_Closed_Bores_R30_REVIEW.step",
+      "sha256": "a7b4952dbcac59e2b7118177c1ca838733cf8e90e398afb0c0a70b0e52710b9c"
+    },
+    "removed_mm3": {
+      "-X lower shelf lip": 79.11749999999996
+    },
+    "left_in_cut_zones_mm3": {
+      "-X lower shelf lip": 0
+    },
+    "volume_conservation_error_mm3": 3.524732197490721e-05,
+    "volume_mm3": 14241.829260421931,
+    "baseline_volume_mm3": 14320.946795669253,
+    "shells": 1,
+    "valid": true,
+    "bounds_mm": [
+      -12.400000000001391,
+      12.400000000003889,
+      11.5,
+      37.9,
+      -65.93,
+      48.7400001
+    ],
+    "baseline_bounds_mm": [
+      -13.5,
+      12.400000000003889,
+      11.5,
+      37.9,
+      -65.93,
+      48.7400001
+    ],
+    "minus_x_extent_below_flange_mm": -12.400000000001391
+  },
+  "RedLizard": {
+    "baseline": {
+      "file": "RedLizard_Side2510_Strip_Trim_R30_REVIEW.step",
+      "sha256": "9b9b5b9bbecc6d1a32bdeabdc708f15e4b9057a92b6d8969a6c7cf67ceb5483f"
+    },
+    "removed_mm3": {
+      "-X lower shelf lip": 30.54293777160674,
+      "fan-recess skin": 3.4257500000000487
+    },
+    "left_in_cut_zones_mm3": {
+      "-X lower shelf lip": 0,
+      "fan-recess skin": 0
+    },
+    "volume_conservation_error_mm3": 6.423102794173019e-05,
+    "volume_mm3": 8293.682158037238,
+    "baseline_volume_mm3": 8327.650781577817,
+    "shells": 1,
+    "valid": true,
+    "bounds_mm": [
+      -12.4,
+      12.4,
+      11.5,
+      38.0,
+      -47.8,
+      48.7400001
+    ],
+    "baseline_bounds_mm": [
+      -13.5,
+      15.0,
+      11.5,
+      38.0,
+      -47.8,
+      48.7400001
+    ],
+    "minus_x_extent_below_flange_mm": -12.4,
+    "material_over_fan_below_upper_shelf_mm3": 0,
+    "material_at_new_face_over_groove_z_mm": [
+      -23.540408205773456,
+      -19.2794
+    ]
+  },
+  "static_failures": [],
+  "clearances_mm": {
+    "active carriage | Bambu parked at +37.3": {
+      "r30_bodies": {
+        "mm": 1.3038404810405269,
+        "a": "P01",
+        "b": "body",
+        "carriage_dy_mm": 0
+      },
+      "r32_bodies": {
+        "mm": 1.7284654226965954,
+        "a": "P22",
+        "b": "dock",
+        "carriage_dy_mm": 0
+      }
+    },
+    "active carriage | Bambu parked at -37.3": {
+      "r30_bodies": {
+        "mm": 1.5999999999999996,
+        "a": "P01",
+        "b": "fan",
+        "carriage_dy_mm": 0
+      },
+      "r32_bodies": {
+        "mm": 1.5999999999999996,
+        "a": "P01",
+        "b": "fan",
+        "carriage_dy_mm": 0
+      }
+    },
+    "own Bambu fan | carriage": {
+      "r30_bodies": {
+        "mm": 1.5999999999999996,
+        "a": "P01",
+        "b": "fan"
+      },
+      "r32_bodies": {
+        "mm": 1.5999999999999996,
+        "a": "P01",
+        "b": "fan"
+      }
+    },
+    "active carriage | RedLizard parked at +37.3": {
+      "r30_bodies": {
+        "mm": 1.3038404810405269,
+        "a": "P01",
+        "b": "body",
+        "carriage_dy_mm": 0
+      },
+      "r32_bodies": {
+        "mm": 1.7284654226965954,
+        "a": "P22",
+        "b": "dock",
+        "carriage_dy_mm": 0
+      }
+    },
+    "active carriage | RedLizard parked at -37.3": {
+      "r30_bodies": {
+        "mm": 1.3499999999999996,
+        "a": "P01",
+        "b": "body",
+        "carriage_dy_mm": 0
+      },
+      "r32_bodies": {
+        "mm": 1.5999999999999943,
+        "a": "P01",
+        "b": "fan",
+        "carriage_dy_mm": 0
+      }
+    },
+    "own RedLizard fan | carriage": {
+      "r30_bodies": {
+        "mm": 1.5999999999999943,
+        "a": "P01",
+        "b": "fan"
+      },
+      "r32_bodies": {
+        "mm": 1.5999999999999943,
+        "a": "P01",
+        "b": "fan"
+      }
+    },
+    "parked Bambu fan side | Bambu at +37.3": {
+      "r30_bodies": {
+        "mm": 3.1999999999999957,
+        "a": "fan screws",
+        "b": "body"
+      },
+      "r32_bodies": {
+        "mm": 4.299999999999997,
+        "a": "fan screws",
+        "b": "body"
+      }
+    },
+    "parked Bambu fan side | RedLizard at +37.3": {
+      "r30_bodies": {
+        "mm": 3.1999999999999957,
+        "a": "fan screws",
+        "b": "body"
+      },
+      "r32_bodies": {
+        "mm": 4.299999999999997,
+        "a": "fan screws",
+        "b": "body"
+      }
+    },
+    "parked RedLizard fan side | Bambu at +37.3": {
+      "r30_bodies": {
+        "mm": 1.8439088914585755,
+        "a": "fan screws/inserts",
+        "b": "body"
+      },
+      "r32_bodies": {
+        "mm": 2.7730849247722076,
+        "a": "fan screws/inserts",
+        "b": "body"
+      }
+    },
+    "parked RedLizard fan side | RedLizard at +37.3": {
+      "r30_bodies": {
+        "mm": 1.9433337348726858,
+        "a": "fan screws/inserts",
+        "b": "body"
+      },
+      "r32_bodies": {
+        "mm": 2.8401665453093097,
+        "a": "fan screws/inserts",
+        "b": "body"
+      }
+    }
+  },
+  "motion": "Removal only: each revision-32 body is a subset of its revision-30 body, so the revision-30 dock, carriage-retreat, service and neighbour sweeps and the revision-31 carriage sweeps remain valid without re-running them.",
+  "complete_assembly": {
+    "source": "31_Carriage_Lowered_Mounts_Complete_REVIEW.step",
+    "solids": 149,
+    "regression_checks": 148,
+    "max_increase_mm3": 0.0
+  },
+  "exports": [
+    {
+      "file": "step\\Bambu_Compact_Flush_Side_R32_REVIEW.step",
+      "sha256": "06ca948d671f8ce24556b91397b12fd9fe97cf52b71059c150df74382a97b232"
+    },
+    {
+      "file": "stl\\Bambu_Compact_Flush_Side_R32_REVIEW.stl",
+      "sha256": "1b27a0f8879351688a925831d2e435e3e350cbb5b0e0f2d64b22351541d98600"
+    },
+    {
+      "file": "step\\RedLizard_Side2510_Flush_Side_R32_REVIEW.step",
+      "sha256": "7e14f7abb0cf8a6a071fca98e007a7f130565fd50be107fcaf6f0e388240d9b0"
+    },
+    {
+      "file": "stl\\RedLizard_Side2510_Flush_Side_R32_REVIEW.stl",
+      "sha256": "62a9870d7009d33a640fc797f1ab52ad354f213f258090fc93c22122481c1d8c"
+    },
+    {
+      "file": "step\\32_Bambu_Flush_Side_Toolhead_REVIEW.step",
+      "sha256": "6ec0e75fe62e25873e69abe06dfbad8db11eee04ce91b9665c73293aeb26cb72"
+    },
+    {
+      "file": "step\\32_Bambu_Flush_Side_Complete_REVIEW.step",
+      "sha256": "d847923921a7ba7b9e73c739a90d22720be932af308f4cf3c89d6ff2ec87a632"
+    }
+  ],
+  "not_changed": [
+    "1.60 mm fan-to-carriage gap: the fan back face (Y13.0) to the P01 front face (Y11.4). Raising it means moving the fan forward, which thins the front fan insert wall (0.65 mm) and moves the airflow further off the heatsink.",
+    "Rack pitch (37.3 mm) and the revision-31 carriage."
+  ]
+}
