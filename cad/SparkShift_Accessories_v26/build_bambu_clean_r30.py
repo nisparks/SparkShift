@@ -23,6 +23,7 @@ import json
 import cadquery as cq
 import trimesh
 
+import fast_geometry
 from audit_tool_owned_2510 import bounds, compound, overlaps
 from build_bambu_clean_r29 import (
     APRON, BASE, FAN_AXES_Y, FAN_AXIS_Z, FLANGE_BOTTOM_Z, INLET_XY, P18_BOTTOM_Z, REFERENCES,
@@ -193,16 +194,18 @@ def static_checks(base, body):
 
 
 def min_distance(a, b, cutoff=4.0):
+    """Exact minimum distance over solid pairs whose boxes are within ``cutoff`` (None if none are)."""
     best = None
     for s in a.Solids():
-        sb = bounds(s)
+        ia = fast_geometry.index_of(s)
         for t in b.Solids():
-            tb = bounds(t)
-            gap = max(tb[0] - sb[1], sb[0] - tb[1], tb[2] - sb[3], sb[2] - tb[3], tb[4] - sb[5], sb[4] - tb[5], 0)
+            ib = fast_geometry.index_of(t)
+            gap = fast_geometry.axis_gap(ia, ib)
             if gap > cutoff or (best is not None and gap >= best):
                 continue
-            d = s.distance(t)
-            best = d if best is None else min(best, d)
+            hit = fast_geometry.solid_distance(ia, ib, best=float("inf") if best is None else best)
+            if hit is not None:
+                best = hit[0]
     return best
 
 

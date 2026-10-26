@@ -9,6 +9,7 @@ from pathlib import Path
 import cadquery as cq
 import trimesh
 
+import fast_geometry
 from build_modular_toolhead import ROOT, STEP, STL, HOTEND_AXES, box, cylinder_y, load, volume, primitives
 from build_tool_owned_2510_review import cylinder_x
 
@@ -39,8 +40,10 @@ def overlaps(shape, targets, tolerance=0.001):
         t = bounds(target)
         if not boxes_overlap(b, t):
             continue
+        # The exact touch/nesting screen skips Booleans that can only return zero volume.
         v = sum(volume(a.intersect(c)) for a, ab in solid_bounds(shape)
-                for c, cb in solid_bounds(target) if boxes_overlap(ab, cb))
+                for c, cb in solid_bounds(target) if boxes_overlap(ab, cb)
+                and fast_geometry.touch_or_nest(fast_geometry.index_of(a), fast_geometry.index_of(c)))
         if v > tolerance:
             hits[name] = v
     return hits

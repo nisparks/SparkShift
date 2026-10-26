@@ -29,6 +29,7 @@ import cadquery as cq
 import trimesh
 
 import build_and_verify_accessories_v26 as acc
+import fast_geometry
 from audit_low_z_bed_clearance import load_parked_variants
 from audit_tool_owned_2510 import bounds, compound, overlaps
 from build_bambu_clean_r29 import add, remove, sha, single
@@ -69,7 +70,7 @@ DY = (0, -0.5, -1, -2, -3, -5, -10, -20, -40, -60)
 
 def zone_union(zones):
     shapes = [box(*z) for z in zones]
-    return shapes[0].fuse(*shapes[1:]).clean()
+    return shapes[0] if len(shapes) == 1 else shapes[0].fuse(*shapes[1:]).clean()
 
 
 def mass_properties(shape):
@@ -272,18 +273,16 @@ def labelled(parts):
 def nearest(a, b, offset_a, offset_b, cutoff=5.0):
     """Minimum distance between two labelled solid lists, with the closest pair."""
     best = None
-    moved_a = [(n, s.translate(offset_a)) for n, s in zip(*a)]
-    moved_b = [(n, s.translate(offset_b)) for n, s in zip(*b)]
-    for na, s in moved_a:
-        sb = bounds(s)
-        for nb, t in moved_b:
-            tb = bounds(t)
-            gap = max(tb[0] - sb[1], sb[0] - tb[1], tb[2] - sb[3], sb[2] - tb[3], tb[4] - sb[5], sb[4] - tb[5], 0)
+    ia = [(n, fast_geometry.index_of(s)) for n, s in zip(*a)]
+    ib = [(n, fast_geometry.index_of(s)) for n, s in zip(*b)]
+    for na, sa in ia:
+        for nb, sb in ib:
+            gap = fast_geometry.axis_gap(sa, sb, offset_a, offset_b)
             if gap > cutoff or (best is not None and gap >= best[0]):
                 continue
-            d = s.distance(t)
-            if best is None or d < best[0]:
-                best = (d, na, nb)
+            hit = fast_geometry.solid_distance(sa, sb, offset_a, offset_b, float("inf") if best is None else best[0])
+            if hit is not None:
+                best = (hit[0], na, nb)
     return best
 
 

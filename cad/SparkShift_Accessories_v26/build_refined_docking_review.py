@@ -7,6 +7,7 @@ import math
 import cadquery as cq
 import trimesh
 
+import fast_geometry
 from audit_tool_owned_2510 import compound, bounds, overlaps, solid_bounds, boxes_overlap
 from build_modular_toolhead import ROOT, STEP, STL, HOTEND_AXES, box, cylinder_y, load, volume, primitives
 from build_tool_owned_2510_review import cylinder_x
@@ -53,7 +54,10 @@ def translated_hits(shape, targets, offset, tolerance=0.01):
             moved_bounds = [v + offset[i // 2] for i, v in enumerate(b)]
             if not boxes_overlap(moved_bounds, bounds(target)):
                 continue
-            candidates = [t for t, tb in solid_bounds(target) if boxes_overlap(moved_bounds, tb)]
+            # Only pairs that touch or nest can share volume; the rest skip the Boolean.
+            index = fast_geometry.index_of(s)
+            candidates = [t for t, tb in solid_bounds(target) if boxes_overlap(moved_bounds, tb)
+                          and fast_geometry.touch_or_nest(index, fast_geometry.index_of(t), offset)]
             if candidates:
                 moved = s.translate(offset)
                 total += sum(volume(moved.intersect(t)) for t in candidates)

@@ -11,6 +11,7 @@ import cadquery as cq
 import trimesh
 
 import build_and_verify_accessories_v26 as primitives
+import fast_geometry
 
 ROOT = Path(__file__).resolve().parent
 STEP = ROOT / "step"
@@ -32,7 +33,8 @@ def cylinder_y(x, z, y0, y1, radius):
 
 
 def load(name):
-    return cq.importers.importStep(str(STEP / f"{name}.step")).val()
+    """step/<name>.step as a fresh shape, read through fast_geometry's BREP cache."""
+    return fast_geometry.load(name)
 
 
 def volume(shape):
