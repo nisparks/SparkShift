@@ -123,7 +123,9 @@ raising the gap under every tool's side fan from 0.98 mm to 2.48 mm; it
 needs the same boss move in the native P01 before use. Revision 32 trims
 both printed bodies to the original ±12.40 mm width on the non-fan side
 and removes a 0.05 mm Red Lizard skin, raising the closest side clearance
-to the active carriage from 1.30 mm to 1.73 mm.
+to the active carriage from 1.30 mm to 1.73 mm. Revision 33 adds a third
+fan screw on the Bambu and replaces the Red Lizard's thin fan column with a
+fan wall tied into a restored neck under P18.
 Revisions 25-29 are superseded. It remains a review candidate, not print or
 machine approval, and does not resolve the machine-layout blocker.
 The gantry-mounted docks hit the actual bed at first-layer height.

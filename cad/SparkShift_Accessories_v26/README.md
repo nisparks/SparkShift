@@ -394,6 +394,97 @@ Files: [Bambu STEP](./step/Bambu_Compact_Flush_Side_R32_REVIEW.step)
 [149-solid complete assembly](./step/32_Bambu_Flush_Side_Complete_REVIEW.step) with the
 revision-31 carriage. Render with `python render_side_clearance_r32.py`.
 
+#### Fan mounts: third Bambu screw, solid Red Lizard fan wall (revision 33)
+
+Revision 33 strengthens how both bodies hold the 2510 fan. Nothing changes outside the
+fan mounts and the Red Lizard front, and every clearance in the revision-32 table is
+unchanged.
+
+**Bambu: third fan screw.** The fan hung from its two upper holes and its lower edge was
+free. A third R3 boss on the apron's side face at the fan's lower-front hole (Y35.5,
+Z-45.3) takes a third fan-side M2.5 L4 heat-set insert and M2.5×14 low-head screw, so the
+fan is held at three corners. The apron is solid there. The new insert sits 1.67 mm from
+the apron's own hotend insert at (X6, Z-40.13) and keeps the same 0.65 mm front wall as
+the upper front insert. The lower-rear hole stays empty because the heatsink fills the
+space behind it.
+
+**Red Lizard: fan wall and neck.** The fan hung from a 4 × 5 mm column (X7.45..11.45,
+Y33..38). Its only joint to the shelf was a 1.48 mm tab that overlapped the shelf by
+0.55 mm. The neck under P18 was also missing, so both lower P18 bores were half open at
+the bottom. Revision 33:
+
+1. Restores the front neck under P18 as on the Bambu (revision 29), with the wire trough
+   left open from below.
+2. Replaces the column with a fan wall 8.6 mm wide and 5.45 mm deep (X3.0..11.6,
+   Y32.45..37.9, from Z-48.3 up into the neck). It seats the fan over its full height.
+3. Moves both fan inserts from inner-entry M2.5 L3 to fan-side M2.5 L4 pilots, like the
+   Bambu. The two M2.5×14 screws are unchanged.
+4. Recuts the lower P18 bores as closed M3 × 3 pockets with a 0.5 mm rear wall, as on the
+   Bambu (revision 30).
+
+The Red Lizard fan's rear holes still cannot take screws. An insert behind them would
+overlap the heatsink top by about 2.8 mm, and the fan sits 0.6 mm from the fins. The wall
+stops 0.5 mm in front of the heatsink, so the hotend still drops straight out once its
+four heatsink screws are removed.
+
+![Revision 32 and 33: Bambu third screw and boss, Red Lizard fan wall, neck and P18 pockets](./images/62_fan_mounts_r33_before_after.png)
+
+| Hardware | Revision 32 | Revision 33 |
+| --- | --- | --- |
+| Bambu fan inserts | 2 × M2.5 L4, fan side | 3 × M2.5 L4, fan side |
+| Bambu fan screws | 2 × M2.5×14 low head | 3 × M2.5×14 low head |
+| Red Lizard fan inserts | 2 × M2.5 L3, inner entry | 2 × M2.5 L4, fan side |
+| Red Lizard lower P18 inserts | half-open bores | 2 × M3 × 3 in closed pockets |
+
+Verification (`python build_fan_mounts_r33.py`,
+[report](./verification_fan_mounts_r33.json)):
+
+- Both bodies are one valid solid with one shell. Outside the declared edit zones their
+  volume, surface area and centroid match revision 32. There is no new contact with the
+  hotend and its hardware, the fan, the fan screws, P18, the revision-31 carriage or
+  P20–P24.
+- Zero-volume gauges: every fan insert is walled and every pilot clear. The Red Lizard
+  wall and neck are fully filled, its wire trough is open, and both P18 pockets are
+  clear, walled and closed at the rear. Nothing sits inside the fan envelope.
+- Sampled motion for both tools found no intersections:
+  - dock approach, withdrawal and carriage retreat over 60 mm (121 samples)
+  - the hotend service path (Bambu as revision 30; the Red Lizard straight down 45 mm)
+  - both tools past Bambu and Red Lizard neighbours at ±37.3 mm (61 samples each)
+- The 144 unchanged solids in the complete Bambu assembly show no new intersection.
+
+Files: [Bambu STEP](./step/Bambu_Three_Screw_Fan_R33_REVIEW.step)
+([STL](./stl/Bambu_Three_Screw_Fan_R33_REVIEW.stl)),
+[Red Lizard STEP](./step/RedLizard_Fan_Wall_R33_REVIEW.step)
+([STL](./stl/RedLizard_Fan_Wall_R33_REVIEW.stl)),
+[Bambu inserts](./step/Bambu_Fan_Side_M2p5_L4_Inserts_R33_REVIEW.step),
+[Red Lizard inserts](./step/RedLizard_Fan_Side_M2p5_L4_Inserts_R33_REVIEW.step),
+[Bambu fan and three screws](./step/Bambu_Fan_2510_And_Three_Screws_R33_REVIEW.step),
+[22-solid Bambu toolhead](./step/33_Bambu_Three_Screw_Toolhead_REVIEW.step),
+[24-solid Red Lizard toolhead](./step/33_RedLizard_Fan_Wall_Toolhead_REVIEW.step) and
+[151-solid complete Bambu assembly](./step/33_Bambu_Three_Screw_Complete_REVIEW.step).
+Render with `python render_fan_mounts_r33.py`. Insert pull-out, printed strength and fan
+vibration remain unqualified.
+
+#### Faster verification (`fast_geometry.py`)
+
+The review scripts now share [`fast_geometry.py`](./fast_geometry.py), and the full
+revision-33 pass took 2.9 minutes. Revisions 31 and 32 each took about 45 minutes. The
+results are the same, only computed with less work:
+
+- **Exact distances by face, not by solid.** OCC's solid-to-solid distance compared every
+  face pair of complex parts. For example, the 904-face P03 against the 354-face dock took
+  16 s to find a 26 mm gap. Each face now has a tight bounding box, and the exact distance
+  runs only on face pairs whose boxes can still beat the best answer so far. One clearance
+  sample went from about 100 s to 0.04 s.
+- **Boolean screen.** Overlap checks skip the Boolean for solid pairs whose surfaces do not
+  meet and where neither solid lies inside the other, since that Boolean can only return
+  zero.
+- **BREP cache.** STEP files are cached as OCC's native BREP under `.cache/` (git-ignored),
+  so the 30 MB core loads in 0.35 s instead of 7.4 s.
+
+Re-running the revision-30, 31 and 32 checks with these helpers reproduced every stored
+value and label exactly, including nested and touching test cases.
+
 #### Superseded: revisions 25-29
 
 These are kept for history. Revisions 25-28 patched on top of each other: revision 25

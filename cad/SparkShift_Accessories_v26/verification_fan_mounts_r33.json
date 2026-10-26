@@ -1,0 +1,440 @@
+{
+  "status": "LOCAL_CAD_REVIEW_NOT_PRINT_OR_MACHINE_QUALIFICATION",
+  "operations": {
+    "Bambu": [
+      {
+        "operation": "lower-front fan boss on the apron side face",
+        "added_mm3": 14.1225
+      },
+      {
+        "operation": "L4 heat-set pilot and entry chamfer, lower front",
+        "removed_mm3": 34.4311
+      }
+    ],
+    "RedLizard": [
+      {
+        "operation": "old column front past the new front face",
+        "removed_mm3": 10.0
+      },
+      {
+        "operation": "front neck under P18, wire trough open",
+        "added_mm3": 307.4043
+      },
+      {
+        "operation": "fan wall running into the neck",
+        "added_mm3": 725.8378
+      },
+      {
+        "operation": "P18 pocket rear wall X-6",
+        "added_mm3": 4.127
+      },
+      {
+        "operation": "M3 x 3 P18 pocket X-6",
+        "removed_mm3": 27.3008
+      },
+      {
+        "operation": "P18 pocket rear wall X+6",
+        "added_mm3": 4.1271
+      },
+      {
+        "operation": "M3 x 3 P18 pocket X+6",
+        "removed_mm3": 27.3008
+      },
+      {
+        "operation": "L4 heat-set pilot and chamfer Z-25.3",
+        "removed_mm3": 34.4311
+      },
+      {
+        "operation": "L4 heat-set pilot and chamfer Z-45.3",
+        "removed_mm3": 34.4311
+      }
+    ]
+  },
+  "Bambu": {
+    "volume_mm3": 14221.520709139617,
+    "shells": 1,
+    "valid": true,
+    "bounds_mm": [
+      -12.400000000001388,
+      12.40000000000389,
+      11.5,
+      37.90000000000016,
+      -65.93,
+      48.7400001
+    ],
+    "baseline": {
+      "file": "Bambu_Compact_Flush_Side_R32_REVIEW.step",
+      "sha256": "06ca948d671f8ce24556b91397b12fd9fe97cf52b71059c150df74382a97b232"
+    },
+    "baseline_volume_mm3": 14241.829260421462,
+    "baseline_bounds_mm": [
+      -12.400000000001388,
+      12.40000000000389,
+      11.5,
+      37.900000000000006,
+      -65.93,
+      48.7400001
+    ],
+    "intersections_mm3": {},
+    "baseline_intersections_mm3": {
+      "Fan_Screws": 16.935147898257487
+    },
+    "outside_edit_zones": {
+      "outside_zones_new": {
+        "volume_mm3": 14103.789224827815,
+        "area_mm2": 11930.718088010817,
+        "centroid_mm": [
+          -0.2271716247357926,
+          29.218260277507525,
+          -16.421982007580226
+        ]
+      },
+      "outside_zones_released": {
+        "volume_mm3": 14103.789224827817,
+        "area_mm2": 11930.718088010814,
+        "centroid_mm": [
+          -0.2271716247357905,
+          29.218260277507532,
+          -16.42198200758025
+        ]
+      },
+      "unchanged_outside_zones": true,
+      "inside_zones_mm3": {
+        "new": 117.73151916482033,
+        "released": 138.04
+      }
+    },
+    "gauges": {
+      "bambu_y15p5_zm25p3_insert_wall_missing_mm3": 0,
+      "bambu_y15p5_zm25p3_pilot_blocked_mm3": 0,
+      "bambu_y35p5_zm25p3_insert_wall_missing_mm3": 0,
+      "bambu_y35p5_zm25p3_pilot_blocked_mm3": 0,
+      "bambu_y35p5_zm45p3_insert_wall_missing_mm3": 0,
+      "bambu_y35p5_zm45p3_pilot_blocked_mm3": 0,
+      "bambu_third_insert_to_hotend_hardware_mm": 1.6699999999999946,
+      "bambu_third_screw_in_fan_mm3": 0
+    }
+  },
+  "RedLizard": {
+    "volume_mm3": 9201.714540088205,
+    "shells": 1,
+    "valid": true,
+    "bounds_mm": [
+      -12.400000000000002,
+      12.4,
+      11.5,
+      37.9,
+      -48.3,
+      48.7400001
+    ],
+    "baseline": {
+      "file": "RedLizard_Side2510_Flush_Side_R32_REVIEW.step",
+      "sha256": "7e14f7abb0cf8a6a071fca98e007a7f130565fd50be107fcaf6f0e388240d9b0"
+    },
+    "baseline_volume_mm3": 8293.682158035981,
+    "baseline_bounds_mm": [
+      -12.400000000000002,
+      12.4,
+      11.5,
+      38.0,
+      -47.8,
+      48.7400001
+    ],
+    "intersections_mm3": {},
+    "baseline_intersections_mm3": {},
+    "outside_edit_zones": {
+      "outside_zones_new": {
+        "volume_mm3": 7782.522590746614,
+        "area_mm2": 9118.07931212419,
+        "centroid_mm": [
+          -0.03612883154035139,
+          26.75747567329069,
+          3.201605761686391
+        ]
+      },
+      "outside_zones_released": {
+        "volume_mm3": 7782.522590746612,
+        "area_mm2": 9118.07931212419,
+        "centroid_mm": [
+          -0.03612883154035146,
+          26.757475673290696,
+          3.2016057616864124
+        ]
+      },
+      "unchanged_outside_zones": true,
+      "inside_zones_mm3": {
+        "new": 1419.19211045841,
+        "released": 511.15979344833306
+      }
+    },
+    "gauges": {
+      "redlizard_y35p5_zm25p3_insert_wall_missing_mm3": 0,
+      "redlizard_y35p5_zm25p3_pilot_blocked_mm3": 0,
+      "redlizard_y35p5_zm45p3_insert_wall_missing_mm3": 0,
+      "redlizard_y35p5_zm45p3_pilot_blocked_mm3": 0,
+      "wall_unfilled_mm3": 0,
+      "neck_unfilled_mm3": 0,
+      "wire_trough_blocked_mm3": 0,
+      "material_inside_fan_envelope_mm3": 0,
+      "old_column_front_left_mm3": 0,
+      "p18_pocket_x-6_blocked_mm3": 0,
+      "p18_pocket_x-6_wall_missing_mm3": 0,
+      "p18_pocket_x-6_rear_wall_missing_mm3": 0,
+      "p18_pocket_x+6_blocked_mm3": 0,
+      "p18_pocket_x+6_wall_missing_mm3": 0,
+      "p18_pocket_x+6_rear_wall_missing_mm3": 0
+    }
+  },
+  "static_failures": [],
+  "motion": {
+    "Bambu": {
+      "dock_samples": 121,
+      "dock_hits": [],
+      "carriage_retreat_hits": [],
+      "hotend_service_samples": 57,
+      "hotend_service_hits": [],
+      "neighbour_checks": [
+        {
+          "neighbour": "Bambu",
+          "offset_x_mm": -37.3,
+          "samples": 61,
+          "hits": []
+        },
+        {
+          "neighbour": "Bambu",
+          "offset_x_mm": 37.3,
+          "samples": 61,
+          "hits": []
+        },
+        {
+          "neighbour": "RedLizard",
+          "offset_x_mm": -37.3,
+          "samples": 61,
+          "hits": []
+        },
+        {
+          "neighbour": "RedLizard",
+          "offset_x_mm": 37.3,
+          "samples": 61,
+          "hits": []
+        }
+      ]
+    },
+    "RedLizard": {
+      "dock_samples": 121,
+      "dock_hits": [],
+      "carriage_retreat_hits": [],
+      "hotend_service_samples": 91,
+      "hotend_service_hits": [],
+      "neighbour_checks": [
+        {
+          "neighbour": "Bambu",
+          "offset_x_mm": -37.3,
+          "samples": 61,
+          "hits": []
+        },
+        {
+          "neighbour": "Bambu",
+          "offset_x_mm": 37.3,
+          "samples": 61,
+          "hits": []
+        },
+        {
+          "neighbour": "RedLizard",
+          "offset_x_mm": -37.3,
+          "samples": 61,
+          "hits": []
+        },
+        {
+          "neighbour": "RedLizard",
+          "offset_x_mm": 37.3,
+          "samples": 61,
+          "hits": []
+        }
+      ]
+    }
+  },
+  "clearances_mm": {
+    "active carriage | Bambu parked at +37.3": {
+      "r32": {
+        "mm": 1.7284654226965954,
+        "a": "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "b": "dock",
+        "carriage_dy_mm": 0
+      },
+      "r33": {
+        "mm": 1.7284654226965954,
+        "a": "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "b": "dock",
+        "carriage_dy_mm": 0
+      }
+    },
+    "active carriage | Bambu parked at -37.3": {
+      "r32": {
+        "mm": 1.5999999999999996,
+        "a": "Core_With_Lowered_P01_Bosses_R31_REVIEW_54",
+        "b": "fan",
+        "carriage_dy_mm": 0
+      },
+      "r33": {
+        "mm": 1.5999999999999996,
+        "a": "Core_With_Lowered_P01_Bosses_R31_REVIEW_54",
+        "b": "fan",
+        "carriage_dy_mm": 0
+      }
+    },
+    "own Bambu fan | carriage": {
+      "r32": {
+        "mm": 1.5999999999999996,
+        "a": "Core_With_Lowered_P01_Bosses_R31_REVIEW_54",
+        "b": "fan"
+      },
+      "r33": {
+        "mm": 1.5999999999999996,
+        "a": "Core_With_Lowered_P01_Bosses_R31_REVIEW_54",
+        "b": "fan"
+      }
+    },
+    "active carriage | RedLizard parked at +37.3": {
+      "r32": {
+        "mm": 1.7284654226965954,
+        "a": "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "b": "dock",
+        "carriage_dy_mm": 0
+      },
+      "r33": {
+        "mm": 1.7284654226965954,
+        "a": "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "b": "dock",
+        "carriage_dy_mm": 0
+      }
+    },
+    "active carriage | RedLizard parked at -37.3": {
+      "r32": {
+        "mm": 1.5999999999999943,
+        "a": "Core_With_Lowered_P01_Bosses_R31_REVIEW_54",
+        "b": "fan",
+        "carriage_dy_mm": 0
+      },
+      "r33": {
+        "mm": 1.5999999999999943,
+        "a": "Core_With_Lowered_P01_Bosses_R31_REVIEW_54",
+        "b": "fan",
+        "carriage_dy_mm": 0
+      }
+    },
+    "own RedLizard fan | carriage": {
+      "r32": {
+        "mm": 1.5999999999999943,
+        "a": "Core_With_Lowered_P01_Bosses_R31_REVIEW_54",
+        "b": "fan"
+      },
+      "r33": {
+        "mm": 1.5999999999999943,
+        "a": "Core_With_Lowered_P01_Bosses_R31_REVIEW_54",
+        "b": "fan"
+      }
+    },
+    "parked Bambu fan side | Bambu at +37.3": {
+      "r32": {
+        "mm": 4.299999999999997,
+        "a": "fan screws",
+        "b": "body"
+      },
+      "r33": {
+        "mm": 4.299999999999997,
+        "a": "fan screws",
+        "b": "body"
+      }
+    },
+    "parked Bambu fan side | RedLizard at +37.3": {
+      "r32": {
+        "mm": 4.299999999999997,
+        "a": "fan screws",
+        "b": "body"
+      },
+      "r33": {
+        "mm": 4.299999999999997,
+        "a": "fan screws",
+        "b": "body"
+      }
+    },
+    "parked RedLizard fan side | Bambu at +37.3": {
+      "r32": {
+        "mm": 2.7730849247722076,
+        "a": "fan screws",
+        "b": "body"
+      },
+      "r33": {
+        "mm": 2.7730849247722076,
+        "a": "fan screws",
+        "b": "body"
+      }
+    },
+    "parked RedLizard fan side | RedLizard at +37.3": {
+      "r32": {
+        "mm": 2.8401665453093097,
+        "a": "fan screws",
+        "b": "body"
+      },
+      "r33": {
+        "mm": 2.8401665453093097,
+        "a": "fan screws",
+        "b": "body"
+      }
+    }
+  },
+  "complete_assembly": {
+    "source": "32_Bambu_Flush_Side_Complete_REVIEW.step",
+    "solids": 151,
+    "regression_checks": 144,
+    "max_increase_mm3": 0.0
+  },
+  "exports": [
+    {
+      "file": "step\\Bambu_Three_Screw_Fan_R33_REVIEW.step",
+      "sha256": "fdbd8edb26c7df18f448d26c8de81c787f276ed15e942d731570b408ddafae03"
+    },
+    {
+      "file": "stl\\Bambu_Three_Screw_Fan_R33_REVIEW.stl",
+      "sha256": "f9332091f773198870ec0a325087fcfaa305d7282d76e854e53a37979a0e05e7"
+    },
+    {
+      "file": "step\\RedLizard_Fan_Wall_R33_REVIEW.step",
+      "sha256": "0e782c4ca03732135b8915134a36914b226ea92fec8f94cbf31bee5cad0c45ad"
+    },
+    {
+      "file": "stl\\RedLizard_Fan_Wall_R33_REVIEW.stl",
+      "sha256": "6d62197ca107bfe13145e9ec2894b23fe567ce36f4b0189a3763735f4d3bd536"
+    },
+    {
+      "file": "step\\Bambu_Fan_Side_M2p5_L4_Inserts_R33_REVIEW.step",
+      "sha256": "0a9b02db46c1b2728dcb21a72ca43cd0d0609a8cddd4c007575fb65263d73f17"
+    },
+    {
+      "file": "step\\RedLizard_Fan_Side_M2p5_L4_Inserts_R33_REVIEW.step",
+      "sha256": "035937bdd7e08f71ce73d65a226cc56d7f57bdf379ed5709848c8d404ae0602e"
+    },
+    {
+      "file": "step\\Bambu_Fan_2510_And_Three_Screws_R33_REVIEW.step",
+      "sha256": "927884d5066228c5ddfc5b185fe2f2d30f8ef6625dc7104467f0c1d0acbd71a5"
+    },
+    {
+      "file": "step\\33_Bambu_Three_Screw_Toolhead_REVIEW.step",
+      "sha256": "ea264bf886c20549a3b968242c3df8bdb3ef426d342078fddc150896a15752b8"
+    },
+    {
+      "file": "step\\33_RedLizard_Fan_Wall_Toolhead_REVIEW.step",
+      "sha256": "a333a822f043ee5251ada1a820896bbc6b12513b47ede868258fddd597cbd18f"
+    },
+    {
+      "file": "step\\33_Bambu_Three_Screw_Complete_REVIEW.step",
+      "sha256": "5c6a9a70ee3bfe07d3f2f1e189542aab6fd5ee3f57515b3fe2981a3473c9f193"
+    }
+  ],
+  "hardware": {
+    "Bambu": "Three M2.5 L4 OD3.5 fan-side heat-set inserts and three M2.5x14 low-head screws (one more of each).",
+    "RedLizard": "Two M2.5 L4 OD3.5 fan-side heat-set inserts replace the two inner-entry M2.5 L3 inserts; the two M2.5x14 low-head screws are unchanged. Lower P18 screws take M3 x 3 mm inserts in closed pockets."
+  },
+  "runtime_s": 168.81875240000954
+}
