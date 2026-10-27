@@ -145,7 +145,7 @@ Designed specifically for the **Trianglelab Supercharged 7040 Centrifugal Blower
    - The bottom face of `P17_HF_tool_carrier_3010` (`Z = -52.50 mm`) is a single flat plane with a solid `1.70 mm` floor under the heatsink (`R = 4.60 mm` central heatbreak bore) and `45°` self-supporting upper chamfers on all lateral exhaust windows and wire inlets.
 5. **StealthChanger-Compatible Docking Backplate (`P18_Tool_docking_backplate_3010`) & Dual-Compatible Magnet Pockets (`P17_3010` / `2510` & `P03_COTS`):**
    - **Dual-Compatible Receiver & Toolhead Magnet Pockets (`P03_Front_case_COTS` & `P17_3010` / `2510`):** Adds `8× Ø6.12 mm` circular magnet lobes at `(X = ±6.50 mm, Z = [30.50, 23.00, 5.50, -2.00] mm)` (`4.03 mm` deep in `P03_Front_case_COTS`, `3.10 mm` deep in `P17`) while preserving the `3.00 mm` deep rectangular corner shelves — allowing builders to press in **either `8× Ø6×4 mm / Ø6×3 mm` N52 cylindrical magnets** (`8× Ø6×4 mm` or `Ø6×3 mm` in `P03_COTS` + `8× Ø6×3 mm` in `P17`) **or `4× 15×5×3 mm` rectangular bar magnets** in the exact same print.
-   - **StealthChanger `Ø5×12 mm` Rounded Dowel Pins + `Ø5 mm` Bushings + `Ø6×4 mm` Dock Magnets (`P18_3010` ↔ `P25`):** `P18_Tool_docking_backplate_3010` integrates two rear bosses at `(X = ±6.00, Z = +22.00 mm)` with `Ø4.98 × 6.50 mm` press-fit bores for **`2× Ø5×12 mm` rounded steel dowel pins** (`5.50 mm` projecting nose `Y = 45.00..50.50 mm`) and two rear bosses at `(X = ±6.00, Z = -2.00 mm)` with `Ø6.12 × 4.08 mm` pockets for **`2× Ø6×4 mm` (or `Ø6×3 mm`) N52 dock magnets**, mating into matching **`2× Ø5 mm` (`5×7×5.5 mm`) bushing counterbores** and **`2× Ø6×4 mm` magnet pockets** in `P25_SparkShift_3010_Dock` while keeping the `5.0 × 0.85 mm` central wire relief channel and upper/lower T-lugs intact.
+   - **StealthChanger `Ø5×12 mm` Rounded Dowel Pins + `Ø5 mm` Bushings + `Ø6×4 mm` Dock Magnets (`P18_3010` ↔ `P25`):** `P18_Tool_docking_backplate_3010` integrates two rear bosses at `(X = ±6.00, Z = +22.00 mm)` with `Ø4.98 × 6.50 mm` press-fit bores for **`2× Ø5×12 mm` rounded steel dowel pins** (`5.50 mm` projecting nose `Y = 45.00..50.50 mm`) and two rear bosses at `(X = ±6.00, Z = -2.00 mm)` with `Ø6.12 × 4.08 mm` pockets for **`2× Ø6×4 mm` (or `Ø6×3 mm`) N52 dock magnets**, mating into matching **`2× Ø5 mm` (`5×7×5.5 mm`) bushing counterbores** and **`2× Ø6×4 mm` magnet pockets** in `P25_SparkShift_3010_Dock` while keeping the `5.0 × 0.85 mm` central wire relief channel and upper/lower T-lugs intact. Revision-39 review: the pins move into `P25` and the bushings into `P18` (axes `X = ±4.80, Z = 21.00 mm`), so nothing sticks out of the tool; see [revision 39](#dowel-pins-moved-into-the-docks-revision-39).
 
 ### 3.2 Voron 350 (`350 mm` X-Travel) Multi-Toolhead Capacity (`2510` vs. `3010`)
 With the `45.0 mm` wide carriage (`X ∈ [-22.42, +22.42] mm`), the usable dockable X-stroke across a `350 mm` Voron 2.4R2 / Monolith gantry is **`305.0 mm`**:
@@ -484,7 +484,7 @@ the parked tools' height.
 
 The active nozzle cannot print over that strip anyway, because the parked tools occupy it
 (front print limit Y63.21 mm in the [ten-tool report](./verification_ten_tool_closed_panel_dock.json),
-Y52.22 mm from exact contact since revision 38).
+Y52.22 mm from exact contact since revision 38, Y48.25 mm since revision 39).
 The bed in front of the parked envelope only causes the collision. **Required printer
 change: the bed's front edge at Y40 mm or further back.** The parked envelope ends at
 Y35.41 mm, so the absolute minimum for a 1 mm gap is Y36.41 mm. Either:
@@ -522,8 +522,8 @@ both parked hotends and all ten bays at nozzle Z0.2 (first layer) and Z0 (contac
   clears the bed by 30.9 mm and the flying gantry (at nozzle Z-2) by 47.7 mm. The lowest
   carriage part is P22 at 0.48 mm, the same as anywhere on the bed (see below).
 - The front print limit leaves 23.2 mm of bed in front of it (12.2 mm with revision 38's
-  limit), so the print area is unchanged, and the probe coil is over the bed there (Y82.71;
-  Y71.7 with revision 38).
+  limit, 8.25 mm with revision 39's), so the print area is unchanged, and the probe coil is
+  over the bed there (Y82.71; Y71.7 with revision 38, Y67.75 with revision 39).
 - The [native Fusion review](./34_Rigid_Rack_Bed_Front_Edge_Y40_REVIEW.f3d) is the
   revision-22 diagnostic with only the bed moved back 31 mm. Fusion measures the same
   4.59 mm from all ten docks to the bed.
@@ -537,7 +537,8 @@ both tools:
 |---|---|
 | Dock seat (every bay) | 20.71 |
 | Front print limit, whole-envelope rule (superseded by revision 38) | 63.21 |
-| **Front print limit, exact 3D contact + 1 mm ([revision 38](#front-print-limit-from-exact-contact-revision-38))** | **52.22** |
+| Front print limit, exact 3D contact + 1 mm, dowel pins on P18 ([revision 38](#front-print-limit-from-exact-contact-revision-38), superseded) | 52.22 |
+| **Front print limit, dowel pins moved into the docks ([revision 39](#dowel-pins-moved-into-the-docks-revision-39))** | **48.25** |
 | X-traverse corridor used by the toolchange | 80.71 |
 | Rear rail end: the X beam's 40 mm Y blocks reach the end of the 400 mm rails | 365.15 |
 | X beam reaches the Monolith rear motor mount | 365.26 |
@@ -551,15 +552,15 @@ the rear only, and does not recover the strip the docks take.
 
 | Bed | Printable (X × Y) | Nozzle Y | Probe can mesh bed Y | Not meshed |
 |---|---|---|---|---|
-| Option A, Y40..359 | 350 × 306.8 mm (revision 34: 295.8) | 52.22..359 | 72.04..349 | front 19.8 mm, rear 10 mm |
-| Option B, Y40..390 | 350 × 311.9 mm (revision 34: 300.9) | 52.22..364.15 | 72.04..380 | front 19.8 mm |
+| Option A, Y40..359 | 350 × 310.8 mm (revision 34: 295.8, revision 38: 306.8) | 48.25..359 | 68.07..349 | front 19.8 mm, rear 10 mm |
+| Option B, Y40..390 | 350 × 315.9 mm (revision 34: 300.9, revision 38: 311.9) | 48.25..364.15 | 68.07..380 | front 19.8 mm |
 
 The front 19.8 mm of the print area cannot be meshed with either bed: the probe trails
-the nozzle and the parked tools stop the nozzle at Y52.22 (Y63.21 before revision 38).
-Klipper uses the nearest mesh row there. A stock Voron 2.4 350 prints 350 × 350 mm; the
-ten front docks cost about 43 mm of depth with bed A and 38 mm with bed B (54 / 49 mm
-before revision 38). The table uses revision 38's front limit
-([report](./verification_front_print_limit_r38.json)).
+the nozzle and the parked tools stop the nozzle at Y48.25 (Y63.21 before revision 38,
+Y52.22 before revision 39). Klipper uses the nearest mesh row there. A stock Voron 2.4 350
+prints 350 × 350 mm; the ten front docks cost about 39 mm of depth with bed A and 34 mm
+with bed B (54 / 49 mm before revision 38). The table uses revision 39's front limit
+([report](./verification_front_print_limit_r39.json)).
 
 Found during and after this audit:
 
@@ -862,6 +863,8 @@ forward 2 mm at a time, and bisects the first exact contact to 0.01 mm. The fixe
   Y5.05, so the gain would be at most about 14 mm.
 - **Trim the binding features.** The coupling pins/magnets and the parked body's recess are
   working features. Clearing the pin contact gains only 4 mm, down to P18's 47.25.
+  [Revision 39](#dowel-pins-moved-into-the-docks-revision-39) gets those 4 mm by moving the
+  pins into the docks.
 - **Bed option B** (revision 34) adds 5.1 mm at the rear over option A, using the Monolith's
   rear overtravel.
 
@@ -877,6 +880,95 @@ It reopens with 389 bodies, and Fusion measures the pin-to-body gap at 1.010 mm 
 **Limits.** Parked tools are taken at the modeled dock seat; the 1 mm margin covers only small
 seating and frame errors. Hoses, cable chains, umbilicals and toolhead wiring are not modeled.
 The limit is in world CAD coordinates; commission it on the machine.
+
+#### Dowel pins moved into the docks (revision 39)
+
+Revision 38 found that the front print limit came from the two Ø5×12 mm dowel pins sticking
+5.5 mm out of every tool's P18. They locate a parked tool in its dock, but on the active tool they
+reach into the open rear of a parked tool, around its filament stem. Revision 39 swaps the two
+halves of the coupling. The pins are pressed into the dock and point at the tool, and the bushings
+are pressed into P18, flush with its face. Nothing on a tool now sticks out past its magnet bar.
+
+![Revision 37/38 vs 39: docked sections through a pin, the P18 and P25 coupling faces, the first-contact profile and the new binding point](./images/73_dock_pins_r39_before_after.png)
+
+![Fusion: a docked Bambu and a Red Lizard out of its dock, and P18's bushings with the dock pins lined up](./images/74_dock_pins_r39_fusion.png)
+
+**What changes**
+
+- **P18** ([STEP](./step/P18_Docking_Backplate_Bushing_Seats_R39_REVIEW.step),
+  [STL](./stl/P18_Docking_Backplate_Bushing_Seats_R39_REVIEW.stl)).
+  - The two pin bosses become one bar across P18's existing width (X±9.8, Z16..26.2), with its
+    face at Y45 as before.
+  - Two 5×7×5.5 mm bushings press flush into Ø7.04 × 5.5 mm seats, the dock's released seat.
+  - A bushing is wider than the pin, so the axes move from X±6, Z22 to X±4.8, Z21. That leaves
+    at least 1.48 mm of wall and 2.5 mm of floor.
+  - The bar's top stays at Z26.2, so it keeps the released bosses' 0.20 mm to the dock's entry
+    lip and 1.27 mm to the upper snap jaw.
+  - The magnet bar, T-lugs and mounting holes are untouched. Both hotends use this P18.
+- **P25** ([STEP](./step/P25_Dock_Pin_Seats_R39_REVIEW.step),
+  [STL](./stl/P25_Dock_Pin_Seats_R39_REVIEW.stl)). The released bushing seats and pin-clearance
+  bores are filled. Two Ø4.98 × 6.5 mm press-fit bores (P18's released pin bore) hold the pins
+  5.5 mm proud, with at least 1.8 mm of wall around them and 3 mm behind. Nothing else changes.
+- **Hardware** ([dock](./step/39_Dock_Complete_REVIEW.step),
+  [tool hardware](./step/P18_Bushings_And_Magnets_R39_REVIEW.step)). Each tool now carries two
+  bushings instead of two pins, and each dock two pins instead of two bushings. Ten tools and
+  docks still need 20 pins, 20 bushings and 40 magnets.
+
+**Docking is unchanged.** The tool still docks with the same straight-Y move:
+
+- Each pin enters its bushing 4.59 mm (2.59 mm at full diameter) with 0.04 mm radial clearance.
+- The magnet gap is still 0.26 mm.
+- Every P18-to-dock clearance is the same, including 0.16 mm to P25 at the magnet bar and
+  0.025 mm at the snap-jaw T-lugs.
+
+**Print area.** P18's flat plate is now the first contact everywhere: the active tool first touches
+a parked tool at nozzle Y47.25, at every X, for both hotends.
+
+| | Revision 38 | Revision 39 |
+|---|---|---|
+| Front print limit (nozzle Y) | 52.22 | **48.25** |
+| Option A, Y40..359 | 350 × 306.8 mm | **350 × 310.8 mm** |
+| Option B, stock bed moved back 31 mm (Y40..390) | 350 × 311.9 mm | **350 × 315.9 mm** |
+
+The probe meshes from bed Y68.07 (was 72.04). Start the slicer's printable area 8.25 mm behind
+the bed's front edge (Y48.25).
+
+**Verification.** Run `python build_dock_pins_r39.py` ([report](./verification_dock_pins_r39.json)).
+It passes, in 23 minutes:
+
+- **Parts.** Outside their edit zones, P18 and P25 match their released versions, and their
+  bounds are unchanged. The old bores and seats are solid. The wall and floor gauges are
+  checked on the solids.
+- **Fits and docking.** No hardware intersects its seat. Both tools, docked in the revision-39
+  dock, touch nothing. The new P18 and its hardware clear the rest of both tools and the
+  mounted carriage.
+- **Rack.** The full revision-36 requalification, rerun with the revision-39 tools and docks, is
+  clean:
+  - own-dock docking and withdrawal;
+  - the eight mixed-neighbour cases (488 samples);
+  - the 20 bay/hotend cases (2,420 samples);
+  - the X gantry backing out (121 samples);
+  - both X0..350 traverses (702 samples).
+
+  None of the 80 bed cases collide, with 4.59 mm minimum clearance. Side clearances stay at
+  2.40 / 1.60 mm.
+- **Front limit.** The revision-38 audit, run on the revision-39 scene
+  ([report](./verification_front_print_limit_r39.json)), finds the first contact at Y47.25
+  everywhere. Y48.25 is rechecked every 0.1 mm of X with no contact; the closest gap is 1.01 mm.
+
+The Fusion native review "39 Dock pins and P18 bushings (native review)" is archived as
+[`39_Dock_Pins_And_P18_Bushings_REVIEW.f3d`](./39_Dock_Pins_And_P18_Bushings_REVIEW.f3d)
+([STEP](./step/39_Dock_Pins_And_P18_Bushings_REVIEW.step)). It reopens with 79 bodies, and its
+P18 and P25 volumes match the report. Fusion measures the same 0.040 mm pin-to-bushing and
+0.160 mm P18-to-P25 gaps. Render with `python render_dock_pins_r39.py`.
+
+**Limits.**
+
+- Press fits, bushing retention, magnet pull and pin wear are not qualified; the seats copy the
+  released ones.
+- An empty dock's pins stand 5.5 mm proud. Nothing in the audited paths reaches them, but keep
+  fingers and wiring clear when servicing the rack.
+- Use the revision-39 P18 and P25 together.
 
 #### Faster verification (`fast_geometry.py`)
 

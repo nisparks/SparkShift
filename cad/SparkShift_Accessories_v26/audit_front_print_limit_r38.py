@@ -16,7 +16,8 @@ then re-verified contact-free every 0.1 mm of X for both active tools.
 
 The X beam's path from the corridor to the dock and the carriage-to-beam fit are covered by the revision-36
 requalification, rerun with the revision-37 parts. The scene is the revision-37 cache that
-build_probe_height_datum_dock_r37.py writes (WORK/r37_scene).
+build_probe_height_datum_dock_r37.py writes (WORK/r37_scene). build_dock_pins_r39.py runs measure() again
+on its own revision-39 scene.
 """
 
 import argparse
@@ -120,10 +121,8 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--workers", type=int, default=8)
-    args = parser.parse_args()
+def measure(workers):
+    """Front-limit profile, limit and verification on the scene SPARKSHIFT_SCENE points at; returns the report."""
     started = time.perf_counter()
     scene = r36.scene_dir()
     travel = json.loads((ROOT / TRAVEL_R34).read_text())
@@ -131,7 +130,7 @@ def main():
     soft = travel["rear"]["recommended_soft_limit_nozzle_y_mm"]
 
     print(f"Profile: {len(X_PROFILE)} nozzle X positions x {len(VARIANTS)} active tools", flush=True)
-    profile = fg.run_parallel(task_profile, [(a, x) for a in VARIANTS for x in X_PROFILE], workers=args.workers)
+    profile = fg.run_parallel(task_profile, [(a, x) for a in VARIANTS for x in X_PROFILE], workers=workers)
     failures = [r for r in profile if r.get("error") or r.get("first_contact_nozzle_y_mm") is None]
     worst = max((r for r in profile if r.get("first_contact_nozzle_y_mm") is not None),
                 key=lambda r: r["first_contact_nozzle_y_mm"])
@@ -140,7 +139,7 @@ def main():
     print(f"Verify nozzle Y{limit:.2f} every {VERIFY_STEP} mm of X", flush=True)
     xs = [round(VERIFY_STEP * i, 3) for i in range(int(round(350.0 / VERIFY_STEP)) + 1)]
     chunks = [xs[i:i + 50] for i in range(0, len(xs), 50)]
-    checks = fg.run_parallel(task_verify, [(a, c, limit) for a in VARIANTS for c in chunks], workers=args.workers)
+    checks = fg.run_parallel(task_verify, [(a, c, limit) for a in VARIANTS for c in chunks], workers=workers)
     hits = [h for c in checks for h in c["hits"]]
 
     by_variant = {}
@@ -199,15 +198,29 @@ def main():
         ],
         "runtime_s": round(time.perf_counter() - started, 1),
     }
-    (ROOT / REPORT).write_text(json.dumps(report, indent=2, default=str) + "\n")
+    return report
+
+
+def summary(report):
     print(json.dumps({k: report[k] for k in ("status", "worst_first_contact", "front_print_limit_nozzle_y_mm",
                                              "gain_mm", "binding_features", "runtime_s")}, indent=1, default=str))
-    for a, v in by_variant.items():
+    for a, v in report["by_active_tool"].items():
         print(a, json.dumps({k: v[k] for k in ("contact_at_worst", "clearance_at_print_limit")}, default=str))
-    for option, d in depth_new.items():
-        print(f"{option}: depth {depth_old[option]['depth_mm']:.2f} -> {d['depth_mm']:.2f} mm, "
+    old = report["print_depth_revision_34"]
+    for option, d in report["print_depth"].items():
+        print(f"{option}: depth {old[option]['depth_mm']:.2f} -> {d['depth_mm']:.2f} mm, "
               f"mesh bed Y {d['probe_mesh_bed_y_range_mm'][0]:.2f}..{d['probe_mesh_bed_y_range_mm'][1]:.2f}")
-    print(f"verification hits: {len(hits)}; profile failures: {len(failures)}")
+    print(f"verification hits: {len(report['verification_at_limit']['hits'])}; "
+          f"profile failures: {len(report['profile_failures'])}")
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--workers", type=int, default=8)
+    args = parser.parse_args()
+    report = measure(args.workers)
+    (ROOT / REPORT).write_text(json.dumps(report, indent=2, default=str) + "\n")
+    summary(report)
 
 
 if __name__ == "__main__":
