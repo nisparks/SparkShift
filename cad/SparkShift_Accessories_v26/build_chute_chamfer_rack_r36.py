@@ -27,7 +27,9 @@ The independent cases run in parallel worker processes on a cached scene.
 import argparse
 import hashlib
 import json
+import os
 import time
+from pathlib import Path
 
 import cadquery as cq
 from OCP.BRepPrimAPI import BRepPrimAPI_MakePrism
@@ -52,7 +54,6 @@ OLD_CHUTE = "P26_Nozzle_Entry_Clearance_Chute_REVIEW"
 NAMES = {"chute": "P26_Chute_Arm_Chamfer_R36_REVIEW", "Bambu": "36_Bambu_Dock_Complete_REVIEW",
          "RedLizard": "36_RedLizard_Dock_Complete_REVIEW", "rack": "36_Ten_Tool_Rack_Requalified_REVIEW"}
 REPORT = "verification_rack_requalification_r36.json"
-SCENE = primitives.WORK / "r36_scene"
 CENTERS = [7.0 + PITCH * i for i in range(10)]
 DY = (0, -1, -3, -10, -30)
 VARIANTS = ("Bambu", "RedLizard")
@@ -190,8 +191,14 @@ def world(shape, center, f):
         (center, f["world_y_offset_mm"], f["world_z_offset_mm"]))
 
 
+def scene_dir():
+    """Cached scene folder; later revisions point their worker processes elsewhere with SPARKSHIFT_SCENE."""
+    return Path(os.environ.get("SPARKSHIFT_SCENE", str(primitives.WORK / "r36_scene")))
+
+
 def write_scene(chute, docks):
     from audit_ten_tool_rack import snapshot
+    SCENE = scene_dir()
     SCENE.mkdir(exist_ok=True)
     for old in SCENE.glob("*.brep"):
         old.unlink()
@@ -238,6 +245,7 @@ def scene():
     global _SCENE
     if _SCENE is not None:
         return _SCENE
+    SCENE = scene_dir()
     m = json.loads((SCENE / "manifest.json").read_text())
     read = lambda name: cq.Shape.importBrep(str(SCENE / name))
     f = m["frames"]

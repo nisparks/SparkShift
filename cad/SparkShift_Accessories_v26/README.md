@@ -67,12 +67,12 @@ Every printable part was audited at the OpenCASCADE B-Rep face/edge level and at
 
 ### 2.1 Eddy-Current Probes & Input Shaping Accelerometers (`P23_Beacon_Cartographer_Mount`)
 1. **Beacon H — Variation: Normal (`6ft` Right-Angle USB Cable)**
-   - Mounted **forward-facing** (`+Y` coil toward the nozzle, `-Y` USB dome at the rear) on `P23` (`(±15.80, -0.30, -75.00) mm`).
-   - Coil sensing bottom sits at **`(0.00, +3.20, -76.61) mm`** (**`2.269 mm`** above the `Z = -78.879 mm` nozzle tip, reducing nozzle-to-coil Y offset to **`19.50 mm`**).
+   - Mounted **forward-facing** (`+Y` coil toward the nozzle, `-Y` USB dome at the rear) on `P23` (`(±15.80, -0.30, -75.00) mm`; revision-37 review: seat `Z = -74.67 mm`, screws through `P23` into `P22` inserts).
+   - Coil sensing bottom sits at **`(0.00, +3.20, -76.61) mm`** (**`2.269 mm`** above the `Z = -78.879 mm` nozzle tip, reducing nozzle-to-coil Y offset to **`19.50 mm`**). Revision-37 review: `Z = -76.28 mm`, **`2.60 mm`** above the tip.
    - Built-in **16 kHz 3-axis accelerometer** aligned with toolhead `X/Y/Z` axes.
 2. **Cartographer Probe v3 with ADXL345 — Flat Pack (CAN & USB)**
    - Mounted **forward-facing** (`+Y` coil toward the nozzle, `-Y` MCU/JST at the rear) on the exact same shared `P23` mount holes (`(±15.80, -0.30, -75.00) mm`).
-   - Coil sensing bottom sits at **`(0.00, +2.88, -76.60) mm`** (**`2.279 mm`** above the nozzle tip, `19.82 mm` Y offset).
+   - Coil sensing bottom sits at **`(0.00, +2.88, -76.60) mm`** (**`2.279 mm`** above the nozzle tip, `19.82 mm` Y offset). Revision-37 review: **`2.61 mm`** above the tip.
    - Built-in **ADXL345 accelerometer** for Klipper input shaping (`axes_map: x, y, z`).
    - Rear cable exits `-Y` (`(0, -12.9, -66.5)`) and rises behind the MGN12H carriage (`Y = -20.5`), under the X-beam (`Z = -55.2`), and up `P21`'s center-front raceway (`X = 0, Y = -34.5`) directly to `EBB42`.
 
@@ -102,7 +102,7 @@ To eliminate custom shaft cutting, custom bearing grinding, servo body filing, a
    - **Full Cam Open (`2.80 mm` lift at `175°`, `L = 18.58 mm`):** **`37.1 N`** spring force = **`24.4 N`** on the `623ZZ` cam follower (`r_cam = 28.95 mm`), requiring **`0.72 kg·cm`** peak servo torque (**`3.05×` safety margin** on a `2.2 kg·cm` MG90D metal-gear servo).
 5. **`P28_Dock_and_Probe_Calibration_Jig` (`3,795.46 mm³`, `41` pure analytical faces, `0` BSplines, `100%` watertight):**
    - **Feature 1:** `37.30 mm` (9-tool) & `35.00 mm` (10-tool compact) `Ø5.0 mm` M5 dock pitch alignment pins.
-   - **Feature 2:** `2.270 mm` stepped feeler ledge (`Z = 0..2.270 mm`) verifying the exact Beacon RevH (`2.269 mm`) / Cartographer V3 (`2.279 mm`) coil-to-nozzle Z offset.
+   - **Feature 2:** `2.270 mm` stepped feeler ledge (`Z = 0..2.270 mm`) verifying the exact Beacon RevH (`2.269 mm`) / Cartographer V3 (`2.279 mm`) coil-to-nozzle Z offset. Revision-37 review: a `2.60 mm` ledge for the raised probes ([`P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW`](./step/P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW.step)).
    - **Feature 3:** `25.00 mm × Ø4.20 mm` COTS compound-shaft inspection trough.
    - **Feature 4:** `21.40 mm × Ø8.00 mm` closing-spring installed-length check pocket.
 
@@ -574,10 +574,11 @@ Found during and after this audit:
   of the two upper mounting holes (Z-40.13). If it is, use the Red Lizard silicone pad and
   wiper heights (top Z-78.88) on the Bambu docks too; the revision-21 Bambu pad and wiper
   (top Z-78.13) follow the artifact and a real nozzle would press about 0.8 mm into them.
+  Revision 37 repairs the reference tip and puts the datum pad and wiper in every dock.
 - **Probe height versus the makers' nominal.** The coil bottom sits 2.27 mm (Beacon) or
   2.28 mm (Cartographer) above the Z-78.88 tip. Beacon's quick start gives a nominal
-  2.6 mm and Cartographer's documentation 2.6–3 mm, so both are about 0.3 mm low; P23 is
-  not changed here.
+  2.6 mm and Cartographer's documentation 2.6–3 mm, so both are about 0.3 mm low.
+  Revision 37 raises both probes 0.33 mm, to 2.60 / 2.61 mm.
 - **Probe y_offset sign (fixed after revision 34).** The coil sits 19.5 mm (Beacon) or
   19.82 mm (Cartographer) behind the nozzle in printer Y, which grows toward the rear:
   the Beacon coil centre is at world Y40.21 with the nozzle at Y20.71. Klipper places
@@ -698,10 +699,111 @@ is too large for the repository; the script regenerates it. Render with
 
 **Limits.** This is rigid CAD with sampled straight paths (0.5 mm in Y, 1 mm in X). Jaw
 flexure, thermal growth and machine tolerances are not modelled. The Bambu hotend is still the
-synthetic reference, so its pad and wiper follow the modeled tip (see revision 34). The
+synthetic reference, so its pad and wiper follow the modeled tip (see revision 34; revision 37
+repairs the tip). The
 inherited dock snap detents and the MGN9H-to-rail overlaps in the source gantry model are
 reported separately, as in revision 21. Parked fan power, the cam/servo sequence and Klipper
 are outside this audit.
+
+#### Probe height, P23 screws off the Beacon, Bambu tip at the datum (revision 37)
+
+**Probe height.** The Beacon's coil sat 2.27 mm above the nozzle tip (Cartographer 2.28 mm).
+Beacon gives 2.6 mm as nominal and Cartographer 2.6–3 mm. P23 is now 0.33 mm thinner, so both
+probes sit 0.33 mm higher: 2.60 mm (Beacon) and 2.61 mm (Cartographer) above the tip. The
+lowest carriage parts near the nozzle move up with them:
+
+- the Beacon connector pins: 0.91 mm above the tip (was 0.58);
+- P22's outlet lobes: 1.03 mm (unchanged);
+- the probe screw heads: 1.10 mm (was 0.78).
+
+**A fault in the released P23.** Revision 37 checks every fastener against both probes, which no
+earlier audit did. The two rear P23-to-P22 screw heads at (±15.8, -11.5) sit inside the Beacon's
+top-side component block, 25.5 mm3 each. That block is the 1.1 mm volume the Beacon model reserves
+on top of the rear 7.8 mm of the board. The screw heads were recessed into P23's underside directly
+above it. Thinning P23 would also have left only 0.65 mm of web above the two front screw heads.
+
+Revision 37 removes every fastener from between P23 and the probe board:
+
+- **Probe screws.** The probe's own two M3 screws now go through the board and P23 into heat-set
+  inserts in P22, clamping all three together. They replace the captive nuts in P23. Use M3x6
+  low-profile screws; they engage the insert by 2.7 mm.
+- **Rear ears.** P23 gains two ears behind the board. Two M3x4 button-head screws hold P23 to P22
+  when the probe is off (2.3 mm engagement). Their heads sit 0.85 mm behind the board's rear edge
+  and are reached from below.
+- **Removed.** The four screws that sat under the board, and their inserts.
+
+P22's four spigot bosses move to the new screw positions. They are 0.4 mm longer to take standard
+3 mm inserts, and keep 1.1 mm of floor between each insert and the air duct. Behind Y4.6, P23 is
+1.2 mm wider on each side, so every spigot socket keeps a 1.45 mm outer wall. P23's front edge does
+not change.
+
+![Revision 36 and 37: section through the P23 screws, P23 from below, and the coil height at X0](./images/68_probe_height_p23_joint_r37_before_after.png)
+
+![Revision 37 in Fusion: the raised Beacon on P23, probe screws and rear-ear screws](./images/70_probe_mount_r37_fusion.png)
+
+**Bambu tip at the datum.** The synthetic Bambu nozzle's cone was drawn with a 1.1 mm tip face at
+the datum (Z-78.88). Its 2 mm filament bore was then cut straight through the tip, leaving a knife
+edge 0.75 mm higher (see revision 34). Revision 37 restores the tip: the bore now ends at Z-77.3,
+with a 118° taper to a 0.4 mm orifice 1.1 mm long. Nothing above Z-77.3 changes.
+
+**One dock for all ten bays.** Both hotends now end at the same height, so the Bambu docks use the
+Red Lizard's pad and wiper (top Z-78.88). All ten docks are identical:
+[dock](./step/37_Dock_Complete_REVIEW.step),
+[pad](./step/Dock_Ooze_Pad_Datum_SILICONE_R37_REVIEW.step)
+([STL](./stl/Dock_Ooze_Pad_Datum_SILICONE_R37_REVIEW.stl)) and
+[wiper](./step/Dock_Wiper_Datum_SILICONE_R37_REVIEW.step)
+([STL](./stl/Dock_Wiper_Datum_SILICONE_R37_REVIEW.stl)). The raised Bambu pad and wiper (top
+Z-78.13) are retired. Before making the pad, check the real nozzle: its tip should be 38.75 mm
+below the centres of the two upper hotend mounting holes.
+
+![Revision 36 and 37: docked Bambu nozzle and pad, the repaired tip, and the Red Lizard on the same dock](./images/69_bambu_datum_tip_shared_dock_r37.png)
+
+**P28.** The calibration jig's probe feeler goes from 2.27 to 2.60 mm
+([STEP](./step/P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW.step),
+[STL](./stl/P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW.stl)).
+
+**Verification.** Run `python build_probe_height_datum_dock_r37.py`
+([report](./verification_probe_height_datum_dock_r37.json)). It passes, in 9.4 minutes:
+
+- **P22.** The parameterised builder still reproduces revision 31 with its default spigots.
+  Outside the eight spigot zones, revision 37 matches revision 31, and its air duct is identical.
+- **Carriage.** Every changed part, the raised Beacon and the new fasteners are checked against
+  each other and the whole carriage: core, P20–P24, cable, EBB42 and all accessory fasteners.
+  Nothing intersects. The only overlaps are inside the Beacon's own model (its connector passes
+  through its board and component block). The raised Cartographer, checked in the Beacon's
+  place, is also clear.
+- **Keepouts.** No metal is in either Beacon keepout. P01's printed motor mount reaches into the
+  top zone, as it already did at the old height; only metal is excluded there.
+- **Tools.** Both mounted tools clear the changed carriage. Both tips rest exactly on the shared
+  pad (29.6 mm2 of pad support), and the repaired Bambu core still lifts out along its service
+  path (57 samples).
+- **Rack.** The full revision-36 requalification, rerun with every revision-37 part, is clean:
+  - own-dock docking and withdrawal, with the Beacon and with the Cartographer;
+  - the eight mixed-neighbour cases (488 samples);
+  - the 20 bay/hotend cases (2,420 samples);
+  - the X gantry backing out (121 samples);
+  - both X0..350 traverses at 60 mm withdrawal (702 samples).
+
+  With the Y40 or shifted bed, none of the 80 bed cases collide and the minimum clearance is
+  4.59 mm. Side clearances stay at 2.40 / 1.60 mm.
+
+**Files.** [P22](./step/P22_CPAP_Lower_Plenum_Probe_Mounts_R37_REVIEW.step)
+([STL](./stl/P22_CPAP_Lower_Plenum_Probe_Mounts_R37_REVIEW.stl)),
+[P23](./step/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.step)
+([STL](./stl/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.stl)),
+[probe hardware](./step/P23_P22_Probe_Hardware_R37_REVIEW.step),
+[cable](./step/Probe_Cable_Route_R37_REVIEW.step) and the
+[repaired Bambu reference](./step/Tool2510_Reversed_Bambu_Reference_Datum_Tip_R37_REVIEW.step).
+The Fusion native review "37 Probe height and datum dock (native review)" is archived as
+[`37_Probe_Height_And_Datum_Dock_REVIEW.f3d`](./37_Probe_Height_And_Datum_Dock_REVIEW.f3d). It
+reopens with 321 bodies, and its P22 and P23 volumes match the report. The 108 MB review STEP is
+too large for the repository; the script regenerates it. Render with
+`python render_probe_height_datum_dock_r37.py`.
+
+**Limits.** Insert pull-out, P23 creep under the probe clamp and the probes' electrical behaviour
+are not qualified. The Beacon's component block is treated as occupied, as its model reserves it.
+The Cartographer's own cable route is not modelled. Use the revision-37 P22 and P23 together, and
+do not mix them with the released or revision-31 parts.
 
 #### Faster verification (`fast_geometry.py`)
 
@@ -1129,6 +1231,8 @@ its rear purge-window lip, removing the Red Lizard tip's grazing contact.
 The ooze pads now sit on the existing Z-81.0794 rigid floor instead of
 penetrating it. **Use hotend-specific silicone pads/wipers:** Bambu contact
 top Z-78.1312; Red Lizard Z-78.8794, following the supplied reference tips.
+(Superseded by revision 37, which repairs the Bambu reference tip at Z-78.88 and uses the
+Red Lizard pad and wiper in every dock.)
 Do not print these contact pieces in ordinary rigid filament, and do not
 move the hotend merely to force the synthetic reference onto a nominal datum.
 
@@ -1550,6 +1654,7 @@ variants or material performance.
 Its through-bore removes the narrow end of the modeled tip. This review leaves
 that reference and the CPAP geometry unchanged; physical nozzle alignment must
 be confirmed before treating the earlier exact-tip claim as verified.
+Revision 37 restores the reference tip at the datum.
 
 **Two-adapter feasibility audit (not a completed adapter set):** the installed
 Red Lizard assembly is preserved in
@@ -1635,16 +1740,16 @@ See [`verification_two_adapter_feasibility.json`](./verification_two_adapter_fea
   - `2×` in `P21_CPAP_Gantry_Bridge` top flange (`(±4.50, -31.20, -17.78)`)
   - `2×` in `P21_CPAP_Gantry_Bridge` upper bridge saddle (`(±6.00, -15.80, -18.40)`)
   - `2×` in `P01_Drive_Frame` front upper bosses (`(±18.00, +11.90..15.90, -52.78)`; revision-31 review: `Z = -54.28`)
-  - `4×` in `P22_CPAP_Lower_Plenum` bottom registering spigots (`(±15.80, +8.50, -70.80)` & `(±15.80, -11.50, -70.80)`)
+  - `4×` in `P22_CPAP_Lower_Plenum` bottom registering spigots (`(±15.80, +8.50, -70.80)` & `(±15.80, -11.50, -70.80)`; revision-37 review: `4× M3 × 3 mm` inserts at `(±15.80, -0.30)` & `(±15.80, -19.50)`)
   - `2×` in `P24_EBB42_Controller_Mount` upper standoffs (`(-16.748, -21.40, +22.00)` & `(+14.252, -21.40, +22.00)`)
 - **M3 Hex Nuts (`2×`):**
-  - `2×` captive in `P23_Beacon_Cartographer_Mount` side slots (`(±15.80, -0.30, -72.55)`) for Beacon H or Cartographer V3
+  - `2×` captive in `P23_Beacon_Cartographer_Mount` side slots (`(±15.80, -0.30, -72.55)`) for Beacon H or Cartographer V3 (none in the revision-37 review)
 - **M3 Socket Head Cap Screws (`18×`):**
   - `2× M3×8 SHCS` — `P20` rear lugs down into `P21` (`(±4.50, -31.20)`)
   - `2× M3×8 SHCS` — `P24` lower horizontal foot down into `P21` upper bridge (`(±6.00, -15.80)`)
   - `2× M3×10 SHCS` — `P22` front upper cheeks into `P01` (`(±18.00, -52.78)`; revision-31 review: `Z = -54.28`)
-  - `4× M3×8 SHCS` — `P23` upward into `P22` (`(±15.80, +8.50)` & `(±15.80, -11.50)`)
-  - `2× M3×8 Low-Profile SHCS` — Beacon H Normal or Cartographer V3 into `P23` (`(±15.80, -0.30)`)
+  - `4× M3×8 SHCS` — `P23` upward into `P22` (`(±15.80, +8.50)` & `(±15.80, -11.50)`; revision-37 review: `2× M3×4` ISO 7380 button heads on the rear ears at `(±15.80, -19.50)`)
+  - `2× M3×8 Low-Profile SHCS` — Beacon H Normal or Cartographer V3 into `P23` (`(±15.80, -0.30)`; revision-37 review: `M3×6` low-profile through `P23` into `P22` inserts)
   - `2× M3×12 SHCS` — `P24` lower EBB42 standoffs (`Z = -9.00 mm`, from rear through `P24` into EBB42 pre-soldered standoffs)
   - `2× M3×18 SHCS` — `P20` upper wings through EBB42 upper mounting holes into `P24` upper inserts (`Z = +22.00 mm`)
   - `2× M3×14 SHCS` — `3010` or `2510` axial fan to `P17` lower mounting holes (`Z = -50.00 mm`)
@@ -1662,7 +1767,7 @@ The complete Klipper macro suite in [`klipper/sparkshift_toolchanger.cfg`](../..
 3. **Stage 3 — Tool Pickup & Hob-Seating Micro-Pulse (`_SPARKSHIFT_PICKUP_TOOL`):**
    - Enters `T_new`'s dock with `sparkshift_cam` at `175°` (`2.73 mm` release gap), closes the cam to `0°`, disables continuous servo PWM (`WIDTH=0`) so the mechanical closing spring holds the HGX hobs without servo heat drift, finishes heating while sealed on the silicone pad, and advances `+0.40 mm` to seat the hob teeth before unlatching.
 4. **Stage 4 — Purge-Chute Prime & Dual-Blade Silicone Wiper Scrub (`SPARKSHIFT_CLEAN_NOZZLE`):**
-   - Steps back `6.5 mm` to center the nozzle directly over **`P26_Dock_Nozzle_Wiper_and_Purge_Chute`'s Purge Drop Window (`Y_local = 16.20 mm`)**, primes `5.4 mm` of filament, micro-retracts `0.7 mm`, blasts `75%` CPAP to solidify the pellet, and runs `3` high-speed `±6.5 mm` X-scrub strokes across `P26`'s **dual V-notched silicone wiper blades** (`Y_local = 10.70 mm`, `>= 1.03 mm` below `P22` and `>= 2.27 mm` below Beacon RevH).
+   - Steps back `6.5 mm` to center the nozzle directly over **`P26_Dock_Nozzle_Wiper_and_Purge_Chute`'s Purge Drop Window (`Y_local = 16.20 mm`)**, primes `5.4 mm` of filament, micro-retracts `0.7 mm`, blasts `75%` CPAP to solidify the pellet, and runs `3` high-speed `±6.5 mm` X-scrub strokes across `P26`'s **dual V-notched silicone wiper blades** (`Y_local = 10.70 mm`, `>= 1.03 mm` below `P22` and `>= 2.27 mm` below Beacon RevH; `2.60 mm` with the revision-37 `P23`).
 5. **Stage 5 — Dynamic Per-Tool Parameter Sync (`_SPARKSHIFT_APPLY_TOOL_PARAMS`):**
    - Automatically switches **`SET_PRESSURE_ADVANCE`** (`advance` + `smooth_time` per nozzle diameter/material), **`SET_RETRACTION`**, **`SET_INPUT_SHAPER`**, **`SET_GCODE_OFFSET`** (combining static XYZ tool offsets with dynamic Volcano thermal Z-expansion `0.00035 mm/°C`), and **`M106` CPAP blower scaling**.
 
@@ -1673,7 +1778,7 @@ serial: /dev/serial/by-id/usb-Beacon_Beacon_RevH_...
 x_offset: 0.0
 # Coil centre 19.50 mm behind the nozzle (+Y, toward the rear): probe = nozzle + offset
 y_offset: 19.50
-# Coil bottom is 2.269 mm above nozzle tip (Z = -76.610 vs -78.879 mm)
+# Coil bottom is 2.269 mm above nozzle tip (Z = -76.610 vs -78.879 mm); 2.60 mm with the revision-37 P23
 mesh_main_direction: x
 mesh_runs: 2
 
@@ -1689,7 +1794,7 @@ canbus_uuid: <your_cartographer_uuid>
 x_offset: 0.0
 # Coil centre 19.82 mm behind the nozzle (+Y, toward the rear): probe = nozzle + offset
 y_offset: 19.82
-# Coil bottom is 2.279 mm above nozzle tip (Z = -76.600 vs -78.879 mm)
+# Coil bottom is 2.279 mm above nozzle tip (Z = -76.600 vs -78.879 mm); 2.61 mm with the revision-37 P23
 
 [adxl345 cartographer]
 cs_pin: cartographer:PA3

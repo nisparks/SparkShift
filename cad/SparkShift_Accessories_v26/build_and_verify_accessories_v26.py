@@ -817,10 +817,15 @@ def build_p21_mid():
     return body, air
 
 
-def build_p22_lower_plenum(mount_dz=0.0):
+P22_PROBE_MOUNTS = ((15.80, 8.50), (-15.80, 8.50), (15.80, -11.50), (-15.80, -11.50))
+
+
+def build_p22_lower_plenum(mount_dz=0.0, probe_mounts=P22_PROBE_MOUNTS, spigot_z=(-72.60, -70.00),
+                           insert_z=(-73.00, -70.10)):
     """
     mount_dz lowers (negative) the two P01 front-boss screws, their cuts and the cheek tops together;
-    0.0 reproduces the released part.
+    probe_mounts, spigot_z and insert_z place the P23 spigot bosses and their heat-set holes.
+    The defaults reproduce the released part.
 
     Lower CPAP Plenum built 100% from analytical primitives, orthogonal XY/YZ extrusions,
     cylinders, spheres, and boolean cuts (0 BSpline faces):
@@ -925,12 +930,7 @@ def build_p22_lower_plenum(mount_dz=0.0):
             cheek = intersect_all(cheek, [box(-23.0, 23.0, 11.0, 21.0, -66.5, z_top + mount_dz)])
         cheeks.append(cheek)
 
-    probe_spigots = [
-        cyl_z( 15.80,   8.50, -72.60, -70.00, 3.05),
-        cyl_z(-15.80,   8.50, -72.60, -70.00, 3.05),
-        cyl_z( 15.80, -11.50, -72.60, -70.00, 3.05),
-        cyl_z(-15.80, -11.50, -72.60, -70.00, 3.05),
-    ]
+    probe_spigots = [cyl_z(x, y, *spigot_z, 3.05) for x, y in probe_mounts]
 
     body = cut_all(
         fuse_all([intersect_all(xy_outer_full, [horn_yz_out]), *cheeks, *probe_spigots]),
@@ -982,10 +982,7 @@ def build_p22_lower_plenum(mount_dz=0.0):
         cyl_y(-18.0, -52.78 + mount_dz, 15.5, 21.0, 1.65),
         cyl_y( 18.0, -52.78 + mount_dz, 18.2, 21.0, 3.00),
         cyl_y(-18.0, -52.78 + mount_dz, 18.2, 21.0, 3.00),
-        cyl_z( 15.80,   8.50, -73.00, -70.10, 2.27),
-        cyl_z(-15.80,   8.50, -73.00, -70.10, 2.27),
-        cyl_z( 15.80, -11.50, -73.00, -70.10, 2.27),
-        cyl_z(-15.80, -11.50, -73.00, -70.10, 2.27),
+        *[cyl_z(x, y, *insert_z, 2.27) for x, y in probe_mounts],
     ]
     body = cut_all(body, cutters)
     body = intersect_all(body, [box(-22.497, 22.497, -50.0, 36.0, -78.20, -47.50)])

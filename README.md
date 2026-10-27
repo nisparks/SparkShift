@@ -149,7 +149,14 @@ Revision 36 chamfers the top outer edges of the P26 chute arms, raising the
 closest side clearance to a parked neighbour from 1.73 mm to 2.40 mm. It then
 requalifies the full ten-tool rack with every current part: both hotends in
 all ten bays, mixed neighbours, the X gantry backing out, X0..350 traverses
-and the revision-34 bed. There are no collisions. Nothing is **build-approved**.
+and the revision-34 bed. There are no collisions. Revision 37 raises the
+Beacon/Cartographer 0.33 mm to the makers' 2.6 mm height above the nozzle.
+It also fixes a fault found by checking every fastener against the probe:
+two P23-to-P22 screw heads sat inside the Beacon's top-side component
+block. The probe's own screws now clamp it and P23 into P22 inserts, and two
+rear screws on new P23 ears sit behind the board. The synthetic Bambu
+nozzle's tip is restored at the datum, so all ten docks share one pad and
+wiper. The full rack requalifies clean again. Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X
 travel. The Klipper file below is a historical **nine-bay** template, not a
