@@ -482,8 +482,9 @@ strip, which is why revision 22 found them inside the bed at first-layer height 
 case. Mounting the crossbar higher would not help: the carriage, not the crossbar, sets
 the parked tools' height.
 
-The active nozzle cannot print forward of Y63.21 mm anyway, because the parked tools
-occupy that strip ([ten-tool report](./verification_ten_tool_closed_panel_dock.json)).
+The active nozzle cannot print over that strip anyway, because the parked tools occupy it
+(front print limit Y63.21 mm in the [ten-tool report](./verification_ten_tool_closed_panel_dock.json),
+Y52.22 mm from exact contact since revision 38).
 The bed in front of the parked envelope only causes the collision. **Required printer
 change: the bed's front edge at Y40 mm or further back.** The parked envelope ends at
 Y35.41 mm, so the absolute minimum for a 1 mm gap is Y36.41 mm. Either:
@@ -520,8 +521,9 @@ both parked hotends and all ten bays at nozzle Z0.2 (first layer) and Z0 (contac
 - Over option B's new rear strip (Y359..390), with the nozzle at Y359 and Z0.2, the X beam
   clears the bed by 30.9 mm and the flying gantry (at nozzle Z-2) by 47.7 mm. The lowest
   carriage part is P22 at 0.48 mm, the same as anywhere on the bed (see below).
-- The front print limit leaves 23.2 mm of bed in front of it, so the print area is
-  unchanged, and the probe coil is over the bed there (Y82.71).
+- The front print limit leaves 23.2 mm of bed in front of it (12.2 mm with revision 38's
+  limit), so the print area is unchanged, and the probe coil is over the bed there (Y82.71;
+  Y71.7 with revision 38).
 - The [native Fusion review](./34_Rigid_Rack_Bed_Front_Edge_Y40_REVIEW.f3d) is the
   revision-22 diagnostic with only the bed moved back 31 mm. Fusion measures the same
   4.59 mm from all ten docks to the bed.
@@ -534,7 +536,8 @@ both tools:
 | Limit | Nozzle Y |
 |---|---|
 | Dock seat (every bay) | 20.71 |
-| Front print limit: active tool clear of every parked tool | 63.21 |
+| Front print limit, whole-envelope rule (superseded by revision 38) | 63.21 |
+| **Front print limit, exact 3D contact + 1 mm ([revision 38](#front-print-limit-from-exact-contact-revision-38))** | **52.22** |
 | X-traverse corridor used by the toolchange | 80.71 |
 | Rear rail end: the X beam's 40 mm Y blocks reach the end of the 400 mm rails | 365.15 |
 | X beam reaches the Monolith rear motor mount | 365.26 |
@@ -548,13 +551,15 @@ the rear only, and does not recover the strip the docks take.
 
 | Bed | Printable (X × Y) | Nozzle Y | Probe can mesh bed Y | Not meshed |
 |---|---|---|---|---|
-| Option A, Y40..359 | 350 × 295.8 mm | 63.21..359 | 83.03..349 | front 19.8 mm, rear 10 mm |
-| Option B, Y40..390 | 350 × 300.9 mm | 63.21..364.15 | 83.03..380 | front 19.8 mm |
+| Option A, Y40..359 | 350 × 306.8 mm (revision 34: 295.8) | 52.22..359 | 72.04..349 | front 19.8 mm, rear 10 mm |
+| Option B, Y40..390 | 350 × 311.9 mm (revision 34: 300.9) | 52.22..364.15 | 72.04..380 | front 19.8 mm |
 
 The front 19.8 mm of the print area cannot be meshed with either bed: the probe trails
-the nozzle and the parked tools stop the nozzle at Y63.21. Klipper uses the nearest mesh
-row there. A stock Voron 2.4 350 prints 350 × 350 mm; the ten front docks cost about
-54 mm of depth, and revision 34 does not change that.
+the nozzle and the parked tools stop the nozzle at Y52.22 (Y63.21 before revision 38).
+Klipper uses the nearest mesh row there. A stock Voron 2.4 350 prints 350 × 350 mm; the
+ten front docks cost about 43 mm of depth with bed A and 38 mm with bed B (54 / 49 mm
+before revision 38). The table uses revision 38's front limit
+([report](./verification_front_print_limit_r38.json)).
 
 Found during and after this audit:
 
@@ -804,6 +809,74 @@ too large for the repository; the script regenerates it. Render with
 are not qualified. The Beacon's component block is treated as occupied, as its model reserves it.
 The Cartographer's own cable route is not modelled. Use the revision-37 P22 and P23 together, and
 do not mix them with the released or revision-31 parts.
+
+#### Front print limit from exact contact (revision 38)
+
+Revision 34 took the front print limit from whole-envelope separation. It added the rearmost
+point of any parked tool or dock (Y35.41, the P26 chute lip) to the active toolhead's deepest
+point ahead of its nozzle (27.8 mm), giving nozzle Y63.21 across the full width. Because the rack
+rides at the active tool's height, only solids that actually meet should set the limit. The
+active tool's leading features are narrow, and the parked tools are open between bays. Revision
+38 measures that contact. No part changes.
+
+[`audit_front_print_limit_r38.py`](./audit_front_print_limit_r38.py) moves the active tool
+(Bambu or Red Lizard, on the revision-37 carriage with both probes) toward the rack at every
+nozzle X from 0 to 350 mm, in 1 mm steps. Each path starts at the X corridor (Y80.71), steps
+forward 2 mm at a time, and bisects the first exact contact to 0.01 mm. The fixed side is:
+
+- all ten bays holding both parked tool variants at once, so any mix of tools is covered and
+  the active tool's own bay counts as occupied;
+- the ten docks, the crossbar and the P29/P30 mounts;
+- the whole flying gantry, including its Y rails.
+
+| First contact | Where along X | Nozzle Y |
+|---|---|---|
+| The active tool's front coupling pins/magnets reach into the upper recess of a parked Bambu body, 2.7 mm behind the parked nozzle | 4–7 mm either side of every bay centre, end bays included | **51.22** |
+| The active P18 dock plate meets a parked body's rear face | everywhere else | 47.25 |
+| Crossbar, P29/P30 mounts, gantry | never first | — |
+
+- **New front print limit: nozzle Y52.22.** That is 1 mm behind the worst first contact, the
+  same margin as the rear soft limit. It is rechecked every 0.1 mm of X with both active tools
+  (7,002 positions) with no contact. The closest gap there is 1.01 mm, pin to body.
+- **Print area, with no part changes:**
+
+  | Bed | Revision 34 | Revision 38 |
+  |---|---|---|
+  | Option A, Y40..359 | 350 × 295.8 mm | **350 × 306.8 mm** (+11.0) |
+  | Option B, stock bed moved back 31 mm (Y40..390) | 350 × 300.9 mm | **350 × 311.9 mm** (+11.0) |
+
+  The probe meshes from bed Y72.04 (was 83.03); the unmeshed front strip stays 19.8 mm.
+- **Using it.** Start the slicer's printable area 12.2 mm behind the bed's front edge (Y52.22)
+  instead of 23.2 mm. A Klipper Y soft limit cannot enforce it, because tool changes run forward
+  of it to the dock seat (Y20.71).
+
+![Revision 34 vs 38 from above, the first-contact profile across the bed, and the section through the binding pin](./images/71_front_print_limit_r38_before_after.png)
+
+![Fusion: the active Bambu on the new limit beside parked T4-T6, with the old and new limit strips on bed A](./images/72_front_print_limit_r38_fusion.png)
+
+**Other ways to get area back, checked and not pursued** (each needs part changes):
+
+- **Move the rack forward.** The P29/P30 mounts already sit 2.0 mm behind the frame's front
+  posts, and the bay-0 dock 2.0 mm behind the door-buffer plane (Y-40). More travel needs new
+  mounts that step around the posts and a door spacer. Even then the Y rails stop the nozzle at
+  Y5.05, so the gain would be at most about 14 mm.
+- **Trim the binding features.** The coupling pins/magnets and the parked body's recess are
+  working features. Clearing the pin contact gains only 4 mm, down to P18's 47.25.
+- **Bed option B** (revision 34) adds 5.1 mm at the rear over option A, using the Monolith's
+  rear overtravel.
+
+**Verification.** Run `python audit_front_print_limit_r38.py --workers 10`
+([report](./verification_front_print_limit_r38.json)); it takes 12 minutes. It reads the
+revision-37 scene that `build_probe_height_datum_dock_r37.py` writes. `python
+render_front_print_limit_r38.py` renders image 71 and the world-frame review STEP. The STEP is
+121.7 MB, too large for the repository. The Fusion native review "38 Front print limit (native
+review)" is archived as [`38_Front_Print_Limit_REVIEW.f3d`](./38_Front_Print_Limit_REVIEW.f3d).
+It reopens with 389 bodies, and Fusion measures the pin-to-body gap at 1.010 mm and P18 at
+4.977 mm.
+
+**Limits.** Parked tools are taken at the modeled dock seat; the 1 mm margin covers only small
+seating and frame errors. Hoses, cable chains, umbilicals and toolhead wiring are not modeled.
+The limit is in world CAD coordinates; commission it on the machine.
 
 #### Faster verification (`fast_geometry.py`)
 

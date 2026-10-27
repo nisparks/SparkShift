@@ -133,13 +133,11 @@ The dock rack stays rigidly bolted across the open front of the gantry U, so
 the parked tools ride at the active tool's height. Their chutes, pads and
 wipers hang about 14 mm below the nozzle, and revision 22 found them inside
 the bed's front strip at first-layer height. The active nozzle cannot print
-forward of Y63.21 mm anyway, so revision 34 records the printer change instead
+over that strip anyway, so revision 34 records the printer change instead
 of moving the rack: the bed's front edge goes to Y40 mm or further back (the
 stock bed moved back 31 mm, or a 350 × 319 mm bed). All 80 first-layer and
 contact-touch cases then clear by 4.59 mm, and the print area is unchanged.
-The ten front docks cost about 54 mm of print depth: the printable area is
-about 350 × 296 mm (350 × 301 mm with the stock bed moved back, using the
-Monolith's rear overtravel to Y364). Revision 35 cuts a cable slot through
+Revision 35 cuts a cable slot through
 P24's bottom so the Beacon/Cartographer cable enters the EBB42 wiring bay
 without passing through the part. A suspected 0.28 mm P22 clearance over
 the Bambu nozzle turned out to be an artifact of the synthetic Bambu
@@ -156,7 +154,14 @@ two P23-to-P22 screw heads sat inside the Beacon's top-side component
 block. The probe's own screws now clamp it and P23 into P22 inserts, and two
 rear screws on new P23 ears sit behind the board. The synthetic Bambu
 nozzle's tip is restored at the datum, so all ten docks share one pad and
-wiper. The full rack requalifies clean again. Nothing is **build-approved**.
+wiper. The full rack requalifies clean again. Revision 38 replaces the
+conservative whole-envelope front print limit (Y63.21) with exact 3D contact.
+Across the whole bed, the active tool first touches a parked tool at nozzle
+Y51.22, where its front coupling pins reach a parked Bambu body. The front
+limit moves to Y52.22 with a 1 mm margin, verified every 0.1 mm of X. With
+no part changes, the printable area grows from about 350 × 296 mm to about
+350 × 307 mm, or 350 × 312 mm with the stock bed moved back (using the
+Monolith's rear overtravel to Y364). Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X
 travel. The Klipper file below is a historical **nine-bay** template, not a
