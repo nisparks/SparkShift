@@ -1,0 +1,47 @@
+{
+  "source": "36_RedLizard_Dock_Complete_REVIEW solids 1-2, the jaws of every revision-37/39 dock",
+  "parts": {
+    "Dock_Upper_Snap_Jaw_REVIEW": {
+      "volume_mm3": 2479.766964036771,
+      "bounds_mm": [
+        -10.001048840636251,
+        9.999311733344905,
+        43.40987176584174,
+        65.9103829304818,
+        27.470390116669748,
+        34.97090128130981
+      ],
+      "files": [
+        {
+          "file": "step\\Dock_Upper_Snap_Jaw_REVIEW.step",
+          "sha256": "68f3a2e8e2fa6268b33bdef27b591b185a175e0a5be32c6a59a8bb6b9337076c"
+        },
+        {
+          "file": "stl\\Dock_Upper_Snap_Jaw_REVIEW.stl",
+          "sha256": "176793fc4046a0aafad9699467a5470f60625da8659a18ec5df7253400f10ab4"
+        }
+      ]
+    },
+    "Dock_Lower_Snap_Jaw_REVIEW": {
+      "volume_mm3": 2479.391413481824,
+      "bounds_mm": [
+        -10.001048840636397,
+        9.9993117333449,
+        43.4098717658416,
+        65.9103829304818,
+        -14.529609883326398,
+        -7.029098718689196
+      ],
+      "files": [
+        {
+          "file": "step\\Dock_Lower_Snap_Jaw_REVIEW.step",
+          "sha256": "1343f5b4d1ca5d59c16657c881dba79f5fb4de915d6d8b2ea524820f884b6e8a"
+        },
+        {
+          "file": "stl\\Dock_Lower_Snap_Jaw_REVIEW.stl",
+          "sha256": "c46cf8fe5c7f24ee61650dc931c6576ae32609c9f01b5a943ec123c9d34726ae"
+        }
+      ]
+    }
+  }
+}

@@ -224,9 +224,10 @@ In Fusion 360, the complete printer is structured as a multi-level, externally r
 
 | File / guide | Scope |
 |---|---|
+| [**Current print set (revision 39)**](PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-39) | One file per part for the ten-tool build, with quantities, the hardware that changed and the first-article checks. It supersedes the accessory, dock and tool files in `stl_v26`. |
 | [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable **v26j** snapshot: **135 native bodies**, timeline **1648**; native review reports 135/135 readback matches. |
 | [v26 whole-assembly STEP](cad/SparkShift_AHG_min_v26.step) | 135 solid BREP records; neutral inspection export, not a manufacturing qualification. |
-| [36 assembly, accessory, dock, rack & COTS STLs](stl_v26) | Complete matched 17-part core set plus 14 pure-primitive accessory/dock/rack/jig STLs (`P20`–`P29_L/R`, `P17_3010`/`2510`, `P18_3010`) and 5 COTS-qualified core drop-ins (`P01_COTS`, `P02_COTS`, `P03_COTS`, `P04F_COTS`, `P05_COTS`). |
+| [36 assembly, accessory, dock, rack & COTS STLs](stl_v26) | Complete matched 17-part core set plus 14 pure-primitive accessory/dock/rack/jig STLs (`P20`–`P29_L/R`, `P17_3010`/`2510`, `P18_3010`) and 5 COTS-qualified core drop-ins (`P01_COTS`, `P02_COTS`, `P03_COTS`, `P04F_COTS`, `P05_COTS`). The accessory, dock and tool files here are superseded; use the current print set. |
 | [Accessory, Dock & 3010 Toolhead Suite](cad/SparkShift_Accessories_v26/README.md) | Parametric `OCP` generator, 3D boundary-layer CFD solver, STEP/STL exports, 26 multi-angle renders, and 4 animated GIFs for `P20`–`P29_L/R`, `P17`/`P18`, and COTS drop-ins. |
 | [Klipper Toolchanger & Commissioning Suite](klipper/sparkshift_toolchanger.cfg) | 5-stage anti-ooze toolchange, purge-chute prime, dual-blade silicone wipe, per-tool PA/Input Shaper/Thermal Z-Offset, and dry-run commissioning macros. |
 | [Print-part inspection notes](PRINT_PARTS.md) | All 17 core roles + 14 accessory/dock/rack/jig roles + 3 COTS core drop-ins, bridge-support review, interlock fit, current meshes, and case orientations. |

@@ -1,11 +1,12 @@
 # SparkShift v26 Accessory & 3010 Toolhead Suite — Beacon RevH / Cartographer V3, Pure-Primitive CPAP Ducting, BTT EBB42 CAN Mount & 3010/2510 High-Flow Toolhead Carriers
 
-**Current status: CAD review; the low-Z bed collision is resolved by a required bed change.**
-The [latest review](#33-one-piece-bambu-toolhead-with-side-2510) keeps the dock rack
-rigidly bolted across the front of the gantry and moves the bed's front edge behind the
-parked tools, to Y40 mm or further back (revision 34). Ten tools fit laterally, but the
-full ten-tool rack has not been re-audited with the revision-33 toolheads, and nothing is
-build-approved or machine-qualified.
+**Current status: CAD review through revision 39; nothing has been printed or fitted.**
+The [latest reviews](#33-one-piece-bambu-toolhead-with-side-2510) keep the dock rack
+rigidly bolted across the front of the gantry, with the stock bed moved back 31 mm (option
+B, revision 34). The full ten-tool rack requalifies with the current parts (revisions 36, 37
+and 39), and the print area is about 350 × 311 mm (revision 39). Print from the
+[current print set](../../PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-39),
+starting with a first-article set. Nothing is build-approved or machine-qualified.
 Earlier front-fan, vented-dock and firmware descriptions below are historical;
 their qualification claims do not apply to the current CAD-review-only design.
 
