@@ -962,6 +962,25 @@ The Fusion native review "39 Dock pins and P18 bushings (native review)" is arch
 P18 and P25 volumes match the report. Fusion measures the same 0.040 mm pin-to-bushing and
 0.160 mm P18-to-P25 gaps. Render with `python render_dock_pins_r39.py`.
 
+**What is left.** `python audit_whats_left_r39.py` ([report](./verification_whats_left_r39.json), 8 minutes)
+measures it with no part changes:
+
+- **The toolheads are now the front limit.** Cut P18 1 mm above the parked tools' lower block, or remove it
+  and its hardware. Either way the active tool's side fan meets a parked tool at Y47.22, only 0.03 mm better
+  than P18's plate. Each toolhead is about 26.5 mm deep front to back where they meet. More depth means
+  parking the tools further forward.
+- **Thinner dock standoff.** P25 holds its coupling face 6.5 mm off the crossbar. The dock magnets sit in that
+  wall, 2.45 mm from the crossbar; the pins and jaws pass above or below it. Keeping 1.2 mm of backing allows
+  about 1 mm less with Ø6×4 magnets, or about 2 mm with Ø6×3. P25 would have to be rebuilt.
+- **Rack forward.** The Y rails would let the dock seat move up to about 14 mm forward. But the dock clamps are
+  already 2.0 mm from the door plane, so this needs a door spacer and new rack mounts.
+- **Rear.** Bed option B (revision 34) adds 5.1 mm: 350 × 315.9 mm.
+- **Z height is not reduced.** The dock clamps reach the top front extrusion at nozzle Z335.9; the bare gantry
+  would reach the frame at Z343.9. Voron's stock 2.4 350 configuration stops at Z310.
+
+None of these is pursued: the standoff gains 1–2 mm for weaker magnet backing, and the rack move adds an
+enclosure change.
+
 **Limits.**
 
 - Press fits, bushing retention, magnet pull and pin wear are not qualified; the seats copy the

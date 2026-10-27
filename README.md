@@ -167,7 +167,9 @@ bushings into each tool's P18, so nothing sticks out of the tools. Docking,
 pin engagement and magnet gaps are unchanged, the full rack requalifies
 clean, and P18's flat plate now sets the front limit at Y48.25. The
 printable area is about 350 × 311 mm, or 350 × 316 mm with the stock bed
-moved back. Nothing is **build-approved**.
+moved back. A follow-up audit finds the toolheads themselves now set the
+front limit, so more depth would need the docks parked further forward.
+Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X
 travel. The Klipper file below is a historical **nine-bay** template, not a

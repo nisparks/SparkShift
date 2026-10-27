@@ -1,0 +1,89 @@
+{
+  "front_what_ifs": {
+    "x_mm": [
+      156.2,
+      193.2
+    ],
+    "step_mm": 0.5,
+    "p18_cut_z_mm": -18.28,
+    "p18_trim": {
+      "worst_first_contact": {
+        "active": "Bambu",
+        "x_mm": 156.2,
+        "first_contact_nozzle_y_mm": 47.218,
+        "pair": [
+          "tool fan",
+          "parked T4 RedLizard body"
+        ]
+      },
+      "binding_max_nozzle_y_mm": {
+        "Bambu tool fan -> RedLizard body": 47.218,
+        "Bambu tool fan -> Bambu body": 47.218,
+        "Bambu tool body -> Bambu body": 47.116,
+        "RedLizard tool body -> Bambu body": 47.116,
+        "RedLizard tool fan -> RedLizard body": 47.218,
+        "RedLizard tool fan -> Bambu body": 47.218
+      },
+      "failures": []
+    },
+    "no_p18": {
+      "worst_first_contact": {
+        "active": "Bambu",
+        "x_mm": 156.2,
+        "first_contact_nozzle_y_mm": 47.218,
+        "pair": [
+          "tool fan",
+          "parked T4 RedLizard body"
+        ]
+      },
+      "binding_max_nozzle_y_mm": {
+        "Bambu tool fan -> RedLizard body": 47.218,
+        "Bambu tool fan -> Bambu body": 47.218,
+        "Bambu tool body -> Bambu body": 47.116,
+        "RedLizard tool body -> Bambu body": 47.116,
+        "RedLizard tool fan -> RedLizard body": 47.218,
+        "RedLizard tool fan -> Bambu body": 47.218
+      },
+      "failures": []
+    }
+  },
+  "dock_standoff": {
+    "coupling_face_to_crossbar_mm": 6.5,
+    "dock_part_to_crossbar_mm": {
+      "P25_Refined_Dock": 0.0,
+      "Upper_Snap_Jaw": null,
+      "Lower_Snap_Jaw": 4.26,
+      "Silicone_Ooze_Pad": null,
+      "Left_M5_Rack_Screw": 0.2,
+      "Right_M5_Rack_Screw": 0.2,
+      "P26_Entry_Relieved_Chute": null,
+      "Silicone_Wiper": null,
+      "Left_M3_Chute_Screw": null,
+      "Right_M3_Chute_Screw": null,
+      "Left_5x12_Dowel_Pin": 1.498,
+      "Right_5x12_Dowel_Pin": 1.498,
+      "Left_Dock_Magnet": 2.45,
+      "Right_Dock_Magnet": 2.45
+    },
+    "note": "The dock magnets overlap the crossbar's height band; the pins and jaws pass above or below it."
+  },
+  "z_ceiling": {
+    "flying_gantry": {
+      "last_clear_nozzle_z_mm": 343.9,
+      "first_contact": [
+        "gantry _stepper",
+        "Frame_extrusions:1/R1_FRAME_lower_front_NOMINAL (3)"
+      ]
+    },
+    "rack": {
+      "last_clear_nozzle_z_mm": 335.9,
+      "first_contact": [
+        "dock T0_Bambu",
+        "Frame_extrusions:1/R1_FRAME_lower_front_NOMINAL (2)"
+      ]
+    },
+    "note": "Voron's stock 2.4 350 configuration uses position_max 310."
+  },
+  "revision_39_first_contact_nozzle_y_mm": 47.249,
+  "runtime_s": 458.1
+}
