@@ -164,10 +164,11 @@ no part changes, the printable area grows from about 350 × 296 mm to about
 halves: the two Ø5×12 mm dowel pins are pressed into each dock and the
 bushings into each tool's P18, so nothing sticks out of the tools. Docking,
 pin engagement and magnet gaps are unchanged, the full rack requalifies
-clean, and P18's flat plate now sets the front limit at Y48.25. The
-printable area is about 350 × 311 mm with either bed option. The nozzle
-stops at the stock rear limit, so moving the bed back only clears the
-docks at the front. A follow-up audit finds the toolheads themselves now
+clean, and P18's flat plate now sets the front limit at Y48.25. With the
+chosen bed option B (the stock bed moved back 31 mm), the printable area is
+about 350 × 311 mm. The nozzle stops at the stock rear limit, so moving the
+bed back only clears the docks at the front; its rear 31 mm is for probe
+meshing. A follow-up audit finds the toolheads themselves now
 set the front limit, so more depth would need the docks parked further
 forward. Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a

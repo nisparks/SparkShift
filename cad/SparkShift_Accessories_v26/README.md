@@ -489,16 +489,20 @@ The bed in front of the parked envelope only causes the collision. **Required pr
 change: the bed's front edge at Y40 mm or further back.** The parked envelope ends at
 Y35.41 mm, so the absolute minimum for a 1 mm gap is Y36.41 mm. Either:
 
-- **Option B, preferred: move the stock 350 × 350 bed and its mounts back 31 mm**
+- **Option B, chosen: move the stock 350 × 350 bed and its mounts back 31 mm**
   (Y40..390). The bed, heater and sheet stay standard. The nozzle still stops at the stock
   rear limit (Y359, where the original bed ended), so the last 31 mm of the moved bed is
   never printed on. It lets the probe, which trails the nozzle by 19.5 mm, mesh the bed
   right to the rear print limit.
-- **Option A: a 350 × 319 mm bed, heater and sheet** spanning Y40..359. The nozzle stops
-  at the bed edge, and the last 10 mm at the rear cannot be meshed because the coil needs
-  bed around it, as with the original bed.
+- **Option A, not used: a 350 × 319 mm bed, heater and sheet** spanning Y40..359. The
+  nozzle stops at the bed edge, and the last 10 mm at the rear cannot be meshed because the
+  coil needs bed around it, as with the original bed.
 
 Both options give the same print area; moving the bed only clears the docks at the front.
+
+**On the moved bed (option B)**, measured from its front edge, the print area runs from
+8.25 mm to 319 mm (CAD Y48.25..359) across the full 350 mm width. The rear 31 mm is for
+probe meshing only. Set the slicer's bed to the full plate with that printable strip.
 
 The build sheet needs no tab or overhang at the front edge. Nothing in the rack, docks,
 toolheads, carriage or gantry changes.
@@ -601,9 +605,14 @@ Found during and after this audit:
 
 Limitations: rigid CAD with the revision-21 parked tools and docks. Revision 36 below reruns
 the full ten-tool rack audit, including this bed gate, with the revision-33 toolheads.
-The model has no Z drives, bed supports, bed wiring or nozzle brush;
-check the space in front of the new bed edge, from Y-38 to the edge and down to 16 mm
-below the bed top, on the printer. Bed thermal growth at the front edge (about 0.4 mm at
+The model has no Z drives, bed supports, bed wiring or nozzle brush. On the printer, check:
+
+- the space in front of the new bed edge, from Y-38 to the edge and down to 16 mm below the
+  bed top;
+- with option B, that the bed's supports, wiring and any rear-mounted brush or purge bucket
+  still clear the rear Z drives and frame 31 mm further back.
+
+Bed thermal growth at the front edge (about 0.4 mm at
 100 °C) is well inside the 4.59 mm gap. Klipper limits and probe offsets are not
 commissioned.
 
@@ -939,8 +948,8 @@ a parked tool at nozzle Y47.25, at every X, for both hotends.
 | Front print limit (nozzle Y) | 52.22 | **48.25** |
 | Either bed option (nozzle Y to the stock rear limit, Y359) | 350 × 306.8 mm | **350 × 310.8 mm** |
 
-The probe meshes from bed Y68.07 (was 72.04). Start the slicer's printable area 8.25 mm behind
-the bed's front edge (Y48.25). The front-limit report also lists option B to the rails' Y364.15
+The probe meshes from bed Y68.07 (was 72.04); on the chosen option-B bed it reaches Y378.5, past
+the rear print limit. Start the slicer's printable area 8.25 mm behind the bed's front edge (Y48.25). The front-limit report also lists option B to the rails' Y364.15
 (315.9 mm), which this machine does not reach.
 
 **Verification.** Run `python build_dock_pins_r39.py` ([report](./verification_dock_pins_r39.json)).
