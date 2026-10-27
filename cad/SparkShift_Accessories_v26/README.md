@@ -1,9 +1,11 @@
 # SparkShift v26 Accessory & 3010 Toolhead Suite — Beacon RevH / Cartographer V3, Pure-Primitive CPAP Ducting, BTT EBB42 CAN Mount & 3010/2510 High-Flow Toolhead Carriers
 
-**Current status: blocked by low-Z bed collision.** The
-[latest review](#33-one-piece-bambu-toolhead-with-side-2510) finds that the
-gantry-mounted docks hit the bed at printing height. Ten tools fit laterally,
-but the current rack is **not a usable or build-approved printer layout**.
+**Current status: CAD review; the low-Z bed collision is resolved by a required bed change.**
+The [latest review](#33-one-piece-bambu-toolhead-with-side-2510) keeps the dock rack
+rigidly bolted across the front of the gantry and moves the bed's front edge behind the
+parked tools, to Y40 mm or further back (revision 34). Ten tools fit laterally, but the
+full ten-tool rack has not been re-audited with the revision-33 toolheads, and nothing is
+build-approved or machine-qualified.
 Earlier front-fan, vented-dock and firmware descriptions below are historical;
 their qualification claims do not apply to the current CAD-review-only design.
 
@@ -465,6 +467,83 @@ Files: [Bambu STEP](./step/Bambu_Three_Screw_Fan_R33_REVIEW.step)
 Render with `python render_fan_mounts_r33.py`. Insert pull-out, printed strength and fan
 vibration remain unqualified.
 
+#### Low-Z fix: rigid rack, bed front edge behind the docks (revision 34)
+
+The flying gantry is a U: the two Y arms are joined at the rear and the X beam travels
+along them. The 2020 dock crossbar closes the open front of the U, so the docks and
+parked tools move with the gantry and tools can change at any height. That stays as
+designed; the independent lift studied in revision 23 is not pursued.
+
+Because the rack is rigid, the parked tools ride at the active tool's height. Their
+chutes, silicone pads and wipers hang about 14 mm below the nozzle over the bed's front
+strip, which is why revision 22 found them inside the bed at first-layer height in every
+case. Mounting the crossbar higher would not help: the carriage, not the crossbar, sets
+the parked tools' height.
+
+The active nozzle cannot print forward of Y63.21 mm anyway, because the parked tools
+occupy that strip ([ten-tool report](./verification_ten_tool_closed_panel_dock.json)).
+The bed in front of the parked envelope only causes the collision. **Required printer
+change: the bed's front edge at Y40 mm or further back.** The parked envelope ends at
+Y35.41 mm, so the absolute minimum for a 1 mm gap is Y36.41 mm. Either:
+
+- **Option B, preferred: move the stock 350 × 350 bed and its mounts back 31 mm**
+  (Y40..390). The bed, heater and sheet stay standard. The nozzle still stops at Y359,
+  so the rear 31 mm is never printed on, but the Beacon or Cartographer coil, 19.5 mm
+  behind the nozzle, then has bed under it over the whole print area. With the bed where
+  it is today, the rear 19.5 mm of the print area cannot be probed.
+- **Option A: a 350 × 319 mm bed, heater and sheet** spanning Y40..359.
+
+The build sheet needs no tab or overhang at the front edge. Nothing in the rack, docks,
+toolheads, carriage or gantry changes.
+
+![Revision 22 vs 34 at first-layer height, the bed edge and print limit from above, and the rigid square over the moved bed](./images/63_bed_front_edge_r34_before_after.png)
+
+![Fusion: a parked tool's chute at first-layer height ending 4.59 mm short of the moved bed](./images/64_bed_front_edge_r34_fusion_gap.png)
+
+The [reproducible audit](./verification_bed_front_edge_r34.json)
+(`python audit_bed_front_edge_r34.py`, about 1.5 minutes) checks both active hotends,
+both parked hotends and all ten bays at nozzle Z0.2 (first layer) and Z0 (contact touch):
+
+| Bed | Cases | Collisions | Minimum clearance |
+|---|---|---|---|
+| Original, front edge Y9 (control) | 80 | 80 | — |
+| Front edge at Y40 (option A) | 80 | 0 | 4.59 mm |
+| Stock bed moved back 31 mm (option B) | 80 | 0 | 4.59 mm |
+
+- With the gantry 2 mm below nozzle touch, the parked hardware drops to Z-15.95 mm in
+  front of the bed edge and reaches no frame, panel or door body. The nearest is the
+  existing 2.0 mm gap between the bay-0 dock and the door-buffer plane at Y-40, which is
+  the same at every height.
+- Over option B's new rear strip (Y359..390), with the nozzle at Y359 and Z0.2, the X beam
+  clears the bed by 30.9 mm and the flying gantry (at nozzle Z-2) by 47.7 mm. The lowest
+  carriage part is P22 at 0.48 mm, the same as anywhere on the bed (see below).
+- The front print limit leaves 23.2 mm of bed in front of it, so the print area is
+  unchanged, and the probe coil is over the bed there (Y82.71).
+- The [native Fusion review](./34_Rigid_Rack_Bed_Front_Edge_Y40_REVIEW.f3d) is the
+  revision-22 diagnostic with only the bed moved back 31 mm. Fusion measures the same
+  4.59 mm from all ten docks to the bed.
+
+Found during this audit and **not changed here**:
+
+- **P22 duct over the Bambu nozzle.** P22's lowest point (local Z-77.85 mm) is 1.03 mm
+  above the Red Lizard and v26 Volcano tips but only 0.28 mm above the Bambu tip
+  (Z-78.13), so at a 0.2 mm first layer it passes 0.48 mm above the bed with the Bambu
+  tool active. It predates revision 31 (the released P22 has the same lowest point) and
+  needs a Bambu-specific fix, for example trimming P22's lowest lip or lowering the Bambu
+  nozzle.
+- **Probe y_offset sign.** The coil sits 19.5 mm (Beacon) or 19.82 mm (Cartographer)
+  behind the nozzle in printer Y, which grows toward the rear. The probe snippets further
+  down and `klipper/sparkshift_toolchanger.cfg` use `y_offset: -19.50` / `-19.82`, which
+  look sign-flipped in printer coordinates. Confirm with a probe test before meshing.
+
+Limitations: rigid CAD with the revision-21 parked tools and docks. The revision-33
+toolheads keep the same dock interface, but the full ten-tool rack audit has not been
+rerun with them. The model has no Z drives, bed supports, bed wiring or nozzle brush;
+check the space in front of the new bed edge, from Y-38 to the edge and down to 16 mm
+below the bed top, on the printer. Bed thermal growth at the front edge (about 0.4 mm at
+100 °C) is well inside the 4.59 mm gap. Klipper limits and probe offsets are not
+commissioned.
+
 #### Faster verification (`fast_geometry.py`)
 
 The review scripts now share [`fast_geometry.py`](./fast_geometry.py), and the full
@@ -500,9 +579,12 @@ bore slots. Reports:
 [R28](./verification_bambu_flat_shelf_r28.json),
 [R29](./verification_bambu_clean_r29.json).
 
-#### Latest refinement and low-Z blocker (revision 22)
+#### Low-Z blocker and shelf refinement (revision 22)
 
-**Do not build or commission the current rack position.** The previous
+**Resolved in revision 34** by moving the bed's front edge behind the parked tools; the
+rack itself is unchanged. The original finding follows.
+
+**Do not build or commission the current rack position with the original bed.** The previous
 revision-21 checks established lateral packing and the sampled toolchange
 paths, but did not lower the gantry to printing height over the actual bed.
 The new [bed-clearance audit](./verification_low_z_bed_clearance.json)
@@ -565,6 +647,10 @@ A changed geometry source or diagnostic file raises an explicit error
 rather than silently reusing stale native evidence.
 
 #### Independent lifting-rack feasibility study (revision 23 concept only)
+
+**Not pursued.** The rack stays rigidly bolted across the open front of the gantry U, and
+revision 34 fixes the bed collision with a bed change instead. This study is kept for
+reference.
 
 The separate [native motion study](./23_Independent_Rack_Lift_Kinematic_CONCEPT.f3d)
 shows **nine raised parked tools plus one active Bambu tool**, all ten docks

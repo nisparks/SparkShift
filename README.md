@@ -109,8 +109,9 @@ mechanism; ordinary extrusion remains independent of release.
 
 ## Accessory, Dock, Crossbar Mount, Calibration Jig & COTS Core Upgrade Suite (`P20`–`P29_L/R`, `P17_3010`/`2510`, `P18_3010`, `P01_COTS`, `P02_COTS`, `P05_COTS`)
 
-**Current side-fan mechanical review: blocked by bed collision.** See
-[revision 22: low-Z audit and shelf refinement](cad/SparkShift_Accessories_v26/README.md#33-one-piece-bambu-toolhead-with-side-2510).
+**Current side-fan mechanical review: CAD review; the bed collision is resolved by a
+required bed change (revision 34).** See
+[revision 34: rigid rack, bed front edge behind the docks](cad/SparkShift_Accessories_v26/README.md#33-one-piece-bambu-toolhead-with-side-2510).
 The current Bambu printed body is **revision 30**, rebuilt from revision 22.
 It encloses the filament path at the hotend inlet, restores the solid front
 neck under P18, fills the old fan-insert grooves, closes the lower P18 insert
@@ -127,15 +128,18 @@ to the active carriage from 1.30 mm to 1.73 mm. Revision 33 adds a third
 fan screw on the Bambu and replaces the Red Lizard's thin fan column with a
 fan wall tied into a restored neck under P18.
 Revisions 25-29 are superseded. It remains a review candidate, not print or
-machine approval, and does not resolve the machine-layout blocker.
-The gantry-mounted docks hit the actual bed at first-layer height.
-Ten tools fit laterally, but the rack is **not build-approved**.
-Moving it far enough forward also exceeds collision-free gantry reach.
-The earlier revision-21 lateral/path pass did not include this bed-height test.
-A separate 15 mm independent-rack-lift motion study clears the modeled
-bed/gantry envelopes, but requires new guides, supports, retention and
-actuation. It is **a kinematic concept only**, not a buildable replacement;
-the inherited bed, gantry and toolheads have not been altered for it.
+machine approval.
+The dock rack stays rigidly bolted across the open front of the gantry U, so
+the parked tools ride at the active tool's height. Their chutes, pads and
+wipers hang about 14 mm below the nozzle, and revision 22 found them inside
+the bed's front strip at first-layer height. The active nozzle cannot print
+forward of Y63.21 mm anyway, so revision 34 records the printer change instead
+of moving the rack: the bed's front edge goes to Y40 mm or further back (the
+stock bed moved back 31 mm, or a 350 × 319 mm bed). All 80 first-layer and
+contact-touch cases then clear by 4.59 mm, and the print area is unchanged.
+The earlier independent-rack-lift study (revision 23) is not pursued.
+Ten tools fit laterally, but the full rack has not been re-audited with the
+revision-33 toolheads, and nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X
 travel. The Klipper file below is a historical **nine-bay** template, not a
