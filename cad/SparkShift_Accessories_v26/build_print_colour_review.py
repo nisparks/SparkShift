@@ -3,8 +3,9 @@
 The revision-40 carriage with every core part coloured separately (the print set's revision-31 P01 and COTS
 P02-P05, the v26 bodies for the rest), withdrawn 60 mm from bay T4 with its tool; the nine other tools
 parked in their docks (Bambu in even bays, Red Lizard in odd); the docks, crossbar, P29/P30 rack and the
-Monolith X gantry. Tools and docks are located instances of one set of shapes per variant, so only the
-rainbow tool bodies and chutes repeat. Writes WORK/print_colour_review.step (not committed).
+Monolith X gantry, whose printed parts are the user's own and stay black. Each bay's tool and dock are
+located instances of one set of shapes per variant and colour. Writes WORK/print_colour_review.step (about
+160 MB, not committed).
 
 Run: python build_print_colour_review.py
 """
@@ -111,13 +112,13 @@ def accessories():
 
 
 def tool_template(parts):
-    """(name, shape, colour) with colour None for the body, which takes the tool's colour."""
+    """(name, shape, colour); the body and P18 carry a bay(i) role name instead of a colour."""
     out = []
     for n, s in parts:
         if n == "body":
-            out.append(("body", s, None))
+            out.append(("body", s, "body"))
         elif n == "P18":
-            out.append(("P18", s, C.part("P18")))
+            out.append(("P18", s, "P18"))
         elif n == "fan":
             out.append(("fan", s, C.hex_rgb("fan")))
         elif "insert" in n:
@@ -135,15 +136,15 @@ def tool_template(parts):
 
 
 def dock_template(solids):
-    """(name, shape, colour) with colour None for the P26 chute, which takes the tool's colour."""
+    """(name, shape, colour); the printed parts carry a bay(i) role name instead of a colour."""
     out = []
     for n, s in zip(DOCK_NAMES, solids):
         if n.startswith("P25"):
-            c = C.part("P25")
+            c = "P25"
         elif "Jaw" in n:
-            c = C.part("Jaws")
+            c = "Jaws"
         elif n.startswith("P26"):
-            c = None
+            c = "P26"
         elif "Silicone" in n:
             c = C.hex_rgb("silicone")
         elif "Magnet" in n:
@@ -157,7 +158,7 @@ def dock_template(solids):
 def gantry_colour(name):
     n = name.lower()
     if n.startswith("printed"):
-        return C.part("P01")
+        return C.hex_rgb("existing")
     if "2020" in n:
         return C.hex_rgb("anodised")
     if "pulley" in n:
@@ -185,10 +186,10 @@ def main():
     for i, center in enumerate(r36.CENTERS):
         label = "Bambu" if i % 2 == 0 else "RedLizard"
         tool, dock = templates[label]
-        body = C.tool(i)
-        add(f"T{i}_{label}_{C.TOOLS[i]}", [(n, x, body if c is None else c) for n, x, c in tool],
+        roles = {k: C.hex_rgb(v) for k, v in C.bay(i).items()}
+        add(f"T{i}_{label}_{C.TOOLS[i]}", [(n, x, roles[c] if isinstance(c, str) else c) for n, x, c in tool],
             place(f, center, WITHDRAW if i == ACTIVE else 0.0))
-        add(f"Dock_{i}", [(n, x, body if c is None else c) for n, x, c in dock], place(f, center))
+        add(f"Dock_{i}", [(n, x, roles[c] if isinstance(c, str) else c) for n, x, c in dock], place(f, center))
     rack = s["fixed"]["P29_P30_Hardware"].Solids()
     items = []
     for k, x in enumerate(rack):
