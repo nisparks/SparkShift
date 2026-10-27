@@ -170,7 +170,13 @@ about 350 × 311 mm. The nozzle stops at the stock rear limit, so moving the
 bed back only clears the docks at the front; its rear 31 mm is for probe
 meshing. A follow-up audit finds the toolheads themselves now
 set the front limit, so more depth would need the docks parked further
-forward. Nothing is **build-approved**.
+forward. Revision 40 moves the two P20-to-P21 screws: their heads sat
+0.9 mm inside the EBB42 board's bottom edge, and their P21 inserts were
+0.28 mm from the probe-cable raceway. Only those two lugs change. It also
+records two notes for the first article. In the Monolith model, P21's
+conduit lies on the X beam's rear face (0.0 mm). Nothing screws the
+CPAP/EBB42 stack to the carriage, because the core's own case screws fill
+the inserts that P24's two holes line up with. Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X
 travel. The Klipper file below is a historical **nine-bay** template, not a
@@ -224,7 +230,7 @@ In Fusion 360, the complete printer is structured as a multi-level, externally r
 
 | File / guide | Scope |
 |---|---|
-| [**Current print set (revision 39)**](PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-39) | One file per part for the ten-tool build, with quantities, the hardware that changed and the first-article checks. It supersedes the accessory, dock and tool files in `stl_v26`. |
+| [**Current print set (revision 40)**](PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-40) | One file per part for the ten-tool build, with quantities, a suggested print colour for each part, the hardware that changed and the first-article checks. It supersedes the accessory, dock and tool files in `stl_v26`. |
 | [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable **v26j** snapshot: **135 native bodies**, timeline **1648**; native review reports 135/135 readback matches. |
 | [v26 whole-assembly STEP](cad/SparkShift_AHG_min_v26.step) | 135 solid BREP records; neutral inspection export, not a manufacturing qualification. |
 | [36 assembly, accessory, dock, rack & COTS STLs](stl_v26) | Complete matched 17-part core set plus 14 pure-primitive accessory/dock/rack/jig STLs (`P20`–`P29_L/R`, `P17_3010`/`2510`, `P18_3010`) and 5 COTS-qualified core drop-ins (`P01_COTS`, `P02_COTS`, `P03_COTS`, `P04F_COTS`, `P05_COTS`). The accessory, dock and tool files here are superseded; use the current print set. |

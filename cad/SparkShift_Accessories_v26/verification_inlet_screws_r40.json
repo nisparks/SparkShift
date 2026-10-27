@@ -1,0 +1,5520 @@
+{
+  "status": "P20_P21_SCREWS_CLEAR_RACK_REQUALIFIED_CAD_REVIEW_NOT_MACHINE_QUALIFICATION",
+  "builder_regression": {
+    "P20_builder_is_released_P20": true,
+    "P21_builder_is_released_P21": true,
+    "P22_builder_is_revision_37_P22": true,
+    "cable_route_is_revision_37_cable": true
+  },
+  "parts": {
+    "P20": {
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 7938.751151945576,
+      "released_volume_mm3": 7900.872824116352,
+      "bounds_mm": [
+        -20.600000100000003,
+        20.600000100000003,
+        -59.35,
+        -26.4,
+        -21.580000100000003,
+        30.0
+      ],
+      "released_bounds_mm": [
+        -20.600000100000003,
+        20.600000100000003,
+        -59.35,
+        -27.599999999999998,
+        -21.5800001,
+        30.00000000000035
+      ],
+      "outside_lug_zone": {
+        "outside_zones_new": {
+          "volume_mm3": 7560.75901033015,
+          "area_mm2": 8898.830357802306,
+          "centroid_mm": [
+            -0.1457041800768215,
+            -44.02061832571974,
+            6.241989004259498
+          ]
+        },
+        "outside_zones_released": {
+          "volume_mm3": 7560.758945755231,
+          "area_mm2": 8898.830394335362,
+          "centroid_mm": [
+            -0.14570407688104223,
+            -44.02061837529449,
+            6.24198892435341
+          ]
+        },
+        "unchanged_outside_zones": true,
+        "inside_zones_mm3": {
+          "new": 377.99215669561914,
+          "released": 340.11388716397215
+        }
+      }
+    },
+    "P21": {
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 10209.057625007352,
+      "released_volume_mm3": 10184.03240149575,
+      "bounds_mm": [
+        -21.0,
+        21.0,
+        -45.4,
+        0.3000000000000007,
+        -51.4,
+        -17.78
+      ],
+      "released_bounds_mm": [
+        -21.0,
+        21.0,
+        -45.4,
+        0.30000000000000027,
+        -51.4,
+        -17.779999999999998
+      ],
+      "outside_lug_zone": {
+        "outside_zones_new": {
+          "volume_mm3": 9150.987099886737,
+          "area_mm2": 8767.911943916992,
+          "centroid_mm": [
+            5.586200391906527e-16,
+            -25.917624153861826,
+            -29.046983810237027
+          ]
+        },
+        "outside_zones_released": {
+          "volume_mm3": 9150.98709988728,
+          "area_mm2": 8767.911943915919,
+          "centroid_mm": [
+            3.154334192724529e-12,
+            -25.917624153864157,
+            -29.04698381023743
+          ]
+        },
+        "unchanged_outside_zones": true,
+        "inside_zones_mm3": {
+          "new": 1058.0705250506376,
+          "released": 1033.04530159506
+        }
+      }
+    },
+    "lug_zone_mm": [
+      -9.8,
+      9.8,
+      -35.7,
+      -25.9,
+      -27.2,
+      -10.0
+    ]
+  },
+  "air_paths": {
+    "P20": {
+      "released_mm3": 11411.476927375395,
+      "r40_mm3": 11411.476927375395,
+      "released_part_in_air_mm3": 0.0,
+      "r40_part_in_air_mm3": 0.0
+    },
+    "P21": {
+      "released_mm3": 8119.5028911764375,
+      "r40_mm3": 8119.5028911764375,
+      "released_part_in_air_mm3": 7.178946478795554,
+      "r40_part_in_air_mm3": 7.17894647876377
+    },
+    "note": "P21's 7.18 mm3 part-in-air is the released builder's own sliver at the cable-boss corners (r3.00 in the part, r3.10 in its air model), unchanged."
+  },
+  "inlet_joint": {
+    "screw_xy_mm": {
+      "released": [
+        [
+          -4.5,
+          -31.2
+        ],
+        [
+          4.5,
+          -31.2
+        ]
+      ],
+      "r40": [
+        [
+          -5.5,
+          -30.2
+        ],
+        [
+          5.5,
+          -30.2
+        ]
+      ]
+    },
+    "p21_pocket_to_cable_raceway_mm": {
+      "released": 0.28,
+      "r40": 1.28
+    },
+    "p21_pocket_to_p20_sleeve_socket_mm": {
+      "released": 0.5700000000000074,
+      "r40": 1.5700000000000074
+    },
+    "p21_pocket_1mm_ring_filled_fraction": {
+      "released": 0.8435569222314625,
+      "r40": 1.0
+    },
+    "p20_counterbore_to_cable_channel_mm": 0.5000000000000002,
+    "p20_counterbore_outer_wall_mm": 0.75,
+    "p20_floor_under_head_mm": 1.9800000000000004,
+    "head_radial_clearance_mm": 0.19999999999999973,
+    "thread_engagement_mm": 3.0,
+    "screw_tip_z_mm": -23.8,
+    "clearance_hole_bottom_z_mm": -27.0,
+    "head_to_ebb42_mm": {
+      "r40": 0.5912476717597723,
+      "released_overlap_mm3": 26.60935906975784
+    },
+    "head_to_probe_cable_mm": {
+      "r40": 1.1500348452003033,
+      "released": 1.0568034775132529
+    }
+  },
+  "carriage_internal": {
+    "checked": "Every pair of carriage parts and fasteners (core, P20-P24, cable, Beacon, EBB42, all fasteners); earlier revisions checked only their changed parts against the rest.",
+    "intersections_mm3": [],
+    "face_contacts": [
+      {
+        "a": "EBB42",
+        "b": "ACC_EBB42_M3_2",
+        "mm3": 0.0517471750670775,
+        "min_thickness_mm": 0.0037224000000009028
+      },
+      {
+        "a": "EBB42",
+        "b": "ACC_EBB42_M3_3",
+        "mm3": 0.051747175066932063,
+        "min_thickness_mm": 0.0037224000000009028
+      }
+    ],
+    "revision_39_intersections_mm3": [
+      {
+        "a": "EBB42",
+        "b": "ACC_UPPER_INLET_M3x8_0",
+        "mm3": 12.690153126851303,
+        "min_thickness_mm": 0.9587524282402278
+      },
+      {
+        "a": "EBB42",
+        "b": "ACC_UPPER_INLET_M3x8_1",
+        "mm3": 13.91920606225313,
+        "min_thickness_mm": 0.9321226277232029
+      }
+    ],
+    "revision_39_face_contacts": [
+      {
+        "a": "EBB42",
+        "b": "ACC_EBB42_M3_2",
+        "mm3": 0.0517471750670775,
+        "min_thickness_mm": 0.0037224000000009028
+      },
+      {
+        "a": "EBB42",
+        "b": "ACC_EBB42_M3_3",
+        "mm3": 0.051747175066932063,
+        "min_thickness_mm": 0.0037224000000009028
+      }
+    ],
+    "note": "A face contact is a Boolean common under 0.01 mm thick: two faces that touch, such as a screw head bearing on the EBB42 board, not an interference."
+  },
+  "cartographer_vs_changed_mm3": [],
+  "mounted_tools_vs_changed_mm3": [],
+  "beacon_keepouts_metal_mm3": {
+    "top": {},
+    "bottom": {}
+  },
+  "x_gantry_min_distance": {
+    "carriage_at_world_x0": {
+      "beam_and_rail": {
+        "r40": {
+          "P20": null,
+          "P21": {
+            "mm": 2.1269405436896715e-07,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -1.95,
+              -33.2,
+              -47.78
+            ]
+          },
+          "R40_INLET_M3x8_BUTTON_0": {
+            "mm": 3.979400000000009,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -4.05,
+              -30.2,
+              -23.8
+            ]
+          },
+          "R40_INLET_M3x3_HEATSET_0": null,
+          "R40_INLET_M3x8_BUTTON_1": {
+            "mm": 3.979400000000009,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              6.95,
+              -30.2,
+              -23.8
+            ]
+          },
+          "R40_INLET_M3x3_HEATSET_1": null
+        },
+        "released": {
+          "P20": null,
+          "P21": {
+            "mm": 2.1269405436896715e-07,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -1.95,
+              -33.2,
+              -47.78
+            ]
+          },
+          "ACC_UPPER_INLET_M3x8_0": {
+            "mm": 5.77940000000001,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -3.0,
+              -31.2,
+              -22.0
+            ]
+          },
+          "ACC_UPPER_INLET_HEATSET_0": null,
+          "ACC_UPPER_INLET_M3x8_1": {
+            "mm": 5.77940000000001,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              6.0,
+              -31.2,
+              -22.0
+            ]
+          },
+          "ACC_UPPER_INLET_HEATSET_1": null
+        }
+      },
+      "end_joints": {
+        "r40": {
+          "P20": {
+            "mm": 0.7066826064422509,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_left_a",
+            "at_mm": [
+              15.74,
+              -33.2,
+              -17.78
+            ]
+          },
+          "P21": {
+            "mm": 3.552713678800501e-15,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_left_a",
+            "at_mm": [
+              14.96,
+              -33.2,
+              -18.97
+            ]
+          },
+          "R40_INLET_M3x8_BUTTON_0": null,
+          "R40_INLET_M3x3_HEATSET_0": null,
+          "R40_INLET_M3x8_BUTTON_1": {
+            "mm": 3.0820841440523665,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_left_a",
+            "at_mm": [
+              6.94,
+              -30.05,
+              -19.94
+            ]
+          },
+          "R40_INLET_M3x3_HEATSET_1": {
+            "mm": 2.282084144052367,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_left_a",
+            "at_mm": [
+              7.74,
+              -29.97,
+              -19.94
+            ]
+          }
+        },
+        "released": {
+          "P20": {
+            "mm": 0.7066826064422509,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_left_a",
+            "at_mm": [
+              15.74,
+              -33.2,
+              -17.78
+            ]
+          },
+          "P21": {
+            "mm": 0.0,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_left_a",
+            "at_mm": [
+              14.96,
+              -33.2,
+              -18.97
+            ]
+          },
+          "ACC_UPPER_INLET_M3x8_0": null,
+          "ACC_UPPER_INLET_HEATSET_0": null,
+          "ACC_UPPER_INLET_M3x8_1": {
+            "mm": 4.185310029125257,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_left_a",
+            "at_mm": [
+              5.96,
+              -30.86,
+              -20.05
+            ]
+          },
+          "ACC_UPPER_INLET_HEATSET_1": {
+            "mm": 3.4353100291252567,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_left_a",
+            "at_mm": [
+              6.69,
+              -30.69,
+              -20.05
+            ]
+          }
+        }
+      }
+    },
+    "carriage_at_world_x175": {
+      "beam_and_rail": {
+        "r40": {
+          "P20": null,
+          "P21": {
+            "mm": 2.1269407568524912e-07,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -1.95,
+              -33.2,
+              -47.78
+            ]
+          },
+          "R40_INLET_M3x8_BUTTON_0": {
+            "mm": 3.979400000000009,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -4.05,
+              -30.2,
+              -23.8
+            ]
+          },
+          "R40_INLET_M3x3_HEATSET_0": null,
+          "R40_INLET_M3x8_BUTTON_1": {
+            "mm": 3.979400000000009,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              6.95,
+              -30.2,
+              -23.8
+            ]
+          },
+          "R40_INLET_M3x3_HEATSET_1": null
+        },
+        "released": {
+          "P20": null,
+          "P21": {
+            "mm": 2.1269407568524912e-07,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -1.95,
+              -33.2,
+              -47.78
+            ]
+          },
+          "ACC_UPPER_INLET_M3x8_0": {
+            "mm": 5.77940000000001,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -3.0,
+              -31.2,
+              -22.0
+            ]
+          },
+          "ACC_UPPER_INLET_HEATSET_0": null,
+          "ACC_UPPER_INLET_M3x8_1": {
+            "mm": 5.77940000000001,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              6.0,
+              -31.2,
+              -22.0
+            ]
+          },
+          "ACC_UPPER_INLET_HEATSET_1": null
+        }
+      },
+      "end_joints": {
+        "r40": {
+          "P20": null,
+          "P21": null,
+          "R40_INLET_M3x8_BUTTON_0": null,
+          "R40_INLET_M3x3_HEATSET_0": null,
+          "R40_INLET_M3x8_BUTTON_1": null,
+          "R40_INLET_M3x3_HEATSET_1": null
+        },
+        "released": {
+          "P20": null,
+          "P21": null,
+          "ACC_UPPER_INLET_M3x8_0": null,
+          "ACC_UPPER_INLET_HEATSET_0": null,
+          "ACC_UPPER_INLET_M3x8_1": null,
+          "ACC_UPPER_INLET_HEATSET_1": null
+        }
+      }
+    },
+    "carriage_at_world_x350": {
+      "beam_and_rail": {
+        "r40": {
+          "P20": null,
+          "P21": {
+            "mm": 2.126940970015313e-07,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -1.95,
+              -33.2,
+              -47.78
+            ]
+          },
+          "R40_INLET_M3x8_BUTTON_0": {
+            "mm": 3.979400000000009,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -4.05,
+              -30.2,
+              -23.8
+            ]
+          },
+          "R40_INLET_M3x3_HEATSET_0": null,
+          "R40_INLET_M3x8_BUTTON_1": {
+            "mm": 3.979400000000009,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              6.95,
+              -30.2,
+              -23.8
+            ]
+          },
+          "R40_INLET_M3x3_HEATSET_1": null
+        },
+        "released": {
+          "P20": null,
+          "P21": {
+            "mm": 2.126940970015313e-07,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -1.95,
+              -33.2,
+              -47.78
+            ]
+          },
+          "ACC_UPPER_INLET_M3x8_0": {
+            "mm": 5.77940000000001,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              -3.0,
+              -31.2,
+              -22.0
+            ]
+          },
+          "ACC_UPPER_INLET_HEATSET_0": null,
+          "ACC_UPPER_INLET_M3x8_1": {
+            "mm": 5.77940000000001,
+            "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+            "at_mm": [
+              6.0,
+              -31.2,
+              -22.0
+            ]
+          },
+          "ACC_UPPER_INLET_HEATSET_1": null
+        }
+      },
+      "end_joints": {
+        "r40": {
+          "P20": {
+            "mm": 0.7066826064525783,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_right_a",
+            "at_mm": [
+              -15.74,
+              -33.2,
+              -17.78
+            ]
+          },
+          "P21": {
+            "mm": 3.552713678800501e-15,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_right_a",
+            "at_mm": [
+              -14.96,
+              -33.2,
+              -18.97
+            ]
+          },
+          "R40_INLET_M3x8_BUTTON_0": {
+            "mm": 3.0820841440514677,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_right_a",
+            "at_mm": [
+              -6.94,
+              -30.05,
+              -23.8
+            ]
+          },
+          "R40_INLET_M3x3_HEATSET_0": {
+            "mm": 2.2820841440514674,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_right_a",
+            "at_mm": [
+              -7.74,
+              -29.97,
+              -20.8
+            ]
+          },
+          "R40_INLET_M3x8_BUTTON_1": null,
+          "R40_INLET_M3x3_HEATSET_1": null
+        },
+        "released": {
+          "P20": {
+            "mm": 0.7066826064525783,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_right_a",
+            "at_mm": [
+              -15.74,
+              -33.2,
+              -17.78
+            ]
+          },
+          "P21": {
+            "mm": 3.552713678800501e-15,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_right_a",
+            "at_mm": [
+              -14.96,
+              -33.2,
+              -18.97
+            ]
+          },
+          "ACC_UPPER_INLET_M3x8_0": {
+            "mm": 4.185310029124505,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_right_a",
+            "at_mm": [
+              -5.96,
+              -30.86,
+              -22.0
+            ]
+          },
+          "ACC_UPPER_INLET_HEATSET_0": {
+            "mm": 3.4353100291245067,
+            "gantry_body": "Printed_9mm_2WD_XY_joint_right_a",
+            "at_mm": [
+              -6.69,
+              -30.69,
+              -20.8
+            ]
+          },
+          "ACC_UPPER_INLET_M3x8_1": null,
+          "ACC_UPPER_INLET_HEATSET_1": null
+        }
+      }
+    }
+  },
+  "x_gantry_summary": {
+    "P20_beam_and_rail_mm": {
+      "r40": null,
+      "released": null
+    },
+    "P21_beam_and_rail_mm": {
+      "r40": 2.1269405436896715e-07,
+      "released": 2.1269405436896715e-07
+    },
+    "P20_end_joints_mm": {
+      "r40": 0.7066826064422509,
+      "released": 0.7066826064422509
+    },
+    "P21_end_joints_mm": {
+      "r40": 3.552713678800501e-15,
+      "released": 0.0
+    }
+  },
+  "note_conduit_on_x_beam": {
+    "finding": "In the Monolith gantry model, P21's conduit front face lies on the X beam's rear face (Y-33.20) and the probe cable runs 0.2 mm from it, over the whole X travel. The original accessory audit used an older gantry model with the beam's rear face at Y-32.70 (0.5 mm).",
+    "released_to_beam_and_rail_mm": {
+      "P20": null,
+      "P21": {
+        "mm": 2.1269407568524912e-07,
+        "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+        "at_mm": [
+          -1.95,
+          -33.2,
+          -47.78
+        ]
+      },
+      "P22": {
+        "mm": 1.2206000000000017,
+        "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+        "at_mm": [
+          -1.95,
+          -33.2,
+          -49.0
+        ]
+      },
+      "Probe_Cable": {
+        "mm": 0.20000021269407142,
+        "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+        "at_mm": [
+          0.0,
+          -33.4,
+          -47.78
+        ]
+      }
+    },
+    "study_column_moved_mm": -1.5,
+    "study_note": "P20, P21's conduit, P22's collar, riser and elbow and the cable riser moved rearward; P21's fairing underside raised to Z-27.0; P20's wing seats, P24 and P22's plenum stay put.",
+    "study_to_beam_and_rail_mm": {
+      "P20": null,
+      "P21": {
+        "mm": 1.0918752898566106,
+        "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+        "at_mm": [
+          9.2,
+          -33.44,
+          -26.71
+        ]
+      },
+      "P22": {
+        "mm": 1.9338730563514899,
+        "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+        "at_mm": [
+          1.95,
+          -34.7,
+          -49.0
+        ]
+      },
+      "Probe_Cable": {
+        "mm": 1.7000002126940714,
+        "gantry_body": "R1_GANTRY_X_2020_430_NOMINAL",
+        "at_mm": [
+          0.0,
+          -34.9,
+          -47.78
+        ]
+      }
+    },
+    "rear_motor_mounts_at_nozzle_y359_mm": {
+      "released": {
+        "mm": 7.817570280729784,
+        "part": "P22",
+        "gantry_body": "Printed_V2_9mm_rear_motor_mount_a",
+        "carriage_x_mm": 0
+      },
+      "study": {
+        "mm": 6.756910108951715,
+        "part": "P21",
+        "gantry_body": "Printed_V2_9mm_rear_motor_mount_a",
+        "carriage_x_mm": 0
+      }
+    }
+  },
+  "note_stack_anchor": {
+    "finding": "P24's two rear holes line up with the core's right case-clamp inserts in P02, but the core's own M3x35 case screws, fitted from the front, already fill them. No screw for P24 was ever specified and none can engage, so nothing screws P20, P21, P24 or the EBB42 to the carriage: the stack rests on P22's collar, against P02's rear face and under P02, located by P24's pockets over three core screw heads.",
+    "holes": {
+      "upper": {
+        "axis_xz_mm": [
+          -18.1,
+          41.72
+        ],
+        "core_screw_y_mm": [
+          -5.5,
+          30.25
+        ],
+        "core_insert_y_mm": [
+          -6.5,
+          -2.5
+        ],
+        "free_thread_behind_core_screw_mm": 1.0
+      },
+      "lower": {
+        "axis_xz_mm": [
+          -18.5,
+          -14.45
+        ],
+        "core_screw_y_mm": [
+          -3.5,
+          32.25
+        ],
+        "core_insert_y_mm": [
+          -3.700000000000003,
+          0.30000000000000004
+        ],
+        "free_thread_behind_core_screw_mm": 0.20000000000000284
+      }
+    },
+    "options": [
+      "Core change note: separate anchor inserts in P02 for P24, or longer inserts shared by both screws.",
+      "Accessory option: two M2.5 screws from below in the column's chamfered rear corners, inside its outline (not adopted).",
+      "A rear foot on P21 screwed to a ledge on P22 was tried and rejected: at the stock rear limit it hits the rear motor mounts near X0 and X350."
+    ]
+  },
+  "static_failures": [],
+  "sources": {
+    "Flying_Gantry": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_Flying_Gantry_world.step",
+      "sha256": "c5452f4f9958a51360d3868bf8dfe7fd1481de34e66cefde95a6bc3de12843c2",
+      "solids": 267,
+      "bounds_mm": [
+        -80.3500007891397,
+        430.35000078914004,
+        -39.000000100001046,
+        474.1000000000032,
+        125.14999656203169,
+        220.50000010001327
+      ]
+    },
+    "X_Gantry": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_X_Gantry_world.step",
+      "sha256": "d305bc3b1744aa1574e10ea42cdf2583e68293f14ba4e0ac65a2d72ddffd46bb",
+      "solids": 80,
+      "bounds_mm": [
+        -57.99999999060873,
+        407.99999999060907,
+        168.9860796873075,
+        218.2260798875369,
+        133.34999989999798,
+        175.150000100048
+      ]
+    },
+    "crossbar": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_crossbar_world.step",
+      "sha256": "9f21e17a3b552e60d7956449e372c3558fdfe173fb873570e9070949177e3a9a",
+      "solids": 1,
+      "bounds_mm": [
+        -49.99999999999871,
+        400.0,
+        -29.0000000000019,
+        -9.000000000001663,
+        188.50999999999993,
+        208.51000000000008
+      ]
+    }
+  },
+  "requalification": {
+    "docking": {
+      "Bambu": {
+        "samples": 121,
+        "step_mm": 0.5,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "cartographer_retreat_hits": [],
+        "cartographer_on_mounted_tool_mm3": {}
+      },
+      "RedLizard": {
+        "samples": 121,
+        "step_mm": 0.5,
+        "approach_hits": [],
+        "carriage_retreat_hits": [],
+        "cartographer_retreat_hits": [],
+        "cartographer_on_mounted_tool_mm3": {}
+      }
+    },
+    "neighbours": [
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": [],
+        "cartographer_hits": []
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": [],
+        "cartographer_hits": []
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": [],
+        "cartographer_hits": []
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": [],
+        "cartographer_hits": []
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": [],
+        "cartographer_hits": []
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": [],
+        "cartographer_hits": []
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "offset_x_mm": -37.3,
+        "samples": 61,
+        "hits": [],
+        "cartographer_hits": []
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "offset_x_mm": 37.3,
+        "samples": 61,
+        "hits": [],
+        "cartographer_hits": []
+      }
+    ],
+    "bays": [
+      {
+        "bay": 0,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 0,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 1,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 1,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 2,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 2,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 3,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 3,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 4,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 4,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 5,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 5,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 6,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 6,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 7,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 7,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 8,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 8,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 9,
+        "variant": "Bambu",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      },
+      {
+        "bay": 9,
+        "variant": "RedLizard",
+        "tool_hits": {},
+        "dock_hits": {},
+        "samples": 121,
+        "approach_hits": [],
+        "carriage_retreat_hits": []
+      }
+    ],
+    "x_gantry_withdrawal": {
+      "samples": 121,
+      "hits": []
+    },
+    "x_traverse": {
+      "Bambu": {
+        "withdrawal_mm": 60,
+        "samples": 351,
+        "hits": []
+      },
+      "RedLizard": {
+        "withdrawal_mm": 60,
+        "samples": 351,
+        "hits": []
+      }
+    },
+    "lateral_diagnostic": [
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 0,
+        "hits": {
+          "Neighbour_-37.3": 259.1060363778794
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 0,
+        "hits": {
+          "Neighbour_+37.3": 257.3150535392
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 12.7,
+        "hits": {
+          "Neighbour_-37.3": 79.72909687138869
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 12.7,
+        "hits": {
+          "Neighbour_+37.3": 102.90165073302637
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "Bambu",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 0,
+        "hits": {
+          "Neighbour_-37.3": 372.95541978485994
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 0,
+        "hits": {
+          "Neighbour_+37.3": 225.2951115420468
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 12.7,
+        "hits": {
+          "Neighbour_-37.3": 96.54851768004676
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 12.7,
+        "hits": {
+          "Neighbour_+37.3": 74.0857159974297
+        }
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "Bambu",
+        "neighbour": "RedLizard",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 0,
+        "hits": {
+          "Neighbour_-37.3": 207.3765521826671
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 0,
+        "hits": {
+          "Neighbour_+37.3": 351.24198488511394
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 12.7,
+        "hits": {
+          "Neighbour_-37.3": 55.795389523007486
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 12.7,
+        "hits": {
+          "Neighbour_+37.3": 166.7888421871202
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "Bambu",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 0,
+        "hits": {
+          "Neighbour_-37.3": 309.75134287864336
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 0,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 0,
+        "hits": {
+          "Neighbour_+37.3": 307.7474501761655
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 12.7,
+        "hits": {
+          "Neighbour_-37.3": 82.91650599188281
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 12.7,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 12.7,
+        "hits": {
+          "Neighbour_+37.3": 159.04439458621565
+        }
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": -6.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": -1.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": 1.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      },
+      {
+        "tool": "RedLizard",
+        "neighbour": "RedLizard",
+        "local_x_mm": 6.5,
+        "withdrawal_mm": 60,
+        "hits": {}
+      }
+    ],
+    "clearances_mm": {
+      "r36_docks": {
+        "active carriage | Bambu parked at +37.3": {
+          "mm": 2.4020824298928614,
+          "moving": "Core_With_Lowered_P01_Bosses_R31_REVIEW",
+          "parked": "body",
+          "carriage_dy_mm": 0
+        },
+        "cartographer | Bambu parked at +37.3": null,
+        "active carriage | Bambu parked at -37.3": {
+          "mm": 1.5999999999999996,
+          "moving": "Core_With_Lowered_P01_Bosses_R31_REVIEW",
+          "parked": "fan",
+          "carriage_dy_mm": 0
+        },
+        "cartographer | Bambu parked at -37.3": null,
+        "active carriage | RedLizard parked at +37.3": {
+          "mm": 2.4020824298928614,
+          "moving": "Core_With_Lowered_P01_Bosses_R31_REVIEW",
+          "parked": "body",
+          "carriage_dy_mm": 0
+        },
+        "cartographer | RedLizard parked at +37.3": null,
+        "active carriage | RedLizard parked at -37.3": {
+          "mm": 1.5999999999999943,
+          "moving": "Core_With_Lowered_P01_Bosses_R31_REVIEW",
+          "parked": "fan",
+          "carriage_dy_mm": 0
+        },
+        "cartographer | RedLizard parked at -37.3": null
+      },
+      "r39_dock": {
+        "active carriage | Bambu parked at +37.3": {
+          "mm": 2.4020824298928614,
+          "moving": "Core_With_Lowered_P01_Bosses_R31_REVIEW",
+          "parked": "body",
+          "carriage_dy_mm": 0
+        },
+        "cartographer | Bambu parked at +37.3": null,
+        "active carriage | Bambu parked at -37.3": {
+          "mm": 1.5999999999999996,
+          "moving": "Core_With_Lowered_P01_Bosses_R31_REVIEW",
+          "parked": "fan",
+          "carriage_dy_mm": 0
+        },
+        "cartographer | Bambu parked at -37.3": null,
+        "active carriage | RedLizard parked at +37.3": {
+          "mm": 2.4020824298928614,
+          "moving": "Core_With_Lowered_P01_Bosses_R31_REVIEW",
+          "parked": "body",
+          "carriage_dy_mm": 0
+        },
+        "cartographer | RedLizard parked at +37.3": null,
+        "active carriage | RedLizard parked at -37.3": {
+          "mm": 1.5999999999999943,
+          "moving": "Core_With_Lowered_P01_Bosses_R31_REVIEW",
+          "parked": "fan",
+          "carriage_dy_mm": 0
+        },
+        "cartographer | RedLizard parked at -37.3": null
+      }
+    },
+    "bed": {
+      "bed_source": {
+        "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_Bed_world.step",
+        "sha256": "1b13fbfcdc4f4151932b4461190a703a9f7a5e7343e9673769fa5c47c3af871f",
+        "bounds_mm": [
+          0.0,
+          350.0,
+          9.0,
+          359.0,
+          -8.0,
+          0.0
+        ]
+      },
+      "frame_source": {
+        "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\frame_world_bodies.json",
+        "sha256": "002831991c9f35572de211fb1f73ca63410c239c3646d56bccdd586a7a076e65",
+        "bodies": 25,
+        "note": "Nominal frame, panels and door from 01_Voron24_350_Frame_and_Enclosure as world bounding boxes (conservative for the extrusion profiles). No Z drives, bed supports or bed wiring are modeled."
+      },
+      "parked_envelope": {
+        "Bambu": {
+          "ymin_mm": -38.000082000000006,
+          "ymax_mm": 35.41000000000019,
+          "zmin_source_mm": 99.19940000000001
+        },
+        "RedLizard": {
+          "ymin_mm": -38.000082000000006,
+          "ymax_mm": 35.41000000000019,
+          "zmin_source_mm": 99.19940000000001
+        }
+      },
+      "cases": {
+        "original_bed_control": [
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785541,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.1854476193051,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1080.9531841103178,
+              "Bambu:Silicone_Wiper | Bed": 148.06137693527103
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.025232678554,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930508,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466659,
+              "Bambu:Silicone_Wiper | Bed": 151.557883159857
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855395,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930508,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466686,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985697
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785541,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.1854476193051,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466668,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985697
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855463,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930515,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466675,
+              "Bambu:Silicone_Wiper | Bed": 151.5578831598569
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855463,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930511,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466688,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985686
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785547,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930487,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466663,
+              "Bambu:Silicone_Wiper | Bed": 151.5578831598568
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855497,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930553,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466668,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985703
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785536,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930552,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466675,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985706
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855497,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.1854476193055,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1092.9270461776887,
+              "Bambu:Silicone_Wiper | Bed": 150.3687710620274
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785541,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.1854476193051,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1080.9531841103178,
+              "RedLizard:Silicone_Wiper | Bed": 148.06137693527103
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.025232678554,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930508,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466659,
+              "RedLizard:Silicone_Wiper | Bed": 151.557883159857
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855395,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930508,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466686,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985697
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785541,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.1854476193051,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466668,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985697
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855463,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930515,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466675,
+              "RedLizard:Silicone_Wiper | Bed": 151.5578831598569
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855463,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930511,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466688,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985686
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785547,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930487,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466663,
+              "RedLizard:Silicone_Wiper | Bed": 151.5578831598568
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855497,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930553,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466668,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985703
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785536,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930552,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466675,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985706
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855497,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.1854476193055,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1092.9270461776887,
+              "RedLizard:Silicone_Wiper | Bed": 150.3687710620274
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785541,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1095.0910474915547,
+              "Bambu:Silicone_Wiper | Bed": 151.14280611574583
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855423,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631786,
+              "Bambu:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855406,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631801,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033174
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785541,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225972,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631779,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033174
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785547,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631788,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033177
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785547,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225968,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631813,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033177
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855463,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225948,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.859850063183,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033168
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785551,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553226013,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631756,
+              "Bambu:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785536,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553226015,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631745,
+              "Bambu:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.025232678555,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553226015,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1107.1480553454971,
+              "Bambu:Silicone_Wiper | Bed": 153.45020024250215
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785541,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1095.0910474915547,
+              "RedLizard:Silicone_Wiper | Bed": 151.14280611574583
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855423,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631786,
+              "RedLizard:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855406,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631801,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033174
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785541,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225972,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631779,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033174
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785547,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631788,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033177
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785547,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225968,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631813,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033177
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855463,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225948,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.859850063183,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033168
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785551,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553226013,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631756,
+              "RedLizard:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785536,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553226015,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631745,
+              "RedLizard:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.025232678555,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553226015,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1107.1480553454971,
+              "RedLizard:Silicone_Wiper | Bed": 153.45020024250215
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785541,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.1854476193051,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1080.9531841103178,
+              "Bambu:Silicone_Wiper | Bed": 148.06137693527103
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.025232678554,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930508,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466659,
+              "Bambu:Silicone_Wiper | Bed": 151.557883159857
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855395,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930508,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466686,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985697
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785541,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.1854476193051,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466668,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985697
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855463,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930515,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466675,
+              "Bambu:Silicone_Wiper | Bed": 151.5578831598569
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855463,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930511,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466688,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985686
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785547,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930487,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466663,
+              "Bambu:Silicone_Wiper | Bed": 151.5578831598568
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855497,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930553,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466668,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985703
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785536,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.18544761930552,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1715.2795488466675,
+              "Bambu:Silicone_Wiper | Bed": 151.55788315985706
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855497,
+              "Bambu:Silicone_Ooze_Pad | Bed": 112.1854476193055,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1092.9270461776887,
+              "Bambu:Silicone_Wiper | Bed": 150.3687710620274
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785541,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.1854476193051,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1080.9531841103178,
+              "RedLizard:Silicone_Wiper | Bed": 148.06137693527103
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.025232678554,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930508,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466659,
+              "RedLizard:Silicone_Wiper | Bed": 151.557883159857
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855395,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930508,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466686,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985697
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785541,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.1854476193051,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466668,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985697
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855463,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930515,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466675,
+              "RedLizard:Silicone_Wiper | Bed": 151.5578831598569
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855463,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930511,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466688,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985686
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785547,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930487,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466663,
+              "RedLizard:Silicone_Wiper | Bed": 151.5578831598568
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855497,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930553,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466668,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985703
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785536,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.18544761930552,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1715.2795488466675,
+              "RedLizard:Silicone_Wiper | Bed": 151.55788315985706
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855497,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 112.1854476193055,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1092.9270461776887,
+              "RedLizard:Silicone_Wiper | Bed": 150.3687710620274
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785541,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1095.0910474915547,
+              "Bambu:Silicone_Wiper | Bed": 151.14280611574583
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855423,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631786,
+              "Bambu:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855406,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631801,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033174
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785541,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225972,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631779,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033174
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785547,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631788,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033177
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785547,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225968,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631813,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033177
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.02523267855463,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553225948,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.859850063183,
+              "Bambu:Silicone_Wiper | Bed": 154.63931234033168
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785551,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553226013,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631756,
+              "Bambu:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.0252326785536,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553226015,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1747.8598500631745,
+              "Bambu:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "Bambu:P25_Refined_Dock | Bed": 334.025232678555,
+              "Bambu:Silicone_Ooze_Pad | Bed": 122.34379553226015,
+              "Bambu:P26_Entry_Relieved_Chute | Bed": 1107.1480553454971,
+              "Bambu:Silicone_Wiper | Bed": 153.45020024250215
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "Bambu:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785541,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1095.0910474915547,
+              "RedLizard:Silicone_Wiper | Bed": 151.14280611574583
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855423,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631786,
+              "RedLizard:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855406,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631801,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033174
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785541,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225972,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631779,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033174
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785547,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225969,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631788,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033177
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785547,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225968,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631813,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033177
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.02523267855463,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553225948,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.859850063183,
+              "RedLizard:Silicone_Wiper | Bed": 154.63931234033168
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785551,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553226013,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631756,
+              "RedLizard:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.0252326785536,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553226015,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1747.8598500631745,
+              "RedLizard:Silicone_Wiper | Bed": 154.6393123403318
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {
+              "RedLizard:P25_Refined_Dock | Bed": 334.025232678555,
+              "RedLizard:Silicone_Ooze_Pad | Bed": 122.34379553226015,
+              "RedLizard:P26_Entry_Relieved_Chute | Bed": 1107.1480553454971,
+              "RedLizard:Silicone_Wiper | Bed": 153.45020024250215
+            },
+            "min_distance_to_bed": {
+              "mm": 0.0,
+              "moving": "RedLizard:Silicone_Ooze_Pad",
+              "fixed": "Bed"
+            }
+          }
+        ],
+        "bed_front_edge_y40": [
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          }
+        ],
+        "shifted_stock_bed": [
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "Bambu",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "first_layer",
+            "active_nozzle_z_mm": 0.2,
+            "lowest_parked_z_mm": -13.000595215228202,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "Bambu",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "Bambu:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 0,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 1,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 2,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 3,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 4,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 5,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 6,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 7,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 8,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          },
+          {
+            "active_hotend": "RedLizard",
+            "parked_hotend": "RedLizard",
+            "bay": 9,
+            "height": "contact_touch",
+            "active_nozzle_z_mm": 0.0,
+            "lowest_parked_z_mm": -13.200595215228205,
+            "bed_intersections_mm3": {},
+            "min_distance_to_bed": {
+              "mm": 4.590000000000003,
+              "moving": "RedLizard:P26_Entry_Relieved_Chute",
+              "fixed": "Bed"
+            }
+          }
+        ]
+      },
+      "space_below_bed_plane": [
+        {
+          "active_hotend": "Bambu",
+          "parked_hotend": "Bambu",
+          "active_nozzle_z_mm": -2.0,
+          "lowest_parked_z_mm": -15.200595215228205,
+          "frame_intersections_mm3": {},
+          "nearest_frame_body": {
+            "mm": 1.9999179999999939,
+            "moving": "Bambu:P25_Refined_Dock",
+            "fixed": "Door_buffer:1/Stock 350 (4)",
+            "bay": 0
+          }
+        },
+        {
+          "active_hotend": "Bambu",
+          "parked_hotend": "RedLizard",
+          "active_nozzle_z_mm": -2.0,
+          "lowest_parked_z_mm": -15.200595215228205,
+          "frame_intersections_mm3": {},
+          "nearest_frame_body": {
+            "mm": 1.9999179999999939,
+            "moving": "RedLizard:P25_Refined_Dock",
+            "fixed": "Door_buffer:1/Stock 350 (4)",
+            "bay": 0
+          }
+        },
+        {
+          "active_hotend": "RedLizard",
+          "parked_hotend": "Bambu",
+          "active_nozzle_z_mm": -2.0,
+          "lowest_parked_z_mm": -15.200595215228205,
+          "frame_intersections_mm3": {},
+          "nearest_frame_body": {
+            "mm": 1.9999179999999939,
+            "moving": "Bambu:P25_Refined_Dock",
+            "fixed": "Door_buffer:1/Stock 350 (4)",
+            "bay": 0
+          }
+        },
+        {
+          "active_hotend": "RedLizard",
+          "parked_hotend": "RedLizard",
+          "active_nozzle_z_mm": -2.0,
+          "lowest_parked_z_mm": -15.200595215228205,
+          "frame_intersections_mm3": {},
+          "nearest_frame_body": {
+            "mm": 1.9999179999999939,
+            "moving": "RedLizard:P25_Refined_Dock",
+            "fixed": "Door_buffer:1/Stock 350 (4)",
+            "bay": 0
+          }
+        }
+      ],
+      "summary": {
+        "original_bed_control": {
+          "cases": 80,
+          "collision_cases": 80,
+          "minimum_clearance_mm": 0.0
+        },
+        "bed_front_edge_y40": {
+          "cases": 80,
+          "collision_cases": 0,
+          "minimum_clearance_mm": 4.590000000000003
+        },
+        "shifted_stock_bed": {
+          "cases": 80,
+          "collision_cases": 0,
+          "minimum_clearance_mm": 4.590000000000003
+        },
+        "space_below_frame_collisions": 0,
+        "space_below_min_frame_clearance_mm": 1.9999179999999939
+      }
+    },
+    "task_seconds": {
+      "bed {}": 38.2,
+      "lateral {}": 71.6,
+      "traverse {\"label\": \"Bambu\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ": 154.5,
+      "traverse {\"label\": \"Bambu\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95, 96": 141.5,
+      "traverse {\"label\": \"Bambu\", \"xs\": [176, 177, 178, 179, 180, 181, 182,": 141.3,
+      "traverse {\"label\": \"Bambu\", \"xs\": [264, 265, 266, 267, 268, 269, 270,": 153.2,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ": 157.2,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95": 145.0,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [176, 177, 178, 179, 180, 181, ": 145.0,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [264, 265, 266, 267, 268, 269, ": 156.2,
+      "crossbeam {\"steps\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,": 102.7,
+      "crossbeam {\"steps\": [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 4": 98.0,
+      "crossbeam {\"steps\": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 7": 9.5,
+      "crossbeam {\"steps\": [91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102": 12.6,
+      "bay {\"bay\": 0}": 128.4,
+      "bay {\"bay\": 1}": 128.6,
+      "bay {\"bay\": 2}": 128.5,
+      "bay {\"bay\": 3}": 128.3,
+      "bay {\"bay\": 4}": 129.2,
+      "bay {\"bay\": 5}": 128.8,
+      "bay {\"bay\": 6}": 129.0,
+      "bay {\"bay\": 7}": 129.2,
+      "bay {\"bay\": 8}": 128.7,
+      "bay {\"bay\": 9}": 130.0,
+      "dock_motion {\"label\": \"Bambu\"}": 137.3,
+      "dock_motion {\"label\": \"RedLizard\"}": 156.2,
+      "neighbours {\"label\": \"Bambu\", \"other\": \"Bambu\"}": 25.6,
+      "neighbours {\"label\": \"Bambu\", \"other\": \"RedLizard\"}": 31.9,
+      "neighbours {\"label\": \"RedLizard\", \"other\": \"Bambu\"}": 27.6,
+      "neighbours {\"label\": \"RedLizard\", \"other\": \"RedLizard\"}": 33.1,
+      "clearances {\"version\": \"r21\"}": 28.2,
+      "clearances {\"version\": \"r36\"}": 27.3
+    },
+    "rack": {
+      "pitch_mm": 37.3,
+      "centers_x_mm": [
+        7.0,
+        44.3,
+        81.6,
+        118.89999999999999,
+        156.2,
+        193.5,
+        230.79999999999998,
+        268.09999999999997,
+        305.4,
+        342.7
+      ],
+      "minimum_parked_tool_x_gap_mm": 2.4999999999986073,
+      "rail_x_bounds_mm": [
+        -25.0,
+        375.0
+      ],
+      "end_rail_margins_mm": [
+        9.3,
+        9.600000000000023
+      ],
+      "nonadjacent_overlap_candidates": [],
+      "parked_tool_dock_world_bounds_mm": [
+        -15.400000000000006,
+        361.3500001,
+        -38.000082000000006,
+        35.41000000000019,
+        99.19940000000001,
+        240.02620952018648
+      ],
+      "front_print_limit_nozzle_y_mm": 58.46000010000019,
+      "x_corridor_nozzle_y_mm": 80.71
+    }
+  },
+  "rear_travel": {
+    "nozzle_y359.0": {
+      "samples": 176,
+      "hits": [],
+      "nearest_rear_part_mm": {
+        "mm": 6.703290905262828,
+        "part": "P20",
+        "x_mm": 0
+      }
+    },
+    "nozzle_y365.15": {
+      "samples": 176,
+      "hits": [],
+      "nearest_rear_part_mm": {
+        "mm": 2.249999999998977,
+        "part": "P21",
+        "x_mm": 0
+      }
+    }
+  },
+  "review_bodies": 244,
+  "exports": [
+    {
+      "file": "step\\P20_CPAP_Hose_Inlet_Button_Head_Lugs_R40_REVIEW.step",
+      "sha256": "66e1a9b948bbcb154bdd27d251d116da01300e64341c309bba8044adcdb5c0e3",
+      "mb": 0.9
+    },
+    {
+      "file": "stl\\P20_CPAP_Hose_Inlet_Button_Head_Lugs_R40_REVIEW.stl",
+      "sha256": "c2e1384252441388fe52f0ac0b4e9a9e08725ca9e4dfc444b5951250b32e0fd6",
+      "mb": 0.6
+    },
+    {
+      "file": "step\\P21_CPAP_Gantry_Bridge_Moved_Inserts_R40_REVIEW.step",
+      "sha256": "b4633c7b0df90ac3772a6a4ac3ebb3ab0e48b7270efbdaec651d7b3ea026f403",
+      "mb": 0.5
+    },
+    {
+      "file": "stl\\P21_CPAP_Gantry_Bridge_Moved_Inserts_R40_REVIEW.stl",
+      "sha256": "2950ffe797c2c8d378b905744031124ab4aadafc6e2662ca85003836d0d0dcac",
+      "mb": 0.5
+    },
+    {
+      "file": "step\\P20_P21_Screws_And_Inserts_R40_REVIEW.step",
+      "sha256": "386e2770879a45cbd3d8d0081c80bb17fa2e83c7371d147ed599f3264232d967",
+      "mb": 0.0
+    },
+    {
+      "file": "step\\40_Carriage_P20_P21_Screws_Complete_REVIEW.step",
+      "sha256": "74fce4000a8594beeeb16f98fea6442865945f4d11b8d4e3acc626552d4ac743",
+      "mb": 86.6
+    }
+  ],
+  "hardware": {
+    "changed": "P20 to P21: 2x M3x8 ISO 7380 button-head screws (were socket heads) at X+-5.5, 1 mm forward, seated 1.6 mm down in P20's lugs, into the same 2x M3 x 3 mm (OD 4.5) inserts, which move with them in P21's top flange. Fit them before the EBB42: they sit under its board.",
+    "unchanged": "Everything else, including P22, P24 and their screws."
+  },
+  "failures": [],
+  "limitations": [
+    "Rigid CAD, sampled straight paths. Insert pull-out and printed-part creep are not qualified.",
+    "The two notes are measured on the user's nominal Monolith model; real extrusion and printed-joint tolerances decide whether the conduit actually rubs the beam."
+  ],
+  "runtime_s": 1100.6
+}

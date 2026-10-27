@@ -1,12 +1,13 @@
 # SparkShift v26 Accessory & 3010 Toolhead Suite — Beacon RevH / Cartographer V3, Pure-Primitive CPAP Ducting, BTT EBB42 CAN Mount & 3010/2510 High-Flow Toolhead Carriers
 
-**Current status: CAD review through revision 39; nothing has been printed or fitted.**
+**Current status: CAD review through revision 40; nothing has been printed or fitted.**
 The [latest reviews](#33-one-piece-bambu-toolhead-with-side-2510) keep the dock rack
 rigidly bolted across the front of the gantry, with the stock bed moved back 31 mm (option
-B, revision 34). The full ten-tool rack requalifies with the current parts (revisions 36, 37
-and 39), and the print area is about 350 × 311 mm (revision 39). Print from the
-[current print set](../../PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-39),
-starting with a first-article set. Nothing is build-approved or machine-qualified.
+B, revision 34). The full ten-tool rack requalifies with the current parts (revisions 36, 37,
+39 and 40), and the print area is about 350 × 311 mm (revision 39). Revision 40 moves the
+P20-to-P21 screws clear of the EBB42 and records two notes on the CPAP/EBB42 stack. Print from the
+[current print set](../../PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-40),
+starting with a first-article set; it suggests a [colour for each part](../../PRINT_PARTS.md#colour-scheme). Nothing is build-approved or machine-qualified.
 Earlier front-fan, vented-dock and firmware descriptions below are historical;
 their qualification claims do not apply to the current CAD-review-only design.
 
@@ -1010,6 +1011,86 @@ enclosure change.
   fingers and wiring clear when servicing the rack.
 - Use the revision-39 P18 and P25 together.
 
+#### P20-to-P21 screws and two design notes (revision 40)
+
+A readiness check of the carriage, this time checking every pair of carriage parts and fasteners
+against each other, found that the two P20-to-P21 screws can't be fitted as drawn:
+
+- Their M3×8 heads sit on P20's lug tops, 0.7 mm below the EBB42's bottom edge, so they reach
+  0.9 mm into the board and its bottom headers (26.6 mm³ in all).
+- P21's insert pockets for them are 0.28 mm from the probe-cable raceway and 0.57 mm from the
+  socket that P20's sleeve slides into. Installing the inserts would push through both walls.
+
+Revision 40 changes only those two lugs, in P20 and P21:
+
+- The screws move from X±4.5 to X±5.5, and 1 mm forward to Y-30.2.
+- ISO 7380 button heads (Ø5.7 × 1.65 mm) sit in Ø6.1 mm counterbores 1.6 mm deep in P20's lugs,
+  with 1.98 mm of lug under them. They are 0.59 mm under the board and 1.15 mm from the probe
+  cable.
+- P21's pockets take the same M3 × 3 mm inserts with 3.0 mm of thread. They are now 1.28 mm from
+  the raceway and 1.57 mm from the socket, with at least 1 mm of material all round.
+
+Fit the two screws before the EBB42, because they sit under its board. Nothing else changes:
+P20's wings, spigot and air path, P21's conduit and saddle, and P22 and P24 are as released.
+
+![Released vs revision 40: sections through a P20-to-P21 screw and through P21's insert pockets, and the two notes](./images/75_p20_p21_screws_r40_before_after.png)
+
+![Fusion: P20's lugs with the button heads, the heads under the EBB42, and the revision-40 carriage](./images/76_p20_p21_screws_r40_fusion.png)
+
+**Two notes, recorded without changing parts.**
+
+- **P21's conduit against the X beam.** In the Monolith gantry model, the conduit's front face
+  lies on the X beam's rear face (0.0 mm) over the whole X travel. It also meets the XY joints'
+  rear faces at both X limits, and the probe cable runs 0.2 mm from the beam. The original
+  accessory audit used an older gantry model with the beam's rear face 0.5 mm further forward.
+  Check the first fitted carriage for rubbing.
+  - If it rubs, the column behind the beam can move 1.5 mm rearward: P20, P21's conduit, P22's
+    collar, riser and elbow, and the cable riser.
+  - That gives 1.09 mm to the beam and leaves 6.76 mm to the rear motor mounts at the stock rear
+    limit (7.82 mm now).
+  - P22's air path would gain 1.5 mm of straight plenum and is otherwise unchanged.
+- **No screws hold the CPAP/EBB42 stack to the carriage.** P24's two rear holes line up with the
+  core's right case-clamp inserts in P02, but the core's own M3×35 case screws, fitted from the
+  front, already fill them. Only 1.0 mm (upper) and 0.2 mm (lower) of thread is left, and no screw
+  for P24 was ever specified.
+  - The stack (P20, P21, P24 and the EBB42) rests on P22's collar, against P02's rear face and
+    under P02. P24's pockets over three core screw heads locate it.
+  - Options, not adopted: separate anchor inserts in P02 (a core change), or two M2.5 screws from
+    below in the column's chamfered rear corners, inside its outline.
+  - A rear foot on P21, screwed down to a ledge on P22, was tried and rejected. At the stock rear
+    limit it hits the rear motor mounts near X0 and X350.
+
+**Verification.** Run `python build_inlet_screws_r40.py`
+([report](./verification_inlet_screws_r40.json)). It passes, in 18 minutes:
+
+- **Parts.** Parameterised P20, P21 and P22 builders and the cable route reproduce the released
+  parts. The revision-40 P20 and P21 match the released ones outside their lugs, and both air
+  paths are unchanged.
+- **Carriage.** Every pair of carriage parts and fasteners is checked against each other for the
+  first time. There are no interferences; the only contacts are the two lower EBB42 screw heads
+  bearing on the board. The released carriage adds the two P20 screw heads inside the EBB42.
+- **Gantry.** P20 and P21 come no closer to the X beam, the rail or the XY joints than before.
+- **Rack.** The full revision-36 requalification, rerun with the revision-40 carriage, is clean:
+  - own-dock docking and withdrawal, with the Beacon and with the Cartographer;
+  - the eight mixed-neighbour cases (488 samples);
+  - the 20 bay/hotend cases (2,420 samples);
+  - the X gantry backing out (121 samples);
+  - both X0..350 traverses (702 samples).
+
+  None of the 80 bed cases collide, with 4.59 mm minimum clearance. Side clearances stay at
+  2.40 / 1.60 mm.
+- **Rear travel (new check).** The carriage clears the flying gantry at the stock rear limit
+  (nozzle Y359) and at the rails' end (Y365.15), swept over X0..350 in 2 mm steps. The closest part at Y359 is P20, 6.70 mm from the flying gantry; at Y365.15 it is P21, 2.25 mm.
+
+The Fusion native review "40 P20-to-P21 screws (native review)" is archived as
+[`40_P20_P21_Screws_REVIEW.f3d`](./40_P20_P21_Screws_REVIEW.f3d); `python build_inlet_screws_r40.py`
+regenerates its STEP (83 MB, not committed). It reopens with 244 bodies, and its P20 and P21 volumes match the report. Fusion measures 0.59 mm
+from the button heads to the board, and the note-1 gaps of 0.0 mm (P21 to the beam) and 0.2 mm (cable). Render with
+`python render_inlet_screws_r40.py`.
+
+**Limits.** Insert pull-out and printed-part creep are not qualified. Whether the conduit actually
+rubs depends on the real extrusion, rail and printed parts.
+
 #### Faster verification (`fast_geometry.py`)
 
 The review scripts now share [`fast_geometry.py`](./fast_geometry.py), and the full
@@ -1887,7 +1968,7 @@ See [`verification_two_adapter_feasibility.json`](./verification_two_adapter_fea
 | ![3D CFD Streamlines](./images/08_cpap_cfd_streamlines_and_velocity.png) | ![Nozzle Jet Impingement](./images/09_cpap_nozzle_jet_impingement_closeup.png) |
 
 ### 4.1 Pure-Primitive Aerodynamic CPAP Path, Smooth `R = 61 mm` Elbow & Shingle Slip-Joints
-- **Edge-Tapered Rear Gantry Corridor (`corridor_aero_vertices`):** Fits cleanly behind the Monolith 2WD 9mm carbon X-beam (`Y <= -33.20 mm`) and inside the 45° X-limit XY-joint chamfers (`GANTRY_Body4..9`, `0.000 mm³` clash across all 39 gantry bodies) with **`353.40 mm²`** internal flow area.
+- **Edge-Tapered Rear Gantry Corridor (`corridor_aero_vertices`):** Fits cleanly behind the Monolith 2WD 9mm carbon X-beam (`Y <= -33.20 mm`) and inside the 45° X-limit XY-joint chamfers (`GANTRY_Body4..9`, `0.000 mm³` clash across all 39 gantry bodies) with **`353.40 mm²`** internal flow area. Revision-40 note: in the user's Monolith gantry model the beam's rear face is at exactly `Y = -33.20`, so the conduit is nominally in contact with it (see [revision 40](#p20-to-p21-screws-and-two-design-notes-revision-40)).
 - **Step-Free Directional Shingle Slip-Joints (`0.18 mm` radial slip clearance, `0.00 mm` internal bore step):**
   - **`P20 -> P21` (`Z = -17.78..-21.58 mm`):** `P20`'s `3.80 mm` continuous 360° inner male sleeve telescopes flush inside `P21`'s top female socket (`corridor_aero_vertices(1.84)`).
   - **`P21 -> P22` (`Z = -49.00..-51.40 mm`):** Raised right below the 2020 X-axis extrusion (`Z = -47.78 mm`) so `P21`'s `2.40 mm` lower inner male sleeve telescopes flush inside `P22`'s top female collar (`Z = -51.40 mm`), initiating a long **`R = 61.0 mm` inner / `R = 50.0 mm` outer circular elbow sweep** (`R = 14.8 / 16.0 mm` rear heel) and a **100% flat, obstacle-free `Z = -68.90 mm` plenum floor** (`1.20 mm` solid continuous wall above the `Z = -73.00..-70.10 mm` heat-set insert pockets, with zero protruding floor pucks or ledges).
@@ -1942,7 +2023,7 @@ See [`verification_two_adapter_feasibility.json`](./verification_two_adapter_fea
 
 ### Fasteners & Heat-Set Inserts BOM
 - **Voron-standard M3×4×4.6 Heat-Set Inserts (`12×`):**
-  - `2×` in `P21_CPAP_Gantry_Bridge` top flange (`(±4.50, -31.20, -17.78)`)
+  - `2×` in `P21_CPAP_Gantry_Bridge` top flange (`(±4.50, -31.20, -17.78)`; the model's inserts are M3 × 3 mm; revision 40: `(±5.50, -30.20)`)
   - `2×` in `P21_CPAP_Gantry_Bridge` upper bridge saddle (`(±6.00, -15.80, -18.40)`)
   - `2×` in `P01_Drive_Frame` front upper bosses (`(±18.00, +11.90..15.90, -52.78)`; revision-31 review: `Z = -54.28`)
   - `4×` in `P22_CPAP_Lower_Plenum` bottom registering spigots (`(±15.80, +8.50, -70.80)` & `(±15.80, -11.50, -70.80)`; revision-37 review: `4× M3 × 3 mm` inserts at `(±15.80, -0.30)` & `(±15.80, -19.50)`)
@@ -1950,7 +2031,7 @@ See [`verification_two_adapter_feasibility.json`](./verification_two_adapter_fea
 - **M3 Hex Nuts (`2×`):**
   - `2×` captive in `P23_Beacon_Cartographer_Mount` side slots (`(±15.80, -0.30, -72.55)`) for Beacon H or Cartographer V3 (none in the revision-37 review)
 - **M3 Socket Head Cap Screws (`18×`):**
-  - `2× M3×8 SHCS` — `P20` rear lugs down into `P21` (`(±4.50, -31.20)`)
+  - `2× M3×8 SHCS` — `P20` rear lugs down into `P21` (`(±4.50, -31.20)`; revision 40: ISO 7380 button heads at `(±5.50, -30.20)`, seated at `Z = -15.80` in the lugs, under the EBB42)
   - `2× M3×8 SHCS` — `P24` lower horizontal foot down into `P21` upper bridge (`(±6.00, -15.80)`)
   - `2× M3×10 SHCS` — `P22` front upper cheeks into `P01` (`(±18.00, -52.78)`; revision-31 review: `Z = -54.28`)
   - `4× M3×8 SHCS` — `P23` upward into `P22` (`(±15.80, +8.50)` & `(±15.80, -11.50)`; revision-37 review: `2× M3×4` ISO 7380 button heads on the rear ears at `(±15.80, -19.50)`)

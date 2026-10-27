@@ -6,12 +6,13 @@
 > qualified. These are inspection meshes, not a slicer project, support plan,
 > material recommendation, G-code, or approval for loaded/heated operation.
 
-## Current print set for the toolchanger build (revision 39)
+## Current print set for the toolchanger build (revision 40)
 
 Print these files for the ten-tool machine: one file per part, at its latest revision. Older
 versions stay in `stl_v26/` and `cad/SparkShift_Accessories_v26/stl/` as history; in
 particular, the P17, P18 and P22–P26 files in `stl_v26/` are superseded. Each STL has a
-matching STEP in the neighbouring `step/` folder.
+matching STEP in the neighbouring `step/` folder. The Colour column is a suggested scheme; see
+[Colour scheme](#colour-scheme).
 
 Nothing below has been printed or fitted yet. **Print a first-article set first**: the
 carriage, one Bambu tool, one Red Lizard tool and two docks. Check:
@@ -20,6 +21,9 @@ carriage, one Bambu tool, one Red Lizard tool and two docks. Check:
   bushings and pins (new in revision 39);
 - the snap jaws closing on P18's T-lugs;
 - the M2.5 L4 and M3 × 3 mm heat-set inserts, and the probe mount (P23 on P22);
+- P20's two button heads seated in its lugs, clear of the EBB42 board, and P21's moved inserts
+  (new in revision 40). Also look at whether P21's conduit touches the X beam (see the notes
+  below);
 - a tool docking and the carriage withdrawing, by hand;
 - the probe height with the P28 jig.
 
@@ -28,61 +32,89 @@ Before making the silicone pads and wipers, measure a real Bambu nozzle: its tip
 
 ### Carriage: one set
 
-| Part | File | Qty | Notes |
-|---|---|---:|---|
-| P01 back case | [P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW](cad/SparkShift_Accessories_v26/stl/P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW.stl) | 1 | P22 mount bosses 1.5 mm lower (revision 31). Printed rear face down, each boss starts with a 1 mm unsupported crescent. |
-| P02 motor/servo plate | [P02_Motor_servo_plate_12p5mm](stl_v26/P02_Motor_servo_plate_12p5mm.stl) | 1 | COTS servo window |
-| P03 front case | [P03_Front_case_COTS](stl_v26/P03_Front_case_COTS.stl) | 1 | |
-| P04F swing arm, front | [P04F_Swing_arm_front_half_COTS](stl_v26/P04F_Swing_arm_front_half_COTS.stl) | 1 | Locking hook |
-| P04R swing arm, rear | [P04R_Swing_arm_rear_half](stl_v26/P04R_Swing_arm_rear_half.stl) | 1 | |
-| P05 servo cam | [P05_Servo_cam_COTS](stl_v26/P05_Servo_cam_COTS.stl) | 1 | |
-| P06, P07 compounds | [left](stl_v26/P06_Left_compound_38T_14T.stl), [right](stl_v26/P07_Right_compound_38T_14T.stl) | 1 each | |
-| P08, P09 HGX drives | [left](stl_v26/P08_Left_HGX_drive_37T.stl), [right](stl_v26/P09_Right_HGX_drive_37T.stl) | 1 each | |
-| P12 spring pressure cup | [P12_Spring_pressure_cup](stl_v26/P12_Spring_pressure_cup.stl) | 1 | |
-| P13, P14 GT2 tooth liners | [left](stl_v26/P13_Left_tooth_liner.stl), [right](stl_v26/P14_Right_tooth_liner.stl) | 1 each | |
-| P15, P16 belt arches | [left](stl_v26/P15_Left_belt_arch.stl), [right](stl_v26/P16_Right_belt_arch.stl) | 1 each | |
-| P20 CPAP hose inlet | [P20_CPAP_Hose_Inlet](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet.stl) | 1 | |
-| P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge.stl) | 1 | |
-| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Probe_Mounts_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Probe_Mounts_R37_REVIEW.stl) | 1 | Beside the hotend: GF/CF ABS or ASA |
-| P23 probe mount | [P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.stl) | 1 | Beacon RevH Normal or Cartographer V3 |
-| P24 EBB42 mount | [P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW](cad/SparkShift_Accessories_v26/stl/P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW.stl) | 1 | |
+| Part | File | Qty | Colour | Notes |
+|---|---|---:|---|---|
+| P01 back case | [P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW](cad/SparkShift_Accessories_v26/stl/P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW.stl) | 1 | Black | P22 mount bosses 1.5 mm lower (revision 31). Printed rear face down, each boss starts with a 1 mm unsupported crescent. |
+| P02 motor/servo plate | [P02_Motor_servo_plate_12p5mm](stl_v26/P02_Motor_servo_plate_12p5mm.stl) | 1 | Cool Grey | COTS servo window |
+| P03 front case | [P03_Front_case_COTS](stl_v26/P03_Front_case_COTS.stl) | 1 | White | |
+| P04F swing arm, front | [P04F_Swing_arm_front_half_COTS](stl_v26/P04F_Swing_arm_front_half_COTS.stl) | 1 | Orange | Locking hook |
+| P04R swing arm, rear | [P04R_Swing_arm_rear_half](stl_v26/P04R_Swing_arm_rear_half.stl) | 1 | Orange | |
+| P05 servo cam | [P05_Servo_cam_COTS](stl_v26/P05_Servo_cam_COTS.stl) | 1 | Yellow | |
+| P06, P07 compounds | [left](stl_v26/P06_Left_compound_38T_14T.stl), [right](stl_v26/P07_Right_compound_38T_14T.stl) | 1 each | Magenta | |
+| P08, P09 HGX drives | [left](stl_v26/P08_Left_HGX_drive_37T.stl), [right](stl_v26/P09_Right_HGX_drive_37T.stl) | 1 each | Green | |
+| P12 spring pressure cup | [P12_Spring_pressure_cup](stl_v26/P12_Spring_pressure_cup.stl) | 1 | Yellow | |
+| P13, P14 GT2 tooth liners | [left](stl_v26/P13_Left_tooth_liner.stl), [right](stl_v26/P14_Right_tooth_liner.stl) | 1 each | White | |
+| P15, P16 belt arches | [left](stl_v26/P15_Left_belt_arch.stl), [right](stl_v26/P16_Right_belt_arch.stl) | 1 each | Red | |
+| P20 CPAP hose inlet | [P20_CPAP_Hose_Inlet_Button_Head_Lugs_R40_REVIEW](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Button_Head_Lugs_R40_REVIEW.stl) | 1 | Blue | Screw lugs at X±5.5 with button-head counterbores (revision 40) |
+| P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge_Moved_Inserts_R40_REVIEW](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Moved_Inserts_R40_REVIEW.stl) | 1 | Cyan | Top-flange inserts at X±5.5, 1 mm forward (revision 40) |
+| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Probe_Mounts_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Probe_Mounts_R37_REVIEW.stl) | 1 | Teal | Beside the hotend: GF/CF ABS or ASA |
+| P23 probe mount | [P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.stl) | 1 | Lime | Beacon RevH Normal or Cartographer V3 |
+| P24 EBB42 mount | [P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW](cad/SparkShift_Accessories_v26/stl/P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW.stl) | 1 | Violet | |
 
 The core parts are the COTS drop-in variants that [BOM.md](BOM.md) recommends; they take
 standard bearings, dowels and servo parts.
 
 ### Tools: ten, any mix of Bambu and Red Lizard
 
-| Part | File | Qty | Notes |
-|---|---|---:|---|
-| Bambu body | [Bambu_Three_Screw_Fan_R33_REVIEW](cad/SparkShift_Accessories_v26/stl/Bambu_Three_Screw_Fan_R33_REVIEW.stl) | 1 per Bambu tool | GF/CF ABS or ASA |
-| Red Lizard body | [RedLizard_Fan_Wall_R33_REVIEW](cad/SparkShift_Accessories_v26/stl/RedLizard_Fan_Wall_R33_REVIEW.stl) | 1 per Red Lizard tool | GF/CF ABS or ASA |
-| P18 docking backplate | [P18_Docking_Backplate_Bushing_Seats_R39_REVIEW](cad/SparkShift_Accessories_v26/stl/P18_Docking_Backplate_Bushing_Seats_R39_REVIEW.stl) | 10 | Same part on both hotends |
+| Part | File | Qty | Colour | Notes |
+|---|---|---:|---|---|
+| Bambu body | [Bambu_Three_Screw_Fan_R33_REVIEW](cad/SparkShift_Accessories_v26/stl/Bambu_Three_Screw_Fan_R33_REVIEW.stl) | 1 per Bambu tool | [By tool number](#colour-scheme) | GF/CF ABS or ASA |
+| Red Lizard body | [RedLizard_Fan_Wall_R33_REVIEW](cad/SparkShift_Accessories_v26/stl/RedLizard_Fan_Wall_R33_REVIEW.stl) | 1 per Red Lizard tool | [By tool number](#colour-scheme) | GF/CF ABS or ASA |
+| P18 docking backplate | [P18_Docking_Backplate_Bushing_Seats_R39_REVIEW](cad/SparkShift_Accessories_v26/stl/P18_Docking_Backplate_Bushing_Seats_R39_REVIEW.stl) | 10 | Black | Same part on both hotends |
 
 ### Docks: ten
 
-| Part | File | Qty | Notes |
-|---|---|---:|---|
-| P25 dock | [P25_Dock_Pin_Seats_R39_REVIEW](cad/SparkShift_Accessories_v26/stl/P25_Dock_Pin_Seats_R39_REVIEW.stl) | 10 | |
-| Upper snap jaw | [Dock_Upper_Snap_Jaw_REVIEW](cad/SparkShift_Accessories_v26/stl/Dock_Upper_Snap_Jaw_REVIEW.stl) | 10 | Flexing detent: check on the first article |
-| Lower snap jaw | [Dock_Lower_Snap_Jaw_REVIEW](cad/SparkShift_Accessories_v26/stl/Dock_Lower_Snap_Jaw_REVIEW.stl) | 10 | Flexing detent: check on the first article |
-| P26 purge chute | [P26_Chute_Arm_Chamfer_R36_REVIEW](cad/SparkShift_Accessories_v26/stl/P26_Chute_Arm_Chamfer_R36_REVIEW.stl) | 10 | |
-| Ooze pad | [Dock_Ooze_Pad_Datum_SILICONE_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/Dock_Ooze_Pad_Datum_SILICONE_R37_REVIEW.stl) | 10 | High-temperature silicone, cast or cut; not rigid filament |
-| Wiper | [Dock_Wiper_Datum_SILICONE_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/Dock_Wiper_Datum_SILICONE_R37_REVIEW.stl) | 10 | High-temperature silicone, cast or cut; not rigid filament |
+| Part | File | Qty | Colour | Notes |
+|---|---|---:|---|---|
+| P25 dock | [P25_Dock_Pin_Seats_R39_REVIEW](cad/SparkShift_Accessories_v26/stl/P25_Dock_Pin_Seats_R39_REVIEW.stl) | 10 | Black | |
+| Upper snap jaw | [Dock_Upper_Snap_Jaw_REVIEW](cad/SparkShift_Accessories_v26/stl/Dock_Upper_Snap_Jaw_REVIEW.stl) | 10 | White | Flexing detent: check on the first article |
+| Lower snap jaw | [Dock_Lower_Snap_Jaw_REVIEW](cad/SparkShift_Accessories_v26/stl/Dock_Lower_Snap_Jaw_REVIEW.stl) | 10 | White | Flexing detent: check on the first article |
+| P26 purge chute | [P26_Chute_Arm_Chamfer_R36_REVIEW](cad/SparkShift_Accessories_v26/stl/P26_Chute_Arm_Chamfer_R36_REVIEW.stl) | 10 | [Its tool's colour](#colour-scheme) | |
+| Ooze pad | [Dock_Ooze_Pad_Datum_SILICONE_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/Dock_Ooze_Pad_Datum_SILICONE_R37_REVIEW.stl) | 10 | Not printed | High-temperature silicone, cast or cut; not rigid filament |
+| Wiper | [Dock_Wiper_Datum_SILICONE_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/Dock_Wiper_Datum_SILICONE_R37_REVIEW.stl) | 10 | Not printed | High-temperature silicone, cast or cut; not rigid filament |
 
 ### Rack, frame and jig: one set
 
-| Part | File | Qty | Notes |
-|---|---|---:|---|
-| P29 rack mounts | [left](cad/SparkShift_Accessories_v26/stl/P29_Dock_Rack_Gantry_Mount_L.stl), [right](cad/SparkShift_Accessories_v26/stl/P29_Dock_Rack_Gantry_Mount_R.stl) | 1 each | |
-| P30 side spacers | [left](cad/SparkShift_Accessories_v26/stl/P30_Dock_Side_Spacer_L.stl), [right](cad/SparkShift_Accessories_v26/stl/P30_Dock_Side_Spacer_R.stl) | 1 each | |
-| Crossbar | 2020 extrusion, 450 mm | 1 | Purchased |
-| P27 CPAP blower mount | [P27_CPAP_7040_Blower_Frame_Mount](cad/SparkShift_Accessories_v26/stl/P27_CPAP_7040_Blower_Frame_Mount.stl) | 1 | On the frame |
-| P28 calibration jig | [P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW.stl) | 1 | 2.60 mm probe feeler |
+| Part | File | Qty | Colour | Notes |
+|---|---|---:|---|---|
+| P29 rack mounts | [left](cad/SparkShift_Accessories_v26/stl/P29_Dock_Rack_Gantry_Mount_L.stl), [right](cad/SparkShift_Accessories_v26/stl/P29_Dock_Rack_Gantry_Mount_R.stl) | 1 each | Black | |
+| P30 side spacers | [left](cad/SparkShift_Accessories_v26/stl/P30_Dock_Side_Spacer_L.stl), [right](cad/SparkShift_Accessories_v26/stl/P30_Dock_Side_Spacer_R.stl) | 1 each | Charcoal | |
+| Crossbar | 2020 extrusion, 450 mm | 1 | Not printed | Purchased |
+| P27 CPAP blower mount | [P27_CPAP_7040_Blower_Frame_Mount](cad/SparkShift_Accessories_v26/stl/P27_CPAP_7040_Blower_Frame_Mount.stl) | 1 | Black | On the frame |
+| P28 calibration jig | [P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW.stl) | 1 | Yellow | 2.60 mm probe feeler |
 
 **Print settings**
 ([accessories README](cad/SparkShift_Accessories_v26/README.md#recommended-print-settings)):
 ABS or ASA, 0.20 mm layers with a 0.4 mm nozzle, 4 walls, 40–60 % gyroid or cubic infill.
 Use GF/CF ABS for P22 and the tool bodies, which sit beside the hotend.
+
+### Colour scheme
+
+![The print colours on the whole build in Fusion: the rack from behind and in front, and the carriage on its own](cad/SparkShift_Accessories_v26/images/77_print_colour_scheme.png)
+
+The Colour column is for looks and for telling parts apart; it doesn't change fit, and any
+colour works. Use the nearest filament you have.
+
+- **Structure is dark.** P01, P18, the docks, P27 and P29 are black, P30 charcoal and P02
+  cool grey. Black docks also hide purge marks.
+- **The carriage's front is white** (P03), and the parts that move are warm: the swing arm
+  orange, the servo cam yellow and the belt arches red.
+- **The air path runs in blues**: P20 blue, P21 cyan and P22 teal. The probe mount (P23) is
+  lime and the EBB42 mount (P24) violet.
+- **Each tool has its own colour**, in rainbow order by tool number, and the P26 chute in its
+  bay matches. A tool parked in the wrong bay stands out.
+- **Parts inside the case** (P06–P09 and P12–P14) can't be seen once it is closed; their
+  colours only tell them apart on the bench.
+
+| Tool | T0 | T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Body and P26 chute | Red | Orange | Yellow | Lime | Green | Teal | Cyan | Blue | Violet | Magenta |
+
+P22 and the tool bodies sit beside the hotend, so print them in a coloured GF ABS or ASA;
+carbon-filled grades mostly come in black only. The hex values are in
+[print_colors.py](cad/SparkShift_Accessories_v26/print_colors.py), and
+[build_print_colour_review.py](cad/SparkShift_Accessories_v26/build_print_colour_review.py)
+builds a coloured STEP of the whole build for Fusion.
 
 ### Hardware that differs from BOM.md
 
@@ -112,6 +144,9 @@ each of the ten tools. These items differ in the current parts:
   - These replace the four M3×8 P23 screws and the probe's two captive M3 nuts. The other
     accessory fasteners are in the
     [accessories README](cad/SparkShift_Accessories_v26/README.md#fasteners--heat-set-inserts-bom).
+- **Carriage (revision 40)**
+  - P20 to P21: 2× M3×8 ISO 7380 button-head screws (were socket heads) into the same 2× M3 × 3 mm
+    inserts in P21's top flange, now at X±5.5. Fit them before the EBB42: they sit under its board.
 
 For ten tools and ten docks: 20 dowel pins, 20 bushings, 40 Ø6×4 magnets (or 20 bars),
 20 M5×10 screws with T-nuts and 20 M3×12 screws.
@@ -126,6 +161,20 @@ These don't block printing, but the machine can't run without them:
   template);
 - moving the bed back 31 mm (option B) and the on-printer checks listed in the
   [accessories README, revision 34](cad/SparkShift_Accessories_v26/README.md#low-z-fix-rigid-rack-bed-front-edge-behind-the-docks-revision-34).
+
+### Design notes to settle on the first article
+
+Recorded in revision 40 without changing the parts
+([details](cad/SparkShift_Accessories_v26/README.md#p20-to-p21-screws-and-two-design-notes-revision-40)):
+
+- **P21's conduit against the X beam.** In the Monolith model, its front face lies on the beam's
+  rear face (0.0 mm), and the probe cable runs 0.2 mm from it. Check that the carriage slides the
+  full X travel without rubbing. If it rubs, moving the column 1.5 mm rearward gives about 1.1 mm
+  and still leaves 6.8 mm to the rear motor mounts at the rear limit.
+- **No screws hold the CPAP/EBB42 stack.** P24's two rear holes line up with core inserts that the
+  core's own case screws already fill. The stack (P20, P21, P24 and the EBB42) rests on P22's
+  collar, against P02's rear face and under P02. Check how firmly it sits once the hose and cables
+  are on.
 
 ## Core inspection notes (v26j)
 
