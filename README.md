@@ -145,8 +145,11 @@ without passing through the part. A suspected 0.28 mm P22 clearance over
 the Bambu nozzle turned out to be an artifact of the synthetic Bambu
 nozzle model, and the probe `y_offset` sign is corrected to +19.50 mm.
 The earlier independent-rack-lift study (revision 23) is not pursued.
-Ten tools fit laterally, but the full rack has not been re-audited with the
-revision-33 toolheads, and nothing is **build-approved**.
+Revision 36 chamfers the top outer edges of the P26 chute arms, raising the
+closest side clearance to a parked neighbour from 1.73 mm to 2.40 mm. It then
+requalifies the full ten-tool rack with every current part: both hotends in
+all ten bays, mixed neighbours, the X gantry backing out, X0..350 traverses
+and the revision-34 bed. There are no collisions. Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X
 travel. The Klipper file below is a historical **nine-bay** template, not a

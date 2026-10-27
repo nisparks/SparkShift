@@ -367,6 +367,7 @@ rounded lower outer edge passes 1.73 mm from the top edge of the neighbouring do
 nozzle chute (X±15.0 in its own frame). The same pair sets 1.73 mm on the -X side.
 Narrowing that chute to X±14.0 raises this pair to 2.50 mm, leaving P01 to the
 neighbour's body (2.40 mm) as the +X limit; that is a dock change and is not made here.
+Revision 36 chamfers the arm edge instead, because narrowing would open the M3 head channel.
 
 **What still sets 1.60 mm.** The fan's back face (Y13.0) sits 1.6 mm in front of the P01
 front face (Y11.4), for the tool's own fan and for the fan of a tool parked on the -X
@@ -584,9 +585,9 @@ Found during and after this audit:
   `klipper/sparkshift_toolchanger.cfg` now use `y_offset: 19.50` / `19.82` instead of
   the earlier negative values. Confirm with `PROBE_CALIBRATE` before meshing.
 
-Limitations: rigid CAD with the revision-21 parked tools and docks. The revision-33
-toolheads keep the same dock interface, but the full ten-tool rack audit has not been
-rerun with them. The model has no Z drives, bed supports, bed wiring or nozzle brush;
+Limitations: rigid CAD with the revision-21 parked tools and docks. Revision 36 below reruns
+the full ten-tool rack audit, including this bed gate, with the revision-33 toolheads.
+The model has no Z drives, bed supports, bed wiring or nozzle brush;
 check the space in front of the new bed edge, from Y-38 to the edge and down to 16 mm
 below the bed top, on the printer. Bed thermal growth at the front edge (about 0.4 mm at
 100 °C) is well inside the 4.59 mm gap. Klipper limits and probe offsets are not
@@ -630,6 +631,77 @@ Render with `python render_p24_cable_entry_r35.py`. The EBB42 board and its conn
 not modeled (the board position comes from P24's standoffs). The cable is a rigid 3.0 mm
 tube; its connectors, strain relief and the exit above Z20 are not modeled, and the split
 crossbar's printed strength is not qualified.
+
+#### Chute arm chamfer and full-rack requalification (revision 36)
+
+With the revision-31 carriage, the closest approach to a tool parked on the +X side was
+1.73 mm: P22's rounded lower outer edge passes the sharp top outer edge of the neighbouring
+chute's side arm (X±15.0, Z-78.80). Revision 32 suggested narrowing the arms to X±14.0, but
+each arm is a tube around an M3 screw-head channel (Ø5.5 at X±11.75) with a 0.5 mm outer
+wall, so narrowing would open the channel.
+
+Revision 36 chamfers that edge instead: 1.5 mm × 45° along each arm (Y15..45.91). This removes
+67.3 mm3 from P26 and leaves 1.06 mm between the chamfer and each screw-head channel. Nothing
+else in the dock changes, and both hotends use the same chute.
+
+![Revision 21 and 36: section through the closest P22-to-chute point, the chamfered P26, and both gaps in context](./images/66_chute_chamfer_r36_before_after.png)
+
+| Case (revision-31 carriage, revision-33 tools) | Revision 21 docks | Revision 36 docks |
+| --- | --- | --- |
+| Active carriage to a tool parked at +37.3 mm | 1.73 mm (P22 to the chute arm) | 2.40 mm (P01 to the neighbour's body) |
+| P22 to the neighbouring chute arm | 1.73 mm | 2.79 mm |
+| Active carriage to a tool parked at -37.3 mm, or to its own fan | 1.60 mm | 1.60 mm |
+
+The 1.60 mm on the -X side is the fan's Y gap at full insertion (see revision 32).
+
+**Full ten-tool rack, requalified.** Revisions 30-35 each checked only their own change.
+Revision 36 reruns the revision-21 rack qualification with all of the current parts together:
+
+- the revision-33 toolheads (both hotends, with fan screws, inserts, P18 and coupling);
+- the revision-31 carriage with the revision-35 P24 and probe cable;
+- the Beacon, the EBB42 and every accessory fastener;
+- the revision-36 docks.
+
+They are checked against the actual crossbar, P29/P30 hardware, flying gantry and Monolith
+X gantry, with the revision-34 bed added as a gate. Everything passes:
+
+- **Docking.** Each tool goes into and out of its own dock, and the carriage backs away from
+  it: 121 samples each, in 0.5 mm steps over 60 mm. The same holds with the Cartographer in
+  place of the Beacon.
+- **Mixed neighbours.** All eight cases at ±37.3 mm, over the 60 mm withdrawal (488 samples).
+- **Bays.** All 20 bay/hotend cases, against the crossbar, P29/P30 hardware and flying
+  gantry, static and over the withdrawal (2,420 samples).
+- **Gantry and traverse.** The X gantry backs out over the full parked rack (121 samples), and
+  both tools traverse X0..350 at 60 mm withdrawal (702 samples).
+- **Bed.** With the front edge at Y40, and with the shifted stock bed, 0 of 80 cases collide
+  and the minimum clearance is 4.59 mm. The original bed still collides in 80 of 80 (control).
+  The frame below the bed plane clears by 2.0 mm.
+- **Rack layout.** Parked tools are 2.50 mm apart and the end bays sit 9.3 / 9.6 mm inside
+  the X-rail stroke. The front print limit (Y63.21) and the X corridor (Y80.71) are unchanged.
+- **Sideways moves.** These still collide inside the rack at 0 and 12.7 mm withdrawal and are
+  clear at 60 mm, so the straight-Y docking rule stands.
+
+![Revision 36 rack in Fusion: ten parked tools in the requalified docks, carriage at T0](./images/67_rack_requalified_r36_fusion.png)
+
+**Verification.** Run `python build_chute_chamfer_rack_r36.py` ([report](./verification_rack_requalification_r36.json)).
+The 32 independent cases run in six worker processes on a cached scene and take 8.8 minutes.
+The Fusion native review "36 Ten-tool rack - requalified (native review)" is archived as
+[`36_Ten_Tool_Rack_Requalified_REVIEW.f3d`](./36_Ten_Tool_Rack_Requalified_REVIEW.f3d). It
+reopens with 748 bodies, and all ten docks carry the chamfered chute.
+
+**Files.** [P26 STEP](./step/P26_Chute_Arm_Chamfer_R36_REVIEW.step)
+([STL](./stl/P26_Chute_Arm_Chamfer_R36_REVIEW.stl)), and the complete docks
+[Bambu](./step/36_Bambu_Dock_Complete_REVIEW.step) /
+[Red Lizard](./step/36_RedLizard_Dock_Complete_REVIEW.step). The 748-solid rack STEP (203 MB)
+is too large for the repository; the script regenerates it. Render with
+`python render_chute_chamfer_r36.py`.
+
+**Limits.** This is rigid CAD with sampled straight paths (0.5 mm in Y, 1 mm in X). Jaw
+flexure, thermal growth and machine tolerances are not modelled. The Bambu hotend is still the
+synthetic reference, so its pad and wiper follow the modeled tip (see revision 34). The
+inherited dock snap detents and the MGN9H-to-rail overlaps in the source gantry model are
+reported separately, as in revision 21. Parked fan power, the cam/servo sequence and Klipper
+are outside this audit.
 
 #### Faster verification (`fast_geometry.py`)
 
