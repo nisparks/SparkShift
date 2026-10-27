@@ -490,12 +490,15 @@ change: the bed's front edge at Y40 mm or further back.** The parked envelope en
 Y35.41 mm, so the absolute minimum for a 1 mm gap is Y36.41 mm. Either:
 
 - **Option B, preferred: move the stock 350 × 350 bed and its mounts back 31 mm**
-  (Y40..390). The bed, heater and sheet stay standard. The nozzle can then use the
-  Monolith's rear overtravel to Y364 (see the travel limits below), and the probe, which
-  trails the nozzle by 19.5 mm, can mesh the bed right to the rear print limit.
+  (Y40..390). The bed, heater and sheet stay standard. The nozzle still stops at the stock
+  rear limit (Y359, where the original bed ended), so the last 31 mm of the moved bed is
+  never printed on. It lets the probe, which trails the nozzle by 19.5 mm, mesh the bed
+  right to the rear print limit.
 - **Option A: a 350 × 319 mm bed, heater and sheet** spanning Y40..359. The nozzle stops
   at the bed edge, and the last 10 mm at the rear cannot be meshed because the coil needs
   bed around it, as with the original bed.
+
+Both options give the same print area; moving the bed only clears the docks at the front.
 
 The build sheet needs no tab or overhang at the front edge. Nothing in the rack, docks,
 toolheads, carriage or gantry changes.
@@ -543,24 +546,28 @@ both tools:
 | Rear rail end: the X beam's 40 mm Y blocks reach the end of the 400 mm rails | 365.15 |
 | X beam reaches the Monolith rear motor mount | 365.26 |
 | Carriage reaches the rear motor mounts (P22) or the rear extrusion (P21, X175 only, at 385.9) | 367.40 |
-| **Recommended rear soft limit (1 mm inside the rail end)** | **364.15** |
+| Rear soft limit the rails would allow (1 mm inside the rail end) | 364.15 |
+| **Rear limit on this machine: the stock rear limit, where the original bed ends** | **359** |
 
 At the front, the rails would allow Y5.05 (the beam meets the front idler mount at
 Y2.94), well forward of the dock seat. This matches Monolith's published overtravel
-(+13 mm in Full Travel mode against a stock Voron's +10 mm): it adds a few millimetres at
-the rear only, and does not recover the strip the docks take.
+(+13 mm in Full Travel mode against a stock Voron's +10 mm). It does not recover the strip
+the docks take. At the rear, the rails would reach Y365.15, but the nozzle on this machine
+does not travel past the stock rear limit, so the print area ends at Y359 with either bed.
 
 | Bed | Printable (X × Y) | Nozzle Y | Probe can mesh bed Y | Not meshed |
 |---|---|---|---|---|
 | Option A, Y40..359 | 350 × 310.8 mm (revision 34: 295.8, revision 38: 306.8) | 48.25..359 | 68.07..349 | front 19.8 mm, rear 10 mm |
-| Option B, Y40..390 | 350 × 315.9 mm (revision 34: 300.9, revision 38: 311.9) | 48.25..364.15 | 68.07..380 | front 19.8 mm |
+| Option B, Y40..390 | 350 × 310.8 mm (revision 34: 295.8, revision 38: 306.8) | 48.25..359 | 68.07..378.5 | front 19.8 mm |
 
 The front 19.8 mm of the print area cannot be meshed with either bed: the probe trails
 the nozzle and the parked tools stop the nozzle at Y48.25 (Y63.21 before revision 38,
 Y52.22 before revision 39). Klipper uses the nearest mesh row there. A stock Voron 2.4 350
-prints 350 × 350 mm; the ten front docks cost about 39 mm of depth with bed A and 34 mm
-with bed B (54 / 49 mm before revision 38). The table uses revision 39's front limit
-([report](./verification_front_print_limit_r39.json)).
+prints 350 × 350 mm; the ten front docks cost about 39 mm of depth (54 mm before revision
+38). The table uses revision 39's front limit
+([report](./verification_front_print_limit_r39.json)) and the stock rear limit. The
+revision-34, 38 and 39 reports also list option B to the rails' Y364.15, 5.1 mm deeper,
+which this machine does not reach.
 
 Found during and after this audit:
 
@@ -844,8 +851,10 @@ forward 2 mm at a time, and bisects the first exact contact to 0.01 mm. The fixe
   | Bed | Revision 34 | Revision 38 |
   |---|---|---|
   | Option A, Y40..359 | 350 × 295.8 mm | **350 × 306.8 mm** (+11.0) |
-  | Option B, stock bed moved back 31 mm (Y40..390) | 350 × 300.9 mm | **350 × 311.9 mm** (+11.0) |
+  | Option B, stock bed moved back 31 mm (Y40..390) | 350 × 295.8 mm | **350 × 306.8 mm** (+11.0) |
 
+  Both beds end at the stock rear limit, Y359 (see revision 34). This report also lists
+  option B to the rails' Y364.15 (300.9 / 311.9 mm), which the machine does not reach.
   The probe meshes from bed Y72.04 (was 83.03); the unmeshed front strip stays 19.8 mm.
 - **Using it.** Start the slicer's printable area 12.2 mm behind the bed's front edge (Y52.22)
   instead of 23.2 mm. A Klipper Y soft limit cannot enforce it, because tool changes run forward
@@ -865,8 +874,9 @@ forward 2 mm at a time, and bisects the first exact contact to 0.01 mm. The fixe
   working features. Clearing the pin contact gains only 4 mm, down to P18's 47.25.
   [Revision 39](#dowel-pins-moved-into-the-docks-revision-39) gets those 4 mm by moving the
   pins into the docks.
-- **Bed option B** (revision 34) adds 5.1 mm at the rear over option A, using the Monolith's
-  rear overtravel.
+- **Bed option B** (revision 34) would add 5.1 mm at the rear over option A, using the
+  Monolith's rear overtravel. This machine's nozzle does not travel past the stock rear
+  limit, so it adds nothing.
 
 **Verification.** Run `python audit_front_print_limit_r38.py --workers 10`
 ([report](./verification_front_print_limit_r38.json)); it takes 12 minutes. It reads the
@@ -927,11 +937,11 @@ a parked tool at nozzle Y47.25, at every X, for both hotends.
 | | Revision 38 | Revision 39 |
 |---|---|---|
 | Front print limit (nozzle Y) | 52.22 | **48.25** |
-| Option A, Y40..359 | 350 × 306.8 mm | **350 × 310.8 mm** |
-| Option B, stock bed moved back 31 mm (Y40..390) | 350 × 311.9 mm | **350 × 315.9 mm** |
+| Either bed option (nozzle Y to the stock rear limit, Y359) | 350 × 306.8 mm | **350 × 310.8 mm** |
 
 The probe meshes from bed Y68.07 (was 72.04). Start the slicer's printable area 8.25 mm behind
-the bed's front edge (Y48.25).
+the bed's front edge (Y48.25). The front-limit report also lists option B to the rails' Y364.15
+(315.9 mm), which this machine does not reach.
 
 **Verification.** Run `python build_dock_pins_r39.py` ([report](./verification_dock_pins_r39.json)).
 It passes, in 23 minutes:
@@ -974,7 +984,8 @@ measures it with no part changes:
   about 1 mm less with Ø6×4 magnets, or about 2 mm with Ø6×3. P25 would have to be rebuilt.
 - **Rack forward.** The Y rails would let the dock seat move up to about 14 mm forward. But the dock clamps are
   already 2.0 mm from the door plane, so this needs a door spacer and new rack mounts.
-- **Rear.** Bed option B (revision 34) adds 5.1 mm: 350 × 315.9 mm.
+- **Rear.** None: the nozzle stops at the stock rear limit (Y359). The rails would reach Y365.15,
+  but this machine does not travel there, so moving the bed back only clears the docks at the front.
 - **Z height is not reduced.** The dock clamps reach the top front extrusion at nozzle Z335.9; the bare gantry
   would reach the frame at Z343.9. Voron's stock 2.4 350 configuration stops at Z310.
 

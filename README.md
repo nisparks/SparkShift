@@ -160,16 +160,16 @@ Across the whole bed, the active tool first touches a parked tool at nozzle
 Y51.22, where its front coupling pins reach a parked Bambu body. The front
 limit moves to Y52.22 with a 1 mm margin, verified every 0.1 mm of X. With
 no part changes, the printable area grows from about 350 × 296 mm to about
-350 × 307 mm, or 350 × 312 mm with the stock bed moved back (using the
-Monolith's rear overtravel to Y364). Revision 39 swaps the dock coupling's
+350 × 307 mm. Revision 39 swaps the dock coupling's
 halves: the two Ø5×12 mm dowel pins are pressed into each dock and the
 bushings into each tool's P18, so nothing sticks out of the tools. Docking,
 pin engagement and magnet gaps are unchanged, the full rack requalifies
 clean, and P18's flat plate now sets the front limit at Y48.25. The
-printable area is about 350 × 311 mm, or 350 × 316 mm with the stock bed
-moved back. A follow-up audit finds the toolheads themselves now set the
-front limit, so more depth would need the docks parked further forward.
-Nothing is **build-approved**.
+printable area is about 350 × 311 mm with either bed option. The nozzle
+stops at the stock rear limit, so moving the bed back only clears the
+docks at the front. A follow-up audit finds the toolheads themselves now
+set the front limit, so more depth would need the docks parked further
+forward. Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X
 travel. The Klipper file below is a historical **nine-bay** template, not a
