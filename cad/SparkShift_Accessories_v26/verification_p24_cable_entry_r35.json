@@ -1,0 +1,112 @@
+{
+  "status": "LOCAL_CAD_REVIEW_NOT_PRINT_OR_MACHINE_QUALIFICATION",
+  "slot_mm": {
+    "x": [
+      -1.9,
+      1.9
+    ],
+    "y": [
+      -25.6000001,
+      -19.483628319724996
+    ],
+    "z": [
+      -18.6000001,
+      -13.0
+    ]
+  },
+  "cable": {
+    "diameter_mm": 3.0,
+    "side_clearance_in_slot_mm": 0.4,
+    "route": "Revision-21 route to the forward run at Z-15.8, then straight to Y-26.0, an R5 bend up and a vertical run at Y-21.0 to Z20 (the umbilical exit above is not modeled).",
+    "bay_mm": {
+      "board_standoff_plane_y": -25.4,
+      "motor_rear_y": -16.7
+    },
+    "vertical_run_to_board_standoff_plane_mm": 2.8999999999999986,
+    "vertical_run_to_motor_rear_mm": 2.8000000000000007
+  },
+  "p24": {
+    "released_volume_mm3": 9724.167648460527,
+    "r35_volume_mm3": 9636.263456326837,
+    "removed_mm3": 87.90419213369023,
+    "solids": 1,
+    "valid": true,
+    "confinement": {
+      "outside_zones_new": {
+        "volume_mm3": 9635.64167667714,
+        "area_mm2": 7182.991544628051,
+        "centroid_mm": [
+          -1.2393985030692838,
+          -14.715899329781086,
+          13.063149911968384
+        ]
+      },
+      "outside_zones_released": {
+        "volume_mm3": 9635.64167667714,
+        "area_mm2": 7182.991544628051,
+        "centroid_mm": [
+          -1.2393985030692818,
+          -14.715899329781086,
+          13.063149911968367
+        ]
+      },
+      "unchanged_outside_zones": true,
+      "inside_zones_mm3": {
+        "new": 0.621779694224363,
+        "released": 88.5256156830712
+      }
+    },
+    "slot_to_counterbore_wall_mm": 2.5117254646689355,
+    "seat_band_area_on_p21_mm2": {
+      "released": 624.1119465598825,
+      "r35": 593.9891589578199
+    }
+  },
+  "cable_clearances": {
+    "P20_CPAP_Hose_Inlet": {
+      "min_distance_mm": 0.2941151005852108,
+      "overlap_mm3": 0
+    },
+    "P21_CPAP_Gantry_Bridge": {
+      "min_distance_mm": 0.049999999999997186,
+      "overlap_mm3": 0
+    },
+    "P23_Beacon_Cartographer_Mount": {
+      "min_distance_mm": 7.06045324324154,
+      "overlap_mm3": 0
+    },
+    "Core_With_Lowered_P01_Bosses_R31_REVIEW": {
+      "min_distance_mm": 2.8000000000000007,
+      "overlap_mm3": 0
+    },
+    "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW": {
+      "min_distance_mm": 0.04999999999999717,
+      "overlap_mm3": 0
+    },
+    "P22_P01_Mount_Hardware_R31_REVIEW": {
+      "min_distance_mm": null,
+      "overlap_mm3": 0
+    },
+    "P24 (revision 35)": {
+      "min_distance_mm": 0.39999999999999925,
+      "overlap_mm3": 0
+    }
+  },
+  "revision_21_cable": {
+    "overlap_with_released_p24_mm3": 15.493296341331732,
+    "overlap_with_r35_p24_mm3": 0
+  },
+  "static_failures": [],
+  "exports": {
+    "P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW.step": "69fe4f941dfe7ce26009725ba7e8ac08408c97aeb488232815b29f52b056361c",
+    "P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW.stl": "1c2a2c14689e7c7059cac551a2bf71bf01a48dfd0b2a65936b14f07dedbd7be0",
+    "35_Carriage_Probe_Cable_Entry_REVIEW.step": "fc4cbd5233a5ffbf1c07feeafd30021b89d14a1f22be073223d027b21821aa50",
+    "Probe_Cable_Route_R35_REVIEW.step": "857db2fbbeb87a69046a797752f3b651fe31b42f8502bf54a69252b976ff3c8b"
+  },
+  "limitations": [
+    "The EBB42 board and its connectors are not modeled; the board position comes from P24's standoffs.",
+    "The cable is a 3.0 mm rigid tube; its connectors, strain relief and the exit above Z20 are not modeled.",
+    "Printed strength of the split bottom crossbar is not qualified; both halves stay bolted to P21."
+  ],
+  "runtime_s": 16.954181499997503
+}

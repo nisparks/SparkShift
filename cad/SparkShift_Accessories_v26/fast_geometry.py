@@ -183,19 +183,23 @@ def min_distance(group_a, group_b, offset_a=(0, 0, 0), offset_b=(0, 0, 0), cutof
 
     Returns (mm, label_a, label_b, point_a, point_b). Solid pairs are tried nearest-box first, and
     every later pair is skipped as soon as its box distance cannot beat the running minimum.
+    All pair box distances are computed in one array operation; ties keep the a-major pair order.
     """
+    if not group_a or not group_b:
+        return None
     oa, ob = np.asarray(offset_a, float), np.asarray(offset_b, float)
-    pairs = []
-    for a in group_a:
-        for b in group_b:
-            d = _box_distance(a.box_lo + oa, a.box_hi + oa, b.box_lo + ob, b.box_hi + ob)
-            if d < cutoff:
-                pairs.append((float(d), a, b))
-    pairs.sort(key=lambda t: t[0])
-    best, found = cutoff, None
-    for box, a, b in pairs:
-        if box >= best:
+    alo = np.array([a.box_lo for a in group_a]) + oa
+    ahi = np.array([a.box_hi for a in group_a]) + oa
+    blo = np.array([b.box_lo for b in group_b]) + ob
+    bhi = np.array([b.box_hi for b in group_b]) + ob
+    boxes = _box_distance(alo[:, None], ahi[:, None], blo[None], bhi[None]).ravel()
+    near = np.nonzero(boxes < cutoff)[0]
+    order = near[np.argsort(boxes[near], kind="stable")]
+    best, found, width = cutoff, None, len(group_b)
+    for flat in order:
+        if boxes[flat] >= best:
             break
+        a, b = group_a[flat // width], group_b[flat % width]
         hit = solid_distance(a, b, offset_a, offset_b, best)
         if hit is not None:
             best = hit[0]

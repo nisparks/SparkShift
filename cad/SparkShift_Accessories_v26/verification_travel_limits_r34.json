@@ -1,0 +1,278 @@
+{
+  "status": "TRAVEL_LIMITS_MEASURED_NOT_COMMISSIONED",
+  "frame": "World CAD coordinates: bed X0..350; revision-34 bed front edge Y40; nozzle positions.",
+  "sources": {
+    "flying_gantry": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_Flying_Gantry_world.step",
+      "sha256": "c5452f4f9958a51360d3868bf8dfe7fd1481de34e66cefde95a6bc3de12843c2"
+    },
+    "x_gantry": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\rack_audit_X_Gantry_world.step",
+      "sha256": "d305bc3b1744aa1574e10ea42cdf2583e68293f14ba4e0ac65a2d72ddffd46bb"
+    },
+    "ten_tool_rack": {
+      "file": "verification_ten_tool_closed_panel_dock.json",
+      "sha256": "355b73d554da610c0820d278444a007e856ec2c5c6ae2d25e44f33b93ba1e454"
+    }
+  },
+  "front": {
+    "dock_nozzle_y_mm": 20.709999999999997,
+    "front_print_limit_nozzle_y_mm": 63.21000000000019,
+    "x_traverse_corridor_nozzle_y_mm": 80.71,
+    "note": "Forward of the print limit the nozzle may only move in straight Y inside its own empty bay; Klipper soft limits cannot express this, so the toolchange macros must."
+  },
+  "rails": {
+    "y_rail_extent_mm": [
+      15.0,
+      415.0
+    ],
+    "x_beam_block_y_at_dock_mm": [
+      30.65999978730695,
+      70.55999978730796
+    ],
+    "nozzle_y_range_by_rail_length_mm": [
+      5.050000212693046,
+      365.150000212692
+    ]
+  },
+  "x_beam": {
+    "front": {
+      "last_clear_dy_mm": -17.7734375,
+      "contact_dy_mm": -17.78125,
+      "pair": [
+        "_MGN9H (2)",
+        "Printed_V2_9mm_front_motorless_mount_b"
+      ],
+      "last_clear_nozzle_y_mm": 2.9365624999999973
+    },
+    "rear": {
+      "last_clear_dy_mm": 344.5546875000002,
+      "contact_dy_mm": 344.5625000000002,
+      "pair": [
+        "_MGN9H (4)",
+        "Printed_V2_9mm_rear_motor_mount_b"
+      ],
+      "last_clear_nozzle_y_mm": 365.2646875000002
+    },
+    "clearance_at_nozzle_y359": {
+      "mm": 1.2175797475117665,
+      "moving": "_MGN9H (11)",
+      "fixed": "Printed_V2_9mm_rear_motor_mount_b"
+    }
+  },
+  "carriage_rear": [
+    {
+      "last_clear_dy_mm": 346.6875000000002,
+      "contact_dy_mm": 346.6953125000002,
+      "pair": [
+        "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "Printed_V2_9mm_rear_motor_mount_a"
+      ],
+      "variant": "Bambu",
+      "nozzle_x_mm": 0.0,
+      "last_clear_nozzle_y_mm": 367.3975000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 6.703290905262828,
+        "moving": "P20_CPAP_Hose_Inlet",
+        "fixed": "_stepper"
+      }
+    },
+    {
+      "last_clear_dy_mm": 346.6875000000002,
+      "contact_dy_mm": 346.6953125000002,
+      "pair": [
+        "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "Printed_V2_9mm_rear_motor_mount_a"
+      ],
+      "variant": "Bambu",
+      "nozzle_x_mm": 25.0,
+      "last_clear_nozzle_y_mm": 367.3975000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 8.39999999999759,
+        "moving": "P21_CPAP_Gantry_Bridge",
+        "fixed": "Printed_V2_9mm_rear_motor_mount_b"
+      }
+    },
+    {
+      "last_clear_dy_mm": 354.0000000000002,
+      "contact_dy_mm": null,
+      "pair": null,
+      "variant": "Bambu",
+      "nozzle_x_mm": 175.0,
+      "last_clear_nozzle_y_mm": 374.7100000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 26.899999999999977,
+        "moving": "P21_CPAP_Gantry_Bridge",
+        "fixed": "R1_GANTRY_REAR_2020_340_NOMINAL"
+      }
+    },
+    {
+      "last_clear_dy_mm": 346.6875000000002,
+      "contact_dy_mm": 346.6953125000002,
+      "pair": [
+        "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "Printed_V2_9mm_rear_motor_mount_b (1)"
+      ],
+      "variant": "Bambu",
+      "nozzle_x_mm": 325.0,
+      "last_clear_nozzle_y_mm": 367.3975000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 8.39999999999759,
+        "moving": "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "fixed": "Printed_V2_9mm_rear_motor_mount_b (1)"
+      }
+    },
+    {
+      "last_clear_dy_mm": 346.6875000000002,
+      "contact_dy_mm": 346.6953125000002,
+      "pair": [
+        "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "Printed_V2_9mm_rear_motor_mount_b (1)"
+      ],
+      "variant": "Bambu",
+      "nozzle_x_mm": 350.0,
+      "last_clear_nozzle_y_mm": 367.3975000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 6.703290905277294,
+        "moving": "P20_CPAP_Hose_Inlet",
+        "fixed": "_stepper (1)"
+      }
+    },
+    {
+      "last_clear_dy_mm": 346.6875000000002,
+      "contact_dy_mm": 346.6953125000002,
+      "pair": [
+        "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "Printed_V2_9mm_rear_motor_mount_a"
+      ],
+      "variant": "RedLizard",
+      "nozzle_x_mm": 0.0,
+      "last_clear_nozzle_y_mm": 367.3975000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 6.703290905262828,
+        "moving": "P20_CPAP_Hose_Inlet",
+        "fixed": "_stepper"
+      }
+    },
+    {
+      "last_clear_dy_mm": 346.6875000000002,
+      "contact_dy_mm": 346.6953125000002,
+      "pair": [
+        "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "Printed_V2_9mm_rear_motor_mount_a"
+      ],
+      "variant": "RedLizard",
+      "nozzle_x_mm": 25.0,
+      "last_clear_nozzle_y_mm": 367.3975000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 8.39999999999759,
+        "moving": "P21_CPAP_Gantry_Bridge",
+        "fixed": "Printed_V2_9mm_rear_motor_mount_b"
+      }
+    },
+    {
+      "last_clear_dy_mm": 354.0000000000002,
+      "contact_dy_mm": null,
+      "pair": null,
+      "variant": "RedLizard",
+      "nozzle_x_mm": 175.0,
+      "last_clear_nozzle_y_mm": 374.7100000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 26.899999999999977,
+        "moving": "P21_CPAP_Gantry_Bridge",
+        "fixed": "R1_GANTRY_REAR_2020_340_NOMINAL"
+      }
+    },
+    {
+      "last_clear_dy_mm": 346.6875000000002,
+      "contact_dy_mm": 346.6953125000002,
+      "pair": [
+        "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "Printed_V2_9mm_rear_motor_mount_b (1)"
+      ],
+      "variant": "RedLizard",
+      "nozzle_x_mm": 325.0,
+      "last_clear_nozzle_y_mm": 367.3975000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 8.39999999999759,
+        "moving": "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "fixed": "Printed_V2_9mm_rear_motor_mount_b (1)"
+      }
+    },
+    {
+      "last_clear_dy_mm": 346.6875000000002,
+      "contact_dy_mm": 346.6953125000002,
+      "pair": [
+        "P22_CPAP_Lower_Plenum_Lowered_Mounts_R31_REVIEW",
+        "Printed_V2_9mm_rear_motor_mount_b (1)"
+      ],
+      "variant": "RedLizard",
+      "nozzle_x_mm": 350.0,
+      "last_clear_nozzle_y_mm": 367.3975000000002,
+      "clearance_at_nozzle_y359": {
+        "mm": 6.703290905277294,
+        "moving": "P20_CPAP_Hose_Inlet",
+        "fixed": "_stepper (1)"
+      }
+    }
+  ],
+  "rear": {
+    "first_contact_nozzle_y_mm": {
+      "rail_end": 365.150000212692,
+      "x_beam": 365.2646875000002,
+      "carriage": 367.3975000000002
+    },
+    "hard_stop_nozzle_y_mm": 365.150000212692,
+    "recommended_soft_limit_nozzle_y_mm": 364.150000212692,
+    "soft_limit_margin_mm": 1.0
+  },
+  "print_depth": {
+    "A_bed_Y40_to_359": {
+      "bed_y_mm": [
+        40.0,
+        359.0
+      ],
+      "nozzle_y_range_mm": [
+        63.21000000000019,
+        359.0
+      ],
+      "depth_mm": 295.7899999999998,
+      "width_mm": 350.0,
+      "probe_mesh_bed_y_range_mm": [
+        83.0300000000002,
+        349.0
+      ],
+      "unmeshed_front_strip_mm": 19.820000000000007,
+      "unmeshed_rear_strip_mm": 10.0
+    },
+    "B_stock_bed_moved_back": {
+      "bed_y_mm": [
+        40.0,
+        390.0
+      ],
+      "nozzle_y_range_mm": [
+        63.21000000000019,
+        364.150000212692
+      ],
+      "depth_mm": 300.9400002126918,
+      "width_mm": 350.0,
+      "probe_mesh_bed_y_range_mm": [
+        83.0300000000002,
+        380.0
+      ],
+      "unmeshed_front_strip_mm": 19.820000000000007,
+      "unmeshed_rear_strip_mm": 0.0
+    }
+  },
+  "probe_coil_behind_nozzle_mm": {
+    "Beacon_RevH": 19.5,
+    "Cartographer_V3": 19.82
+  },
+  "limitations": [
+    "Nominal 400 mm Y rails and the session Monolith snapshot; belts, cable chains and umbilicals are not modeled.",
+    "X travel is sampled at nozzle X0, 25, 175, 325 and 350 only; the X-rail ends were not checked.",
+    "The front print limit is the conservative whole-envelope separation from the ten-tool rack audit.",
+    "Klipper endstop positions and soft limits must be commissioned on the machine."
+  ],
+  "runtime_s": 849.7338458000013
+}

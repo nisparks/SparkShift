@@ -137,6 +137,13 @@ forward of Y63.21 mm anyway, so revision 34 records the printer change instead
 of moving the rack: the bed's front edge goes to Y40 mm or further back (the
 stock bed moved back 31 mm, or a 350 × 319 mm bed). All 80 first-layer and
 contact-touch cases then clear by 4.59 mm, and the print area is unchanged.
+The ten front docks cost about 54 mm of print depth: the printable area is
+about 350 × 296 mm (350 × 301 mm with the stock bed moved back, using the
+Monolith's rear overtravel to Y364). Revision 35 cuts a cable slot through
+P24's bottom so the Beacon/Cartographer cable enters the EBB42 wiring bay
+without passing through the part. A suspected 0.28 mm P22 clearance over
+the Bambu nozzle turned out to be an artifact of the synthetic Bambu
+nozzle model, and the probe `y_offset` sign is corrected to +19.50 mm.
 The earlier independent-rack-lift study (revision 23) is not pursued.
 Ten tools fit laterally, but the full rack has not been re-audited with the
 revision-33 toolheads, and nothing is **build-approved**.

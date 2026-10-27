@@ -220,10 +220,10 @@ def print_area(env):
         "probe_coil_y_at_front_print_limit_mm": {k: front + v for k, v in coil.items()},
         "probe_over_bed_at_front_print_limit": all(front + v - COIL_RADIUS >= BED_FRONT_Y for v in coil.values()),
         "rear_print_limit_nozzle_y_mm": 359.0,
-        "probe_coil_y_at_rear_print_limit_mm": {k: 359.0 + v for k, v in coil.items()},
-        "probe_reaches_whole_print_area_with_shifted_bed": all(
-            359.0 + v + COIL_RADIUS <= 359.0 + SHIFT for v in coil.values()),
-        "probe_reaches_whole_print_area_with_cut_bed": all(359.0 + v + COIL_RADIUS <= 359.0 for v in coil.values()),
+        # The mesh is measured at probe positions: the coil can reach bed Y up to the bed edge less its radius.
+        "probe_mesh_rear_bed_y_mm": {"cut_bed": 359.0 - COIL_RADIUS, "shifted_bed": 359.0 + SHIFT - COIL_RADIUS},
+        "probe_reaches_whole_print_area_with_shifted_bed": 359.0 + SHIFT - COIL_RADIUS >= 359.0,
+        "probe_reaches_whole_print_area_with_cut_bed": 359.0 - COIL_RADIUS >= 359.0,
         "source": {"file": "verification_ten_tool_closed_panel_dock.json",
                    "sha256": sha(ROOT / "verification_ten_tool_closed_panel_dock.json")},
         "klipper_note": ("The coils sit behind the nozzle in printer Y (Y grows toward the rear). The README's "

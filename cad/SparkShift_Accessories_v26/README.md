@@ -250,7 +250,8 @@ Render the comparison with `python render_bambu_clean_r30.py`.
 Limitations: the front fan insert keeps a 0.65 mm wall to the apron front face. Fan
 cooling at the 1.5 mm gap, insert pullout, printed strength and socket temperature are
 unqualified. The ten-tool rack and low-Z bed audits were not rerun. The fixed-rack low-Z
-bed collision and the probe-cable entry issue remain unresolved.
+bed collision and the probe-cable entry issue were open at this revision; revisions 34 and
+35 resolve them.
 
 **Split toolhead considered, not adopted.** A common upper part, with the Red Lizard
 bolted on through its four M2.5 heatsink screws and a Bambu lower module on the same
@@ -487,11 +488,12 @@ change: the bed's front edge at Y40 mm or further back.** The parked envelope en
 Y35.41 mm, so the absolute minimum for a 1 mm gap is Y36.41 mm. Either:
 
 - **Option B, preferred: move the stock 350 × 350 bed and its mounts back 31 mm**
-  (Y40..390). The bed, heater and sheet stay standard. The nozzle still stops at Y359,
-  so the rear 31 mm is never printed on, but the Beacon or Cartographer coil, 19.5 mm
-  behind the nozzle, then has bed under it over the whole print area. With the bed where
-  it is today, the rear 19.5 mm of the print area cannot be probed.
-- **Option A: a 350 × 319 mm bed, heater and sheet** spanning Y40..359.
+  (Y40..390). The bed, heater and sheet stay standard. The nozzle can then use the
+  Monolith's rear overtravel to Y364 (see the travel limits below), and the probe, which
+  trails the nozzle by 19.5 mm, can mesh the bed right to the rear print limit.
+- **Option A: a 350 × 319 mm bed, heater and sheet** spanning Y40..359. The nozzle stops
+  at the bed edge, and the last 10 mm at the rear cannot be meshed because the coil needs
+  bed around it, as with the original bed.
 
 The build sheet needs no tab or overhang at the front edge. Nothing in the rack, docks,
 toolheads, carriage or gantry changes.
@@ -523,18 +525,64 @@ both parked hotends and all ten bays at nozzle Z0.2 (first layer) and Z0 (contac
   revision-22 diagnostic with only the bed moved back 31 mm. Fusion measures the same
   4.59 mm from all ten docks to the bed.
 
-Found during this audit and **not changed here**:
+**Travel limits and print area** ([report](./verification_travel_limits_r34.json),
+`python audit_travel_limits_r34.py`, about 20 minutes). Contact is tested exactly every
+0.5 mm along each path and bisected to 0.01 mm, at nozzle X0, 25, 175, 325 and 350 with
+both tools:
 
-- **P22 duct over the Bambu nozzle.** P22's lowest point (local Z-77.85 mm) is 1.03 mm
-  above the Red Lizard and v26 Volcano tips but only 0.28 mm above the Bambu tip
-  (Z-78.13), so at a 0.2 mm first layer it passes 0.48 mm above the bed with the Bambu
-  tool active. It predates revision 31 (the released P22 has the same lowest point) and
-  needs a Bambu-specific fix, for example trimming P22's lowest lip or lowering the Bambu
-  nozzle.
-- **Probe y_offset sign.** The coil sits 19.5 mm (Beacon) or 19.82 mm (Cartographer)
-  behind the nozzle in printer Y, which grows toward the rear. The probe snippets further
-  down and `klipper/sparkshift_toolchanger.cfg` use `y_offset: -19.50` / `-19.82`, which
-  look sign-flipped in printer coordinates. Confirm with a probe test before meshing.
+| Limit | Nozzle Y |
+|---|---|
+| Dock seat (every bay) | 20.71 |
+| Front print limit: active tool clear of every parked tool | 63.21 |
+| X-traverse corridor used by the toolchange | 80.71 |
+| Rear rail end: the X beam's 40 mm Y blocks reach the end of the 400 mm rails | 365.15 |
+| X beam reaches the Monolith rear motor mount | 365.26 |
+| Carriage reaches the rear motor mounts (P22) or the rear extrusion (P21, X175 only, at 385.9) | 367.40 |
+| **Recommended rear soft limit (1 mm inside the rail end)** | **364.15** |
+
+At the front, the rails would allow Y5.05 (the beam meets the front idler mount at
+Y2.94), well forward of the dock seat. This matches Monolith's published overtravel
+(+13 mm in Full Travel mode against a stock Voron's +10 mm): it adds a few millimetres at
+the rear only, and does not recover the strip the docks take.
+
+| Bed | Printable (X × Y) | Nozzle Y | Probe can mesh bed Y | Not meshed |
+|---|---|---|---|---|
+| Option A, Y40..359 | 350 × 295.8 mm | 63.21..359 | 83.03..349 | front 19.8 mm, rear 10 mm |
+| Option B, Y40..390 | 350 × 300.9 mm | 63.21..364.15 | 83.03..380 | front 19.8 mm |
+
+The front 19.8 mm of the print area cannot be meshed with either bed: the probe trails
+the nozzle and the parked tools stop the nozzle at Y63.21. Klipper uses the nearest mesh
+row there. A stock Voron 2.4 350 prints 350 × 350 mm; the ten front docks cost about
+54 mm of depth, and revision 34 does not change that.
+
+Found during and after this audit:
+
+- **P22 over the Bambu nozzle: a reference-model artifact, not a P22 problem.** P22's
+  lowest points are its two outlet lobes either side of the nozzle (X±8.5..20.3, flat
+  bottoms at local Z-77.85, over a 1.2 mm floor). They sit 1.03 mm above the Red Lizard
+  and v26 Volcano tips (Z-78.879), and the audit first reported only 0.28 mm above the
+  Bambu tip. That tip (Z-78.131) comes from the synthetic Bambu reference: its 2 mm
+  filament bore runs straight out of the nozzle, so the 31° outer cone (apex Z-79.795)
+  ends in a knife edge where the cone reaches the bore radius. The Red Lizard model has a
+  realistic 1.0 mm tip face around a 0.4 mm orifice. The same face on the Bambu cone puts
+  its tip at about Z-78.96, within 0.1 mm of the Z-78.88 datum the toolhead was designed
+  to, giving P22 about 1.1 mm and the probe coil about 2.35 mm above it. P22 is not
+  changed. Audits that placed the Bambu tool by the modeled tip ran the gantry 0.75 mm
+  lower than it really is, so their bed and frame clearances err on the safe side.
+  **To confirm on the hotend:** the nozzle tip should be about 38.75 mm below the centres
+  of the two upper mounting holes (Z-40.13). If it is, use the Red Lizard silicone pad and
+  wiper heights (top Z-78.88) on the Bambu docks too; the revision-21 Bambu pad and wiper
+  (top Z-78.13) follow the artifact and a real nozzle would press about 0.8 mm into them.
+- **Probe height versus the makers' nominal.** The coil bottom sits 2.27 mm (Beacon) or
+  2.28 mm (Cartographer) above the Z-78.88 tip. Beacon's quick start gives a nominal
+  2.6 mm and Cartographer's documentation 2.6–3 mm, so both are about 0.3 mm low; P23 is
+  not changed here.
+- **Probe y_offset sign (fixed after revision 34).** The coil sits 19.5 mm (Beacon) or
+  19.82 mm (Cartographer) behind the nozzle in printer Y, which grows toward the rear:
+  the Beacon coil centre is at world Y40.21 with the nozzle at Y20.71. Klipper places
+  the probe at nozzle + offset, so the probe snippets further down and
+  `klipper/sparkshift_toolchanger.cfg` now use `y_offset: 19.50` / `19.82` instead of
+  the earlier negative values. Confirm with `PROBE_CALIBRATE` before meshing.
 
 Limitations: rigid CAD with the revision-21 parked tools and docks. The revision-33
 toolheads keep the same dock interface, but the full ten-tool rack audit has not been
@@ -543,6 +591,45 @@ check the space in front of the new bed edge, from Y-38 to the edge and down to 
 below the bed top, on the printer. Bed thermal growth at the front edge (about 0.4 mm at
 100 °C) is well inside the 4.59 mm gap. Klipper limits and probe offsets are not
 commissioned.
+
+#### Probe-cable entry through P24 (revision 35)
+
+The Beacon or Cartographer cable (3.0 mm) runs from the probe's rear dome under the X beam,
+up P21's raceway at Y-34.9 and forward under P20's cable-channel roof at Z-15.8. It passes
+under the EBB42 into the wiring bay between the board and the extruder motor. Since
+revision 21, its last 2.4 mm ran through P24's bottom crossbar and P21 bridge plate
+(15.5 mm3). Raising the forward run clears P24 only by hitting P20's roof (revision 22),
+so there is no vertical room for it.
+
+Revision 35 cuts one straight slot through P24's bottom at X0. It is 3.8 mm wide (0.4 mm
+each side of the cable) and runs from P24's rear face to Y-19.48, through the full
+bottom and open to the bay above. The modeled cable continues through it, turns up with an
+R5 bend and rises at Y-21.0, 2.9 mm from the board's standoff plane and 2.8 mm from the
+motor. Nothing else in P24 changes, and P20, P21 and the core are untouched.
+
+![P24 before and after from above (cut below the board) and in section at X0](./images/65_p24_cable_entry_r35_before_after.png)
+
+Verification (`python build_p24_cable_entry_r35.py`,
+[report](./verification_p24_cable_entry_r35.json)):
+
+- P24 stays one valid solid with 87.9 mm3 removed. Outside the slot, its volume, surface
+  area and centroid match the released part.
+- The slot leaves 2.51 mm to the counterbores of the two P24-to-P21 bolts, and P24's seat
+  on P21 goes from 624 to 594 mm2. The bottom crossbar is now split at X0; both halves
+  stay bolted to P21 and joined by the bridge plate in front of the slot.
+- The cable clears P24 by 0.40 mm (the slot walls), the motor by 2.80 mm, P23 by
+  7.06 mm and P20 by 0.29 mm. The unchanged under-beam part of the route keeps its
+  inherited 0.05 mm to P21 and P22. The revision-21 cable no longer touches P24
+  (15.5 mm3 before, 0 after).
+
+Files: [P24 STEP](./step/P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW.step)
+([STL](./stl/P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW.stl)),
+[cable route](./step/Probe_Cable_Route_R35_REVIEW.step) and
+[111-solid carriage assembly](./step/35_Carriage_Probe_Cable_Entry_REVIEW.step).
+Render with `python render_p24_cable_entry_r35.py`. The EBB42 board and its connectors are
+not modeled (the board position comes from P24's standoffs). The cable is a rigid 3.0 mm
+tube; its connectors, strain relief and the exit above Z20 are not modeled, and the split
+crossbar's printed strength is not qualified.
 
 #### Faster verification (`fast_geometry.py`)
 
@@ -634,8 +721,8 @@ exports are not approved successors to revision 21.
 
 The cable-route screen also confirms that simply raising the upper cable
 bend is not a fix: at Z-12 mm it clears P24 by 0.2 mm but intersects P20
-by approximately 6.10 mm3. The existing P24 entry interference remains
-unresolved, and neither accessory print has been modified to conceal it.
+by approximately 6.10 mm3. The P24 entry interference was left unchanged
+here; revision 35 resolves it with a cable slot in P24.
 
 `build_refined_docking_review.py` now targets revision 22 and includes a
 mandatory low-Z bed gate before the full-rack qualification. Use
@@ -1512,7 +1599,8 @@ The complete Klipper macro suite in [`klipper/sparkshift_toolchanger.cfg`](../..
 [beacon]
 serial: /dev/serial/by-id/usb-Beacon_Beacon_RevH_...
 x_offset: 0.0
-y_offset: -19.50
+# Coil centre 19.50 mm behind the nozzle (+Y, toward the rear): probe = nozzle + offset
+y_offset: 19.50
 # Coil bottom is 2.269 mm above nozzle tip (Z = -76.610 vs -78.879 mm)
 mesh_main_direction: x
 mesh_runs: 2
@@ -1527,7 +1615,8 @@ probe_points: 175, 175, 20
 [cartographer]
 canbus_uuid: <your_cartographer_uuid>
 x_offset: 0.0
-y_offset: -19.82
+# Coil centre 19.82 mm behind the nozzle (+Y, toward the rear): probe = nozzle + offset
+y_offset: 19.82
 # Coil bottom is 2.279 mm above nozzle tip (Z = -76.600 vs -78.879 mm)
 
 [adxl345 cartographer]

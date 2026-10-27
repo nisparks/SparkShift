@@ -113,9 +113,9 @@
     },
     "probe_over_bed_at_front_print_limit": true,
     "rear_print_limit_nozzle_y_mm": 359.0,
-    "probe_coil_y_at_rear_print_limit_mm": {
-      "Beacon_RevH": 378.5,
-      "Cartographer_V3": 378.82
+    "probe_mesh_rear_bed_y_mm": {
+      "cut_bed": 349.0,
+      "shifted_bed": 380.0
     },
     "probe_reaches_whole_print_area_with_shifted_bed": true,
     "probe_reaches_whole_print_area_with_cut_bed": false,
@@ -4155,5 +4155,5 @@
     "No thermal expansion, bed mesh, gantry sag or QGL residual is included; the 4.6 mm edge gap covers them in Y, which is the only direction that matters for this clearance.",
     "Klipper coordinates, probe offsets and the bed mesh limits must be commissioned on the machine."
   ],
-  "runtime_s": 86.599447399989
+  "runtime_s": 90.2797256000049
 }
