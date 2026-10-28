@@ -1,11 +1,12 @@
 """Colour-scheme review: the current build in its print colours (print_colors.py), for Fusion.
 
-The revision-40 carriage with every core part coloured separately (the print set's revision-31 P01 and COTS
-P02-P05, the v26 bodies for the rest), withdrawn 60 mm from bay T4 with its tool; the nine other tools
-parked in their docks (Bambu in even bays, Red Lizard in odd); the docks, crossbar, P29/P30 rack and the
-Monolith X gantry, whose printed parts are the user's own and stay black. Each bay's tool and dock are
-located instances of one set of shapes per variant and colour. Writes WORK/print_colour_review.step (about
-160 MB, not committed).
+The revision-41 carriage with every core part coloured separately (the print set's revision-31 P01, the
+revision-41 P02 and the 15x5x3 P03, COTS P04F and P05, the v26 bodies for the rest), withdrawn 60 mm from bay
+T4 with its tool; the nine other tools parked in their docks (Bambu in even bays, Red Lizard in odd); the docks,
+crossbar, P29/P30 rack and the Monolith X gantry, whose printed parts are the user's own and stay black. Each
+bay's tool and dock are located instances of one set of shapes per variant and colour. Writes
+WORK/print_colour_review.step (about 160 MB, not committed). Run build_carriage_fixes_r41.py first: it writes
+the revision-41 STEPs and scene this reads.
 
 Run: python build_print_colour_review.py
 """
@@ -14,17 +15,16 @@ import os
 
 import build_and_verify_accessories_v26 as acc
 
-os.environ["SPARKSHIFT_SCENE"] = str(acc.WORK / "r40_scene")
+os.environ["SPARKSHIFT_SCENE"] = str(acc.WORK / "r41_scene")
 
 import cadquery as cq  # noqa: E402
 
 import build_chute_chamfer_rack_r36 as r36  # noqa: E402
 import print_colors as C  # noqa: E402
 import r37_parts as P37  # noqa: E402
-import r40_parts as P  # noqa: E402
+import r41_parts as R  # noqa: E402
 from audit_tool_owned_2510 import bounds, compound  # noqa: E402
 from build_modular_toolhead import load  # noqa: E402
-from build_p24_cable_entry_r35 import NAMES as R35  # noqa: E402
 from build_refined_docking_review import DOCK_NAMES  # noqa: E402
 
 OUT = acc.WORK / "print_colour_review.step"
@@ -36,8 +36,8 @@ CORE_PRINTS = {
     "PRINT_SINGLE_SPRING_PRESSURE_CUP": "P12", "PRINT_MONOLITH_CARTRIDGE_LINER_left": "P13",
     "PRINT_MONOLITH_CARTRIDGE_LINER_right": "P14", "PRINT_MONOLITH_CARTRIDGE_ARCH_left": "P15",
     "PRINT_MONOLITH_CARTRIDGE_ARCH_right": "P16"}
-PRINT_SET = {"P01": "P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW", "P02": "P02_Motor_servo_plate_12p5mm",
-             "P03": "P03_Front_case_COTS", "P04F": "P04F_Swing_arm_front_half_COTS", "P05": "P05_Servo_cam_COTS"}
+PRINT_SET = {"P01": "P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW", "P02": R.NAMES["p02"],
+             "P03": R.NAMES["p03_15x5x3"], "P04F": "P04F_Swing_arm_front_half_COTS", "P05": "P05_Servo_cam_COTS"}
 OLD_TOOL = ("TOOL_", "HF_0", "M2_5x8_HF", "PTFE_4x2", "REFERENCE_loaded", "PRINT_RedLizard", "OCT_TOOL_",
             "CLOSING_SPRING")
 LEADS = {"red": (0.8, 0.1, 0.1), "green": (0.1, 0.6, 0.2), "yellow": (0.9, 0.8, 0.1), "blue": (0.1, 0.3, 0.8)}
@@ -102,11 +102,12 @@ def core():
 
 def accessories():
     b = P37.beacon()
-    out = [("P20_" + P.NAMES["p20"], P.p20()[0], C.part("P20")), ("P21_" + P.NAMES["p21"], P.p21()[0], C.part("P21")),
-           ("P22_" + P37.NAMES["p22"], P37.p22()[0], C.part("P22")), ("P23_" + P37.NAMES["p23"], P37.p23(), C.part("P23")),
-           ("P24_" + R35["p24"], load(R35["p24"]), C.part("P24")), ("Probe_cable", P37.cable(), C.hex_rgb("cable")),
+    out = [("P20_" + R.NAMES["p20"], load(R.NAMES["p20"]), C.part("P20")),
+           ("P21_" + R.NAMES["p21"], load(R.NAMES["p21"]), C.part("P21")),
+           ("P22_" + R.NAMES["p22"], load(R.NAMES["p22"]), C.part("P22")), ("P23_" + P37.NAMES["p23"], P37.p23(), C.part("P23")),
+           ("P24_" + R.NAMES["p24"], load(R.NAMES["p24"]), C.part("P24")), ("Probe_cable", P37.cable(), C.hex_rgb("cable")),
            ("Beacon_RevH", compound(b[2:5]), C.hex_rgb("probe")), ("EBB42", P37.ebb42(), C.hex_rgb("pcb"))]
-    for n, s in P.other_hardware() + P37.probe_hardware():
+    for n, s in R.other_hardware() + P37.probe_hardware():
         out.append((n, s, C.hex_rgb("brass" if "HEATSET" in n else "steel")))
     return out
 

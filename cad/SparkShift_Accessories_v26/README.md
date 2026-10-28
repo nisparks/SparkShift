@@ -1,12 +1,16 @@
 # SparkShift v26 Accessory & 3010 Toolhead Suite — Beacon RevH / Cartographer V3, Pure-Primitive CPAP Ducting, BTT EBB42 CAN Mount & 3010/2510 High-Flow Toolhead Carriers
 
-**Current status: CAD review through revision 40; nothing has been printed or fitted.**
+**Current status: CAD review through revision 41. The first carriage has been printed and assembled,
+and revision 41 fixes what it showed; nothing is machine-qualified.**
 The [latest reviews](#33-one-piece-bambu-toolhead-with-side-2510) keep the dock rack
 rigidly bolted across the front of the gantry, with the stock bed moved back 31 mm (option
 B, revision 34). The full ten-tool rack requalifies with the current parts (revisions 36, 37,
-39 and 40), and the print area is about 350 × 311 mm (revision 39). Revision 40 moves the
-P20-to-P21 screws clear of the EBB42 and records two notes on the CPAP/EBB42 stack. Print from the
-[current print set](../../PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-40),
+39, 40 and 41), and the print area is about 350 × 311 mm (revision 39). Revision 40 moves the
+P20-to-P21 screws clear of the EBB42 and records two notes on the CPAP/EBB42 stack. Revision 41
+replaces P24 with a plain frame, thickens the CPAP joints, widens the outlet's horizontal jets,
+bolts P22's cheeks flat to P01's bosses, tightens the servo recess and makes P03 in one version per
+magnet. Print from the
+[current print set](../../PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-41),
 starting with a first-article set; it suggests a [colour for each part](../../PRINT_PARTS.md#colour-scheme). Nothing is build-approved or machine-qualified.
 Earlier front-fan, vented-dock and firmware descriptions below are historical;
 their qualification claims do not apply to the current CAD-review-only design.
@@ -1091,6 +1095,157 @@ from the button heads to the board, and the note-1 gaps of 0.0 mm (P21 to the be
 **Limits.** Insert pull-out and printed-part creep are not qualified. Whether the conduit actually
 rubs depends on the real extrusion, rail and printed parts.
 
+#### First-build fixes: P24, CPAP joints and outlet, P22 mounts, servo recess, P03 per magnet (revision 41)
+
+The first carriage was printed and put together, and it showed these problems:
+
+- P24, the EBB42 mount, was complicated and had thin areas.
+- The CPAP outlet was too small and restricted the blower.
+- The CPAP joints went together well, but some of their walls were thin.
+- P03 had one universal pocket for every magnet choice instead of one version per magnet.
+- The MG90D servo had a little slack in P02's recess.
+- P22's two cheeks wrapped P01's front bosses with very thin walls.
+
+Revision 41 fixes them without moving any interface: the fastener positions, the EBB42 and probe
+positions and the outside of the CPAP parts stay where they were. A first draft also added slots
+through P22's floor and cheeks along the servo; both were dropped at review (the slots blew down
+at the bed, and the servo only needed a tighter recess).
+
+- **P24 is a plain frame.** A foot on P21's saddle, a deck under the motor, a solid wall at +X, a
+  column at -X, a block over each top corner and a tower under each bottom corner, all reaching
+  P02's rear face, which is also the print face. The wire comb, the two dead rear holes and the hook
+  over P02's top edge are gone; P21's two screws hold the frame.
+  - Its walls are 0.85 mm and up, with 10 mm² under 1.0 mm (released: 0.03 mm and 381 mm²). The
+    thinnest is where the top-left insert channel passes the servo header's plug.
+  - The four M3 × 4 heat-sets move 2.8 mm forward, behind a Ø3.4 step, so each screw pulls its
+    insert against the step. They are pressed in from the side that faces P02; the upper two go in
+    through Ø4.4 channels in the corner blocks.
+  - The EBB42's parts stay 0.25 mm clear and every connector keeps room for its plug and wires. The
+    frame bears on P02 over 409 mm² and on P21 over 379 mm².
+  - The two core screw heads on P02's rear face sit in U-slots that open straight through the
+    nearest face of their blocks.
+  - Below its deck the frame keeps to P21's saddle outline: at the X limits the 9 mm 2WD XY joints
+    reach in to |X| 10.7. It stays 0.68 mm from them (released 0.63 mm).
+- **CPAP joints, three perimeters.** The sockets and sleeves thicken inward from 0.84 and 0.82 mm to
+  1.25 mm and keep the 0.18 mm slip. The thinnest joint walls go from 0.78 mm (P20), 0.79 mm (P21)
+  and 0.03 mm (P22) to 1.21-1.22 mm.
+  - The probe-cable bosses at the joints grow to match, with the same 0.06 mm slip.
+  - The bore through each sleeve narrows to 213 mm² (released 287 mm²), about the hose's own
+    211 mm². A 45° taper leads into it; in P20 the taper runs out to the funnel's back wall, which
+    leans back toward the hose cuff.
+  - P22's socket floor met the roof of its forward sweep in a feather edge along the front. It is
+    cut back to the socket wall; P21 seats on P22's top rim, not on that edge.
+- **Outlet: wider horizontal jets.** The two jets still blow straight across the nozzle at the
+  plastic it has just laid, not down at the bed. Each left through a 1.8 mm throat under a vane
+  that ended in a knife edge (0.04 mm), over a floor lip that ended in a feather edge.
+  - The vane is cut off flat at Z-73.6, leaving the wall between the duct and the hotend slot a
+    1.4 mm flat bottom, and the floor lip is trimmed back to that wall. Each jet now leaves through
+    a 3.05 mm opening between the floor and the wall; the floor under the jets stays solid.
+  - The jets' open area is 59 mm², 1.7 times the released 34 mm² (measured inside P22's outer
+    profile), against 154-175 mm² in the side channels and 211 mm² in the hose.
+  - The jets can only grow upward: P22's underside is 1 mm above the nozzle tip, under a 1.2 mm
+    floor. Their top stays 0.32 mm under the Red Lizard's heater block. On the Bambu, the upper
+    1.9 mm of each jet meets the side of the silicone sock (the released jets' top 0.6 mm did).
+  - The outlet's walls are 1.2 mm and up (released 0.045 mm). P22's gap to both hotends is
+    unchanged.
+- **P22 face-mounts on P01.** Each upper cheek wrapped round P01's front boss with walls of 0.05 mm
+  on the inner side and 0.42 mm on the outer, open on top; the screw head's counterbore came within
+  0.05 mm of the outer face.
+  - Each cheek now stops at the boss's front face and bears on it, face to face (34 mm²), and its
+    screw locates it. Nothing of P22 surrounds the boss.
+  - The counterbore is filled: the cheek is solid round a plain Ø3.3 hole, with walls of 1.38 mm
+    and up. An M3×8 ISO 7380 button head sits on the cheek's front face, 3.6 mm clear of the
+    mounted tool, with 3.7 mm of thread in P01's insert.
+- **P02: a snug servo recess.** The MG90D's top 4.5 mm sits in the same recess in P02's rear face,
+  now 12.20 × 22.90 mm (released 12.30 × 23.05). That is line to line across TowerPro's
+  12.2 × 22.8 mm body and 0.05 mm at each end (released 0.05 and 0.125 mm). Nothing else on P02
+  changes; the two ear screws stay. If your servo measures differently, change `SERVO_POCKET` in
+  `r41_parts.py`.
+- **P03 comes in four versions**, one per magnet: 4× 15×5×3 or 12×6×3 mm bars, or 8× Ø6×4 or Ø6×3 mm
+  discs, all where the tools' receiver magnets expect them.
+  - Each pocket is 0.10 mm over the magnet's width or diameter and 0.15 mm over its length. Each
+    magnet stands 0.2 mm proud, 0.36 mm from a mounted tool.
+  - A 6 mm magnet's inner edge is only 0.3 mm from P03's centre slot, too thin to print (the
+    released pocket left 0.2 mm). Those pockets open into the slot wherever the wall would be under
+    0.6 mm. The 15×5×3 bars keep a 0.75 mm wall.
+  - Ø6×4 discs need pockets 3.8 mm deep. At the three +X discs (Z 30.5, 5.5 and -2.0) P03's wall is
+    only 4.3 mm thick, with carriage parts right behind it, so their floor is 0.5 mm (released
+    0.27 mm). Glue them in; Ø6×3 discs or bars avoid it.
+  - There is no lead-in chamfer: it would cut into the centre slot and into the notch above the upper
+    pockets.
+
+![Revision 41: P24 released and as a frame, the CPAP joints in section, and the outlet cut through the nozzle](./images/79_carriage_fixes_r41_p24_joints_outlet.png)
+
+![Revision 41: P02's servo recess, P22's cheek on P01's boss, and the four P03 versions with their magnets](./images/80_carriage_fixes_r41_servo_mounts_magnets.png)
+
+**Hardware.**
+
+- P24: 4× M3 × 4 mm heat-set inserts (OD 4.2) in Ø4.0 holes, pressed in from the side that faces
+  P02.
+- EBB42 to P24: 2× M3×18 socket heads through P20's wings and the board (upper), and 2× M3×14 from
+  behind the board (lower, were M3×12). Shorter screws don't reach the moved inserts.
+- P22 to P01: 2× M3×8 ISO 7380 button heads on the cheeks' front faces (were M3×10 socket heads in
+  counterbores), into the same inserts in P01's bosses.
+- Fit the motor before P24: its upper ear screw's head sits in one of P24's U-slots, and the
+  P02-to-P01 button head in the other.
+- P03: the magnets for your version, glued in.
+
+**Verification.** Run `python build_carriage_fixes_r41.py --workers 10`
+([report](./verification_carriage_fixes_r41.json)). It passes, in 27 minutes:
+
+- **Parts.** Every revision-41 part is a single valid solid. P20, P21, P22, P02 and the four P03s
+  change only inside their edit zones, and the CPAP parts don't grow: P22's nose is 0.16 mm
+  shorter where the floor lip is trimmed.
+- **Joints.** The sleeves keep 0.18 mm radial slip and the cable bosses 0.06 mm. The thinnest joint
+  walls are 1.21-1.22 mm (released 0.78, 0.79 and 0.03 mm); the bore through each sleeve is
+  213 mm².
+- **Outlet.** The jets' narrowest section is 58.9 mm² (released 33.9 mm²) and the floor under them
+  is solid. The outlet's thinnest wall is 1.2 mm (released 0.045 mm). The jets' top is 0.32 mm
+  under the Red Lizard's heater block, and P22 keeps its 1.92 mm (Bambu) and 1.72 mm (Red Lizard)
+  gaps to the hotends.
+- **P22 on P01.** No P22 is left round either boss (released 57 mm³ each). Each cheek is 0.05 mm
+  from its boss's face, with 34 mm² of bearing. Each screw has 3.74 mm of thread in its insert and
+  touches neither part; the nearer head is 3.63 mm from a mounted tool. The cheek walls are 1.38 mm
+  and up (released 0.03 mm).
+- **P24.** The EBB42's parts stay 0.25 mm clear and every plug zone is empty. It bears on P02 over
+  409 mm² and on P21 over 379 mm², with walls of 0.85 mm and up.
+- **P02.** The recess doesn't touch TowerPro's 12.2 × 22.8 mm body. The v26 servo model is 22.96 mm
+  long and overlaps each end of the recess by 0.03 mm (3.25 mm³ in all). The recess walls are
+  1.22 mm (released 1.16 mm).
+- **P03.** In every version the magnets fit with 0.05 mm a side, stand 0.20 mm proud and clear both
+  mounted tools by 0.36 mm.
+- **Carriage.** Every pair of carriage parts and fasteners, with the 15×5×3 P03, shows no new
+  interference or contact. The 27 overlaps inside the revision-31 core (screws in inserts and
+  self-tapping holes) match the released core's, and the four EBB42 screws pass only through the
+  board's standoffs. Nothing that changed touches the Cartographer or the mounted tools, and no
+  metal enters the Beacon's keepouts.
+- **Gantry.** No changed part comes closer to the X beam, the rail or the XY joints than before; P24
+  is 0.68 mm from the joints (released 0.63 mm).
+- **Rack.** The full revision-36 requalification, rerun with the revision-41 carriage, is clean:
+  - own-dock docking and withdrawal for both tools, with the Beacon and with the Cartographer
+    (242 samples);
+  - the eight mixed-neighbour cases (488 samples);
+  - the 20 bay/hotend cases (2,420 samples);
+  - the X gantry backing out (121 samples);
+  - both X0..350 traverses (702 samples).
+
+  None of the 80 bed cases collide, with 4.59 mm minimum clearance. Side clearances stay at
+  2.40 / 1.60 mm.
+- **Rear travel.** The carriage clears the flying gantry at the stock rear limit (nozzle Y359) and
+  at the rails' end (Y365.15), as in revision 40: P20 is 6.70 mm from it at Y359, P21 and P22
+  2.25 mm at Y365.15.
+
+The Fusion native review "41 Carriage build fixes (native review)" is archived as
+[`41_Carriage_Build_Fixes_REVIEW.f3d`](./41_Carriage_Build_Fixes_REVIEW.f3d);
+`python build_carriage_fixes_r41.py` regenerates its STEP (86 MB, not committed). It reopens with
+243 bodies, and its P20, P21, P22, P24, P02 and P03 volumes match the report. Fusion measures
+0.25 mm from P24 to the EBB42 and 0.05 mm from P22 to P01. Render with
+`python render_carriage_fixes_r41.py`.
+
+**Limits.** Airflow is compared by open area, not simulated. The recess fits TowerPro's datasheet
+body: measure your servo, and change `SERVO_POCKET` if it differs. Insert pull-out, printed-part
+creep and magnet glue joints are not qualified.
+
 #### Faster verification (`fast_geometry.py`)
 
 The review scripts now share [`fast_geometry.py`](./fast_geometry.py), and the full
@@ -2027,17 +2182,17 @@ See [`verification_two_adapter_feasibility.json`](./verification_two_adapter_fea
   - `2×` in `P21_CPAP_Gantry_Bridge` upper bridge saddle (`(±6.00, -15.80, -18.40)`)
   - `2×` in `P01_Drive_Frame` front upper bosses (`(±18.00, +11.90..15.90, -52.78)`; revision-31 review: `Z = -54.28`)
   - `4×` in `P22_CPAP_Lower_Plenum` bottom registering spigots (`(±15.80, +8.50, -70.80)` & `(±15.80, -11.50, -70.80)`; revision-37 review: `4× M3 × 3 mm` inserts at `(±15.80, -0.30)` & `(±15.80, -19.50)`)
-  - `2×` in `P24_EBB42_Controller_Mount` upper standoffs (`(-16.748, -21.40, +22.00)` & `(+14.252, -21.40, +22.00)`)
+  - `2×` in `P24_EBB42_Controller_Mount` upper standoffs (`(-16.748, -21.40, +22.00)` & `(+14.252, -21.40, +22.00)`; revision 41: `4×` M3 × 4 mm, OD 4.2, at all four corners of `P24_EBB42_Frame_Mount`, `Y = -22.60..-18.60`, pressed in from the side that faces P02)
 - **M3 Hex Nuts (`2×`):**
   - `2×` captive in `P23_Beacon_Cartographer_Mount` side slots (`(±15.80, -0.30, -72.55)`) for Beacon H or Cartographer V3 (none in the revision-37 review)
 - **M3 Socket Head Cap Screws (`18×`):**
   - `2× M3×8 SHCS` — `P20` rear lugs down into `P21` (`(±4.50, -31.20)`; revision 40: ISO 7380 button heads at `(±5.50, -30.20)`, seated at `Z = -15.80` in the lugs, under the EBB42)
   - `2× M3×8 SHCS` — `P24` lower horizontal foot down into `P21` upper bridge (`(±6.00, -15.80)`)
-  - `2× M3×10 SHCS` — `P22` front upper cheeks into `P01` (`(±18.00, -52.78)`; revision-31 review: `Z = -54.28`)
+  - `2× M3×10 SHCS` — `P22` front upper cheeks into `P01` (`(±18.00, -52.78)`; revision-31 review: `Z = -54.28`; revision 41: `M3×8` ISO 7380 button heads seated on the cheeks' front faces, no counterbore)
   - `4× M3×8 SHCS` — `P23` upward into `P22` (`(±15.80, +8.50)` & `(±15.80, -11.50)`; revision-37 review: `2× M3×4` ISO 7380 button heads on the rear ears at `(±15.80, -19.50)`)
   - `2× M3×8 Low-Profile SHCS` — Beacon H Normal or Cartographer V3 into `P23` (`(±15.80, -0.30)`; revision-37 review: `M3×6` low-profile through `P23` into `P22` inserts)
-  - `2× M3×12 SHCS` — `P24` lower EBB42 standoffs (`Z = -9.00 mm`, from rear through `P24` into EBB42 pre-soldered standoffs)
-  - `2× M3×18 SHCS` — `P20` upper wings through EBB42 upper mounting holes into `P24` upper inserts (`Z = +22.00 mm`)
+  - `2× M3×12 SHCS` — `P24` lower EBB42 standoffs (`Z = -9.00 mm`, from rear through `P24` into EBB42 pre-soldered standoffs; revision 41: `M3×14` from behind the board into P24's lower inserts)
+  - `2× M3×18 SHCS` — `P20` upper wings through EBB42 upper mounting holes into `P24` upper inserts (`Z = +22.00 mm`; revision 41: the same length reaches through the moved inserts)
   - `2× M3×14 SHCS` — `3010` or `2510` axial fan to `P17` lower mounting holes (`Z = -50.00 mm`)
 
 ---

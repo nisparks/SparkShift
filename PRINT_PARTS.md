@@ -6,19 +6,28 @@
 > qualified. These are inspection meshes, not a slicer project, support plan,
 > material recommendation, G-code, or approval for loaded/heated operation.
 
-## Current print set for the toolchanger build (revision 40)
+## Current print set for the toolchanger build (revision 41)
 
 Print these files for the ten-tool machine: one file per part, at its latest revision. Older
 versions stay in `stl_v26/` and `cad/SparkShift_Accessories_v26/stl/` as history; in
 particular, the P17, P18 and P22–P26 files in `stl_v26/` are superseded. Every STL has a
 matching STEP in [`cad/SparkShift_Accessories_v26/step/`](cad/SparkShift_Accessories_v26/step/).
 P04R, P06–P09, P12–P16, P27 and P28 come laid flat for printing. The rest are in their assembly
-position, so lay each on a flat face in the slicer (P01 rear face down). The Colour column is a
-suggested scheme; see [Colour scheme](#colour-scheme).
+position, so lay each on a flat face in the slicer (P01 rear face down, P24 on the face that sits
+against P02). The Colour column is a suggested scheme; see [Colour scheme](#colour-scheme).
 
-Nothing below has been printed or fitted yet. **Print a first-article set first**: the
+The first carriage has been printed and assembled. Revision 41 reworks the parts that build showed
+problems with: P02, P03, P20, P21, P22 and P24
+([details](cad/SparkShift_Accessories_v26/README.md#first-build-fixes-p24-cpap-joints-and-outlet-p22-mounts-servo-recess-p03-per-magnet-revision-41)).
+The tools, docks and rack haven't been printed yet. **Print a first-article set first**: the
 carriage, one Bambu tool, one Red Lizard tool and two docks. Check:
 
+- the MG90D in P02's tighter recess (12.20 × 22.90 mm) with no slack, and your magnets in the P03
+  made for them (new in revision 41);
+- P24's four heat-set inserts, pressed in from the side that faces P02, and the EBB42 on them
+  (new in revision 41);
+- the CPAP joints going together, P22's cheeks bearing flat on P01's bosses, and the jets blowing
+  across the nozzle rather than down at the bed (new in revision 41);
 - the P18 bushing seats (Ø7.04 mm) and P25 pin bores (Ø4.98 mm) with your actual
   bushings and pins (new in revision 39);
 - the snap jaws closing on P18's T-lugs;
@@ -37,8 +46,8 @@ Before making the silicone pads and wipers, measure a real Bambu nozzle: its tip
 | Part | File | Qty | Colour | Notes |
 |---|---|---:|---|---|
 | P01 back case | [P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW](cad/SparkShift_Accessories_v26/stl/P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW.stl) | 1 | Magenta | P22 mount bosses 1.5 mm lower (revision 31). Printed rear face down, each boss starts with a 1 mm unsupported crescent. |
-| P02 motor/servo plate | [P02_Motor_servo_plate_12p5mm](stl_v26/P02_Motor_servo_plate_12p5mm.stl) | 1 | Violet | COTS servo window |
-| P03 front case | [P03_Front_case_COTS](stl_v26/P03_Front_case_COTS.stl) | 1 | Violet | |
+| P02 motor/servo plate | [P02_Motor_Servo_Plate_MG90D_Snug_Pocket_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P02_Motor_Servo_Plate_MG90D_Snug_Pocket_R41_REVIEW.stl) | 1 | Violet | Tighter servo recess, 12.20 × 22.90 mm (revision 41) |
+| P03 front case | One of: [15×5×3 bars](cad/SparkShift_Accessories_v26/stl/P03_Front_Case_Magnets_15x5x3_R41_REVIEW.stl), [12×6×3 bars](cad/SparkShift_Accessories_v26/stl/P03_Front_Case_Magnets_12x6x3_R41_REVIEW.stl), [Ø6×4 discs](cad/SparkShift_Accessories_v26/stl/P03_Front_Case_Magnets_D6x4_R41_REVIEW.stl), [Ø6×3 discs](cad/SparkShift_Accessories_v26/stl/P03_Front_Case_Magnets_D6x3_R41_REVIEW.stl) | 1 | Violet | Print the one for your magnets (revision 41) |
 | P04F swing arm, front | [P04F_Swing_arm_front_half_COTS](stl_v26/P04F_Swing_arm_front_half_COTS.stl) | 1 | Orange | Locking hook |
 | P04R swing arm, rear | [P04R_Swing_arm_rear_half](stl_v26/P04R_Swing_arm_rear_half.stl) | 1 | Orange | |
 | P05 servo cam | [P05_Servo_cam_COTS](stl_v26/P05_Servo_cam_COTS.stl) | 1 | Yellow | |
@@ -47,14 +56,14 @@ Before making the silicone pads and wipers, measure a real Bambu nozzle: its tip
 | P12 spring pressure cup | [P12_Spring_pressure_cup](stl_v26/P12_Spring_pressure_cup.stl) | 1 | Yellow | |
 | P13, P14 GT2 tooth liners | [left](stl_v26/P13_Left_tooth_liner.stl), [right](stl_v26/P14_Right_tooth_liner.stl) | 1 each | Orange | |
 | P15, P16 belt arches | [left](stl_v26/P15_Left_belt_arch.stl), [right](stl_v26/P16_Right_belt_arch.stl) | 1 each | Yellow | |
-| P20 CPAP hose inlet | [P20_CPAP_Hose_Inlet_Button_Head_Lugs_R40_REVIEW](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Button_Head_Lugs_R40_REVIEW.stl) | 1 | Blue | Screw lugs at X±5.5 with button-head counterbores (revision 40) |
-| P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge_Moved_Inserts_R40_REVIEW](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Moved_Inserts_R40_REVIEW.stl) | 1 | Cyan | Top-flange inserts at X±5.5, 1 mm forward (revision 40) |
-| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Probe_Mounts_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Probe_Mounts_R37_REVIEW.stl) | 1 | Teal | Beside the hotend: GF/CF ABS or ASA |
+| P20 CPAP hose inlet | [P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW.stl) | 1 | Blue | 1.25 mm sleeve wall (revision 41); button-head lugs (revision 40) |
+| P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW.stl) | 1 | Cyan | 1.25 mm socket and sleeve walls (revision 41); moved inserts (revision 40) |
+| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW.stl) | 1 | Teal | Taller horizontal jets, 1.7× the area; cheeks bolt flat to P01's bosses (revision 41). Beside the hotend: GF/CF ABS or ASA |
 | P23 probe mount | [P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.stl) | 1 | Lime | Beacon RevH Normal or Cartographer V3 |
-| P24 EBB42 mount | [P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW](cad/SparkShift_Accessories_v26/stl/P24_EBB42_Controller_Mount_Cable_Entry_R35_REVIEW.stl) | 1 | Lime | |
+| P24 EBB42 mount | [P24_EBB42_Frame_Mount_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P24_EBB42_Frame_Mount_R41_REVIEW.stl) | 1 | Lime | Plain frame, no wire comb (revision 41). Print on the face that sits against P02 |
 
-The core parts are the COTS drop-in variants that [BOM.md](BOM.md) recommends; they take
-standard bearings, dowels and servo parts.
+The core parts are the COTS drop-in variants that [BOM.md](BOM.md) recommends, P02 and P03 in their
+revision-41 forms; they take standard bearings, dowels and servo parts.
 
 ### Tools: ten, any mix of Bambu and Red Lizard
 
@@ -158,6 +167,21 @@ each of the ten tools. These items differ in the current parts:
 - **Carriage (revision 40)**
   - P20 to P21: 2× M3×8 ISO 7380 button-head screws (were socket heads) into the same 2× M3 × 3 mm
     inserts in P21's top flange, now at X±5.5. Fit them before the EBB42: they sit under its board.
+- **Carriage (revision 41)**
+  - P24: 4× M3 × 4 mm heat-set inserts (OD 4.2) in Ø4.0 holes, pressed in from the side that faces
+    P02; the upper two go in through the Ø4.4 channels in the corner blocks. Each screw pulls its
+    insert against a step, not out of its hole.
+  - EBB42 to P24: 2× M3×18 socket-head screws through P20's wings and the board (upper) and 2× M3×14
+    from behind the board (lower, were M3×12). Shorter screws don't reach the moved inserts.
+  - Fit the motor before P24: its upper ear screw's head, and the P02-to-P01 button head, sit in
+    slots in P24.
+  - P22 to P01: 2× M3×8 ISO 7380 button-head screws (were M3×10 socket heads) on the cheeks' front
+    faces, into the same inserts in P01's bosses.
+  - P03: the magnets for your variant (4 bars or 8 discs), glued in, faces 0.2 mm proud. Ø6×4 discs
+    sit on 0.5 mm floors at three of the eight places, so glue them rather than pressing hard; Ø6×3
+    discs or bars avoid that.
+  - MG90D: it goes into P02's recess as before, with its two M2 ear screws; the recess is now
+    snug.
 
 For ten tools and ten docks: 20 dowel pins, 20 bushings, 40 Ø6×4 magnets (or 20 bars),
 20 M5×10 screws with T-nuts and 20 M3×12 screws.
@@ -182,10 +206,10 @@ Recorded in revision 40 without changing the parts
   rear face (0.0 mm), and the probe cable runs 0.2 mm from it. Check that the carriage slides the
   full X travel without rubbing. If it rubs, moving the column 1.5 mm rearward gives about 1.1 mm
   and still leaves 6.8 mm to the rear motor mounts at the rear limit.
-- **No screws hold the CPAP/EBB42 stack.** P24's two rear holes line up with core inserts that the
-  core's own case screws already fill. The stack (P20, P21, P24 and the EBB42) rests on P22's
-  collar, against P02's rear face and under P02. Check how firmly it sits once the hose and cables
-  are on.
+- **No screws hold the CPAP/EBB42 stack.** P24's two released rear holes lined up with core inserts
+  that the core's own case screws already fill; revision 41 drops them. The stack (P20, P21, P24 and
+  the EBB42) rests on P22's collar, against P02's rear face and under P02. Check how firmly it sits
+  once the hose and cables are on.
 
 ## Core inspection notes (v26j)
 
