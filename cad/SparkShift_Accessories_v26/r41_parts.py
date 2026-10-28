@@ -302,12 +302,13 @@ def p22():
 # rested on P02's top edge.
 # Each M3 x 4 heat-set (OD 4.2, now a Ø4.0 hole) moves 2.8 mm forward to Y-22.6..-18.6. It is pressed in from
 # the bay side behind a Ø3.4 clearance step, so the screw pulls it against the step; the two upper ones go in
-# through Ø4.4 channels in the corner blocks. The corner blocks reach Z27.2 (P02's new cheeks start at
-# Z28.4) and down to just above the header and connector plugs, so every channel has 0.95 mm or more around
+# through Ø4.4 channels in the corner blocks. The corner blocks reach Z27.2, 2.06 mm under the MG90D (released
+# P24: 1.76 mm), and down to just above the header and connector plugs, so every channel has 0.95 mm or more around
 # it. The two core button heads on P02's rear face sit in U-slots that open straight through the nearest
 # block face. The -X column keeps the released P24's -X face (X-21.8) for its end-stop clearance. The walls
 # beside the MicroFit, the heater terminal and the probe header reach 1.0-1.2 mm (released 0.25-0.65 mm).
-# The screws grow to M3x18 (upper, through P20's wings) and M3x14 (lower).
+# The upper screws (through P20's wings) stay M3x18 and now pass through the whole insert; the lower ones grow
+# to M3x14.
 # --------------------------------------------------------------------------------------------
 EBB_CORNERS = {"TR": (-16.748, 22.0), "TL": (14.252, 22.0), "BL": (14.252, -9.0), "BR": (-16.748, -9.0)}
 Y_SEAT, Y_FRONT = -25.40, -6.70

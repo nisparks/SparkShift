@@ -695,10 +695,10 @@ def main():
     exports(parts, report)
     report["hardware"] = {
         "changed": "P24: the four M3 x 4 heat-set inserts (OD 4.2) go in Ø4.0 pockets at Y-22.6..-18.6, pressed in "
-                   "from the bay side; the upper EBB42 screws through P20's wings become M3x18 (were M3x16) and the "
-                   "lower ones M3x14 (were M3x12). P22 to P01: 2x M3x8 ISO 7380 button heads on the cheeks' front "
-                   "faces (were M3x10 socket heads in counterbores), into the same inserts in P01's bosses. P03: the "
-                   "magnets of the chosen variant.",
+                   "from the side that faces P02; the upper EBB42 screws through P20's wings stay M3x18, now through "
+                   "the whole insert, and the lower ones become M3x14 (were M3x12). P22 to P01: 2x M3x8 ISO 7380 "
+                   "button heads on the cheeks' front faces (were M3x10 socket heads in counterbores), into the same "
+                   "inserts in P01's bosses. P03: the magnets of the chosen variant.",
         "unchanged": "Everything else, including P20, P21 and P02's screws and inserts."}
     report["failures"] = failures
     report["status"] = ("BUILD_FIXES_VERIFIED_RACK_REQUALIFIED_CAD_REVIEW_NOT_MACHINE_QUALIFICATION"
