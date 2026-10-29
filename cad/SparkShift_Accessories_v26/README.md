@@ -1600,20 +1600,29 @@ along the flow. Every orientation that needs no support at all stands P22 on an 
 | Facing down more steeply than 30° | 936 mm² | 428 mm² |
 | … that a support from the plate could reach | 255 mm² | 14 mm² |
 
-Only the cheeks' bearing faces still need support. They sit flat on P01's bosses, and with P22 on
-its back face they are ceilings 8.5 mm wide, cantilevered 10 mm from the duct, over P22 itself, so
-the support has to stand on P22's top. In Bambu Studio set the support type to tree (manual), paint
-the two faces as support enforcers, turn off "on build plate only", and use Bambu Support for ABS
-or HIPS as the support interface, so the faces come off flat. Everything else bridges or prints at
-45° or steeper:
+Two places still need support:
+
+- **The cheeks' bearing faces.** They sit flat on P01's bosses, and with P22 on its back face they
+  are ceilings 8.5 mm wide, cantilevered 10 mm from the duct, over P22 itself, so the support has to
+  stand on P22's top.
+- **The undersides of P23's two rear-ear bosses.** These Ø6.1 tubes stand 2.2 mm proud of P22's
+  underside and lie on their side in print. They would print without support, but P23's sockets
+  leave them only 0.10 mm of radial clearance, so even a slight droop makes the ears tight. A small
+  tree from the plate reaches them. Bambu Studio's automatic supports skip them as small overhangs.
+
+In Bambu Studio set the support type to tree (manual), paint those faces as support enforcers (the
+lower third of each boss), turn off "on build plate only", and use Bambu Support for ABS or HIPS as
+the support interface, so the faces come off flat. Tree (auto) does worse, sliced with the same
+preset: it puts tree tips inside the inlet socket where P21 plugs in, and with "on build plate only"
+on it reaches less than half of the cheeks. Turning off "Remove small overhangs" to catch the bosses
+also puts tips inside their bores. Everything else bridges or prints at 45° or steeper:
 
 - the socket's front lip (15.4 mm);
 - the skin under the window notch (22.9 mm long, 1.8 mm wide);
 - the jets' front lips (3.7 mm);
 - the cable boss's nose inside the duct (a 7 mm arch).
 
-The last 14 mm² are the undersides of the two spigots that locate P23's rear ears, Ø6 cylinders lying
-on their side.
+The window's lower, sloping sides face up in print, so they need nothing.
 
 ![P22 on its back face, revision 41 and revision 43: what needs support, and where](./images/93_p22_r43_print_overhangs.png)
 

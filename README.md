@@ -197,7 +197,8 @@ With revision 41's CPAP set printed, revision 43 reworks P22 once more: the
 jets sit on a floor 0.4 mm lower with larger (r 2.4) bell-mouths, so the
 blower moves about 5 % more air (201 L/min) and the air over the print
 within 5 mm of the nozzle rises 9 %. A 45° notch at the window and a
-chamfered back edge leave only the cheeks' two bearing faces needing support.
+chamfered back edge leave only the cheeks' two bearing faces and P23's two
+locating bosses needing support.
 Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X

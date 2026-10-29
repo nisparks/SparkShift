@@ -357,7 +357,11 @@ def check_print(parts, report, failures):
         "orientation": "back face down", "support_threshold_deg": SUPPORT_DEG, **rows, "orientation_sweep_r43": sweep,
         "walls_printing_changes": walls,
         "still_needs_support": "The cheeks' bearing faces, where P22 seats on P01's bosses: in print, ceilings 8.5 mm wide "
-                               "cantilevered 10 mm from the duct, over P22 itself, so the support stands on P22's top.",
+                               "cantilevered 10 mm from the duct, over P22 itself, so the support stands on P22's top. "
+                               "And the undersides of the two 6.1 mm bosses that locate P23's rear ears, which stand "
+                               "2.2 mm proud and print lying on their side (the area a support from the plate can reach): "
+                               "they would print unsupported, but they fit P23's sockets with 0.10 mm of radial "
+                               "clearance, so a droop would make the ears tight.",
         "bridges": "The socket's front lip (15.4 mm), the skin under the window notch (22.9 mm long, 1.8 mm wide), the "
                    "jets' front lips (3.7 mm); the cable boss's nose inside the duct is a 7 mm arch.",
         "note": "Facets facing down more steeply than the preset's 30 degree threshold, split by whether a support "
@@ -475,7 +479,8 @@ def main():
         "The floor under the jets is 0.8 mm, two perimeters with P22 on its back face, under the 1.0 mm minimum used "
         "elsewhere on the CPAP parts; it carries no load, and the jets keep it cool.",
         "Printability is judged on the meshes (overhang angle, rays to the plate), not on a print: the cheeks' "
-        "bearing faces still need support, and the bridges listed under 'print' are left to the slicer."]
+        "bearing faces and the undersides of P23's two locating bosses still need support, and the bridges listed "
+        "under 'print' are left to the slicer."]
     report["failures"] = failures
     report["status"] = "P22_LOWER_BELL_MOUTH_JETS_VERIFIED_RACK_REQUALIFIED_CAD_REVIEW_NOT_MACHINE_QUALIFICATION" if not failures \
         else "FAILED_SEE_FAILURES"
