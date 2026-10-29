@@ -14,7 +14,11 @@ particular, the P17, P18 and P22–P26 files in `stl_v26/` are superseded. Every
 matching STEP in [`cad/SparkShift_Accessories_v26/step/`](cad/SparkShift_Accessories_v26/step/).
 P04R, P06–P09, P12–P16, P27 and P28 come laid flat for printing. The rest are in their assembly
 position, so lay each on a flat face in the slicer (P01 rear face down, P21 top face down, P24 on the
-face that sits against P02). The Colour column is a suggested scheme; see [Colour scheme](#colour-scheme).
+face that sits against P02). P20, P21 and P22 also come ready to print, as `..._PRINT_ORIENTED.stl`
+(no STEP twin): P20 standing as installed, hose spigot up, so its barbs and sleeve print round; P21
+top face down; and P22 on its back face, which keeps its jets' layer lines along the flow and has the
+least overhang of any side. Let the slicer add supports, and give P20 and P22 a brim (they stand
+52 mm tall on 110 mm² and 75 mm tall on 146 mm²). The Colour column is a suggested scheme; see [Colour scheme](#colour-scheme).
 
 The first carriage has been printed and assembled. Revision 41 reworks the parts that build showed
 problems with: P01, P02, P03, P20, P21, P22 and P24
@@ -59,9 +63,9 @@ Before making the silicone pads and wipers, measure a real Bambu nozzle: its tip
 | P12 spring pressure cup | [P12_Spring_pressure_cup](stl_v26/P12_Spring_pressure_cup.stl) | 1 | Yellow | |
 | P13, P14 GT2 tooth liners | [left](stl_v26/P13_Left_tooth_liner.stl), [right](stl_v26/P14_Right_tooth_liner.stl) | 1 each | Orange | |
 | P15, P16 belt arches | [left](stl_v26/P15_Left_belt_arch.stl), [right](stl_v26/P16_Right_belt_arch.stl) | 1 each | Yellow | |
-| P20 CPAP hose inlet | [P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW.stl) | 1 | Blue | 1.25 mm sleeve wall (revision 41); button-head lugs (revision 40) |
-| P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW.stl) | 1 | Cyan | 1.25 mm socket and sleeve walls, one flat top to print on (revision 41); moved inserts (revision 40). Print top face down |
-| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW.stl) | 1 | Teal | Taller horizontal jets, 1.7× the area, with bell-mouth entries; cheeks bolt flat to P01's bosses (revision 41). Print on its back face. Beside the hotend: GF/CF ABS or ASA |
+| P20 CPAP hose inlet | [P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW_PRINT_ORIENTED.stl)) | 1 | Blue | 1.25 mm sleeve wall (revision 41); button-head lugs (revision 40). Print standing, hose spigot up, with a brim |
+| P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW_PRINT_ORIENTED.stl)) | 1 | Cyan | 1.25 mm socket and sleeve walls, one flat top to print on (revision 41); moved inserts (revision 40). Print top face down |
+| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW_PRINT_ORIENTED.stl)) | 1 | Teal | Taller horizontal jets, 1.7× the area, with bell-mouth entries; cheeks bolt flat to P01's bosses (revision 41). Print on its back face, with supports and a brim. Beside the hotend: GF/CF ABS or ASA |
 | P23 probe mount | [P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.stl) | 1 | Lime | Beacon RevH Normal or Cartographer V3 |
 | P24 EBB42 mount | [P24_EBB42_Frame_Mount_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P24_EBB42_Frame_Mount_R41_REVIEW.stl) | 1 | Lime | Plain frame, no wire comb; the hall sensor's groove runs right through to the board (revision 41). Print on the face that sits against P02 |
 

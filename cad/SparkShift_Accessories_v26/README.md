@@ -1177,6 +1177,9 @@ at the bed, and the servo only needed a tighter recess).
   - The counterbore is filled: the cheek is solid round a plain Ø3.3 hole, with walls of 1.38 mm
     and up. An M3×8 ISO 7380 button head sits on the cheek's front face, 3.6 mm clear of the
     mounted tool, with 3.7 mm of thread in P01's insert.
+  - Just behind each boss, the released pocket round it dipped up to 0.1 mm below P22's outer
+    skin. Cutting the cheek back to the skin left that as a small crescent pit in the roof
+    (0.01 mm³); both are filled flush.
 - **P02: a snug servo recess.** The MG90D's top 4.5 mm sits in the same recess in P02's rear face,
   now 12.20 × 22.90 mm (released 12.30 × 23.05). That is line to line across TowerPro's
   12.2 × 22.8 mm body and 0.05 mm at each end (released 0.05 and 0.125 mm). Apart from the hall
@@ -1242,7 +1245,8 @@ at the bed, and the servo only needed a tighter recess).
 - **P22 on P01.** No P22 is left round either boss (released 57 mm³ each). Each cheek is 0.05 mm
   from its boss's face, with 34 mm² of bearing. Each screw has 3.74 mm of thread in its insert and
   touches neither part; the nearer head is 3.63 mm from a mounted tool. The cheek walls are 1.38 mm
-  and up (released 0.03 mm).
+  and up (released 0.03 mm). No pit is left in P22's skin round either cheek: inside its outer
+  profile there, nothing of P22 is missing but the duct's bore and the air beyond its side walls.
 - **P24.** The EBB42's parts stay 0.25 mm clear and every plug zone is empty. It bears on P02 over
   409 mm² and on P21 over 379 mm², with walls of 0.84 mm and up.
 - **P02.** The recess doesn't touch TowerPro's 12.2 × 22.8 mm body. The v26 servo model is 22.96 mm

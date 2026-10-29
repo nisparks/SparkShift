@@ -316,6 +316,18 @@ def counterbore_fills():
     return [common(a.cyl_y(side * P01_BOSS_X[1], P01_BOSS_Z, y0, 21.0, r), [envelope]) for side in (-1, 1)]
 
 
+# The released cheek's pocket round P01's boss dipped 0.1 mm below P22's outer skin just behind the boss
+# (X+-17.1..18.9, Y11.00-11.25); cutting the cheek back to the skin left that as a crescent pit 0.1 mm deep.
+# These fill it back up to the skin, 1.15 mm clear of the duct's bore and 0.1 mm short of the boss.
+PIT_FILL = (17.0, 19.0, 11.0, 11.3, -58.45, -58.0)
+
+
+def pit_fills():
+    horn = a.prism_yz_r(HORN_OUT, HORN_OUT_R, -23.0, 23.0)
+    x0, x1, y0, y1, z0, z1 = PIT_FILL
+    return [common(a.box(*sorted((side * x0, side * x1)), y0, y1, z0, z1), [horn]) for side in (-1, 1)]
+
+
 def p22_front_edge():
     """The feather edge where P22's socket floor meets the roof of its forward sweep, cut back to the socket wall."""
     x0, y0, z0 = P22_FRONT_EDGE
@@ -331,6 +343,7 @@ def p22(bell_mouth=True):
         shape(a.cyl_z(0.0, -34.5, -58.6, -48.0, 1.95)),
         shape(a.box(-1.95, 1.95, -34.5, -30.0, -58.6, -48.0)),
     ])
+    body = fuse(body, *pit_fills())
     return single(unify(body), "revision-41 P22")
 
 

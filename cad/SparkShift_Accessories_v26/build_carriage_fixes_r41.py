@@ -386,14 +386,18 @@ def check_outlet(parts, report, failures):
 
 
 def check_p22_mounts(parts, report, failures):
-    """P22's cheeks bear on P01's bosses face to face; nothing of P22 wraps them."""
+    """P22's cheeks bear on P01's bosses face to face; nothing of P22 wraps them, and no pit is left in its skin."""
     p22, old, p01 = parts["p22"], P37.p22()[0], parts["p01"]
     hw = dict(R.p22_mount_hardware())
+    horn = R.shape(R.a.prism_yz_r(R.HORN_OUT, R.HORN_OUT_R, -23.0, 23.0))
     rows = {}
     for i, x in enumerate(R.P01_BOSS_X):
         s = 1 if x > 0 else -1
         lo, hi = sorted((s * R.CHEEK_X[0], s * R.CHEEK_X[1]))
         behind = box(lo, hi, R.P01_BOSS_Y[0] - 0.4, R.P01_BOSS_Y[1], -58.0, -49.5)
+        # P22's outer profile round the cheek, less P22: the duct's bore and the air past its side walls are a
+        # few hundred mm3; anything under 1 mm3 is a pit in the skin (the released wrap's 0.01 mm3 remnants)
+        skin = horn.intersect(box(*sorted((s * 13.0, s * 23.5)), 9.0, 21.0, -64.0, -49.0)).cut(p22)
         screw = hw[f"R41_P22_P01_M3x8_BUTTON_{i}"]
         tip = bounds(screw)[2]
         face22 = p22.intersect(box(lo, hi, R.CHEEK_FACE, R.CHEEK_FACE + 0.05, -60.0, -49.0)).translate((0, -0.1, 0))
@@ -407,14 +411,15 @@ def check_p22_mounts(parts, report, failures):
             "screw_tip_y_mm": round(tip, 2), "thread_in_insert_mm": round(R.P01_BOSS_Y[1] - tip, 2),
             "head_to_mounted_tool_mm": {label: round(screw.distance(compound([p for _, p in v["parts"]])), 3)
                                         for label, v in parts["tools"].items()},
-            "screw_in_p22_or_p01_mm3": round(screw.intersect(p22).Volume() + screw.intersect(p01).Volume(), 4)}
+            "screw_in_p22_or_p01_mm3": round(screw.intersect(p22).Volume() + screw.intersect(p01).Volume(), 4),
+            "pits_in_skin_mm3": sorted(round(p.Volume(), 4) for p in skin.Solids() if p.Volume() < 1.0)}
     walls = wall_report(parts["meshes"]["p22"], CHEEK_ZONES)
     report["p22_mounts"] = {"bosses": rows, "walls": walls,
                             "released_walls": wall_report(parts["released_meshes"]["p22"], CHEEK_ZONES)}
     for r in rows.values():
         if r["p22_around_boss_mm3"] > 1e-3 or not 0.04 <= r["face_gap_mm"] <= 0.06 or r["bearing_on_boss_mm2"] < 25 \
                 or r["thread_in_insert_mm"] < 3.5 or min(r["head_to_mounted_tool_mm"].values()) < 3.0 \
-                or r["screw_in_p22_or_p01_mm3"] > 1e-3:
+                or r["screw_in_p22_or_p01_mm3"] > 1e-3 or r["pits_in_skin_mm3"]:
             failures.append("P22 face mount on P01")
             break
     if walls["min_mm"] < 1.2:
