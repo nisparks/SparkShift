@@ -18,8 +18,8 @@ face the probe sits on, P24 on the face that sits against P02). P20, P21 and P22
 (no STEP twin): P20 standing as installed, hose spigot up, so its barbs and sleeve print round; P21
 top face down; and P22 on its back face, which keeps its jets' layer lines along the flow and has the
 least overhang of any side. Let the slicer add supports, and give P20 and P22 a brim (they stand
-52 mm tall on 110 mm² and 75 mm tall on 146 mm²): Bambu Studio's auto brim adds none to them, so set
-an outer brim of about 5 mm. Sliced in Bambu Studio 2.7 for an H2D (0.2 mm layers, tree supports
+52 mm tall on 110 mm² and 75 mm tall on 146 mm²): Bambu Studio's auto brim adds next to none (a short
+stub on P22, nothing on P20), so set an outer brim of about 5 mm. Sliced in Bambu Studio 2.7 for an H2D (0.2 mm layers, tree supports
 from the build plate only, 30° threshold), every overhang that needs support gets it; P21 needs
 none, P20 only bridges the tops of its wing screw holes, and P22's jets bridge their 4 mm front
 lips. On P22, clean the support off the cheeks' bearing faces, which sit flat on P01's bosses, and
