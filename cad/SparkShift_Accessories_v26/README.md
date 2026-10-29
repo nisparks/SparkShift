@@ -1592,7 +1592,8 @@ upward past the hotend):
 | ... and the round and its foot run back to the heel | 600 | −14.5 % | +5 % | +5 % | −6 % | −7 % | 16 % |
 | ... and the round at full size to the front wall | 1200 | −19 % | +7 % | +1 % | −7 % | −8 % | 17 % |
 | ... or with its foot faded out at both ends | 1200 | −15 % | +5 % | 0 % | −12 % | −13 % | 22 % |
-| **Revision 43: the round eased out over the jet's last 3 mm** | 1200 | **−18 %** | **+6 %** | **+1 %** | **−5 %** | **−6 %** | **16 %** |
+| ... and the round eased out over the jet's last 3 mm, its cut started at the heel | 1200 | −15 % | +5 % | +4 % | −6 % | −7 % | 16 % |
+| **Revision 43: the same, its cut run back into the heel's ramp** | 1200 | **−18 %** | **+6 %** | **+1 %** | **−5 %** | **−6 %** | **16 %** |
 
 - **The rib** adds no turbulence: behind the cable boss's nose the air's mean fluctuation is
   1.44 m/s with it and without, and the plenum's loss rises by 0-5 Pa.
@@ -1606,14 +1607,19 @@ upward past the hotend):
   where revision 41's sloping front roof leads the air in, and sends more of it past the print:
   17 % of the jets' air leaves upward. Eased out over the last 3 mm, as the roof comes down, the
   round puts about 2 % more air over the print within 10 and 14 mm, as much within 5 mm (within
-  the scatter, below), for under 1 % less blower flow. Fading the foot out instead did worse
-  everywhere.
+  2 %), for under 1 % less blower flow. Fading the foot out instead did worse everywhere.
+- **The heel.** The eased-out round as first simulated started the round's cut at the heel, which
+  left a 0.5 mm² step at the jet's closed back end. Revision 43 runs the cut back into the heel's
+  ramp, so the step goes, but that opens the jets' back corner by 0.17 mm³: 5.7 % of their air then
+  leaves through their back 2 mm instead of 4.5 %, the duct is 2 % less restrictive, and the air
+  within 5 mm of the nozzle falls by 4 %, to revision 41's. Across every version, the less of the
+  jets' air leaves behind the nozzle, the more reaches the print near it (the first version, its
+  foot tapered off at the heel: 3.5 %). Easing the round in at the heel as it eases out at the front
+  was drawn too, but against the island's duct face, which slants out behind the jet, it leaves a
+  V-shaped valley, the kind of notch the review removed, so it wasn't simulated.
 - **The model's scatter.** The same P22 meshed and run on 30 and on 46 cores agrees within 1 % of
-  the air over the print and of the pressure (the full-size round and revision 43 both). But the
-  eased-out round first simulated, which differed only at the heel, by 0.17 mm³, came out 2 % less
-  restrictive and 4 % better within 5 mm. Differences of a few percent between designs are within
-  the model's scatter; those above, between the first version and the rest, and at 10 and 14 mm
-  between the two notch-free fronts on both meshes, are larger.
+  the pressure and of the air over the print (the full-size round and revision 43 both); the
+  differences above are larger.
 - The review's studies ran 600 or 1200 iterations (as listed); revision 43's own cases ran to 1200
   (Bambu at 180, 120 and 240 L/min).
 

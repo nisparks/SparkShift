@@ -130,7 +130,9 @@ def with_bell(body, taper=True):
 BELL_BACK = 13.0      # where the foot's extension behind the heel starts; the duct's air ends it before here
 BELL_FRONT = 29.5     # past the front wall; the duct's plan outline ends the round on the wall
 HEEL_CUT_Y = 15.5     # the round's cut starts here, behind the heel: the heel's ramp (horn_in) ends it, so it leaves no
-                      # end face (started at the heel, it left a 0.5 mm2 step where the island's corner stood behind)
+                      # end face (started at the heel, it left a 0.5 mm2 step where the island's corner stood behind).
+                      # The CFD: that opens the jets' back corner, and 4 % less air reaches the print within 5 mm of
+                      # the nozzle (r43np46_bambu_bed against r43revrunout_bambu_bed, both on 46 cores; README)
 
 
 def bell_foot(side, y0, y1):
