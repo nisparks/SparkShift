@@ -6,15 +6,15 @@
 > qualified. These are inspection meshes, not a slicer project, support plan,
 > material recommendation, G-code, or approval for loaded/heated operation.
 
-## Current print set for the toolchanger build (revision 41)
+## Current print set for the toolchanger build (revision 42)
 
 Print these files for the ten-tool machine: one file per part, at its latest revision. Older
 versions stay in `stl_v26/` and `cad/SparkShift_Accessories_v26/stl/` as history; in
 particular, the P17, P18 and P22–P26 files in `stl_v26/` are superseded. Every STL has a
 matching STEP in [`cad/SparkShift_Accessories_v26/step/`](cad/SparkShift_Accessories_v26/step/).
 P04R, P06–P09, P12–P16, P27 and P28 come laid flat for printing. The rest are in their assembly
-position, so lay each on a flat face in the slicer (P01 rear face down, P21 top face down, P24 on the
-face that sits against P02). P20, P21 and P22 also come ready to print, as `..._PRINT_ORIENTED.stl`
+position, so lay each on a flat face in the slicer (P01 rear face down, P21 top face down, P23 on the
+face the probe sits on, P24 on the face that sits against P02). P20, P21 and P22 also come ready to print, as `..._PRINT_ORIENTED.stl`
 (no STEP twin): P20 standing as installed, hose spigot up, so its barbs and sleeve print round; P21
 top face down; and P22 on its back face, which keeps its jets' layer lines along the flow and has the
 least overhang of any side. Let the slicer add supports, and give P20 and P22 a brim (they stand
@@ -23,6 +23,8 @@ least overhang of any side. Let the slicer add supports, and give P20 and P22 a 
 The first carriage has been printed and assembled. Revision 41 reworks the parts that build showed
 problems with: P01, P02, P03, P20, P21, P22 and P24
 ([details](cad/SparkShift_Accessories_v26/README.md#first-build-fixes-p24-cpap-joints-and-outlet-p22-mounts-p21-print-face-servo-recess-p03-per-magnet-revision-41)).
+Revision 42 adds a P23 for the Cartographer V3, with a P28 to match; revision 37's P23 stays for the
+Beacon ([details](cad/SparkShift_Accessories_v26/README.md#a-p23-for-the-cartographer-and-the-cartographers-own-keepout-revision-42)).
 The tools, docks and rack haven't been printed yet. **Print a first-article set first**: the
 carriage, one Bambu tool, one Red Lizard tool and two docks. Check:
 
@@ -38,12 +40,14 @@ carriage, one Bambu tool, one Red Lizard tool and two docks. Check:
 - the P18 bushing seats (Ø7.04 mm) and P25 pin bores (Ø4.98 mm) with your actual
   bushings and pins (new in revision 39);
 - the snap jaws closing on P18's T-lugs;
-- the M2.5 L4 and M3 × 3 mm heat-set inserts, and the probe mount (P23 on P22);
+- the M2.5 L4 and M3 × 3 mm heat-set inserts, and the probe mount (P23 on P22: revision 37's for the
+  Beacon, revision 42's for the Cartographer);
 - P20's two button heads seated in its lugs, clear of the EBB42 board, and P21's moved inserts
   (new in revision 40). Also look at whether P21's conduit touches the X beam (see the notes
   below);
 - a tool docking and the carriage withdrawing, by hand;
-- the probe height with the P28 jig.
+- the probe height with the P28 jig (its 2.60 mm feeler for the Beacon, 2.81 mm for the
+  Cartographer).
 
 Before making the silicone pads and wipers, measure a real Bambu nozzle: its tip should be
 38.75 mm below the centres of the two upper hotend mounting holes.
@@ -66,7 +70,7 @@ Before making the silicone pads and wipers, measure a real Bambu nozzle: its tip
 | P20 CPAP hose inlet | [P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW_PRINT_ORIENTED.stl)) | 1 | Blue | 1.25 mm sleeve wall (revision 41); button-head lugs (revision 40). Print standing, hose spigot up, with a brim |
 | P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW_PRINT_ORIENTED.stl)) | 1 | Cyan | 1.25 mm socket and sleeve walls, one flat top to print on (revision 41); moved inserts (revision 40). Print top face down |
 | P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW_PRINT_ORIENTED.stl)) | 1 | Teal | Taller horizontal jets, 1.7× the area, with bell-mouth entries; cheeks bolt flat to P01's bosses (revision 41). Print on its back face, with supports and a brim. Beside the hotend: GF/CF ABS or ASA |
-| P23 probe mount | [P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.stl) | 1 | Lime | Beacon RevH Normal or Cartographer V3 |
+| P23 probe mount | One of: [Beacon](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.stl), [Cartographer](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Cartographer_R42_REVIEW.stl) | 1 | Lime | Print the one for your probe. Beacon RevH Normal: coil 2.60 mm above the tip (revision 37). Cartographer V3: 0.2 mm thinner, coil 2.81 mm, M3×5 probe screws (revision 42) |
 | P24 EBB42 mount | [P24_EBB42_Frame_Mount_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P24_EBB42_Frame_Mount_R41_REVIEW.stl) | 1 | Lime | Plain frame, no wire comb; the hall sensor's groove runs right through to the board (revision 41). Print on the face that sits against P02 |
 
 The core parts are the COTS drop-in variants that [BOM.md](BOM.md) recommends, P02 and P03 in their
@@ -99,7 +103,7 @@ revision-41 forms; they take standard bearings, dowels and servo parts.
 | P30 side spacers | [left](cad/SparkShift_Accessories_v26/stl/P30_Dock_Side_Spacer_L.stl), [right](cad/SparkShift_Accessories_v26/stl/P30_Dock_Side_Spacer_R.stl) | 1 each | Violet | |
 | Crossbar | 2020 extrusion, 450 mm | 1 | Not printed | Purchased |
 | P27 CPAP blower mount | [P27_CPAP_7040_Blower_Frame_Mount](cad/SparkShift_Accessories_v26/stl/P27_CPAP_7040_Blower_Frame_Mount.stl) | 1 | Violet | On the frame |
-| P28 calibration jig | [P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW.stl) | 1 | Yellow | 2.60 mm probe feeler |
+| P28 calibration jig | One of: [Beacon](cad/SparkShift_Accessories_v26/stl/P28_Dock_and_Probe_Calibration_Jig_R37_REVIEW.stl), [Cartographer](cad/SparkShift_Accessories_v26/stl/P28_Dock_and_Probe_Calibration_Jig_Cartographer_R42_REVIEW.stl) | 1 | Yellow | Probe feeler 2.60 mm (Beacon) or 2.81 mm (Cartographer, revision 42) |
 
 **Print settings**
 ([accessories README](cad/SparkShift_Accessories_v26/README.md#recommended-print-settings)):
@@ -191,6 +195,11 @@ each of the ten tools. These items differ in the current parts:
     discs or bars avoid that.
   - MG90D: it goes into P02's recess as before, with its two M2 ear screws; the recess is now
     snug.
+- **Carriage (revision 42, Cartographer only)**
+  - Probe: 2× M3×5 low-profile socket-head screws (head 5.5 × 1.5 mm) through the Cartographer's
+    board and its P23 into the same inserts in P22. An M3×6 would end 0.07 mm short of the end of
+    the insert hole.
+  - P23 to P22: unchanged, 2× M3×4 ISO 7380 button-head screws on the rear ears.
 
 For ten tools and ten docks: 20 dowel pins, 20 bushings, 40 Ø6×4 magnets (or 20 bars),
 20 M5×10 screws with T-nuts and 20 M3×12 screws.

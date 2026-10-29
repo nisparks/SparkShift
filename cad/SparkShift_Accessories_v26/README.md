@@ -1,18 +1,20 @@
 # SparkShift v26 Accessory & 3010 Toolhead Suite — Beacon RevH / Cartographer V3, Pure-Primitive CPAP Ducting, BTT EBB42 CAN Mount & 3010/2510 High-Flow Toolhead Carriers
 
-**Current status: CAD review through revision 41. The first carriage has been printed and assembled,
+**Current status: CAD review through revision 42. The first carriage has been printed and assembled,
 and revision 41 fixes what it showed; nothing is machine-qualified.**
 The [latest reviews](#33-one-piece-bambu-toolhead-with-side-2510) keep the dock rack
 rigidly bolted across the front of the gantry, with the stock bed moved back 31 mm (option
 B, revision 34). The full ten-tool rack requalifies with the current parts (revisions 36, 37,
-39, 40 and 41), and the print area is about 350 × 311 mm (revision 39). Revision 40 moves the
+39, 40, 41 and 42), and the print area is about 350 × 311 mm (revision 39). Revision 40 moves the
 P20-to-P21 screws clear of the EBB42 and records two notes on the CPAP/EBB42 stack. Revision 41
 replaces P24 with a plain frame, thickens the CPAP joints, widens the outlet's horizontal jets and
 gives them bell-mouth entries, bolts P22's cheeks flat to P01's bosses, gives P21 one flat print
 face, tightens the servo recess, opens a groove for the hall sensor's leads through P02 and P24, cuts
 the tab off P01, and makes P03 in one version per magnet. A [CFD study](#cpap-airflow-cfd-revision-41) of the CPAP duct
-replaces the old open-area comparison. Print from the
-[current print set](../../PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-41),
+replaces the old open-area comparison. Revision 42 adds a
+[P23 for the Cartographer](#a-p23-for-the-cartographer-and-the-cartographers-own-keepout-revision-42), its coil at
+2.81 mm, and checks the Cartographer's own keepout model. Print from the
+[current print set](../../PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-42),
 starting with a first-article set; it suggests a [colour for each part](../../PRINT_PARTS.md#colour-scheme). Nothing is build-approved or machine-qualified.
 Earlier front-fan, vented-dock and firmware descriptions below are historical;
 their qualification claims do not apply to the current CAD-review-only design.
@@ -80,7 +82,8 @@ Every printable part was audited at the OpenCASCADE B-Rep face/edge level and at
    - Built-in **16 kHz 3-axis accelerometer** aligned with toolhead `X/Y/Z` axes.
 2. **Cartographer Probe v3 with ADXL345 — Flat Pack (CAN & USB)**
    - Mounted **forward-facing** (`+Y` coil toward the nozzle, `-Y` MCU/JST at the rear) on the exact same shared `P23` mount holes (`(±15.80, -0.30, -75.00) mm`).
-   - Coil sensing bottom sits at **`(0.00, +2.88, -76.60) mm`** (**`2.279 mm`** above the nozzle tip, `19.82 mm` Y offset). Revision-37 review: **`2.61 mm`** above the tip.
+   - Coil sensing bottom sits at **`(0.00, +2.88, -76.60) mm`** (**`2.279 mm`** above the nozzle tip, `19.82 mm` Y offset). Revision-37 review: **`2.61 mm`** above the tip. Revision-42 review: its own `P23`, 0.2 mm thinner, puts it at **`2.81 mm`** (Cartographer asks for 2.6–3.0 mm), with `M3×5` probe screws.
+   - Revision 42 checks the Cartographer's own keepout model (the last two solids of its STEP): none of our metal is in it; the Monolith core's two lower M3 nuts reach the top 1.8 mm of its 20 mm column.
    - Built-in **ADXL345 accelerometer** for Klipper input shaping (`axes_map: x, y, z`).
    - Rear cable exits `-Y` (`(0, -12.9, -66.5)`) and rises behind the MGN12H carriage (`Y = -20.5`), under the X-beam (`Z = -55.2`), and up `P21`'s center-front raceway (`X = 0, Y = -34.5`) directly to `EBB42`.
 
@@ -1380,6 +1383,98 @@ hose is an allowance (1 m of Ø19 mm, friction factor 0.06): a longer or narrowe
 flow. Wall roughness uses a wall function on 0.25 mm wall cells, which suits 0.1 mm but stretches it
 at 0.3 mm. Nothing here is measured on the printer.
 
+#### A P23 for the Cartographer, and the Cartographer's own keepout (revision 42)
+
+**Why.** Revision 37's P23 puts the Beacon RevH's coil 2.60 mm above the nozzle tip, Beacon's nominal
+2.6 mm. The Cartographer V3 fits the same P23 (the same two M3 holes, 31.6 mm apart) but sits at
+2.61 mm, on the bottom edge of the 2.6–3.0 mm Cartographer asks for. A P23 that prints a little thin,
+or a slightly thicker board, would take it out of range.
+
+**A P23 for the Cartographer.** The same P23, 0.2 mm thinner (3.67 mm), so the Cartographer's coil sits
+2.81 mm above the tip, mid-way in its range. P22, its inserts and the rear-ear screws don't change, so
+either P23 fits the P22 you have. Keep revision 37's P23 for the Beacon.
+
+- **Probe screws:** M3×5 low-profile socket heads through the board and P23 into P22's inserts. They
+  engage 1.93 mm (about four threads), a little under the 2.0 mm used elsewhere, because an M3×6
+  would end only 0.07 mm short of the end of the insert hole.
+- **Rear ears:** the same M3×4 button heads, now engaging 2.53 mm and ending 0.47 mm short.
+- **Webs:** 1.45 mm under each spigot socket (was 1.65 mm).
+- **P28:** a jig with a 2.81 mm probe feeler to match.
+
+**Merging P23 into P22 was considered and rejected.** It would save one part, two screws and two inserts.
+But the probe's own screws already clamp board, P23 and P22 together, so the probe and its
+accelerometer would gain nothing. It would also fix the probe height in P22, the largest print
+(75 mm tall, with supports), instead of a 4 mm plate, and the Beacon and Cartographer would each need
+their own P22.
+
+**The Cartographer's own keepout.** The Cartographer's STEP model carries its keepout zones as its last
+two solids. Revision 37 loaded only the first 100, the probe itself, so they were never checked:
+
+- a column 22.5 × 22.5 mm and 20 mm tall standing on the board over the coil, where Cartographer
+  allows no metal (the Beacon's is 18.6 × 18.6 × 18.4 mm);
+- a 15 × 15 × 3 mm zone under the coil.
+
+None of our metal is in either zone. The nearest is the probe screws' inserts in P22, 3.46 mm from
+the column. Some existing metal does reach into the column, with the probe on either P23:
+
+| Metal in the Cartographer's column | Revision 37 P23 (2.61 mm) | Revision 42 P23 (2.81 mm) | Where |
+|---|---|---|---|
+| The Monolith core's two lower M3 nuts | 10.4 mm³ each | 12.9 mm³ each | The top 1.6 or 1.8 mm of the column, 4.2–6.6 mm either side of the coil's axis |
+| Their M3×16 draw screws | None | 0.6 mm³ each | The top 0.11 mm |
+| The Red Lizard's heater block | 0.53 mm³ | 0.45 mm³ | 0.15 mm into the column's front face, 14.7–18 mm above the board |
+
+These belong to the frozen Monolith core and the Red Lizard hotend, so they are recorded, not changed.
+All of it sits at the far edges of the zone, 15–20 mm above the coil, and moves with the probe. The
+nuts and screws should show up as a fixed offset that calibration takes out. The heater block changes
+temperature with the hotend, so calibrate with the hotend at printing temperature. Neither effect is
+qualified. If the Cartographer's readings drift, these are the first suspects; changing them would be a
+change to the core or the tool. The Beacon's zones, now also checked against the core's metal, are
+clear.
+
+![Revision 42: the Beacon and the Cartographer each on its own P23, cut through the coil and the nozzle; the Cartographer's keepout column and the metal that reaches into it](./images/87_cartographer_mount_keepout_r42.png)
+
+![Revision 42 in Fusion: the Cartographer's keepout column with the core's nuts in its top, and the Beacon and the Cartographer from the side](./images/88_cartographer_mount_r42_fusion.png)
+
+**Verification.** Run `python build_cartographer_mount_r42.py --workers 10`
+([report](./verification_cartographer_mount_r42.json)). It passes, in 12 minutes:
+
+- **P23.** A single valid solid: revision 37's P23 less exactly its bottom 0.2 mm (155.4 mm³), with
+  nothing added. The walls round the spigot sockets are whole.
+- **Heights.** The Cartographer's coil is 2.81 mm above the tip on this P23 (2.61 mm on revision
+  37's). The Beacon's is 2.60 mm on revision 37's.
+- **Fit.** The Cartographer, this P23 and its screws touch nothing in the revision-41 carriage or
+  either mounted tool, and the probe is 0.41 mm from P22. The lowest carriage parts above the tip are
+  P22's outlet lobes (1.03 mm), the probe screw heads (1.31 mm) and the Cartographer's header pins
+  (1.41 mm).
+- **Keepouts.** As above, for the probe on either P23.
+- **P28.** The builder at 2.60 mm reproduces revision 37's jig; the new one changes only its feeler.
+- **Rack.** The revision-36 requalification, on a scene of the carriage as built for the
+  Cartographer, is clean:
+  - own-dock docking and withdrawal, the Cartographer included;
+  - the eight mixed-neighbour cases (488 samples);
+  - the 20 bay/hotend cases (2,420 samples);
+  - the X gantry backing out (121 samples);
+  - both X0..350 traverses at 60 mm withdrawal (702 samples).
+
+  With the Y40 or shifted bed, none of the 80 bed cases collide and the minimum clearance is
+  4.59 mm. Side clearances stay at 2.40 / 1.60 mm.
+
+**Files.** [P23](./step/P23_Probe_Mount_Cartographer_R42_REVIEW.step)
+([STL](./stl/P23_Probe_Mount_Cartographer_R42_REVIEW.stl)),
+[P28](./step/P28_Dock_and_Probe_Calibration_Jig_Cartographer_R42_REVIEW.step)
+([STL](./stl/P28_Dock_and_Probe_Calibration_Jig_Cartographer_R42_REVIEW.stl)),
+[screws and inserts](./step/P23_P22_Cartographer_Hardware_R42_REVIEW.step) and the
+[keepout zones](./step/Cartographer_V3_Keepouts_R42_REVIEW.step). The Fusion native review
+"42 Cartographer mount (native review)", both builds side by side, is archived as
+[`42_Cartographer_Mount_REVIEW.f3d`](./42_Cartographer_Mount_REVIEW.f3d). The 87 MB review STEP it
+comes from is left out of the repository; the script regenerates it. Render with
+`python render_cartographer_mount_r42.py`.
+
+**Limits.** Rigid CAD. The keepouts are the Cartographer model's own zones, and the effect of the core's
+and the hotend's metal in them on the readings isn't qualified. The Cartographer's own cable route
+isn't modelled: the Beacon's route stands in for it in the rack check and is left out of the fit and
+keepout checks.
+
 #### Faster verification (`fast_geometry.py`)
 
 The review scripts now share [`fast_geometry.py`](./fast_geometry.py), and the full
@@ -2328,7 +2423,7 @@ See [`verification_two_adapter_feasibility.json`](./verification_two_adapter_fea
   - `2× M3×8 SHCS` — `P24` lower horizontal foot down into `P21` upper bridge (`(±6.00, -15.80)`)
   - `2× M3×10 SHCS` — `P22` front upper cheeks into `P01` (`(±18.00, -52.78)`; revision-31 review: `Z = -54.28`; revision 41: `M3×8` ISO 7380 button heads seated on the cheeks' front faces, no counterbore)
   - `4× M3×8 SHCS` — `P23` upward into `P22` (`(±15.80, +8.50)` & `(±15.80, -11.50)`; revision-37 review: `2× M3×4` ISO 7380 button heads on the rear ears at `(±15.80, -19.50)`)
-  - `2× M3×8 Low-Profile SHCS` — Beacon H Normal or Cartographer V3 into `P23` (`(±15.80, -0.30)`; revision-37 review: `M3×6` low-profile through `P23` into `P22` inserts)
+  - `2× M3×8 Low-Profile SHCS` — Beacon H Normal or Cartographer V3 into `P23` (`(±15.80, -0.30)`; revision-37 review: `M3×6` low-profile through `P23` into `P22` inserts; revision 42: `M3×5` for the Cartographer on its own `P23`)
   - `2× M3×12 SHCS` — `P24` lower EBB42 standoffs (`Z = -9.00 mm`, from rear through `P24` into EBB42 pre-soldered standoffs; revision 41: `M3×14` from behind the board into P24's lower inserts)
   - `2× M3×18 SHCS` — `P20` upper wings through EBB42 upper mounting holes into `P24` upper inserts (`Z = +22.00 mm`; revision 41: the same length reaches through the moved inserts)
   - `2× M3×14 SHCS` — `3010` or `2510` axial fan to `P17` lower mounting holes (`Z = -50.00 mm`)
@@ -2373,7 +2468,8 @@ canbus_uuid: <your_cartographer_uuid>
 x_offset: 0.0
 # Coil centre 19.82 mm behind the nozzle (+Y, toward the rear): probe = nozzle + offset
 y_offset: 19.82
-# Coil bottom is 2.279 mm above nozzle tip (Z = -76.600 vs -78.879 mm); 2.61 mm with the revision-37 P23
+# Coil bottom is 2.279 mm above nozzle tip (Z = -76.600 vs -78.879 mm); 2.61 mm with the revision-37 P23,
+# 2.81 mm with the revision-42 Cartographer P23
 
 [adxl345 cartographer]
 cs_pin: cartographer:PA3
