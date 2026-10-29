@@ -72,6 +72,8 @@ CASES = {   # name: (label, design)
     "r43fullnp46_bambu_bed": ("Check: the full-round study meshed and run on 46 cores (r43full_bambu_bed: 30), print "
                               "surface", "study"),
     "r43np46_bambu_bed": ("Check: revision 43 meshed and run on 46 cores (r43_bambu_bed: 30), print surface", "study"),
+    "r43revfocus_bambu_bed": ("Study: the round only where the jets face the nozzle, a sharp edge from the heel to "
+                              "Y18.2, print surface (46 cores)", "study"),
 }
 N_EXP = 1.983                                    # dP ~ Q^n (revision 41's fit), for single-flow cases
 

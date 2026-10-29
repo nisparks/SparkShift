@@ -1594,6 +1594,7 @@ upward past the hotend):
 | ... or with its foot faded out at both ends | 1200 | −15 % | +5 % | 0 % | −12 % | −13 % | 22 % |
 | ... and the round eased out over the jet's last 3 mm, its cut started at the heel | 1200 | −15 % | +5 % | +4 % | −6 % | −7 % | 16 % |
 | **Revision 43: the same, its cut run back into the heel's ramp** | 1200 | **−18 %** | **+6 %** | **+1 %** | **−5 %** | **−6 %** | **16 %** |
+| ... or the round only where the jets face the nozzle: a sharp edge from the heel to Y18.2, full from Y20.9 | 1200 | +10 % | −3 % | +2 % | −14.5 % | −15.5 % | 28 % |
 
 - **The rib** adds no turbulence: behind the cable boss's nose the air's mean fluctuation is
   1.44 m/s with it and without, and the plenum's loss rises by 0-5 Pa.
@@ -1612,11 +1613,16 @@ upward past the hotend):
   left a 0.5 mm² step at the jet's closed back end. Revision 43 runs the cut back into the heel's
   ramp, so the step goes, but that opens the jets' back corner by 0.17 mm³: 5.7 % of their air then
   leaves through their back 2 mm instead of 4.5 %, the duct is 2 % less restrictive, and the air
-  within 5 mm of the nozzle falls by 4 %, to revision 41's. Across every version, the less of the
-  jets' air leaves behind the nozzle, the more reaches the print near it (the first version, its
-  foot tapered off at the heel: 3.5 %). Easing the round in at the heel as it eases out at the front
-  was drawn too, but against the island's duct face, which slants out behind the jet, it leaves a
-  V-shaped valley, the kind of notch the review removed, so it wasn't simulated.
+  within 5 mm of the nozzle falls by 4 %, to revision 41's. The less of the jets' air leaves behind
+  the nozzle, the more reaches the print near it (the first version, its foot tapered off at the
+  heel: 3.5 %), but only up to a point. A study left the jets' back end with a plain sharp edge,
+  from the heel to Y18.2, where the island's duct face turns straight, and grew the round and its
+  foot from there to full by Y20.9, along the front's cosine, so the round sat centred on the
+  nozzle. That cut the back end's share to 1.7 %, but the duct became 34 % more restrictive (10 %
+  more than revision 41's), and the faster jets splashed up past the hotend (28 % of their air):
+  2 % more air within 5 mm of the nozzle, 15 % less within 10 and 14 mm. Easing the round in from
+  the heel itself leaves a V-shaped valley against the island's slanting face, so it wasn't
+  simulated.
 - **The model's scatter.** The same P22 meshed and run on 30 and on 46 cores agrees within 1 % of
   the pressure and of the air over the print (the full-size round and revision 43 both); the
   differences above are larger.
@@ -1740,7 +1746,8 @@ python render_p22_r43_print.py                   # image 93
 
 The studies' P22s are in [`r43_parts.py`](./r43_parts.py) (`pocket_study`, `front_study`,
 `bell_study`, `low_study`, `low_bell_study`, `long_jets_study`, and from the review `review_rib_study`,
-`review_back_study`, `review_full_study`, `review_fade_study`, `review_runout_study`), each identical
+`review_back_study`, `review_full_study`, `review_fade_study`, `review_runout_study`,
+`review_focus_study`), each identical
 to the one simulated.
 
 **Limits.** The CFD's limits are revision 41's: steady, time-averaged flow, no heat transfer, the

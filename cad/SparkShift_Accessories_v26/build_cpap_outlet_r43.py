@@ -173,14 +173,18 @@ def bell_design(h):
     return round(max(wall, r - (h - r)), 3)
 
 
-def runout_design(y, h):
-    """r43_parts.runout_section at Y: the wall's flat bottom out to the round's tangent point, the round (r BELL_R*s),
-    then the foot's 45 degree chamfer, s mm deep, back to the wall's duct face."""
-    s = min(max(R.runout_s(y), 0.02), 0.995)
+def section_design(s, h):
+    """r43_parts.runout_section at scale s: the wall's flat bottom out to the round's tangent point, the round
+    (r BELL_R*s), then the foot's 45 degree chamfer, s mm deep, back to the wall's duct face."""
+    s = min(max(s, 0.02), 0.995)
     r, wall = R.BELL_R * s, R.WALL_X[1] - R.WALL_X[0]
     if h < r:
         return round((1.0 - s) * wall + math.sqrt(2 * r * h - h * h), 3)
     return round(max(wall, wall + s - (h - r)), 3)
+
+
+def runout_design(y, h):
+    return section_design(R.runout_s(y), h)
 
 
 def check_outlet(parts, report, failures):

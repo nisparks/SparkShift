@@ -240,6 +240,65 @@ def with_runout_bell(body, heel_cut=HEEL_CUT_Y):
     return body
 
 
+# Study, not adopted (r43revfocus_*): the round only where the jets face the nozzle. The CFD after the review: the more
+# of the jets' air leaves through their back 2 mm, behind the nozzle, the less reaches the print near it (the first
+# version, its foot tapered at the heel: 3.5 % of it, +9 % within 5 mm; the round cut from the heel: 4.5 %, +4 %; run
+# into the heel's ramp: 5.7 %, 0 %). Here the round and its foot grow from nothing at FOCUS_Y[0], where the island's
+# duct face has turned straight (Y18.11), so they can't leave a valley against it, to full at FOCUS_Y[1], along the
+# front run-out's cosine; behind FOCUS_Y[0] the wall's bottom edge is sharp, to throttle the jet's back end. It did:
+# 1.7 % of the air left there, but the duct became 34 % more restrictive and the faster jets splashed up past the
+# hotend (28 % of their air), so 15 % less air reached the print within 10 and 14 mm of the nozzle (2 % more within 5).
+FOCUS_Y = (18.2, 18.2 + RUNOUT_Y[1] - RUNOUT_Y[0])
+
+
+def focus_s(y):
+    """The ease-in's scale at Y: 0 (a sharp edge) at FOCUS_Y[0] up to 1 (the full round and foot) at FOCUS_Y[1]."""
+    t = min(max((y - FOCUS_Y[0]) / (FOCUS_Y[1] - FOCUS_Y[0]), 0.0), 1.0)
+    return 0.5 * (1.0 - math.cos(math.pi * t))
+
+
+def focus_corner_fill(side):
+    """From the heel to FOCUS_Y[0]: revision 41's r1.4 round (r41_parts.jet_lip_cut) filled back to a sharp edge, out to
+    the island's duct face, which still slants out there (its thickening, which that cut squared off, comes back too)."""
+    lo, hi = sorted((side * WALL_X[0], side * (R41.JET_LIP_X_OUT + 0.1)))
+    zone = shape(a.box(lo, hi, R41.HEEL_Y - 0.01, FOCUS_Y[0] + 0.01, ROOF, ROOF + R41.JET_LIP_R + 0.01))
+    return common(zone, [a.prism_xy_r(R41.XY_ISLAND, R41.XY_ISLAND_R, ROOF - 1.0, ROOF + 2.0),
+                         R41.horn_in(lo - 1.0, hi + 1.0)])
+
+
+def focus_material(side):
+    """The wall's bottom from FOCUS_Y[0] to FOCUS_Y[1], lofted through runout_section as the round and its foot grow."""
+    from OCP.BRepOffsetAPI import BRepOffsetAPI_ThruSections
+    y0, y1 = FOCUS_Y
+    loft = BRepOffsetAPI_ThruSections(True, False)
+    for k in range(RUNOUT_N + 1):
+        y = y0 + (y1 - y0) * k / RUNOUT_N
+        loft.AddWire(runout_section(y, focus_s(y)))
+    loft.Build()
+    solid = shape(loft.Shape())
+    return solid if side > 0 else solid.mirror("YZ")
+
+
+def with_focused_bell(body):
+    """A sharp edge from the heel to FOCUS_Y[0], the round and foot growing to full by FOCUS_Y[1], full to RUNOUT_Y[0],
+    and easing out into the front wall as in with_runout_bell. Nothing is added behind the heel."""
+    body = fuse(body, *[focus_corner_fill(s) for s in (-1, 1)])
+    rows = []
+    for side in (-1, 1):
+        lo, hi = sorted((side * (WALL_X[0] - 1.0), side * (WALL_X[0] + BELL_R + 1.5)))
+        horn, duct = R41.horn_in(lo, hi), inside(ROOF - 1.0, ROOF + BELL_R + 2.0)
+        rows.append((common(bell_foot(side, FOCUS_Y[1], RUNOUT_Y[0]), [horn, duct]),
+                     common(bell_outside(side, FOCUS_Y[1], RUNOUT_Y[0]), [horn, duct])))
+    body = cut(fuse(body, *[r[0] for r in rows]), [r[1] for r in rows])
+    for side in (-1, 1):
+        lo, hi = sorted((side * WALL_X[0], side * (WALL_X[0] + BELL_R + 0.3)))
+        horn, duct = R41.horn_in(lo - 1.0, hi + 1.0), inside(ROOF - 1.0, ROOF + RUNOUT_H + 1.0)
+        for (y0, y1), material in ((FOCUS_Y, focus_material(side)), ((RUNOUT_Y[0], BELL_FRONT), runout_material(side))):
+            zone = common(shape(a.box(lo, hi, y0, y1, ROOF - 0.01, ROOF + RUNOUT_H)), [horn, duct])
+            body = fuse(cut(body, [zone]), common(material, [horn, duct]))
+    return body
+
+
 # Study, not adopted (r43revfade_*): the round over the whole length, its foot fading in and out, in case the full
 # foot fed the jet's two ends at the nozzle's expense. The foot grows from nothing at FOOT_FADE_BACK[0] (where the
 # wall's duct face turns straight, so no notch can form) to full at [1], and back to nothing over FOOT_FADE_FRONT, along
@@ -486,6 +545,12 @@ def review_runout_study():
     """The run-out as simulated (r43revrunout_*): revision 43's P22 with the round's cut started at the heel."""
     body = with_runout_bell(printable(R41.p22()), heel_cut=BELL_HEEL)
     return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 review run-out study")
+
+
+def review_focus_study():
+    """The round only where the jets face the nozzle (r43revfocus_*)."""
+    body = with_focused_bell(printable(R41.p22()))
+    return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 review focused-round study")
 
 # --------------------------------------------------------------------------------------------
 # Study, not adopted: the jets run back to Y13.05 (cfd_cpap_r43.py, cases r43long_*). P22's heel drops straight
