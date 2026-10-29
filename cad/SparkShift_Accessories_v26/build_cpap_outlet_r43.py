@@ -4,7 +4,8 @@ Static checks:
 - P22: one valid solid inside revision 41's bounds, changed only under and over its jets;
 - outlet: the jets' open area against revision 41's, the floor under them solid and at least 0.8 mm thick (exact
   vertical rays and the printed mesh), their top unchanged under both hotends' heaters, the r 2.4 bell-mouth's
-  profile against its design, and every other wall of the outlet no thinner than revision 41's;
+  profile against its design (and its run-out into the front wall against the run-out's), and every other wall of
+  the outlet no thinner than revision 41's;
 - hotends: every part of the Bambu hotend (silicone sock, heater cradle, wire bail, nozzle...) and the Red Lizard
   against P22, mounted and along the 60 mm withdrawal (the carriage backs away in -Y and leaves the tool in its dock),
   none closer than to revision 41's P22;
@@ -12,7 +13,7 @@ Static checks:
   probe and screws), and both mounted tools: no new interference or contact;
 - print: P22 on its back face, finely meshed: the area on the plate and the area that needs support against revision
   41's, split by whether a support from the plate could reach it; P22 stood on each of its other flat faces; the
-  walls at the printing changes (the window notch, the back chamfer and corners).
+  walls at the printing changes (the window notch, the back chamfer and corners; the review's rib is reported apart).
 Then, on a revision-43 scene (WORK/r43_scene), the revision-36 full-rack requalification.
 
 Run: python build_cpap_outlet_r43.py [--workers 10] [--static-only]
@@ -52,26 +53,36 @@ SIDES = ((1, 10.1, 12.95), (-1, -12.95, -10.1))
 # The lowered floor under each jet, with the underside below it, 0.8 mm by design. It starts 0.6 mm behind the pocket,
 # where rays from the underside's upward curve reach the pocket's back end.
 POCKET_ZONES = [(x0, x1, R.LOW_Y0 - 0.6, 28.0, R.UNDER - 0.05, -75.5) for _, x0, x1 in SIDES]
-# The bell-mouth band: the wall's bottom, from the jet's heel to the round's end, its foot and chamfer included. Its
-# 90 degree edge on the slot side reads as thin to a ray cast (as revision 41's round did), so it is measured by its
-# profile instead.
-BELL_BAND = [(min(s * (R.WALL_X[0] - 0.05), s * (R.WALL_X[0] + R.BELL_R + 0.1)),
-              max(s * (R.WALL_X[0] - 0.05), s * (R.WALL_X[0] + R.BELL_R + 0.1)),
-              R.BELL_HEEL - 0.1, R.BELL_Y[1] + 0.1, R.ROOF - 0.05, R.ROOF + R.BELL_R + 1.1) for s, _, _ in SIDES]
+# The bell-mouth band: the wall's bottom, from the foot's run-out behind the heel to the front wall, its foot and chamfer
+# included, and the round's run-out into the front wall (r43_parts.with_runout_bell). Its 90 degree edge on the slot
+# side reads as thin to a ray cast (as revision 41's round did), so it is measured by its profile instead.
+BELL_BAND = [(min(s * (R.WALL_X[0] - 0.05), s * (R.WALL_X[0] + R.BELL_R + 0.35)),
+              max(s * (R.WALL_X[0] - 0.05), s * (R.WALL_X[0] + R.BELL_R + 0.35)),
+              R.BELL_BACK - 0.1, 28.0, R.ROOF - 0.05, R.ROOF + max(R.BELL_R + 1.1, R.RUNOUT_H + 0.05)) for s, _, _ in SIDES]
 ZONES = POCKET_ZONES + BELL_BAND
-# For printing (r43_parts.printable): the notch at the window's front, and the back face's chamfer and sharp corners
-PRINT_ZONES = [(-R.WINDOW_HALF - 0.05, R.WINDOW_HALF + 0.05, R.WINDOW_FRONT - 0.1, R.WINDOW_FRONT + R.WINDOW_HALF + 0.1,
-                R.WINDOW_SKIN[1] - 0.05, -57.0),
+# For printing (r43_parts.printable): the notch at the window's front, the back face's chamfer and sharp corners, and
+# the review's rib with its flares into the cable boss's nose and the island's trimmed back corners
+PRINT_ZONES = [(-R.WINDOW_HALF - 0.05, R.WINDOW_HALF + 0.05, R.WINDOW_FRONT - R.NOTCH_STRIP - 0.1,
+                R.WINDOW_FRONT + R.WINDOW_HALF + 0.1, R.BOTTOM_Z - 0.05, -57.0),
                (-18.0, 18.0, R.BACK_Y - 0.05, -40.6, R.BOTTOM_Z - 0.05, -48.95)]
+RIB_ZONE = (-R.NOSE_HALF - 0.45, R.NOSE_HALF + 0.45, R.RIB_BACK - 0.1, R.NOSE_C[1] + 0.05, -67.6, R.RIB_TOP + 0.01)
+PRINT_ZONES.append(RIB_ZONE)
 PRINT_WALL_ZONES = PRINT_ZONES[:1] + [PRINT_ZONES[1][:5] + (-52.0,)]   # below the socket (its walls are revision 41's)
 FLOOR_MIN = 0.8                           # two 0.42 mm perimeters with P22 on its back face
-BELL_PROFILE_Y = {17.8: 9.0, 19.0: 9.0, 22.2: 9.0, 25.0: 1.9}   # where the round is full; the heights over ROOF to
-                                                                  # check (at Y25 the duct's roof comes down to ROOF+2.3)
+BELL_PROFILE_Y = {16.9: 2.9, 17.8: 9.0, 19.0: 9.0, 22.2: 9.0, 24.4: 1.9}
+# where the round is full; the heights over ROOF to check: behind Y17.5 the wall's duct face thickens outboard (so
+# above the round's top the wall reads thicker than its 1.4 mm), and towards the front wall the duct's roof comes down
+# (to ROOF+2.5 at Y24.4)
+RUNOUT_PROFILE_Y = {R.RUNOUT_Y[0] + (R.RUNOUT_Y[1] - R.RUNOUT_Y[0]) * k / R.RUNOUT_N: top
+                    for k, top in ((3, 1.4), (7, 1.0), (11, 0.7))}
+# three of the run-out's lofted sections (Y25.18, 25.95, 26.72), where its surface is exactly runout_design; the roof
+# is ROOF+2.05, 1.58 and 1.10 over them
 BEACON_BUILD = ("Beacon_", P37.NAMES["p23"], "R37_PROBE_", "R37_REAR_")
 WITHDRAWAL = (60.0, 0.5)                  # mm, step: the requalification's carriage retreat
 BAMBU_PARTS = {0: "ceramic (zirconia) block", 1: "aluminium heater cradle", 2: "wire bail and latch",
                3: "hotend: nozzle, melt block, heatsink", 4: "silicone sock", 5: "retaining magnet"}
-PRINT_TOL, PRINT_ANG = 0.005, 0.05        # the print-oriented STL: chord error (mm), radians per facet
+PRINT_TOL, PRINT_ANG = 0.002, 0.05        # the print-oriented STL: chord error (mm, absolute) and radians per facet,
+                                          # on edges and inside faces (the run-out's lofted round needs the latter)
 SUPPORT_DEG = 30.0                        # the user's Bambu preset: overhangs flatter than this get support
 TEAL, ORANGE, GREY, BLUE, RED = (0.0, 0.64, 0.61), (0.95, 0.55, 0.12), (0.55, 0.57, 0.6), (0.2, 0.45, 0.9), (0.85, 0.2, 0.2)
 
@@ -162,6 +173,16 @@ def bell_design(h):
     return round(max(wall, r - (h - r)), 3)
 
 
+def runout_design(y, h):
+    """r43_parts.runout_section at Y: the wall's flat bottom out to the round's tangent point, the round (r BELL_R*s),
+    then the foot's 45 degree chamfer, s mm deep, back to the wall's duct face."""
+    s = min(max(R.runout_s(y), 0.02), 0.995)
+    r, wall = R.BELL_R * s, R.WALL_X[1] - R.WALL_X[0]
+    if h < r:
+        return round((1.0 - s) * wall + math.sqrt(2 * r * h - h * h), 3)
+    return round(max(wall, wall + s - (h - r)), 3)
+
+
 def check_outlet(parts, report, failures):
     new, old = parts["p22"], parts["p22_r41"]
     xs = (10.3, 10.6, 10.9, 11.15, 11.5)
@@ -188,15 +209,21 @@ def check_outlet(parts, report, failures):
         prof = [bell_profile(new, s, y) for s in (-1, 1)]
         lips[f"y{y:g}"] = round(max(abs(val - bell_design(float(k))) for p in prof for k, val in p.items()
                                     if float(k) <= top), 4)
+    for y, top in RUNOUT_PROFILE_Y.items():
+        prof = [bell_profile(new, s, y) for s in (-1, 1)]
+        lips[f"y{y:.2f} (run-out)"] = round(max(abs(val - runout_design(y, float(k))) for p in prof
+                                                for k, val in p.items() if float(k) <= top), 4)
     report["outlet"] = {
         "jets": f"Horizontal, one each side of the nozzle as in revision 41: the slot under the duct-to-slot wall "
                 f"(|X| {R.WALL_X[0]}), from the floor to the wall's flat bottom (Z{R.ROOF}, unchanged). The floor is "
                 f"{R.DROP} mm lower from Y{R.LOW_Y0} forward (Z{R.LOW_FLOOR} where flat, was {R.FLOOR}; the same "
                 f"{R.DROP} mm lower where it climbs the heel), out to |X| {R.LOW_X[1]}, rising at 45 degrees into the "
                 f"front wall; it is still solid, so no air blows down at the bed. The wall's duct side is rounded "
-                f"r {R.BELL_R} (was {R41.JET_LIP_R}) from Y{R.BELL_HEEL:.2f} to Y{R.BELL_Y[1]}, on a foot out to "
-                f"|X| {R.WALL_X[0] + R.BELL_R:.1f} with a 45 degree chamfer above, narrowing at 45 degrees in plan "
-                f"behind Y{R.BELL_Y[0]}.",
+                f"r {R.BELL_R} (was {R41.JET_LIP_R}) from the heel (Y{R.BELL_HEEL:.2f}) to Y{R.RUNOUT_Y[0]}, on a foot "
+                f"out to |X| {R.WALL_X[0] + R.BELL_R:.1f} with a 45 degree chamfer above; from there the round and its "
+                f"foot ease out together, along a cosine, to the wall's sharp corner by Y{R.RUNOUT_Y[1]}, as the "
+                f"duct's roof comes down over them. Behind the heel the round runs into the heel's ramp, and the "
+                f"rounded foot runs on in the duct's air until the ramp and the wall's thickening duct face take it in.",
         "open_area_both_sides": throat, "narrowest_mm2": narrowest,
         "area_ratio_vs_r41": round(narrowest["r43_mm2"] / narrowest["r41_mm2"], 3),
         "floor_under_jets_solid_fraction": floor_solid, "floor_under_jets_rays": rays, "heaters": heaters,
@@ -281,16 +308,27 @@ def check_fit(parts, report, failures):
         if r["r43_overlap_mm3"] > r["r41_overlap_mm3"] + 1e-4 or (r["r43_gap_mm"] < 1e-3 and r["r41_gap_mm"] >= 1e-3):
             new_issues.append(n)
     p23 = {}
+    notch = R.window_notch()
     for tag, label in (("beacon", P37.NAMES["p23"]), ("cartographer", R42.NAMES["p23"])):
         s = others[label]
         bb = s.BoundingBox()
         slab = box(bb.xmin, bb.xmax, bb.ymin, bb.ymax, bb.zmax - 0.01, bb.zmax + 0.01)
-        p23[tag] = {"r43_mm2": round(new.intersect(slab).Volume() / 0.01, 1), "r41_mm2": round(old.intersect(slab).Volume() / 0.01, 1)}
-        if p23[tag]["r43_mm2"] < p23[tag]["r41_mm2"] - 1.0:
-            new_issues.append(f"less of P22 over {label}'s top")
+        top = s.intersect(box(bb.xmin, bb.xmax, bb.ymin, bb.ymax, bb.zmax - 0.01, bb.zmax)).translate(cq.Vector(0, 0, 0.01))
+        row = {"r43_contact_mm2": round(new.intersect(top).Volume() / 0.01, 1),
+               "r41_contact_mm2": round(old.intersect(top).Volume() / 0.01, 1),
+               "notch_footprint_mm2": round(old.intersect(top).intersect(notch).Volume() / 0.01, 1),
+               "r43_over_bbox_mm2": round(new.intersect(slab).Volume() / 0.01, 1),
+               "r41_over_bbox_mm2": round(old.intersect(slab).Volume() / 0.01, 1)}
+        row["r43_share_of_r41"] = round(row["r43_contact_mm2"] / row["r41_contact_mm2"], 3)
+        p23[tag] = row
+        if row["r43_contact_mm2"] < row["r41_contact_mm2"] - row["notch_footprint_mm2"] - 1.0:
+            new_issues.append(f"less of P22 on {label}'s top than the window notch takes")
     report["fit"] = {"within_1mm": rows, "new_interference_or_contact": new_issues, "p22_over_p23_top": p23,
                      "note": "Gap 0 with no overlap is face contact (P22 seated on P23, the screws in their holes). "
-                             "'p22_over_p23_top': P22's area in the 0.01 mm over P23's top face, where P23 bears on it."}
+                             "'p22_over_p23_top': where P23 bears on P22, P22's area on P23's top face (the 'contact' "
+                             "figures) and over its bounding box; the window notch runs through P22's underside, so "
+                             "the contact may drop by the notch's footprint and no more. P23's four screws clamp it at "
+                             "the bosses, |X| 15.8, at least 9 mm from the notch."}
     if new_issues:
         failures.append(f"New interference or contact: {new_issues}")
 
@@ -352,23 +390,31 @@ def check_print(parts, report, failures):
         rows[tag] = overhang(meshes[tag])
     asm = V.to_mesh(parts["p22"], "p22_r43_orient")
     sweep = orientation_sweep(asm)
-    walls = V.wall_report(asm, PRINT_WALL_ZONES)
+    walls = V.wall_report(asm, PRINT_WALL_ZONES, exclude=[RIB_ZONE])
+    rib = V.wall_report(asm, [RIB_ZONE])
     report["print"] = {
         "orientation": "back face down", "support_threshold_deg": SUPPORT_DEG, **rows, "orientation_sweep_r43": sweep,
-        "walls_printing_changes": walls,
+        "walls_printing_changes": walls, "rib_walls": rib,
+        "rib": f"From the review: {2 * R.RIB_HALF:.1f} mm thick (three perimeters), in the plane of symmetry from the "
+               f"plenum's back wall (Y{R.RIB_BACK}) to the cable boss's nose, up to the socket's floor (Z{R.RIB_TOP}); "
+               f"each side flares into the nose along the 45 degree tangent to its r {R.NOSE_R:g} round, blended "
+               f"r {R.RIB_BLEND_R:g}. In print the nose stands on it instead of arching over 7 mm.",
         "still_needs_support": "The cheeks' bearing faces, where P22 seats on P01's bosses: in print, ceilings 8.5 mm wide "
                                "cantilevered 10 mm from the duct, over P22 itself, so the support stands on P22's top. "
                                "And the undersides of the two 6.1 mm bosses that locate P23's rear ears, which stand "
                                "2.2 mm proud and print lying on their side (the area a support from the plate can reach): "
                                "they would print unsupported, but they fit P23's sockets with 0.10 mm of radial "
                                "clearance, so a droop would make the ears tight.",
-        "bridges": "The socket's front lip (15.4 mm), the skin under the window notch (22.9 mm long, 1.8 mm wide), the "
-                   "jets' front lips (3.7 mm); the cable boss's nose inside the duct is a 7 mm arch.",
+        "bridges": f"The socket's front lip (15.4 mm) and the jets' front lips (3.7 mm). The window notch's apex is "
+                   f"rounded r {R.NOTCH_R:g}: in print a 7.1 mm arch, like the top of a 10 mm hole.",
         "note": "Facets facing down more steeply than the preset's 30 degree threshold, split by whether a support "
                 "from the plate can reach them. With P22 on its back face, revision 43's new faces stand vertical or "
-                "face up, or overhang at 45 degrees (the window notch, the back chamfer, the floor's front chamfers and "
-                "the bell-mouth foot's back ends); the ends of the larger round at the jet's heel overhang by less than "
-                "0.5 mm. The sweep stands P22 on each of its flat faces with 50 mm2 or more on the plate."}
+                "face up, or overhang at 45 degrees (the window notch and its rounds where it leaves the window, the "
+                "back chamfer, the floor's front chamfers, the rib's flares); the bell-mouth's foot runs back into the "
+                "heel's ramp, which faces up. The sweep stands P22 on each of its flat faces with 50 mm2 or more on "
+                "the plate."}
+    if rib["min_mm"] is None or rib["min_mm"] < 2 * R.RIB_HALF - 0.05:
+        failures.append("The rib is thinner than designed")
     if rows["r43"]["needs_support_mm2"] > rows["r41"]["needs_support_mm2"] + 2.0:
         failures.append("P22 needs more support than revision 41's")
     if rows["r43"]["on_plate_mm2"] < rows["r41"]["on_plate_mm2"]:
@@ -384,9 +430,21 @@ def check_print(parts, report, failures):
 # --------------------------------------------------------------------------------------------
 
 def export_print_oriented(name, s):
+    from OCP.BRepMesh import BRepMesh_IncrementalMesh
+    from OCP.BRepTools import BRepTools
+    from OCP.IMeshTools import IMeshTools_Parameters
+    from OCP.StlAPI import StlAPI_Writer
     out = STL / f"{name}_PRINT_ORIENTED.stl"
     final = print_oriented(s)
-    cq.exporters.export(final, str(out), tolerance=PRINT_TOL, angularTolerance=PRINT_ANG)
+    BRepTools.Clean_s(final.wrapped)
+    params = IMeshTools_Parameters()
+    params.Deflection = params.DeflectionInterior = PRINT_TOL
+    params.Angle = params.AngleInterior = PRINT_ANG
+    params.Relative, params.InParallel = False, True
+    BRepMesh_IncrementalMesh(final.wrapped, params)
+    writer = StlAPI_Writer()
+    writer.ASCIIMode = False
+    writer.Write(final.wrapped, str(out))
     m = trimesh.load_mesh(str(out))
     ok = m.is_watertight and m.is_winding_consistent and len(m.split(only_watertight=False)) == 1
     bend = np.degrees(m.face_adjacency_angles)

@@ -195,8 +195,8 @@ metal is in it, but the Monolith core's two lower M3 nuts reach 1.8 mm into
 the top of its 20 mm column; they are recorded, not changed.
 With revision 41's CPAP set printed, revision 43 reworks P22 once more: the
 jets sit on a floor 0.4 mm lower with larger (r 2.4) bell-mouths, so the
-blower moves about 5 % more air (201 L/min) and the air over the print
-within 5 mm of the nozzle rises 9 %. A 45° notch at the window and a
+blower moves about 7 % more air (206 L/min), with as much air over the print
+within 5 mm of the nozzle as before. A 45° notch at the window and a
 chamfered back edge leave only the cheeks' two bearing faces and P23's two
 locating bosses needing support.
 Nothing is **build-approved**.

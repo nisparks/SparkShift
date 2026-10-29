@@ -27,8 +27,8 @@ locate P23's rear ears (they fit P23's sockets with 0.10 mm clearance, so a droo
 ears tight; Bambu Studio's automatic supports skip them as small overhangs). Set the support type
 to tree (manual), paint those faces as support enforcers (the lower third of each boss), turn off
 "on build plate only" and use Bambu Support for ABS or HIPS as the support interface, so the faces
-come off flat; everything else bridges (the socket's front lip, 15.4 mm; the skin under the window
-notch, 22.9 mm; the jets' front lips, 3.7 mm), and the window's sloping lower sides face up. The
+come off flat; everything else bridges (the socket's front lip, 15.4 mm; the jets' front lips,
+3.7 mm) or arches (the window notch's r 5 apex, 7 mm), and the window's sloping lower sides face up. The
 print-oriented meshes are fine (neighbouring facets meet at under 3°), each one closed body. The
 Colour column is a suggested scheme; see [Colour scheme](#colour-scheme).
 
@@ -38,9 +38,9 @@ problems with: P01, P02, P03, P20, P21, P22 and P24
 Revision 42 adds a P23 for the Cartographer V3, with a P28 to match; revision 37's P23 stays for the
 Beacon ([details](cad/SparkShift_Accessories_v26/README.md#a-p23-for-the-cartographer-and-the-cartographers-own-keepout-revision-42)).
 After the first CPAP set was printed, revision 43 reworks P22 again: a lower floor and larger
-bell-mouth under the jets let the blower move about 5 % more air and put 9 % more over the print
-near the nozzle, and two print changes leave only the cheeks' bearing faces and P23's two locating
-bosses needing support
+bell-mouth under the jets let the blower move about 7 % more air, with as much over the print near
+the nozzle as before, and the printing changes leave only the cheeks' bearing faces and P23's two
+locating bosses needing support
 ([details](cad/SparkShift_Accessories_v26/README.md#p22-lower-jet-floor-larger-bell-mouth-and-less-support-revision-43)).
 The tools, docks and rack haven't been printed yet. **Print a first-article set first**: the
 carriage, one Bambu tool, one Red Lizard tool and two docks. Check:
@@ -54,7 +54,7 @@ carriage, one Bambu tool, one Red Lizard tool and two docks. Check:
   across the nozzle at the fresh plastic rather than down at the bed (new in revision 41; the jets
   reworked in revision 43). The
   [CFD](cad/SparkShift_Accessories_v26/README.md#p22-lower-jet-floor-larger-bell-mouth-and-less-support-revision-43)
-  puts the blower at about 201 L/min through this duct with 1 m of hose (revision 41: 192 L/min;
+  puts the blower at about 206 L/min through this duct with 1 m of hose (revision 41: 192 L/min;
   released duct: 131 L/min);
 - the P18 bushing seats (Ø7.04 mm) and P25 pin bores (Ø4.98 mm) with your actual
   bushings and pins (new in revision 39);
@@ -88,7 +88,7 @@ Before making the silicone pads and wipers, measure a real Bambu nozzle: its tip
 | P15, P16 belt arches | [left](stl_v26/P15_Left_belt_arch.stl), [right](stl_v26/P16_Right_belt_arch.stl) | 1 each | Yellow | |
 | P20 CPAP hose inlet | [P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW_PRINT_ORIENTED.stl)) | 1 | Blue | 1.25 mm sleeve wall (revision 41); button-head lugs (revision 40). Print standing, hose spigot up, with a brim |
 | P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW_PRINT_ORIENTED.stl)) | 1 | Cyan | 1.25 mm socket and sleeve walls, one flat top to print on (revision 41); moved inserts (revision 40). Print top face down |
-| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW_PRINT_ORIENTED.stl)) | 1 | Teal | Jets on a floor 0.4 mm lower, with r 2.4 bell-mouths; a 45° notch at the window and a chamfered back edge, so only the cheeks' bearing faces and P23's two locating bosses need support (revision 43). Horizontal jets, cheeks bolted flat to P01's bosses (revision 41). Print on its back face, with a brim and support painted on the two cheek faces and under the two bosses. Beside the hotend: GF/CF ABS or ASA |
+| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW.stl) ([print-oriented](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW_PRINT_ORIENTED.stl)) | 1 | Teal | Jets on a floor 0.4 mm lower, with r 2.4 bell-mouths along their whole length, eased out into the front wall; a 45° notch right through at the window, a rib under the cable boss's nose and a chamfered back edge, so only the cheeks' bearing faces and P23's two locating bosses need support (revision 43). Horizontal jets, cheeks bolted flat to P01's bosses (revision 41). Print on its back face, with a brim and support painted on the two cheek faces and under the two bosses. Beside the hotend: GF/CF ABS or ASA |
 | P23 probe mount | One of: [Beacon](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.stl), [Cartographer](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Cartographer_R42_REVIEW.stl) | 1 | Lime | Print the one for your probe. Beacon RevH Normal: coil 2.60 mm above the tip (revision 37). Cartographer V3: 0.2 mm thinner, coil 2.81 mm, M3×5 probe screws (revision 42) |
 | P24 EBB42 mount | [P24_EBB42_Frame_Mount_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P24_EBB42_Frame_Mount_R41_REVIEW.stl) | 1 | Lime | Plain frame, no wire comb; the hall sensor's groove runs right through to the board (revision 41). Print on the face that sits against P02 |
 

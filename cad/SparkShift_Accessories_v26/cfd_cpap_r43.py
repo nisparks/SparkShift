@@ -2,7 +2,8 @@
 model, mesh and solver as cfd_cpap_r41.py (only P22 changes: the domain is built with `cfd_cpap_r41.py domain <name>
 --p22 <brep>`), and the studies that led to them (jets run back to Y13, with and without their front 4 mm; the lower
 floor alone and only where flat, with and without the bell-mouth; the bell-mouth alone; a first, unprintable flat
-pocket: r43_parts.py).
+pocket; and, from the review in Fusion, the rib, the round's back and front ends, its foot faded, and the round at
+full size to the front wall against its run-out: r43_parts.py).
 
 What is compared, per case at 180 L/min (and the system curve where a case steps through 180/120/240 L/min):
 - the total pressure at P20's spigot, the blower's operating point with 1 m of hose, and where the pressure goes;
@@ -57,6 +58,20 @@ CASES = {   # name: (label, design)
     "r43long_bambu_bed": ("Study: jets run back to Y13, print surface", "long"),
     "r43rear_bambu": ("Study: jets run back to Y13, front 4 mm closed, Bambu", "long"),
     "r43rear_bambu_bed": ("Study: jets run back to Y13, front 4 mm closed, print surface", "long"),
+    "r43v1_bambu_bed": ("Revision 43 before the review (round to Y26.2, tapered foot; strip under the notch), print "
+                        "surface", "study"),
+    "r43revrib_bambu_bed": ("Study: the review's rib alone, with the first version's round, print surface", "study"),
+    "r43revback_bambu_bed": ("Study: the review's round, but ending square at Y26.2 as before, print surface", "study"),
+    "r43full_bambu": ("Study: the review's first pass, the round at full size to the front wall, Bambu", "study"),
+    "r43full_redlizard": ("Study: the review's first pass, the round at full size to the front wall, Red Lizard", "study"),
+    "r43full_bambu_bed": ("Study: the review's first pass, the round at full size to the front wall, print surface",
+                          "study"),
+    "r43revfade_bambu_bed": ("Study: the full-length round with its foot faded out at both ends, print surface", "study"),
+    "r43revrunout_bambu_bed": ("Study: the round running out over Y24.6-27.3, as adopted but cut from the heel, "
+                               "print surface", "study"),
+    "r43fullnp46_bambu_bed": ("Check: the full-round study meshed and run on 46 cores (r43full_bambu_bed: 30), print "
+                              "surface", "study"),
+    "r43np46_bambu_bed": ("Check: revision 43 meshed and run on 46 cores (r43_bambu_bed: 30), print surface", "study"),
 }
 N_EXP = 1.983                                    # dP ~ Q^n (revision 41's fit), for single-flow cases
 
@@ -211,7 +226,8 @@ def report():
                     "duct's pressure at 180 L/min, the flow the blower then gives, the area-mean air speed 0.3 mm over "
                     "the print within 5, 10 and 14 mm of the nozzle, the air flowing out along the print within 1 mm of "
                     "it through r 8 mm, and the share of the jets' air leaving the space round the nozzle upward. "
-                    "Studies ran 600 iterations (within 1 % of 1200 on revision 41).",
+                    "Most studies ran 600 iterations (within 1 % of 1200 on revision 41; 1-2 points of the near-nozzle "
+                    "air on revision 43's); each case's count is listed.",
             "revision_41": {"pressure_at_180_pa": base["at_180_lpm"]["inlet_total_pa"],
                             "blower_flow_lpm": base["operating_point_1m_hose"]["lpm"],
                             "air_leaving_upward_pct": base["at_180_lpm"]["nozzle_box_outflow_lpm"]["share_pct"]["up"]},

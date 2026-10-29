@@ -11,13 +11,16 @@ Revision 43 changes two things under the duct-to-slot wall on each side, and not
   - the jet's floor drops 0.4 mm, following revision 41's floor: flat at Z-77.05 from Y22.4 to the front wall, and
     0.4 mm lower along the heel's curve back to Y19. That leaves 0.8 mm (two perimeters) over P22's underside, which
     doesn't move, and makes each jet 13 % taller where it faces the nozzle;
-  - the bell-mouth round on the wall's duct-side bottom edge grows from r 1.4 to r 2.4, from the jet's heel (Y16.7)
-    to Y26.2, on a foot 1 mm proud of the wall's duct face with a 45 degree chamfer back up to it. Behind Y17.6 the
-    foot narrows at 45 degrees in plan, so with P22 on its back face it prints without support.
+  - the bell-mouth round on the wall's duct-side bottom edge grows from r 1.4 to r 2.4, from the heel (Y16.7) to Y24.6,
+    on a foot 1 mm proud of the wall's duct face with a 45 degree chamfer back up to it; over the last 3 mm the round
+    and its foot ease out together into the wall's corner as the duct's front roof comes down to meet them. Behind
+    the heel the round runs into the heel's ramp and the foot runs on, rounded, until the ramp and the wall's
+    thickening duct face take it in, so it ends nowhere square and prints without support with P22 on its back face.
 The lower floor lets the blower move more air, but on its own the jets leave steeper and more of the air splashes up
 behind the hotend; the larger round turns the air into the jets more gently, and they leave as flat as revision 41's.
-The jets' top, the hotend slot (|X| 10.2), the duct upstream and every interface stay as they were. The CFD
-(cfd_cpap_r43.py, verification_cfd_cpap_r43.json) has the numbers; the studies below are the variants it compared.
+The jets' top, the hotend slot (|X| 10.2), the duct upstream and every interface stay as they were, apart from the
+printing changes and the review's rib in the plenum (below, printable()). The CFD (cfd_cpap_r43.py,
+verification_cfd_cpap_r43.json) has the numbers; the studies below are the variants it compared.
 """
 import math
 
@@ -113,8 +116,171 @@ def bell_cut(side, taper=True):
 
 
 def with_bell(body, taper=True):
+    """The round as first adopted and as the studies simulated it: Y17.6 (or BELL_HEEL with the taper) to Y26.2."""
     body = fuse(body, *[bell_fill(s, taper) for s in (-1, 1)])
     return cut(body, [bell_cut(s, taper) for s in (-1, 1)])
+
+
+# The round over the jet's full length. From the review in Fusion: the round stopped at Y26.2, short of the front
+# wall (Y27.4-27.9 here, slanting back outboard), and behind Y17.6 the tapered foot left a V-shaped notch against the
+# wall's duct face, which thickens outboard behind Y17.5. Now the round and its foot run from the heel to the front
+# wall (with_runout_bell, below, eases them out over the last 3 mm), and behind the heel the foot carries on, in the
+# duct's air only, until the heel's ramp and the thickening wall take it in: nothing ends square, and no part of the
+# foot faces down with P22 on its back face.
+BELL_BACK = 13.0      # where the foot's extension behind the heel starts; the duct's air ends it before here
+BELL_FRONT = 29.5     # past the front wall; the duct's plan outline ends the round on the wall
+HEEL_CUT_Y = 15.5     # the round's cut starts here, behind the heel: the heel's ramp (horn_in) ends it, so it leaves no
+                      # end face (started at the heel, it left a 0.5 mm2 step where the island's corner stood behind)
+
+
+def bell_foot(side, y0, y1):
+    """The foot under the wall (bell_fill's profile): from the slot face out to |X| WALL_X[0] + BELL_R, BELL_R up from
+    ROOF, then a 45 degree chamfer back to the wall's duct face."""
+    x0, x1 = WALL_X[0], WALL_X[0] + BELL_R
+    top = ROOF + BELL_R + (x1 - WALL_X[1])
+    pts = [(x0, ROOF), (x1, ROOF), (x1, ROOF + BELL_R), (WALL_X[1], top), (x0, top)]
+    return shape(a.prism_xz_r(mirror(pts, side), [0] * 5, y0, y1))
+
+
+def bell_outside(side, y0, y1):
+    """Outside the round (bell_cut's): the corner under ROOF + BELL_R, out to |X| 12.9, less the r BELL_R cylinder."""
+    x = side * WALL_X[0]
+    lo, hi = sorted((x, side * (WALL_X[0] + BELL_R + 0.3)))
+    corner = shape(a.box(lo, hi, y0, y1, ROOF - 0.01, ROOF + BELL_R))
+    return corner.cut(shape(a.cyl_y(x, ROOF + BELL_R, y0 - 0.1, y1 + 0.1, BELL_R)))
+
+
+def full_bell(side, front=BELL_FRONT, heel_cut=HEEL_CUT_Y):
+    """(fill, cut, extension) for one jet. From the heel forward the foot and the round are bounded by the duct's side
+    profile and plan outline, so they end on the front wall. Behind the heel the rounded foot is added only where the
+    duct's air is (p22_air_xy leaves out the centre island, so the hotend slot, which widens behind Y16.5, is never
+    touched), and the round's cut runs on from `heel_cut` until the heel's ramp ends it (the studies started it at
+    BELL_HEEL). `front` < the front wall ends them square there instead (the review's front-end study)."""
+    lo, hi = sorted((side * (WALL_X[0] - 1.0), side * (WALL_X[0] + BELL_R + 1.5)))
+    horn = R41.horn_in(lo, hi)
+    z0, z1 = ROOF - 1.0, ROOF + BELL_R + 2.0
+    duct, air = inside(z0, z1), R41.p22_air_xy(z0, z1)
+    fill = common(bell_foot(side, BELL_HEEL, front), [horn, duct])
+    rnd = common(bell_outside(side, heel_cut, front), [horn, duct])
+    ext = common(cut(bell_foot(side, BELL_BACK, BELL_HEEL), [bell_outside(side, BELL_BACK, BELL_HEEL)]), [horn, air])
+    return fill, rnd, ext
+
+
+def with_full_bell(body, front=BELL_FRONT, heel_cut=HEEL_CUT_Y):
+    rows = [full_bell(s, front, heel_cut) for s in (-1, 1)]
+    body = cut(fuse(body, *[r[0] for r in rows]), [r[1] for r in rows])
+    return fuse(body, *[r[2] for r in rows])
+
+
+# The round running out with the duct's front roof (adopted; the study r43revrunout_*). The CFD's finding: at full
+# size over the jet's last 1.7 mm, where revision 41's sloping front roof leads the air in, the round let more air
+# through but sent less of it over the print at the nozzle. So the round is full from the heel to RUNOUT_Y[0]; then,
+# along a cosine, the round and its foot shrink together to a sharp corner by RUNOUT_Y[1], just short of the front
+# wall, while the roof (HORN_IN) comes down over the same 3 mm. No step anywhere, and the surface only rises.
+RUNOUT_Y, RUNOUT_H, RUNOUT_N = (24.6, 27.3), 3.6, 14
+
+
+def runout_section(y, s):
+    """The wall's bottom in the plane Y=y (right side), with s from 1 (the full round and foot) to 0 (a sharp corner):
+    a round of r BELL_R*s tangent to the jet's roof at |X| WALL_X[0] + (1-s)*wall, its foot s mm proud of the wall's
+    duct face with the 45 degree chamfer above. As s falls the round's tangent point slides from the slot face to
+    the duct-side corner, so the surface only moves one way."""
+    from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeWire
+    from OCP.GC import GC_MakeArcOfCircle, GC_MakeSegment
+    from OCP.gp import gp_Pnt
+    x0, x1, z0, top = WALL_X[0], WALL_X[1], ROOF, ROOF + RUNOUT_H
+    P = lambda x, z: gp_Pnt(x, y, z)  # noqa: E731
+    seg = lambda a, b: BRepBuilderAPI_MakeEdge(GC_MakeSegment(a, b).Value()).Edge()  # noqa: E731
+    s = min(max(s, 0.02), 0.995)
+    r, xt = BELL_R * s, x0 + (1.0 - s) * (x1 - x0)
+    mid = P(xt + r * math.sqrt(0.5), z0 + r - r * math.sqrt(0.5))
+    arc = BRepBuilderAPI_MakeEdge(GC_MakeArcOfCircle(P(xt, z0), mid, P(xt + r, z0 + r)).Value()).Edge()
+    w = BRepBuilderAPI_MakeWire()
+    for e in (seg(P(x0, top), P(x0, z0)), seg(P(x0, z0), P(xt, z0)), arc, seg(P(xt + r, z0 + r), P(x1, z0 + r + s)),
+              seg(P(x1, z0 + r + s), P(x1, top)), seg(P(x1, top), P(x0, top))):
+        w.Add(e)
+    return w.Wire()
+
+
+def runout_s(y):
+    """The run-out's scale at Y: 1 (the full round and foot) at RUNOUT_Y[0] down to 0 (a sharp corner) at [1]."""
+    t = min(max((y - RUNOUT_Y[0]) / (RUNOUT_Y[1] - RUNOUT_Y[0]), 0.0), 1.0)
+    return 0.5 * (1.0 + math.cos(math.pi * t))
+
+
+def runout_material(side):
+    """The wall's bottom over the run-out, lofted through runout_section, and its last section on to the front wall."""
+    from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace
+    from OCP.BRepOffsetAPI import BRepOffsetAPI_ThruSections
+    from OCP.BRepPrimAPI import BRepPrimAPI_MakePrism
+    from OCP.gp import gp_Vec
+    y0, y1 = RUNOUT_Y
+    loft = BRepOffsetAPI_ThruSections(True, False)
+    for k in range(RUNOUT_N + 1):
+        y = y0 + (y1 - y0) * k / RUNOUT_N
+        loft.AddWire(runout_section(y, runout_s(y)))
+    loft.Build()
+    face = BRepBuilderAPI_MakeFace(runout_section(y1, 0.0), True).Face()
+    tail = shape(BRepPrimAPI_MakePrism(face, gp_Vec(0, BELL_FRONT - y1, 0)).Shape())
+    solid = fuse(shape(loft.Shape()), tail)
+    return solid if side > 0 else solid.mirror("YZ")
+
+
+def with_runout_bell(body, heel_cut=HEEL_CUT_Y):
+    """The full round and foot (full_bell) up to RUNOUT_Y[0]; from there to the front wall the wall's bottom is
+    replaced by runout_material, inside the duct's side profile and plan outline."""
+    body = with_full_bell(body, front=RUNOUT_Y[0], heel_cut=heel_cut)
+    for side in (-1, 1):
+        lo, hi = sorted((side * WALL_X[0], side * (WALL_X[0] + BELL_R + 0.3)))
+        horn, duct = R41.horn_in(lo - 1.0, hi + 1.0), inside(ROOF - 1.0, ROOF + RUNOUT_H + 1.0)
+        zone = common(shape(a.box(lo, hi, RUNOUT_Y[0], BELL_FRONT, ROOF - 0.01, ROOF + RUNOUT_H)), [horn, duct])
+        body = fuse(cut(body, [zone]), common(runout_material(side), [horn, duct]))
+    return body
+
+
+# Study, not adopted (r43revfade_*): the round over the whole length, its foot fading in and out, in case the full
+# foot fed the jet's two ends at the nozzle's expense. The foot grows from nothing at FOOT_FADE_BACK[0] (where the
+# wall's duct face turns straight, so no notch can form) to full at [1], and back to nothing over FOOT_FADE_FRONT, along
+# cosine curves (their steepest point leans 41 degrees, so they print without support). It did worse at the nozzle.
+FOOT_FADE_BACK, FOOT_FADE_FRONT = (18.2, 20.0), (24.8, 26.6)
+
+
+def foot_clip(side, n=12):
+    """In plan: up to the foot's outer face as it fades, |X| WALL_X[1] to WALL_X[0] + BELL_R and back."""
+    x_in, x_out = WALL_X[1], WALL_X[0] + BELL_R
+
+    def ramp(y0, y1, xa, xb):
+        return [(xa + (xb - xa) * 0.5 * (1 - math.cos(math.pi * k / n)), y0 + (y1 - y0) * k / n) for k in range(n + 1)]
+    back, front = ramp(*FOOT_FADE_BACK, x_in, x_out), ramp(*FOOT_FADE_FRONT, x_out, x_in)
+    wp = (cq.Workplane("XY").workplane(offset=ROOF - 1.0).moveTo(8.0, 12.0).lineTo(x_in, 12.0).lineTo(*back[0])
+          .spline(back[1:], tangents=[(0, 1), (0, 1)], includeCurrent=True).lineTo(*front[0])
+          .spline(front[1:], tangents=[(0, 1), (0, 1)], includeCurrent=True).lineTo(x_in, 30.0).lineTo(8.0, 30.0).close())
+    solid = wp.extrude(BELL_R + 6.0).val()
+    return solid if side > 0 else solid.mirror("YZ")
+
+
+def heel_fill(side):
+    """Revision 41's round squared the wall's thickening off flat at |X| 11.6, below ROOF + 1.4, from the heel forward
+    (r41_parts.jet_lip_cut); with no foot over it now, that left a 0.15 mm jog at the heel. Put the thickening back,
+    so the island's duct face runs on past the heel and the round alone shapes it."""
+    lo, hi = sorted((side * (WALL_X[1] - 0.05), side * (R41.JET_LIP_X_OUT + 0.05)))
+    zone = shape(a.box(lo, hi, BELL_HEEL - 0.01, FOOT_FADE_BACK[0] + 0.1, ROOF - 0.01, ROOF + R41.JET_LIP_R + 0.01))
+    return common(zone, [a.prism_xy_r(R41.XY_ISLAND, R41.XY_ISLAND_R, ROOF - 1.0, ROOF + 2.0)])
+
+
+def with_faded_bell(body, heel=True):
+    """The round (r BELL_R on the slot face) from the heel to the front wall; its foot only inside foot_clip. With
+    `heel` the round runs back into the heel's ramp and the wall's thickening is put back in front of the heel
+    (heel=False is the study as simulated, r43revfade_*; the difference is under 0.5 mm3 at each heel)."""
+    fills, rounds = [], []
+    for side in (-1, 1):
+        lo, hi = sorted((side * (WALL_X[0] - 1.0), side * (WALL_X[0] + BELL_R + 1.5)))
+        horn, duct = R41.horn_in(lo, hi), inside(ROOF - 1.0, ROOF + BELL_R + 2.0)
+        fills.append(common(bell_foot(side, BELL_HEEL, BELL_FRONT), [horn, duct, foot_clip(side)]))
+        if heel:
+            fills.append(heel_fill(side))
+        rounds.append(common(bell_outside(side, HEEL_CUT_Y if heel else BELL_HEEL, BELL_FRONT), [horn, duct]))
+    return cut(fuse(body, *fills), rounds)
 
 
 # --------------------------------------------------------------------------------------------
@@ -123,17 +289,27 @@ def with_bell(body, taper=True):
 # face revision 41 needed support in three places, and revision 43 removes two of them:
 #   - the window between the side channels (the probe's connector and cable come up through it) ends in front at a
 #     flat face, Y-5.4, which printed as a 22.9 mm ceiling. Revision 43 cuts a 45 degree notch into the solid block
-#     in front of it, to an apex at Y6.05, 2.25 mm behind the hotend slot. The block's bottom WINDOW_SKIN stays, so
-#     P23 still bears on all of P22's underside; it prints as a 1.8 mm-wide bridge;
+#     in front of it, to an apex at Y6.05, 2.25 mm behind the hotend slot, right through to the underside, with its
+#     three vertical edges rounded r 5 (the apex, and where it leaves the window's sides). A first version left the
+#     block's bottom 1.8 mm for P23 to bear on, which printed as a 22.9 mm bridge one strip wide; Bambu Studio sliced
+#     it as walls and gap fill across thin air. P23 still bears on 85 % of its old area, and its four screws clamp it
+#     at the bosses, at least 9 mm from the notch;
 #   - the round on the bottom-back edge (r16) faced the plate where it met the back face: its first half becomes a
 #     45 degree chamfer, tangent to the rest of the round, which also lengthens the flat back face on the plate from
 #     5.8 to 12.4 mm. Nothing else is within 1.44 mm of the corner. The back face's two corners in plan (r3.5, which
 #     faced the plate for their first half millimetre) become sharp.
+# From the review in Fusion, inside the duct: a rib in the plane of symmetry from the plenum's back wall to the cable
+# boss's nose, which otherwise printed as a 7 mm arch, flaring into the nose at 45 degrees so the nose's r3 rounds
+# don't overhang; and the centre island's square back corners, which stood 0.32 mm proud of the nose's rounds, are
+# cut back so each round runs on to its tangent with the island's side.
 # The cheeks' bearing faces (on P01's bosses, with P01 behind them) still need support: in print they are ceilings
 # 8.5 mm wide, cantilevered 10 mm from the duct. Everything else bridges at most 15.4 mm.
 # --------------------------------------------------------------------------------------------
 WINDOW_FRONT, WINDOW_HALF = -5.40, 11.45  # the window's front face and half-width (build_p22_lower_plenum's valleys)
-WINDOW_SKIN = (-70.80, -69.00)            # the block's underside, left under the notch for P23 to bear on
+NOTCH_R = 5.0                             # the notch's three vertical edges (the review's fillet)
+NOTCH_STRIP = 3.0                         # the notch's plan reaches this far back into the window's own air, so the
+                                          # rounds where it leaves the window's sides (2.07 mm along them) fit
+ISLAND_TOP = -57.36                       # the block's top around the window (HORN_OUT's flat), where those edges end
 BACK_Y, BOTTOM_Z, BACK_R = -45.40, -70.80, 16.0   # the back face, the underside behind the heel, the round between
 XY_OUTER = [(-13.00, -45.40), (-20.60, -38.20), (-20.60, -25.30), (-22.42, -19.50), (-22.42, 15.00), (-20.40, 22.50),
             (-14.80, 28.40), (-8.50, 29.60), (-8.50, 11.20), (8.50, 11.20), (8.50, 29.60), (14.80, 28.40),
@@ -142,12 +318,69 @@ XY_OUTER_R = [3.5, 3.5, 16.0, 16.0, 12.0, 10.0, 4.0, 0.8, 0.0, 0.0, 0.8, 4.0, 10
 XY_OUTER_SHARP_R = [0.0] + XY_OUTER_R[1:-1] + [0.0]   # the back face's two corners in plan, sharp (were r3.5)
 
 
-def window_notch():
-    """The 45 degree notch in plan at the window's front, through the block above WINDOW_SKIN. Its faces start at
-    the window's front corners; behind Y-5.4 it only overlaps the window's own air."""
+def notch_plan(radius):
     w, y0 = WINDOW_HALF, WINDOW_FRONT
-    plan = [(-w, y0 - 0.5), (w, y0 - 0.5), (w, y0), (0.0, y0 + w), (-w, y0)]
-    return shape(a.prism_xy_r(plan, [0] * 5, WINDOW_SKIN[1], -50.0))
+    return [(-w, y0 - NOTCH_STRIP), (w, y0 - NOTCH_STRIP), (w, y0), (0.0, y0 + w), (-w, y0)], [0.0, 0.0] + [radius] * 3
+
+
+def window_notch():
+    """The 45 degree notch in plan at the window's front, through the block from the underside up, its vertical edges
+    rounded r NOTCH_R. Behind Y-5.4 it only overlaps the window's own air."""
+    pts, radii = notch_plan(NOTCH_R)
+    return shape(a.prism_xy_r(pts, radii, BOTTOM_Z - 0.5, -50.0))
+
+
+def window_corner_fills():
+    """Where the notch leaves the window's sides, its rounds reach 2.07 mm back into the window's own air: fill them,
+    from the underside to the block's top."""
+    pts, radii = notch_plan(NOTCH_R)
+    sharp = shape(a.prism_xy_r(pts, [0.0] * 5, BOTTOM_Z, ISLAND_TOP))
+    rounded = shape(a.prism_xy_r(pts, radii, BOTTOM_Z - 1.0, ISLAND_TOP + 1.0))
+    w, y0 = WINDOW_HALF, WINDOW_FRONT
+    return common(cut(sharp, [rounded]), [a.box(-w - 1.0, w + 1.0, y0 - NOTCH_STRIP - 1.0, y0, BOTTOM_Z, ISLAND_TOP)])
+
+
+# The cable boss's nose (r41_parts.XY_BOSS_NOSE: |X| 3.65 to Y-38.15, corners r 3) and the rib behind it, the width of
+# the nose's flat tip, from the plenum's back wall (HORN_IN, Y-43.56) up to the socket's floor (Z-51.4). Each side of
+# the rib flares into the nose along the 45 degree tangent to the nose's round, blended into the rib r RIB_BLEND_R.
+NOSE_HALF, NOSE_TIP, NOSE_R = 3.65, -38.15, 3.0
+NOSE_C = (NOSE_HALF - NOSE_R, NOSE_TIP + NOSE_R)          # the rounds' centres, |X| 0.65, Y-35.15
+RIB_HALF = NOSE_C[0]
+RIB_BACK, RIB_TOP = R41.HORN_IN[0][0], R41.HORN_IN[3][1]  # Y-43.56, Z-51.4
+RIB_BLEND_R = 1.5
+NOSE_45 = (NOSE_C[0] + NOSE_R * math.sqrt(0.5), NOSE_C[1] - NOSE_R * math.sqrt(0.5))   # where the round is at 45 degrees
+ISLAND_BACK = R41.XY_ISLAND[0][1]                         # Y-36.5: the centre island's square back corners
+
+
+def cable_rib():
+    """The rib and its flares, in plan, bounded by P22's outer side profile (so where it runs into the back wall and
+    the plenum's floor it only meets solid) and stopping at the socket's floor."""
+    ys = NOSE_45[1] - (NOSE_45[0] - RIB_HALF)          # the flare meets the rib's side here (Y-39.39)
+    pts = [(-RIB_HALF, RIB_BACK - 0.5), (RIB_HALF, RIB_BACK - 0.5), (RIB_HALF, ys), NOSE_45, (0.0, NOSE_TIP + 1.0),
+           (-NOSE_45[0], NOSE_45[1]), (-RIB_HALF, ys)]       # (0, Y-37.15): inside the nose, behind the cable's bore
+    radii = [0.0, 0.0, RIB_BLEND_R, 0.0, 0.0, 0.0, RIB_BLEND_R]
+    rib = shape(a.prism_xy_r(pts, radii, BOTTOM_Z - 2.0, RIB_TOP))
+    return common(rib, [a.prism_yz_r(R41.HORN_OUT, R41.HORN_OUT_R, -23.0, 23.0)])
+
+
+def boss_shoulder_cut(side):
+    """The island's back corner, outside the nose's round, from the plenum's floor up to the socket's floor."""
+    cx, cy = side * NOSE_C[0], NOSE_C[1]
+    lo, hi = sorted((side * 2.0, side * (NOSE_HALF + 0.4)))
+    corner = cut(shape(a.box(lo, hi, ISLAND_BACK - 0.3, cy, BOTTOM_Z - 1.0, RIB_TOP)),
+                 [shape(a.cyl_z(cx, cy, BOTTOM_Z - 2.0, RIB_TOP + 1.0, NOSE_R))])
+    return common(corner, [R41.horn_in(lo - 1.0, hi + 1.0)])
+
+
+def printable(body):
+    body = cut(fuse(body, back_chamfer(), back_corners()), [window_notch()])
+    body = fuse(body, window_corner_fills(), cable_rib())
+    return cut(body, [boss_shoulder_cut(s) for s in (-1, 1)])
+
+
+def p22():
+    body = with_runout_bell(printable(R41.p22()))
+    return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 P22")
 
 
 def back_chamfer():
@@ -165,15 +398,6 @@ def back_corners():
     """The back face's corners in plan made sharp: their r3.5 rounds faced the plate for the first half millimetre."""
     sharp = cut(a.prism_xy_r(XY_OUTER, XY_OUTER_SHARP_R, -78.0, -49.0), [a.prism_xy_r(XY_OUTER, XY_OUTER_R, -79.0, -48.0)])
     return common(sharp, [a.prism_yz_r(R41.HORN_OUT, R41.HORN_OUT_R, -23.0, 23.0)])
-
-
-def printable(body):
-    return cut(fuse(body, back_chamfer(), back_corners()), [window_notch()])
-
-
-def p22():
-    body = with_bell(printable(R41.p22()))
-    return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 P22")
 
 
 # --------------------------------------------------------------------------------------------
@@ -228,6 +452,38 @@ def low_bell_study():
     """The lower floor with the bell-mouth as simulated (r43lowbell_*): revision 43 without the taper."""
     body = with_bell(R41.p22(), taper=False)
     return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 lower-floor bell-mouth study")
+
+
+def review_rib_study():
+    """The review's rib, trimmed island corners and through notch, with the first version's round (to Y26.2, tapered
+    foot): the rib's own effect (r43revrib_*)."""
+    body = with_bell(printable(R41.p22()))
+    return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 review rib study")
+
+
+def review_back_study():
+    """As revision 43 after the review, but the round and its foot end square at Y26.2 as the first version's did:
+    the front end's own effect (r43revback_*)."""
+    body = with_full_bell(printable(R41.p22()), front=R41.JET_LIP_Y[1], heel_cut=BELL_HEEL)
+    return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 review back-end study")
+
+
+def review_full_study():
+    """The review's first pass (r43full_*): the round and its foot at full size to the front wall."""
+    body = with_full_bell(printable(R41.p22()), heel_cut=BELL_HEEL)
+    return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 review full-round study")
+
+
+def review_fade_study():
+    """The round over the whole length with its foot fading in and out (r43revfade_*), as simulated (heel=False)."""
+    body = with_faded_bell(printable(R41.p22()), heel=False)
+    return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 review faded-foot study")
+
+
+def review_runout_study():
+    """The run-out as simulated (r43revrunout_*): revision 43's P22 with the round's cut started at the heel."""
+    body = with_runout_bell(printable(R41.p22()), heel_cut=BELL_HEEL)
+    return single(unify(cut(body, [pocket(s) for s in (-1, 1)])), "revision-43 review run-out study")
 
 # --------------------------------------------------------------------------------------------
 # Study, not adopted: the jets run back to Y13.05 (cfd_cpap_r43.py, cases r43long_*). P22's heel drops straight

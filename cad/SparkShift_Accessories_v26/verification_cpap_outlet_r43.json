@@ -3,9 +3,9 @@
   "p22": {
     "valid": true,
     "solids": 1,
-    "volume_mm3": 16029.39,
+    "volume_mm3": 15981.87,
     "r41_volume_mm3": 17380.65,
-    "faces": 252,
+    "faces": 277,
     "r41_faces": 232,
     "bounds_mm": [
       -22.42,
@@ -26,8 +26,8 @@
     "within_r41_bounds": true,
     "unchanged_outside_edit_zones": true,
     "inside_zones_mm3": {
-      "new": 3025.9427392694665,
-      "released": 4377.206719022356
+      "new": 3860.277241839332,
+      "released": 5259.056522048136
     },
     "edit_zones_mm": {
       "jets": [
@@ -49,28 +49,28 @@
         ],
         [
           10.149999999999999,
-          12.7,
-          16.58774193548386,
-          26.3,
+          12.95,
+          12.9,
+          28.0,
           -73.64999999999999,
-          -70.1
+          -69.94999999999999
         ],
         [
-          -12.7,
+          -12.95,
           -10.149999999999999,
-          16.58774193548386,
-          26.3,
+          12.9,
+          28.0,
           -73.64999999999999,
-          -70.1
+          -69.94999999999999
         ]
       ],
       "printing": [
         [
           -11.5,
           11.5,
-          -5.5,
+          -8.5,
           6.149999999999999,
-          -69.05,
+          -70.85,
           -57.0
         ],
         [
@@ -80,31 +80,39 @@
           -40.6,
           -70.85,
           -48.95
+        ],
+        [
+          -4.1,
+          4.1,
+          -43.660000000000004,
+          -35.1,
+          -67.6,
+          -51.39
         ]
       ]
     }
   },
   "outlet": {
-    "jets": "Horizontal, one each side of the nozzle as in revision 41: the slot under the duct-to-slot wall (|X| 10.2), from the floor to the wall's flat bottom (Z-73.6, unchanged). The floor is 0.4 mm lower from Y19.0 forward (Z-77.05000000000001 where flat, was -76.65; the same 0.4 mm lower where it climbs the heel), out to |X| 12.85, rising at 45 degrees into the front wall; it is still solid, so no air blows down at the bed. The wall's duct side is rounded r 2.4 (was 1.4) from Y16.69 to Y26.2, on a foot out to |X| 12.6 with a 45 degree chamfer above, narrowing at 45 degrees in plan behind Y17.6.",
+    "jets": "Horizontal, one each side of the nozzle as in revision 41: the slot under the duct-to-slot wall (|X| 10.2), from the floor to the wall's flat bottom (Z-73.6, unchanged). The floor is 0.4 mm lower from Y19.0 forward (Z-77.05000000000001 where flat, was -76.65; the same 0.4 mm lower where it climbs the heel), out to |X| 12.85, rising at 45 degrees into the front wall; it is still solid, so no air blows down at the bed. The wall's duct side is rounded r 2.4 (was 1.4) from the heel (Y16.69) to Y24.6, on a foot out to |X| 12.6 with a 45 degree chamfer above; from there the round and its foot ease out together, along a cosine, to the wall's sharp corner by Y27.3, as the duct's roof comes down over them. Behind the heel the round runs into the heel's ramp, and the rounded foot runs on in the duct's air until the ramp and the wall's thickening duct face take it in.",
     "open_area_both_sides": {
       "x10.3": {
         "r43_mm2": 66.2,
         "r41_mm2": 59.3
       },
       "x10.6": {
-        "r43_mm2": 66.9,
+        "r43_mm2": 66.8,
         "r41_mm2": 60.5
       },
       "x10.9": {
-        "r43_mm2": 68.3,
+        "r43_mm2": 68.2,
         "r41_mm2": 63.1
       },
       "x11.15": {
-        "r43_mm2": 70.1,
+        "r43_mm2": 69.9,
         "r41_mm2": 66.7
       },
       "x11.5": {
-        "r43_mm2": 73.8,
+        "r43_mm2": 73.6,
         "r41_mm2": 71.2
       }
     },
@@ -138,38 +146,38 @@
     },
     "walls_floor_under_jets": {
       "min_mm": 0.8,
-      "sampled_mm2": 135.9,
-      "below_0.8_mm2": 50.4,
-      "below_1.0_mm2": 89.9,
-      "below_1.2_mm2": 96.4,
+      "sampled_mm2": 137.1,
+      "below_0.8_mm2": 51.2,
+      "below_1.0_mm2": 88.4,
+      "below_1.2_mm2": 95.2,
       "thinnest_at": [
         [
-          12.77,
-          25.88,
+          11.63,
+          24.18,
           -77.85,
           0.8
         ],
         [
-          -12.44,
-          24.8,
+          -12.51,
+          25.54,
           -77.85,
           0.8
         ],
         [
-          11.89,
-          24.54,
+          11.34,
+          23.71,
           -77.85,
           0.8
         ],
         [
-          11.19,
-          23.53,
-          -77.85,
+          -10.98,
+          24.56,
+          -77.05,
           0.8
         ],
         [
-          12.7,
-          25.13,
+          -12.26,
+          22.48,
           -77.85,
           0.8
         ]
@@ -177,53 +185,59 @@
     },
     "walls_rest_of_outlet": {
       "min_mm": 1.2,
-      "sampled_mm2": 655.7,
+      "sampled_mm2": 653.9,
       "below_0.8_mm2": 0.0,
       "below_1.0_mm2": 0.0,
-      "below_1.2_mm2": 63.0,
+      "below_1.2_mm2": 62.9,
       "thinnest_at": [
         [
-          13.81,
-          26.53,
+          13.53,
+          26.24,
           -77.85,
           1.2
         ],
         [
-          12.99,
-          26.33,
-          -77.85,
-          1.2
-        ],
-        [
-          -13.14,
+          -13.17,
           26.48,
           -77.85,
           1.2
         ],
         [
-          13.12,
-          26.57,
+          -12.98,
+          26.27,
           -77.85,
           1.2
         ],
         [
-          -16.72,
-          23.44,
-          -77.85,
+          17.28,
+          22.68,
+          -76.65,
+          1.2
+        ],
+        [
+          15.55,
+          25.41,
+          -76.65,
           1.2
         ]
       ]
     },
     "r41_walls_rest_of_outlet": {
       "min_mm": 1.2,
-      "sampled_mm2": 674.2,
+      "sampled_mm2": 661.6,
       "below_0.8_mm2": 0.0,
       "below_1.0_mm2": 0.0,
       "below_1.2_mm2": 65.2,
       "thinnest_at": [
         [
-          13.84,
-          26.87,
+          12.97,
+          26.22,
+          -77.85,
+          1.2
+        ],
+        [
+          13.09,
+          26.86,
           -76.65,
           1.2
         ],
@@ -234,30 +248,28 @@
           1.2
         ],
         [
-          13.1,
-          26.5,
+          -14.09,
+          26.74,
           -77.85,
           1.2
         ],
         [
-          13.57,
-          27.09,
-          -77.85,
-          1.2
-        ],
-        [
-          13.4,
-          25.62,
+          -13.42,
+          26.28,
           -76.65,
           1.2
         ]
       ]
     },
     "bell_mouth_profile_error_mm_by_y": {
+      "y16.9": 0.001,
       "y17.8": 0.001,
       "y19": 0.001,
       "y22.2": 0.001,
-      "y25": 0.001
+      "y24.4": 0.001,
+      "y25.18 (run-out)": 0.0,
+      "y25.95 (run-out)": 0.001,
+      "y26.72 (run-out)": 0.0
     },
     "note": "Open area in planes across the jets (|X| 10.3-11.5), inside P22's outer profile. Floor thickness by vertical rays on the exact solid (0.8 mm by design: two perimeters) and by ray cast along the surface normal on the printed mesh. The bell-mouth band is measured by its profile against the design (thickness across X at heights over ROOF, both sides), and the rest of the outlet against revision 41's, less the same bands."
   },
@@ -314,8 +326,8 @@
           "at_withdrawal_mm": 0.0,
           "hotend_point_mm": [
             8.1,
-            18.4,
-            -64.2
+            18.65,
+            -63.3
           ]
         },
         "r41": {
@@ -333,11 +345,11 @@
         "r43": {
           "mounted_mm": 5.2,
           "withdrawal_min_mm": 5.2,
-          "at_withdrawal_mm": 0.0,
+          "at_withdrawal_mm": 2.0,
           "hotend_point_mm": [
-            5.0,
+            -5.0,
             25.3,
-            -69.8
+            -73.6
           ]
         },
         "r41": {
@@ -355,11 +367,11 @@
         "r43": {
           "mounted_mm": 3.2,
           "withdrawal_min_mm": 3.2,
-          "at_withdrawal_mm": 2.5,
+          "at_withdrawal_mm": 0.5,
           "hotend_point_mm": [
             7.0,
-            26.78,
-            -72.09
+            24.1,
+            -73.6
           ]
         },
         "r41": {
@@ -448,8 +460,8 @@
           "at_withdrawal_mm": 5.0,
           "hotend_point_mm": [
             3.5,
-            24.28,
-            -73.88
+            22.88,
+            -76.65
           ]
         },
         "r41": {
@@ -690,25 +702,33 @@
     "new_interference_or_contact": [],
     "p22_over_p23_top": {
       "beacon": {
-        "r43_mm2": 975.4,
-        "r41_mm2": 975.4
+        "r43_contact_mm2": 692.3,
+        "r41_contact_mm2": 817.3,
+        "notch_footprint_mm2": 125.3,
+        "r43_over_bbox_mm2": 850.7,
+        "r41_over_bbox_mm2": 975.4,
+        "r43_share_of_r41": 0.847
       },
       "cartographer": {
-        "r43_mm2": 975.4,
-        "r41_mm2": 975.4
+        "r43_contact_mm2": 692.3,
+        "r41_contact_mm2": 817.3,
+        "notch_footprint_mm2": 125.3,
+        "r43_over_bbox_mm2": 850.7,
+        "r41_over_bbox_mm2": 975.4,
+        "r43_share_of_r41": 0.847
       }
     },
-    "note": "Gap 0 with no overlap is face contact (P22 seated on P23, the screws in their holes). 'p22_over_p23_top': P22's area in the 0.01 mm over P23's top face, where P23 bears on it."
+    "note": "Gap 0 with no overlap is face contact (P22 seated on P23, the screws in their holes). 'p22_over_p23_top': where P23 bears on P22, P22's area on P23's top face (the 'contact' figures) and over its bounding box; the window notch runs through P22's underside, so the contact may drop by the notch's footprint and no more. P23's four screws clamp it at the bosses, |X| 15.8, at least 9 mm from the notch."
   },
   "print": {
     "orientation": "back face down",
     "support_threshold_deg": 30.0,
     "r43": {
       "on_plate_mm2": 323.1,
-      "needs_support_mm2": 427.8,
-      "over_the_part_mm2": 413.8,
+      "needs_support_mm2": 386.2,
+      "over_the_part_mm2": 372.1,
       "reachable_from_plate_mm2": 14.1,
-      "steeper_than_45_mm2": 935.6
+      "steeper_than_45_mm2": 957.2
     },
     "r41": {
       "on_plate_mm2": 156.0,
@@ -721,7 +741,7 @@
       "flat_faces_tried": 10,
       "best": [
         {
-          "needs_support_mm2": 428.3,
+          "needs_support_mm2": 386.2,
           "on_plate_mm2": 323.1,
           "up_in_assembly": [
             -0.0,
@@ -730,7 +750,7 @@
           ]
         },
         {
-          "needs_support_mm2": 630.7,
+          "needs_support_mm2": 659.6,
           "on_plate_mm2": 141.7,
           "up_in_assembly": [
             -0.688,
@@ -739,7 +759,7 @@
           ]
         },
         {
-          "needs_support_mm2": 632.2,
+          "needs_support_mm2": 660.8,
           "on_plate_mm2": 142.1,
           "up_in_assembly": [
             0.688,
@@ -748,10 +768,10 @@
           ]
         },
         {
-          "needs_support_mm2": 1211.3,
+          "needs_support_mm2": 1212.4,
           "on_plate_mm2": 229.0,
           "up_in_assembly": [
-            -0.0,
+            0.0,
             0.707,
             0.707
           ]
@@ -760,46 +780,86 @@
     },
     "walls_printing_changes": {
       "min_mm": 1.4,
-      "sampled_mm2": 1633.3,
+      "sampled_mm2": 1626.5,
       "below_0.8_mm2": 0.0,
       "below_1.0_mm2": 0.0,
       "below_1.2_mm2": 0.0,
       "thinnest_at": [
         [
-          -11.45,
-          -5.45,
-          -62.38,
-          1.4
-        ],
-        [
-          -11.45,
-          -5.49,
-          -68.03,
+          11.45,
+          -7.9,
+          -61.88,
           1.4
         ],
         [
           11.45,
-          -5.49,
-          -61.16,
+          -7.56,
+          -60.14,
           1.4
         ],
         [
           -11.45,
-          -5.48,
-          -61.63,
+          -8.43,
+          -62.92,
+          1.4
+        ],
+        [
+          11.45,
+          -8.41,
+          -63.94,
           1.4
         ],
         [
           -11.45,
-          -5.45,
-          -63.34,
+          -7.77,
+          -60.47,
           1.4
         ]
       ]
     },
+    "rib_walls": {
+      "min_mm": 1.3,
+      "sampled_mm2": 457.4,
+      "below_0.8_mm2": 0.0,
+      "below_1.0_mm2": 0.0,
+      "below_1.2_mm2": 0.0,
+      "thinnest_at": [
+        [
+          -0.65,
+          -42.42,
+          -54.7,
+          1.3
+        ],
+        [
+          -0.65,
+          -42.17,
+          -54.24,
+          1.3
+        ],
+        [
+          0.65,
+          -40.5,
+          -62.33,
+          1.3
+        ],
+        [
+          -0.65,
+          -40.31,
+          -58.11,
+          1.3
+        ],
+        [
+          0.65,
+          -40.57,
+          -61.69,
+          1.3
+        ]
+      ]
+    },
+    "rib": "From the review: 1.3 mm thick (three perimeters), in the plane of symmetry from the plenum's back wall (Y-43.56) to the cable boss's nose, up to the socket's floor (Z-51.4); each side flares into the nose along the 45 degree tangent to its r 3 round, blended r 1.5. In print the nose stands on it instead of arching over 7 mm.",
     "still_needs_support": "The cheeks' bearing faces, where P22 seats on P01's bosses: in print, ceilings 8.5 mm wide cantilevered 10 mm from the duct, over P22 itself, so the support stands on P22's top. And the undersides of the two 6.1 mm bosses that locate P23's rear ears, which stand 2.2 mm proud and print lying on their side (the area a support from the plate can reach): they would print unsupported, but they fit P23's sockets with 0.10 mm of radial clearance, so a droop would make the ears tight.",
-    "bridges": "The socket's front lip (15.4 mm), the skin under the window notch (22.9 mm long, 1.8 mm wide), the jets' front lips (3.7 mm); the cable boss's nose inside the duct is a 7 mm arch.",
-    "note": "Facets facing down more steeply than the preset's 30 degree threshold, split by whether a support from the plate can reach them. With P22 on its back face, revision 43's new faces stand vertical or face up, or overhang at 45 degrees (the window notch, the back chamfer, the floor's front chamfers and the bell-mouth foot's back ends); the ends of the larger round at the jet's heel overhang by less than 0.5 mm. The sweep stands P22 on each of its flat faces with 50 mm2 or more on the plate."
+    "bridges": "The socket's front lip (15.4 mm) and the jets' front lips (3.7 mm). The window notch's apex is rounded r 5: in print a 7.1 mm arch, like the top of a 10 mm hole.",
+    "note": "Facets facing down more steeply than the preset's 30 degree threshold, split by whether a support from the plate can reach them. With P22 on its back face, revision 43's new faces stand vertical or face up, or overhang at 45 degrees (the window notch and its rounds where it leaves the window, the back chamfer, the floor's front chamfers, the rib's flares); the bell-mouth's foot runs back into the heel's ramp, which faces up. The sweep stands P22 on each of its flat faces with 50 mm2 or more on the plate."
   },
   "static_failures": [],
   "sources": {
@@ -5432,38 +5492,38 @@
       }
     },
     "task_seconds": {
-      "bed {}": 38.3,
-      "lateral {}": 70.8,
-      "traverse {\"label\": \"Bambu\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ": 157.9,
-      "traverse {\"label\": \"Bambu\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95, 96": 144.3,
-      "traverse {\"label\": \"Bambu\", \"xs\": [176, 177, 178, 179, 180, 181, 182,": 144.6,
-      "traverse {\"label\": \"Bambu\", \"xs\": [264, 265, 266, 267, 268, 269, 270,": 157.0,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ": 160.5,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95": 147.4,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [176, 177, 178, 179, 180, 181, ": 147.4,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [264, 265, 266, 267, 268, 269, ": 159.1,
-      "crossbeam {\"steps\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,": 104.0,
-      "crossbeam {\"steps\": [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 4": 97.2,
-      "crossbeam {\"steps\": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 7": 9.1,
-      "crossbeam {\"steps\": [91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102": 12.4,
-      "bay {\"bay\": 0}": 125.6,
-      "bay {\"bay\": 1}": 126.0,
-      "bay {\"bay\": 2}": 125.3,
-      "bay {\"bay\": 3}": 125.5,
-      "bay {\"bay\": 4}": 126.0,
-      "bay {\"bay\": 5}": 127.0,
-      "bay {\"bay\": 6}": 126.1,
-      "bay {\"bay\": 7}": 126.4,
-      "bay {\"bay\": 8}": 126.2,
-      "bay {\"bay\": 9}": 124.2,
-      "dock_motion {\"label\": \"Bambu\"}": 99.0,
-      "dock_motion {\"label\": \"RedLizard\"}": 108.0,
-      "neighbours {\"label\": \"Bambu\", \"other\": \"Bambu\"}": 24.1,
+      "bed {}": 38.0,
+      "lateral {}": 70.2,
+      "traverse {\"label\": \"Bambu\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ": 154.5,
+      "traverse {\"label\": \"Bambu\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95, 96": 139.5,
+      "traverse {\"label\": \"Bambu\", \"xs\": [176, 177, 178, 179, 180, 181, 182,": 140.0,
+      "traverse {\"label\": \"Bambu\", \"xs\": [264, 265, 266, 267, 268, 269, 270,": 152.2,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ": 157.0,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95": 143.3,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [176, 177, 178, 179, 180, 181, ": 143.0,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [264, 265, 266, 267, 268, 269, ": 155.1,
+      "crossbeam {\"steps\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,": 99.6,
+      "crossbeam {\"steps\": [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 4": 95.4,
+      "crossbeam {\"steps\": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 7": 9.4,
+      "crossbeam {\"steps\": [91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102": 12.5,
+      "bay {\"bay\": 0}": 124.5,
+      "bay {\"bay\": 1}": 123.7,
+      "bay {\"bay\": 2}": 124.1,
+      "bay {\"bay\": 3}": 123.0,
+      "bay {\"bay\": 4}": 124.0,
+      "bay {\"bay\": 5}": 123.7,
+      "bay {\"bay\": 6}": 124.0,
+      "bay {\"bay\": 7}": 125.0,
+      "bay {\"bay\": 8}": 124.1,
+      "bay {\"bay\": 9}": 124.1,
+      "dock_motion {\"label\": \"Bambu\"}": 110.5,
+      "dock_motion {\"label\": \"RedLizard\"}": 121.9,
+      "neighbours {\"label\": \"Bambu\", \"other\": \"Bambu\"}": 24.0,
       "neighbours {\"label\": \"Bambu\", \"other\": \"RedLizard\"}": 28.6,
-      "neighbours {\"label\": \"RedLizard\", \"other\": \"Bambu\"}": 24.0,
-      "neighbours {\"label\": \"RedLizard\", \"other\": \"RedLizard\"}": 27.8,
-      "clearances {\"version\": \"r21\"}": 24.4,
-      "clearances {\"version\": \"r36\"}": 23.2
+      "neighbours {\"label\": \"RedLizard\", \"other\": \"Bambu\"}": 24.4,
+      "neighbours {\"label\": \"RedLizard\", \"other\": \"RedLizard\"}": 29.2,
+      "clearances {\"version\": \"r21\"}": 24.8,
+      "clearances {\"version\": \"r36\"}": 24.3
     },
     "rack": {
       "pitch_mm": 37.3,
@@ -5503,39 +5563,39 @@
   },
   "print_oriented": {
     "file": "stl\\P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW_PRINT_ORIENTED.stl",
-    "triangles": 19304,
+    "triangles": 47454,
     "watertight_one_body": true,
-    "mesh_volume_mm3": 16029.62,
-    "solid_volume_mm3": 16029.39,
-    "p99_bend_on_curves_deg": 1.43,
+    "mesh_volume_mm3": 15982.07,
+    "solid_volume_mm3": 15981.87,
+    "p99_bend_on_curves_deg": 2.83,
     "height_mm": 74.68
   },
   "assembly_bodies": 243,
   "exports": [
     {
       "file": "step\\P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW.step",
-      "sha256": "2d29ff24a06617172b2695e413cb1d33fb476f9b4b3425887bad3b2f6e37def8",
-      "mb": 1.3
+      "sha256": "58bce494f2730c39f81e43d3a15fcd63e8dab00396279d046f51b51a32034cbd",
+      "mb": 1.6
     },
     {
       "file": "stl\\P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW.stl",
-      "sha256": "0a39cc30feb8f8b95b5100dab7841a9627cd8de20a42b10e15bdcfcc3cc3e746",
-      "mb": 0.5
+      "sha256": "c7ccace4fd59059b5b14a6bdd227569ef451b450b8ac4698cbb1207e8686e8f7",
+      "mb": 0.7
     },
     {
       "file": "stl\\P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW_PRINT_ORIENTED.stl",
-      "sha256": "abfaa9723f9ed74ad62538ab800536b2457ad15be540651ae06229b3b5e61c45",
-      "mb": 1.0
+      "sha256": "08bdd8174aa68583d25a55b493d4f8c8ffeeb157a0af0f6cbefb0af2ec478cca",
+      "mb": 2.4
     },
     {
       "file": "step\\43_CPAP_Outlet_REVIEW.step",
-      "sha256": "4bb4bf480740c41eb151f8fb1693a36a341cf63c4089757eff242901a24b8b66",
-      "mb": 26.3
+      "sha256": "f2c8524db949ed560d7c3b99a542512a4f30ee20521ebb4df6492249a2fcf918",
+      "mb": 27.2
     },
     {
       "file": "step\\43_CPAP_Outlet_Complete_REVIEW.step",
-      "sha256": "92e5ceab0bedf7f30d81c8d815ffdd16cdc3b3cc860e802b4385319a7bf1d02f",
-      "mb": 86.2
+      "sha256": "00ecf90e66da3283779cc21bcd3943e24ece47ebfed2cee026197b81cf658843",
+      "mb": 86.6
     }
   ],
   "hardware": "Unchanged: P22's inserts, the P22-to-P01 button heads and the probe screws stay as in revisions 41 and 42.",
@@ -5546,5 +5606,5 @@
     "Printability is judged on the meshes (overhang angle, rays to the plate), not on a print: the cheeks' bearing faces and the undersides of P23's two locating bosses still need support, and the bridges listed under 'print' are left to the slicer."
   ],
   "failures": [],
-  "runtime_s": 1158.1
+  "runtime_s": 1298.6
 }

@@ -6,6 +6,9 @@
     a print.
 91: why the jets weren't made longer: revision 41 against the long-jets study, along the hotend slot's centre.
 92: streamlines through revision 43's outlet, seen from the front.
+94: the review's jet ends, print surface 0.2 mm under the tip: revision 41, revision 43's first version, the round at
+    full size to the front wall and revision 43's run-out, across the nozzle, across the jets' front end and just
+    over the print, with the near-nozzle figures against revision 41.
 
 Run: python render_cfd_cpap_r43.py
 """
@@ -34,10 +37,12 @@ STUDIES = [(R41_BED, "Revision 41", "tab:blue"), ("r43long_bambu_bed", "Jets run
            ("r43frontbell_bambu_bed", "... with the bell-mouth", "tab:pink"),
            ("r43low_bambu_bed", "Flat pocket (not printable)", "tab:gray"),
            ("r43combo_bambu_bed", "Flat pocket, bell-mouth (not printable)", "tab:brown"),
+           ("r43v1_bambu_bed", "Revision 43's first version", "goldenrod"),
+           ("r43full_bambu_bed", "Review: round at full size to the front wall", "darkorange"),
            (R43_BED, "Revision 43: lower floor, bell-mouth", "tab:green")]
 PROFILES = (R41_BED, "r43long_bambu_bed", "r43pocket_bambu_bed", "r43front_bambu_bed", "r43frontbell_bambu_bed", R43_BED)
 LABEL_AT = {R41_BED: (-8, 8, "right"), "r43bell_bambu_bed": (8, -14, "left"), "r43frontbell_bambu_bed": (-8, 4, "right"),
-            R43_BED: (8, 6, "left")}   # label offsets (points) where the defaults collide
+            R43_BED: (8, 9, "left"), "r43full_bambu_bed": (10, -46, "left")}   # label offsets (points) where the defaults collide
 W_XZ_BED = (-24, 24, -80, -64)
 
 
@@ -74,8 +79,9 @@ def image_89():
         ax.plot(q, c * q ** k, "-" if "Bambu" in label else ":", color=colour, lw=1.6, label=label)
         o = A.operating(rs)
         ax.plot([o["lpm"]], [o["duct_pa"]], "*", ms=17, color=colour, mec="k")
-        ax.annotate(f"{o['lpm']:.0f} L/min", (o["lpm"], o["duct_pa"]), textcoords="offset points", xytext=(9, 6 if "Bambu" in label else -14),
-                    color=colour, fontsize=10, weight="bold")
+        if "Bambu" in label:   # the Red Lizard's operating points fall on the Bambu's
+            ax.annotate(f"{o['lpm']:.0f} L/min", (o["lpm"], o["duct_pa"]), textcoords="offset points",
+                        xytext=(-78, 6) if "41" in label else (10, -16), color=colour, fontsize=10, weight="bold")
     ax.set_xlim(0, 360)
     ax.set_ylim(0, 7000)
     ax.set_xlabel("air flow (L/min)")
@@ -179,8 +185,56 @@ def image_92():
     return path
 
 
+REVIEW = [(R41_BED, "Revision 41", None), ("r43v1_bambu_bed", "Revision 43's first version:\nround stops square at Y26.2", "tab:gray"),
+          ("r43full_bambu_bed", "The review's first pass:\nround at full size to the front wall", "tab:orange"),
+          (R43_BED, "Revision 43: the round eases out\nover the jet's last 3 mm", "tab:green")]
+
+
+def image_94():
+    fig = plt.figure(figsize=(26, 25))
+    gs = fig.add_gridspec(4, 4, height_ratios=[1.0, 1.0, 1.15, 0.8])
+    for col, (name, label, _) in enumerate(REVIEW):
+        g, s = grid(name)
+        ax = fig.add_subplot(gs[0, col])
+        F.section(ax, g, "y", C.NOZZLE_Y, W_XZ_BED, title=f"{label}\nacross the nozzle (Y{C.NOZZLE_Y})")
+        F.mark(ax, "xz")
+        F.section(fig.add_subplot(gs[1, col]), g, "y", 26.6, (5, 19, -80, -67),
+                  title="the right jet's front end (Y26.6); the side channel is at the right")
+        ax = fig.add_subplot(gs[2, col])
+        F.section(ax, g, "z", C.NOZZLE_TIP_Z + 0.1, (-16, 16, 8, 37), vmax=60.0, arrows=False,
+                  title="0.3 mm over the print, from above (front at the top)")
+        F.mark(ax, "xy")
+        del g
+    search = json.loads((ROOT / A.REPORT).read_text())["design_search_vs_r41"]["cases"]
+    metrics = [("blower_flow_pct", "blower flow"), ("pressure_at_180_pct", "duct pressure at 180 L/min"),
+               ("air_over_print_within_5mm_pct", "air over the print\nwithin 5 mm"),
+               ("air_over_print_within_10mm_pct", "within 10 mm"), ("air_over_print_within_14mm_pct", "within 14 mm")]
+    ax = fig.add_subplot(gs[3, :])
+    x = np.arange(len(metrics))
+    for k, (name, label, colour) in enumerate(REVIEW[1:]):
+        vals = [search[name][m] for m, _ in metrics]
+        bars = ax.bar(x + (k - 1) * 0.26, vals, 0.26, color=colour, label=label.replace("\n", " "))
+        for b, v in zip(bars, vals):
+            ax.annotate(f"{v:+.1f}", (b.get_x() + b.get_width() / 2, v), textcoords="offset points",
+                        xytext=(0, 4 if v >= 0 else -14), ha="center", fontsize=10)
+    ax.axhline(0, color="k", lw=0.8)
+    ax.set_xticks(x)
+    ax.set_xticklabels([m[1] for m in metrics], fontsize=11)
+    ax.set_ylabel("against revision 41 (%)", fontsize=11)
+    ax.set_title("Against revision 41, each at its own blower flow (1 m hose); lower duct pressure is less restrictive",
+                 fontsize=12)
+    ax.grid(True, axis="y", alpha=0.3)
+    ax.legend(fontsize=10, loc="lower left")
+    fig.suptitle("The jets' front end, Bambu, print surface 0.2 mm under the tip: air speed at 180 L/min "
+                 "(grey: solid; +: the nozzle)", fontsize=15)
+    fig.tight_layout()
+    fig.savefig(IMAGES / "94_cfd_r43_review_jet_ends.png", dpi=72)
+    plt.close(fig)
+    return IMAGES / "94_cfd_r43_review_jet_ends.png"
+
+
 def main():
-    for f in (image_89, image_90, image_91, image_92):
+    for f in (image_89, image_90, image_91, image_92, image_94):
         print(f(), flush=True)
 
 

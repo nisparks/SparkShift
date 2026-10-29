@@ -1499,38 +1499,58 @@ and its output at the nozzle could be better. Revision 41's CFD says why: the je
 duct's pressure, because at 180 L/min the air leaves through about 60 mm² at 51 m/s. P22 also needed
 support whichever way it was printed.
 
-**What changes.** Only P22, in four places:
+**What changes.** Only P22, in five places (the last, and parts of the second and third, from a review in
+Fusion of the first version):
 
 - **The jets' floor drops 0.4 mm.** Under each jet the floor follows revision 41's, 0.4 mm lower:
   flat at Z-77.05 from Y22.4 to the front wall, and down the heel's curve back to Y19. It keeps
   0.8 mm (two perimeters with P22 on its back face) over P22's underside, which doesn't move, and
   each jet is 13 % taller where it faces the nozzle.
-- **The bell-mouth grows from r 1.4 to r 2.4.** The duct-side bottom edge of the wall over each jet
-  is rounded r 2.4 from the jet's heel (Y16.7) to Y26.2, on a foot 1 mm proud of the wall's duct
-  face with a 45° chamfer back up to it. Behind Y17.6 the foot narrows at 45° in plan.
-- **The window gets a 45° notch.** The window between the side channels, where the probe's
-  connector and cable come up, ended in front at a flat face: on P22's back face, a 22.9 mm ceiling.
-  A 45° notch now runs into the solid block in front of it, to 2.25 mm behind the hotend slot. The
-  block's bottom 1.8 mm stays, so P23 bears on as much of P22 as before (975 mm²).
+- **The bell-mouth grows from r 1.4 to r 2.4, over the jet's whole length.** The duct-side bottom
+  edge of the wall over each jet is rounded r 2.4 from the jet's heel (Y16.7), on a foot 1 mm proud of
+  the wall's duct face with a 45° chamfer back up to it. Over the jet's last 3 mm (Y24.6 to 27.3) the
+  round and its foot ease out together, along a cosine, into the wall's corner, as the duct's front
+  roof comes down to meet them. At the heel the round runs back into the heel's ramp, and the
+  rounded foot runs on, in the duct's air only, until the ramp and the wall (which thickens there)
+  take it in. Nothing ends square and nothing faces down in print. The first version stopped the
+  round square at Y26.2, 1.7 mm short of the front wall, and narrowed its foot at 45° in plan behind
+  Y17.6, which left a V-shaped notch against the thickening wall. The review's first pass ran the
+  round at full size right to the front wall; the CFD below says why it eases out instead.
+- **The window gets a 45° notch, right through.** The window between the side channels, where the
+  probe's connector and cable come up, ended in front at a flat face: on P22's back face, a 22.9 mm
+  ceiling. A 45° notch now runs through the solid block in front of it, from the underside up, to
+  2.25 mm behind the hotend slot, with its three vertical edges rounded r 5. The first version kept
+  the block's bottom 1.8 mm for P23 to bear on; Bambu Studio sliced that 22.9 mm strip as wall loops
+  and a gap-fill line across thin air. P23 now bears on 692 mm² of P22 (revision 41: 817 mm², 85 %);
+  its four screws clamp it at the bosses, at least 9 mm from the notch.
 - **The bottom-back edge is chamfered.** The first half of its r16 round, which faced the plate, is a
   45° chamfer tangent to the rest of the round, and the back face's two corners in plan are sharp
   (were r3.5). The flat back face, on the plate, grows from 5.8 to 12.4 mm tall.
+- **A rib behind the cable boss.** In the plenum under the socket, a 1.3 mm rib in the plane of
+  symmetry runs from the back wall to the cable boss's nose (the nose's flat tip is as wide), up to
+  the socket's floor. Each side flares into the nose along the 45° tangent to its r 3 round, blended
+  r 1.5, so the nose, which printed as a 7 mm arch, stands on it, and no edge faces the air head on.
+  The nose's rounds also run on to the centre island's sides: the island's square back corners
+  stood 0.32 mm proud of them.
 
 The jets' top (Z-73.6, 0.32 mm under the Red Lizard's heater block), the hotend slot (|X| 10.2), the
-duct upstream, P23's seat, the cheeks and every fastener stay as they were.
+rest of the duct, the cheeks and every fastener stay as they were.
 
 **Airflow.** The CFD (`cfd_cpap_r43.py`) uses revision 41's model, mesh and solver; only P22 changes.
 
 | | Pressure at 180 L/min | Blower flow, 1 m hose | Jets at 180 L/min |
 | :--- | ---: | ---: | :--- |
 | Revision 41, Bambu | 2.83 kPa | 192 L/min | 2 × 30 mm², 51 m/s mean, 63 m/s peak |
-| **Revision 43, Bambu** | **2.42 kPa** | **201 L/min** | 2 × 33 mm², 45 m/s mean, 59 m/s peak |
+| **Revision 43, Bambu** | **2.26 kPa** | **206 L/min** | 2 × 33 mm², 45 m/s mean, 57 m/s peak |
 | Revision 41, Red Lizard | 2.83 kPa | 192 L/min | |
-| **Revision 43, Red Lizard** | **2.44 kPa** | **201 L/min** | |
+| **Revision 43, Red Lizard** | **2.26 kPa** | **206 L/min** | |
 
-With a print 0.2 mm under the nozzle (Bambu), the blower gives 204 L/min instead of 195, and at
-that flow revision 43 puts 9 % more air over the print within 5 mm of the nozzle (area mean, 0.3 mm
-over it), where the plastic is freshest, and 5 % and 7.5 % less within 10 and 14 mm.
+With a print 0.2 mm under the nozzle (Bambu), the blower gives 208 L/min instead of 195. At that
+flow revision 43 puts as much air over the print within 5 mm of the nozzle as revision 41 (+1 %,
+area mean, 0.3 mm over it), a little more within 3 mm, and 5 % and 6 % less within 10 and 14 mm:
+32, 28 and 17 m/s at 7, 10 and 14 mm from the nozzle, against revision 41's 35, 29 and 19. Revision
+43's first version put 9 % more air within 5 mm of the nozzle; the review's notch-free round costs
+that back (below).
 
 The design search, each design with a print 0.2 mm under the tip at its own blower flow, against
 revision 41 (2.66 kPa at 180 L/min, 195 L/min from the blower, 10 % of the jets' air leaving
@@ -1546,7 +1566,7 @@ upward past the hotend):
 | ... with the bell-mouth | −9 % | +3 % | +9 % | −5 % | 11 % |
 | A flat pocket under the jets (not printable) | −14 % | +5 % | +6 % | +2 % | 15 % |
 | ... with the bell-mouth (not printable) | −12 % | +4 % | +14 % | −6 % | 11 % |
-| **Revision 43: lower floor and bell-mouth** | **−13 %** | **+5 %** | **+9 %** | **−7.5 %** | **14 %** |
+| Revision 43's first version: lower floor and bell-mouth | −13 % | +5 % | +9 % | −7.5 % | 14 % |
 
 - **Longer jets**, run back past the hotend to Y13, cut the pressure most, but the extra air blows
   into the gap behind the hotend and up, not over the print.
@@ -1554,16 +1574,48 @@ upward past the hotend):
   below horizontal, against 13°) and more of the air splashes up behind the hotend.
 - **The larger bell-mouth** turns the air into the jets more gently. On its own it changes little,
   but with the lower floor the jets leave a little flatter than revision 41's (12° below horizontal,
-  against 13°), the blower keeps most of the floor's extra air, and the air within 5 mm of the nozzle
-  rises by 9 %. Further out, 0.3 mm over the print, there is a little less (more of it passes 1 mm
-  up): 30, 26 and 17 m/s at 7, 10 and 14 mm from the nozzle, against revision 41's 35, 29 and 19.
+  against 13°), the blower keeps most of the floor's extra air, and in the first version the air
+  within 5 mm of the nozzle rose by 9 %.
 - **The flat pocket** was the first try at the lower floor. Behind Y22.4 it ran under the heel's
   curve, over a slot with 0.18 mm of floor under it, so it can't be printed; revision 43's floor
   follows the curve instead.
-- **The printable version** ends the bell-mouth's foot at the heel with a 45° taper, where the
-  study's stopped square at Y17.6. That costs 3 % of pressure (about 2 L/min of blower flow).
-- The studies ran 600 iterations, within 1 % of 1200 on revision 41; revision 43's own cases ran to
-  1200 (Bambu at 180, 120 and 240 L/min).
+- **The first printable version** ended the bell-mouth's foot at the heel with a 45° taper, where
+  the study's stopped square at Y17.6. That cost 3 % of pressure (about 2 L/min of blower flow).
+- These studies ran 600 iterations, within 1 % of 1200 on revision 41.
+
+**The review in Fusion**, each step from the first version, the same way:
+
+| Design | Iterations | Pressure at 180 L/min | Blower flow | Within 5 mm | Within 10 mm | Within 14 mm | Air leaving upward |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| First version: round square at Y26.2, foot tapered at the heel, strip under the notch | 1200 | −13 % | +4.5 % | +9 % | −5 % | −7.5 % | 14 % |
+| ... the rib, the notch right through and the island's corners | 600 | −14 % | +5 % | +7 % | −7 % | −9 % | 16 % |
+| ... and the round and its foot run back to the heel | 600 | −14.5 % | +5 % | +5 % | −6 % | −7 % | 16 % |
+| ... and the round at full size to the front wall | 1200 | −19 % | +7 % | +1 % | −7 % | −8 % | 17 % |
+| ... or with its foot faded out at both ends | 1200 | −15 % | +5 % | 0 % | −12 % | −13 % | 22 % |
+| **Revision 43: the round eased out over the jet's last 3 mm** | 1200 | **−18 %** | **+6 %** | **+1 %** | **−5 %** | **−6 %** | **16 %** |
+
+- **The rib** adds no turbulence: behind the cable boss's nose the air's mean fluctuation is
+  1.44 m/s with it and without, and the plenum's loss rises by 0-5 Pa.
+- **The first version's extra air at the nozzle went with its notches.** Its foot tapered off at
+  the heel, and the jets passed 3.5 % of their air through their back 2 mm, behind the nozzle
+  (revision 43: 5.6 %; revision 41: 5.8 %); its round stopped square 1.7 mm short of the front
+  wall. Running the round and its foot out to both ends, so nothing ends in a notch, lets the
+  blower move 1-2 % more air, but within 5 mm of the nozzle it brings the air back to revision 41's.
+- **Of the notch-free ends**, the round at full size right to the front wall (the review's first
+  pass) passes the most air, 20 % of the jets' through their front 1.8 mm (revision 43: 17 %),
+  where revision 41's sloping front roof leads the air in, and sends more of it past the print:
+  17 % of the jets' air leaves upward. Eased out over the last 3 mm, as the roof comes down, the
+  round puts about 2 % more air over the print within 10 and 14 mm, as much within 5 mm (within
+  the scatter, below), for under 1 % less blower flow. Fading the foot out instead did worse
+  everywhere.
+- **The model's scatter.** The same P22 meshed and run on 30 and on 46 cores agrees within 1 % of
+  the air over the print and of the pressure (the full-size round and revision 43 both). But the
+  eased-out round first simulated, which differed only at the heel, by 0.17 mm³, came out 2 % less
+  restrictive and 4 % better within 5 mm. Differences of a few percent between designs are within
+  the model's scatter; those above, between the first version and the rest, and at 10 and 14 mm
+  between the two notch-free fronts on both meshes, are larger.
+- The review's studies ran 600 or 1200 iterations (as listed); revision 43's own cases ran to 1200
+  (Bambu at 180, 120 and 240 L/min).
 
 ![Revision 43 CFD: system curves against the blower, the design search, and the air over a print round the nozzle](./images/89_cfd_r43_design_search.png)
 
@@ -1572,6 +1624,8 @@ upward past the hotend):
 ![Why the jets weren't made longer: their extra air goes up behind the hotend](./images/91_cfd_r43_long_jets_study.png)
 
 ![Streamlines through the outlet, revision 41 and revision 43](./images/92_cfd_r43_streamlines.png)
+
+![The review's jet ends, with a print under the nozzle: revision 41, the first version, the round at full size to the front wall, and revision 43](./images/94_cfd_r43_review_jet_ends.png)
 
 **The Bambu hotend and its silicone sock.** Every change is on the duct side of the hotend slot's
 walls, below the jets' top or away from the hotend, so nothing comes nearer either hotend. Exact
@@ -1591,13 +1645,13 @@ The sock is this project's model of the P2S's; measure yours if it differs. The 
 sock's sides for their top 1.9 mm, as revision 41's did.
 
 **Printing.** P22 still prints on its back face: of the ten flat faces it can stand on, that one
-needs the least support (428 mm², against 631 mm² for the next) and keeps the jets' layer lines
+needs the least support (386 mm², against 660 mm² for the next) and keeps the jets' layer lines
 along the flow. Every orientation that needs no support at all stands P22 on an edge.
 
 | P22 on its back face | Revision 41 | Revision 43 |
 | :--- | ---: | ---: |
 | On the plate | 156 mm² | 323 mm² |
-| Facing down more steeply than 30° | 936 mm² | 428 mm² |
+| Facing down more steeply than 30° | 936 mm² | 386 mm² |
 | … that a support from the plate could reach | 255 mm² | 14 mm² |
 
 Two places still need support:
@@ -1618,28 +1672,32 @@ on it reaches less than half of the cheeks. Turning off "Remove small overhangs"
 also puts tips inside their bores. Everything else bridges or prints at 45° or steeper:
 
 - the socket's front lip (15.4 mm);
-- the skin under the window notch (22.9 mm long, 1.8 mm wide);
 - the jets' front lips (3.7 mm);
-- the cable boss's nose inside the duct (a 7 mm arch).
+- the window notch's r 5 apex, a 7.1 mm arch like the top of a 10 mm hole (with automatic supports
+  Bambu Studio puts a small tree up through the window under it; the painted setup leaves it).
 
-The window's lower, sloping sides face up in print, so they need nothing.
+The window's lower, sloping sides face up in print, and the cable boss's nose stands on the rib, so
+they need nothing.
 
 ![P22 on its back face, revision 41 and revision 43: what needs support, and where](./images/93_p22_r43_print_overhangs.png)
 
 **Verification.** Run `python build_cpap_outlet_r43.py --workers 10`
-([report](./verification_cpap_outlet_r43.json)). It passes, in 19 minutes:
+([report](./verification_cpap_outlet_r43.json)). It passes, in 22 minutes:
 
-- **P22.** One valid solid, 16,029 mm³ (revision 41: 17,381), inside revision 41's bounds and
-  changed only at the jets, the window and the back.
+- **P22.** One valid solid, 15,982 mm³ (revision 41: 17,381), inside revision 41's bounds and
+  changed only at the jets, the window, the back and the rib.
 - **Jets.**
   - The narrowest section across both jets is 66.2 mm², 1.12 times revision 41's.
   - The floor under them is solid and at least 0.80 mm thick (1,376 vertical rays).
-  - The bell-mouth is within 0.001 mm of its design.
+  - The bell-mouth is within 0.001 mm of its design from just in front of the heel (Y16.9) to
+    Y24.4, and its run-out within 0.001 mm of the run-out's design at three of its sections
+    (Y25.18, 25.95 and 26.72).
   - The rest of the outlet's walls are no thinner than revision 41's (1.2 mm).
 - **Hotends.** As above, for both tools.
 - **Fit.** Against both builds (Beacon and Cartographer) and both mounted tools: no new
-  interference or contact, and P22's area over P23's top unchanged.
-- **Print.** As above. The walls at the printing changes are 1.4 mm and up.
+  interference or contact. P22 bears on 692 mm² of P23's top (revision 41: 817 mm²); the 125 mm²
+  less is exactly the window notch's footprint.
+- **Print.** As above. The walls at the printing changes are 1.4 mm and up, and the rib 1.3 mm.
 - **Rack.** The revision-36 requalification, on a revision-43 scene, is clean:
   - own-dock docking and withdrawal;
   - the eight mixed-neighbour cases (488 samples);
@@ -1656,9 +1714,11 @@ jets and losses, and the design search against revision 41.
 **Files.** [P22](./step/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW.step)
 ([STL](./stl/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW.stl),
 [print-oriented STL](./stl/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW_PRINT_ORIENTED.stl)). The
-Fusion native review "43 CPAP outlet", revision 41's and revision 43's P22 side by side with both
-hotends and cut-aways, is archived as [`43_CPAP_Outlet_REVIEW.f3d`](./43_CPAP_Outlet_REVIEW.f3d); the
-STEPs it comes from are left out of the repository, and the script regenerates them.
+Fusion native review "43b CPAP outlet", revision 41's and revision 43's P22 side by side with both
+hotends, cut-aways, and the left jet from its side channel before and after the review (and with the
+round at full size to the front wall, as the review first tried), is archived
+as [`43_CPAP_Outlet_REVIEW.f3d`](./43_CPAP_Outlet_REVIEW.f3d); the STEPs it comes from are left out
+of the repository, and the script regenerates them.
 
 **Run.**
 
@@ -1668,12 +1728,14 @@ python cfd_cpap_r41.py domain r43_bambu --p22 <WORK>/cfd/p22_r43.brep   # also -
 python cfd_cpap_r41.py case r43_bambu --np 32    # then run as revision 41's (cfd/run_case.sh)
 python cfd_cpap_r43.py analyse r43_bambu         # each case, after copying the results back
 python cfd_cpap_r43.py report                    # verification_cfd_cpap_r43.json
-python render_cfd_cpap_r43.py                    # images 89-92
+python render_cfd_cpap_r43.py                    # images 89-92 and 94
 python render_p22_r43_print.py                   # image 93
 ```
 
 The studies' P22s are in [`r43_parts.py`](./r43_parts.py) (`pocket_study`, `front_study`,
-`bell_study`, `low_study`, `low_bell_study`, `long_jets_study`), each identical to the one simulated.
+`bell_study`, `low_study`, `low_bell_study`, `long_jets_study`, and from the review `review_rib_study`,
+`review_back_study`, `review_full_study`, `review_fade_study`, `review_runout_study`), each identical
+to the one simulated.
 
 **Limits.** The CFD's limits are revision 41's: steady, time-averaged flow, no heat transfer, the
 blower's published curve and a hose allowance, nothing measured on the printer. "Air over the
