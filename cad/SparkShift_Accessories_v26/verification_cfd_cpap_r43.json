@@ -1,0 +1,4099 @@
+{
+  "method": "As verification_cfd_cpap_r41.json: OpenFOAM v2512 simpleFoam, k-omega SST, the same domain, mesh settings and blower curve; only P22 changes. Speeds scale with flow at these Reynolds numbers.",
+  "cases": {
+    "r41bm_bambu": {
+      "label": "Revision 41, Bambu",
+      "design": "r41",
+      "tool": "Bambu",
+      "print_surface": false,
+      "mesh": {
+        "cells": 1715666,
+        "volume_mm3": 218257.0,
+        "max_non_orthogonality_deg": 62.7,
+        "max_skewness": 3.18,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0,
+        120.0,
+        240.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2826.3,
+        "jets": {
+          "left": {
+            "lpm": 91.58,
+            "area_mm2": 29.82,
+            "mean_ms": 51.18,
+            "max_ms": 63.49,
+            "turbulence_intensity": 0.041,
+            "angle_below_horizontal_deg": 13.4
+          },
+          "right": {
+            "lpm": 91.02,
+            "area_mm2": 29.82,
+            "mean_ms": 50.88,
+            "max_ms": 63.3,
+            "turbulence_intensity": 0.041,
+            "angle_below_horizontal_deg": 13.4
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 34.56,
+            "min_ms": 12.33,
+            "max_ms": 48.34
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 43.5,
+            "min_ms": 18.15,
+            "max_ms": 53.68
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 45.07,
+            "min_ms": 22.74,
+            "max_ms": 56.71
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 36.34,
+            "min_ms": 16.27,
+            "max_ms": 59.24
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 20.57,
+            "min_ms": 3.33,
+            "max_ms": 60.03
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 30.97,
+            "quarters_r2_ms": {
+              "right": 52.47,
+              "front": 36.93,
+              "left": 46.28,
+              "back": 44.59
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 34.94,
+            "quarters_r2_ms": {
+              "right": 54.56,
+              "front": 34.34,
+              "left": 51.92,
+              "back": 43.63
+            }
+          }
+        },
+        "over_print": null,
+        "nozzle_box_outflow_lpm": {
+          "x-": -107.94,
+          "x+": -105.63,
+          "back": 2.72,
+          "front": 60.26,
+          "down": 84.98,
+          "up": 54.81,
+          "share_pct": {
+            "down": 41.9,
+            "front": 29.7,
+            "up": 27.0,
+            "back": 1.3
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 179.9,
+            "total_pressure_pa": 2815,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 180.6,
+            "total_pressure_pa": 2799,
+            "dynamic_pa": 127,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 181.5,
+            "total_pressure_pa": 2790,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.8,
+            "total_pressure_pa": 2752,
+            "dynamic_pa": 144,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.4,
+            "total_pressure_pa": 2674,
+            "dynamic_pa": 158,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.3,
+            "total_pressure_pa": 2618,
+            "dynamic_pa": 218,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.6,
+            "total_pressure_pa": 2394,
+            "dynamic_pa": 2055,
+            "area_mm2": 59.6
+          }
+        ],
+        "iteration": 1200
+      },
+      "operating_point_1m_hose": {
+        "lpm": 191.8,
+        "duct_pa": 3207,
+        "hose_pa": 241,
+        "blower_pa": 3447,
+        "fit_pa": {
+          "c": 0.098822,
+          "n": 1.976
+        },
+        "system_curve": "fitted",
+        "jet_mean_ms": 54.5,
+        "over_bead_mean_ms": 37.2
+      },
+      "operating_point_no_hose": {
+        "lpm": 196.5,
+        "duct_pa": 3363,
+        "hose_pa": 0,
+        "blower_pa": 3363,
+        "fit_pa": {
+          "c": 0.098822,
+          "n": 1.976
+        }
+      }
+    },
+    "r41bm_redlizard": {
+      "label": "Revision 41, Red Lizard",
+      "design": "r41",
+      "tool": "RedLizard",
+      "print_surface": false,
+      "mesh": {
+        "cells": 1694072,
+        "volume_mm3": 217786.0,
+        "max_non_orthogonality_deg": 64.9,
+        "max_skewness": 3.54,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0,
+        120.0,
+        240.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2834.7,
+        "jets": {
+          "left": {
+            "lpm": 91.31,
+            "area_mm2": 29.82,
+            "mean_ms": 51.03,
+            "max_ms": 63.13,
+            "turbulence_intensity": 0.042,
+            "angle_below_horizontal_deg": 13.4
+          },
+          "right": {
+            "lpm": 91.11,
+            "area_mm2": 29.82,
+            "mean_ms": 50.92,
+            "max_ms": 62.85,
+            "turbulence_intensity": 0.041,
+            "angle_below_horizontal_deg": 13.4
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 33.62,
+            "min_ms": 12.26,
+            "max_ms": 48.44
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 40.88,
+            "min_ms": 13.48,
+            "max_ms": 55.37
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 43.78,
+            "min_ms": 14.56,
+            "max_ms": 59.89
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 39.24,
+            "min_ms": 15.47,
+            "max_ms": 57.31
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 16.04,
+            "min_ms": 2.64,
+            "max_ms": 52.7
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 29.81,
+            "quarters_r2_ms": {
+              "right": 55.95,
+              "front": 35.34,
+              "left": 44.29,
+              "back": 39.54
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 32.55,
+            "quarters_r2_ms": {
+              "right": 58.62,
+              "front": 27.63,
+              "left": 41.27,
+              "back": 34.71
+            }
+          }
+        },
+        "over_print": null,
+        "nozzle_box_outflow_lpm": {
+          "x-": -102.61,
+          "x+": -101.83,
+          "back": 26.86,
+          "front": 85.32,
+          "down": 98.22,
+          "up": -15.4,
+          "share_pct": {
+            "down": 46.7,
+            "front": 40.6,
+            "up": 0.0,
+            "back": 12.8
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 179.9,
+            "total_pressure_pa": 2828,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 180.6,
+            "total_pressure_pa": 2812,
+            "dynamic_pa": 127,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 181.4,
+            "total_pressure_pa": 2803,
+            "dynamic_pa": 131,
+            "area_mm2": 229.4
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2765,
+            "dynamic_pa": 144,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.6,
+            "total_pressure_pa": 2688,
+            "dynamic_pa": 154,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.1,
+            "total_pressure_pa": 2631,
+            "dynamic_pa": 222,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.4,
+            "total_pressure_pa": 2409,
+            "dynamic_pa": 2054,
+            "area_mm2": 59.6
+          }
+        ],
+        "iteration": 1200
+      },
+      "operating_point_1m_hose": {
+        "lpm": 191.7,
+        "duct_pa": 3210,
+        "hose_pa": 240,
+        "blower_pa": 3450,
+        "fit_pa": {
+          "c": 0.100537,
+          "n": 1.973
+        },
+        "system_curve": "fitted",
+        "jet_mean_ms": 54.3,
+        "over_bead_mean_ms": 34.7
+      },
+      "operating_point_no_hose": {
+        "lpm": 196.3,
+        "duct_pa": 3366,
+        "hose_pa": 0,
+        "blower_pa": 3366,
+        "fit_pa": {
+          "c": 0.100537,
+          "n": 1.973
+        }
+      }
+    },
+    "r41bm_bambu_bed": {
+      "label": "Revision 41, Bambu, print surface 0.2 mm under the nozzle",
+      "design": "r41",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1632053,
+        "volume_mm3": 151410.0,
+        "max_non_orthogonality_deg": 64.1,
+        "max_skewness": 3.69,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2660.1,
+        "jets": {
+          "left": {
+            "lpm": 91.24,
+            "area_mm2": 30.1,
+            "mean_ms": 50.52,
+            "max_ms": 62.89,
+            "turbulence_intensity": 0.042,
+            "angle_below_horizontal_deg": 12.7
+          },
+          "right": {
+            "lpm": 91.24,
+            "area_mm2": 30.1,
+            "mean_ms": 50.51,
+            "max_ms": 62.79,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 12.6
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 3.91,
+            "min_ms": 1.89,
+            "max_ms": 8.11
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 6.59,
+            "min_ms": 3.92,
+            "max_ms": 9.11
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 9.05,
+            "min_ms": 4.85,
+            "max_ms": 11.58
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 12.98,
+            "min_ms": 7.85,
+            "max_ms": 18.33
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 15.76,
+            "min_ms": 3.81,
+            "max_ms": 26.6
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 13.55,
+            "quarters_r2_ms": {
+              "right": 6.9,
+              "front": 10.7,
+              "left": 7.51,
+              "back": 11.08
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 33.43,
+            "quarters_r2_ms": {
+              "right": 25.57,
+              "front": 25.6,
+              "left": 26.17,
+              "back": 27.23
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": 1.3,
+            "r5_mm": 13.6,
+            "r8_mm": 53.5,
+            "r12_mm": 61.3
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 21.5,
+            "r3_mm": 29.8,
+            "r5_mm": 34.3,
+            "r7_mm": 32.2,
+            "r10_mm": 26.9,
+            "r14_mm": 17.7
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 30.47,
+            "r10_mm": 30.56,
+            "r14_mm": 25.93
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -96.48,
+          "x+": -96.76,
+          "back": 48.11,
+          "front": 96.4,
+          "down": 17.71,
+          "up": 18.33,
+          "share_pct": {
+            "down": 9.8,
+            "front": 53.4,
+            "up": 10.2,
+            "back": 26.6
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2654,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2638,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 180.0,
+            "total_pressure_pa": 2627,
+            "dynamic_pa": 130,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2588,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.8,
+            "total_pressure_pa": 2506,
+            "dynamic_pa": 154,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2451,
+            "dynamic_pa": 220,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.5,
+            "total_pressure_pa": 2213,
+            "dynamic_pa": 1998,
+            "area_mm2": 60.2
+          }
+        ],
+        "iteration": 1200
+      },
+      "operating_point_1m_hose": {
+        "lpm": 195.4,
+        "duct_pa": 3132,
+        "hose_pa": 250,
+        "blower_pa": 3382,
+        "fit_pa": {
+          "c": 0.089679,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 54.8,
+        "over_bead_mean_ms": 36.3
+      },
+      "operating_point_no_hose": {
+        "lpm": 200.5,
+        "duct_pa": 3293,
+        "hose_pa": 0,
+        "blower_pa": 3293,
+        "fit_pa": {
+          "c": 0.089679,
+          "n": 1.983
+        }
+      }
+    },
+    "r43_bambu": {
+      "label": "Revision 43, Bambu",
+      "design": "r43",
+      "tool": "Bambu",
+      "print_surface": false,
+      "mesh": {
+        "cells": 1725746,
+        "volume_mm3": 219766.0,
+        "max_non_orthogonality_deg": 64.9,
+        "max_skewness": 3.18,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0,
+        120.0,
+        240.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2420.2,
+        "jets": {
+          "left": {
+            "lpm": 90.39,
+            "area_mm2": 33.32,
+            "mean_ms": 45.22,
+            "max_ms": 58.94,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 12.4
+          },
+          "right": {
+            "lpm": 90.91,
+            "area_mm2": 33.31,
+            "mean_ms": 45.48,
+            "max_ms": 59.36,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 12.5
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 29.32,
+            "min_ms": 8.07,
+            "max_ms": 43.9
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 36.95,
+            "min_ms": 11.49,
+            "max_ms": 48.65
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 39.94,
+            "min_ms": 9.61,
+            "max_ms": 53.23
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 36.03,
+            "min_ms": 11.9,
+            "max_ms": 55.66
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 24.31,
+            "min_ms": 2.66,
+            "max_ms": 55.89
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 31.47,
+            "quarters_r2_ms": {
+              "right": 47.51,
+              "front": 31.64,
+              "left": 46.03,
+              "back": 34.59
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 34.42,
+            "quarters_r2_ms": {
+              "right": 48.83,
+              "front": 30.15,
+              "left": 45.14,
+              "back": 33.71
+            }
+          }
+        },
+        "over_print": null,
+        "nozzle_box_outflow_lpm": {
+          "x-": -101.8,
+          "x+": -105.65,
+          "back": 18.74,
+          "front": 55.31,
+          "down": 81.69,
+          "up": 43.4,
+          "share_pct": {
+            "down": 41.0,
+            "front": 27.8,
+            "up": 21.8,
+            "back": 9.4
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 179.9,
+            "total_pressure_pa": 2410,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 180.6,
+            "total_pressure_pa": 2394,
+            "dynamic_pa": 127,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 181.5,
+            "total_pressure_pa": 2385,
+            "dynamic_pa": 132,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 180.1,
+            "total_pressure_pa": 2348,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.2,
+            "total_pressure_pa": 2268,
+            "dynamic_pa": 157,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.3,
+            "total_pressure_pa": 2211,
+            "dynamic_pa": 221,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 181.3,
+            "total_pressure_pa": 1964,
+            "dynamic_pa": 1739,
+            "area_mm2": 66.6
+          }
+        ],
+        "iteration": 1200
+      },
+      "operating_point_1m_hose": {
+        "lpm": 201.1,
+        "duct_pa": 3019,
+        "hose_pa": 265,
+        "blower_pa": 3284,
+        "fit_pa": {
+          "c": 0.085613,
+          "n": 1.974
+        },
+        "system_curve": "fitted",
+        "jet_mean_ms": 50.5,
+        "over_bead_mean_ms": 38.5
+      },
+      "operating_point_no_hose": {
+        "lpm": 206.9,
+        "duct_pa": 3196,
+        "hose_pa": 0,
+        "blower_pa": 3196,
+        "fit_pa": {
+          "c": 0.085613,
+          "n": 1.974
+        }
+      }
+    },
+    "r43_redlizard": {
+      "label": "Revision 43, Red Lizard",
+      "design": "r43",
+      "tool": "RedLizard",
+      "print_surface": false,
+      "mesh": {
+        "cells": 1703693,
+        "volume_mm3": 219292.0,
+        "max_non_orthogonality_deg": 63.9,
+        "max_skewness": 3.54,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2436.6,
+        "jets": {
+          "left": {
+            "lpm": 90.36,
+            "area_mm2": 33.32,
+            "mean_ms": 45.2,
+            "max_ms": 59.15,
+            "turbulence_intensity": 0.045,
+            "angle_below_horizontal_deg": 12.6
+          },
+          "right": {
+            "lpm": 90.52,
+            "area_mm2": 33.31,
+            "mean_ms": 45.29,
+            "max_ms": 59.37,
+            "turbulence_intensity": 0.045,
+            "angle_below_horizontal_deg": 12.6
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 25.8,
+            "min_ms": 8.8,
+            "max_ms": 42.1
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 31.19,
+            "min_ms": 10.9,
+            "max_ms": 48.81
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 37.12,
+            "min_ms": 13.31,
+            "max_ms": 55.42
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 34.0,
+            "min_ms": 7.89,
+            "max_ms": 54.82
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 20.31,
+            "min_ms": 3.29,
+            "max_ms": 49.14
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 29.15,
+            "quarters_r2_ms": {
+              "right": 51.11,
+              "front": 23.16,
+              "left": 41.07,
+              "back": 33.13
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 31.39,
+            "quarters_r2_ms": {
+              "right": 49.94,
+              "front": 21.67,
+              "left": 37.62,
+              "back": 30.13
+            }
+          }
+        },
+        "over_print": null,
+        "nozzle_box_outflow_lpm": {
+          "x-": -101.1,
+          "x+": -102.5,
+          "back": 30.26,
+          "front": 87.07,
+          "down": 93.53,
+          "up": -16.84,
+          "share_pct": {
+            "down": 44.4,
+            "front": 41.3,
+            "up": 0.0,
+            "back": 14.4
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 179.9,
+            "total_pressure_pa": 2429,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 180.6,
+            "total_pressure_pa": 2413,
+            "dynamic_pa": 127,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 181.5,
+            "total_pressure_pa": 2404,
+            "dynamic_pa": 132,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 180.1,
+            "total_pressure_pa": 2367,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.3,
+            "total_pressure_pa": 2287,
+            "dynamic_pa": 158,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.3,
+            "total_pressure_pa": 2229,
+            "dynamic_pa": 219,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 180.9,
+            "total_pressure_pa": 1989,
+            "dynamic_pa": 1755,
+            "area_mm2": 66.6
+          }
+        ],
+        "iteration": 1200
+      },
+      "operating_point_1m_hose": {
+        "lpm": 200.7,
+        "duct_pa": 3025,
+        "hose_pa": 264,
+        "blower_pa": 3289,
+        "fit_pa": {
+          "c": 0.082145,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 50.4,
+        "over_bead_mean_ms": 35.0
+      },
+      "operating_point_no_hose": {
+        "lpm": 206.6,
+        "duct_pa": 3201,
+        "hose_pa": 0,
+        "blower_pa": 3201,
+        "fit_pa": {
+          "c": 0.082145,
+          "n": 1.983
+        }
+      }
+    },
+    "r43_bambu_bed": {
+      "label": "Revision 43, Bambu, print surface 0.2 mm under the nozzle",
+      "design": "r43",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1643303,
+        "volume_mm3": 152920.0,
+        "max_non_orthogonality_deg": 64.3,
+        "max_skewness": 3.39,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2308.1,
+        "jets": {
+          "left": {
+            "lpm": 90.77,
+            "area_mm2": 33.61,
+            "mean_ms": 45.01,
+            "max_ms": 58.78,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 12.4
+          },
+          "right": {
+            "lpm": 90.93,
+            "area_mm2": 33.61,
+            "mean_ms": 45.08,
+            "max_ms": 58.8,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 12.5
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 4.05,
+            "min_ms": 2.37,
+            "max_ms": 7.21
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 6.76,
+            "min_ms": 4.29,
+            "max_ms": 9.48
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 9.91,
+            "min_ms": 7.13,
+            "max_ms": 13.13
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 14.11,
+            "min_ms": 8.85,
+            "max_ms": 18.89
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 15.71,
+            "min_ms": 9.16,
+            "max_ms": 24.49
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 14.16,
+            "quarters_r2_ms": {
+              "right": 8.83,
+              "front": 8.66,
+              "left": 9.56,
+              "back": 12.6
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 34.52,
+            "quarters_r2_ms": {
+              "right": 27.02,
+              "front": 22.17,
+              "left": 28.43,
+              "back": 30.91
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": -2.3,
+            "r5_mm": 1.4,
+            "r8_mm": 38.0,
+            "r12_mm": 47.3
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 23.2,
+            "r3_mm": 32.1,
+            "r5_mm": 34.6,
+            "r7_mm": 26.8,
+            "r10_mm": 22.9,
+            "r14_mm": 14.9
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 31.86,
+            "r10_mm": 27.78,
+            "r14_mm": 22.95
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -98.11,
+          "x+": -99.03,
+          "back": 53.08,
+          "front": 92.24,
+          "down": 16.12,
+          "up": 25.44,
+          "share_pct": {
+            "down": 8.6,
+            "front": 49.4,
+            "up": 13.6,
+            "back": 28.4
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2302,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2286,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.8,
+            "total_pressure_pa": 2275,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2238,
+            "dynamic_pa": 146,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.5,
+            "total_pressure_pa": 2156,
+            "dynamic_pa": 155,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2099,
+            "dynamic_pa": 222,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 181.7,
+            "total_pressure_pa": 1849,
+            "dynamic_pa": 1696,
+            "area_mm2": 67.2
+          }
+        ],
+        "iteration": 1200
+      },
+      "operating_point_1m_hose": {
+        "lpm": 204.2,
+        "duct_pa": 2964,
+        "hose_pa": 273,
+        "blower_pa": 3237,
+        "fit_pa": {
+          "c": 0.077812,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 51.1,
+        "over_bead_mean_ms": 39.2
+      },
+      "operating_point_no_hose": {
+        "lpm": 210.4,
+        "duct_pa": 3144,
+        "hose_pa": 0,
+        "blower_pa": 3144,
+        "fit_pa": {
+          "c": 0.077812,
+          "n": 1.983
+        }
+      }
+    },
+    "r43pocket_bambu": {
+      "label": "Study: lower floor alone, Bambu",
+      "design": "study",
+      "tool": "Bambu",
+      "print_surface": false,
+      "mesh": {
+        "cells": 1717423,
+        "volume_mm3": 218275.0,
+        "max_non_orthogonality_deg": 64.9,
+        "max_skewness": 3.45,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0,
+        120.0,
+        240.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2386.8,
+        "jets": {
+          "left": {
+            "lpm": 91.1,
+            "area_mm2": 33.35,
+            "mean_ms": 45.52,
+            "max_ms": 58.46,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 16.0
+          },
+          "right": {
+            "lpm": 91.35,
+            "area_mm2": 33.35,
+            "mean_ms": 45.65,
+            "max_ms": 58.45,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 16.0
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 23.75,
+            "min_ms": 5.99,
+            "max_ms": 36.97
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 32.57,
+            "min_ms": 9.18,
+            "max_ms": 43.76
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 41.18,
+            "min_ms": 14.58,
+            "max_ms": 50.81
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 39.96,
+            "min_ms": 17.16,
+            "max_ms": 53.17
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 25.07,
+            "min_ms": 3.46,
+            "max_ms": 53.94
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 33.34,
+            "quarters_r2_ms": {
+              "right": 48.02,
+              "front": 29.57,
+              "left": 48.11,
+              "back": 39.01
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 36.31,
+            "quarters_r2_ms": {
+              "right": 46.78,
+              "front": 27.34,
+              "left": 46.48,
+              "back": 35.59
+            }
+          }
+        },
+        "over_print": null,
+        "nozzle_box_outflow_lpm": {
+          "x-": -105.04,
+          "x+": -105.92,
+          "back": 6.82,
+          "front": 57.33,
+          "down": 95.78,
+          "up": 43.47,
+          "share_pct": {
+            "down": 47.1,
+            "front": 28.2,
+            "up": 21.4,
+            "back": 3.4
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 179.9,
+            "total_pressure_pa": 2383,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 180.6,
+            "total_pressure_pa": 2367,
+            "dynamic_pa": 127,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 181.5,
+            "total_pressure_pa": 2357,
+            "dynamic_pa": 132,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 180.1,
+            "total_pressure_pa": 2319,
+            "dynamic_pa": 144,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.3,
+            "total_pressure_pa": 2240,
+            "dynamic_pa": 157,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2181,
+            "dynamic_pa": 219,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.4,
+            "total_pressure_pa": 1975,
+            "dynamic_pa": 1685,
+            "area_mm2": 66.7
+          }
+        ],
+        "iteration": 1200
+      },
+      "operating_point_1m_hose": {
+        "lpm": 202.1,
+        "duct_pa": 3001,
+        "hose_pa": 267,
+        "blower_pa": 3269,
+        "fit_pa": {
+          "c": 0.08737,
+          "n": 1.967
+        },
+        "system_curve": "fitted",
+        "jet_mean_ms": 51.1,
+        "over_bead_mean_ms": 40.8
+      },
+      "operating_point_no_hose": {
+        "lpm": 208.1,
+        "duct_pa": 3179,
+        "hose_pa": 0,
+        "blower_pa": 3179,
+        "fit_pa": {
+          "c": 0.08737,
+          "n": 1.967
+        }
+      }
+    },
+    "r43pocket_redlizard": {
+      "label": "Study: lower floor alone, Red Lizard",
+      "design": "study",
+      "tool": "RedLizard",
+      "print_surface": false,
+      "mesh": {
+        "cells": 1693732,
+        "volume_mm3": 217799.0,
+        "max_non_orthogonality_deg": 64.9,
+        "max_skewness": 3.35,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2424.9,
+        "jets": {
+          "left": {
+            "lpm": 90.95,
+            "area_mm2": 33.36,
+            "mean_ms": 45.44,
+            "max_ms": 58.24,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 16.1
+          },
+          "right": {
+            "lpm": 91.24,
+            "area_mm2": 33.34,
+            "mean_ms": 45.61,
+            "max_ms": 57.85,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 16.1
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 23.66,
+            "min_ms": 2.94,
+            "max_ms": 34.58
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 31.76,
+            "min_ms": 3.4,
+            "max_ms": 41.89
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 41.78,
+            "min_ms": 9.65,
+            "max_ms": 53.87
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 40.71,
+            "min_ms": 14.1,
+            "max_ms": 55.49
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 22.87,
+            "min_ms": 2.78,
+            "max_ms": 51.77
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 33.34,
+            "quarters_r2_ms": {
+              "right": 51.99,
+              "front": 35.71,
+              "left": 44.85,
+              "back": 34.59
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 35.07,
+            "quarters_r2_ms": {
+              "right": 49.78,
+              "front": 25.53,
+              "left": 40.62,
+              "back": 29.58
+            }
+          }
+        },
+        "over_print": null,
+        "nozzle_box_outflow_lpm": {
+          "x-": -101.55,
+          "x+": -99.87,
+          "back": 18.2,
+          "front": 81.67,
+          "down": 106.04,
+          "up": -13.24,
+          "share_pct": {
+            "down": 51.5,
+            "front": 39.7,
+            "up": 0.0,
+            "back": 8.8
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 179.9,
+            "total_pressure_pa": 2419,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 180.6,
+            "total_pressure_pa": 2403,
+            "dynamic_pa": 127,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 181.5,
+            "total_pressure_pa": 2393,
+            "dynamic_pa": 132,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 180.1,
+            "total_pressure_pa": 2356,
+            "dynamic_pa": 144,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.2,
+            "total_pressure_pa": 2277,
+            "dynamic_pa": 157,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2219,
+            "dynamic_pa": 224,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.2,
+            "total_pressure_pa": 2019,
+            "dynamic_pa": 1705,
+            "area_mm2": 66.7
+          }
+        ],
+        "iteration": 1200
+      },
+      "operating_point_1m_hose": {
+        "lpm": 201.1,
+        "duct_pa": 3020,
+        "hose_pa": 265,
+        "blower_pa": 3284,
+        "fit_pa": {
+          "c": 0.08175,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 50.8,
+        "over_bead_mean_ms": 39.2
+      },
+      "operating_point_no_hose": {
+        "lpm": 206.9,
+        "duct_pa": 3196,
+        "hose_pa": 0,
+        "blower_pa": 3196,
+        "fit_pa": {
+          "c": 0.08175,
+          "n": 1.983
+        }
+      }
+    },
+    "r43pocket_bambu_bed": {
+      "label": "Study: lower floor alone, print surface",
+      "design": "study",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1634280,
+        "volume_mm3": 151427.0,
+        "max_non_orthogonality_deg": 64.5,
+        "max_skewness": 3.69,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2223.8,
+        "jets": {
+          "left": {
+            "lpm": 91.23,
+            "area_mm2": 33.65,
+            "mean_ms": 45.18,
+            "max_ms": 57.07,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 15.2
+          },
+          "right": {
+            "lpm": 91.28,
+            "area_mm2": 33.65,
+            "mean_ms": 45.21,
+            "max_ms": 57.79,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 15.2
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 3.15,
+            "min_ms": 1.65,
+            "max_ms": 5.74
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 5.45,
+            "min_ms": 3.5,
+            "max_ms": 6.97
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 7.78,
+            "min_ms": 5.93,
+            "max_ms": 10.14
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 11.52,
+            "min_ms": 8.2,
+            "max_ms": 15.34
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 15.06,
+            "min_ms": 7.86,
+            "max_ms": 23.1
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 12.41,
+            "quarters_r2_ms": {
+              "right": 6.66,
+              "front": 7.85,
+              "left": 6.93,
+              "back": 9.68
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 31.44,
+            "quarters_r2_ms": {
+              "right": 23.23,
+              "front": 19.62,
+              "left": 23.49,
+              "back": 24.43
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": -1.5,
+            "r5_mm": 5.9,
+            "r8_mm": 42.4,
+            "r12_mm": 55.3
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 18.6,
+            "r3_mm": 26.5,
+            "r5_mm": 33.6,
+            "r7_mm": 28.1,
+            "r10_mm": 24.7,
+            "r14_mm": 15.5
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 28.24,
+            "r10_mm": 27.86,
+            "r14_mm": 23.6
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -101.55,
+          "x+": -100.94,
+          "back": 46.59,
+          "front": 93.32,
+          "down": 17.45,
+          "up": 33.71,
+          "share_pct": {
+            "down": 9.1,
+            "front": 48.8,
+            "up": 17.6,
+            "back": 24.4
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2215,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2199,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.8,
+            "total_pressure_pa": 2188,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2151,
+            "dynamic_pa": 146,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.4,
+            "total_pressure_pa": 2069,
+            "dynamic_pa": 155,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2013,
+            "dynamic_pa": 222,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.5,
+            "total_pressure_pa": 1792,
+            "dynamic_pa": 1623,
+            "area_mm2": 67.3
+          }
+        ],
+        "iteration": 1200
+      },
+      "operating_point_1m_hose": {
+        "lpm": 206.6,
+        "duct_pa": 2922,
+        "hose_pa": 279,
+        "blower_pa": 3201,
+        "fit_pa": {
+          "c": 0.07497,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 51.9,
+        "over_bead_mean_ms": 36.1
+      },
+      "operating_point_no_hose": {
+        "lpm": 213.0,
+        "duct_pa": 3105,
+        "hose_pa": 0,
+        "blower_pa": 3105,
+        "fit_pa": {
+          "c": 0.07497,
+          "n": 1.983
+        }
+      }
+    },
+    "r43lowbell_bambu_bed": {
+      "label": "Study: lower floor and r 2.4 bell-mouth as simulated first (no taper), print surface",
+      "design": "study",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1632430,
+        "volume_mm3": 151398.0,
+        "max_non_orthogonality_deg": 64.5,
+        "max_skewness": 3.69,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2240.4,
+        "jets": {
+          "left": {
+            "lpm": 90.99,
+            "area_mm2": 33.62,
+            "mean_ms": 45.11,
+            "max_ms": 58.14,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 12.4
+          },
+          "right": {
+            "lpm": 91.03,
+            "area_mm2": 33.62,
+            "mean_ms": 45.13,
+            "max_ms": 58.12,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 12.4
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 3.9,
+            "min_ms": 1.88,
+            "max_ms": 7.69
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 6.93,
+            "min_ms": 4.67,
+            "max_ms": 9.61
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 10.12,
+            "min_ms": 7.68,
+            "max_ms": 13.27
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 14.03,
+            "min_ms": 9.24,
+            "max_ms": 18.49
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 15.24,
+            "min_ms": 8.66,
+            "max_ms": 24.16
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 13.93,
+            "quarters_r2_ms": {
+              "right": 9.67,
+              "front": 9.14,
+              "left": 8.92,
+              "back": 12.74
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 33.9,
+            "quarters_r2_ms": {
+              "right": 28.41,
+              "front": 23.05,
+              "left": 27.13,
+              "back": 31.14
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": -1.4,
+            "r5_mm": 2.1,
+            "r8_mm": 37.2,
+            "r12_mm": 46.2
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 23.6,
+            "r3_mm": 31.9,
+            "r5_mm": 33.6,
+            "r7_mm": 26.3,
+            "r10_mm": 22.8,
+            "r14_mm": 14.6
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 31.33,
+            "r10_mm": 27.38,
+            "r14_mm": 22.65
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -98.77,
+          "x+": -98.41,
+          "back": 55.23,
+          "front": 93.79,
+          "down": 15.56,
+          "up": 22.05,
+          "share_pct": {
+            "down": 8.3,
+            "front": 50.3,
+            "up": 11.8,
+            "back": 29.6
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2235,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2219,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.8,
+            "total_pressure_pa": 2208,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2170,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.0,
+            "total_pressure_pa": 2088,
+            "dynamic_pa": 157,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2026,
+            "dynamic_pa": 226,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.0,
+            "total_pressure_pa": 1780,
+            "dynamic_pa": 1644,
+            "area_mm2": 67.2
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 206.1,
+        "duct_pa": 2930,
+        "hose_pa": 278,
+        "blower_pa": 3209,
+        "fit_pa": {
+          "c": 0.07553,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 51.7,
+        "over_bead_mean_ms": 38.8
+      },
+      "operating_point_no_hose": {
+        "lpm": 212.5,
+        "duct_pa": 3113,
+        "hose_pa": 0,
+        "blower_pa": 3113,
+        "fit_pa": {
+          "c": 0.07553,
+          "n": 1.983
+        }
+      }
+    },
+    "r43front_bambu_bed": {
+      "label": "Study: floor 0.4 mm lower where flat only, print surface",
+      "design": "study",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1633170,
+        "volume_mm3": 151420.0,
+        "max_non_orthogonality_deg": 64.5,
+        "max_skewness": 4.0,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2423.2,
+        "jets": {
+          "left": {
+            "lpm": 90.8,
+            "area_mm2": 32.37,
+            "mean_ms": 46.76,
+            "max_ms": 58.86,
+            "turbulence_intensity": 0.042,
+            "angle_below_horizontal_deg": 14.3
+          },
+          "right": {
+            "lpm": 91.16,
+            "area_mm2": 32.36,
+            "mean_ms": 46.95,
+            "max_ms": 59.0,
+            "turbulence_intensity": 0.042,
+            "angle_below_horizontal_deg": 14.3
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 3.66,
+            "min_ms": 2.0,
+            "max_ms": 6.94
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 6.34,
+            "min_ms": 4.21,
+            "max_ms": 8.62
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 9.2,
+            "min_ms": 7.03,
+            "max_ms": 12.31
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 13.19,
+            "min_ms": 8.68,
+            "max_ms": 18.46
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 15.83,
+            "min_ms": 7.46,
+            "max_ms": 25.48
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 13.61,
+            "quarters_r2_ms": {
+              "right": 8.22,
+              "front": 8.56,
+              "left": 8.08,
+              "back": 11.95
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 32.79,
+            "quarters_r2_ms": {
+              "right": 26.6,
+              "front": 21.45,
+              "left": 26.02,
+              "back": 29.52
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": -0.4,
+            "r5_mm": 9.7,
+            "r8_mm": 46.4,
+            "r12_mm": 57.2
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 21.7,
+            "r3_mm": 30.0,
+            "r5_mm": 34.5,
+            "r7_mm": 30.2,
+            "r10_mm": 25.8,
+            "r14_mm": 16.5
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 30.46,
+            "r10_mm": 29.66,
+            "r14_mm": 24.94
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -97.41,
+          "x+": -97.92,
+          "back": 52.22,
+          "front": 93.41,
+          "down": 17.46,
+          "up": 20.76,
+          "share_pct": {
+            "down": 9.5,
+            "front": 50.8,
+            "up": 11.3,
+            "back": 28.4
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2416,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2400,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.8,
+            "total_pressure_pa": 2389,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2350,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.6,
+            "total_pressure_pa": 2265,
+            "dynamic_pa": 156,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2207,
+            "dynamic_pa": 220,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.0,
+            "total_pressure_pa": 1987,
+            "dynamic_pa": 1792,
+            "area_mm2": 64.7
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 201.1,
+        "duct_pa": 3019,
+        "hose_pa": 265,
+        "blower_pa": 3284,
+        "fit_pa": {
+          "c": 0.081693,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 52.2,
+        "over_bead_mean_ms": 36.6
+      },
+      "operating_point_no_hose": {
+        "lpm": 207.0,
+        "duct_pa": 3196,
+        "hose_pa": 0,
+        "blower_pa": 3196,
+        "fit_pa": {
+          "c": 0.081693,
+          "n": 1.983
+        }
+      }
+    },
+    "r43frontbell_bambu_bed": {
+      "label": "Study: floor lower where flat and r 2.4 bell-mouth, print surface",
+      "design": "study",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1631848,
+        "volume_mm3": 151387.0,
+        "max_non_orthogonality_deg": 64.3,
+        "max_skewness": 3.69,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2410.5,
+        "jets": {
+          "left": {
+            "lpm": 90.14,
+            "area_mm2": 32.33,
+            "mean_ms": 46.46,
+            "max_ms": 59.98,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 11.8
+          },
+          "right": {
+            "lpm": 91.81,
+            "area_mm2": 32.34,
+            "mean_ms": 47.31,
+            "max_ms": 60.61,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 11.7
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 4.38,
+            "min_ms": 2.49,
+            "max_ms": 8.02
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 7.23,
+            "min_ms": 4.82,
+            "max_ms": 10.15
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 10.66,
+            "min_ms": 7.69,
+            "max_ms": 14.63
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 14.7,
+            "min_ms": 9.08,
+            "max_ms": 20.64
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 15.72,
+            "min_ms": 7.61,
+            "max_ms": 26.07
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 14.43,
+            "quarters_r2_ms": {
+              "right": 9.88,
+              "front": 9.11,
+              "left": 9.56,
+              "back": 14.08
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 34.23,
+            "quarters_r2_ms": {
+              "right": 28.98,
+              "front": 23.19,
+              "left": 28.74,
+              "back": 33.81
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": -0.4,
+            "r5_mm": 6.0,
+            "r8_mm": 42.6,
+            "r12_mm": 52.1
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 24.8,
+            "r3_mm": 33.2,
+            "r5_mm": 34.2,
+            "r7_mm": 28.7,
+            "r10_mm": 24.1,
+            "r14_mm": 14.9
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 32.16,
+            "r10_mm": 28.91,
+            "r14_mm": 23.79
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -97.32,
+          "x+": -98.97,
+          "back": 54.06,
+          "front": 95.8,
+          "down": 16.31,
+          "up": 19.52,
+          "share_pct": {
+            "down": 8.8,
+            "front": 51.6,
+            "up": 10.5,
+            "back": 29.1
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2412,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2396,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.8,
+            "total_pressure_pa": 2385,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2346,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.6,
+            "total_pressure_pa": 2265,
+            "dynamic_pa": 157,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.3,
+            "total_pressure_pa": 2205,
+            "dynamic_pa": 222,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 181.9,
+            "total_pressure_pa": 1960,
+            "dynamic_pa": 1800,
+            "area_mm2": 64.7
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 201.4,
+        "duct_pa": 3013,
+        "hose_pa": 266,
+        "blower_pa": 3279,
+        "fit_pa": {
+          "c": 0.081265,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 52.0,
+        "over_bead_mean_ms": 38.3
+      },
+      "operating_point_no_hose": {
+        "lpm": 207.3,
+        "duct_pa": 3190,
+        "hose_pa": 0,
+        "blower_pa": 3190,
+        "fit_pa": {
+          "c": 0.081265,
+          "n": 1.983
+        }
+      }
+    },
+    "r43bell_bambu_bed": {
+      "label": "Study: r 2.4 bell-mouth alone, print surface",
+      "design": "study",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1630871,
+        "volume_mm3": 151376.0,
+        "max_non_orthogonality_deg": 64.5,
+        "max_skewness": 3.4,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2600.9,
+        "jets": {
+          "left": {
+            "lpm": 91.35,
+            "area_mm2": 30.16,
+            "mean_ms": 50.49,
+            "max_ms": 62.5,
+            "turbulence_intensity": 0.042,
+            "angle_below_horizontal_deg": 9.8
+          },
+          "right": {
+            "lpm": 90.93,
+            "area_mm2": 30.15,
+            "mean_ms": 50.26,
+            "max_ms": 63.05,
+            "turbulence_intensity": 0.042,
+            "angle_below_horizontal_deg": 10.0
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 4.23,
+            "min_ms": 2.29,
+            "max_ms": 8.41
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 7.2,
+            "min_ms": 4.46,
+            "max_ms": 9.59
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 9.93,
+            "min_ms": 5.42,
+            "max_ms": 13.2
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 13.57,
+            "min_ms": 7.94,
+            "max_ms": 20.22
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 14.83,
+            "min_ms": 3.35,
+            "max_ms": 26.92
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 13.5,
+            "quarters_r2_ms": {
+              "right": 7.61,
+              "front": 11.28,
+              "left": 8.17,
+              "back": 12.66
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 32.96,
+            "quarters_r2_ms": {
+              "right": 27.6,
+              "front": 26.67,
+              "left": 27.85,
+              "back": 30.98
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": 1.9,
+            "r5_mm": 12.0,
+            "r8_mm": 51.1,
+            "r12_mm": 58.0
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 23.5,
+            "r3_mm": 31.0,
+            "r5_mm": 32.1,
+            "r7_mm": 30.7,
+            "r10_mm": 25.8,
+            "r14_mm": 16.3
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 30.24,
+            "r10_mm": 29.47,
+            "r14_mm": 24.81
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -98.93,
+          "x+": -96.42,
+          "back": 54.44,
+          "front": 95.21,
+          "down": 16.92,
+          "up": 17.18,
+          "share_pct": {
+            "down": 9.2,
+            "front": 51.8,
+            "up": 9.3,
+            "back": 29.6
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2596,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2580,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.8,
+            "total_pressure_pa": 2569,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2531,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.5,
+            "total_pressure_pa": 2450,
+            "dynamic_pa": 155,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2391,
+            "dynamic_pa": 224,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.3,
+            "total_pressure_pa": 2137,
+            "dynamic_pa": 1979,
+            "area_mm2": 60.3
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 196.8,
+        "duct_pa": 3104,
+        "hose_pa": 254,
+        "blower_pa": 3358,
+        "fit_pa": {
+          "c": 0.087684,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 55.2,
+        "over_bead_mean_ms": 36.0
+      },
+      "operating_point_no_hose": {
+        "lpm": 202.0,
+        "duct_pa": 3270,
+        "hose_pa": 0,
+        "blower_pa": 3270,
+        "fit_pa": {
+          "c": 0.087684,
+          "n": 1.983
+        }
+      }
+    },
+    "r43low_bambu_bed": {
+      "label": "Study: first, flat pocket under the jets (not printable), print surface",
+      "design": "study",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1634290,
+        "volume_mm3": 151429.0,
+        "max_non_orthogonality_deg": 64.5,
+        "max_skewness": 3.47,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2300.7,
+        "jets": {
+          "left": {
+            "lpm": 91.09,
+            "area_mm2": 33.85,
+            "mean_ms": 44.84,
+            "max_ms": 58.63,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 14.3
+          },
+          "right": {
+            "lpm": 91.02,
+            "area_mm2": 33.85,
+            "mean_ms": 44.82,
+            "max_ms": 58.57,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 14.4
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 3.58,
+            "min_ms": 2.1,
+            "max_ms": 6.16
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 6.01,
+            "min_ms": 4.28,
+            "max_ms": 7.9
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 9.0,
+            "min_ms": 7.3,
+            "max_ms": 11.02
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 12.94,
+            "min_ms": 8.9,
+            "max_ms": 16.98
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 16.78,
+            "min_ms": 10.27,
+            "max_ms": 24.07
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 13.82,
+            "quarters_r2_ms": {
+              "right": 8.94,
+              "front": 7.88,
+              "left": 8.42,
+              "back": 10.77
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 32.31,
+            "quarters_r2_ms": {
+              "right": 25.09,
+              "front": 20.24,
+              "left": 24.44,
+              "back": 26.57
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": -1.0,
+            "r5_mm": 10.5,
+            "r8_mm": 46.1,
+            "r12_mm": 55.6
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 21.0,
+            "r3_mm": 29.3,
+            "r5_mm": 36.4,
+            "r7_mm": 31.2,
+            "r10_mm": 25.8,
+            "r14_mm": 17.1
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 30.72,
+            "r10_mm": 30.2,
+            "r14_mm": 25.36
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -102.73,
+          "x+": -103.86,
+          "back": 54.19,
+          "front": 94.52,
+          "down": 16.56,
+          "up": 29.09,
+          "share_pct": {
+            "down": 8.5,
+            "front": 48.6,
+            "up": 15.0,
+            "back": 27.9
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2291,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2275,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2265,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2226,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.3,
+            "total_pressure_pa": 2147,
+            "dynamic_pa": 158,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.1,
+            "total_pressure_pa": 2085,
+            "dynamic_pa": 223,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 182.1,
+            "total_pressure_pa": 1857,
+            "dynamic_pa": 1685,
+            "area_mm2": 67.7
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 204.4,
+        "duct_pa": 2960,
+        "hose_pa": 274,
+        "blower_pa": 3234,
+        "fit_pa": {
+          "c": 0.077563,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 50.9,
+        "over_bead_mean_ms": 36.7
+      },
+      "operating_point_no_hose": {
+        "lpm": 210.6,
+        "duct_pa": 3141,
+        "hose_pa": 0,
+        "blower_pa": 3141,
+        "fit_pa": {
+          "c": 0.077563,
+          "n": 1.983
+        }
+      }
+    },
+    "r43combo_bambu": {
+      "label": "Study: flat pocket and r 2.4 bell-mouth (not printable), Bambu",
+      "design": "study",
+      "tool": "Bambu",
+      "print_surface": false,
+      "mesh": {
+        "cells": 1714358,
+        "volume_mm3": 218237.0,
+        "max_non_orthogonality_deg": 62.7,
+        "max_skewness": 3.18,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2418.4,
+        "jets": {
+          "left": {
+            "lpm": 90.38,
+            "area_mm2": 32.23,
+            "mean_ms": 46.74,
+            "max_ms": 59.96,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 11.6
+          },
+          "right": {
+            "lpm": 91.0,
+            "area_mm2": 32.17,
+            "mean_ms": 47.14,
+            "max_ms": 59.98,
+            "turbulence_intensity": 0.043,
+            "angle_below_horizontal_deg": 11.3
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 32.28,
+            "min_ms": 10.07,
+            "max_ms": 46.39
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 38.72,
+            "min_ms": 13.6,
+            "max_ms": 49.63
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 37.74,
+            "min_ms": 11.2,
+            "max_ms": 52.86
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 33.14,
+            "min_ms": 11.34,
+            "max_ms": 55.51
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 23.41,
+            "min_ms": 2.77,
+            "max_ms": 56.14
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 29.91,
+            "quarters_r2_ms": {
+              "right": 43.07,
+              "front": 31.73,
+              "left": 43.67,
+              "back": 32.5
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 32.57,
+            "quarters_r2_ms": {
+              "right": 44.86,
+              "front": 29.76,
+              "left": 47.0,
+              "back": 32.55
+            }
+          }
+        },
+        "over_print": null,
+        "nozzle_box_outflow_lpm": {
+          "x-": -103.89,
+          "x+": -103.14,
+          "back": 13.41,
+          "front": 57.26,
+          "down": 87.94,
+          "up": 39.66,
+          "share_pct": {
+            "down": 44.4,
+            "front": 28.9,
+            "up": 20.0,
+            "back": 6.8
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 179.9,
+            "total_pressure_pa": 2412,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 180.6,
+            "total_pressure_pa": 2396,
+            "dynamic_pa": 126,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 181.5,
+            "total_pressure_pa": 2387,
+            "dynamic_pa": 132,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 180.1,
+            "total_pressure_pa": 2349,
+            "dynamic_pa": 144,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.4,
+            "total_pressure_pa": 2269,
+            "dynamic_pa": 156,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.1,
+            "total_pressure_pa": 2211,
+            "dynamic_pa": 225,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 181.4,
+            "total_pressure_pa": 1979,
+            "dynamic_pa": 1776,
+            "area_mm2": 64.4
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 201.2,
+        "duct_pa": 3017,
+        "hose_pa": 265,
+        "blower_pa": 3282,
+        "fit_pa": {
+          "c": 0.081531,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 52.2,
+        "over_bead_mean_ms": 36.4
+      },
+      "operating_point_no_hose": {
+        "lpm": 207.1,
+        "duct_pa": 3194,
+        "hose_pa": 0,
+        "blower_pa": 3194,
+        "fit_pa": {
+          "c": 0.081531,
+          "n": 1.983
+        }
+      }
+    },
+    "r43combo_bambu_bed": {
+      "label": "Study: flat pocket and r 2.4 bell-mouth (not printable), print surface",
+      "design": "study",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1632529,
+        "volume_mm3": 151397.0,
+        "max_non_orthogonality_deg": 64.3,
+        "max_skewness": 3.48,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2345.9,
+        "jets": {
+          "left": {
+            "lpm": 91.51,
+            "area_mm2": 33.83,
+            "mean_ms": 45.08,
+            "max_ms": 59.51,
+            "turbulence_intensity": 0.045,
+            "angle_below_horizontal_deg": 11.5
+          },
+          "right": {
+            "lpm": 90.32,
+            "area_mm2": 33.8,
+            "mean_ms": 44.54,
+            "max_ms": 58.95,
+            "turbulence_intensity": 0.044,
+            "angle_below_horizontal_deg": 11.7
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 4.13,
+            "min_ms": 1.9,
+            "max_ms": 8.33
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 7.27,
+            "min_ms": 4.93,
+            "max_ms": 10.79
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 10.89,
+            "min_ms": 7.5,
+            "max_ms": 14.85
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 15.15,
+            "min_ms": 9.51,
+            "max_ms": 20.52
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 16.68,
+            "min_ms": 10.21,
+            "max_ms": 25.37
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 15.04,
+            "quarters_r2_ms": {
+              "right": 10.84,
+              "front": 8.41,
+              "left": 9.96,
+              "back": 14.33
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 34.49,
+            "quarters_r2_ms": {
+              "right": 28.91,
+              "front": 21.9,
+              "left": 27.49,
+              "back": 33.7
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": -0.1,
+            "r5_mm": 5.3,
+            "r8_mm": 41.1,
+            "r12_mm": 48.1
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 25.1,
+            "r3_mm": 33.9,
+            "r5_mm": 36.1,
+            "r7_mm": 28.9,
+            "r10_mm": 23.1,
+            "r14_mm": 14.2
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 33.26,
+            "r10_mm": 29.11,
+            "r14_mm": 23.43
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -101.32,
+          "x+": -100.33,
+          "back": 56.67,
+          "front": 96.33,
+          "down": 16.27,
+          "up": 21.14,
+          "share_pct": {
+            "down": 8.5,
+            "front": 50.6,
+            "up": 11.1,
+            "back": 29.8
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2343,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2327,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.8,
+            "total_pressure_pa": 2316,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2277,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.5,
+            "total_pressure_pa": 2197,
+            "dynamic_pa": 156,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2140,
+            "dynamic_pa": 222,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 181.8,
+            "total_pressure_pa": 1895,
+            "dynamic_pa": 1741,
+            "area_mm2": 67.6
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 203.2,
+        "duct_pa": 2982,
+        "hose_pa": 270,
+        "blower_pa": 3253,
+        "fit_pa": {
+          "c": 0.079087,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 50.9,
+        "over_bead_mean_ms": 38.9
+      },
+      "operating_point_no_hose": {
+        "lpm": 209.2,
+        "duct_pa": 3162,
+        "hose_pa": 0,
+        "blower_pa": 3162,
+        "fit_pa": {
+          "c": 0.079087,
+          "n": 1.983
+        }
+      }
+    },
+    "r43long_bambu": {
+      "label": "Study: jets run back to Y13, Bambu",
+      "design": "long",
+      "tool": "Bambu",
+      "print_surface": false,
+      "mesh": {
+        "cells": 1726919,
+        "volume_mm3": 218122.0,
+        "max_non_orthogonality_deg": 62.7,
+        "max_skewness": 3.18,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 1880.2,
+        "jets": {
+          "left": {
+            "lpm": 89.75,
+            "area_mm2": 45.31,
+            "mean_ms": 33.01,
+            "max_ms": 50.21,
+            "turbulence_intensity": 0.079,
+            "angle_below_horizontal_deg": 11.1
+          },
+          "right": {
+            "lpm": 90.35,
+            "area_mm2": 45.35,
+            "mean_ms": 33.21,
+            "max_ms": 50.31,
+            "turbulence_intensity": 0.078,
+            "angle_below_horizontal_deg": 11.0
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 27.3,
+            "min_ms": 10.51,
+            "max_ms": 40.67
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 33.23,
+            "min_ms": 13.95,
+            "max_ms": 42.49
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 33.79,
+            "min_ms": 17.18,
+            "max_ms": 41.97
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 29.52,
+            "min_ms": 16.51,
+            "max_ms": 43.72
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 17.19,
+            "min_ms": 5.39,
+            "max_ms": 47.46
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 25.35,
+            "quarters_r2_ms": {
+              "right": 39.24,
+              "front": 30.02,
+              "left": 37.27,
+              "back": 28.65
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 29.87,
+            "quarters_r2_ms": {
+              "right": 42.44,
+              "front": 27.16,
+              "left": 40.67,
+              "back": 26.37
+            }
+          }
+        },
+        "over_print": null,
+        "nozzle_box_outflow_lpm": {
+          "x-": -101.79,
+          "x+": -102.63,
+          "back": 19.84,
+          "front": 48.1,
+          "down": 74.13,
+          "up": 47.13,
+          "share_pct": {
+            "down": 39.2,
+            "front": 25.4,
+            "up": 24.9,
+            "back": 10.5
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 179.9,
+            "total_pressure_pa": 1874,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 180.6,
+            "total_pressure_pa": 1858,
+            "dynamic_pa": 126,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 181.5,
+            "total_pressure_pa": 1849,
+            "dynamic_pa": 132,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 180.0,
+            "total_pressure_pa": 1811,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.5,
+            "total_pressure_pa": 1728,
+            "dynamic_pa": 156,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 1673,
+            "dynamic_pa": 224,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 180.1,
+            "total_pressure_pa": 1414,
+            "dynamic_pa": 1221,
+            "area_mm2": 90.7
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 217.2,
+        "duct_pa": 2728,
+        "hose_pa": 309,
+        "blower_pa": 3037,
+        "fit_pa": {
+          "c": 0.063387,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 39.8,
+        "over_bead_mean_ms": 36.0
+      },
+      "operating_point_no_hose": {
+        "lpm": 223.1,
+        "duct_pa": 2877,
+        "hose_pa": 0,
+        "blower_pa": 2877,
+        "fit_pa": {
+          "c": 0.063387,
+          "n": 1.983
+        }
+      }
+    },
+    "r43long_bambu_bed": {
+      "label": "Study: jets run back to Y13, print surface",
+      "design": "long",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1637485,
+        "volume_mm3": 151276.0,
+        "max_non_orthogonality_deg": 64.1,
+        "max_skewness": 3.93,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 1852.5,
+        "jets": {
+          "left": {
+            "lpm": 89.88,
+            "area_mm2": 45.37,
+            "mean_ms": 33.02,
+            "max_ms": 50.3,
+            "turbulence_intensity": 0.078,
+            "angle_below_horizontal_deg": 10.9
+          },
+          "right": {
+            "lpm": 89.91,
+            "area_mm2": 45.36,
+            "mean_ms": 33.03,
+            "max_ms": 50.57,
+            "turbulence_intensity": 0.078,
+            "angle_below_horizontal_deg": 11.0
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 3.28,
+            "min_ms": 1.68,
+            "max_ms": 5.73
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 5.27,
+            "min_ms": 3.21,
+            "max_ms": 6.79
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 6.65,
+            "min_ms": 2.06,
+            "max_ms": 10.43
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 9.38,
+            "min_ms": 5.6,
+            "max_ms": 14.73
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 10.0,
+            "min_ms": 1.86,
+            "max_ms": 19.23
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 9.29,
+            "quarters_r2_ms": {
+              "right": 4.58,
+              "front": 8.17,
+              "left": 4.14,
+              "back": 9.73
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 25.21,
+            "quarters_r2_ms": {
+              "right": 20.24,
+              "front": 18.31,
+              "left": 19.35,
+              "back": 22.76
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": -1.2,
+            "r5_mm": 0.0,
+            "r8_mm": 39.0,
+            "r12_mm": 43.0
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 15.6,
+            "r3_mm": 21.6,
+            "r5_mm": 23.1,
+            "r7_mm": 23.1,
+            "r10_mm": 20.5,
+            "r14_mm": 14.4
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 21.4,
+            "r10_mm": 22.26,
+            "r14_mm": 19.25
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -95.18,
+          "x+": -95.14,
+          "back": 35.69,
+          "front": 67.24,
+          "down": 13.14,
+          "up": 62.0,
+          "share_pct": {
+            "down": 7.4,
+            "front": 37.8,
+            "up": 34.8,
+            "back": 20.0
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 1849,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 1833,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.8,
+            "total_pressure_pa": 1822,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 1783,
+            "dynamic_pa": 144,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.1,
+            "total_pressure_pa": 1704,
+            "dynamic_pa": 156,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.1,
+            "total_pressure_pa": 1644,
+            "dynamic_pa": 225,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 179.8,
+            "total_pressure_pa": 1384,
+            "dynamic_pa": 1237,
+            "area_mm2": 90.7
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 217.9,
+        "duct_pa": 2706,
+        "hose_pa": 311,
+        "blower_pa": 3017,
+        "fit_pa": {
+          "c": 0.062453,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 40.0,
+        "over_bead_mean_ms": 30.5
+      },
+      "operating_point_no_hose": {
+        "lpm": 223.9,
+        "duct_pa": 2855,
+        "hose_pa": 0,
+        "blower_pa": 2855,
+        "fit_pa": {
+          "c": 0.062453,
+          "n": 1.983
+        }
+      }
+    },
+    "r43rear_bambu": {
+      "label": "Study: jets run back to Y13, front 4 mm closed, Bambu",
+      "design": "long",
+      "tool": "Bambu",
+      "print_surface": false,
+      "mesh": {
+        "cells": 1725622,
+        "volume_mm3": 218090.0,
+        "max_non_orthogonality_deg": 62.7,
+        "max_skewness": 3.2,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2859.2,
+        "jets": {
+          "left": {
+            "lpm": 89.78,
+            "area_mm2": 34.13,
+            "mean_ms": 43.84,
+            "max_ms": 65.09,
+            "turbulence_intensity": 0.078,
+            "angle_below_horizontal_deg": 10.3
+          },
+          "right": {
+            "lpm": 89.98,
+            "area_mm2": 34.17,
+            "mean_ms": 43.89,
+            "max_ms": 65.13,
+            "turbulence_intensity": 0.078,
+            "angle_below_horizontal_deg": 10.4
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 41.78,
+            "min_ms": 21.22,
+            "max_ms": 55.56
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 47.54,
+            "min_ms": 36.01,
+            "max_ms": 52.81
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 39.73,
+            "min_ms": 29.67,
+            "max_ms": 50.46
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 27.37,
+            "min_ms": 7.98,
+            "max_ms": 57.31
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 16.46,
+            "min_ms": 2.93,
+            "max_ms": 47.7
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 25.38,
+            "quarters_r2_ms": {
+              "right": 37.24,
+              "front": 41.42,
+              "left": 36.64,
+              "back": 43.62
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 29.04,
+            "quarters_r2_ms": {
+              "right": 44.47,
+              "front": 42.41,
+              "left": 44.24,
+              "back": 39.53
+            }
+          }
+        },
+        "over_print": null,
+        "nozzle_box_outflow_lpm": {
+          "x-": -101.86,
+          "x+": -102.25,
+          "back": 47.49,
+          "front": 8.09,
+          "down": 91.16,
+          "up": 42.95,
+          "share_pct": {
+            "down": 48.1,
+            "front": 4.3,
+            "up": 22.6,
+            "back": 25.0
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 179.9,
+            "total_pressure_pa": 2853,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 180.6,
+            "total_pressure_pa": 2837,
+            "dynamic_pa": 127,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 181.5,
+            "total_pressure_pa": 2828,
+            "dynamic_pa": 132,
+            "area_mm2": 229.4
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 180.0,
+            "total_pressure_pa": 2790,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.4,
+            "total_pressure_pa": 2709,
+            "dynamic_pa": 156,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2651,
+            "dynamic_pa": 220,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 179.8,
+            "total_pressure_pa": 2198,
+            "dynamic_pa": 1877,
+            "area_mm2": 68.3
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 191.1,
+        "duct_pa": 3220,
+        "hose_pa": 239,
+        "blower_pa": 3460,
+        "fit_pa": {
+          "c": 0.096392,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 46.5,
+        "over_bead_mean_ms": 30.8
+      },
+      "operating_point_no_hose": {
+        "lpm": 195.7,
+        "duct_pa": 3377,
+        "hose_pa": 0,
+        "blower_pa": 3377,
+        "fit_pa": {
+          "c": 0.096392,
+          "n": 1.983
+        }
+      }
+    },
+    "r43rear_bambu_bed": {
+      "label": "Study: jets run back to Y13, front 4 mm closed, print surface",
+      "design": "long",
+      "tool": "Bambu",
+      "print_surface": true,
+      "mesh": {
+        "cells": 1636542,
+        "volume_mm3": 151245.0,
+        "max_non_orthogonality_deg": 64.0,
+        "max_skewness": 3.26,
+        "mesh_ok": true
+      },
+      "flows_lpm": [
+        180.0
+      ],
+      "at_180_lpm": {
+        "inlet_total_pa": 2876.5,
+        "jets": {
+          "left": {
+            "lpm": 89.76,
+            "area_mm2": 34.18,
+            "mean_ms": 43.77,
+            "max_ms": 65.39,
+            "turbulence_intensity": 0.078,
+            "angle_below_horizontal_deg": 10.2
+          },
+          "right": {
+            "lpm": 89.87,
+            "area_mm2": 34.18,
+            "mean_ms": 43.82,
+            "max_ms": 65.43,
+            "turbulence_intensity": 0.078,
+            "angle_below_horizontal_deg": 10.1
+          }
+        },
+        "bead_rings": [
+          {
+            "r_mm": 0.8,
+            "samples": 72,
+            "mean_ms": 6.63,
+            "min_ms": 0.93,
+            "max_ms": 18.1
+          },
+          {
+            "r_mm": 1.2,
+            "samples": 72,
+            "mean_ms": 10.24,
+            "min_ms": 1.17,
+            "max_ms": 18.32
+          },
+          {
+            "r_mm": 2.0,
+            "samples": 72,
+            "mean_ms": 11.77,
+            "min_ms": 3.57,
+            "max_ms": 20.53
+          },
+          {
+            "r_mm": 3.0,
+            "samples": 72,
+            "mean_ms": 14.17,
+            "min_ms": 3.74,
+            "max_ms": 24.85
+          },
+          {
+            "r_mm": 5.0,
+            "samples": 72,
+            "mean_ms": 15.35,
+            "min_ms": 1.16,
+            "max_ms": 28.31
+          }
+        ],
+        "annulus": {
+          "under_tip_0.1": {
+            "z_mm": -78.98,
+            "mean_ms_r1_5": 14.21,
+            "quarters_r2_ms": {
+              "right": 11.41,
+              "front": 18.87,
+              "left": 12.3,
+              "back": 4.51
+            }
+          },
+          "over_tip_0.3": {
+            "z_mm": -78.58,
+            "mean_ms_r1_5": 30.07,
+            "quarters_r2_ms": {
+              "right": 28.81,
+              "front": 42.43,
+              "left": 30.97,
+              "back": 12.41
+            }
+          }
+        },
+        "over_print": {
+          "outflow_within_1mm_lpm": {
+            "r3_mm": 9.9,
+            "r5_mm": 22.7,
+            "r8_mm": 45.2,
+            "r12_mm": 53.2
+          },
+          "speed_0.3mm_over_ms": {
+            "r2_mm": 25.8,
+            "r3_mm": 29.4,
+            "r5_mm": 31.3,
+            "r7_mm": 30.2,
+            "r10_mm": 22.3,
+            "r14_mm": 15.6
+          },
+          "disc_mean_speed_0.3mm_over_ms": {
+            "r5_mm": 29.47,
+            "r10_mm": 27.81,
+            "r14_mm": 22.86
+          }
+        },
+        "nozzle_box_outflow_lpm": {
+          "x-": -93.33,
+          "x+": -94.53,
+          "back": 64.2,
+          "front": 29.07,
+          "down": 15.29,
+          "up": 62.39,
+          "share_pct": {
+            "down": 8.9,
+            "front": 17.0,
+            "up": 36.5,
+            "back": 37.6
+          }
+        },
+        "loss_breakdown": [
+          {
+            "section": "hose section",
+            "lpm": 180.1,
+            "total_pressure_pa": 2891,
+            "dynamic_pa": 124,
+            "area_mm2": 210.9
+          },
+          {
+            "section": "spigot (P20 top)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2875,
+            "dynamic_pa": 130,
+            "area_mm2": 238.7
+          },
+          {
+            "section": "trunk (P20 lower)",
+            "lpm": 179.8,
+            "total_pressure_pa": 2865,
+            "dynamic_pa": 131,
+            "area_mm2": 229.3
+          },
+          {
+            "section": "trunk (P21)",
+            "lpm": 179.9,
+            "total_pressure_pa": 2826,
+            "dynamic_pa": 145,
+            "area_mm2": 247.5
+          },
+          {
+            "section": "side channels after the elbow",
+            "lpm": 181.0,
+            "total_pressure_pa": 2744,
+            "dynamic_pa": 161,
+            "area_mm2": 312.7
+          },
+          {
+            "section": "side channels beside the hotend",
+            "lpm": 180.2,
+            "total_pressure_pa": 2681,
+            "dynamic_pa": 225,
+            "area_mm2": 168.3
+          },
+          {
+            "section": "jet exits",
+            "lpm": 179.6,
+            "total_pressure_pa": 2209,
+            "dynamic_pa": 1923,
+            "area_mm2": 68.4
+          }
+        ],
+        "iteration": 600
+      },
+      "operating_point_1m_hose": {
+        "lpm": 190.8,
+        "duct_pa": 3228,
+        "hose_pa": 238,
+        "blower_pa": 3466,
+        "fit_pa": {
+          "c": 0.096975,
+          "n": 1.983
+        },
+        "system_curve": "180 L/min, dP ~ Q^1.983",
+        "jet_mean_ms": 46.4,
+        "over_bead_mean_ms": 31.9
+      },
+      "operating_point_no_hose": {
+        "lpm": 195.4,
+        "duct_pa": 3384,
+        "hose_pa": 0,
+        "blower_pa": 3384,
+        "fit_pa": {
+          "c": 0.096975,
+          "n": 1.983
+        }
+      }
+    }
+  },
+  "r43_vs_r41": {
+    "bambu": {
+      "pressure_at_180_pct": -14.4,
+      "blower_flow_pct": 4.8,
+      "over_bead_speed_at_operating_flow_pct": 3.5
+    },
+    "redlizard": {
+      "pressure_at_180_pct": -14.0,
+      "blower_flow_pct": 4.7,
+      "over_bead_speed_at_operating_flow_pct": 0.9
+    },
+    "bambu_print_surface": {
+      "pressure_at_180_pct": -13.2,
+      "blower_flow_pct": 4.5,
+      "over_bead_speed_at_operating_flow_pct": 8.0,
+      "over_print_at_operating_flow_pct": {
+        "outflow_within_1mm_r8": -25.8,
+        "speed_0.3mm_over_r3_mm": 12.6,
+        "speed_0.3mm_over_r5_mm": 5.4,
+        "speed_0.3mm_over_r10_mm": -11.0,
+        "disc_mean_0.3mm_over_within_r5_mm": 9.3,
+        "disc_mean_0.3mm_over_within_r10_mm": -5.0,
+        "disc_mean_0.3mm_over_within_r14_mm": -7.5
+      }
+    }
+  },
+  "design_search_vs_r41": {
+    "note": "Print surface 0.2 mm under the tip, Bambu tool. Each design at its own blower flow (1 m hose): the duct's pressure at 180 L/min, the flow the blower then gives, the area-mean air speed 0.3 mm over the print within 5, 10 and 14 mm of the nozzle, the air flowing out along the print within 1 mm of it through r 8 mm, and the share of the jets' air leaving the space round the nozzle upward. Studies ran 600 iterations (within 1 % of 1200 on revision 41).",
+    "revision_41": {
+      "pressure_at_180_pa": 2660.1,
+      "blower_flow_lpm": 195.4,
+      "air_leaving_upward_pct": 10.2
+    },
+    "cases": {
+      "r43_bambu_bed": {
+        "label": "Revision 43, Bambu, print surface 0.2 mm under the nozzle",
+        "iterations": 1200,
+        "pressure_at_180_pct": -13.2,
+        "blower_flow_pct": 4.5,
+        "air_over_print_within_5mm_pct": 9.3,
+        "air_over_print_within_10mm_pct": -5.0,
+        "air_over_print_within_14mm_pct": -7.5,
+        "outflow_along_print_r8_pct": -25.8,
+        "air_leaving_upward_pct": 13.6
+      },
+      "r43pocket_bambu_bed": {
+        "label": "Study: lower floor alone, print surface",
+        "iterations": 1200,
+        "pressure_at_180_pct": -16.4,
+        "blower_flow_pct": 5.7,
+        "air_over_print_within_5mm_pct": -2.0,
+        "air_over_print_within_10mm_pct": -3.6,
+        "air_over_print_within_14mm_pct": -3.8,
+        "outflow_along_print_r8_pct": -16.2,
+        "air_leaving_upward_pct": 17.6
+      },
+      "r43lowbell_bambu_bed": {
+        "label": "Study: lower floor and r 2.4 bell-mouth as simulated first (no taper), print surface",
+        "iterations": 600,
+        "pressure_at_180_pct": -15.8,
+        "blower_flow_pct": 5.5,
+        "air_over_print_within_5mm_pct": 8.5,
+        "air_over_print_within_10mm_pct": -5.5,
+        "air_over_print_within_14mm_pct": -7.9,
+        "outflow_along_print_r8_pct": -26.7,
+        "air_leaving_upward_pct": 11.8
+      },
+      "r43front_bambu_bed": {
+        "label": "Study: floor 0.4 mm lower where flat only, print surface",
+        "iterations": 600,
+        "pressure_at_180_pct": -8.9,
+        "blower_flow_pct": 2.9,
+        "air_over_print_within_5mm_pct": 2.9,
+        "air_over_print_within_10mm_pct": -0.1,
+        "air_over_print_within_14mm_pct": -1.0,
+        "outflow_along_print_r8_pct": -10.7,
+        "air_leaving_upward_pct": 11.3
+      },
+      "r43frontbell_bambu_bed": {
+        "label": "Study: floor lower where flat and r 2.4 bell-mouth, print surface",
+        "iterations": 600,
+        "pressure_at_180_pct": -9.4,
+        "blower_flow_pct": 3.1,
+        "air_over_print_within_5mm_pct": 8.8,
+        "air_over_print_within_10mm_pct": -2.5,
+        "air_over_print_within_14mm_pct": -5.4,
+        "outflow_along_print_r8_pct": -17.9,
+        "air_leaving_upward_pct": 10.5
+      },
+      "r43bell_bambu_bed": {
+        "label": "Study: r 2.4 bell-mouth alone, print surface",
+        "iterations": 600,
+        "pressure_at_180_pct": -2.2,
+        "blower_flow_pct": 0.7,
+        "air_over_print_within_5mm_pct": -0.0,
+        "air_over_print_within_10mm_pct": -2.9,
+        "air_over_print_within_14mm_pct": -3.6,
+        "outflow_along_print_r8_pct": -3.8,
+        "air_leaving_upward_pct": 9.3
+      },
+      "r43low_bambu_bed": {
+        "label": "Study: first, flat pocket under the jets (not printable), print surface",
+        "iterations": 600,
+        "pressure_at_180_pct": -13.5,
+        "blower_flow_pct": 4.6,
+        "air_over_print_within_5mm_pct": 5.5,
+        "air_over_print_within_10mm_pct": 3.4,
+        "air_over_print_within_14mm_pct": 2.3,
+        "outflow_along_print_r8_pct": -9.9,
+        "air_leaving_upward_pct": 15.0
+      },
+      "r43combo_bambu_bed": {
+        "label": "Study: flat pocket and r 2.4 bell-mouth (not printable), print surface",
+        "iterations": 600,
+        "pressure_at_180_pct": -11.8,
+        "blower_flow_pct": 4.0,
+        "air_over_print_within_5mm_pct": 13.5,
+        "air_over_print_within_10mm_pct": -0.9,
+        "air_over_print_within_14mm_pct": -6.0,
+        "outflow_along_print_r8_pct": -20.1,
+        "air_leaving_upward_pct": 11.1
+      },
+      "r43long_bambu_bed": {
+        "label": "Study: jets run back to Y13, print surface",
+        "iterations": 600,
+        "pressure_at_180_pct": -30.4,
+        "blower_flow_pct": 11.5,
+        "air_over_print_within_5mm_pct": -21.7,
+        "air_over_print_within_10mm_pct": -18.8,
+        "air_over_print_within_14mm_pct": -17.2,
+        "outflow_along_print_r8_pct": -18.7,
+        "air_leaving_upward_pct": 34.8
+      },
+      "r43rear_bambu_bed": {
+        "label": "Study: jets run back to Y13, front 4 mm closed, print surface",
+        "iterations": 600,
+        "pressure_at_180_pct": 8.1,
+        "blower_flow_pct": -2.4,
+        "air_over_print_within_5mm_pct": -5.6,
+        "air_over_print_within_10mm_pct": -11.1,
+        "air_over_print_within_14mm_pct": -13.9,
+        "outflow_along_print_r8_pct": -17.5,
+        "air_leaving_upward_pct": 36.5
+      }
+    }
+  }
+}

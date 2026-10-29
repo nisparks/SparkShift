@@ -193,6 +193,11 @@ asks for (revision 37's P23 stays for the Beacon, at 2.60 mm). It also
 checks the Cartographer's own keepout model for the first time: none of our
 metal is in it, but the Monolith core's two lower M3 nuts reach 1.8 mm into
 the top of its 20 mm column; they are recorded, not changed.
+With revision 41's CPAP set printed, revision 43 reworks P22 once more: the
+jets sit on a floor 0.4 mm lower with larger (r 2.4) bell-mouths, so the
+blower moves about 5 % more air (201 L/min) and the air over the print
+within 5 mm of the nozzle rises 9 %. A 45° notch at the window and a
+chamfered back edge leave only the cheeks' two bearing faces needing support.
 Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X
@@ -247,7 +252,7 @@ In Fusion 360, the complete printer is structured as a multi-level, externally r
 
 | File / guide | Scope |
 |---|---|
-| [**Current print set (revision 42)**](PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-42) | One file per part for the ten-tool build, with quantities, a suggested print colour for each part, the hardware that changed and the first-article checks. It supersedes the accessory, dock and tool files in `stl_v26`. |
+| [**Current print set (revision 43)**](PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-43) | One file per part for the ten-tool build, with quantities, a suggested print colour for each part, the hardware that changed and the first-article checks. It supersedes the accessory, dock and tool files in `stl_v26`. |
 | [v26 native F3D](cad/SparkShift_AHG_min_v26.f3d) | Directly editable **v26j** snapshot: **135 native bodies**, timeline **1648**; native review reports 135/135 readback matches. |
 | [v26 whole-assembly STEP](cad/SparkShift_AHG_min_v26.step) | 135 solid BREP records; neutral inspection export, not a manufacturing qualification. |
 | [36 assembly, accessory, dock, rack & COTS STLs](stl_v26) | Complete matched 17-part core set plus 14 pure-primitive accessory/dock/rack/jig STLs (`P20`–`P29_L/R`, `P17_3010`/`2510`, `P18_3010`) and 5 COTS-qualified core drop-ins (`P01_COTS`, `P02_COTS`, `P03_COTS`, `P04F_COTS`, `P05_COTS`). The accessory, dock and tool files here are superseded; use the current print set. |

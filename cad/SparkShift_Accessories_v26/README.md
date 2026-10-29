@@ -1492,6 +1492,187 @@ and the hotend's metal in them on the readings isn't qualified. The Cartographer
 isn't modelled: the Beacon's route stands in for it in the rack check and is left out of the fit and
 keepout checks.
 
+#### P22: lower jet floor, larger bell-mouth, and less support (revision 43)
+
+**Why.** With revision 41's CPAP set printed, P20 and P21 fit well, but P22 still felt restrictive,
+and its output at the nozzle could be better. Revision 41's CFD says why: the jets carry 85 % of the
+duct's pressure, because at 180 L/min the air leaves through about 60 mm² at 51 m/s. P22 also needed
+support whichever way it was printed.
+
+**What changes.** Only P22, in four places:
+
+- **The jets' floor drops 0.4 mm.** Under each jet the floor follows revision 41's, 0.4 mm lower:
+  flat at Z-77.05 from Y22.4 to the front wall, and down the heel's curve back to Y19. It keeps
+  0.8 mm (two perimeters with P22 on its back face) over P22's underside, which doesn't move, and
+  each jet is 13 % taller where it faces the nozzle.
+- **The bell-mouth grows from r 1.4 to r 2.4.** The duct-side bottom edge of the wall over each jet
+  is rounded r 2.4 from the jet's heel (Y16.7) to Y26.2, on a foot 1 mm proud of the wall's duct
+  face with a 45° chamfer back up to it. Behind Y17.6 the foot narrows at 45° in plan.
+- **The window gets a 45° notch.** The window between the side channels, where the probe's
+  connector and cable come up, ended in front at a flat face: on P22's back face, a 22.9 mm ceiling.
+  A 45° notch now runs into the solid block in front of it, to 2.25 mm behind the hotend slot. The
+  block's bottom 1.8 mm stays, so P23 bears on as much of P22 as before (975 mm²).
+- **The bottom-back edge is chamfered.** The first half of its r16 round, which faced the plate, is a
+  45° chamfer tangent to the rest of the round, and the back face's two corners in plan are sharp
+  (were r3.5). The flat back face, on the plate, grows from 5.8 to 12.4 mm tall.
+
+The jets' top (Z-73.6, 0.32 mm under the Red Lizard's heater block), the hotend slot (|X| 10.2), the
+duct upstream, P23's seat, the cheeks and every fastener stay as they were.
+
+**Airflow.** The CFD (`cfd_cpap_r43.py`) uses revision 41's model, mesh and solver; only P22 changes.
+
+| | Pressure at 180 L/min | Blower flow, 1 m hose | Jets at 180 L/min |
+| :--- | ---: | ---: | :--- |
+| Revision 41, Bambu | 2.83 kPa | 192 L/min | 2 × 30 mm², 51 m/s mean, 63 m/s peak |
+| **Revision 43, Bambu** | **2.42 kPa** | **201 L/min** | 2 × 33 mm², 45 m/s mean, 59 m/s peak |
+| Revision 41, Red Lizard | 2.83 kPa | 192 L/min | |
+| **Revision 43, Red Lizard** | **2.44 kPa** | **201 L/min** | |
+
+With a print 0.2 mm under the nozzle (Bambu), the blower gives 204 L/min instead of 195, and at
+that flow revision 43 puts 9 % more air over the print within 5 mm of the nozzle (area mean, 0.3 mm
+over it), where the plastic is freshest, and 5 % and 7.5 % less within 10 and 14 mm.
+
+The design search, each design with a print 0.2 mm under the tip at its own blower flow, against
+revision 41 (2.66 kPa at 180 L/min, 195 L/min from the blower, 10 % of the jets' air leaving
+upward past the hotend):
+
+| Design | Pressure at 180 L/min | Blower flow | Air over the print within 5 mm | Within 14 mm | Air leaving upward |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| Jets run back to Y13 (heel dropped in front of P23) | −30 % | +12 % | −22 % | −17 % | 35 % |
+| ... with their front 4 mm closed | +8 % | −2 % | −6 % | −14 % | 37 % |
+| Bell-mouth r 2.4 alone | −2 % | +1 % | 0 % | −4 % | 9 % |
+| Lower floor alone | −16 % | +6 % | −2 % | −4 % | 18 % |
+| Floor lower only where flat (Y22.4 on) | −9 % | +3 % | +3 % | −1 % | 11 % |
+| ... with the bell-mouth | −9 % | +3 % | +9 % | −5 % | 11 % |
+| A flat pocket under the jets (not printable) | −14 % | +5 % | +6 % | +2 % | 15 % |
+| ... with the bell-mouth (not printable) | −12 % | +4 % | +14 % | −6 % | 11 % |
+| **Revision 43: lower floor and bell-mouth** | **−13 %** | **+5 %** | **+9 %** | **−7.5 %** | **14 %** |
+
+- **Longer jets**, run back past the hotend to Y13, cut the pressure most, but the extra air blows
+  into the gap behind the hotend and up, not over the print.
+- **The lower floor alone** lets the blower move 6 % more air, but the jets leave steeper (15°
+  below horizontal, against 13°) and more of the air splashes up behind the hotend.
+- **The larger bell-mouth** turns the air into the jets more gently. On its own it changes little,
+  but with the lower floor the jets leave a little flatter than revision 41's (12° below horizontal,
+  against 13°), the blower keeps most of the floor's extra air, and the air within 5 mm of the nozzle
+  rises by 9 %. Further out, 0.3 mm over the print, there is a little less (more of it passes 1 mm
+  up): 30, 26 and 17 m/s at 7, 10 and 14 mm from the nozzle, against revision 41's 35, 29 and 19.
+- **The flat pocket** was the first try at the lower floor. Behind Y22.4 it ran under the heel's
+  curve, over a slot with 0.18 mm of floor under it, so it can't be printed; revision 43's floor
+  follows the curve instead.
+- **The printable version** ends the bell-mouth's foot at the heel with a 45° taper, where the
+  study's stopped square at Y17.6. That costs 3 % of pressure (about 2 L/min of blower flow).
+- The studies ran 600 iterations, within 1 % of 1200 on revision 41; revision 43's own cases ran to
+  1200 (Bambu at 180, 120 and 240 L/min).
+
+![Revision 43 CFD: system curves against the blower, the design search, and the air over a print round the nozzle](./images/89_cfd_r43_design_search.png)
+
+![Revision 41 and revision 43 at 180 L/min: across the nozzle, along a jet, at jet height and over a print](./images/90_cfd_r43_nozzle_vs_r41.png)
+
+![Why the jets weren't made longer: their extra air goes up behind the hotend](./images/91_cfd_r43_long_jets_study.png)
+
+![Streamlines through the outlet, revision 41 and revision 43](./images/92_cfd_r43_streamlines.png)
+
+**The Bambu hotend and its silicone sock.** Every change is on the duct side of the hotend slot's
+walls, below the jets' top or away from the hotend, so nothing comes nearer either hotend. Exact
+distances, with the tool mounted and along the carriage's 60 mm withdrawal (each smallest gap is at
+the mounted position):
+
+| Hotend part | Nearest P22, revision 41 | Revision 43 |
+| :--- | ---: | ---: |
+| Bambu aluminium heater cradle | 1.918 mm | 1.918 mm |
+| Bambu wire bail and latch | 2.10 mm | 2.10 mm |
+| Bambu silicone sock | 3.20 mm | 3.20 mm |
+| Bambu ceramic (zirconia) block | 4.592 mm | 4.592 mm |
+| Bambu nozzle, melt block and heatsink | 5.20 mm | 5.20 mm |
+| Red Lizard heater block | 1.722 mm | 1.722 mm |
+
+The sock is this project's model of the P2S's; measure yours if it differs. The jets blow at the
+sock's sides for their top 1.9 mm, as revision 41's did.
+
+**Printing.** P22 still prints on its back face: of the ten flat faces it can stand on, that one
+needs the least support (428 mm², against 631 mm² for the next) and keeps the jets' layer lines
+along the flow. Every orientation that needs no support at all stands P22 on an edge.
+
+| P22 on its back face | Revision 41 | Revision 43 |
+| :--- | ---: | ---: |
+| On the plate | 156 mm² | 323 mm² |
+| Facing down more steeply than 30° | 936 mm² | 428 mm² |
+| … that a support from the plate could reach | 255 mm² | 14 mm² |
+
+Only the cheeks' bearing faces still need support. They sit flat on P01's bosses, and with P22 on
+its back face they are ceilings 8.5 mm wide, cantilevered 10 mm from the duct, over P22 itself, so
+the support has to stand on P22's top. In Bambu Studio set the support type to tree (manual), paint
+the two faces as support enforcers, turn off "on build plate only", and use Bambu Support for ABS
+or HIPS as the support interface, so the faces come off flat. Everything else bridges or prints at
+45° or steeper:
+
+- the socket's front lip (15.4 mm);
+- the skin under the window notch (22.9 mm long, 1.8 mm wide);
+- the jets' front lips (3.7 mm);
+- the cable boss's nose inside the duct (a 7 mm arch).
+
+The last 14 mm² are the undersides of the two spigots that locate P23's rear ears, Ø6 cylinders lying
+on their side.
+
+![P22 on its back face, revision 41 and revision 43: what needs support, and where](./images/93_p22_r43_print_overhangs.png)
+
+**Verification.** Run `python build_cpap_outlet_r43.py --workers 10`
+([report](./verification_cpap_outlet_r43.json)). It passes, in 19 minutes:
+
+- **P22.** One valid solid, 16,029 mm³ (revision 41: 17,381), inside revision 41's bounds and
+  changed only at the jets, the window and the back.
+- **Jets.**
+  - The narrowest section across both jets is 66.2 mm², 1.12 times revision 41's.
+  - The floor under them is solid and at least 0.80 mm thick (1,376 vertical rays).
+  - The bell-mouth is within 0.001 mm of its design.
+  - The rest of the outlet's walls are no thinner than revision 41's (1.2 mm).
+- **Hotends.** As above, for both tools.
+- **Fit.** Against both builds (Beacon and Cartographer) and both mounted tools: no new
+  interference or contact, and P22's area over P23's top unchanged.
+- **Print.** As above. The walls at the printing changes are 1.4 mm and up.
+- **Rack.** The revision-36 requalification, on a revision-43 scene, is clean:
+  - own-dock docking and withdrawal;
+  - the eight mixed-neighbour cases (488 samples);
+  - the 20 bay/hotend cases (2,420 samples);
+  - the X gantry backing out (121 samples);
+  - both X0..350 traverses at 60 mm withdrawal (702 samples).
+
+  With the Y40 or shifted bed, none of the 80 bed cases collide and the minimum clearance is
+  4.59 mm. Side clearances stay at 2.40 / 1.60 mm.
+
+The CFD report is [here](./verification_cfd_cpap_r43.json), with every case's flows, pressures,
+jets and losses, and the design search against revision 41.
+
+**Files.** [P22](./step/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW.step)
+([STL](./stl/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW.stl),
+[print-oriented STL](./stl/P22_CPAP_Lower_Plenum_Low_Jets_R43_REVIEW_PRINT_ORIENTED.stl)). The
+Fusion native review "43 CPAP outlet", revision 41's and revision 43's P22 side by side with both
+hotends and cut-aways, is archived as [`43_CPAP_Outlet_REVIEW.f3d`](./43_CPAP_Outlet_REVIEW.f3d); the
+STEPs it comes from are left out of the repository, and the script regenerates them.
+
+**Run.**
+
+```
+python cfd_cpap_r43.py brep                      # revision 43's P22 for the CFD domains
+python cfd_cpap_r41.py domain r43_bambu --p22 <WORK>/cfd/p22_r43.brep   # also --tool RedLizard, --bed
+python cfd_cpap_r41.py case r43_bambu --np 32    # then run as revision 41's (cfd/run_case.sh)
+python cfd_cpap_r43.py analyse r43_bambu         # each case, after copying the results back
+python cfd_cpap_r43.py report                    # verification_cfd_cpap_r43.json
+python render_cfd_cpap_r43.py                    # images 89-92
+python render_p22_r43_print.py                   # image 93
+```
+
+The studies' P22s are in [`r43_parts.py`](./r43_parts.py) (`pocket_study`, `front_study`,
+`bell_study`, `low_study`, `low_bell_study`, `long_jets_study`), each identical to the one simulated.
+
+**Limits.** The CFD's limits are revision 41's: steady, time-averaged flow, no heat transfer, the
+blower's published curve and a hose allowance, nothing measured on the printer. "Air over the
+print" is the model's air speed near a flat print surface, not measured cooling. The floor under
+the jets is 0.8 mm, under the 1.0 mm used elsewhere on the CPAP parts; it carries no load and the
+jets keep it cool. Printability is judged on meshes (overhang angles and rays to the plate), not on
+a print.
+
 #### Faster verification (`fast_geometry.py`)
 
 The review scripts now share [`fast_geometry.py`](./fast_geometry.py), and the full
