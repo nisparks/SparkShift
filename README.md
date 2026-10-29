@@ -179,9 +179,15 @@ CPAP/EBB42 stack to the carriage, because the core's own case screws fill
 the inserts that P24's two holes line up with. The first carriage has now
 been printed and assembled, and revision 41 fixes what it showed: P24
 becomes a plain frame with no thin walls, the CPAP joints get 1.25 mm walls,
-the outlet's horizontal jets grow to 1.7 times their area, P22's cheeks
-bolt flat to P01's bosses instead of wrapping them, P02's servo recess is
-tighter, and P03 comes in one version per magnet. Nothing is **build-approved**.
+the outlet's horizontal jets grow to 1.7 times their area and get bell-mouth
+entries, P22's cheeks
+bolt flat to P01's bosses instead of wrapping them, P21's top becomes one
+flat print face, P02's servo recess is tighter, the hall sensor's leads get
+a clear groove through P02 and P24 to the EBB42, the tab under P01's +X
+front frame screw is cut off, and P03 comes in one
+version per magnet. An OpenFOAM CFD study of the CPAP duct puts the
+blower at about 192 L/min, up from 131 L/min with the released duct.
+Nothing is **build-approved**.
 Revision 21 supersedes the front-fan toolhead/dock geometry described below, adds a
 6.5 mm forward dock standoff and requires straight-Y withdrawal before X
 travel. The Klipper file below is a historical **nine-bay** template, not a

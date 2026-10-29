@@ -21,7 +21,7 @@
     "P21": {
       "valid": true,
       "solids": 1,
-      "volume_mm3": 10802.9,
+      "volume_mm3": 11269.8,
       "released_volume_mm3": 10209.1,
       "bounds_mm": [
         -21.0,
@@ -33,12 +33,19 @@
       ],
       "unchanged_outside_edit_zones": true,
       "outer_bounds_unchanged": true,
-      "within_released_bounds": true
+      "within_released_bounds": true,
+      "top_face_levels_mm2": {
+        "-17.78": 922.8
+      },
+      "released_top_face_levels_mm2": {
+        "-17.78": 131.7,
+        "-18.4": 753.1
+      }
     },
     "P22": {
       "valid": true,
       "solids": 1,
-      "volume_mm3": 17389.1,
+      "volume_mm3": 17381.2,
       "released_volume_mm3": 17518.8,
       "bounds_mm": [
         -22.42,
@@ -55,21 +62,21 @@
     "P24": {
       "valid": true,
       "solids": 1,
-      "volume_mm3": 8134.4,
+      "volume_mm3": 7874.9,
       "released_volume_mm3": 9636.3,
       "bounds_mm": [
         -21.8,
         22.1,
         -25.4,
         -6.7,
-        -18.4,
+        -17.78,
         27.2
       ]
     },
     "P02": {
       "valid": true,
       "solids": 1,
-      "volume_mm3": 14707.7,
+      "volume_mm3": 14664.1,
       "released_volume_mm3": 14689.1,
       "bounds_mm": [
         -22.5,
@@ -77,6 +84,21 @@
         -11.2,
         0.3,
         -17.78,
+        62.221
+      ],
+      "unchanged_outside_edit_zones": true
+    },
+    "P01": {
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 33399.0,
+      "released_volume_mm3": 33425.1,
+      "bounds_mm": [
+        -22.5,
+        22.5,
+        0.3,
+        29.0,
+        -58.28,
         62.221
       ],
       "unchanged_outside_edit_zones": true
@@ -202,39 +224,39 @@
       },
       "P21_socket_and_sleeve": {
         "min_mm": 1.211,
-        "sampled_mm2": 1887.1,
+        "sampled_mm2": 1871.1,
         "below_0.8_mm2": 0.0,
         "below_1.0_mm2": 0.0,
         "below_1.2_mm2": 0.0,
         "thinnest_at": [
           [
-            -0.04,
-            -37.66,
-            -20.12,
-            1.211
-          ],
-          [
-            0.04,
-            -37.66,
-            -19.93,
-            1.211
-          ],
-          [
-            0.04,
+            -0.03,
             -36.45,
-            -19.82,
+            -21.25,
             1.211
           ],
           [
-            -0.0,
+            0.01,
             -37.66,
-            -19.3,
+            -21.24,
             1.211
           ],
           [
-            0.04,
+            -0.01,
             -36.45,
-            -19.26,
+            -19.94,
+            1.211
+          ],
+          [
+            -0.01,
+            -37.66,
+            -19.79,
+            1.211
+          ],
+          [
+            0.0,
+            -36.45,
+            -19.37,
             1.211
           ]
         ],
@@ -242,72 +264,115 @@
       },
       "P22_socket": {
         "min_mm": 1.211,
-        "sampled_mm2": 711.4,
+        "sampled_mm2": 712.3,
         "below_0.8_mm2": 0.0,
         "below_1.0_mm2": 0.0,
         "below_1.2_mm2": 0.0,
         "thinnest_at": [
           [
-            0.03,
-            -36.45,
-            -50.58,
-            1.211
-          ],
-          [
-            -0.01,
+            -0.03,
             -37.66,
-            -50.53,
+            -49.86,
             1.211
           ],
           [
-            0.02,
-            -36.45,
-            -49.4,
-            1.211
-          ],
-          [
-            -0.06,
+            0.0,
             -37.66,
-            -50.12,
+            -49.09,
+            1.211
+          ],
+          [
+            -0.02,
+            -36.45,
+            -50.65,
             1.211
           ],
           [
             -0.07,
             -37.66,
-            -49.27,
+            -50.91,
             1.212
+          ],
+          [
+            0.1,
+            -36.45,
+            -50.25,
+            1.215
           ]
         ],
         "released_min_mm": 0.031
       }
     }
   },
+  "jet_bell_mouths": {
+    "radius_mm": 1.4,
+    "y_mm": [
+      17.0,
+      26.2
+    ],
+    "edge": "90 degrees, on the slot side (|X| 10.2) at Z-73.6: the jets' top is where it was",
+    "wall_thickness_mm_by_height_over_edge_mm": {
+      "left": {
+        "-0.05": 0.0,
+        "0.1": 0.519,
+        "0.2": 0.721,
+        "0.42": 1.0,
+        "0.7": 1.212,
+        "1": 1.342,
+        "1.4": 1.4,
+        "2": 1.4
+      },
+      "right": {
+        "-0.05": 0.0,
+        "0.1": 0.519,
+        "0.2": 0.721,
+        "0.42": 1.0,
+        "0.7": 1.212,
+        "1": 1.342,
+        "1.4": 1.4,
+        "2": 1.4
+      }
+    },
+    "design_mm": {
+      "-0.05": 0.0,
+      "0.1": 0.52,
+      "0.2": 0.721,
+      "0.42": 1.0,
+      "0.7": 1.212,
+      "1": 1.342,
+      "1.4": 1.4,
+      "2": 1.4
+    },
+    "largest_error_mm": 0.001,
+    "removed_mm3": 7.9,
+    "note": "Measured across X at Y22.2. P22 prints on its back face, so this profile lies in every layer; the wall-thickness ray cast leaves this band out."
+  },
   "outlet": {
-    "jets": "Horizontal, one each side of the nozzle, between the channel floor (Z-76.65) and the flat bottom of the duct-to-slot wall (Z-73.6); the floor under them is solid, so no air blows down at the bed.",
+    "jets": "Horizontal, one each side of the nozzle, between the channel floor (Z-76.65) and the flat bottom of the duct-to-slot wall (Z-73.6), whose duct side is rounded into a bell-mouth (r 1.4); the floor under them is solid, so no air blows down at the bed.",
     "open_area_both_sides": {
       "x10.3": {
-        "r41_mm2": 58.9,
+        "r41_mm2": 59.0,
         "released_mm2": 33.9
       },
       "x10.6": {
-        "r41_mm2": 59.0,
+        "r41_mm2": 60.1,
         "released_mm2": 37.9
       },
       "x10.9": {
-        "r41_mm2": 59.1,
+        "r41_mm2": 62.5,
         "released_mm2": 42.0
       },
       "x11.15": {
-        "r41_mm2": 59.2,
+        "r41_mm2": 66.0,
         "released_mm2": 45.4
       },
       "x11.5": {
-        "r41_mm2": 59.3,
+        "r41_mm2": 70.3,
         "released_mm2": 50.2
       }
     },
     "narrowest_mm2": {
-      "r41_mm2": 58.9,
+      "r41_mm2": 59.0,
       "released_mm2": 33.9
     },
     "area_ratio": 1.74,
@@ -336,46 +401,46 @@
     },
     "walls_changed_regions": {
       "min_mm": 1.2,
-      "sampled_mm2": 301.8,
+      "sampled_mm2": 254.0,
       "below_0.8_mm2": 0.0,
       "below_1.0_mm2": 0.0,
-      "below_1.2_mm2": 59.0,
+      "below_1.2_mm2": 58.6,
       "thinnest_at": [
         [
-          -10.67,
-          23.24,
+          11.11,
+          23.48,
           -76.65,
           1.2
         ],
         [
-          -12.89,
-          25.42,
-          -76.65,
-          1.2
-        ],
-        [
-          -10.28,
-          22.46,
-          -76.65,
-          1.2
-        ],
-        [
-          -11.19,
-          23.54,
+          12.6,
+          25.66,
           -77.85,
           1.2
         ],
         [
-          12.17,
-          24.57,
+          11.99,
+          25.61,
           -76.65,
+          1.2
+        ],
+        [
+          -12.28,
+          26.23,
+          -76.65,
+          1.2
+        ],
+        [
+          -12.75,
+          25.16,
+          -77.85,
           1.2
         ]
       ]
     },
     "released_walls_changed_regions": {
       "min_mm": 0.045,
-      "sampled_mm2": 414.6,
+      "sampled_mm2": 389.1,
       "below_0.8_mm2": 30.3,
       "below_1.0_mm2": 46.4,
       "below_1.2_mm2": 143.3,
@@ -414,38 +479,38 @@
     },
     "walls_whole_outlet": {
       "min_mm": 1.2,
-      "sampled_mm2": 858.6,
+      "sampled_mm2": 814.1,
       "below_0.8_mm2": 0.0,
       "below_1.0_mm2": 0.0,
-      "below_1.2_mm2": 119.8,
+      "below_1.2_mm2": 118.4,
       "thinnest_at": [
         [
-          -13.28,
-          25.49,
+          11.91,
+          24.24,
           -76.65,
           1.2
         ],
         [
-          12.86,
-          25.38,
+          -13.57,
+          25.74,
           -76.65,
           1.2
         ],
         [
-          -13.82,
-          26.85,
+          11.44,
+          23.93,
           -76.65,
           1.2
         ],
         [
-          -14.3,
-          26.4,
+          11.46,
+          24.27,
           -76.65,
           1.2
         ],
         [
-          -10.28,
-          22.46,
+          11.11,
+          23.48,
           -76.65,
           1.2
         ]
@@ -453,7 +518,7 @@
     },
     "released_walls_whole_outlet": {
       "min_mm": 0.045,
-      "sampled_mm2": 967.5,
+      "sampled_mm2": 941.9,
       "below_0.8_mm2": 30.3,
       "below_1.0_mm2": 46.4,
       "below_1.2_mm2": 205.2,
@@ -534,41 +599,41 @@
       }
     },
     "walls": {
-      "min_mm": 1.377,
-      "sampled_mm2": 898.4,
+      "min_mm": 1.376,
+      "sampled_mm2": 902.3,
       "below_0.8_mm2": 0.0,
       "below_1.0_mm2": 0.0,
       "below_1.2_mm2": 0.0,
       "thinnest_at": [
         [
-          -19.92,
-          11.03,
-          -58.22,
-          1.377
+          20.59,
+          11.0,
+          -58.21,
+          1.376
         ],
         [
-          19.31,
-          11.04,
-          -58.22,
-          1.377
+          -20.22,
+          11.02,
+          -58.21,
+          1.376
         ],
         [
-          -15.08,
+          15.99,
           11.05,
           -58.22,
-          1.377
+          1.378
         ],
         [
-          -19.27,
-          11.08,
+          19.13,
+          11.06,
           -58.23,
-          1.379
+          1.378
         ],
         [
-          14.07,
-          11.1,
-          -58.24,
-          1.379
+          -14.17,
+          11.06,
+          -58.23,
+          1.378
         ]
       ]
     },
@@ -614,11 +679,11 @@
   },
   "p24": {
     "volume_mm3": {
-      "r41": 8134.4,
+      "r41": 7874.9,
       "released": 9636.3
     },
     "faces": {
-      "r41": 119,
+      "r41": 120,
       "released": 222
     },
     "min_gap_to_ebb42_parts_mm": 0.25,
@@ -635,9 +700,7 @@
       "P02_Motor_Servo_Plate_MG90D_Snug_Pocket_R41_REVIEW": 0.0,
       "P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW": 0.0,
       "ACC_EBB42_BRIDGE_M3x8_0": 0.0,
-      "ACC_EBB42_BRIDGE_HEATSET_0": 0.0,
       "ACC_EBB42_BRIDGE_M3x8_1": 0.0,
-      "ACC_EBB42_BRIDGE_HEATSET_1": 0.0,
       "R41_EBB42_M3x4_HEATSET_TR": 0.0,
       "R41_EBB42_M3x4_HEATSET_TL": 0.0,
       "R41_EBB42_M3x4_HEATSET_BL": 0.0,
@@ -647,7 +710,9 @@
       "R41_EBB42_M3x18_TL": 0.25,
       "R41_EBB42_M3x14_BL": 0.25,
       "R41_EBB42_M3x14_BR": 0.25,
-      "Core_092": 0.26
+      "Core_092": 0.26,
+      "Core_100": 0.301,
+      "Core_099": 0.349
     },
     "bearing_on_p02_mm2": 409.4,
     "bearing_on_p21_mm2": 378.5,
@@ -666,41 +731,41 @@
       }
     },
     "walls": {
-      "min_mm": 0.851,
-      "sampled_mm2": 6836.2,
+      "min_mm": 0.839,
+      "sampled_mm2": 6738.3,
       "below_0.8_mm2": 0.0,
-      "below_1.0_mm2": 10.3,
-      "below_1.2_mm2": 32.7,
+      "below_1.0_mm2": 9.7,
+      "below_1.2_mm2": 33.2,
       "thinnest_at": [
         [
-          15.55,
-          -16.95,
+          15.56,
+          -17.79,
           20.23,
-          0.851
+          0.839
         ],
         [
-          15.55,
-          -18.11,
-          20.22,
-          0.865
+          15.56,
+          -15.47,
+          20.23,
+          0.841
         ],
         [
-          15.54,
-          -15.5,
-          20.22,
-          0.873
+          15.57,
+          -17.04,
+          20.24,
+          0.848
         ],
         [
-          15.6,
-          -12.65,
-          20.26,
-          0.886
+          15.58,
+          -18.56,
+          20.24,
+          0.854
         ],
         [
-          15.59,
-          -16.77,
-          20.26,
-          0.905
+          15.57,
+          -16.56,
+          20.24,
+          0.864
         ]
       ]
     },
@@ -744,6 +809,53 @@
       ]
     }
   },
+  "hall_lead_path": {
+    "path_mm": {
+      "x": [
+        -1.9,
+        1.9
+      ],
+      "y": [
+        -25.4,
+        -0.6
+      ],
+      "z": [
+        -16.0,
+        -14.45
+      ]
+    },
+    "groove_mm": {
+      "width": 4.0,
+      "depth_under_motor": 2.1,
+      "floor_over_p21": 1.68
+    },
+    "in_path": {
+      "Probe_Cable_Route_R37_REVIEW": {
+        "mm3": 16.35,
+        "y_mm": [
+          -25.4,
+          -20.62
+        ]
+      }
+    },
+    "released_in_path": {
+      "P02": {
+        "mm3": 34.162,
+        "y_mm": [
+          -6.7,
+          -0.9
+        ]
+      },
+      "P24": {
+        "mm3": 55.959,
+        "y_mm": [
+          -19.48,
+          -6.75
+        ]
+      }
+    },
+    "note": "The leads end 0.4 mm in front of P02. Released, P02's strip under the motor bore and the first revision-41 P24 (its groove stopped at Y-17.2) closed the way to the EBB42."
+  },
   "p02": {
     "recess_mm": {
       "r41": [
@@ -773,7 +885,7 @@
     "datasheet_body_interference_mm3": 0.0,
     "step_envelope_overlap_mm3": 3.25,
     "step_envelope_overlap_only_at_the_ends": true,
-    "note": "The v26 servo envelope is 22.96 mm long, 0.16 mm over TowerPro's 22.8 mm; it overlaps each end of the recess by 0.03 mm. The two ear screws and everything else on P02 are unchanged.",
+    "note": "The v26 servo envelope is 22.96 mm long, 0.16 mm over TowerPro's 22.8 mm; it overlaps each end of the recess by 0.03 mm. The two ear screws are unchanged; the only other change to P02 is the hall leads' groove under the motor.",
     "nearest_mm": {
       "Core_003": 0.321,
       "Core_020": 0.707,
@@ -789,7 +901,6 @@
       "Core_051": 0.0,
       "Core_052": 0.0,
       "Core_053": 0.025,
-      "Core_054": 0.0,
       "Core_066": 2.3,
       "Core_067": 2.2,
       "Core_084": 1.524,
@@ -800,12 +911,18 @@
       "P24_EBB42_Frame_Mount_R41_REVIEW": 0.0
     },
     "walls": {
-      "min_mm": 1.219,
-      "sampled_mm2": 348.0,
+      "min_mm": 1.129,
+      "sampled_mm2": 345.8,
       "below_0.8_mm2": 0.0,
       "below_1.0_mm2": 0.0,
-      "below_1.2_mm2": 0.0,
+      "below_1.2_mm2": 0.1,
       "thinnest_at": [
+        [
+          10.48,
+          -11.17,
+          56.79,
+          1.129
+        ],
         [
           10.11,
           -11.15,
@@ -825,16 +942,10 @@
           1.301
         ],
         [
-          10.05,
-          -11.18,
+          10.08,
+          -11.17,
           33.89,
-          1.319
-        ],
-        [
-          10.26,
-          -11.0,
-          56.79,
-          1.335
+          1.311
         ]
       ]
     },
@@ -876,7 +987,47 @@
           1.26
         ]
       ]
-    }
+    },
+    "hall_groove_walls": {
+      "min_mm": 1.68,
+      "sampled_mm2": 51.3,
+      "below_0.8_mm2": 0.0,
+      "below_1.0_mm2": 0.0,
+      "below_1.2_mm2": 0.0,
+      "thinnest_at": [
+        [
+          -0.72,
+          -3.56,
+          -16.1,
+          1.68
+        ],
+        [
+          -1.96,
+          -6.28,
+          -16.1,
+          1.68
+        ],
+        [
+          0.95,
+          -2.99,
+          -16.1,
+          1.68
+        ],
+        [
+          1.14,
+          -2.61,
+          -16.1,
+          1.68
+        ],
+        [
+          1.17,
+          -4.1,
+          -16.1,
+          1.68
+        ]
+      ]
+    },
+    "recess_inside_released": true
   },
   "p03": {
     "released_walls": {
@@ -1153,7 +1304,7 @@
       },
       {
         "a": "Core_040",
-        "b": "Core_054",
+        "b": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
         "mm3": 16.210618092518143,
         "min_thickness_mm": 4.0,
         "released_mm3": 16.211
@@ -1174,7 +1325,7 @@
       },
       {
         "a": "Core_044",
-        "b": "Core_054",
+        "b": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
         "mm3": 16.210618092523084,
         "min_thickness_mm": 4.0,
         "released_mm3": 16.211
@@ -1202,7 +1353,7 @@
       },
       {
         "a": "Core_050",
-        "b": "Core_054",
+        "b": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
         "mm3": 16.21061809252307,
         "min_thickness_mm": 4.0,
         "released_mm3": 16.211
@@ -1220,13 +1371,6 @@
         "mm3": 4.60046974210001,
         "min_thickness_mm": 2.0,
         "released_mm3": 4.6
-      },
-      {
-        "a": "Core_054",
-        "b": "P03_Front_Case_Magnets_15x5x3_R41_REVIEW",
-        "mm3": 1.050699999999998,
-        "min_thickness_mm": 0.3500000000000014,
-        "released_mm3": 1.051
       },
       {
         "a": "Core_057",
@@ -1332,6 +1476,13 @@
         "mm3": 1.6067645611821788,
         "min_thickness_mm": 1.1000000000000014,
         "released_mm3": 1.607
+      },
+      {
+        "a": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
+        "b": "P03_Front_Case_Magnets_15x5x3_R41_REVIEW",
+        "mm3": 1.050699999999998,
+        "min_thickness_mm": 0.3500000000000014,
+        "released_mm3": 1.051
       }
     ],
     "screws_through_ebb42_standoffs_mm3": [
@@ -2110,28 +2261,28 @@
       "r36_docks": {
         "active carriage | Bambu parked at +37.3": {
           "mm": 2.4020824298928614,
-          "moving": "Core_054",
+          "moving": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
           "parked": "body",
           "carriage_dy_mm": 0
         },
         "cartographer | Bambu parked at +37.3": null,
         "active carriage | Bambu parked at -37.3": {
           "mm": 1.5999999999999996,
-          "moving": "Core_054",
+          "moving": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
           "parked": "fan",
           "carriage_dy_mm": 0
         },
         "cartographer | Bambu parked at -37.3": null,
         "active carriage | RedLizard parked at +37.3": {
           "mm": 2.4020824298928614,
-          "moving": "Core_054",
+          "moving": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
           "parked": "body",
           "carriage_dy_mm": 0
         },
         "cartographer | RedLizard parked at +37.3": null,
         "active carriage | RedLizard parked at -37.3": {
           "mm": 1.5999999999999943,
-          "moving": "Core_054",
+          "moving": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
           "parked": "fan",
           "carriage_dy_mm": 0
         },
@@ -2140,28 +2291,28 @@
       "r39_dock": {
         "active carriage | Bambu parked at +37.3": {
           "mm": 2.4020824298928614,
-          "moving": "Core_054",
+          "moving": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
           "parked": "body",
           "carriage_dy_mm": 0
         },
         "cartographer | Bambu parked at +37.3": null,
         "active carriage | Bambu parked at -37.3": {
           "mm": 1.5999999999999996,
-          "moving": "Core_054",
+          "moving": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
           "parked": "fan",
           "carriage_dy_mm": 0
         },
         "cartographer | Bambu parked at -37.3": null,
         "active carriage | RedLizard parked at +37.3": {
           "mm": 2.4020824298928614,
-          "moving": "Core_054",
+          "moving": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
           "parked": "body",
           "carriage_dy_mm": 0
         },
         "cartographer | RedLizard parked at +37.3": null,
         "active carriage | RedLizard parked at -37.3": {
           "mm": 1.5999999999999943,
-          "moving": "Core_054",
+          "moving": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
           "parked": "fan",
           "carriage_dy_mm": 0
         },
@@ -6042,38 +6193,38 @@
       }
     },
     "task_seconds": {
-      "bed {}": 39.4,
-      "lateral {}": 70.8,
-      "traverse {\"label\": \"Bambu\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ": 158.0,
-      "traverse {\"label\": \"Bambu\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95, 96": 144.6,
-      "traverse {\"label\": \"Bambu\", \"xs\": [176, 177, 178, 179, 180, 181, 182,": 145.0,
-      "traverse {\"label\": \"Bambu\", \"xs\": [264, 265, 266, 267, 268, 269, 270,": 156.3,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ": 160.4,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95": 147.1,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [176, 177, 178, 179, 180, 181, ": 148.3,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [264, 265, 266, 267, 268, 269, ": 159.7,
-      "crossbeam {\"steps\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,": 103.1,
-      "crossbeam {\"steps\": [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 4": 97.9,
-      "crossbeam {\"steps\": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 7": 9.1,
-      "crossbeam {\"steps\": [91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102": 12.5,
-      "bay {\"bay\": 0}": 123.1,
-      "bay {\"bay\": 1}": 122.9,
-      "bay {\"bay\": 2}": 123.7,
-      "bay {\"bay\": 3}": 123.1,
-      "bay {\"bay\": 4}": 124.2,
-      "bay {\"bay\": 5}": 123.5,
-      "bay {\"bay\": 6}": 123.7,
-      "bay {\"bay\": 7}": 123.6,
-      "bay {\"bay\": 8}": 123.7,
+      "bed {}": 38.5,
+      "lateral {}": 68.1,
+      "traverse {\"label\": \"Bambu\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ": 152.8,
+      "traverse {\"label\": \"Bambu\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95, 96": 139.6,
+      "traverse {\"label\": \"Bambu\", \"xs\": [176, 177, 178, 179, 180, 181, 182,": 140.3,
+      "traverse {\"label\": \"Bambu\", \"xs\": [264, 265, 266, 267, 268, 269, 270,": 151.8,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ": 156.2,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95": 142.1,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [176, 177, 178, 179, 180, 181, ": 142.6,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [264, 265, 266, 267, 268, 269, ": 155.1,
+      "crossbeam {\"steps\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,": 99.9,
+      "crossbeam {\"steps\": [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 4": 95.6,
+      "crossbeam {\"steps\": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 7": 9.3,
+      "crossbeam {\"steps\": [91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102": 12.3,
+      "bay {\"bay\": 0}": 122.3,
+      "bay {\"bay\": 1}": 122.8,
+      "bay {\"bay\": 2}": 123.4,
+      "bay {\"bay\": 3}": 122.4,
+      "bay {\"bay\": 4}": 123.2,
+      "bay {\"bay\": 5}": 123.1,
+      "bay {\"bay\": 6}": 122.9,
+      "bay {\"bay\": 7}": 123.1,
+      "bay {\"bay\": 8}": 123.0,
       "bay {\"bay\": 9}": 123.0,
-      "dock_motion {\"label\": \"Bambu\"}": 121.9,
-      "dock_motion {\"label\": \"RedLizard\"}": 136.1,
-      "neighbours {\"label\": \"Bambu\", \"other\": \"Bambu\"}": 23.0,
-      "neighbours {\"label\": \"Bambu\", \"other\": \"RedLizard\"}": 28.7,
-      "neighbours {\"label\": \"RedLizard\", \"other\": \"Bambu\"}": 24.3,
-      "neighbours {\"label\": \"RedLizard\", \"other\": \"RedLizard\"}": 29.9,
-      "clearances {\"version\": \"r21\"}": 25.1,
-      "clearances {\"version\": \"r36\"}": 24.8
+      "dock_motion {\"label\": \"Bambu\"}": 125.1,
+      "dock_motion {\"label\": \"RedLizard\"}": 138.5,
+      "neighbours {\"label\": \"Bambu\", \"other\": \"Bambu\"}": 23.2,
+      "neighbours {\"label\": \"Bambu\", \"other\": \"RedLizard\"}": 28.9,
+      "neighbours {\"label\": \"RedLizard\", \"other\": \"Bambu\"}": 24.7,
+      "neighbours {\"label\": \"RedLizard\", \"other\": \"RedLizard\"}": 30.2,
+      "clearances {\"version\": \"r21\"}": 25.9,
+      "clearances {\"version\": \"r36\"}": 25.2
     },
     "rack": {
       "pitch_mm": 37.3,
@@ -6142,7 +6293,7 @@
   "exports": [
     {
       "file": "step\\P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW.step",
-      "sha256": "3181cfedad0282446e94f4a0df0f646406b0a81933e38b353ce65d84aff91e52",
+      "sha256": "ac6dd83d25ce5ba42fc20b460f1dab441234fef9cbfb55812029388f164a4dc7",
       "mb": 1.2
     },
     {
@@ -6152,47 +6303,57 @@
     },
     {
       "file": "step\\P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW.step",
-      "sha256": "f369ec43a0618d1dff0bf50b9169c133e3536c35cc42f05f1cc9f67c07d26f34",
+      "sha256": "ae05a1fc7541bb0aa9684ac4e1957b791e17966e4201873faf567391f250e1a5",
       "mb": 0.7
     },
     {
       "file": "stl\\P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW.stl",
-      "sha256": "2afdf3114e58b0cfcd3bb0f0667c747543606ed519fb0b95f6fbcd7e74be0f4d",
+      "sha256": "241062b35a5863b0be7c551ff221b8526c5c8a63c7009ba03d9e68933b30b77d",
       "mb": 0.5
     },
     {
       "file": "step\\P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW.step",
-      "sha256": "d8bb15ad2e9b5487a30781b0b1fd2c0c9a93b14ed3c9a655d4d5b1547a60b1b9",
+      "sha256": "c3650c8d706ef8c16b606090d08a4a46748115499c10624c8e16d620249392ab",
       "mb": 1.3
     },
     {
       "file": "stl\\P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW.stl",
-      "sha256": "32f71711b8d18aa7030a7b8fd953a2f0ed1daea0dd1fccbfbcacd20ef3eb388f",
+      "sha256": "64ec46f7bff6d2733aa59b99fd660626f8e59076db0f5664dd6d1edf4144d2c3",
       "mb": 0.5
     },
     {
       "file": "step\\P24_EBB42_Frame_Mount_R41_REVIEW.step",
-      "sha256": "b545e5dd789285fba17d2a12f774d0eaf7f017cdcc44bff895a294cfc8150f71",
+      "sha256": "0f056225d8161c46cbaa19f4b05b9ea32f1cf8eab58f3b6e4fb9b0a1ac5388ef",
       "mb": 0.5
     },
     {
       "file": "stl\\P24_EBB42_Frame_Mount_R41_REVIEW.stl",
-      "sha256": "fb7248cc4c8b3429c8f53d947fbd0b7c7f08f4e1e993243bd55132282e4b23e0",
+      "sha256": "70d0e6a7a5f2a73db2eaabe801e2ee6a6d850d75025efe383e488fcc2ecee913",
       "mb": 0.5
     },
     {
       "file": "step\\P02_Motor_Servo_Plate_MG90D_Snug_Pocket_R41_REVIEW.step",
-      "sha256": "c5d01da4b8f3e24ff1b707e48f9401ebc87bd57dcb2ffabe9f44a40103ccd554",
+      "sha256": "eee32cd29ffb6891e3fe9d6120e7ce2deb0041258dc8fc36445fc9a3c93beb61",
       "mb": 0.3
     },
     {
       "file": "stl\\P02_Motor_Servo_Plate_MG90D_Snug_Pocket_R41_REVIEW.stl",
-      "sha256": "f69a7f769217c208a665d85b93aa8e91eda23558076956db1b6cd8868a593d03",
+      "sha256": "4f6b0d35af925ddec4e73f9311c7d8bc2ea2ee7454c0ab25918baa2baa503222",
       "mb": 0.7
     },
     {
+      "file": "step\\P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW.step",
+      "sha256": "92075386e6be1a1a3a2ccd31f1243f5a56d29b439e7768ceabc58d0c323c6599",
+      "mb": 0.9
+    },
+    {
+      "file": "stl\\P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW.stl",
+      "sha256": "18e0d075629a8da8cabaf2585ed7bcd1d1b1afab03b0c44b3308bddae54f4520",
+      "mb": 1.3
+    },
+    {
       "file": "step\\P03_Front_Case_Magnets_15x5x3_R41_REVIEW.step",
-      "sha256": "60ae4085eb48c3e07bceab942067ba126742c2bc2e52c6773be6113b5a53a087",
+      "sha256": "282a39a3e486802c4ade8db7b4c3c775df4dea5369cc56f49a064138018f8451",
       "mb": 1.3
     },
     {
@@ -6202,7 +6363,7 @@
     },
     {
       "file": "step\\P03_Front_Case_Magnets_12x6x3_R41_REVIEW.step",
-      "sha256": "795edb7465eba96e9855d8b84a0c2f4a583b7b5a4dbd4fcc4e30c833f53c1f4a",
+      "sha256": "3592ba81ed01171e598ecda0f06d71fb412d0712337169cb7cf34d50da9063e5",
       "mb": 1.2
     },
     {
@@ -6212,7 +6373,7 @@
     },
     {
       "file": "step\\P03_Front_Case_Magnets_D6x4_R41_REVIEW.step",
-      "sha256": "47ab67b89c40fd3e946e209da017c939414fc35fc5ae9f7dcedb27f450601f46",
+      "sha256": "565fb1298a0840050629300079fbd687fce25d5e2eab830d7afca3aca5438bed",
       "mb": 1.4
     },
     {
@@ -6222,7 +6383,7 @@
     },
     {
       "file": "step\\P03_Front_Case_Magnets_D6x3_R41_REVIEW.step",
-      "sha256": "33f744fced9d289f8da83ccf9466c6ab03ac77e37ccff3c68e5a764cd53073e6",
+      "sha256": "1130253778d33cedacceb7f18f644ee042ef53bfda7cc87a73ebbe764393ca5d",
       "mb": 1.4
     },
     {
@@ -6232,24 +6393,24 @@
     },
     {
       "file": "step\\P24_P22_Screws_And_Inserts_R41_REVIEW.step",
-      "sha256": "d8bb733dccd899ff08f162a3e2ef5863416aa8bd878a55b7a0fdb6611bc6b476",
+      "sha256": "3d2d6323333df5e84bd78bf21d27c2dce5a095c26d3bbd36939138f5121cf6a2",
       "mb": 0.1
     },
     {
       "file": "step\\41_Carriage_Build_Fixes_Complete_REVIEW.step",
-      "sha256": "7a6f600d487b5aeea17cf8bf52e5feaadc5b8732d6e9b0ee5549365376535b28",
-      "mb": 86.2
+      "sha256": "99b3fa97c280f5e6d09ba596c5b48df028da09e6e4f4ac956a5559416f500004",
+      "mb": 86.3
     }
   ],
   "hardware": {
-    "changed": "P24: the four M3 x 4 heat-set inserts (OD 4.2) go in \u00d84.0 pockets at Y-22.6..-18.6, pressed in from the side that faces P02; the upper EBB42 screws through P20's wings stay M3x18, now through the whole insert, and the lower ones become M3x14 (were M3x12). P22 to P01: 2x M3x8 ISO 7380 button heads on the cheeks' front faces (were M3x10 socket heads in counterbores), into the same inserts in P01's bosses. P03: the magnets of the chosen variant.",
+    "changed": "P24: the four M3 x 4 heat-set inserts (OD 4.2) go in \u00d84.0 pockets at Y-22.6..-18.6, pressed in from the side that faces P02; the upper EBB42 screws through P20's wings stay M3x18, now through the whole insert, and the lower ones become M3x14 (were M3x12). P21: its saddle rises 0.62 mm to the top plane, so the two P24-to-P21 inserts sit 0.62 mm under the new face, at the bottom of a \u00d84.7 counterbore; the same M3x8 screws reach them. P22 to P01: 2x M3x8 ISO 7380 button heads on the cheeks' front faces (were M3x10 socket heads in counterbores), into the same inserts in P01's bosses. P03: the magnets of the chosen variant.",
     "unchanged": "Everything else, including P20, P21 and P02's screws and inserts."
   },
   "failures": [],
   "limitations": [
-    "Rigid CAD and sampled straight paths. Airflow is compared by open area, not simulated.",
+    "Rigid CAD and sampled straight paths. Airflow is simulated separately (cfd_cpap_r41.py, verification_cfd_cpap_r41.json), not measured.",
     "P02's recess is sized for TowerPro's MG90D body, 12.2 x 22.8 mm; a servo that measures differently needs SERVO_POCKET in r41_parts.py changed.",
     "Insert pull-out, printed-part creep and magnet glue joints are not qualified."
   ],
-  "runtime_s": 1605.1
+  "runtime_s": 1592.4
 }

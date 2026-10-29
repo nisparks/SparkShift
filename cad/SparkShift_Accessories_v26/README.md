@@ -7,9 +7,11 @@ rigidly bolted across the front of the gantry, with the stock bed moved back 31 
 B, revision 34). The full ten-tool rack requalifies with the current parts (revisions 36, 37,
 39, 40 and 41), and the print area is about 350 × 311 mm (revision 39). Revision 40 moves the
 P20-to-P21 screws clear of the EBB42 and records two notes on the CPAP/EBB42 stack. Revision 41
-replaces P24 with a plain frame, thickens the CPAP joints, widens the outlet's horizontal jets,
-bolts P22's cheeks flat to P01's bosses, tightens the servo recess and makes P03 in one version per
-magnet. Print from the
+replaces P24 with a plain frame, thickens the CPAP joints, widens the outlet's horizontal jets and
+gives them bell-mouth entries, bolts P22's cheeks flat to P01's bosses, gives P21 one flat print
+face, tightens the servo recess, opens a groove for the hall sensor's leads through P02 and P24, cuts
+the tab off P01, and makes P03 in one version per magnet. A [CFD study](#cpap-airflow-cfd-revision-41) of the CPAP duct
+replaces the old open-area comparison. Print from the
 [current print set](../../PRINT_PARTS.md#current-print-set-for-the-toolchanger-build-revision-41),
 starting with a first-article set; it suggests a [colour for each part](../../PRINT_PARTS.md#colour-scheme). Nothing is build-approved or machine-qualified.
 Earlier front-fan, vented-dock and firmware descriptions below are historical;
@@ -1095,7 +1097,7 @@ from the button heads to the board, and the note-1 gaps of 0.0 mm (P21 to the be
 **Limits.** Insert pull-out and printed-part creep are not qualified. Whether the conduit actually
 rubs depends on the real extrusion, rail and printed parts.
 
-#### First-build fixes: P24, CPAP joints and outlet, P22 mounts, servo recess, P03 per magnet (revision 41)
+#### First-build fixes: P24, CPAP joints and outlet, P22 mounts, P21 print face, servo recess, P03 per magnet (revision 41)
 
 The first carriage was printed and put together, and it showed these problems:
 
@@ -1105,17 +1107,23 @@ The first carriage was printed and put together, and it showed these problems:
 - P03 had one universal pocket for every magnet choice instead of one version per magnet.
 - The MG90D servo had a little slack in P02's recess.
 - P22's two cheeks wrapped P01's front bosses with very thin walls.
+- P21's top, the face it prints on, was on two levels: the saddle under P24 sat 0.62 mm below the
+  trunk rim and the bosses for P20's lugs.
+- The hall sensor's leads had no clear way to the EBB42: P02 blocked them, and P24's groove for
+  them stopped 8.2 mm short of the board.
+- P01 had a tab under its +X front frame screw.
 
-Revision 41 fixes them without moving any interface: the fastener positions, the EBB42 and probe
-positions and the outside of the CPAP parts stay where they were. A first draft also added slots
+Revision 41 fixes them without moving any interface except P24's underside, which follows P21's
+raised saddle: the fastener positions, the EBB42 and probe positions and the outside of the CPAP parts
+stay where they were. A first draft also added slots
 through P22's floor and cheeks along the servo; both were dropped at review (the slots blew down
 at the bed, and the servo only needed a tighter recess).
 
-- **P24 is a plain frame.** A foot on P21's saddle, a deck under the motor, a solid wall at +X, a
-  column at -X, a block over each top corner and a tower under each bottom corner, all reaching
-  P02's rear face, which is also the print face. The wire comb, the two dead rear holes and the hook
-  over P02's top edge are gone; P21's two screws hold the frame.
-  - Its walls are 0.85 mm and up, with 10 mm² under 1.0 mm (released: 0.03 mm and 381 mm²). The
+- **P24 is a plain frame.** A foot on P21's saddle (raised 0.62 mm, below), a deck under the motor, a
+  solid wall at +X, a column at -X, a block over each top corner and a tower under each bottom
+  corner, all reaching P02's rear face, which is also the print face. The wire comb, the two dead
+  rear holes and the hook over P02's top edge are gone; P21's two screws hold the frame.
+  - Its walls are 0.84 mm and up, with 10 mm² under 1.0 mm (released: 0.03 mm and 381 mm²). The
     thinnest is where the top-left insert channel passes the servo header's plug.
   - The four M3 × 4 heat-sets move 2.8 mm forward, behind a Ø3.4 step, so each screw pulls its
     insert against the step. They are pressed in from the side that faces P02; the upper two go in
@@ -1135,6 +1143,13 @@ at the bed, and the servo only needed a tighter recess).
     leans back toward the hose cuff.
   - P22's socket floor met the roof of its forward sweep in a feather edge along the front. It is
     cut back to the socket wall; P21 seats on P22's top rim, not on that edge.
+- **P21 prints flat.** Its saddle, where P24 stands, rises 0.62 mm to the trunk rim and the bosses
+  for P20's lugs (Z-17.78), so P21's whole top, the face it prints on, is one plane of 923 mm²
+  (released: 170 mm² there and 753 mm² 0.62 mm lower).
+  - P24's underside rises with it; its deck and everything above stay put. P20's and P02's undersides
+    now rest on the saddle too, face to face. The probe cable stays 0.48 mm clear.
+  - The two P24-to-P21 heat-set inserts stay where they were, so each pocket now opens through a
+    0.62 mm counterbore: press each insert to the bottom of it. The same M3×8 screws reach them.
 - **Outlet: wider horizontal jets.** The two jets still blow straight across the nozzle at the
   plastic it has just laid, not down at the bed. Each left through a 1.8 mm throat under a vane
   that ended in a knife edge (0.04 mm), over a floor lip that ended in a feather edge.
@@ -1143,11 +1158,17 @@ at the bed, and the servo only needed a tighter recess).
     a 3.05 mm opening between the floor and the wall; the floor under the jets stays solid.
   - The jets' open area is 59 mm², 1.7 times the released 34 mm² (measured inside P22's outer
     profile), against 154-175 mm² in the side channels and 211 mm² in the hose.
+  - Each jet's entry is a bell-mouth. The air comes down the duct side of that wall and turns under
+    it into the jet. Off a square corner it sprang clear and used about 56 % of the opening (the
+    [CFD](#cpap-airflow-cfd-revision-41) found this). The corner is now rounded to the wall's own
+    1.4 mm thickness, from Y17.0 to Y26.2, and the air follows it round: at 180 L/min the duct
+    needs 45 % less pressure. The slot side keeps its square edge at Z-73.6, so the jets' top
+    doesn't move. P22 prints on its back face, so the round lies flat in every layer.
   - The jets can only grow upward: P22's underside is 1 mm above the nozzle tip, under a 1.2 mm
     floor. Their top stays 0.32 mm under the Red Lizard's heater block. On the Bambu, the upper
     1.9 mm of each jet meets the side of the silicone sock (the released jets' top 0.6 mm did).
-  - The outlet's walls are 1.2 mm and up (released 0.045 mm). P22's gap to both hotends is
-    unchanged.
+  - The outlet's walls are 1.2 mm and up (released 0.045 mm), except where the bell-mouth rounds
+    them into a square edge. P22's gap to both hotends is unchanged.
 - **P22 face-mounts on P01.** Each upper cheek wrapped round P01's front boss with walls of 0.05 mm
   on the inner side and 0.42 mm on the outer, open on top; the screw head's counterbore came within
   0.05 mm of the outer face.
@@ -1158,9 +1179,20 @@ at the bed, and the servo only needed a tighter recess).
     mounted tool, with 3.7 mm of thread in P01's insert.
 - **P02: a snug servo recess.** The MG90D's top 4.5 mm sits in the same recess in P02's rear face,
   now 12.20 × 22.90 mm (released 12.30 × 23.05). That is line to line across TowerPro's
-  12.2 × 22.8 mm body and 0.05 mm at each end (released 0.05 and 0.125 mm). Nothing else on P02
-  changes; the two ear screws stay. If your servo measures differently, change `SERVO_POCKET` in
-  `r41_parts.py`.
+  12.2 × 22.8 mm body and 0.05 mm at each end (released 0.05 and 0.125 mm). Apart from the hall
+  leads' groove (below), nothing else on P02 changes; the two ear screws stay. If your servo
+  measures differently, change `SERVO_POCKET` in `r41_parts.py`.
+- **Hall sensor leads: one groove through to the EBB42.** The A1104's leads end 0.4 mm in front of
+  P02, against the solid strip under the motor bore, and P24's groove for them under the motor
+  stopped at the motor's end cap, 8.2 mm short of the board. One groove, 4.0 mm wide and 2.1 mm deep
+  with the motor as its roof, now runs from the leads' end through P02 and P24 to the EBB42's side
+  of the frame. P02 and P24 keep 1.68 mm under it. Behind the motor the probe cable turns up into
+  the bay through the same opening.
+- **P01: the tab is gone.** Since the v26 original, P01 (the back case) has had a 5.3 × 2.9 × 1.9 mm
+  tab under the boss of its +X front frame screw, modelled line to line in a matching slot in P03,
+  with nothing like it on the -X side. It is cut off at the boss's own bottom (Z-17.40); P03's slot
+  stays as it is, an empty pocket inside the case. Nothing else on P01 changes. On a P01 you have
+  already printed, the tab can be trimmed flush with the boss.
 - **P03 comes in four versions**, one per magnet: 4× 15×5×3 or 12×6×3 mm bars, or 8× Ø6×4 or Ø6×3 mm
   discs, all where the tools' receiver magnets expect them.
   - Each pocket is 0.10 mm over the magnet's width or diameter and 0.15 mm over its length. Each
@@ -1176,7 +1208,7 @@ at the bed, and the servo only needed a tighter recess).
 
 ![Revision 41: P24 released and as a frame, the CPAP joints in section, and the outlet cut through the nozzle](./images/79_carriage_fixes_r41_p24_joints_outlet.png)
 
-![Revision 41: P02's servo recess, P22's cheek on P01's boss, and the four P03 versions with their magnets](./images/80_carriage_fixes_r41_servo_mounts_magnets.png)
+![Revision 41: P02's servo recess, P22's cheek on P01's boss, the four P03 versions with their magnets, and the hall leads' groove through P02 and P24](./images/80_carriage_fixes_r41_servo_mounts_magnets.png)
 
 **Hardware.**
 
@@ -1186,6 +1218,8 @@ at the bed, and the servo only needed a tighter recess).
   behind the board (lower, were M3×12). Shorter screws don't reach the moved inserts.
 - P22 to P01: 2× M3×8 ISO 7380 button heads on the cheeks' front faces (were M3×10 socket heads in
   counterbores), into the same inserts in P01's bosses.
+- P24 to P21: the same 2× M3×8 socket heads and M3 inserts; press each insert to the bottom of the
+  0.62 mm counterbore over its pocket in P21's raised saddle.
 - Fit the motor before P24: its upper ear screw's head sits in one of P24's U-slots, and the
   P02-to-P01 button head in the other.
 - P03: the magnets for your version, glued in.
@@ -1193,14 +1227,16 @@ at the bed, and the servo only needed a tighter recess).
 **Verification.** Run `python build_carriage_fixes_r41.py --workers 10`
 ([report](./verification_carriage_fixes_r41.json)). It passes, in 27 minutes:
 
-- **Parts.** Every revision-41 part is a single valid solid. P20, P21, P22, P02 and the four P03s
+- **Parts.** Every revision-41 part is a single valid solid. P01, P20, P21, P22, P02 and the four P03s
   change only inside their edit zones, and the CPAP parts don't grow: P22's nose is 0.16 mm
   shorter where the floor lip is trimmed.
 - **Joints.** The sleeves keep 0.18 mm radial slip and the cable bosses 0.06 mm. The thinnest joint
   walls are 1.21-1.22 mm (released 0.78, 0.79 and 0.03 mm); the bore through each sleeve is
   213 mm².
 - **Outlet.** The jets' narrowest section is 58.9 mm² (released 33.9 mm²) and the floor under them
-  is solid. The outlet's thinnest wall is 1.2 mm (released 0.045 mm). The jets' top is 0.32 mm
+  is solid. The outlet's thinnest wall is 1.2 mm (released 0.045 mm), leaving out the bell-mouth
+  rounds: a ray cast reads any rounded corner as thin, so their profile is measured instead and
+  matches the 1.4 mm radius to within 0.001 mm. The jets' top is 0.32 mm
   under the Red Lizard's heater block, and P22 keeps its 1.92 mm (Bambu) and 1.72 mm (Red Lizard)
   gaps to the hotends.
 - **P22 on P01.** No P22 is left round either boss (released 57 mm³ each). Each cheek is 0.05 mm
@@ -1208,10 +1244,15 @@ at the bed, and the servo only needed a tighter recess).
   touches neither part; the nearer head is 3.63 mm from a mounted tool. The cheek walls are 1.38 mm
   and up (released 0.03 mm).
 - **P24.** The EBB42's parts stay 0.25 mm clear and every plug zone is empty. It bears on P02 over
-  409 mm² and on P21 over 379 mm², with walls of 0.85 mm and up.
+  409 mm² and on P21 over 379 mm², with walls of 0.84 mm and up.
 - **P02.** The recess doesn't touch TowerPro's 12.2 × 22.8 mm body. The v26 servo model is 22.96 mm
-  long and overlaps each end of the recess by 0.03 mm (3.25 mm³ in all). The recess walls are
-  1.22 mm (released 1.16 mm).
+  long and overlaps each end of the recess by 0.03 mm (3.25 mm³ in all). The recess lies inside the
+  released one, so its walls are at least as thick as before (1.16 mm); P02 keeps 1.68 mm under the
+  hall leads' groove.
+- **Hall sensor leads.** From the leads' end to the EBB42's side of P24, nothing enters the groove
+  but the probe cable, which shares the opening behind the motor. Released, P02 filled 5.8 mm of
+  the route and P24 12.7 mm.
+- **P01.** It changes only where the tab was (26.1 mm³ less).
 - **P03.** In every version the magnets fit with 0.05 mm a side, stand 0.20 mm proud and clear both
   mounted tools by 0.36 mm.
 - **Carriage.** Every pair of carriage parts and fasteners, with the 15×5×3 P03, shows no new
@@ -1238,13 +1279,102 @@ at the bed, and the servo only needed a tighter recess).
 The Fusion native review "41 Carriage build fixes (native review)" is archived as
 [`41_Carriage_Build_Fixes_REVIEW.f3d`](./41_Carriage_Build_Fixes_REVIEW.f3d);
 `python build_carriage_fixes_r41.py` regenerates its STEP (86 MB, not committed). It reopens with
-243 bodies, and its P20, P21, P22, P24, P02 and P03 volumes match the report. Fusion measures
+243 bodies, and its P01, P20, P21, P22, P24, P02 and P03 volumes match the report. Fusion measures
 0.25 mm from P24 to the EBB42 and 0.05 mm from P22 to P01. Render with
 `python render_carriage_fixes_r41.py`.
 
-**Limits.** Airflow is compared by open area, not simulated. The recess fits TowerPro's datasheet
+**Limits.** Airflow is simulated (below), not measured. The recess fits TowerPro's datasheet
 body: measure your servo, and change `SERVO_POCKET` if it differs. Insert pull-out, printed-part
 creep and magnet glue joints are not qualified.
+
+#### CPAP airflow CFD (revision 41)
+
+The CPAP duct's airflow is simulated with OpenFOAM v2512: steady flow (`simpleFoam`) with k-ω SST
+turbulence, the air arriving from the hose already turbulent (5 % intensity). The model is the air
+inside P20, P21 and P22 from the hose spigot to the jets, four bore lengths of straight hose above
+the spigot, and the open air round the nozzle (X ±30, Y -20..50, Z -95..-45 mm) with the mounted
+tool, P01, P23, the Beacon and their screws in it; that air's outer faces are open to the room.
+`snappyHexMesh` meshes it in 1.7 million cells: 1 mm in the open, 0.5 mm at the walls (0.25 mm where
+they curve) and 0.25 mm round the jets and the nozzle. Each run steps the flow through 180, 120 and
+240 L/min. The pressure
+the duct needs at the spigot is set against the WS7040-24 blower's published curve at full speed,
+less an allowance for 1 m of Ø19 mm CPAP hose, to find the flow the blower delivers.
+
+| Bambu tool | Pressure at 180 L/min | Blower flow, 1 m hose | Jets at 180 L/min |
+| :--- | ---: | ---: | :--- |
+| Released duct (revision 40) | 8.30 kPa | 131 L/min | 2 × 17 mm², 87 m/s mean, 104 m/s peak |
+| Revision 41, square-edged jets | 5.15 kPa | 158 L/min | 2 × 30 mm², 51 m/s mean, 87 m/s peak |
+| Revision 41, bell-mouth jets | 2.83 kPa | 192 L/min | 2 × 30 mm², 51 m/s mean, 63 m/s peak |
+
+- **Where the pressure goes.** With the bell-mouth jets at 180 L/min, the hose section to P21
+  costs 63 Pa, the elbow into P22 78 Pa, the side channels 56 Pa and the turn into the jets
+  224 Pa. The other 2.39 kPa leaves as the jets' own speed: the jets set the restriction, as the
+  first build showed.
+- **Bell-mouth jets.** The CFD showed the air springing clear of the square bottom corner of the
+  wall between each side channel and the hotend slot, so it used about 56 % of the opening. With the
+  corner rounded (r 1.4 mm) the air follows it round and uses about 77 % of it. At 180 L/min the
+  duct needs 45 % less pressure, so the blower moves 21 % more air: 192 L/min instead of 158.
+- **The elbow.** Where the air turns from P21 into P22 it leaves P22's roof: just past the turn
+  17 % of the section flows backwards (about 10 L/min going round), and by Y-20 it has reattached.
+  The air there moves at only about 15 m/s, so this costs 78 Pa at 180 L/min, about 2.8 % of the
+  total; even an elbow with no loss at all would raise the blower's flow by 0.9 %. The sharp inner
+  corner sits at P21's sleeve tip, in the joint, and a rounded corner inside P22 would overhang in
+  its print orientation, so the elbow stays as it is.
+- **At the nozzle.** The jets leave about 13° below horizontal and meet at the nozzle tip. In open
+  air, of the air leaving the space round the nozzle 44 % passes down by the tip, 31 % goes forward,
+  23 % up and 2 % back. Over a print surface 0.2 mm under the tip, as when printing, only 10 % gets
+  under the nozzle; the rest spreads forward (54 %), back (22 %) and up (14 %). The bell-mouth makes
+  each jet fuller and more even: its fastest air drops from 87 to 63 m/s at 180 L/min. At each
+  design's blower flow (158 and 192 L/min), the air 0.1 mm over the print is within about 10 % of
+  the square-edged jets' from 0.8 to 5 mm from the nozzle axis: 7 m/s at 1.2 mm, 14 m/s at 3 mm and
+  17 m/s at 5 mm. In open air under the nozzle, as under a bridge, it is 11-19 % slower within
+  1.2 mm of the axis and 10-45 % faster from 2 to 5 mm out. So the bell-mouth takes the restriction
+  away without losing cooling at the fresh plastic, and spreads the extra air further out.
+- **Red Lizard.** The duct and jets behave the same: 2.83 kPa at 180 L/min, and 192 L/min from the
+  blower. Its heater block, wider than the Bambu's sock and 0.32 mm above the jets' top, stops the
+  air rising past the nozzle: 46 % passes down by the tip, 42 % goes forward and 12 % back.
+- **Layer lines.** P22 prints on its back face, so in the jets, where the air is fastest, the layer
+  lines run along the flow; upstream they cross it, but there the air is slow. With every wall made
+  rough, an FDM-like 0.1 mm roughness raises the pressure at 180 L/min by 0.2 %, and a pessimistic
+  0.3 mm by 2.6 %, which would cost the blower about 0.8 % of its flow.
+- **Mesh.** A finer mesh at the walls (2.6 million cells) moves the pressure by 0.5 % and the jets'
+  flow and speeds by less than 0.5 %.
+
+![Revision 41 CFD: duct system curves against the blower, where the pressure goes, and convergence](./images/81_cfd_r41_system_curves_losses.png)
+
+![Revision 41 CFD with the Bambu: air speed across the nozzle, at jet height, at the fresh bead, and turbulence](./images/82_cfd_r41_nozzle_bambu.png)
+
+![The released outlet, square-edged jets and bell-mouth jets at 180 L/min](./images/83_cfd_r41_vs_released.png)
+
+![Streamlines from the hose to the nozzle, and the two jets meeting at the nozzle](./images/84_cfd_r41_streamlines.png)
+
+![Speed and pressure along a side channel: the channel is a plenum and the drop is at the jets](./images/85_cfd_r41_side_channel.png)
+
+![The Red Lizard, a print surface under the nozzle, and the air speed round the tip at each design's blower flow](./images/86_cfd_r41_redlizard_print_surface.png)
+
+**Run.** Each step works in the session folder's `cfd/` (`acc.WORK`):
+
+```
+python cfd_cpap_r41.py domain r41bm_bambu                 # the air, from the revision-41 scene
+python cfd_cpap_r41.py domain r41_bambu --p22 square      # revision 41's first, square-edged jets
+python cfd_cpap_r41.py domain released_bambu --duct released
+python cfd_cpap_r41.py domain r41bm_bambu_bed --bed       # also --tool RedLizard
+python cfd_cpap_r41.py case r41bm_bambu --np 24           # [--flows 180] [--roughness-mm 0.1]
+bash cfd/run_case.sh <case dir>                           # OpenFOAM v2512, or cfd/launch_docker.sh
+python cfd_cpap_r41.py analyse r41bm_bambu                # after copying the results back
+python cfd_cpap_r41.py report <names>                     # verification_cfd_cpap_r41.json
+python render_cfd_cpap_r41.py                             # images 81-86
+```
+
+The [report](./verification_cfd_cpap_r41.json) has every case's flows, pressures, jets, losses and
+mesh. The runs here used `opencfd/openfoam-default:2512` in Docker on a 96-thread host, 20 to 90
+minutes a case depending on how many shared it.
+
+**Limits.** Steady, time-averaged flow: the two jets meeting at the nozzle are unsteady in fact. No
+heat transfer is modelled, only air speed. The blower curve is the maker's at full speed, and the
+hose is an allowance (1 m of Ø19 mm, friction factor 0.06): a longer or narrower hose lowers the
+flow. Wall roughness uses a wall function on 0.25 mm wall cells, which suits 0.1 mm but stretches it
+at 0.3 mm. Nothing here is measured on the printer.
 
 #### Faster verification (`fast_geometry.py`)
 
@@ -2131,6 +2261,10 @@ See [`verification_two_adapter_feasibility.json`](./verification_two_adapter_fea
   - Analytically cut with cylindrical offsets providing **`≥ 4.65 mm` 3D Euclidean clearance** around the entire **Volcano silicone sock** (`X ∈ [-7.00, +7.00], Y ∈ [12.95, 38.45], Z ∈ [-74.35, -59.50] mm`) and **`≥ 5.90 mm` clearance** from the bare `350 °C` Volcano aluminum heatblock — preventing ABS/ASA radiant heat softening while directing 100% of the cooling jet (`25.9 m/s` mean velocity at `18 CFM`) below the sock onto the nozzle tip (`Z = -78.88 mm`).
 
 ### 4.2 3D CFD Summary (`cfd_simulation_v26.json`)
+
+> **Superseded.** These figures came from the v26 analytic model, not a flow solver, and they
+> understate the duct's losses many times over. Use the OpenFOAM results in
+> [CPAP airflow CFD (revision 41)](#cpap-airflow-cfd-revision-41).
 | Station / Metric | Flow Area (`mm²`) | Mean Velocity (`m/s`) | Peak Velocity (`m/s`) | Dynamic Pressure (`Pa`) |
 | :--- | :---: | :---: | :---: | :---: |
 | **1. `P20` Hose Spigot Inlet (`Z = +24 mm`)** | `380.13` | `22.36` | `29.80` | `296.0` |

@@ -1,7 +1,7 @@
 """Colour-scheme review: the current build in its print colours (print_colors.py), for Fusion.
 
-The revision-41 carriage with every core part coloured separately (the print set's revision-31 P01, the
-revision-41 P02 and the 15x5x3 P03, COTS P04F and P05, the v26 bodies for the rest), withdrawn 60 mm from bay
+The revision-41 carriage with every core part coloured separately (the print set's revision-41 P01, P02 and the
+15x5x3 P03, COTS P04F and P05, the v26 bodies for the rest), withdrawn 60 mm from bay
 T4 with its tool; the nine other tools parked in their docks (Bambu in even bays, Red Lizard in odd); the docks,
 crossbar, P29/P30 rack and the Monolith X gantry, whose printed parts are the user's own and stay black. Each
 bay's tool and dock are located instances of one set of shapes per variant and colour. Writes
@@ -36,7 +36,7 @@ CORE_PRINTS = {
     "PRINT_SINGLE_SPRING_PRESSURE_CUP": "P12", "PRINT_MONOLITH_CARTRIDGE_LINER_left": "P13",
     "PRINT_MONOLITH_CARTRIDGE_LINER_right": "P14", "PRINT_MONOLITH_CARTRIDGE_ARCH_left": "P15",
     "PRINT_MONOLITH_CARTRIDGE_ARCH_right": "P16"}
-PRINT_SET = {"P01": "P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW", "P02": R.NAMES["p02"],
+PRINT_SET = {"P01": R.NAMES["p01"], "P02": R.NAMES["p02"],
              "P03": R.NAMES["p03_15x5x3"], "P04F": "P04F_Swing_arm_front_half_COTS", "P05": "P05_Servo_cam_COTS"}
 OLD_TOOL = ("TOOL_", "HF_0", "M2_5x8_HF", "PTFE_4x2", "REFERENCE_loaded", "PRINT_RedLizard", "OCT_TOOL_",
             "CLOSING_SPRING")

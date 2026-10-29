@@ -2,17 +2,18 @@
 
 Static checks:
 - every revision-41 part is a single valid solid; P20, P21, P22, P02 and P03 change only inside their edit
-  zones, and the CPAP parts don't grow;
+  zones, and the CPAP parts don't grow; P21's top, its print face, is one plane;
 - wall thickness, ray cast on the printed meshes: the CPAP joint walls, the outlet, P22's cheeks, all of P24,
   P02's servo recess and P03's magnet pockets;
 - CPAP joints: radial slip of each sleeve in its socket, and the bore area through each sleeve;
-- the outlet: the jets' open area against the released one, their height against both hotends' heaters, and
-  P22's distance to both hotends;
+- the outlet: the jets' open area against the released one, their height against both hotends' heaters,
+  P22's distance to both hotends, and the bell-mouth round over each jet;
 - P22 on P01: no cheek material around P01's bosses, the face gap and bearing, the screws' engagement and
   clearance;
 - P24: every EBB42 part and plug zone, the probe cable, hall leads, motor and motor connector clear; its
   bearing on P02's face and on P21; the inserts and screw engagement;
 - P02: the MG90D body's fit in the tighter recess; P02 unchanged elsewhere;
+- the hall sensor's leads: a clear groove from their end under the motor, through P02 and P24, to the EBB42;
 - P03: each variant's magnets fit their pockets, stand 0.2 mm proud and clear both mounted tool bodies;
 - every pair of carriage parts and fasteners (revision-31 core with the new P02 and P03, the servo, P20-P24,
   cable, Beacon, EBB42), the mounted tools, the Cartographer, the Beacon keepouts, the Monolith X gantry.
@@ -23,6 +24,7 @@ Run: python build_carriage_fixes_r41.py [--workers 10] [--static-only]
 """
 import argparse
 import json
+import math
 import os
 import time
 
@@ -56,21 +58,29 @@ from build_refined_docking_review import translated_hits  # noqa: E402
 REPORT = "verification_carriage_fixes_r41.json"
 REVIEW_MAGNET = "15x5x3"                    # the P03 variant mounted in the carriage-wide checks
 SERVO = "MG90D_Servo_Envelope"
-CHANGED = ("P20", "P21", "P22", "P24", "P02", "P03")
+CHANGED = ("P20", "P21", "P22", "P24", "P02", "P03", "P01")
 ZONES = {
+    "P01": [(15.1, 20.9, 25.8, 29.3, -19.5, -17.3)],                # the tab under the +X front frame screw
     "P20": [(-22.0, 22.0, -47.0, -24.0, -22.2, -12.5)],
     "P21": [(-22.0, 22.0, -47.0, -24.0, -21.7, -17.7), (-22.0, 22.0, -47.0, -24.0, -52.1, -43.9),
-            (-4.7, 4.7, -39.2, -34.8, -52.1, -17.7)],
+            (-4.7, 4.7, -39.2, -34.8, -52.1, -17.7),
+            (-21.1, 21.1, -33.3, 0.4, -18.5, -17.7)],          # the saddle raised to P21's top plane
     "P22": [(-22.0, 22.0, -47.0, -24.0, -52.1, -48.9)]
            + [(x0, x1, 14.9, 30.1, -78.6, -73.4) for x0, x1 in ((8.3, 13.0), (-13.0, -8.3))]
+           + [(x0, x1, 16.9, 26.3, -73.7, -72.1) for x0, x1 in ((10.1, 12.0), (-12.0, -10.1))]   # bell-mouths
            + [(x0, x1, 10.9, 21.6, -63.1, -49.4) for x0, x1 in ((13.8, 22.6), (-22.6, -13.8))],
-    "P02": [(4.2, 16.8, -11.4, -6.6, 33.6, 57.1)],
+    "P02": [(4.2, 16.8, -11.4, -6.6, 33.6, 57.1),
+            (-2.1, 2.1, -6.9, -0.3, -16.2, -13.9)],                # the hall leads' groove
     "P03": [(x0, x1, 27.4, 32.2, z0, z1) for x0, x1 in ((2.8, 10.2), (-10.2, -2.8)) for z0, z1 in ((18.2, 35.2), (-6.8, 10.2))],
 }
 # Wall checks: what revision 41 changed at the outlet (the duct-to-slot wall's new bottom, the floor's new inner
-# end and the front wall's new end), then the whole outlet against the released part; P22's cheeks.
+# end and the front wall's new end), then the whole outlet against the released part; P22's cheeks. The
+# bell-mouth round over each jet tapers that wall to a 90 degree edge on purpose, so the ray cast leaves it out
+# (JET_LIP_BAND) and check_outlet measures its profile instead.
 OUTLET_CHANGED = [(x0, x1, 15.0, 30.0, -78.2, -73.0) for x0, x1 in ((8.3, 13.0), (-13.0, -8.3))]
 OUTLET_ALL = [(x0, x1, 15.0, 30.0, -78.2, -73.0) for x0, x1 in ((8.3, 21.5), (-21.5, -8.3))]
+JET_LIP_BAND = [(x0, x1, R.JET_LIP_Y[0] - 0.1, R.JET_LIP_Y[1] + 0.1, R.ROOF - 0.05, R.ROOF + R.JET_LIP_R + 0.05)
+                for x0, x1 in ((R.WALL_X[0] - 0.05, R.JET_LIP_X_OUT + 0.05), (-R.JET_LIP_X_OUT - 0.05, -R.WALL_X[0] + 0.05))]
 CHEEK_ZONES = [(x0, x1, 11.0, 21.0, -63.0, -49.4) for x0, x1 in ((13.8, 22.6), (-22.6, -13.8))]
 
 
@@ -86,17 +96,20 @@ def key(s):
     return (round(s.Volume(), 0),) + tuple(round(v, 1) for v in bounds(s))
 
 
-def core(p02, p03, magnets):
-    """The revision-31 core, its P02 and P03 replaced and its four 15x5x3 receiver magnets swapped for the
+def core(p01, p02, p03, magnets):
+    """The revision-31 core, its P01, P02 and P03 replaced and its four 15x5x3 receiver magnets swapped for the
     variant's own, plus the MG90D envelope (the core never carried the servo)."""
     meta = json.loads((acc.WORK / "v26_meta.json").read_text())
     v26 = {m["name"]: P37.shape(s) for m, (s, _) in zip(meta, acc.load_brep_list(acc.WORK / "v26_cache.brep"))}
+    old_p01 = key(load(R31["p01"]))
     old_p02, old_p03 = key(load("P02_Motor_servo_plate_12p5mm")), key(load("P03_Front_case_COTS"))
     old_magnets = {key(v26[f"OCT_RECEIVER_MAGNET_{i}"]) for i in range(4)}
     out, swapped = [], []
     for i, s in enumerate(load(R31["core"]).Solids()):
         k = key(s)
-        if k == old_p02:
+        if k == old_p01:
+            swapped.append("P01")
+        elif k == old_p02:
             swapped.append("P02")
         elif k == old_p03:
             swapped.append("P03")
@@ -104,9 +117,9 @@ def core(p02, p03, magnets):
             swapped.append("magnet")
         else:
             out.append((f"Core_{i:03d}", s))
-    if sorted(swapped) != ["P02", "P03", "magnet", "magnet", "magnet", "magnet"]:
+    if sorted(swapped) != ["P01", "P02", "P03", "magnet", "magnet", "magnet", "magnet"]:
         raise ValueError(f"Core swap found {swapped}")
-    out += [(R.NAMES["p02"], p02), (R.NAMES[f"p03_{p03[0]}"], p03[1])]
+    out += [(R.NAMES["p01"], p01), (R.NAMES["p02"], p02), (R.NAMES[f"p03_{p03[0]}"], p03[1])]
     out += [(f"P03_Magnet_{i}", m) for i, m in enumerate(magnets)]
     out.append((SERVO, v26["HOBBY_SERVO_ENVELOPE"]))
     return out
@@ -124,11 +137,12 @@ def carriage(parts):
 def build_parts():
     parts = b40.build_parts()
     parts["p20"], parts["p21"], parts["p22"] = R.p20(), R.p21(), R.p22()
-    parts["p24"], parts["p02"] = R.p24(), R.p02()
+    parts["p24"], parts["p02"], parts["p01"] = R.p24(), R.p02(), R.p01()
     parts["p03"] = {k: R.p03(k) for k in R.MAGNETS}
     parts["magnets"] = {k: R.magnet(k) for k in R.MAGNETS}
     parts["other_hardware"] = R.other_hardware()
-    parts["core"] = core(parts["p02"], (REVIEW_MAGNET, parts["p03"][REVIEW_MAGNET]), parts["magnets"][REVIEW_MAGNET])
+    parts["core"] = core(parts["p01"], parts["p02"], (REVIEW_MAGNET, parts["p03"][REVIEW_MAGNET]),
+                         parts["magnets"][REVIEW_MAGNET])
     return parts
 
 
@@ -201,9 +215,10 @@ JOINTS = (("P20_in_P21", "p20", "p21", -19.70, (-22.0, 22.0, -47.0, -24.0, -21.6
 
 def check_parts(parts, report, failures):
     released = {"P20": load(P40.NAMES["p20"]), "P21": load(P40.NAMES["p21"]), "P22": P37.p22()[0],
-                "P24": load(R35["p24"]), "P02": load("P02_Motor_servo_plate_12p5mm"), "P03": load("P03_Front_case_COTS")}
+                "P24": load(R35["p24"]), "P02": load("P02_Motor_servo_plate_12p5mm"), "P03": load("P03_Front_case_COTS"),
+                "P01": load(R31["p01"])}
     new = {"P20": parts["p20"], "P21": parts["p21"], "P22": parts["p22"], "P24": parts["p24"], "P02": parts["p02"],
-           **{f"P03_{k}": v for k, v in parts["p03"].items()}}
+           "P01": parts["p01"], **{f"P03_{k}": v for k, v in parts["p03"].items()}}
     rows = {}
     for name, s in new.items():
         base = name.split("_")[0]
@@ -225,8 +240,25 @@ def check_parts(parts, report, failures):
                 failures.append(f"{name} grew beyond its released bounds")
         if not (row["valid"] and row["solids"] == 1):
             failures.append(f"{name} is not a single valid solid")
+        if base == "P21":
+            row["top_face_levels_mm2"] = top_levels(s)
+            row["released_top_face_levels_mm2"] = top_levels(old)
+            if list(row["top_face_levels_mm2"]) != [R.P21_TOP]:
+                failures.append("P21's top (its print face) is not one plane")
         rows[name] = row
     report["parts"] = rows
+
+
+def top_levels(s, below=3.0):
+    """Area of the upward flat faces within `below` mm of the part's top, by height."""
+    top = exact_bounds(s)[5]
+    out = {}
+    for f in s.Faces():
+        b = f.BoundingBox()
+        if f.geomType() == "PLANE" and f.normalAt().z > 0.99 and b.zmax - b.zmin < 1e-6 and b.zmin > top - below:
+            z = round(b.zmin, 3)
+            out[z] = round(out.get(z, 0.0) + f.Area(), 1)
+    return dict(sorted(out.items(), reverse=True))
 
 
 def check_joints(parts, report, failures):
@@ -280,6 +312,18 @@ def lowest_surface_z(shape, x0, x1, y0, y1, z0=-80.0, step=0.2):
     return best
 
 
+def jet_lip_profile(p22, side, y=22.2, heights=(-0.05, 0.1, 0.2, 0.42, 0.7, 1.0, 1.4, 2.0)):
+    """The duct-to-slot wall's thickness across X (from the slot face out) at heights over ROOF, at one Y."""
+    lo, hi = sorted((side * R.WALL_X[0], side * (R.WALL_X[1] + 0.6)))
+    return {f"{h:g}": round(box(lo, hi, y - 0.01, y + 0.01, R.ROOF + h - 0.01, R.ROOF + h + 0.01).intersect(p22).Volume()
+                            / 4e-4, 3) for h in heights}
+
+
+def jet_lip_design(h):
+    r = R.JET_LIP_R
+    return 0.0 if h < 0 else round(math.sqrt(2 * r * h - h * h) if h < r else R.WALL_X[1] - R.WALL_X[0], 3)
+
+
 def check_outlet(parts, report, failures):
     new, old = parts["p22"], P37.p22()[0]
     xs = (10.3, 10.6, 10.9, 11.15, 11.5)
@@ -300,18 +344,33 @@ def check_outlet(parts, report, failures):
                           "jet_below_heater_mm": round(min(bottom, R.ROOF) - (-76.65), 2),
                           "margin_mm": round(bottom - R.ROOF, 2),
                           "released_jet_top_z": -74.85}
-    walls = wall_report(parts["meshes"]["p22"], OUTLET_CHANGED)
-    whole = wall_report(parts["meshes"]["p22"], OUTLET_ALL)
-    whole_old = wall_report(parts["released_meshes"]["p22"], OUTLET_ALL)
+    walls = wall_report(parts["meshes"]["p22"], OUTLET_CHANGED, exclude=JET_LIP_BAND)
+    whole = wall_report(parts["meshes"]["p22"], OUTLET_ALL, exclude=JET_LIP_BAND)
+    whole_old = wall_report(parts["released_meshes"]["p22"], OUTLET_ALL, exclude=JET_LIP_BAND)
+    profile = {label: jet_lip_profile(new, s) for label, s in (("left", -1), ("right", 1))}
+    design = {k: jet_lip_design(float(k)) for k in profile["right"]}
+    lip_error = max(abs(v - design[k]) for p in profile.values() for k, v in p.items())
+    report["jet_bell_mouths"] = {
+        "radius_mm": R.JET_LIP_R, "y_mm": list(R.JET_LIP_Y),
+        "edge": f"90 degrees, on the slot side (|X| {R.WALL_X[0]}) at Z{R.ROOF}: the jets' top is where it was",
+        "wall_thickness_mm_by_height_over_edge_mm": profile, "design_mm": design,
+        "largest_error_mm": round(lip_error, 4),
+        "removed_mm3": round(R.p22(bell_mouth=False).Volume() - new.Volume(), 2),
+        "note": "Measured across X at Y22.2. P22 prints on its back face, so this profile lies in every layer; "
+                "the wall-thickness ray cast leaves this band out."}
+    if lip_error > 0.02:
+        failures.append("Jet bell-mouth profile")
     report["outlet"] = {
         "jets": "Horizontal, one each side of the nozzle, between the channel floor (Z-76.65) and the flat bottom of the "
-                f"duct-to-slot wall (Z{R.ROOF}); the floor under them is solid, so no air blows down at the bed.",
+                f"duct-to-slot wall (Z{R.ROOF}), whose duct side is rounded into a bell-mouth (r {R.JET_LIP_R}); "
+                "the floor under them is solid, so no air blows down at the bed.",
         "open_area_both_sides": throat, "narrowest_mm2": narrowest,
         "area_ratio": round(narrowest["r41_mm2"] / narrowest["released_mm2"], 2),
         "floor_under_jets_solid_fraction": floor_solid,
         "heaters": heaters,
         "upstream_mm2": {"hose_bore": 211.2, "p22_side_channels_min": 153.7},
-        "walls_changed_regions": walls, "released_walls_changed_regions": wall_report(parts["released_meshes"]["p22"], OUTLET_CHANGED),
+        "walls_changed_regions": walls,
+        "released_walls_changed_regions": wall_report(parts["released_meshes"]["p22"], OUTLET_CHANGED, exclude=JET_LIP_BAND),
         "walls_whole_outlet": whole, "released_walls_whole_outlet": whole_old,
         "note": "Open area in planes across the jets (|X| 10.3-11.5), inside P22's outer profile. The revision-41 "
                 "review's first figure (41.8 mm2 released) also counted open air under P22's heel; this one doesn't.",
@@ -328,7 +387,7 @@ def check_outlet(parts, report, failures):
 
 def check_p22_mounts(parts, report, failures):
     """P22's cheeks bear on P01's bosses face to face; nothing of P22 wraps them."""
-    p22, old, p01 = parts["p22"], P37.p22()[0], load(R31["p01"])
+    p22, old, p01 = parts["p22"], P37.p22()[0], parts["p01"]
     hw = dict(R.p22_mount_hardware())
     rows = {}
     for i, x in enumerate(R.P01_BOSS_X):
@@ -408,6 +467,34 @@ def check_p24(parts, report, failures):
         failures.append(f"P24 wall {out['walls']['min_mm']} mm")
 
 
+def check_hall_path(parts, report, failures):
+    """The A1104 hall sensor's leads, from their end under the motor (Y-0.5) to P24's rear face at the EBB42: only
+    the probe cable, which turns up into the bay through the same opening behind the motor, may share the groove."""
+    x0, x1, z0, _ = R.HALL_GROOVE
+    path = box(x0 + 0.1, x1 - 0.1, R.Y_SEAT, -0.6, z0 + 0.1, -14.45)
+    pb = bounds(path)
+
+    def inside(s):
+        b = bounds(s)
+        if not (b[1] > pb[0] and b[0] < pb[1] and b[3] > pb[2] and b[2] < pb[3] and b[5] > pb[4] and b[4] < pb[5]):
+            return None
+        common_ = s.intersect(path)
+        v = common_.Volume()
+        return {"mm3": round(v, 3), "y_mm": [round(bounds(common_)[2], 2), round(bounds(common_)[3], 2)]} if v > 1e-4 else None
+
+    rows = {n: r for n, r in ((n, inside(s)) for n, s in carriage(parts)) if r}
+    released = {"P02": inside(load("P02_Motor_servo_plate_12p5mm")), "P24": inside(load(R35["p24"]))}
+    report["hall_lead_path"] = {
+        "path_mm": {"x": [x0 + 0.1, x1 - 0.1], "y": [R.Y_SEAT, -0.6], "z": [z0 + 0.1, -14.45]},
+        "groove_mm": {"width": round(x1 - x0, 2), "depth_under_motor": round(R.HALL_GROOVE[3] - z0, 2),
+                      "floor_over_p21": round(z0 - R.P21_TOP, 2)},
+        "in_path": rows, "released_in_path": released,
+        "note": "The leads end 0.4 mm in front of P02. Released, P02's strip under the motor bore and the first "
+                "revision-41 P24 (its groove stopped at Y-17.2) closed the way to the EBB42."}
+    if any(not n.startswith("Probe_Cable") for n in rows):
+        failures.append(f"Hall sensor leads blocked by {sorted(n for n in rows if not n.startswith('Probe_Cable'))}")
+
+
 def check_p02(parts, report, failures):
     """P02's tighter recess against the MG90D's datasheet body and the v26 STEP envelope."""
     p02, servo = parts["p02"], dict(parts["core"])[SERVO]
@@ -432,16 +519,26 @@ def check_p02(parts, report, failures):
         "step_envelope_overlap_mm3": round(env.Volume(), 2),
         "step_envelope_overlap_only_at_the_ends": at_ends,
         "note": "The v26 servo envelope is 22.96 mm long, 0.16 mm over TowerPro's 22.8 mm; it overlaps each end of "
-                "the recess by 0.03 mm. The two ear screws and everything else on P02 are unchanged.",
+                "the recess by 0.03 mm. The two ear screws are unchanged; the only other change to P02 is the hall "
+                "leads' groove under the motor.",
         "nearest_mm": others,
-        "walls": wall_report(parts["meshes"]["p02"], ZONES["P02"]),
-        "released_walls": wall_report(parts["released_meshes"]["p02"], ZONES["P02"])}
+        "walls": wall_report(parts["meshes"]["p02"], ZONES["P02"][:1]),
+        "released_walls": wall_report(parts["released_meshes"]["p02"], ZONES["P02"][:1]),
+        "hall_groove_walls": wall_report(parts["meshes"]["p02"], ZONES["P02"][1:])}
+    # The recess walls can only be thicker than released if the new recess lies inside the released one. That is
+    # exact; the ray cast samples different points on each mesh and reads about 0.1 mm low at edges, so it is a
+    # cross-check only.
+    (cx, cz) = R.SERVO_CENTRE
+    out["recess_inside_released"] = (R.POCKET[0] <= cx - w / 2 and cx + w / 2 <= R.POCKET[1]
+                                     and R.POCKET[2] <= cz - length / 2 and cz + length / 2 <= R.POCKET[3])
     report["p02"] = out
     if out["datasheet_body_interference_mm3"] > 1e-3 or not at_ends or w < dw or length < dl \
             or w > released[0] - 0.05 or length > released[1] - 0.1:
         failures.append("Servo fit")
-    if out["walls"]["min_mm"] < out["released_walls"]["min_mm"] - 0.01:
+    if not out["recess_inside_released"] or out["walls"]["min_mm"] < out["released_walls"]["min_mm"] - 0.1:
         failures.append(f"P02 recess wall {out['walls']['min_mm']} mm")
+    if out["hall_groove_walls"]["min_mm"] < 1.2:
+        failures.append(f"P02 wall at the hall groove {out['hall_groove_walls']['min_mm']} mm")
 
 
 def check_p03(parts, report, failures):
@@ -472,10 +569,12 @@ def check_p03(parts, report, failures):
 
 
 def core_side(name):
-    return name.startswith(("Core_", "P02_", "P03_", SERVO))
+    return name.startswith(("Core_", "P01_", "P02_", "P03_", SERVO))
 
 
 def released_counterpart(name, magnets):
+    if name == R.NAMES["p01"]:
+        return load(R31["p01"])
     if name == R.NAMES["p02"]:
         return load("P02_Motor_servo_plate_12p5mm")
     if name.startswith("P03_Front_Case"):
@@ -633,7 +732,7 @@ def summarise_rear(results, report, failures):
 
 def exports(parts, report):
     files = []
-    for k in ("p20", "p21", "p22", "p24", "p02"):
+    for k in ("p20", "p21", "p22", "p24", "p02", "p01"):
         files += export_print(R.NAMES[k], parts[k])
     for k in R.MAGNETS:
         files += export_print(R.NAMES[f"p03_{k}"], parts["p03"][k])
@@ -665,8 +764,8 @@ def main():
     parts = build_parts()
     parts["meshes"], parts["released_meshes"] = meshes(parts)
     print("Static checks", flush=True)
-    for check in (check_parts, check_joints, check_outlet, check_p22_mounts, check_p24, check_p02, check_p03,
-                  check_carriage, check_gantry):
+    for check in (check_parts, check_joints, check_outlet, check_p22_mounts, check_p24, check_hall_path, check_p02,
+                  check_p03, check_carriage, check_gantry):
         t0 = time.perf_counter()
         check(parts, report, failures)
         print(f"  {check.__name__}: {time.perf_counter() - t0:.0f} s, failures {failures}", flush=True)
@@ -696,7 +795,9 @@ def main():
     report["hardware"] = {
         "changed": "P24: the four M3 x 4 heat-set inserts (OD 4.2) go in Ø4.0 pockets at Y-22.6..-18.6, pressed in "
                    "from the side that faces P02; the upper EBB42 screws through P20's wings stay M3x18, now through "
-                   "the whole insert, and the lower ones become M3x14 (were M3x12). P22 to P01: 2x M3x8 ISO 7380 "
+                   "the whole insert, and the lower ones become M3x14 (were M3x12). P21: its saddle rises 0.62 mm to "
+                   "the top plane, so the two P24-to-P21 inserts sit 0.62 mm under the new face, at the bottom of a "
+                   "Ø4.7 counterbore; the same M3x8 screws reach them. P22 to P01: 2x M3x8 ISO 7380 "
                    "button heads on the cheeks' front faces (were M3x10 socket heads in counterbores), into the same "
                    "inserts in P01's bosses. P03: the magnets of the chosen variant.",
         "unchanged": "Everything else, including P20, P21 and P02's screws and inserts."}
@@ -704,7 +805,8 @@ def main():
     report["status"] = ("BUILD_FIXES_VERIFIED_RACK_REQUALIFIED_CAD_REVIEW_NOT_MACHINE_QUALIFICATION"
                         if not failures else "FAILED_SEE_FAILURES")
     report["limitations"] = [
-        "Rigid CAD and sampled straight paths. Airflow is compared by open area, not simulated.",
+        "Rigid CAD and sampled straight paths. Airflow is simulated separately (cfd_cpap_r41.py, "
+        "verification_cfd_cpap_r41.json), not measured.",
         "P02's recess is sized for TowerPro's MG90D body, 12.2 x 22.8 mm; a servo that measures differently needs "
         "SERVO_POCKET in r41_parts.py changed.",
         "Insert pull-out, printed-part creep and magnet glue joints are not qualified."]

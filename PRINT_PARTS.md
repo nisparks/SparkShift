@@ -13,21 +13,24 @@ versions stay in `stl_v26/` and `cad/SparkShift_Accessories_v26/stl/` as history
 particular, the P17, P18 and P22–P26 files in `stl_v26/` are superseded. Every STL has a
 matching STEP in [`cad/SparkShift_Accessories_v26/step/`](cad/SparkShift_Accessories_v26/step/).
 P04R, P06–P09, P12–P16, P27 and P28 come laid flat for printing. The rest are in their assembly
-position, so lay each on a flat face in the slicer (P01 rear face down, P24 on the face that sits
-against P02). The Colour column is a suggested scheme; see [Colour scheme](#colour-scheme).
+position, so lay each on a flat face in the slicer (P01 rear face down, P21 top face down, P24 on the
+face that sits against P02). The Colour column is a suggested scheme; see [Colour scheme](#colour-scheme).
 
 The first carriage has been printed and assembled. Revision 41 reworks the parts that build showed
-problems with: P02, P03, P20, P21, P22 and P24
-([details](cad/SparkShift_Accessories_v26/README.md#first-build-fixes-p24-cpap-joints-and-outlet-p22-mounts-servo-recess-p03-per-magnet-revision-41)).
+problems with: P01, P02, P03, P20, P21, P22 and P24
+([details](cad/SparkShift_Accessories_v26/README.md#first-build-fixes-p24-cpap-joints-and-outlet-p22-mounts-p21-print-face-servo-recess-p03-per-magnet-revision-41)).
 The tools, docks and rack haven't been printed yet. **Print a first-article set first**: the
 carriage, one Bambu tool, one Red Lizard tool and two docks. Check:
 
 - the MG90D in P02's tighter recess (12.20 × 22.90 mm) with no slack, and your magnets in the P03
   made for them (new in revision 41);
-- P24's four heat-set inserts, pressed in from the side that faces P02, and the EBB42 on them
+- P24's four heat-set inserts, pressed in from the side that faces P02, and the EBB42 on them; the
+  hall sensor's three leads laid in the groove under the motor, through P02 and P24 to the board
   (new in revision 41);
 - the CPAP joints going together, P22's cheeks bearing flat on P01's bosses, and the jets blowing
-  across the nozzle rather than down at the bed (new in revision 41);
+  across the nozzle at the fresh plastic rather than down at the bed (new in revision 41). The
+  [CFD](cad/SparkShift_Accessories_v26/README.md#cpap-airflow-cfd-revision-41) puts the blower at
+  about 192 L/min through this duct with 1 m of hose (released duct: 131 L/min);
 - the P18 bushing seats (Ø7.04 mm) and P25 pin bores (Ø4.98 mm) with your actual
   bushings and pins (new in revision 39);
 - the snap jaws closing on P18's T-lugs;
@@ -45,8 +48,8 @@ Before making the silicone pads and wipers, measure a real Bambu nozzle: its tip
 
 | Part | File | Qty | Colour | Notes |
 |---|---|---:|---|---|
-| P01 back case | [P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW](cad/SparkShift_Accessories_v26/stl/P01_Back_case_COTS_MR74_Lowered_Bosses_R31_REVIEW.stl) | 1 | Magenta | P22 mount bosses 1.5 mm lower (revision 31). Printed rear face down, each boss starts with a 1 mm unsupported crescent. |
-| P02 motor/servo plate | [P02_Motor_Servo_Plate_MG90D_Snug_Pocket_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P02_Motor_Servo_Plate_MG90D_Snug_Pocket_R41_REVIEW.stl) | 1 | Violet | Tighter servo recess, 12.20 × 22.90 mm (revision 41) |
+| P01 back case | [P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW.stl) | 1 | Magenta | P22 mount bosses 1.5 mm lower (revision 31); the tab under the +X front frame screw cut off (revision 41). Printed rear face down, each boss starts with a 1 mm unsupported crescent. |
+| P02 motor/servo plate | [P02_Motor_Servo_Plate_MG90D_Snug_Pocket_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P02_Motor_Servo_Plate_MG90D_Snug_Pocket_R41_REVIEW.stl) | 1 | Violet | Tighter servo recess, 12.20 × 22.90 mm; a groove under the motor for the hall sensor's leads (revision 41) |
 | P03 front case | One of: [15×5×3 bars](cad/SparkShift_Accessories_v26/stl/P03_Front_Case_Magnets_15x5x3_R41_REVIEW.stl), [12×6×3 bars](cad/SparkShift_Accessories_v26/stl/P03_Front_Case_Magnets_12x6x3_R41_REVIEW.stl), [Ø6×4 discs](cad/SparkShift_Accessories_v26/stl/P03_Front_Case_Magnets_D6x4_R41_REVIEW.stl), [Ø6×3 discs](cad/SparkShift_Accessories_v26/stl/P03_Front_Case_Magnets_D6x3_R41_REVIEW.stl) | 1 | Violet | Print the one for your magnets (revision 41) |
 | P04F swing arm, front | [P04F_Swing_arm_front_half_COTS](stl_v26/P04F_Swing_arm_front_half_COTS.stl) | 1 | Orange | Locking hook |
 | P04R swing arm, rear | [P04R_Swing_arm_rear_half](stl_v26/P04R_Swing_arm_rear_half.stl) | 1 | Orange | |
@@ -57,10 +60,10 @@ Before making the silicone pads and wipers, measure a real Bambu nozzle: its tip
 | P13, P14 GT2 tooth liners | [left](stl_v26/P13_Left_tooth_liner.stl), [right](stl_v26/P14_Right_tooth_liner.stl) | 1 each | Orange | |
 | P15, P16 belt arches | [left](stl_v26/P15_Left_belt_arch.stl), [right](stl_v26/P16_Right_belt_arch.stl) | 1 each | Yellow | |
 | P20 CPAP hose inlet | [P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW.stl) | 1 | Blue | 1.25 mm sleeve wall (revision 41); button-head lugs (revision 40) |
-| P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW.stl) | 1 | Cyan | 1.25 mm socket and sleeve walls (revision 41); moved inserts (revision 40) |
-| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW.stl) | 1 | Teal | Taller horizontal jets, 1.7× the area; cheeks bolt flat to P01's bosses (revision 41). Beside the hotend: GF/CF ABS or ASA |
+| P21 CPAP gantry bridge | [P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW.stl) | 1 | Cyan | 1.25 mm socket and sleeve walls, one flat top to print on (revision 41); moved inserts (revision 40). Print top face down |
+| P22 CPAP lower plenum | [P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW.stl) | 1 | Teal | Taller horizontal jets, 1.7× the area, with bell-mouth entries; cheeks bolt flat to P01's bosses (revision 41). Print on its back face. Beside the hotend: GF/CF ABS or ASA |
 | P23 probe mount | [P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW](cad/SparkShift_Accessories_v26/stl/P23_Probe_Mount_Raised_Rear_Ears_R37_REVIEW.stl) | 1 | Lime | Beacon RevH Normal or Cartographer V3 |
-| P24 EBB42 mount | [P24_EBB42_Frame_Mount_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P24_EBB42_Frame_Mount_R41_REVIEW.stl) | 1 | Lime | Plain frame, no wire comb (revision 41). Print on the face that sits against P02 |
+| P24 EBB42 mount | [P24_EBB42_Frame_Mount_R41_REVIEW](cad/SparkShift_Accessories_v26/stl/P24_EBB42_Frame_Mount_R41_REVIEW.stl) | 1 | Lime | Plain frame, no wire comb; the hall sensor's groove runs right through to the board (revision 41). Print on the face that sits against P02 |
 
 The core parts are the COTS drop-in variants that [BOM.md](BOM.md) recommends, P02 and P03 in their
 revision-41 forms; they take standard bearings, dowels and servo parts.
@@ -177,6 +180,8 @@ each of the ten tools. These items differ in the current parts:
     slots in P24.
   - P22 to P01: 2× M3×8 ISO 7380 button-head screws (were M3×10 socket heads) on the cheeks' front
     faces, into the same inserts in P01's bosses.
+  - P24 to P21: the same 2× M3×8 screws and M3 inserts. P21's saddle is 0.62 mm higher, so each
+    insert pocket opens through a 0.62 mm counterbore: press the insert to the bottom of it.
   - P03: the magnets for your variant (4 bars or 8 discs), glued in, faces 0.2 mm proud. Ø6×4 discs
     sit on 0.5 mm floors at three of the eight places, so glue them rather than pressing hard; Ø6×3
     discs or bars avoid that.

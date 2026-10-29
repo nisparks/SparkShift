@@ -6,16 +6,22 @@ Printing and assembling the carriage showed these problems:
   3. the CPAP joints went together well but had thin walls;
   4. P03 should come in one variant per magnet instead of one universal pocket;
   5. the MG90D servo had a little slack in P02's recess;
-  6. P22's cheeks wrapped P01's front bosses with walls down to 0.05 mm.
+  6. P22's cheeks wrapped P01's front bosses with walls down to 0.05 mm;
+  7. P21's top, its print face, was on two levels: the saddle under P24 sat 0.62 mm below the trunk rim;
+  8. the hall sensor's leads had no way through P02, and P24's groove for them stopped 8.2 mm short of the EBB42;
+  9. P01 kept a tab under its +X front frame screw, in a matching slot in P03.
 
-Revision 41 changes P20, P21 and P22 (joints, horizontal outlet jets, face mounts on P01), replaces P24 with a
-plain frame, tightens P02's servo recess and splits P03 into four magnet variants. Every interface (fastener
-positions, the EBB42 and probe positions, the outer shape of the CPAP parts) stays where it was.
+Revision 41 changes P20, P21 and P22 (joints, horizontal bell-mouth jets, face mounts on P01, one flat top on
+P21), replaces P24 with a plain frame, tightens P02's servo recess, opens a groove for the hall sensor's leads
+through P02 and P24, cuts P01's tab off and splits P03 into four magnet variants. Every
+interface (fastener positions, the EBB42 and probe positions, the outer shape of the CPAP parts) stays where it
+was, except that P24 now sits 0.62 mm higher on P21's raised saddle.
 """
 import json
 
 import cadquery as cq
 from OCP.BRepBuilderAPI import BRepBuilderAPI_Transform
+from OCP.BRepPrimAPI import BRepPrimAPI_MakePrism
 from OCP.gp import gp_Trsf, gp_Vec
 from OCP.ShapeUpgrade import ShapeUpgrade_UnifySameDomain
 from OCP.TopoDS import TopoDS
@@ -25,10 +31,12 @@ import r37_parts as P37
 import r40_parts as P40
 from build_bambu_clean_r29 import single
 from build_carriage_lowered_mounts_r31 import BOSS_X as P01_BOSS_X, BOSS_Y as P01_BOSS_Y, NEW_Z as P01_BOSS_Z
+from build_carriage_lowered_mounts_r31 import NAMES as R31_NAMES
 from build_modular_toolhead import load
 
 a = acc
 NAMES = {
+    "p01": "P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
     "p20": "P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW",
     "p21": "P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW",
     "p22": "P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW",
@@ -104,6 +112,7 @@ NOTCH_Y, RECESS_Y, BOSS_Y = -37.66, -37.72, -38.97
 OLD_NOTCH_HALF, NOTCH_HALF, RECESS_HALF, BOSS_HALF = 2.80, 3.20, 3.26, 4.46
 P20_SPLIT, P20_SLEEVE_BOT = -17.78, -21.58
 P21_TOP, P21_BOT, P21_SLEEVE_BOT = -17.78, -49.00, -51.40
+SADDLE_Z = -18.40                     # released P21 saddle under P24, 0.62 mm below the rest of P21's top
 
 
 def corridor(offset_r, z0, z1):
@@ -169,6 +178,18 @@ def p20():
     return single(unify(body), "revision-41 P20")
 
 
+def saddle_raise(body):
+    """P21's top as one plane: the saddle under P24 (Z-18.40) is extruded up to the trunk rim and the P20-lug
+    bosses (P21_TOP), so the part prints top-down on a single flat face. The face's two insert holes go straight
+    up through the new layer; the inserts stay where they were, 0.62 mm under the new face."""
+    faces = [f for f in body.Faces() if f.geomType() == "PLANE" and f.normalAt().z > 0.99
+             and abs(f.BoundingBox().zmin - SADDLE_Z) < 1e-6 and abs(f.BoundingBox().zmax - SADDLE_Z) < 1e-6]
+    if len(faces) != 1:
+        raise ValueError(f"P21 saddle: {len(faces)} faces at Z{SADDLE_Z}")
+    layer = shape(BRepPrimAPI_MakePrism(faces[0].wrapped, gp_Vec(0, 0, P21_TOP - SADDLE_Z)).Shape())
+    return fuse(body, layer)
+
+
 def p21():
     body = load(P40.NAMES["p21"])
     body = fuse(body, socket_fill(-21.58, P21_TOP))
@@ -177,6 +198,7 @@ def p21():
     body = fuse(body, common(cable_boss(BOSS_Y, P21_BOT, -21.58), [corridor(OLD_BORE, P21_BOT, -21.58)]))
     body = cut(body, [shape(a.cyl_z(0.0, -34.5, P21_SLEEVE_BOT - 1.0, P21_TOP + 1.0, 1.95)),
                       shape(a.box(-1.95, 1.95, -34.5, -30.0, P21_SLEEVE_BOT - 1.0, P21_TOP + 1.0))])
+    body = saddle_raise(body)
     return single(unify(body), "revision-41 P21")
 
 
@@ -226,8 +248,30 @@ def lip_cut(side):
     return shape(a.box(lo, hi, y0, y1, z0, z1))
 
 
-def outlet_cutters():
-    return [c for side in (-1, 1) for c in (vane_cut(side), lip_cut(side))]
+# Bell-mouth jets (from the CFD, cfd_cpap_r41.py). The air comes down the duct face of the duct-to-slot wall and
+# turns under it into the jet. Off a square corner it springs clear and leaves through about 0.56 of the opening,
+# so the blower has to push it out faster than the opening needs. Rounding that corner, radius the wall's 1.4 mm
+# thickness, lets the air follow it round. The wall's lowest point stays at ROOF on the slot side, a 90 degree
+# edge, so the jets keep their height under the Red Lizard. P22 prints on its back face, so the round lies flat
+# in every layer. The round runs where the duct face is straight; behind Y18 the wall thickens to |X| 11.76 at
+# Y17, and the cut squares that off below the round's top (a ledge up to 0.16 mm) rather than leave a fin. It
+# stops at the heel behind (which crosses ROOF at Y16.87) and before the front roof, which slopes down over the
+# jet's last 1.7 mm and leads the air in itself.
+JET_LIP_R = 1.4
+JET_LIP_Y = (17.0, 26.2)
+JET_LIP_X_OUT = 11.9                             # past the thickened wall at the rear (|X| 11.76 at Y17)
+
+
+def jet_lip_cut(side):
+    x = side * WALL_X[1]
+    lo, hi = sorted((x - side * JET_LIP_R, side * JET_LIP_X_OUT))
+    corner = shape(a.box(lo, hi, JET_LIP_Y[0], JET_LIP_Y[1], ROOF - 0.01, ROOF + JET_LIP_R))
+    return corner.cut(shape(a.cyl_y(x - side * JET_LIP_R, ROOF + JET_LIP_R, JET_LIP_Y[0] - 0.1, JET_LIP_Y[1] + 0.1,
+                                    JET_LIP_R)))
+
+
+def outlet_cutters(bell_mouth=True):
+    return [c for side in (-1, 1) for c in (vane_cut(side), lip_cut(side)) + ((jet_lip_cut(side),) if bell_mouth else ())]
 
 
 # --------------------------------------------------------------------------------------------
@@ -279,10 +323,11 @@ def p22_front_edge():
             for lo, hi in ((x0, 25.0), (-25.0, -x0))]
 
 
-def p22():
+def p22(bell_mouth=True):
+    """bell_mouth=False gives revision 41's first, square-edged jets (the CFD's comparison case)."""
     body, _ = P37.p22()
     body = fuse(body, socket_fill(P21_SLEEVE_BOT, P21_BOT), *counterbore_fills())
-    body = cut(body, outlet_cutters() + p22_front_edge() + cheek_cuts() + [
+    body = cut(body, outlet_cutters(bell_mouth) + p22_front_edge() + cheek_cuts() + [
         shape(a.cyl_z(0.0, -34.5, -58.6, -48.0, 1.95)),
         shape(a.box(-1.95, 1.95, -34.5, -30.0, -58.6, -48.0)),
     ])
@@ -294,7 +339,9 @@ def p22():
 # windows for the EBB42's connectors, which left 0.03-0.85 mm walls around the inserts and thin arcs where
 # the motor-bore cutter sliced through its legs and feet.
 # Revision 41 keeps every interface: the EBB42 on its four corner standoffs (Y-25.40), the two vertical M3s
-# into P21 at (+-6, -15.8), and bearing on P02's rear face (Y-6.70). The frame is a bottom block on P21, a
+# into P21 at (+-6, -15.8), and bearing on P02's rear face (Y-6.70). Its underside sits on P21's saddle, which
+# revision 41 raises 0.62 mm to P21's top plane (Z-17.78), so the foot under the deck is 0.62 mm shorter; the
+# deck and everything above it stay put. The frame is a bottom block on P21, a
 # solid wall at +X, a column at -X, a block over each top corner and a tower under each bottom corner, all
 # reaching P02's face, which is also the print face. Clearances follow the EBB42's actual parts, its
 # connectors' plugs and wires, the motor body and lead connector, the probe cable and the hall-sensor leads.
@@ -312,10 +359,13 @@ def p22():
 # --------------------------------------------------------------------------------------------
 EBB_CORNERS = {"TR": (-16.748, 22.0), "TL": (14.252, 22.0), "BL": (14.252, -9.0), "BR": (-16.748, -9.0)}
 Y_SEAT, Y_FRONT = -25.40, -6.70
+HALL_GROOVE = (-2.00, 2.00, -16.10, -14.0)   # X and Z of the hall sensor leads' groove under the motor, through P02
+                                             # and P24 to the EBB42's side of the frame; the motor is its roof
 BOSS_R = 3.5
 INSERT = (-22.60, -18.60, 2.00)        # heat-set pocket: Y range and radius
 CLEAR_R, PRESS_R = 1.70, 2.20          # screw clearance behind the insert; pressing channel in front of it
-Z_BASE, Z_BLOCK_TOP = -18.40, -14.40   # underside on P21's saddle; top of the bottom deck, under the motor
+Z_BASE, Z_BLOCK_TOP = P21_TOP, -14.40  # underside on P21's saddle (raised to P21's top plane); top of the bottom
+                                       # deck, under the motor
 Z_DECK = -16.95                        # below this P24 keeps to P21's saddle outline: at the X limits the 9 mm 2WD
                                        # XY joints reach in to |X|10.7 behind Y-13.75, their M5 heads up to Z-17.63
 SADDLE = [(-9.20, -34.50), (-9.20, -12.10), (-21.00, -9.70), (-21.00, 0.30), (21.00, 0.30), (21.00, -9.70),
@@ -380,9 +430,10 @@ def p24():
         # motor body and its lead connector (its leads are routed above the bottom block, Z-13.8..-4.8)
         a.cyl_y(MOTOR[0], MOTOR[1], -17.2, 1.0, MOTOR[2] + 0.5),
         a.box(-19.85, -10.44, -17.45, -10.95, -14.35, -4.94),
-        # probe cable (revision-37 route) turning up into the bay; hall-sensor leads under the motor
+        # probe cable (revision-37 route) turning up into the bay; hall-sensor leads under the motor, in a groove
+        # right through to the EBB42's side of the frame (it stopped at the motor's end cap, 8.2 mm short)
         a.box(-1.95, 1.95, -26.0, -19.40, -19.0, -14.0),
-        a.box(-2.00, 2.00, -17.20, Y_FRONT + 0.1, -16.10, -14.0),
+        a.box(HALL_GROOVE[0], HALL_GROOVE[1], Y_SEAT - 0.2, Y_FRONT + 0.1, HALL_GROOVE[2], HALL_GROOVE[3]),
     ]
     # core button heads on P02's rear face (the plate-to-P01 screw and the upper motor-ear screw), in U-slots;
     # the lower one also opens out through the block's +X face, so its wall can't meet the motor arc at a point
@@ -405,8 +456,11 @@ def p24():
 # P02: a snug servo pocket. Released: the MG90D's gear tower sits in P02's 7 mm plate and the top 4.5 mm of its
 # body in a recess 12.30 x 23.05 mm. TowerPro gives the body as 12.2 x 22.8 mm, so it could shift 0.1 mm across
 # and 0.25 mm along, and the two M2 ear screws took the torque. Revision 41 keeps the same recess, only
-# smaller: SERVO_POCKET, centred on the servo, is line to line across and 0.05 mm long at each end. Nothing else
-# on P02 changes. If your servo measures differently, change SERVO_POCKET.
+# smaller: SERVO_POCKET, centred on the servo, is line to line across and 0.05 mm long at each end. If your
+# servo measures differently, change SERVO_POCKET.
+# The A1104 hall sensor's leads end 0.4 mm in front of P02, against the solid strip under the motor bore (Y-0.9
+# to -6.7), so they had no way through to P24 and the EBB42. P02 gets P24's groove (HALL_GROOVE) through that
+# strip, leaving 1.68 mm under it. Nothing else on P02 changes.
 # --------------------------------------------------------------------------------------------
 SERVO_DATASHEET = (12.2, 22.8)                 # MG90D body: width (X) and length (Z)
 SERVO_POCKET = (12.20, 22.90)
@@ -424,7 +478,21 @@ def pocket_box(size, y0=PLATE_REAR - 0.1):
 def p02():
     body = load("P02_Motor_servo_plate_12p5mm")
     body = fuse(body, a.box(POCKET[0], POCKET[1], PLATE_REAR, POCKET_FLOOR, POCKET[2], POCKET[3]))
-    return single(unify(cut(body, [pocket_box(SERVO_POCKET)])), "revision-41 P02")
+    hall = a.box(HALL_GROOVE[0], HALL_GROOVE[1], Y_FRONT - 0.1, -0.4, HALL_GROOVE[2], HALL_GROOVE[3])
+    return single(unify(cut(body, [pocket_box(SERVO_POCKET), hall])), "revision-41 P02")
+
+
+# --------------------------------------------------------------------------------------------
+# P01: no tab. Since the v26 original, P01 (the print set's revision-31 back case) has had a block 5.3 x 2.9 x 1.9 mm
+# under the boss of its +X front frame screw (X15.35-20.65, Y26.1-29.0, Z-19.25..-17.35), modelled line to line in
+# a matching slot in P03, and nothing like it on the -X side. Revision 41 cuts it off at the boss's own bottom
+# (Z-17.40); P03's slot stays as it is, an empty pocket inside the case. Nothing else on P01 changes.
+# --------------------------------------------------------------------------------------------
+P01_TAB = (15.25, 20.75, 26.0, 29.1, -19.35, -17.40)
+
+
+def p01():
+    return single(unify(cut(load(R31_NAMES["p01"]), [shape(a.box(*P01_TAB))])), "revision-41 P01")
 
 
 # --------------------------------------------------------------------------------------------

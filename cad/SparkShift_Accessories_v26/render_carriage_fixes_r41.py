@@ -2,7 +2,7 @@
 
 79: P24 released and revision 41; the CPAP joints in section; the outlet in section through the nozzle.
 80: P02's servo recess, released and tightened; P22's cheek on P01's boss, wrapped and face-mounted; the four P03
-    magnet variants.
+    magnet variants; the hall sensor leads' groove through P02 and P24, in section; P01's tab, released and cut off.
 
 Run after build_carriage_fixes_r41.py: python render_carriage_fixes_r41.py
 """
@@ -42,10 +42,14 @@ def view(items, clip, eye, target, title, zoom=1.0, up=(0, 0, 1)):
     return image
 
 
-def motor_and_servo():
-    meta = json.loads((primitives.WORK / "v26_meta.json").read_text())
+def v26_parts():
     import build_and_verify_accessories_v26 as acc
-    v26 = {m["name"]: P37.shape(s) for m, (s, _) in zip(meta, acc.load_brep_list(acc.WORK / "v26_cache.brep"))}
+    meta = json.loads((primitives.WORK / "v26_meta.json").read_text())
+    return {m["name"]: P37.shape(s) for m, (s, _) in zip(meta, acc.load_brep_list(acc.WORK / "v26_cache.brep"))}
+
+
+def motor_and_servo():
+    v26 = v26_parts()
     return [v26[n] for n in v26 if n.startswith("AHG laminated") or n.startswith("AHG rear")], v26["HOBBY_SERVO_ENVELOPE"]
 
 
@@ -82,9 +86,9 @@ def image_79(report):
              f"Released outlet, cut through the nozzle: 1.8 mm horizontal jets under knife-edge vanes, "
              f"{o['narrowest_mm2']['released_mm2']:.0f} mm2 in all", zoom=3.0),
         view([(load(R.NAMES["p22"]), TEAL)] + [(s, GREY) for s in bambu], outlet, *front,
-             f"Revision 41: still horizontal, {R.ROOF + 76.65:.2f} mm tall under a flat 1.4 mm wall, "
-             f"{o['narrowest_mm2']['r41_mm2']:.0f} mm2 in all\n({o['area_ratio']:.1f}x); solid floor below, nothing "
-             f"blows down at the bed", zoom=3.0),
+             f"Revision 41: still horizontal, {R.ROOF + 76.65:.2f} mm tall under a 1.4 mm wall rounded into a "
+             f"bell-mouth on its duct side,\n{o['narrowest_mm2']['r41_mm2']:.0f} mm2 in all ({o['area_ratio']:.1f}x); "
+             f"solid floor below, nothing blows down at the bed", zoom=3.0),
     ]
     out = ROOT / "images" / "79_carriage_fixes_r41_p24_joints_outlet.png"
     sheet(panels, 2, SIZE, out)
@@ -113,7 +117,7 @@ def image_80(report):
         view([(load(R.NAMES["p02"]), VIOLET), (servo, NAVY)], clip, *recess,
              f"Revision 41: the same recess, {p['recess_mm']['r41'][0]:.2f} x {p['recess_mm']['r41'][1]:.2f} mm: line "
              f"to line across the 12.2 x 22.8 body,\n{p['play_per_side_mm']['r41']['along']:.2f} mm at each end; "
-             f"nothing else on P02 changes", zoom=1.15),
+             f"the rest of P02 is unchanged but for the hall groove", zoom=1.15),
         view([(P37.p22()[0], TEAL), (p01, (0.75, 0.2, 0.55))] + [(s, STEEL) for s in old_hw], cheek_clip,
              *cheek_view, f"Released P22 cheek, cut along the screw, from above (P01 magenta): wrapped round P01's "
              f"boss,\nwalls down to {m['released_walls']['min_mm']:.2f} mm, the boss showing through its top",
@@ -133,6 +137,37 @@ def image_80(report):
                            f"{q['proud_of_front_face_mm']:.2f} mm proud" +
                            ("\npockets open into the centre slot where the wall would be under 0.6 mm" if opens else
                             "\n0.75 mm wall to the centre slot"), zoom=2.0))
+    # the hall sensor's leads: P02 cut across the groove at Y-4.0, seen from behind (-Y), the sensor (navy) beyond it
+    h = report["hall_lead_path"]
+    v26 = v26_parts()
+    motor = [v26[n] for n in v26 if n.startswith(("AHG laminated", "AHG rear", "AHG front"))]
+    around = [(v26["STOCK_059_A1104_hall_effect_sensor_1"], NAVY), (load(R.NAMES["p21"]), TAN)] + \
+             [(s, GREY) for s in motor]
+    cut_y, rear_view = box(-12.0, 12.0, -4.0, 20.0, -21.0, -6.0), ((0.0, -300.0, -14.5), (0.0, -4.0, -14.5))
+    gone = h["released_in_path"]
+    panels += [
+        view([(load("P02_Motor_servo_plate_12p5mm"), VIOLET)] + around, cut_y, *rear_view,
+             f"Released P02 cut at Y-4 from behind: its solid strip under the motor (grey) hides the hall sensor's "
+             f"leads;\nP02 fills {gone['P02']['y_mm'][1] - gone['P02']['y_mm'][0]:.1f} mm of their way to the EBB42 and "
+             f"the released P24 {gone['P24']['y_mm'][1] - gone['P24']['y_mm'][0]:.1f} mm", zoom=3.2),
+        view([(load(R.NAMES["p02"]), VIOLET)] + around, cut_y, *rear_view,
+             f"Revision 41: a {h['groove_mm']['width']:.1f} x {h['groove_mm']['depth_under_motor']:.1f} mm groove under "
+             f"the motor opens onto the sensor (navy)\nand runs on through P24 to the board; "
+             f"{h['groove_mm']['floor_over_p21']:.2f} mm under it", zoom=3.2),
+    ]
+    # P01's tab under the +X front frame screw, P03 hidden, from the front, right and below
+    p01 = report["parts"]["P01"]
+    screw = [(v26["CLAM_M3x25_FRAME_2"], STEEL)]
+    tab_clip, tab_view = box(11.0, 26.0, 18.0, 31.0, -23.0, -11.0), ((118.5, 287.5, -77.5), (18.5, 27.5, -17.5))
+    t = R.P01_TAB
+    panels += [
+        view([(load(R31["p01"]), (0.75, 0.2, 0.55))] + screw, tab_clip, *tab_view,
+             f"Released P01 with P03 hidden: a {20.65 - 15.35:.1f} x {29.0 - 26.1:.1f} x {19.25 - 17.35:.1f} mm tab under "
+             f"the +X front frame screw,\nline to line in a slot in P03; nothing like it on the -X side", zoom=2.6),
+        view([(load(R.NAMES["p01"]), (0.75, 0.2, 0.55))] + screw, tab_clip, *tab_view,
+             f"Revision 41: cut off at the boss's own bottom (Z{t[5]:.2f}), "
+             f"{p01['released_volume_mm3'] - p01['volume_mm3']:.1f} mm3; P03's slot stays, empty", zoom=2.6),
+    ]
     out = ROOT / "images" / "80_carriage_fixes_r41_servo_mounts_magnets.png"
     sheet(panels, 2, SIZE, out)
     return out
