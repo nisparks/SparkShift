@@ -1164,7 +1164,7 @@ at the bed, and the servo only needed a tighter recess).
   - Each jet's entry is a bell-mouth. The air comes down the duct side of that wall and turns under
     it into the jet. Off a square corner it sprang clear and used about 56 % of the opening (the
     [CFD](#cpap-airflow-cfd-revision-41) found this). The corner is now rounded to the wall's own
-    1.4 mm thickness, from Y17.0 to Y26.2, and the air follows it round: at 180 L/min the duct
+    1.4 mm thickness, from the jet's heel (Y16.7) to Y26.2, and the air follows it round: at 180 L/min the duct
     needs 45 % less pressure. The slot side keeps its square edge at Z-73.6, so the jets' top
     doesn't move. P22 prints on its back face, so the round lies flat in every layer.
   - The jets can only grow upward: P22's underside is 1 mm above the nozzle tip, under a 1.2 mm
@@ -1183,6 +1183,21 @@ at the bed, and the servo only needed a tighter recess).
   - Just behind each boss, the released pocket round it dipped up to 0.1 mm below P22's outer
     skin. Cutting the cheek back to the skin left that as a small crescent pit in the roof
     (0.01 mm³); both are filled flush.
+- **Clean surfaces for printing.** A face-by-face audit of P20, P21 and P22 found slivers where
+  revision 41's cuts met the released shapes: too small to see, but enough to leave specks or gaps
+  in a slice. Each cut now follows the duct's own outline, and P22 goes from 249 faces to 232
+  (0.54 mm³ less):
+  - P22's socket: the cut that squares off its front edge follows the duct's plan outline, so it
+    leaves no 0.014 mm sliver along the cable boss and no 0.4 mm notch at the corner.
+  - P22's jets: the vane's flat bottom and the bell-mouth rounds follow the duct's own profile. No
+    0.03 mm strip of the vane's old underside is left at either jet's heel (Y16.7, where the floor
+    rises to the wall's flat bottom), and each round now starts right there. The end of the
+    released 0.5 mm fillet at the front corner of each jet's floor is trimmed off.
+  - P20: behind the sleeve, the released cable boss's top stood 0.32 mm proud of the new boss in two
+    thin strips. The new boss's back is raised 0.07 mm over it (2.75 mm³ more).
+  - What's left is by design (each round's 0.25 mm ledge at Z-72.2 and its square end at Y26.2) or
+    older than revision 41 (a 0.05 mm strip in P22's cable channel, and the taper where its nose
+    fillet runs out at Y29). P21 had nothing to fix.
 - **P02: a snug servo recess.** The MG90D's top 4.5 mm sits in the same recess in P02's rear face,
   now 12.20 × 22.90 mm (released 12.30 × 23.05). That is line to line across TowerPro's
   12.2 × 22.8 mm body and 0.05 mm at each end (released 0.05 and 0.125 mm). Apart from the hall
@@ -1239,7 +1254,7 @@ at the bed, and the servo only needed a tighter recess).
 - **Joints.** The sleeves keep 0.18 mm radial slip and the cable bosses 0.06 mm. The thinnest joint
   walls are 1.21-1.22 mm (released 0.78, 0.79 and 0.03 mm); the bore through each sleeve is
   213 mm².
-- **Outlet.** The jets' narrowest section is 58.9 mm² (released 33.9 mm²) and the floor under them
+- **Outlet.** The jets' narrowest section is 59.1 mm² (released 33.9 mm²) and the floor under them
   is solid. The outlet's thinnest wall is 1.2 mm (released 0.045 mm), leaving out the bell-mouth
   rounds: a ray cast reads any rounded corner as thin, so their profile is measured instead and
   matches the 1.4 mm radius to within 0.001 mm. The jets' top is 0.32 mm
@@ -1321,6 +1336,8 @@ less an allowance for 1 m of Ø19 mm CPAP hose, to find the flow the blower deli
   wall between each side channel and the hotend slot, so it used about 56 % of the opening. With the
   corner rounded (r 1.4 mm) the air follows it round and uses about 77 % of it. At 180 L/min the
   duct needs 45 % less pressure, so the blower moves 21 % more air: 192 L/min instead of 158.
+  These runs predate the final surface clean-up, which starts each round 0.31 mm earlier, at the
+  jet's heel; the jets' narrowest section grows 0.2 % (59.0 to 59.1 mm²), too little to move them.
 - **The elbow.** Where the air turns from P21 into P22 it leaves P22's roof: just past the turn
   17 % of the section flows backwards (about 10 L/min going round), and by Y-20 it has reattached.
   The air there moves at only about 15 m/s, so this costs 78 Pa at 180 L/min, about 2.8 % of the

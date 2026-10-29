@@ -5030,38 +5030,38 @@
       }
     },
     "task_seconds": {
-      "bed {}": 36.1,
-      "lateral {}": 67.1,
-      "traverse {\"label\": \"Bambu\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ": 147.3,
-      "traverse {\"label\": \"Bambu\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95, 96": 135.7,
-      "traverse {\"label\": \"Bambu\", \"xs\": [176, 177, 178, 179, 180, 181, 182,": 136.3,
-      "traverse {\"label\": \"Bambu\", \"xs\": [264, 265, 266, 267, 268, 269, 270,": 146.9,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ": 150.0,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95": 139.0,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [176, 177, 178, 179, 180, 181, ": 139.9,
-      "traverse {\"label\": \"RedLizard\", \"xs\": [264, 265, 266, 267, 268, 269, ": 149.3,
-      "crossbeam {\"steps\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,": 89.2,
-      "crossbeam {\"steps\": [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 4": 83.6,
-      "crossbeam {\"steps\": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 7": 8.1,
-      "crossbeam {\"steps\": [91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102": 5.0,
-      "bay {\"bay\": 0}": 126.2,
-      "bay {\"bay\": 1}": 126.9,
-      "bay {\"bay\": 2}": 127.7,
-      "bay {\"bay\": 3}": 126.9,
-      "bay {\"bay\": 4}": 126.4,
-      "bay {\"bay\": 5}": 127.6,
-      "bay {\"bay\": 6}": 128.1,
-      "bay {\"bay\": 7}": 125.6,
-      "bay {\"bay\": 8}": 127.2,
-      "bay {\"bay\": 9}": 126.7,
-      "dock_motion {\"label\": \"Bambu\"}": 94.8,
-      "dock_motion {\"label\": \"RedLizard\"}": 104.3,
-      "neighbours {\"label\": \"Bambu\", \"other\": \"Bambu\"}": 21.6,
-      "neighbours {\"label\": \"Bambu\", \"other\": \"RedLizard\"}": 26.1,
-      "neighbours {\"label\": \"RedLizard\", \"other\": \"Bambu\"}": 22.7,
-      "neighbours {\"label\": \"RedLizard\", \"other\": \"RedLizard\"}": 25.1,
-      "clearances {\"version\": \"r21\"}": 21.9,
-      "clearances {\"version\": \"r36\"}": 21.0
+      "bed {}": 41.5,
+      "lateral {}": 80.9,
+      "traverse {\"label\": \"Bambu\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ": 212.8,
+      "traverse {\"label\": \"Bambu\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95, 96": 200.7,
+      "traverse {\"label\": \"Bambu\", \"xs\": [176, 177, 178, 179, 180, 181, 182,": 200.7,
+      "traverse {\"label\": \"Bambu\", \"xs\": [264, 265, 266, 267, 268, 269, 270,": 214.0,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ": 215.6,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [88, 89, 90, 91, 92, 93, 94, 95": 202.7,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [176, 177, 178, 179, 180, 181, ": 203.1,
+      "traverse {\"label\": \"RedLizard\", \"xs\": [264, 265, 266, 267, 268, 269, ": 215.5,
+      "crossbeam {\"steps\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,": 147.2,
+      "crossbeam {\"steps\": [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 4": 137.6,
+      "crossbeam {\"steps\": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 7": 11.5,
+      "crossbeam {\"steps\": [91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102": 6.1,
+      "bay {\"bay\": 0}": 147.5,
+      "bay {\"bay\": 1}": 148.4,
+      "bay {\"bay\": 2}": 147.4,
+      "bay {\"bay\": 3}": 147.5,
+      "bay {\"bay\": 4}": 145.6,
+      "bay {\"bay\": 5}": 147.6,
+      "bay {\"bay\": 6}": 147.1,
+      "bay {\"bay\": 7}": 147.7,
+      "bay {\"bay\": 8}": 147.2,
+      "bay {\"bay\": 9}": 145.9,
+      "dock_motion {\"label\": \"Bambu\"}": 116.4,
+      "dock_motion {\"label\": \"RedLizard\"}": 126.5,
+      "neighbours {\"label\": \"Bambu\", \"other\": \"Bambu\"}": 25.3,
+      "neighbours {\"label\": \"Bambu\", \"other\": \"RedLizard\"}": 32.5,
+      "neighbours {\"label\": \"RedLizard\", \"other\": \"Bambu\"}": 27.4,
+      "neighbours {\"label\": \"RedLizard\", \"other\": \"RedLizard\"}": 34.8,
+      "clearances {\"version\": \"r21\"}": 29.7,
+      "clearances {\"version\": \"r36\"}": 28.8
     },
     "rack": {
       "pitch_mm": 37.3,
@@ -5133,8 +5133,8 @@
     },
     {
       "file": "step\\42_Cartographer_Mount_REVIEW.step",
-      "sha256": "522b996984630076d2c91279ff05f559311ffd741b170f1594b6e8898845b0dd",
-      "mb": 87.0
+      "sha256": "f3c23acf275dff62265e099295d7fb7fa705b5d7d49bcad945a0bffe822b5ca9",
+      "mb": 86.8
     }
   ],
   "hardware": {
@@ -5148,5 +5148,5 @@
     "The Cartographer's own cable route is not modelled; the Beacon's cable route stands in for it in the requalification and is left out of the fit and keepout checks."
   ],
   "failures": [],
-  "runtime_s": 692.3205490999972
+  "runtime_s": 828.2633867000113
 }

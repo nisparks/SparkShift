@@ -94,7 +94,8 @@ def common(base, tools):
 # a 45 degree taper leads into it from the part's own cavity. Above P20's split that cavity leans back
 # toward the hose cuff, so the taper fills out to the cavity wall rather than standing as a separate lip.
 # P22's socket floor met the roof of its forward sweep in a feather edge along the front (0.03 mm, released);
-# revision 41 cuts that edge back to the socket wall. P21 seats on P22's top rim, not on that edge.
+# revision 41 cuts that edge back to the socket wall. P21 seats on P22's top rim, not on that edge. The cut stays
+# inside the duct's own plan outline (p22_air_xy), so it stops exactly on the cable boss and the side walls.
 OLD_SOCKET, OLD_SLEEVE_OUT, OLD_BORE = (0.84, 2.7), (1.02, 2.5), (1.84, 2.0)   # (offset, corner radius)
 SOCKET_WALL, SLIP, SLEEVE_WALL = 1.25, 0.18, 1.25
 SOCKET = (SOCKET_WALL, 3.5 - SOCKET_WALL)
@@ -102,7 +103,7 @@ SLEEVE_OUT = (SOCKET_WALL + SLIP, 3.5 - SOCKET_WALL - SLIP)
 BORE = (SOCKET_WALL + SLIP + SLEEVE_WALL, 3.5 - SOCKET_WALL - SLIP - SLEEVE_WALL)
 TAPER = BORE[0] - OLD_BORE[0]
 CONE_RISE = 2.0                       # height of the 45 degree cone that bounds each taper fill
-P22_FRONT_EDGE = (3.65, -35.15, -51.95)  # |X| beyond P22's cable-boss nose, Y and Z limits of the cut-back
+P22_FRONT_EDGE = (-35.15, -51.95)      # Y and Z limits of the cut-back
 # Cable boss at the front centre of each joint (probe cable at X0, Y-34.5, r1.95): the socket's boss grows
 # back and sideways, the sleeve's matching recess follows with the same 0.06 mm slip, and the sleeve part's own
 # boss grows to keep 1.2 mm beside and behind the recess. Released: 0.85 mm around the cable in the socket's
@@ -111,6 +112,10 @@ OLD_NOTCH_Y, OLD_RECESS_Y, OLD_BOSS_Y = -37.30, -37.36, -38.15
 NOTCH_Y, RECESS_Y, BOSS_Y = -37.66, -37.72, -38.97
 OLD_NOTCH_HALF, NOTCH_HALF, RECESS_HALF, BOSS_HALF = 2.80, 3.20, 3.26, 4.46
 P20_SPLIT, P20_SLEEVE_BOT = -17.78, -21.58
+# Behind the released boss's wall the new boss rises to P20_BOSS_TOP, over the released boss's top (Z-12.62), so
+# none of it stands above the new one; in front of that wall it stops at the usual height, under the cavity's r4
+# blend, which crosses the new boss's corner at Z-12.62. The wall hides the change of height between the two.
+P20_BOSS_TOP, P20_BOSS_BACK_Y = -12.55, -36.9
 P21_TOP, P21_BOT, P21_SLEEVE_BOT = -17.78, -49.00, -51.40
 SADDLE_Z = -18.40                     # released P21 saddle under P24, 0.62 mm below the rest of P21's top
 
@@ -156,13 +161,18 @@ def socket_fill(z0, z1):
     return common(fuse(wall, boss), [released])
 
 
-def sleeve_fix(body, z_sleeve_bot, z_end):
+def sleeve_fix(body, z_sleeve_bot, z_end, back_top=None):
     """Male sleeve: shave the outside to SLEEVE_OUT, fill the bore to BORE, deepen the boss recess and grow
-    the part's own cable boss, then re-cut the probe-cable channel."""
+    the part's own cable boss, then re-cut the probe-cable channel. back_top (P20) raises the boss's back part."""
     shave = ring(OLD_SLEEVE_OUT, SLEEVE_OUT, z_sleeve_bot - 0.6, z_end)
     fill = ring(OLD_BORE, BORE, z_sleeve_bot, z_end)
     boss_top = z_end + TAPER + 4.0
     boss = common(cable_boss(BOSS_Y, z_sleeve_bot, boss_top), [corridor(OLD_BORE, z_sleeve_bot, boss_top)])
+    if back_top is not None:
+        back = common(cable_boss(BOSS_Y, z_sleeve_bot, back_top), [corridor(OLD_BORE, z_sleeve_bot, back_top),
+                                                                     shape(a.box(-10.0, 10.0, -45.0, P20_BOSS_BACK_Y,
+                                                                                 z_sleeve_bot - 1.0, back_top + 1.0))])
+        boss = fuse(boss, back)
     recess = shape(a.prism_xy_r([(-RECESS_HALF, -25.0), (-RECESS_HALF, RECESS_Y), (RECESS_HALF, RECESS_Y),
                                  (RECESS_HALF, -25.0)], RECESS_HALF - 0.41, z_sleeve_bot - 0.6, z_end))
     body = fuse(body, fill, cavity_fill(body, z_end), boss)
@@ -171,7 +181,7 @@ def sleeve_fix(body, z_sleeve_bot, z_end):
 
 def p20():
     body = load(P40.NAMES["p20"])
-    body = sleeve_fix(body, P20_SLEEVE_BOT, P20_SPLIT)
+    body = sleeve_fix(body, P20_SLEEVE_BOT, P20_SPLIT, P20_BOSS_TOP)
     body = cut(body, [shape(a.cyl_z(0.0, -34.5, P20_SLEEVE_BOT - 1.0, -15.8, 1.95)),
                       shape(a.cyl_y(0.0, -15.8, -34.5, -25.0, 1.95)),
                       shape(a.box(-1.95, 1.95, -34.5, -25.0, P20_SPLIT - 0.2, -13.85))])
@@ -220,25 +230,44 @@ ROOF = -73.6                                     # flat bottom of the duct-to-sl
 WALL_X = (10.2, 11.6)                            # |X| of that wall's faces: the hotend slot inside, the duct outside
 THROAT_Y = (16.0, 28.2)                          # Y range of the vane cut (the heel and the front wall bound it)
 LIP = (8.4, 15.0, 30.0, -78.5, -74.3)            # floor-lip trim: inner |X|, Y range and Z range (out to WALL_X[0])
-FLOOR_ARC = (22.383, -70.15, 6.5)               # Y, Z and radius of the heel where the channel floor curves up
-                                                 # (horn_yz_in's r6.5 corner); the cut stays above it
+# The duct's own YZ profile and plan outline, as build_p22_lower_plenum makes them (horn_yz_in, xy_inner_full,
+# cable_boss_nose and center_island_body), so the cuts below stop exactly on the released surfaces.
+HORN_IN = [(-43.56, -68.90), (-43.56, -48.50), (-35.04, -48.50), (-35.04, -51.40), (-21.413, -58.60), (0.00, -58.60),
+           (9.20, -58.60), (16.00, -62.40), (22.80, -70.10), (28.20, -73.40), (28.20, -76.65), (19.60, -76.65),
+           (12.20, -68.90)]
+HORN_IN_R = [14.8, 0, 0, 0, 61.0, 0, 14.5, 14.5, 10.5, 0.8, 0.5, 6.5, 6.5]
 XY_INNER = [(-12.16, -43.56), (-18.76, -37.36), (-18.76, -26.50), (-21.02, -19.50), (-21.02, 14.80),
             (-19.00, 22.00), (-13.80, 27.20), (-8.50, 28.20), (8.50, 28.20), (13.80, 27.20), (19.00, 22.00),
             (21.02, 14.80), (21.02, -19.50), (18.76, -26.50), (18.76, -37.36), (12.16, -43.56)]
 XY_INNER_R = [2.0, 2.0, 14.0, 14.0, 10.6, 8.6, 3.0, 0.0, 0.0, 3.0, 8.6, 10.6, 14.0, 14.0, 2.0, 2.0]
+XY_BOSS_NOSE = [(-3.65, -20.00), (-3.65, -38.15), (3.65, -38.15), (3.65, -20.00)]   # corner radius 3.0
+XY_ISLAND = [(-3.65, -36.50), (-3.65, -31.00), (-12.85, -16.50), (-12.85, 13.50), (-11.60, 17.50), (-11.60, 30.00),
+             (11.60, 30.00), (11.60, 17.50), (12.85, 13.50), (12.85, -16.50), (3.65, -31.00), (3.65, -36.50)]
+XY_ISLAND_R = [0.0, 14.0, 14.0, 4.0, 4.0, 0.0, 0.0, 4.0, 4.0, 14.0, 14.0, 0.0]
+# The heel: the channel floor rises from the jet's floor (Z-76.65, Y19.6) to Z-68.9 at Y12.2 (r6.5 at each end)
+# and crosses ROOF here, so the jet ends where the floor meets the wall's flat bottom.
+HEEL_Y = 19.60 + (ROOF + 76.65) * (12.20 - 19.60) / (76.65 - 68.90)
+
+
+def horn_in(x0, x1):
+    """The duct's air in side view: above its floor and below its roof."""
+    return a.prism_yz_r(HORN_IN, HORN_IN_R, x0, x1)
+
+
+def p22_air_xy(z0, z1):
+    """The duct's air in plan: inside its outer wall, outside the cable boss and the hotend's centre island."""
+    return cut(a.prism_xy_r(XY_INNER, XY_INNER_R, z0, z1),
+               [a.prism_xy_r(XY_BOSS_NOSE, 3.0, z0 - 1.0, z1 + 1.0), a.prism_xy_r(XY_ISLAND, XY_ISLAND_R, z0 - 1.0, z1 + 1.0)])
 
 
 def vane_cut(side):
-    """The vane below ROOF, inside the channel's outline and above the heel arc, so neither the front wall nor
-    the floor behind the louver is touched. It reaches |X| 12.9 because the wall thickens behind the jet (its outer
-    face runs out to |X| 12.85 by Y13.5); outboard of the wall it only cuts air."""
+    """The vane below ROOF, inside the channel's outline and above its floor, so neither the front wall nor the floor
+    behind the louver is touched and the wall's bottom is flat back to the heel. It reaches |X| 12.9 because the wall
+    thickens behind the jet (its outer face runs out to |X| 12.85 by Y13.5); outboard of the wall it only cuts air."""
     lo, hi = sorted((side * (WALL_X[0] - 0.05), side * 12.9))
-    yc, zc, r = FLOOR_ARC
     z0 = -75.0
-    above_floor = fuse(cq.Solid.makeCylinder(r, hi - lo + 2.0, cq.Vector(lo - 1.0, yc, zc), cq.Vector(1, 0, 0)),
-                       a.box(lo - 1.0, hi + 1.0, yc, THROAT_Y[1] + 1.0, z0 - 1.0, ROOF + 1.0))
     inside = a.prism_xy_r(XY_INNER, XY_INNER_R, z0 - 1.0, ROOF + 1.0)
-    return common(a.box(lo, hi, THROAT_Y[0], THROAT_Y[1], z0, ROOF), [above_floor, inside])
+    return common(a.box(lo, hi, THROAT_Y[0], THROAT_Y[1], z0, ROOF), [horn_in(lo - 1.0, hi + 1.0), inside])
 
 
 def lip_cut(side):
@@ -248,30 +277,44 @@ def lip_cut(side):
     return shape(a.box(lo, hi, y0, y1, z0, z1))
 
 
+# The released floor-to-front-wall fillet (r0.5, horn_yz_in's corner at Y28.2) runs straight across in X, but the
+# front wall slants back outboard of |X| 8.5, so a strip of fillet 0.03 mm high stood in front of it at the jet's
+# front corner (|X| 10.2-11.15). This trims it, so the jet's floor meets the front wall.
+JET_FLOOR_CORNER = (10.1, 11.3, 27.6, 28.3, -76.65, -76.3)
+
+
+def jet_floor_corner(side):
+    x0, x1, y0, y1, z0, z1 = JET_FLOOR_CORNER
+    return common(a.box(*sorted((side * x0, side * x1)), y0, y1, z0, z1),
+                  [a.prism_xy_r(XY_INNER, XY_INNER_R, z0 - 1.0, z1 + 1.0)])
+
+
 # Bell-mouth jets (from the CFD, cfd_cpap_r41.py). The air comes down the duct face of the duct-to-slot wall and
 # turns under it into the jet. Off a square corner it springs clear and leaves through about 0.56 of the opening,
 # so the blower has to push it out faster than the opening needs. Rounding that corner, radius the wall's 1.4 mm
 # thickness, lets the air follow it round. The wall's lowest point stays at ROOF on the slot side, a 90 degree
 # edge, so the jets keep their height under the Red Lizard. P22 prints on its back face, so the round lies flat
-# in every layer. The round runs where the duct face is straight; behind Y18 the wall thickens to |X| 11.76 at
-# Y17, and the cut squares that off below the round's top (a ledge up to 0.16 mm) rather than leave a fin. It
-# stops at the heel behind (which crosses ROOF at Y16.87) and before the front roof, which slopes down over the
-# jet's last 1.7 mm and leads the air in itself.
+# in every layer. The round runs where the duct face is straight; behind Y18 the wall thickens to |X| 11.85 at
+# the heel, and the cut squares that off below the round's top (a ledge up to 0.25 mm) rather than leave a fin. It
+# starts at the heel, where the floor meets the wall's bottom, and stops before the front roof, which slopes down
+# over the jet's last 1.7 mm and leads the air in itself.
 JET_LIP_R = 1.4
-JET_LIP_Y = (17.0, 26.2)
-JET_LIP_X_OUT = 11.9                             # past the thickened wall at the rear (|X| 11.76 at Y17)
+JET_LIP_Y = (HEEL_Y, 26.2)
+JET_LIP_X_OUT = 11.9                             # past the thickened wall at the rear (|X| 11.85 at the heel)
 
 
 def jet_lip_cut(side):
     x = side * WALL_X[1]
     lo, hi = sorted((x - side * JET_LIP_R, side * JET_LIP_X_OUT))
     corner = shape(a.box(lo, hi, JET_LIP_Y[0], JET_LIP_Y[1], ROOF - 0.01, ROOF + JET_LIP_R))
-    return corner.cut(shape(a.cyl_y(x - side * JET_LIP_R, ROOF + JET_LIP_R, JET_LIP_Y[0] - 0.1, JET_LIP_Y[1] + 0.1,
-                                    JET_LIP_R)))
+    corner = corner.cut(shape(a.cyl_y(x - side * JET_LIP_R, ROOF + JET_LIP_R, JET_LIP_Y[0] - 0.1, JET_LIP_Y[1] + 0.1,
+                                      JET_LIP_R)))
+    return common(corner, [horn_in(lo - 1.0, hi + 1.0)])
 
 
 def outlet_cutters(bell_mouth=True):
-    return [c for side in (-1, 1) for c in (vane_cut(side), lip_cut(side)) + ((jet_lip_cut(side),) if bell_mouth else ())]
+    return [c for side in (-1, 1)
+            for c in (vane_cut(side), lip_cut(side), jet_floor_corner(side)) + ((jet_lip_cut(side),) if bell_mouth else ())]
 
 
 # --------------------------------------------------------------------------------------------
@@ -329,10 +372,11 @@ def pit_fills():
 
 
 def p22_front_edge():
-    """The feather edge where P22's socket floor meets the roof of its forward sweep, cut back to the socket wall."""
-    x0, y0, z0 = P22_FRONT_EDGE
-    return [common(corridor(SOCKET, z0, P21_SLEEVE_BOT + 0.01), [shape(a.box(lo, hi, y0, -30.0, z0, P21_SLEEVE_BOT + 0.01))])
-            for lo, hi in ((x0, 25.0), (-25.0, -x0))]
+    """The feather edge where P22's socket floor meets the roof of its forward sweep, cut back to the socket wall,
+    within the duct's plan outline: it stops on the cable boss's side and on the duct's side walls."""
+    y0, z0 = P22_FRONT_EDGE
+    z1 = P21_SLEEVE_BOT + 0.01
+    return [common(corridor(SOCKET, z0, z1), [shape(a.box(-25.0, 25.0, y0, -30.0, z0, z1)), p22_air_xy(z0 - 1.0, z1 + 1.0)])]
 
 
 def p22(bell_mouth=True):
