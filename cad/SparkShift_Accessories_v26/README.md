@@ -1629,6 +1629,28 @@ upward past the hotend):
 - The review's studies ran 600 or 1200 iterations (as listed); revision 43's own cases ran to 1200
   (Bambu at 180, 120 and 240 L/min).
 
+**A rear jet (variant, not adopted).** Could a third jet, blowing at the nozzle from behind (270°),
+help? Behind the nozzle the probe (Beacon or Cartographer, Z-76.3 to -74.7) reaches forward to
+Y11.7, the Bambu's sock starts at Y18.4 (bottom Z-75.5) and the Red Lizard's block at Y14.2 (from
+Z-73.3 up). The variant ([`r43_rear_jet.py`](./r43_rear_jet.py)) runs a manifold across that
+gap, 0.6 mm in front of the probe and 0.5 mm under the Red Lizard's block, and out under the heel's
+ramp on both sides, where openings draw air from the bottom of each side channel. Its rear jet
+leaves the manifold's front face under the Bambu's sock, 12 mm wide. Against revision 41, with a
+print under the nozzle and both cases on 46 cores:
+
+| | Pressure at 180 L/min | Blower flow | Within 5 mm | Within 10 mm | Within 14 mm | Air leaving upward | Rear jet's share |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Revision 43 | −18 % | +6 % | 0 % | −5 % | −6 % | 16 % | |
+| Rear jet, openings \|X\| 12.9-14.7 | −28 % | +11 % | −12 % | −8 % | −7 % | 32 % | 7 % |
+| Rear jet, openings \|X\| 12.9-18.2 | −25 % | +9 % | −9 % | −10 % | −11 % | 33 % | 6 % |
+
+The side jets' air leaves the nozzle along the print, most of it backward. The manifold and its
+jet stand in that path and push against it, so twice as much air turns up the hotend slot, and
+the blower's extra flow goes with it. Freeing more room (P23 folded into P22, the probe screwed to
+P22, a duct over the probe's front half) would feed a rear jet better, but its outlet would still
+pass between the probe's front edge, the Red Lizard's block and the Bambu's sock, and push harder
+against the same stream.
+
 ![Revision 43 CFD: system curves against the blower, the design search, and the air over a print round the nozzle](./images/89_cfd_r43_design_search.png)
 
 ![Revision 41 and revision 43 at 180 L/min: across the nozzle, along a jet, at jet height and over a print](./images/90_cfd_r43_nozzle_vs_r41.png)
@@ -1748,7 +1770,8 @@ The studies' P22s are in [`r43_parts.py`](./r43_parts.py) (`pocket_study`, `fron
 `bell_study`, `low_study`, `low_bell_study`, `long_jets_study`, and from the review `review_rib_study`,
 `review_back_study`, `review_full_study`, `review_fade_study`, `review_runout_study`,
 `review_focus_study`), each identical
-to the one simulated.
+to the one simulated; the rear-jet variant is [`r43_rear_jet.py`](./r43_rear_jet.py)
+(`p22(wide=False|True)`, cases `r43rearjet_bambu_bed` and `r43rearjetb_bambu_bed`).
 
 **Limits.** The CFD's limits are revision 41's: steady, time-averaged flow, no heat transfer, the
 blower's published curve and a hose allowance, nothing measured on the printer. "Air over the
