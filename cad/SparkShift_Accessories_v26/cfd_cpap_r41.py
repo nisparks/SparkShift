@@ -12,6 +12,7 @@ is set against the WS7040 blower's published P-Q curve and an allowance for 1 m 
 
 Steps, each under WORK/cfd:
   python cfd_cpap_r41.py domain <name> [--duct r41|released] [--tool Bambu|RedLizard] [--bed] [--p22 square|<brep>]
+                                       [--leave-out <name prefix>,...]
   python cfd_cpap_r41.py case <name> [--flows 180,120,240] [--interval 600] [--np 20] [--wall-levels "1 2"]
   run cases/<name> with cfd/run_case.sh (native OpenFOAM v2512+), or cfd/launch_docker.sh (opencfd/openfoam-default)
   copy the case's VTK/ and postProcessing/ to results/<name>, then
@@ -110,12 +111,13 @@ def duct_parts(duct, p22=None):
     return parts
 
 
-def obstacles(duct, tool, outlet):
-    """Every carriage solid and tool part reaching into the outlet box, except the duct itself."""
+def obstacles(duct, tool, outlet, leave_out=()):
+    """Every carriage solid and tool part reaching into the outlet box, except the duct itself and any carriage part
+    whose name starts with one of `leave_out` (a P22 variant that takes over P23, say)."""
     skip = {R.NAMES["p20"], R.NAMES["p21"], R.NAMES["p22"]}
     out = []
     for n, f in manifest()["carriage"]:
-        if n in skip or (duct != "r41" and n.startswith("R41_P22_P01")):
+        if n in skip or (duct != "r41" and n.startswith("R41_P22_P01")) or n.startswith(tuple(leave_out)):
             continue
         s = brep(f)
         if overlaps_box(bounds(s), outlet):
@@ -126,7 +128,7 @@ def obstacles(duct, tool, outlet):
     return out
 
 
-def fluid_domain(duct, tool, bed, p22=None):
+def fluid_domain(duct, tool, bed, p22=None, leave_out=()):
     o = list(OUTLET)
     if bed:
         o[4] = NOZZLE_TIP_Z - BED_GAP
@@ -139,7 +141,7 @@ def fluid_domain(duct, tool, bed, p22=None):
     cb = bounds(cavity)
     if cb[0] < -39 or cb[1] > 39 or cb[2] < -69 or cb[5] > 44:
         raise RuntimeError("the duct's air leaks to the outside")
-    obs = obstacles(duct, tool, o)
+    obs = obstacles(duct, tool, o, leave_out)
     air = cut_all(box(*o), [d] + [s for _, s in obs])
     fluid = fuse_all([cavity, R.shape(acc.cyl_z(cx, cy, EXT[0], EXT[0] + EXT[1], r)), air])
     main = solid_containing(fluid, inlet_point)
@@ -197,11 +199,11 @@ def write_stl(fluid, groups, path, lin=0.01, ang=0.25):
     return counts
 
 
-def build_domain(name, duct, tool, bed, p22=None):
+def build_domain(name, duct, tool, bed, p22=None, leave_out=()):
     t0 = time.perf_counter()
     out = CFD / "domains" / name
     out.mkdir(parents=True, exist_ok=True)
-    fluid, o, obs, dropped, cavity = fluid_domain(duct, tool, bed, p22)
+    fluid, o, obs, dropped, cavity = fluid_domain(duct, tool, bed, p22, leave_out)
     z_top = EXT[0] + EXT[1]
     groups = patch_faces(fluid, o, z_top, bed)
     areas = {k: round(sum(f.Area() for f in v), 2) for k, v in groups.items()}
@@ -209,7 +211,8 @@ def build_domain(name, duct, tool, bed, p22=None):
         raise RuntimeError(f"inlet area {areas['inlet']}")
     counts = write_stl(fluid, groups, out / "domain.stl")
     cx, cy, r = SPIGOT
-    meta = {"duct": duct, "tool": tool, "bed": bed, "p22_variant": str(p22) if p22 else None, "outlet_box_mm": o,
+    meta = {"duct": duct, "tool": tool, "bed": bed, "p22_variant": str(p22) if p22 else None,
+            "left_out": list(leave_out), "outlet_box_mm": o,
             "inlet": {"centre_mm": [cx, cy, z_top], "radius_mm": r, "area_mm2": areas["inlet"]},
             "location_in_mesh_m": [cx * 1e-3, cy * 1e-3, (EXT[0] + 10.0) * 1e-3],
             "bounds_mm": [round(v, 3) for v in bounds(fluid)], "volume_mm3": round(fluid.Volume(), 1),
@@ -547,6 +550,8 @@ def main():
     d.add_argument("--bed", action="store_true")
     d.add_argument("--p22", help="'square' for revision 41's first, square-edged jets, or a BREP of a P22 variant, "
                                  "instead of the scene's P22")
+    d.add_argument("--leave-out", default="", help="comma-separated name prefixes of carriage parts to leave out of "
+                                                   "the obstacles (a P22 variant that takes over P23, say)")
     c = sub.add_parser("case")
     c.add_argument("name")
     c.add_argument("--domain")
@@ -563,7 +568,8 @@ def main():
     r_.add_argument("names", nargs="+")
     a = p.parse_args()
     if a.cmd == "domain":
-        print(json.dumps(build_domain(a.name, a.duct, a.tool, a.bed, a.p22), indent=1))
+        leave_out = tuple(s for s in a.leave_out.split(",") if s)
+        print(json.dumps(build_domain(a.name, a.duct, a.tool, a.bed, a.p22, leave_out), indent=1))
     elif a.cmd == "case":
         print(write_case(a.name, [float(v) for v in a.flows.split(",")], a.interval, a.upwind, a.np,
                          a.wall_levels, a.zone_level, a.domain, a.roughness_mm))

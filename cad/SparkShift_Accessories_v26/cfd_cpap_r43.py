@@ -3,7 +3,8 @@ model, mesh and solver as cfd_cpap_r41.py (only P22 changes: the domain is built
 --p22 <brep>`), and the studies that led to them (jets run back to Y13, with and without their front 4 mm; the lower
 floor alone and only where flat, with and without the bell-mouth; the bell-mouth alone; a first, unprintable flat
 pocket; and, from the review in Fusion, the rib, the round's back and front ends, its foot faded, and the round at
-full size to the front wall against its run-out: r43_parts.py).
+full size to the front wall against its run-out: r43_parts.py), and two variants with a rear jet as well
+(r43_rear_jet.py, r43_centre_feed.py).
 
 What is compared, per case at 180 L/min (and the system curve where a case steps through 180/120/240 L/min):
 - the total pressure at P20's spigot, the blower's operating point with 1 m of hose, and where the pressure goes;
@@ -78,6 +79,10 @@ CASES = {   # name: (label, design)
                              "(r43_rear_jet.py), print surface (46 cores)", "study"),
     "r43rearjetb_bambu_bed": ("Variant: the rear jet with wide openings into the side channels, print surface (46 cores)",
                               "study"),
+    "r43centre_bambu_bed": ("Variant: P23 folded into P22 and a rear jet fed down the centre over the probe "
+                            "(r43_centre_feed.py), print surface (46 cores)", "study"),
+    "r43centrebody_bambu_bed": ("Check: the centre-feed variant with its rear jet closed (the duct's body alone), "
+                                "print surface (46 cores)", "study"),
 }
 N_EXP = 1.983                                    # dP ~ Q^n (revision 41's fit), for single-flow cases
 

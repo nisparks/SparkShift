@@ -1646,10 +1646,45 @@ print under the nozzle and both cases on 46 cores:
 
 The side jets' air leaves the nozzle along the print, most of it backward. The manifold and its
 jet stand in that path and push against it, so twice as much air turns up the hotend slot, and
-the blower's extra flow goes with it. Freeing more room (P23 folded into P22, the probe screwed to
-P22, a duct over the probe's front half) would feed a rear jet better, but its outlet would still
-pass between the probe's front edge, the Red Lizard's block and the Bambu's sock, and push harder
-against the same stream.
+the blower's extra flow goes with it.
+
+**Folding P23 into P22 to feed a rear jet down the centre (variant, not adopted).** The manifold
+above is fed through 2.6 x 2.5 mm inside, so its jet draws only 7 % of the air. The second variant
+([`r43_centre_feed.py`](./r43_centre_feed.py)) takes P23's place instead:
+- **Mount.** P23's outline becomes part of P22, and the probe screws straight into P22's inserts.
+- **Feed.** An opening in each side channel's floor (|X| 13.4-18.4, in front of the probe screws'
+  bosses) drops air into P23's old layer (Z-73.87 to -70.8, on a 0.8 mm floor). That layer runs
+  inward to a plenum on the probe, where the board itself is the floor over the coil (|X| up to 9.4;
+  plastic only in the probe's keepout).
+- **Outlet.** The air drops past the probe's nose. On the centre line the drop is 1.2 mm deep, 4.7 mm
+  at |X| 9.4 as the nose's edges run back, and beside the Red Lizard's neck it runs on forward. It
+  reaches a manifold under the neck (0.5 mm under the block) and the same rear jet under the sock. A
+  0.8 mm wall in front of the board's edge closes the drop below the board, so the probe still goes
+  in from below.
+- **Probes.** The seat is the Beacon's. The Cartographer's board top is 0.2 mm higher, so it would
+  need its own P22, or a full-outline 0.2 mm shim.
+
+The CFD runs with P23 and its rear screws left out (`cfd_cpap_r41.py domain ... --leave-out
+P23_Probe_Mount,R37_REAR_`), and a check case closes the rear jet to separate the duct's body from
+its jet. Against revision 41 as above:
+
+| | Pressure at 180 L/min | Blower flow | Within 5 mm | Within 10 mm | Within 14 mm | Air leaving upward | Rear jet's share |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Revision 43 | −18 % | +6 % | 0 % | −5 % | −6 % | 16 % | |
+| Centre feed | −32 % | +12 % | −11 % | −11 % | −9 % | 29 % | 10 % |
+| Centre feed, rear jet closed | −16 % | +6 % | +3 % | −8 % | −10 % | 28 % | |
+
+- **The jet's share.** The rear jet draws 17.7 L/min at 180 (the first variant 12.8). It blows into
+  the space where the side jets meet, which is already at high pressure.
+- **The body.** The duct's body alone doubles the air leaving upward. It fills the space where the
+  side jets' air ran back along the print under the probe, and the stream turns up the slot at the
+  manifold's front wall.
+- **The jet's cost.** The jet then takes another 14 points off the air within 5 mm: the backward
+  stream breaks up and swings to one side.
+- **Steadiness.** This solution isn't quite steady: its duct pressure wanders about 1 % over the
+  last 500 iterations, against 0.1 % for revision 43. The gaps at 5 and 10 mm are well outside that.
+
+Anything in the space behind the nozzle at the print's level costs more than a rear jet returns.
 
 ![Revision 43 CFD: system curves against the blower, the design search, and the air over a print round the nozzle](./images/89_cfd_r43_design_search.png)
 
@@ -1770,8 +1805,10 @@ The studies' P22s are in [`r43_parts.py`](./r43_parts.py) (`pocket_study`, `fron
 `bell_study`, `low_study`, `low_bell_study`, `long_jets_study`, and from the review `review_rib_study`,
 `review_back_study`, `review_full_study`, `review_fade_study`, `review_runout_study`,
 `review_focus_study`), each identical
-to the one simulated; the rear-jet variant is [`r43_rear_jet.py`](./r43_rear_jet.py)
-(`p22(wide=False|True)`, cases `r43rearjet_bambu_bed` and `r43rearjetb_bambu_bed`).
+to the one simulated; the rear-jet variants are [`r43_rear_jet.py`](./r43_rear_jet.py)
+(`p22(wide=False|True)`, cases `r43rearjet_bambu_bed` and `r43rearjetb_bambu_bed`) and
+[`r43_centre_feed.py`](./r43_centre_feed.py) (`p22(jet=True|False)`, cases `r43centre_bambu_bed` and
+`r43centrebody_bambu_bed`, domains built with `--leave-out P23_Probe_Mount,R37_REAR_`).
 
 **Limits.** The CFD's limits are revision 41's: steady, time-averaged flow, no heat transfer, the
 blower's published curve and a hose allowance, nothing measured on the printer. "Air over the
