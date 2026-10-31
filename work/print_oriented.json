@@ -1,0 +1,146 @@
+{
+ "p22": {
+  "file": "stl\\P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW_PRINT_ORIENTED.stl",
+  "orientation": "back face down (-Y)",
+  "volume_mm3": 17381.2,
+  "mesh_volume_mm3": 17381.2,
+  "watertight": true,
+  "chosen": {
+   "bed_contact_mm2": 146.3,
+   "overhang_mm2": 1555.2,
+   "footprint_mm": [
+    44.8,
+    28.9
+   ],
+   "height_mm": 74.7
+  },
+  "all_candidates": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 146.3,
+    "overhang_mm2": 1555.2,
+    "footprint_mm": [
+     44.8,
+     28.9
+    ],
+    "height_mm": 74.7
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 0.0,
+    "overhang_mm2": 1579.2,
+    "footprint_mm": [
+     44.8,
+     28.9
+    ],
+    "height_mm": 74.7
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 123.5,
+    "overhang_mm2": 3188.7,
+    "footprint_mm": [
+     44.8,
+     74.7
+    ],
+    "height_mm": 28.9
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 106.1,
+    "overhang_mm2": 3254.5,
+    "footprint_mm": [
+     44.8,
+     74.7
+    ],
+    "height_mm": 28.9
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 426.9,
+    "overhang_mm2": 2830.4,
+    "footprint_mm": [
+     28.9,
+     74.7
+    ],
+    "height_mm": 44.8
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 426.2,
+    "overhang_mm2": 2832.1,
+    "footprint_mm": [
+     28.9,
+     74.7
+    ],
+    "height_mm": 44.8
+   }
+  }
+ },
+ "p21": {
+  "file": "stl\\P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW_PRINT_ORIENTED.stl",
+  "orientation": "top down (+Z)",
+  "volume_mm3": 11269.8,
+  "mesh_volume_mm3": 11269.6,
+  "watertight": true,
+  "chosen": {
+   "bed_contact_mm2": 922.8,
+   "overhang_mm2": 111.1,
+   "footprint_mm": [
+    42.0,
+    45.7
+   ],
+   "height_mm": 33.6
+  },
+  "all_candidates": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 735.0,
+    "overhang_mm2": 2214.7,
+    "footprint_mm": [
+     42.0,
+     33.6
+    ],
+    "height_mm": 45.7
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 239.0,
+    "overhang_mm2": 2635.4,
+    "footprint_mm": [
+     42.0,
+     33.6
+    ],
+    "height_mm": 45.7
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 922.8,
+    "overhang_mm2": 111.1,
+    "footprint_mm": [
+     42.0,
+     45.7
+    ],
+    "height_mm": 33.6
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 110.1,
+    "overhang_mm2": 976.0,
+    "footprint_mm": [
+     42.0,
+     45.7
+    ],
+    "height_mm": 33.6
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 39.3,
+    "overhang_mm2": 779.4,
+    "footprint_mm": [
+     33.6,
+     45.7
+    ],
+    "height_mm": 42.0
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 39.3,
+    "overhang_mm2": 779.3,
+    "footprint_mm": [
+     33.6,
+     45.7
+    ],
+    "height_mm": 42.0
+   }
+  }
+ }
+}

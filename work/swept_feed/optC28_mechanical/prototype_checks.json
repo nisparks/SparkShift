@@ -1,0 +1,138 @@
+{
+  "parts": {
+    "p01": {
+      "bounds_mm": [
+        -22.50000000000003,
+        22.50000000000004,
+        0.2999999999999998,
+        29.0,
+        -58.32842712474619,
+        62.22059521522802
+      ],
+      "added_mm3": 298.9067500968823,
+      "removed_mm3": 43.81427490504356,
+      "added_in_channel_air_mm3": 0.0,
+      "cable_overlap_mm3": 0.0,
+      "added_cable_gap_mm": 26.670634289382004,
+      "gantry_overlap_mm3": 0.0,
+      "added_gantry_gap_mm": 17.487759862641614
+    },
+    "p21": {
+      "bounds_mm": [
+        -21.0,
+        21.0,
+        -45.4,
+        0.30000000000000027,
+        -65.0,
+        -17.779999999999998
+      ],
+      "added_mm3": 330.22386235648617,
+      "removed_mm3": 0.0,
+      "added_in_channel_air_mm3": 0.0,
+      "cable_overlap_mm3": 0.0,
+      "added_cable_gap_mm": 0.5,
+      "gantry_overlap_mm3": 0.0,
+      "added_gantry_gap_mm": 1.2205999999999904
+    },
+    "p22": {
+      "bounds_mm": [
+        -22.420000100000003,
+        22.420000100000003,
+        -45.40000000000001,
+        29.276190576190483,
+        -77.85000009999999,
+        -48.9999999
+      ],
+      "added_mm3": 380.2568912869712,
+      "removed_mm3": 633.4325468365861,
+      "added_in_channel_air_mm3": 3.4757341227614873,
+      "cable_overlap_mm3": 0.0,
+      "added_cable_gap_mm": 0.9947446461434621,
+      "gantry_overlap_mm3": 0.0,
+      "added_gantry_gap_mm": 3.620599999999989
+    }
+  },
+  "contacts": [
+    {
+      "a": "p01",
+      "b": "p21",
+      "mm3": 0.0,
+      "gap_mm": 0.0
+    },
+    {
+      "a": "p01",
+      "b": "p22",
+      "mm3": 0.0,
+      "gap_mm": 0.04999999999999739
+    },
+    {
+      "a": "p21",
+      "b": "p22",
+      "mm3": 0.0,
+      "gap_mm": 0.0
+    }
+  ],
+  "hardware": [
+    {
+      "name": "C28_P22_P01_M3x8_BUTTON_0",
+      "part_overlap_mm3": {
+        "p01": 0.0,
+        "p21": 0.0,
+        "p22": 0.0
+      },
+      "cable_gap_mm": 30.35731067586404,
+      "gantry_overlap_mm3": 0.0
+    },
+    {
+      "name": "C28_P22_P01_M3x4_HEATSET_0",
+      "part_overlap_mm3": {
+        "p01": 0.0,
+        "p21": 0.0,
+        "p22": 0.0
+      },
+      "cable_gap_mm": 29.849267264142117,
+      "gantry_overlap_mm3": 0.0
+    },
+    {
+      "name": "C28_P22_P01_M3x8_BUTTON_1",
+      "part_overlap_mm3": {
+        "p01": 0.0,
+        "p21": 0.0,
+        "p22": 0.0
+      },
+      "cable_gap_mm": 30.195729972204592,
+      "gantry_overlap_mm3": 0.0
+    },
+    {
+      "name": "C28_P22_P01_M3x4_HEATSET_1",
+      "part_overlap_mm3": {
+        "p01": 0.0,
+        "p21": 0.0,
+        "p22": 0.0
+      },
+      "cable_gap_mm": 29.717602863285936,
+      "gantry_overlap_mm3": 0.0
+    },
+    {
+      "name": "C28_P21_P22_M3x10_BUTTON",
+      "part_overlap_mm3": {
+        "p01": 0.0,
+        "p21": 0.0,
+        "p22": 0.0
+      },
+      "cable_gap_mm": 4.099999999999994,
+      "gantry_overlap_mm3": 0.0
+    },
+    {
+      "name": "C28_P21_P22_M3x4_HEATSET",
+      "part_overlap_mm3": {
+        "p01": 0.0,
+        "p21": 0.0,
+        "p22": 0.0
+      },
+      "cable_gap_mm": 4.299999999999997,
+      "gantry_overlap_mm3": 0.0
+    }
+  ],
+  "tool_intersections": []
+}

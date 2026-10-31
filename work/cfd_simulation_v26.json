@@ -1,0 +1,78 @@
+{
+  "boundary_conditions": {
+    "blower_type": "24V Radial CPAP Blower (WS7040 class)",
+    "volumetric_flow_CFM": 18.0,
+    "volumetric_flow_L_s": 8.5,
+    "volumetric_flow_L_min": 510.0,
+    "inlet_bore_diameter_mm": 22.0,
+    "inlet_area_mm2": 380.13,
+    "inlet_mean_velocity_m_s": 22.36,
+    "reynolds_number_inlet": 31800
+  },
+  "pressure_drop_budget_Pa": {
+    "p20_inlet_sbend_loss_Pa": 42.5,
+    "p21_straight_trunk_friction_Pa": 28.0,
+    "p22_sweeping_rear_elbow_loss_Pa": 68.0,
+    "p22_over_sensor_and_side_runners_Pa": 54.0,
+    "p22_300deg_nozzle_ring_exit_dynamic_Pa": 485.0,
+    "total_system_static_backpressure_Pa": 677.5,
+    "blower_available_static_pressure_at_18CFM_Pa": 2850.0,
+    "headroom_margin_percent": 76.2
+  },
+  "stations": {
+    "1_P20_Hose_Spigot_Inlet_Z+24": {
+      "flow_area_mm2": 380.13,
+      "mean_velocity_m_s": 22.36,
+      "peak_velocity_m_s": 222.52,
+      "dynamic_pressure_Pa": 296.0
+    },
+    "2_P20_SBend_Transition_Z0": {
+      "flow_area_mm2": 356.4,
+      "mean_velocity_m_s": 23.85,
+      "peak_velocity_m_s": 94.54,
+      "dynamic_pressure_Pa": 336.7
+    },
+    "3_P21_Rear_Gantry_Trunk_Z-38": {
+      "flow_area_mm2": 333.81,
+      "mean_velocity_m_s": 25.46,
+      "peak_velocity_m_s": 29.28,
+      "dynamic_pressure_Pa": 383.8
+    },
+    "4_P22_Sweeping_Rear_Elbow_Z-66": {
+      "flow_area_mm2": 342.0,
+      "mean_velocity_m_s": 24.85,
+      "peak_velocity_m_s": 28.58,
+      "dynamic_pressure_Pa": 365.7
+    },
+    "5_P22_OverSensor_and_Runners_Y0": {
+      "flow_area_mm2": 346.2,
+      "mean_velocity_m_s": 24.55,
+      "peak_velocity_m_s": 28.24,
+      "dynamic_pressure_Pa": 356.9
+    },
+    "6_P22_300deg_Nozzle_Ring_Throat": {
+      "flow_area_mm2": 295.0,
+      "mean_velocity_m_s": 28.81,
+      "peak_velocity_m_s": 33.14,
+      "dynamic_pressure_Pa": 491.5
+    }
+  },
+  "nozzle_300deg_azimuthal_velocity_m_s": {
+    "Front_Center_-30_to_+30_deg": 0.44,
+    "Front_Left_+30_to_+90_deg": 0.94,
+    "Rear_Left_+90_to_+150_deg": 1.0,
+    "Front_Right_-90_to_-30_deg": 0.94,
+    "Rear_Right_-150_to_-90_deg": 1.0
+  },
+  "thermal_shield_performance": {
+    "sub_sock_filament_zone_flow_percent": 100.0,
+    "silicone_sock_direct_impingement_percent": 0.0,
+    "jet_impingement_angle_deg_below_horizontal": 38.0,
+    "target_focal_point_xyz_mm": [
+      0.0,
+      22.7,
+      -78.88
+    ]
+  },
+  "elapsed_seconds": 87.12
+}

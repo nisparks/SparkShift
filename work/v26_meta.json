@@ -1,0 +1,2567 @@
+[
+  {
+    "idx": 0,
+    "min_mm": [
+      -13.6502,
+      13.5,
+      -3.5885
+    ],
+    "max_mm": [
+      -6.4502,
+      16.0,
+      3.6115
+    ],
+    "vol_mm3": 60.4788,
+    "name": "STOCK_012_3mm_flange_bearing_1",
+    "is_metal": true,
+    "occ_name": "STOCK_012_3mm_flange_bearing_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 1,
+    "min_mm": [
+      -13.6502,
+      24.2,
+      -3.5885
+    ],
+    "max_mm": [
+      -6.4502,
+      26.7,
+      3.6115
+    ],
+    "vol_mm3": 60.4788,
+    "name": "STOCK_014_3mm_flange_bearing_2",
+    "is_metal": true,
+    "occ_name": "STOCK_014_3mm_flange_bearing_2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 2,
+    "min_mm": [
+      -13.6,
+      22.3,
+      9.0
+    ],
+    "max_mm": [
+      -5.4,
+      24.8,
+      17.2
+    ],
+    "vol_mm3": 73.3907,
+    "name": "STOCK_015_4mm_flange_bearing_2",
+    "is_metal": true,
+    "occ_name": "STOCK_015_4mm_flange_bearing_2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 3,
+    "min_mm": [
+      -2.05,
+      -0.5,
+      -15.7794
+    ],
+    "max_mm": [
+      2.05,
+      17.53,
+      -10.7794
+    ],
+    "vol_mm3": 30.999,
+    "name": "STOCK_059_A1104_hall_effect_sensor_1",
+    "is_metal": true,
+    "occ_name": "STOCK_059_A1104_hall_effect_sensor_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 4,
+    "min_mm": [
+      5.4,
+      25.6,
+      9.0
+    ],
+    "max_mm": [
+      13.6,
+      28.1,
+      17.2
+    ],
+    "vol_mm3": 71.9582,
+    "name": "STOCK_063_4mm_flange_bearing_front_frame_left",
+    "is_metal": true,
+    "occ_name": "STOCK_063_4mm_flange_bearing_front_frame_left:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 5,
+    "min_mm": [
+      4.4,
+      -30.9,
+      29.26
+    ],
+    "max_mm": [
+      16.6,
+      -2.66,
+      61.57
+    ],
+    "vol_mm3": 7565.2625,
+    "name": "HOBBY_SERVO_ENVELOPE",
+    "is_metal": false,
+    "occ_name": "MG90S + MG90D STEP envelope - ear seat Y-11.2:1",
+    "is_print": false,
+    "is_ref": true
+  },
+  {
+    "idx": 6,
+    "min_mm": [
+      5.9,
+      10.7,
+      46.1206
+    ],
+    "max_mm": [
+      15.1,
+      13.2,
+      55.3206
+    ],
+    "vol_mm3": 86.3027,
+    "name": "CAM_OUTBOARD_MF85ZZ_5x8x2p5",
+    "is_metal": true,
+    "occ_name": "CAM_OUTBOARD_MF85ZZ_5x8x2p5:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 7,
+    "min_mm": [
+      -11.4735,
+      30.4766,
+      39.092
+    ],
+    "max_mm": [
+      -6.48,
+      31.9766,
+      42.8411
+    ],
+    "vol_mm3": 8.659,
+    "name": "OCT_LOCATOR_PIN_0",
+    "is_metal": true,
+    "occ_name": "OCT_LOCATOR_PIN_0:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 8,
+    "min_mm": [
+      -8.7935,
+      30.4766,
+      34.4501
+    ],
+    "max_mm": [
+      -3.8,
+      31.9766,
+      38.1992
+    ],
+    "vol_mm3": 8.659,
+    "name": "OCT_LOCATOR_PIN_1",
+    "is_metal": true,
+    "occ_name": "OCT_LOCATOR_PIN_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 9,
+    "min_mm": [
+      -10.2568,
+      30.4766,
+      -13.5794
+    ],
+    "max_mm": [
+      -8.7568,
+      31.9766,
+      -8.6794
+    ],
+    "vol_mm3": 8.659,
+    "name": "OCT_LOCATOR_PIN_2",
+    "is_metal": true,
+    "occ_name": "OCT_LOCATOR_PIN_2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 10,
+    "min_mm": [
+      6.4663,
+      30.4766,
+      39.092
+    ],
+    "max_mm": [
+      11.4598,
+      31.9766,
+      42.8411
+    ],
+    "vol_mm3": 8.659,
+    "name": "OCT_LOCATOR_PIN_3",
+    "is_metal": true,
+    "occ_name": "OCT_LOCATOR_PIN_3:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 11,
+    "min_mm": [
+      3.7863,
+      30.4766,
+      34.4501
+    ],
+    "max_mm": [
+      8.7798,
+      31.9766,
+      38.1992
+    ],
+    "vol_mm3": 8.659,
+    "name": "OCT_LOCATOR_PIN_4",
+    "is_metal": true,
+    "occ_name": "OCT_LOCATOR_PIN_4:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 12,
+    "min_mm": [
+      8.7432,
+      30.4766,
+      -13.5794
+    ],
+    "max_mm": [
+      10.2432,
+      31.9766,
+      -8.6794
+    ],
+    "vol_mm3": 8.659,
+    "name": "OCT_LOCATOR_PIN_5",
+    "is_metal": true,
+    "occ_name": "OCT_LOCATOR_PIN_5:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 13,
+    "min_mm": [
+      -9.0068,
+      28.7266,
+      19.2706
+    ],
+    "max_mm": [
+      -4.0068,
+      31.7266,
+      34.2706
+    ],
+    "vol_mm3": 225.0,
+    "name": "OCT_RECEIVER_MAGNET_0",
+    "is_metal": true,
+    "occ_name": "OCT_RECEIVER_MAGNET_0:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 14,
+    "min_mm": [
+      -9.0568,
+      28.7266,
+      -5.7294
+    ],
+    "max_mm": [
+      -4.0568,
+      31.7266,
+      9.2706
+    ],
+    "vol_mm3": 225.0,
+    "name": "OCT_RECEIVER_MAGNET_1",
+    "is_metal": true,
+    "occ_name": "OCT_RECEIVER_MAGNET_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 15,
+    "min_mm": [
+      3.9932,
+      28.7266,
+      19.2706
+    ],
+    "max_mm": [
+      8.9932,
+      31.7266,
+      34.2706
+    ],
+    "vol_mm3": 225.0,
+    "name": "OCT_RECEIVER_MAGNET_2",
+    "is_metal": true,
+    "occ_name": "OCT_RECEIVER_MAGNET_2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 16,
+    "min_mm": [
+      4.0432,
+      28.7266,
+      -5.7294
+    ],
+    "max_mm": [
+      9.0432,
+      31.7266,
+      9.2706
+    ],
+    "vol_mm3": 225.0,
+    "name": "OCT_RECEIVER_MAGNET_3",
+    "is_metal": true,
+    "occ_name": "OCT_RECEIVER_MAGNET_3:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 17,
+    "min_mm": [
+      -22.7,
+      -9.7,
+      -51.2794
+    ],
+    "max_mm": [
+      22.7,
+      0.3,
+      -24.2794
+    ],
+    "vol_mm3": 9449.177,
+    "name": "MONO_CART_MGN12H",
+    "is_metal": true,
+    "occ_name": "MONO_CART_MGN12H:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 18,
+    "min_mm": [
+      14.36,
+      0.3,
+      -48.8794
+    ],
+    "max_mm": [
+      22.4,
+      9.58,
+      -26.6794
+    ],
+    "vol_mm3": 504.8117,
+    "name": "PRINT_MONOLITH_CARTRIDGE_LINER_left",
+    "is_metal": false,
+    "occ_name": "P13 Left toothed belt liner:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 19,
+    "min_mm": [
+      3.9,
+      2.45,
+      -25.3294
+    ],
+    "max_mm": [
+      21.55,
+      8.15,
+      -19.6294
+    ],
+    "vol_mm3": 152.0837,
+    "name": "MONOC_M3x16_DRAW_left_11.2",
+    "is_metal": true,
+    "occ_name": "MONOC_M3x16_DRAW_left_11.2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 20,
+    "min_mm": [
+      3.9,
+      2.45,
+      -55.9294
+    ],
+    "max_mm": [
+      21.55,
+      8.15,
+      -50.2294
+    ],
+    "vol_mm3": 152.0837,
+    "name": "MONOC_M3x16_DRAW_left_41.8",
+    "is_metal": true,
+    "occ_name": "MONOC_M3x16_DRAW_left_41.8:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 21,
+    "min_mm": [
+      14.0,
+      0.4,
+      -57.2794
+    ],
+    "max_mm": [
+      22.2,
+      9.1,
+      -18.4794
+    ],
+    "vol_mm3": 1470.0343,
+    "name": "PRINT_MONOLITH_CARTRIDGE_ARCH_left",
+    "is_metal": false,
+    "occ_name": "P15 Left belt arch:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 22,
+    "min_mm": [
+      -22.4,
+      0.3,
+      -48.8794
+    ],
+    "max_mm": [
+      -14.36,
+      9.58,
+      -26.6794
+    ],
+    "vol_mm3": 504.8117,
+    "name": "PRINT_MONOLITH_CARTRIDGE_LINER_right",
+    "is_metal": false,
+    "occ_name": "P14 Right toothed belt liner:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 23,
+    "min_mm": [
+      -21.55,
+      2.45,
+      -25.3294
+    ],
+    "max_mm": [
+      -3.9,
+      8.15,
+      -19.6294
+    ],
+    "vol_mm3": 152.0837,
+    "name": "MONOC_M3x16_DRAW_right_11.2",
+    "is_metal": true,
+    "occ_name": "MONOC_M3x16_DRAW_right_11.2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 24,
+    "min_mm": [
+      -21.55,
+      2.45,
+      -55.9294
+    ],
+    "max_mm": [
+      -3.9,
+      8.15,
+      -50.2294
+    ],
+    "vol_mm3": 152.0837,
+    "name": "MONOC_M3x16_DRAW_right_41.8",
+    "is_metal": true,
+    "occ_name": "MONOC_M3x16_DRAW_right_41.8:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 25,
+    "min_mm": [
+      -22.2,
+      0.4,
+      -57.2794
+    ],
+    "max_mm": [
+      -14.0,
+      9.1,
+      -18.4794
+    ],
+    "vol_mm3": 1470.0343,
+    "name": "PRINT_MONOLITH_CARTRIDGE_ARCH_right",
+    "is_metal": false,
+    "occ_name": "P16 Right belt arch:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 26,
+    "min_mm": [
+      4.2,
+      2.55,
+      -25.6548
+    ],
+    "max_mm": [
+      6.6,
+      8.05,
+      -19.304
+    ],
+    "vol_mm3": 45.9088,
+    "name": "MONOC_M3_NUT_left_11.2",
+    "is_metal": true,
+    "occ_name": "MONOC_M3_NUT_left_11.2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 27,
+    "min_mm": [
+      -6.6,
+      2.55,
+      -25.6548
+    ],
+    "max_mm": [
+      -4.2,
+      8.05,
+      -19.304
+    ],
+    "vol_mm3": 45.9088,
+    "name": "MONOC_M3_NUT_right_11.2",
+    "is_metal": true,
+    "occ_name": "MONOC_M3_NUT_right_11.2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 28,
+    "min_mm": [
+      4.2,
+      2.55,
+      -56.2548
+    ],
+    "max_mm": [
+      6.6,
+      8.05,
+      -49.904
+    ],
+    "vol_mm3": 45.9088,
+    "name": "MONOC_M3_NUT_left_41.8",
+    "is_metal": true,
+    "occ_name": "MONOC_M3_NUT_left_41.8:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 29,
+    "min_mm": [
+      -6.6,
+      2.55,
+      -56.2548
+    ],
+    "max_mm": [
+      -4.2,
+      8.05,
+      -49.904
+    ],
+    "vol_mm3": 45.9088,
+    "name": "MONOC_M3_NUT_right_41.8",
+    "is_metal": true,
+    "occ_name": "MONOC_M3_NUT_right_41.8:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 30,
+    "min_mm": [
+      15.2217,
+      1.16,
+      -35.7794
+    ],
+    "max_mm": [
+      22.68,
+      8.72,
+      -26.7794
+    ],
+    "vol_mm3": 142.0738,
+    "name": "MONOC_BELT_upper_left",
+    "is_metal": false,
+    "occ_name": "MONOC_BELT_upper_left:1",
+    "is_print": false,
+    "is_ref": true
+  },
+  {
+    "idx": 31,
+    "min_mm": [
+      -22.68,
+      1.16,
+      -35.7794
+    ],
+    "max_mm": [
+      -15.2217,
+      8.72,
+      -26.7794
+    ],
+    "vol_mm3": 142.0738,
+    "name": "MONOC_BELT_upper_right",
+    "is_metal": false,
+    "occ_name": "MONOC_BELT_upper_right:1",
+    "is_print": false,
+    "is_ref": true
+  },
+  {
+    "idx": 32,
+    "min_mm": [
+      15.2217,
+      1.16,
+      -48.7794
+    ],
+    "max_mm": [
+      22.68,
+      8.72,
+      -39.7794
+    ],
+    "vol_mm3": 142.0738,
+    "name": "MONOC_BELT_lower_left",
+    "is_metal": false,
+    "occ_name": "MONOC_BELT_lower_left:1",
+    "is_print": false,
+    "is_ref": true
+  },
+  {
+    "idx": 33,
+    "min_mm": [
+      -22.68,
+      1.16,
+      -48.7794
+    ],
+    "max_mm": [
+      -15.2217,
+      8.72,
+      -39.7794
+    ],
+    "vol_mm3": 142.0738,
+    "name": "MONOC_BELT_lower_right",
+    "is_metal": false,
+    "occ_name": "MONOC_BELT_lower_right:1",
+    "is_print": false,
+    "is_ref": true
+  },
+  {
+    "idx": 34,
+    "min_mm": [
+      7.15,
+      -2.2,
+      -30.6294
+    ],
+    "max_mm": [
+      12.85,
+      9.45,
+      -24.9294
+    ],
+    "vol_mm3": 109.6722,
+    "name": "REFINED_M3x10_CART_-10_16.5",
+    "is_metal": true,
+    "occ_name": "REFINED_M3x10_CART_-10_16.5:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 35,
+    "min_mm": [
+      7.15,
+      -2.2,
+      -50.6294
+    ],
+    "max_mm": [
+      12.85,
+      9.45,
+      -44.9294
+    ],
+    "vol_mm3": 109.6722,
+    "name": "REFINED_M3x10_CART_-10_36.5",
+    "is_metal": true,
+    "occ_name": "REFINED_M3x10_CART_-10_36.5:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 36,
+    "min_mm": [
+      -12.85,
+      -2.2,
+      -30.6294
+    ],
+    "max_mm": [
+      -7.15,
+      9.45,
+      -24.9294
+    ],
+    "vol_mm3": 109.6722,
+    "name": "REFINED_M3x10_CART_10_16.5",
+    "is_metal": true,
+    "occ_name": "REFINED_M3x10_CART_10_16.5:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 37,
+    "min_mm": [
+      -12.85,
+      -2.2,
+      -50.6294
+    ],
+    "max_mm": [
+      -7.15,
+      9.45,
+      -44.9294
+    ],
+    "vol_mm3": 109.6722,
+    "name": "REFINED_M3x10_CART_10_36.5",
+    "is_metal": true,
+    "occ_name": "REFINED_M3x10_CART_10_36.5:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 38,
+    "min_mm": [
+      -20.95,
+      -5.5,
+      38.87
+    ],
+    "max_mm": [
+      -15.25,
+      31.15,
+      44.57
+    ],
+    "vol_mm3": 286.3867,
+    "name": "UPPER_RIGHT_SHARED_M3x35_FRAME",
+    "is_metal": true,
+    "occ_name": "UPPER RIGHT SHARED M3x35 FRAME:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 39,
+    "min_mm": [
+      -20.4,
+      -6.5,
+      39.42
+    ],
+    "max_mm": [
+      -15.8,
+      -2.5,
+      44.02
+    ],
+    "vol_mm3": 38.2018,
+    "name": "UPPER_RIGHT_REAR_M3_HEATSET_4p6x4",
+    "is_metal": true,
+    "occ_name": "UPPER RIGHT REAR M3 HEATSET 4p6x4:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 40,
+    "min_mm": [
+      15.65,
+      6.5,
+      -17.45
+    ],
+    "max_mm": [
+      21.35,
+      33.15,
+      -11.75
+    ],
+    "vol_mm3": 215.7009,
+    "name": "CLAM_M3x25_FRAME_2",
+    "is_metal": true,
+    "occ_name": "M3x25 lower case clamp into heat-set:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 41,
+    "min_mm": [
+      16.2,
+      6.0,
+      -16.9
+    ],
+    "max_mm": [
+      20.8,
+      10.0,
+      -12.3
+    ],
+    "vol_mm3": 38.2018,
+    "name": "CLAM_M3_FRAME_INSERT_2",
+    "is_metal": true,
+    "occ_name": "Rear-loaded M3 lower case-clamp heat-set:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 42,
+    "min_mm": [
+      -21.35,
+      -3.5,
+      -17.3
+    ],
+    "max_mm": [
+      -15.65,
+      33.15,
+      -11.6
+    ],
+    "vol_mm3": 286.3867,
+    "name": "LOWER_CASE_M3x35_BUTTON",
+    "is_metal": true,
+    "occ_name": "LOWER CASE M3x35 BUTTON:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 43,
+    "min_mm": [
+      -20.8,
+      -3.7,
+      -16.75
+    ],
+    "max_mm": [
+      -16.2,
+      0.3,
+      -12.15
+    ],
+    "vol_mm3": 38.2018,
+    "name": "CLAM_M3_FRAME_INSERT_3",
+    "is_metal": true,
+    "occ_name": "Raised M3 heat-set in actuator rear plate:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 44,
+    "min_mm": [
+      15.25,
+      0.5,
+      38.87
+    ],
+    "max_mm": [
+      20.95,
+      32.15,
+      44.57
+    ],
+    "vol_mm3": 251.0438,
+    "name": "UPPER_LEFT_CASE_M3x30_BUTTON",
+    "is_metal": true,
+    "occ_name": "UPPER LEFT CASE M3x30 BUTTON:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 45,
+    "min_mm": [
+      15.8,
+      0.3,
+      39.42
+    ],
+    "max_mm": [
+      20.4,
+      4.3,
+      44.02
+    ],
+    "vol_mm3": 66.4761,
+    "name": "FRAME_M3_HEATSET_in_P01",
+    "is_metal": true,
+    "occ_name": "FRAME_M3_HEATSET_in_P01:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 46,
+    "min_mm": [
+      -13.5,
+      10.4,
+      28.0206
+    ],
+    "max_mm": [
+      -9.5,
+      18.8,
+      36.4206
+    ],
+    "vol_mm3": 203.6273,
+    "name": "PRINT_SINGLE_SPRING_PRESSURE_CUP",
+    "is_metal": false,
+    "occ_name": "P12 Spring pressure cup:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 47,
+    "min_mm": [
+      -15.45,
+      12.6,
+      30.2206
+    ],
+    "max_mm": [
+      -11.45,
+      16.6,
+      34.2206
+    ],
+    "vol_mm3": 33.5103,
+    "name": "SPRING_PRELOAD_THRUST_BALL_4mm",
+    "is_metal": true,
+    "occ_name": "SPRING_PRELOAD_THRUST_BALL_4mm:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 48,
+    "min_mm": [
+      -21.45,
+      13.1,
+      30.7206
+    ],
+    "max_mm": [
+      -15.45,
+      16.1,
+      33.7206
+    ],
+    "vol_mm3": 39.6835,
+    "name": "SPRING_PRELOAD_M3x6_GRUB",
+    "is_metal": true,
+    "occ_name": "SPRING_PRELOAD_M3x6_GRUB:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 49,
+    "min_mm": [
+      -20.45,
+      12.3,
+      29.9206
+    ],
+    "max_mm": [
+      -16.45,
+      16.9,
+      34.5206
+    ],
+    "vol_mm3": 46.8411,
+    "name": "SPRING_PRELOAD_M3_HEATSET",
+    "is_metal": true,
+    "occ_name": "SPRING_PRELOAD_M3_HEATSET:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 50,
+    "min_mm": [
+      -22.5,
+      -11.2,
+      -17.78
+    ],
+    "max_mm": [
+      22.5,
+      0.3,
+      62.2206
+    ],
+    "vol_mm3": 14927.746,
+    "name": "PRINT_REAR_MOTOR_SERVO_SPACER",
+    "is_metal": false,
+    "occ_name": "P02 v23 7mm plate - MG90S-MG90D ear-seat bosses:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 51,
+    "min_mm": [
+      14.4,
+      -8.35,
+      20.87
+    ],
+    "max_mm": [
+      20.1,
+      3.3,
+      26.57
+    ],
+    "vol_mm3": 112.7899,
+    "name": "PLATE_M3x10_BUTTON",
+    "is_metal": true,
+    "occ_name": "PLATE M3x10 BUTTON:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 52,
+    "min_mm": [
+      14.95,
+      0.3,
+      21.42
+    ],
+    "max_mm": [
+      19.55,
+      4.3,
+      26.02
+    ],
+    "vol_mm3": 66.4761,
+    "name": "SPACER_M3_HEATSET_0",
+    "is_metal": true,
+    "occ_name": "SPACER_M3_HEATSET_0:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 53,
+    "min_mm": [
+      -22.5,
+      9.35,
+      -20.4004
+    ],
+    "max_mm": [
+      22.5,
+      33.1499,
+      57.0206
+    ],
+    "vol_mm3": 30880.8602,
+    "name": "PRINT_000_outer_shell_of_extruder_1",
+    "is_metal": false,
+    "occ_name": "P03 v19 open receiver - independent MF85 tower and cross-tie:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 54,
+    "min_mm": [
+      -22.5,
+      0.3,
+      -57.2794
+    ],
+    "max_mm": [
+      22.5,
+      29.0,
+      62.2206
+    ],
+    "vol_mm3": 33426.8947,
+    "name": "PRINT_motor_mount",
+    "is_metal": false,
+    "occ_name": "P01 v19 open upper frame - MR128 rear support:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 55,
+    "min_mm": [
+      8.75,
+      -15.0,
+      57.29
+    ],
+    "max_mm": [
+      12.25,
+      -5.7,
+      60.79
+    ],
+    "vol_mm3": 37.6402,
+    "name": "MG90_M2x8_SELF_TAPPING_near",
+    "is_metal": true,
+    "occ_name": "MG90 M2x8 self-tapping - near ear:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 56,
+    "min_mm": [
+      8.75,
+      -15.0,
+      29.79
+    ],
+    "max_mm": [
+      12.25,
+      -5.7,
+      33.29
+    ],
+    "vol_mm3": 37.6402,
+    "name": "MG90_M2x8_SELF_TAPPING_far",
+    "is_metal": true,
+    "occ_name": "MG90 M2x8 self-tapping - far ear:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 57,
+    "min_mm": [
+      4.5,
+      -1.05,
+      44.7206
+    ],
+    "max_mm": [
+      16.5,
+      2.45,
+      56.7206
+    ],
+    "vol_mm3": 219.9115,
+    "name": "CAM_REAR_MR128ZZ_8x12x3p5",
+    "is_metal": true,
+    "occ_name": "Rear cam support MR128ZZ - fixed to carriage:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 58,
+    "min_mm": [
+      -19.3376,
+      5.6,
+      3.2774
+    ],
+    "max_mm": [
+      0.3376,
+      20.0,
+      22.9226
+    ],
+    "vol_mm3": 1626.2355,
+    "name": "PRINT_compound_right",
+    "is_metal": false,
+    "occ_name": "P07 Right compound - 38T from Y6.6:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 59,
+    "min_mm": [
+      -11.5,
+      3.4,
+      11.1
+    ],
+    "max_mm": [
+      -7.5,
+      29.7,
+      15.1
+    ],
+    "vol_mm3": 330.4955,
+    "name": "AXLE_4x25_fixed",
+    "is_metal": true,
+    "occ_name": "AXLE 4x25 fixed (rotating):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 60,
+    "min_mm": [
+      -0.3226,
+      5.6,
+      3.2624
+    ],
+    "max_mm": [
+      19.3226,
+      20.0,
+      22.9376
+    ],
+    "vol_mm3": 1813.7613,
+    "name": "PRINT_compound_left",
+    "is_metal": false,
+    "occ_name": "P06 Left compound - 6700 hub:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 61,
+    "min_mm": [
+      7.5,
+      3.4,
+      11.1
+    ],
+    "max_mm": [
+      11.5,
+      28.3,
+      15.1
+    ],
+    "vol_mm3": 312.9026,
+    "name": "AXLE_4x24_moving",
+    "is_metal": true,
+    "occ_name": "AXLE 4x24 moving (rotating):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 62,
+    "min_mm": [
+      6.8533,
+      13.5,
+      -3.5653
+    ],
+    "max_mm": [
+      14.0533,
+      16.0,
+      3.6347
+    ],
+    "vol_mm3": 60.4788,
+    "name": "STOCK_047_3mm_flange_bearing_1_1",
+    "is_metal": true,
+    "occ_name": "STOCK_047_3mm_flange_bearing_1_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 63,
+    "min_mm": [
+      6.8533,
+      24.2,
+      -3.5653
+    ],
+    "max_mm": [
+      14.0533,
+      26.7,
+      3.6347
+    ],
+    "vol_mm3": 60.4788,
+    "name": "STOCK_049_3mm_flange_bearing_1_2",
+    "is_metal": true,
+    "occ_name": "STOCK_049_3mm_flange_bearing_1_2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 64,
+    "min_mm": [
+      5.4,
+      22.3,
+      9.0
+    ],
+    "max_mm": [
+      13.6,
+      24.8,
+      17.2
+    ],
+    "vol_mm3": 73.3907,
+    "name": "STOCK_050_4mm_flange_bearing_1_2",
+    "is_metal": true,
+    "occ_name": "STOCK_050_4mm_flange_bearing_1_2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 65,
+    "min_mm": [
+      -3.5606,
+      4.5,
+      39.5478
+    ],
+    "max_mm": [
+      1.4394,
+      5.0,
+      44.5478
+    ],
+    "vol_mm3": 5.7962,
+    "name": "FOLLOWER_INNER_RING_WASHER_rear",
+    "is_metal": true,
+    "occ_name": "FOLLOWER_INNER_RING_WASHER_rear:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 66,
+    "min_mm": [
+      -3.5606,
+      9.0,
+      39.5478
+    ],
+    "max_mm": [
+      1.4394,
+      9.5,
+      44.5478
+    ],
+    "vol_mm3": 5.7962,
+    "name": "FOLLOWER_INNER_RING_WASHER_front",
+    "is_metal": true,
+    "occ_name": "FOLLOWER_INNER_RING_WASHER_front:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 67,
+    "min_mm": [
+      -2.5606,
+      2.6,
+      40.5478
+    ],
+    "max_mm": [
+      0.4394,
+      12.6,
+      43.5478
+    ],
+    "vol_mm3": 70.6858,
+    "name": "FOLLOWER_PIN_3x10_double_shear",
+    "is_metal": true,
+    "occ_name": "FOLLOWER_PIN_3x10_double_shear:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 68,
+    "min_mm": [
+      -10.5688,
+      2.4991,
+      -16.5578
+    ],
+    "max_mm": [
+      20.2815,
+      16.1276,
+      58.8518
+    ],
+    "vol_mm3": 5701.4541,
+    "name": "PRINT_carrier_box_left",
+    "is_metal": false,
+    "occ_name": "P04R Swing arm rear half - v6:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 69,
+    "min_mm": [
+      3.1752,
+      13.25,
+      -18.1741
+    ],
+    "max_mm": [
+      20.382,
+      26.85,
+      39.1566
+    ],
+    "vol_mm3": 3853.9452,
+    "name": "PRINT_arm_front_half",
+    "is_metal": false,
+    "occ_name": "P04F Front arm - full bearing engagement and magnet clearance:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 70,
+    "min_mm": [
+      10.0945,
+      15.6,
+      29.6736
+    ],
+    "max_mm": [
+      14.6945,
+      19.6,
+      34.2736
+    ],
+    "vol_mm3": 66.4761,
+    "name": "ARM_SPLIT_M3_INSERT_0",
+    "is_metal": true,
+    "occ_name": "ARM_SPLIT_M3_INSERT_0:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 71,
+    "min_mm": [
+      9.6445,
+      7.1,
+      29.2236
+    ],
+    "max_mm": [
+      15.1445,
+      20.1,
+      34.7236
+    ],
+    "vol_mm3": 141.9607,
+    "name": "ARM_SPLIT_M3x10_SHCS_0",
+    "is_metal": true,
+    "occ_name": "ARM_SPLIT_M3x10_SHCS_0:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 72,
+    "min_mm": [
+      8.7767,
+      10.15,
+      -16.1069
+    ],
+    "max_mm": [
+      14.4767,
+      25.8,
+      -10.4069
+    ],
+    "vol_mm3": 137.7733,
+    "name": "ARM_LOWER_M3x14_BUTTON_HEAD",
+    "is_metal": true,
+    "occ_name": "ARM_LOWER_M3x14_BUTTON_HEAD:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 73,
+    "min_mm": [
+      9.3267,
+      20.5,
+      -15.5569
+    ],
+    "max_mm": [
+      13.9267,
+      24.5,
+      -10.9569
+    ],
+    "vol_mm3": 38.2018,
+    "name": "ARM_LOWER_M3_HEATSET_4p6x4",
+    "is_metal": true,
+    "occ_name": "ARM_LOWER_M3_HEATSET_4p6x4:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 74,
+    "min_mm": [
+      -19.7596,
+      16.1,
+      -9.6967
+    ],
+    "max_mm": [
+      -0.3582,
+      24.1,
+      9.716
+    ],
+    "vol_mm3": 943.6789,
+    "name": "PRINT_feed_right",
+    "is_metal": false,
+    "occ_name": "P09 Right 37T HGX drive:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 75,
+    "min_mm": [
+      -20.7815,
+      17.1,
+      -10.7198
+    ],
+    "max_mm": [
+      0.6811,
+      24.1,
+      10.7429
+    ],
+    "vol_mm3": 913.6175,
+    "name": "STOCK_003_extrude_wheel_1",
+    "is_metal": true,
+    "occ_name": "STOCK_003_extrude_wheel_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 76,
+    "min_mm": [
+      -12.5502,
+      17.1,
+      -2.4885
+    ],
+    "max_mm": [
+      -7.5502,
+      24.1,
+      2.5115
+    ],
+    "vol_mm3": 87.9646,
+    "name": "STOCK_004_needle_bearing_1",
+    "is_metal": true,
+    "occ_name": "STOCK_004_needle_bearing_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 77,
+    "min_mm": [
+      0.7435,
+      16.1,
+      -9.6655
+    ],
+    "max_mm": [
+      20.1513,
+      24.1,
+      9.7443
+    ],
+    "vol_mm3": 944.1219,
+    "name": "PRINT_feed_left",
+    "is_metal": false,
+    "occ_name": "P08 Left 37T HGX drive:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 78,
+    "min_mm": [
+      -0.2933,
+      17.1,
+      -10.7119
+    ],
+    "max_mm": [
+      21.1999,
+      24.1,
+      10.7813
+    ],
+    "vol_mm3": 913.6175,
+    "name": "STOCK_038_extrude_wheel_1",
+    "is_metal": true,
+    "occ_name": "STOCK_038_extrude_wheel_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 79,
+    "min_mm": [
+      7.9533,
+      17.1,
+      -2.4653
+    ],
+    "max_mm": [
+      12.9533,
+      24.1,
+      2.5347
+    ],
+    "vol_mm3": 87.9646,
+    "name": "STOCK_039_needle_bearing_1",
+    "is_metal": true,
+    "occ_name": "STOCK_039_needle_bearing_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 80,
+    "min_mm": [
+      -11.5502,
+      12.9,
+      -1.4885
+    ],
+    "max_mm": [
+      -8.5502,
+      26.9,
+      1.5115
+    ],
+    "vol_mm3": 98.9602,
+    "name": "SHAFT_hob_right",
+    "is_metal": true,
+    "occ_name": "SHAFT_hob_right:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 81,
+    "min_mm": [
+      8.9533,
+      12.9,
+      -1.4653
+    ],
+    "max_mm": [
+      11.9533,
+      26.9,
+      1.5347
+    ],
+    "vol_mm3": 98.9602,
+    "name": "SHAFT_hob_left",
+    "is_metal": true,
+    "occ_name": "SHAFT_hob_left:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 82,
+    "min_mm": [
+      8.0903,
+      -2.2,
+      48.2989
+    ],
+    "max_mm": [
+      12.9304,
+      1.16,
+      53.1467
+    ],
+    "vol_mm3": 42.9049,
+    "name": "MG90S_21T_OD4p86_H3p36_M2p5_REFERENCE_FIT_PENDING",
+    "is_metal": true,
+    "occ_name": "MG90S measured output - 21T flank fit pending:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 83,
+    "min_mm": [
+      8.25,
+      -1.8,
+      48.4706
+    ],
+    "max_mm": [
+      12.75,
+      16.7,
+      52.9706
+    ],
+    "vol_mm3": 113.4509,
+    "name": "CAM_M2p5x16_RETAINER_VERIFY_USABLE_DEPTH",
+    "is_metal": true,
+    "occ_name": "M2.5x16 cam retainer - depth verification required:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 84,
+    "min_mm": [
+      -3.5761,
+      -6.7492,
+      36.907
+    ],
+    "max_mm": [
+      21.1983,
+      18.4492,
+      62.2864
+    ],
+    "vol_mm3": 1136.6015,
+    "name": "PRINT_DIRECT_CAM",
+    "is_metal": false,
+    "occ_name": "P05 v18 cam - spline clocked minus90 - FIT PENDING:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 85,
+    "min_mm": [
+      7.5,
+      13.7,
+      47.7206
+    ],
+    "max_mm": [
+      13.5,
+      14.2,
+      53.7206
+    ],
+    "vol_mm3": 11.2744,
+    "name": "CAM_M2p5_WASHER_2p7x6x0p5",
+    "is_metal": true,
+    "occ_name": "M2.5 flat washer - 2.7x6x0.5:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 86,
+    "min_mm": [
+      -6.0606,
+      5.0,
+      37.0478
+    ],
+    "max_mm": [
+      3.9394,
+      9.0,
+      47.0478
+    ],
+    "vol_mm3": 285.8849,
+    "name": "CAM_FOLLOWER_623",
+    "is_metal": true,
+    "occ_name": "CAM_FOLLOWER_623:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 87,
+    "min_mm": [
+      -2.0,
+      19.4,
+      -14.7794
+    ],
+    "max_mm": [
+      2.0,
+      21.4,
+      -10.7794
+    ],
+    "vol_mm3": 25.1327,
+    "name": "TOOL_10_Magnet_4x2mm_1",
+    "is_metal": true,
+    "occ_name": "TOOL_10_Magnet_4x2mm_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 88,
+    "min_mm": [
+      -11.0006,
+      13.3646,
+      -50.28
+    ],
+    "max_mm": [
+      11.0006,
+      32.0354,
+      -24.2788
+    ],
+    "vol_mm3": 2632.2637,
+    "name": "HF_00_K1_heatsink",
+    "is_metal": true,
+    "occ_name": "HF_00_K1_heatsink:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 89,
+    "min_mm": [
+      -3.0,
+      19.7,
+      -57.8794
+    ],
+    "max_mm": [
+      3.0,
+      25.7,
+      -41.2794
+    ],
+    "vol_mm3": 210.8456,
+    "name": "HF_01_K1_heatbreak_subassembly",
+    "is_metal": true,
+    "occ_name": "HF_01_K1_heatbreak_subassembly:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 90,
+    "min_mm": [
+      -11.0,
+      18.2,
+      -50.2794
+    ],
+    "max_mm": [
+      11.0,
+      27.2,
+      -48.2794
+    ],
+    "vol_mm3": 306.3497,
+    "name": "HF_02_K1_heatbreak_subassembly_1",
+    "is_metal": true,
+    "occ_name": "HF_02_K1_heatbreak_subassembly_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 91,
+    "min_mm": [
+      -4.45,
+      18.25,
+      -48.2794
+    ],
+    "max_mm": [
+      4.45,
+      27.15,
+      -26.3794
+    ],
+    "vol_mm3": 397.5098,
+    "name": "HF_03_K1_heatbreak_subassembly_2",
+    "is_metal": true,
+    "occ_name": "HF_03_K1_heatbreak_subassembly_2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 92,
+    "min_mm": [
+      -9.5014,
+      14.0013,
+      -73.351
+    ],
+    "max_mm": [
+      9.5014,
+      37.2014,
+      -53.2077
+    ],
+    "vol_mm3": 4452.7987,
+    "name": "HF_04_Creality_Ender_3_Volcano_Hotend_v14",
+    "is_metal": true,
+    "occ_name": "HF_04_Creality_Ender_3_Volcano_Hotend_v14:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 93,
+    "min_mm": [
+      -3.5,
+      18.6585,
+      -78.8794
+    ],
+    "max_mm": [
+      3.5,
+      26.7415,
+      -57.8794
+    ],
+    "vol_mm3": 534.7369,
+    "name": "HF_05_HF03_NOMINAL_VOLCANO_NOZZLE_NOT_VENDOR_CAD",
+    "is_metal": true,
+    "occ_name": "HF_05_HF03_NOMINAL_VOLCANO_NOZZLE_NOT_VENDOR_CAD:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 94,
+    "min_mm": [
+      -4.05,
+      28.95,
+      -73.2794
+    ],
+    "max_mm": [
+      1.95,
+      34.95,
+      -53.2794
+    ],
+    "vol_mm3": 565.4867,
+    "name": "HF_06_HF04_HEATER_6x20_NOMINAL_REFERENCE",
+    "is_metal": true,
+    "occ_name": "HF_06_HF04_HEATER_6x20_NOMINAL_REFERENCE:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 95,
+    "min_mm": [
+      -1.5,
+      15.275,
+      -68.2794
+    ],
+    "max_mm": [
+      1.5,
+      18.275,
+      -53.2794
+    ],
+    "vol_mm3": 106.0288,
+    "name": "HF_07_HF05_THERMISTOR_3x15_NOMINAL_REFERENCE",
+    "is_metal": true,
+    "occ_name": "HF_07_HF05_THERMISTOR_3x15_NOMINAL_REFERENCE:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 96,
+    "min_mm": [
+      3.407,
+      14.793,
+      -27.2794
+    ],
+    "max_mm": [
+      7.907,
+      19.293,
+      -16.7794
+    ],
+    "vol_mm3": 79.0307,
+    "name": "M2_5x8_HF_mount_0",
+    "is_metal": true,
+    "occ_name": "M2_5x8_HF_mount_0:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 97,
+    "min_mm": [
+      -7.907,
+      14.793,
+      -27.2794
+    ],
+    "max_mm": [
+      -3.407,
+      19.293,
+      -16.7794
+    ],
+    "vol_mm3": 79.0307,
+    "name": "M2_5x8_HF_mount_1",
+    "is_metal": true,
+    "occ_name": "M2_5x8_HF_mount_1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 98,
+    "min_mm": [
+      3.407,
+      26.107,
+      -27.2794
+    ],
+    "max_mm": [
+      7.907,
+      30.607,
+      -16.7794
+    ],
+    "vol_mm3": 79.0307,
+    "name": "M2_5x8_HF_mount_2",
+    "is_metal": true,
+    "occ_name": "M2_5x8_HF_mount_2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 99,
+    "min_mm": [
+      -7.907,
+      26.107,
+      -27.2794
+    ],
+    "max_mm": [
+      -3.407,
+      30.607,
+      -16.7794
+    ],
+    "vol_mm3": 79.0307,
+    "name": "M2_5x8_HF_mount_3",
+    "is_metal": true,
+    "occ_name": "M2_5x8_HF_mount_3:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 100,
+    "min_mm": [
+      -2.0,
+      20.7,
+      -25.0794
+    ],
+    "max_mm": [
+      2.0,
+      24.7,
+      -19.0794
+    ],
+    "vol_mm3": 56.5487,
+    "name": "PTFE_4x2_L6",
+    "is_metal": false,
+    "occ_name": "PTFE_4x2_L6:1",
+    "is_print": false,
+    "is_ref": true
+  },
+  {
+    "idx": 101,
+    "min_mm": [
+      -1.5718,
+      21.825,
+      -24.2794
+    ],
+    "max_mm": [
+      0.875,
+      23.575,
+      68.7206
+    ],
+    "vol_mm3": 251.8497,
+    "name": "REFERENCE_loaded_filament",
+    "is_metal": false,
+    "occ_name": "REFERENCE_loaded_filament:1",
+    "is_print": false,
+    "is_ref": true
+  },
+  {
+    "idx": 102,
+    "min_mm": [
+      -14.0023,
+      11.4977,
+      -27.2138
+    ],
+    "max_mm": [
+      14.0023,
+      36.0423,
+      48.7462
+    ],
+    "vol_mm3": 9882.9926,
+    "name": "PRINT_RedLizard_HF_tool_carrier",
+    "is_metal": false,
+    "occ_name": "P17 HF tool carrier:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 103,
+    "min_mm": [
+      5.4986,
+      29.8431,
+      36.7174
+    ],
+    "max_mm": [
+      9.4986,
+      33.8431,
+      40.7174
+    ],
+    "vol_mm3": 33.5103,
+    "name": "OCT_TOOL_05_4mm_ball:1",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_05_4mm_ball:1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 104,
+    "min_mm": [
+      -10.016,
+      35.9284,
+      -26.7661
+    ],
+    "max_mm": [
+      10.0279,
+      45.0167,
+      48.7468
+    ],
+    "vol_mm3": 3206.4621,
+    "name": "TOOL_06_Tool_head_back_part_1",
+    "is_metal": false,
+    "occ_name": "P18 Tool docking backplate:1",
+    "is_print": true,
+    "is_ref": false
+  },
+  {
+    "idx": 105,
+    "min_mm": [
+      -8.2739,
+      32.1718,
+      -21.5398
+    ],
+    "max_mm": [
+      -3.7404,
+      36.0353,
+      -16.9816
+    ],
+    "vol_mm3": 19.9241,
+    "name": "OCT_TOOL_09_M3_heatset_nut_small:1",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_09_M3_heatset_nut_small:1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 106,
+    "min_mm": [
+      3.1383,
+      32.0266,
+      -22.1189
+    ],
+    "max_mm": [
+      8.8434,
+      39.9678,
+      -16.4047
+    ],
+    "vol_mm3": 64.3482,
+    "name": "OCT_TOOL_10_M3_6:1",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_10_M3_6:1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 107,
+    "min_mm": [
+      -9.4764,
+      29.8431,
+      36.7382
+    ],
+    "max_mm": [
+      -5.4764,
+      33.8431,
+      40.7382
+    ],
+    "vol_mm3": 33.5103,
+    "name": "OCT_TOOL_11_4mm_ball:2",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_11_4mm_ball:2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 108,
+    "min_mm": [
+      -8.8668,
+      29.9966,
+      -13.258
+    ],
+    "max_mm": [
+      -4.8668,
+      33.9966,
+      -9.258
+    ],
+    "vol_mm3": 33.5103,
+    "name": "OCT_TOOL_12_4mm_ball:3",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_12_4mm_ball:3:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 109,
+    "min_mm": [
+      4.8532,
+      29.9966,
+      -13.2663
+    ],
+    "max_mm": [
+      8.8532,
+      33.9966,
+      -9.2663
+    ],
+    "vol_mm3": 33.5103,
+    "name": "OCT_TOOL_13_4mm_ball:4",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_13_4mm_ball:4:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 110,
+    "min_mm": [
+      3.9163,
+      32.0501,
+      19.2319
+    ],
+    "max_mm": [
+      8.9163,
+      35.0501,
+      34.2319
+    ],
+    "vol_mm3": 225.0,
+    "name": "OCT_TOOL_14_magnet_5-15-3:1",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_14_magnet_5-15-3:1:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 111,
+    "min_mm": [
+      -9.0837,
+      32.0501,
+      19.2398
+    ],
+    "max_mm": [
+      -4.0837,
+      35.0501,
+      34.2398
+    ],
+    "vol_mm3": 225.0,
+    "name": "OCT_TOOL_15_magnet_5-15-3:2",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_15_magnet_5-15-3:2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 112,
+    "min_mm": [
+      -9.0989,
+      32.0868,
+      -5.7601
+    ],
+    "max_mm": [
+      -4.0989,
+      35.0868,
+      9.2399
+    ],
+    "vol_mm3": 225.0,
+    "name": "OCT_TOOL_16_magnet_5-15-3:3",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_16_magnet_5-15-3:3:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 113,
+    "min_mm": [
+      3.9011,
+      32.0868,
+      -5.768
+    ],
+    "max_mm": [
+      8.9011,
+      35.0868,
+      9.232
+    ],
+    "vol_mm3": 225.0,
+    "name": "OCT_TOOL_17_magnet_5-15-3:4",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_17_magnet_5-15-3:4:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 114,
+    "min_mm": [
+      3.7081,
+      32.1718,
+      -21.5419
+    ],
+    "max_mm": [
+      8.2595,
+      36.0353,
+      -16.9941
+    ],
+    "vol_mm3": 19.9241,
+    "name": "OCT_TOOL_20_M3_heatset_nut_small:2",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_20_M3_heatset_nut_small:2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 115,
+    "min_mm": [
+      -8.2499,
+      32.0778,
+      42.4719
+    ],
+    "max_mm": [
+      -3.6996,
+      35.9412,
+      47.021
+    ],
+    "vol_mm3": 19.9241,
+    "name": "OCT_TOOL_21_M3_heatset_nut_small:3",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_21_M3_heatset_nut_small:3:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 116,
+    "min_mm": [
+      3.7528,
+      32.0778,
+      42.4669
+    ],
+    "max_mm": [
+      8.3084,
+      35.9412,
+      47.0087
+    ],
+    "vol_mm3": 19.9241,
+    "name": "OCT_TOOL_22_M3_heatset_nut_small:4",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_22_M3_heatset_nut_small:4:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 117,
+    "min_mm": [
+      -8.8673,
+      32.0266,
+      -22.239
+    ],
+    "max_mm": [
+      -3.1511,
+      39.9678,
+      -16.2709
+    ],
+    "vol_mm3": 64.3482,
+    "name": "OCT_TOOL_23_M3_6:2",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_23_M3_6:2:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 118,
+    "min_mm": [
+      3.1595,
+      31.9325,
+      41.706
+    ],
+    "max_mm": [
+      8.8997,
+      39.8737,
+      47.7692
+    ],
+    "vol_mm3": 64.3482,
+    "name": "OCT_TOOL_24_M3_6:3",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_24_M3_6:3:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 119,
+    "min_mm": [
+      -8.8532,
+      31.9325,
+      41.7097
+    ],
+    "max_mm": [
+      -3.0879,
+      39.8737,
+      47.78
+    ],
+    "vol_mm3": 64.3482,
+    "name": "OCT_TOOL_25_M3_6:4",
+    "is_metal": true,
+    "occ_name": "OCT_TOOL_25_M3_6:4:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 120,
+    "min_mm": [
+      -9.5402,
+      10.7,
+      28.2108
+    ],
+    "max_mm": [
+      11.836,
+      18.5,
+      36.1206
+    ],
+    "vol_mm3": 374.6552,
+    "name": "CLOSING_SPRING_ENVELOPE",
+    "is_metal": false,
+    "occ_name": "CLOSING_SPRING_ENVELOPE:1",
+    "is_print": false,
+    "is_ref": true
+  },
+  {
+    "idx": 121,
+    "min_mm": [
+      -20.3276,
+      0.3,
+      -14.8292
+    ],
+    "max_mm": [
+      17.832,
+      4.8,
+      23.3304
+    ],
+    "vol_mm3": 3907.642,
+    "name": "AHG front flange, ears and 16mm pilot",
+    "is_metal": true,
+    "occ_name": "LDO-36STH20-1004AHG(XH):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 122,
+    "min_mm": [
+      -19.4978,
+      -12.9,
+      -13.9994
+    ],
+    "max_mm": [
+      17.0022,
+      0.3,
+      22.5006
+    ],
+    "vol_mm3": 13726.3644,
+    "name": "AHG laminated stator",
+    "is_metal": true,
+    "occ_name": "LDO-36STH20-1004AHG(XH):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 123,
+    "min_mm": [
+      -19.3478,
+      -16.7,
+      -13.8494
+    ],
+    "max_mm": [
+      16.8522,
+      -12.9,
+      22.3506
+    ],
+    "vol_mm3": 3763.7631,
+    "name": "AHG rear end cap",
+    "is_metal": true,
+    "occ_name": "LDO-36STH20-1004AHG(XH):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 124,
+    "min_mm": [
+      -4.2728,
+      4.8,
+      1.2531
+    ],
+    "max_mm": [
+      1.7772,
+      9.3,
+      7.2481
+    ],
+    "vol_mm3": 84.1861,
+    "name": "AHG factory 10T m0.5 pinion",
+    "is_metal": true,
+    "occ_name": "LDO-36STH20-1004AHG(XH):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 125,
+    "min_mm": [
+      -19.3498,
+      -16.95,
+      -13.8513
+    ],
+    "max_mm": [
+      -10.9352,
+      -11.45,
+      -5.4368
+    ],
+    "vol_mm3": 158.95,
+    "name": "AHG lead exit (XH2.54-4P)",
+    "is_metal": true,
+    "occ_name": "LDO-36STH20-1004AHG(XH):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 126,
+    "min_mm": [
+      -25.0066,
+      -14.75,
+      -16.1141
+    ],
+    "max_mm": [
+      -16.4506,
+      -13.65,
+      -7.5581
+    ],
+    "vol_mm3": 10.4536,
+    "name": "AHG lead red",
+    "is_metal": true,
+    "occ_name": "LDO-36STH20-1004AHG(XH):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 127,
+    "min_mm": [
+      -23.8752,
+      -14.75,
+      -17.2454
+    ],
+    "max_mm": [
+      -15.3192,
+      -13.65,
+      -8.6895
+    ],
+    "vol_mm3": 10.4536,
+    "name": "AHG lead green",
+    "is_metal": true,
+    "occ_name": "LDO-36STH20-1004AHG(XH):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 128,
+    "min_mm": [
+      -22.7439,
+      -14.75,
+      -18.3768
+    ],
+    "max_mm": [
+      -14.1879,
+      -13.65,
+      -9.8208
+    ],
+    "vol_mm3": 10.4536,
+    "name": "AHG lead yellow",
+    "is_metal": true,
+    "occ_name": "LDO-36STH20-1004AHG(XH):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 129,
+    "min_mm": [
+      -21.6125,
+      -14.75,
+      -19.5082
+    ],
+    "max_mm": [
+      -13.0565,
+      -13.65,
+      -10.9522
+    ],
+    "vol_mm3": 10.4536,
+    "name": "AHG lead blue",
+    "is_metal": true,
+    "occ_name": "LDO-36STH20-1004AHG(XH):1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 130,
+    "min_mm": [
+      -13.0,
+      3.3,
+      9.6
+    ],
+    "max_mm": [
+      -6.0,
+      5.3,
+      16.6
+    ],
+    "vol_mm3": 51.8363,
+    "name": "MR74 4x7x2 fixed axle rear (pin plate C-seat)",
+    "is_metal": true,
+    "occ_name": "AHG-min new hardware:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 131,
+    "min_mm": [
+      6.0,
+      3.3,
+      9.6
+    ],
+    "max_mm": [
+      13.0,
+      5.3,
+      16.6
+    ],
+    "vol_mm3": 51.8363,
+    "name": "MR74 4x7x2 moving axle rear (pin plate)",
+    "is_metal": true,
+    "occ_name": "AHG-min new hardware:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 132,
+    "min_mm": [
+      2.0,
+      11.0,
+      5.6
+    ],
+    "max_mm": [
+      17.0,
+      15.0,
+      20.6
+    ],
+    "vol_mm3": 392.6991,
+    "name": "6700ZZ arm rear hinge (on moving hub)",
+    "is_metal": true,
+    "occ_name": "AHG-min new hardware:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 133,
+    "min_mm": [
+      -19.5976,
+      -8.35,
+      16.9004
+    ],
+    "max_mm": [
+      -13.8976,
+      3.3,
+      22.6004
+    ],
+    "vol_mm3": 112.7899,
+    "name": "MOTOR_EAR_M3x10_BUTTON_0",
+    "is_metal": true,
+    "occ_name": "AHG-min new hardware:1",
+    "is_print": false,
+    "is_ref": false
+  },
+  {
+    "idx": 134,
+    "min_mm": [
+      11.402,
+      -8.35,
+      -14.0992
+    ],
+    "max_mm": [
+      17.102,
+      3.3,
+      -8.3992
+    ],
+    "vol_mm3": 112.7899,
+    "name": "MOTOR_EAR_M3x10_BUTTON_1",
+    "is_metal": true,
+    "occ_name": "AHG-min new hardware:1",
+    "is_print": false,
+    "is_ref": false
+  }
+]

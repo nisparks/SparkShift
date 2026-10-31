@@ -1,0 +1,2720 @@
+{
+ "what_if": "dowel-pin noses removed from the active tool",
+ "x_mm": [
+  156.2,
+  193.45
+ ],
+ "step_mm": 0.25,
+ "worst": {
+  "active": "Bambu",
+  "x_mm": 156.2,
+  "first_contact_nozzle_y_mm": 47.249,
+  "pair": [
+   "tool P18",
+   "parked T4 Bambu body"
+  ]
+ },
+ "rows": [
+  {
+   "active": "Bambu",
+   "x_mm": 156.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 156.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 156.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 156.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 157.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 157.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 157.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 157.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 158.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 158.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 158.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 158.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 159.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 159.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 159.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 159.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 160.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 160.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 160.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 160.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 161.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 161.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 161.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 161.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 162.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 162.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 162.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 162.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 163.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 163.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 163.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 163.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 164.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 164.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 164.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 164.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 165.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 165.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 165.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 165.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 166.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 166.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 166.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 166.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 167.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 167.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 167.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 167.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 168.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 168.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 168.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 168.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 169.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 169.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 169.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 169.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 170.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 170.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 170.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 170.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 171.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 171.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 171.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 171.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 172.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 172.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 172.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 172.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 173.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 173.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 173.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 173.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 174.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 174.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 174.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 174.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 175.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 175.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 175.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 175.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 176.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 176.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 176.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 176.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 177.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 177.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 177.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 177.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 178.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 178.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 178.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 178.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 179.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 179.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 179.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 179.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 180.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 180.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 180.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 180.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 181.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 181.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 181.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 181.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 182.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 182.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 182.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 182.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 183.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 183.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 183.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 183.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 184.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 184.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 184.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 184.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 185.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 185.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 185.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 185.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 186.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 186.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 186.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 186.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 187.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 187.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 187.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 187.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 188.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 188.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 188.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 188.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 189.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 189.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 189.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 189.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 190.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 190.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 190.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 190.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 191.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 191.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 191.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 191.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 192.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 192.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 192.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 192.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 193.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "Bambu",
+   "x_mm": 193.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 156.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 156.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 156.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 156.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 157.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 157.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 157.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 157.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 158.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 158.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 158.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 158.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 159.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 159.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 159.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 159.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 160.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 160.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 160.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 160.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 161.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 161.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 161.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 161.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 162.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 162.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 162.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 162.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 163.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 163.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 163.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 163.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 164.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 164.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 164.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 164.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 165.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 165.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 165.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 165.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 166.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 166.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 166.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 166.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 167.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 167.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 167.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 167.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 168.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 168.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 168.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 168.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 169.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 169.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 169.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 169.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 170.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 170.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 170.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 170.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 171.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 171.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 171.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 171.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 172.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 172.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 172.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 172.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 173.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 173.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 173.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 173.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 174.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 174.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 174.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 174.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 175.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 175.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 175.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 175.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 176.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 176.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 176.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 176.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 177.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 177.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 177.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 177.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 178.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 178.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T4 RedLizard body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 178.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 178.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 179.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 179.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 179.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 179.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 180.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 180.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 180.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 180.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 181.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 181.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 181.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 181.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 182.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 182.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 182.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 182.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 183.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 183.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 183.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 183.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 184.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 184.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 184.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 184.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 185.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 185.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 185.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 185.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 186.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 186.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 186.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 186.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 187.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 187.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 187.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 187.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 188.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 188.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 188.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 188.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 189.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 189.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 189.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 189.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 190.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 190.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 190.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 190.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 191.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 191.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 191.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 191.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 192.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 192.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 192.7,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 192.95,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 193.2,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  },
+  {
+   "active": "RedLizard",
+   "x_mm": 193.45,
+   "first_contact_nozzle_y_mm": 47.249,
+   "pair": [
+    "tool P18 and magnets",
+    "parked T5 Bambu body"
+   ]
+  }
+ ],
+ "runtime_s": 206.6
+}

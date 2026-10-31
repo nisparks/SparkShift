@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "coil_xy_mm": [
+    5,
+    -58
+  ],
+  "physical_hits": [],
+  "metal_hits": [],
+  "source_sha256": "248898016e4b03f387b32c5cb73e6c124ae0039d84a4b0b5fe651eea07460470",
+  "extra_metal_margin_mm": 1
+}

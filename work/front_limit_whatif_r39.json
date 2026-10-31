@@ -1,0 +1,2746 @@
+{
+ "p18_trim": {
+  "worst": {
+   "active": "Bambu",
+   "x_mm": 156.2,
+   "first_contact_nozzle_y_mm": 47.218,
+   "pair": [
+    "tool fan",
+    "parked T4 RedLizard body"
+   ]
+  },
+  "binding_max_y": {
+   "Bambu: tool fan -> RedLizard body": 47.218,
+   "Bambu: tool fan -> Bambu body": 47.218,
+   "Bambu: tool body -> Bambu body": 47.116,
+   "RedLizard: tool body -> Bambu body": 47.116,
+   "RedLizard: tool fan -> RedLizard body": 47.218,
+   "RedLizard: tool fan -> Bambu body": 47.218
+  },
+  "rows": [
+   {
+    "active": "Bambu",
+    "x_mm": 156.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 156.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 157.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 157.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 158.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 158.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 159.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 159.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 160.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 160.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 161.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 161.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 162.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 162.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 163.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 163.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 164.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 164.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 165.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 165.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 166.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 166.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 167.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 167.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 168.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 168.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 169.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 169.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 170.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 170.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 171.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 171.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 172.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 172.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 173.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 173.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 174.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 174.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 175.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 175.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 176.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 176.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 177.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 177.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 178.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 178.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 179.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 179.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 180.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 180.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 181.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 181.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 182.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 182.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 183.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 183.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 184.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 184.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 185.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 185.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 186.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 186.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 187.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 187.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 188.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 188.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 189.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 189.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 190.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 190.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 191.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 191.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 192.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T5 RedLizard body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 192.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T5 RedLizard body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 193.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T5 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 156.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 156.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 157.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 157.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 158.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 158.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 159.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 159.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 160.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 160.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 161.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 161.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 162.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 162.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 163.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 163.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 164.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 164.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 165.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 165.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 166.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 166.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 167.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 167.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 168.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 168.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 169.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 169.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 170.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 170.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 171.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 171.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 172.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 172.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 173.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 173.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 174.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 174.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 175.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 175.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 176.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 176.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 177.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 177.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 178.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 178.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 179.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 179.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 180.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 180.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 181.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 181.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 182.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 182.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 183.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 183.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 184.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 184.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 185.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 185.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 186.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 186.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 187.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 187.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 188.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 188.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 189.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 189.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 190.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 190.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 191.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 191.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 192.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 192.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 193.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   }
+  ],
+  "runtime_s": 211.3
+ },
+ "no_p18": {
+  "worst": {
+   "active": "Bambu",
+   "x_mm": 156.2,
+   "first_contact_nozzle_y_mm": 47.218,
+   "pair": [
+    "tool fan",
+    "parked T4 RedLizard body"
+   ]
+  },
+  "binding_max_y": {
+   "Bambu: tool fan -> RedLizard body": 47.218,
+   "Bambu: tool fan -> Bambu body": 47.218,
+   "Bambu: tool body -> Bambu body": 47.116,
+   "RedLizard: tool body -> Bambu body": 47.116,
+   "RedLizard: tool fan -> RedLizard body": 47.218,
+   "RedLizard: tool fan -> Bambu body": 47.218
+  },
+  "rows": [
+   {
+    "active": "Bambu",
+    "x_mm": 156.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 156.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 157.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 157.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 158.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 158.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 159.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 159.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 160.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 160.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 161.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 161.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 162.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 162.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 163.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 163.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 164.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 164.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 165.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 165.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 166.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 166.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 167.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 167.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 168.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 168.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 169.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 169.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 170.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 170.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 171.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 171.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 172.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 172.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 173.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 173.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 174.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 174.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 175.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 175.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 176.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 176.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 177.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 177.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 178.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 178.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 179.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 179.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 180.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 180.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 181.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 181.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 182.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 182.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 183.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 183.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 184.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 184.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 185.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 185.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 186.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 186.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 187.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 187.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 188.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 188.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 189.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 189.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 190.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 190.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 191.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 191.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 192.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T5 RedLizard body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 192.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T5 RedLizard body"
+    ]
+   },
+   {
+    "active": "Bambu",
+    "x_mm": 193.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T5 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 156.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 156.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 157.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 157.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 158.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 RedLizard body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 158.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 159.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 159.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 160.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 160.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 161.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 161.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 162.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 162.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 163.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 163.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 164.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 164.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 165.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 165.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 166.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 166.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 167.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 167.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 168.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 168.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 169.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 169.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 170.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 170.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 171.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 171.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 172.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 172.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 173.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 173.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 174.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 174.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 175.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 175.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 176.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 176.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 177.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 177.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 178.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 178.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 179.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 179.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 180.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 180.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 181.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 181.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 182.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 182.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 183.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 183.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 184.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 184.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 185.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 185.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 186.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 186.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 187.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 187.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 188.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 188.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 189.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 189.7,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 190.2,
+    "first_contact_nozzle_y_mm": 47.218,
+    "pair": [
+     "tool fan",
+     "parked T4 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 190.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 191.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 191.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 192.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 192.7,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   },
+   {
+    "active": "RedLizard",
+    "x_mm": 193.2,
+    "first_contact_nozzle_y_mm": 47.116,
+    "pair": [
+     "tool body",
+     "parked T5 Bambu body"
+    ]
+   }
+  ],
+  "runtime_s": 188.6
+ }
+}

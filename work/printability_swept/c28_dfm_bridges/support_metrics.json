@@ -1,0 +1,76 @@
+{
+  "input_brep": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_dfm\\p22_swept_beacon.brep",
+  "printer": "Bambu Lab H2D 0.4 nozzle",
+  "material": "Generic ABS @BBL H2D",
+  "interface_material": "Bambu Support for ABS @BBL H2D",
+  "layer_height_mm": "0.2",
+  "wall_loops": "5",
+  "support_policy": "tree(auto), allow support on the part, small-overhang removal disabled; identical assessment policy for before/after, not a support-free claim",
+  "support_recognized_bridges": false,
+  "support_extrusion_by_role": {
+    "Support": {
+      "extrusion_mm": 3695.0073700000644,
+      "moves": 50346
+    },
+    "Support transition": {
+      "extrusion_mm": 67.36856999999978,
+      "moves": 1282
+    },
+    "Support interface": {
+      "extrusion_mm": 65.8450599999998,
+      "moves": 1093
+    }
+  },
+  "support_deposition_volume_mm3": 9207.950586343752,
+  "support_feature_time_s": {
+    "Support": 1687.5977783203125,
+    "Support interface": 40.11936569213867,
+    "Support transition": 56.11428451538086
+  },
+  "total_estimated_time_s": 10450.8115234375,
+  "warnings": "",
+  "limitations": "Slicer prediction only; no physical print. Deposited support excludes prime-tower/waste, startup custom G-code before explicit extrusion-mode initialization, and extrusion-only pressure recovery. The generated startup G-code is not approved for printing. Global presets and printer were not modified.",
+  "placement": {
+    "orientation": "back",
+    "assembly_to_print": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        175.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0,
+        96.57500000000002
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        45.400000000000006
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bed_contact_mm2": 323.11284613609314,
+    "print_bounds_mm": [
+      [
+        152.57999992370605,
+        145.57499980926514,
+        0.0
+      ],
+      [
+        197.42000007629395,
+        174.42500019073486,
+        74.67619323730467
+      ]
+    ],
+    "note": "Geometric plate contact only; brim and warpage need physical validation."
+  }
+}

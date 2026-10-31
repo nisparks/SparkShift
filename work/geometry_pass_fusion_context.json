@@ -1,0 +1,1601 @@
+{
+  "document": "50 Candidate A - taller feed, 0.9mm slot, 32deg - CFD study",
+  "units": "mm; Fusion lengths multiplied by 10, areas by 100",
+  "camera": {
+    "eye_mm": [
+      528.3236316865394,
+      -467.6322030948104,
+      -59.43970239238992
+    ],
+    "target_mm": [
+      64.88146710082088,
+      -4.190038509091916,
+      -59.43970239238992
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "view_extents": 26.21624778130669,
+    "camera_type": 0
+  },
+  "viewport": [
+    3440,
+    1362
+  ],
+  "analysis_members": [
+    "_get_analyses",
+    "_get_isContactAnalysisEnabled",
+    "_get_isContactSetAnalysis",
+    "_set_isContactAnalysisEnabled",
+    "_set_isContactSetAnalysis",
+    "analyses",
+    "isContactAnalysisEnabled",
+    "isContactSetAnalysis"
+  ],
+  "root_analysis_members": [],
+  "occurrences": [
+    {
+      "path": "swept_island_geometry_checked_study:1+Bambu_Beacon_P22:1",
+      "component": "Bambu_Beacon_P22",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 395,
+          "volume_mm3": 18608.53740784662
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+Bambu_Beacon_probe:1",
+      "component": "Bambu_Beacon_probe",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 58,
+          "volume_mm3": 272.87761662006193
+        },
+        {
+          "name": "Body2",
+          "faces": 58,
+          "volume_mm3": 49.18999999999747
+        },
+        {
+          "name": "Body3",
+          "faces": 46,
+          "volume_mm3": 1427.3688700519715
+        },
+        {
+          "name": "Body4",
+          "faces": 8,
+          "volume_mm3": 0.4066760350823112
+        },
+        {
+          "name": "Body5",
+          "faces": 8,
+          "volume_mm3": 0.4066760350812109
+        },
+        {
+          "name": "Body6",
+          "faces": 8,
+          "volume_mm3": 0.4066760350812112
+        },
+        {
+          "name": "Body7",
+          "faces": 8,
+          "volume_mm3": 0.4066760350823112
+        },
+        {
+          "name": "Body8",
+          "faces": 8,
+          "volume_mm3": 0.4255804137581101
+        },
+        {
+          "name": "Body9",
+          "faces": 118,
+          "volume_mm3": 124.4776881284497
+        },
+        {
+          "name": "Body10",
+          "faces": 8,
+          "volume_mm3": 0.4255804137581101
+        },
+        {
+          "name": "Body11",
+          "faces": 8,
+          "volume_mm3": 0.4255804137592104
+        },
+        {
+          "name": "Body12",
+          "faces": 8,
+          "volume_mm3": 0.42558041375921046
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+Bambu_Beacon_hotend_0:1",
+      "component": "Bambu_Beacon_hotend_0",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 81,
+          "volume_mm3": 1497.8966884741333
+        },
+        {
+          "name": "Body2",
+          "faces": 46,
+          "volume_mm3": 103.06538003940693
+        },
+        {
+          "name": "Body3",
+          "faces": 6,
+          "volume_mm3": 0.012630529976378395
+        },
+        {
+          "name": "Body4",
+          "faces": 6,
+          "volume_mm3": 0.012630529976377263
+        },
+        {
+          "name": "Body5",
+          "faces": 10,
+          "volume_mm3": 4.9501813605689335
+        },
+        {
+          "name": "Body6",
+          "faces": 48,
+          "volume_mm3": 108.37138864686428
+        },
+        {
+          "name": "Body7",
+          "faces": 91,
+          "volume_mm3": 154.6151021543489
+        },
+        {
+          "name": "Body8",
+          "faces": 37,
+          "volume_mm3": 12.30613887090617
+        },
+        {
+          "name": "Body9",
+          "faces": 29,
+          "volume_mm3": 3.239483393805452
+        },
+        {
+          "name": "Body10",
+          "faces": 45,
+          "volume_mm3": 458.4439159650181
+        },
+        {
+          "name": "Body11",
+          "faces": 5,
+          "volume_mm3": 0.16243085861574671
+        },
+        {
+          "name": "Body12",
+          "faces": 5,
+          "volume_mm3": 0.08962794007352821
+        },
+        {
+          "name": "Body13",
+          "faces": 48,
+          "volume_mm3": 105.09752137840934
+        },
+        {
+          "name": "Body14",
+          "faces": 27,
+          "volume_mm3": 3.841988268655458
+        },
+        {
+          "name": "Body15",
+          "faces": 31,
+          "volume_mm3": 15.579997303348383
+        },
+        {
+          "name": "Body16",
+          "faces": 5,
+          "volume_mm3": 0.000622251590206457
+        },
+        {
+          "name": "Body17",
+          "faces": 5,
+          "volume_mm3": 0.00034088666002395556
+        },
+        {
+          "name": "Body18",
+          "faces": 20,
+          "volume_mm3": 4.507975427672445
+        },
+        {
+          "name": "Body19",
+          "faces": 5,
+          "volume_mm3": 0.11283610946844436
+        },
+        {
+          "name": "Body20",
+          "faces": 7,
+          "volume_mm3": 0.9843666985709217
+        },
+        {
+          "name": "Body21",
+          "faces": 62,
+          "volume_mm3": 168.21628265824617
+        },
+        {
+          "name": "Body22",
+          "faces": 24,
+          "volume_mm3": 4.369280840949326
+        },
+        {
+          "name": "Body23",
+          "faces": 23,
+          "volume_mm3": 7.060853457357328
+        },
+        {
+          "name": "Body24",
+          "faces": 93,
+          "volume_mm3": 2351.400153796058
+        },
+        {
+          "name": "Body25",
+          "faces": 109,
+          "volume_mm3": 525.6221911298652
+        },
+        {
+          "name": "Body26",
+          "faces": 16,
+          "volume_mm3": 9.736250322252559
+        },
+        {
+          "name": "Body27",
+          "faces": 4,
+          "volume_mm3": 0.51572752776704
+        },
+        {
+          "name": "Body28",
+          "faces": 4,
+          "volume_mm3": 0.00011359610617494843
+        },
+        {
+          "name": "Body29",
+          "faces": 14,
+          "volume_mm3": 72.46751302091049
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+RedLizard_Carto_P22:1",
+      "component": "RedLizard_Carto_P22",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 401,
+          "volume_mm3": 18458.577157133674
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+RedLizard_Carto_probe:1",
+      "component": "RedLizard_Carto_probe",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 192,
+          "volume_mm3": 468.226411163065
+        },
+        {
+          "name": "Body2",
+          "faces": 10,
+          "volume_mm3": 0.006726061658947147
+        },
+        {
+          "name": "Body3",
+          "faces": 9,
+          "volume_mm3": 0.007176061639496901
+        },
+        {
+          "name": "Body4",
+          "faces": 9,
+          "volume_mm3": 0.007176061639193641
+        },
+        {
+          "name": "Body5",
+          "faces": 10,
+          "volume_mm3": 0.0071760566393840606
+        },
+        {
+          "name": "Body6",
+          "faces": 100,
+          "volume_mm3": 16.70196428655176
+        },
+        {
+          "name": "Body7",
+          "faces": 23,
+          "volume_mm3": 0.027153691506102626
+        },
+        {
+          "name": "Body8",
+          "faces": 23,
+          "volume_mm3": 0.02715369144817327
+        },
+        {
+          "name": "Body9",
+          "faces": 320,
+          "volume_mm3": 16.702860228776338
+        },
+        {
+          "name": "Body10",
+          "faces": 100,
+          "volume_mm3": 16.701964446608105
+        },
+        {
+          "name": "Body11",
+          "faces": 23,
+          "volume_mm3": 0.027153531450420376
+        },
+        {
+          "name": "Body12",
+          "faces": 23,
+          "volume_mm3": 0.02715353143522073
+        },
+        {
+          "name": "Body13",
+          "faces": 320,
+          "volume_mm3": 16.702860388789286
+        },
+        {
+          "name": "Body14",
+          "faces": 352,
+          "volume_mm3": 5.978874542312323
+        },
+        {
+          "name": "Body15",
+          "faces": 14,
+          "volume_mm3": 0.0028553454631501103
+        },
+        {
+          "name": "Body16",
+          "faces": 9,
+          "volume_mm3": 0.011769885032251412
+        },
+        {
+          "name": "Body17",
+          "faces": 6,
+          "volume_mm3": 0.00013864613090169047
+        },
+        {
+          "name": "Body18",
+          "faces": 14,
+          "volume_mm3": 0.02595357124657634
+        },
+        {
+          "name": "Body19",
+          "faces": 6,
+          "volume_mm3": 0.00013864613090169064
+        },
+        {
+          "name": "Body20",
+          "faces": 303,
+          "volume_mm3": 0.039860196796935116
+        },
+        {
+          "name": "Body21",
+          "faces": 302,
+          "volume_mm3": 0.23927579025806972
+        },
+        {
+          "name": "Body22",
+          "faces": 302,
+          "volume_mm3": 0.23927578492654453
+        },
+        {
+          "name": "Body23",
+          "faces": 302,
+          "volume_mm3": 0.239275816777182
+        },
+        {
+          "name": "Body24",
+          "faces": 302,
+          "volume_mm3": 0.23927580851982772
+        },
+        {
+          "name": "Body25",
+          "faces": 302,
+          "volume_mm3": 0.23927581676287377
+        },
+        {
+          "name": "Body26",
+          "faces": 302,
+          "volume_mm3": 0.2392758167628734
+        },
+        {
+          "name": "Body27",
+          "faces": 302,
+          "volume_mm3": 0.23927579025807266
+        },
+        {
+          "name": "Body28",
+          "faces": 212,
+          "volume_mm3": 137.3159431567273
+        },
+        {
+          "name": "Body29",
+          "faces": 8,
+          "volume_mm3": 4.619184257921376e-06
+        },
+        {
+          "name": "Body30",
+          "faces": 16,
+          "volume_mm3": 6.399957464890015e-06
+        },
+        {
+          "name": "Body31",
+          "faces": 14,
+          "volume_mm3": 6.910309530160155e-06
+        },
+        {
+          "name": "Body32",
+          "faces": 16,
+          "volume_mm3": 9.05896410651475e-06
+        },
+        {
+          "name": "Body33",
+          "faces": 15,
+          "volume_mm3": 7.933689760147096e-06
+        },
+        {
+          "name": "Body34",
+          "faces": 14,
+          "volume_mm3": 6.910309530345707e-06
+        },
+        {
+          "name": "Body35",
+          "faces": 24,
+          "volume_mm3": 6.058955262258005e-06
+        },
+        {
+          "name": "Body36",
+          "faces": 23,
+          "volume_mm3": 4.547221639237649e-06
+        },
+        {
+          "name": "Body37",
+          "faces": 17,
+          "volume_mm3": 5.82583437992254e-06
+        },
+        {
+          "name": "Body38",
+          "faces": 14,
+          "volume_mm3": 6.910309528905699e-06
+        },
+        {
+          "name": "Body39",
+          "faces": 16,
+          "volume_mm3": 9.058964107489988e-06
+        },
+        {
+          "name": "Body40",
+          "faces": 15,
+          "volume_mm3": 7.933689742013798e-06
+        },
+        {
+          "name": "Body41",
+          "faces": 37,
+          "volume_mm3": 0.00014718673974765367
+        },
+        {
+          "name": "Body42",
+          "faces": 360,
+          "volume_mm3": 0.2392754715971225
+        },
+        {
+          "name": "Body43",
+          "faces": 360,
+          "volume_mm3": 0.23927544116185775
+        },
+        {
+          "name": "Body44",
+          "faces": 360,
+          "volume_mm3": 0.23927546084112314
+        },
+        {
+          "name": "Body45",
+          "faces": 360,
+          "volume_mm3": 0.23927545464245856
+        },
+        {
+          "name": "Body46",
+          "faces": 360,
+          "volume_mm3": 0.239275460841123
+        },
+        {
+          "name": "Body47",
+          "faces": 360,
+          "volume_mm3": 0.23927548691396106
+        },
+        {
+          "name": "Body48",
+          "faces": 360,
+          "volume_mm3": 0.23927548691392056
+        },
+        {
+          "name": "Body49",
+          "faces": 360,
+          "volume_mm3": 0.2392754641345501
+        },
+        {
+          "name": "Body50",
+          "faces": 360,
+          "volume_mm3": 0.23927545464246103
+        },
+        {
+          "name": "Body51",
+          "faces": 360,
+          "volume_mm3": 0.23927545464245578
+        },
+        {
+          "name": "Body52",
+          "faces": 360,
+          "volume_mm3": 0.23927548379946711
+        },
+        {
+          "name": "Body53",
+          "faces": 360,
+          "volume_mm3": 0.2392754903826459
+        },
+        {
+          "name": "Body54",
+          "faces": 567,
+          "volume_mm3": 9.65521012678805
+        },
+        {
+          "name": "Body55",
+          "faces": 329,
+          "volume_mm3": 0.22478474025298356
+        },
+        {
+          "name": "Body56",
+          "faces": 340,
+          "volume_mm3": 7.243027857009749
+        },
+        {
+          "name": "Body57",
+          "faces": 21,
+          "volume_mm3": 0.07702750000000737
+        },
+        {
+          "name": "Body58",
+          "faces": 8,
+          "volume_mm3": 0.07694499999999795
+        },
+        {
+          "name": "Body59",
+          "faces": 12,
+          "volume_mm3": 0.9790000000000022
+        },
+        {
+          "name": "Body60",
+          "faces": 21,
+          "volume_mm3": 0.07702749999999929
+        },
+        {
+          "name": "Body61",
+          "faces": 16,
+          "volume_mm3": 0.03171766666662839
+        },
+        {
+          "name": "Body62",
+          "faces": 246,
+          "volume_mm3": 0.25603225372250776
+        },
+        {
+          "name": "Body63",
+          "faces": 21,
+          "volume_mm3": 0.07702750000000742
+        },
+        {
+          "name": "Body64",
+          "faces": 8,
+          "volume_mm3": 0.07694499999999857
+        },
+        {
+          "name": "Body65",
+          "faces": 12,
+          "volume_mm3": 0.9790000000000102
+        },
+        {
+          "name": "Body66",
+          "faces": 21,
+          "volume_mm3": 0.07702749999999926
+        },
+        {
+          "name": "Body67",
+          "faces": 16,
+          "volume_mm3": 0.03171766666662786
+        },
+        {
+          "name": "Body68",
+          "faces": 246,
+          "volume_mm3": 0.25603225372249994
+        },
+        {
+          "name": "Body69",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000001752
+        },
+        {
+          "name": "Body70",
+          "faces": 6,
+          "volume_mm3": 0.001250000000000175
+        },
+        {
+          "name": "Body71",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000001308
+        },
+        {
+          "name": "Body72",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000001308
+        },
+        {
+          "name": "Body73",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000001757
+        },
+        {
+          "name": "Body74",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000001757
+        },
+        {
+          "name": "Body75",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000001308
+        },
+        {
+          "name": "Body76",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000001308
+        },
+        {
+          "name": "Body77",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000000863
+        },
+        {
+          "name": "Body78",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000000863
+        },
+        {
+          "name": "Body79",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000001308
+        },
+        {
+          "name": "Body80",
+          "faces": 6,
+          "volume_mm3": 0.0012500000000001308
+        },
+        {
+          "name": "Body81",
+          "faces": 359,
+          "volume_mm3": 3.9983133549312537
+        },
+        {
+          "name": "Body82",
+          "faces": 248,
+          "volume_mm3": 12.699208956055902
+        },
+        {
+          "name": "Body83",
+          "faces": 8,
+          "volume_mm3": 1.137634746520791e-06
+        },
+        {
+          "name": "Body84",
+          "faces": 16,
+          "volume_mm3": 1.57621207164442e-06
+        },
+        {
+          "name": "Body85",
+          "faces": 14,
+          "volume_mm3": 1.701904014096223e-06
+        },
+        {
+          "name": "Body86",
+          "faces": 16,
+          "volume_mm3": 2.2310849195478636e-06
+        },
+        {
+          "name": "Body87",
+          "faces": 15,
+          "volume_mm3": 1.9539469886538597e-06
+        },
+        {
+          "name": "Body88",
+          "faces": 14,
+          "volume_mm3": 1.7019040140966733e-06
+        },
+        {
+          "name": "Body89",
+          "faces": 23,
+          "volume_mm3": 1.4922284217017435e-06
+        },
+        {
+          "name": "Body90",
+          "faces": 23,
+          "volume_mm3": 1.1199114494099785e-06
+        },
+        {
+          "name": "Body91",
+          "faces": 16,
+          "volume_mm3": 1.4348055055328193e-06
+        },
+        {
+          "name": "Body92",
+          "faces": 14,
+          "volume_mm3": 1.7019040140973217e-06
+        },
+        {
+          "name": "Body93",
+          "faces": 16,
+          "volume_mm3": 2.2310849187484767e-06
+        },
+        {
+          "name": "Body94",
+          "faces": 15,
+          "volume_mm3": 1.9539469797479156e-06
+        },
+        {
+          "name": "Body95",
+          "faces": 37,
+          "volume_mm3": 3.628383304071794e-05
+        },
+        {
+          "name": "Body96",
+          "faces": 224,
+          "volume_mm3": 4.6986271066328
+        },
+        {
+          "name": "Body97",
+          "faces": 50,
+          "volume_mm3": 0.08321067034452918
+        },
+        {
+          "name": "Body98",
+          "faces": 50,
+          "volume_mm3": 0.08321067034267036
+        },
+        {
+          "name": "Body99",
+          "faces": 50,
+          "volume_mm3": 0.08321067034267222
+        },
+        {
+          "name": "Body100",
+          "faces": 50,
+          "volume_mm3": 0.0832106703443765
+        },
+        {
+          "name": "Body101",
+          "faces": 50,
+          "volume_mm3": 0.08321067034251944
+        },
+        {
+          "name": "Body102",
+          "faces": 8,
+          "volume_mm3": 6.495727826865956e-07
+        },
+        {
+          "name": "Body103",
+          "faces": 16,
+          "volume_mm3": 8.999940134222108e-07
+        },
+        {
+          "name": "Body104",
+          "faces": 14,
+          "volume_mm3": 9.717622717558475e-07
+        },
+        {
+          "name": "Body105",
+          "faces": 16,
+          "volume_mm3": 1.273916820657801e-06
+        },
+        {
+          "name": "Body106",
+          "faces": 15,
+          "volume_mm3": 1.1156751255596512e-06
+        },
+        {
+          "name": "Body107",
+          "faces": 14,
+          "volume_mm3": 9.717622722293588e-07
+        },
+        {
+          "name": "Body108",
+          "faces": 23,
+          "volume_mm3": 8.520405788846078e-07
+        },
+        {
+          "name": "Body109",
+          "faces": 23,
+          "volume_mm3": 6.394530402873527e-07
+        },
+        {
+          "name": "Body110",
+          "faces": 16,
+          "volume_mm3": 8.192529345271727e-07
+        },
+        {
+          "name": "Body111",
+          "faces": 14,
+          "volume_mm3": 9.717622722991779e-07
+        },
+        {
+          "name": "Body112",
+          "faces": 16,
+          "volume_mm3": 1.2739168207632288e-06
+        },
+        {
+          "name": "Body113",
+          "faces": 15,
+          "volume_mm3": 1.1156751127639103e-06
+        },
+        {
+          "name": "Body114",
+          "faces": 37,
+          "volume_mm3": 2.0699808355745923e-05
+        },
+        {
+          "name": "Body115",
+          "faces": 106,
+          "volume_mm3": 947.677490973949
+        },
+        {
+          "name": "Body116",
+          "faces": 302,
+          "volume_mm3": 0.23927580852061534
+        },
+        {
+          "name": "Body117",
+          "faces": 360,
+          "volume_mm3": 0.2392754480339269
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+RedLizard_Carto_hotend_0:1",
+      "component": "RedLizard_Carto_hotend_0",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 150,
+          "volume_mm3": 1206.836195643129
+        },
+        {
+          "name": "Body2",
+          "faces": 26,
+          "volume_mm3": 306.34965552207194
+        },
+        {
+          "name": "Body3",
+          "faces": 36,
+          "volume_mm3": 199.46942306931615
+        },
+        {
+          "name": "Body4",
+          "faces": 121,
+          "volume_mm3": 4410.429217538267
+        },
+        {
+          "name": "Body5",
+          "faces": 22,
+          "volume_mm3": 534.7369164520318
+        },
+        {
+          "name": "Body6",
+          "faces": 3,
+          "volume_mm3": 565.4866776461388
+        },
+        {
+          "name": "Body7",
+          "faces": 3,
+          "volume_mm3": 106.02875205865098
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+Air_route_P22:1",
+      "component": "Air_route_P22",
+      "visible": false,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 401,
+          "volume_mm3": 18607.84362400764
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+Air_route_probe:1",
+      "component": "Air_route_probe",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 58,
+          "volume_mm3": 272.87761662007307
+        },
+        {
+          "name": "Body2",
+          "faces": 58,
+          "volume_mm3": 49.18999999999724
+        },
+        {
+          "name": "Body3",
+          "faces": 46,
+          "volume_mm3": 1427.3688700521573
+        },
+        {
+          "name": "Body4",
+          "faces": 8,
+          "volume_mm3": 0.4066760350823171
+        },
+        {
+          "name": "Body5",
+          "faces": 8,
+          "volume_mm3": 0.4066760350812026
+        },
+        {
+          "name": "Body6",
+          "faces": 8,
+          "volume_mm3": 0.40667603508121697
+        },
+        {
+          "name": "Body7",
+          "faces": 8,
+          "volume_mm3": 0.4066760350823171
+        },
+        {
+          "name": "Body8",
+          "faces": 8,
+          "volume_mm3": 0.42558041375811645
+        },
+        {
+          "name": "Body9",
+          "faces": 118,
+          "volume_mm3": 124.47768812844588
+        },
+        {
+          "name": "Body10",
+          "faces": 8,
+          "volume_mm3": 0.42558041375811645
+        },
+        {
+          "name": "Body11",
+          "faces": 8,
+          "volume_mm3": 0.4255804137592165
+        },
+        {
+          "name": "Body12",
+          "faces": 8,
+          "volume_mm3": 0.4255804137592015
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+Air_route_hotend_0:1",
+      "component": "Air_route_hotend_0",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 81,
+          "volume_mm3": 1497.8966884741794
+        },
+        {
+          "name": "Body2",
+          "faces": 46,
+          "volume_mm3": 103.06538003938998
+        },
+        {
+          "name": "Body3",
+          "faces": 6,
+          "volume_mm3": 0.01263052997637576
+        },
+        {
+          "name": "Body4",
+          "faces": 6,
+          "volume_mm3": 0.012630529976483014
+        },
+        {
+          "name": "Body5",
+          "faces": 10,
+          "volume_mm3": 4.95018136057246
+        },
+        {
+          "name": "Body6",
+          "faces": 48,
+          "volume_mm3": 108.37138864689004
+        },
+        {
+          "name": "Body7",
+          "faces": 91,
+          "volume_mm3": 154.61510215428527
+        },
+        {
+          "name": "Body8",
+          "faces": 37,
+          "volume_mm3": 12.306138870885718
+        },
+        {
+          "name": "Body9",
+          "faces": 29,
+          "volume_mm3": 3.2394833938046994
+        },
+        {
+          "name": "Body10",
+          "faces": 45,
+          "volume_mm3": 458.4439159653504
+        },
+        {
+          "name": "Body11",
+          "faces": 5,
+          "volume_mm3": 0.16243085861601636
+        },
+        {
+          "name": "Body12",
+          "faces": 5,
+          "volume_mm3": 0.08962794007372953
+        },
+        {
+          "name": "Body13",
+          "faces": 48,
+          "volume_mm3": 105.09752137841035
+        },
+        {
+          "name": "Body14",
+          "faces": 27,
+          "volume_mm3": 3.841988268651892
+        },
+        {
+          "name": "Body15",
+          "faces": 31,
+          "volume_mm3": 15.579997303347016
+        },
+        {
+          "name": "Body16",
+          "faces": 5,
+          "volume_mm3": 0.0006222515901497767
+        },
+        {
+          "name": "Body17",
+          "faces": 5,
+          "volume_mm3": 0.0003408866599927361
+        },
+        {
+          "name": "Body18",
+          "faces": 20,
+          "volume_mm3": 4.507975427679242
+        },
+        {
+          "name": "Body19",
+          "faces": 5,
+          "volume_mm3": 0.11283610946901552
+        },
+        {
+          "name": "Body20",
+          "faces": 7,
+          "volume_mm3": 0.9843666985849958
+        },
+        {
+          "name": "Body21",
+          "faces": 62,
+          "volume_mm3": 168.2162826582461
+        },
+        {
+          "name": "Body22",
+          "faces": 24,
+          "volume_mm3": 4.369280840959198
+        },
+        {
+          "name": "Body23",
+          "faces": 23,
+          "volume_mm3": 7.060853457357553
+        },
+        {
+          "name": "Body24",
+          "faces": 93,
+          "volume_mm3": 2351.400153796737
+        },
+        {
+          "name": "Body25",
+          "faces": 109,
+          "volume_mm3": 525.6221911303472
+        },
+        {
+          "name": "Body26",
+          "faces": 16,
+          "volume_mm3": 9.736250322251996
+        },
+        {
+          "name": "Body27",
+          "faces": 4,
+          "volume_mm3": 0.515727527767336
+        },
+        {
+          "name": "Body28",
+          "faces": 4,
+          "volume_mm3": 0.00011359610616329891
+        },
+        {
+          "name": "Body29",
+          "faces": 14,
+          "volume_mm3": 72.46751302091042
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+Air_route_AIR_not_material:1",
+      "component": "Air_route_AIR_not_material",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 23,
+          "volume_mm3": 1460.1046500826453
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+Cutaway_X0_probe:1",
+      "component": "Cutaway_X0_probe",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 34,
+          "volume_mm3": 136.4338419116644
+        },
+        {
+          "name": "Body2",
+          "faces": 32,
+          "volume_mm3": 24.594999999998667
+        },
+        {
+          "name": "Body3",
+          "faces": 27,
+          "volume_mm3": 713.6771623925765
+        },
+        {
+          "name": "Body4",
+          "faces": 8,
+          "volume_mm3": 0.40667603508121697
+        },
+        {
+          "name": "Body5",
+          "faces": 8,
+          "volume_mm3": 0.4066760350823171
+        },
+        {
+          "name": "Body6",
+          "faces": 8,
+          "volume_mm3": 0.42558041375811645
+        },
+        {
+          "name": "Body7",
+          "faces": 67,
+          "volume_mm3": 62.24577226746713
+        },
+        {
+          "name": "Body8",
+          "faces": 8,
+          "volume_mm3": 0.4255804137592165
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+Cutaway_X0_hotend_0:1",
+      "component": "Cutaway_X0_hotend_0",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 53,
+          "volume_mm3": 748.9483269411976
+        },
+        {
+          "name": "Body2",
+          "faces": 26,
+          "volume_mm3": 51.53295849673458
+        },
+        {
+          "name": "Body3",
+          "faces": 6,
+          "volume_mm3": 0.012630529976483054
+        },
+        {
+          "name": "Body4",
+          "faces": 8,
+          "volume_mm3": 2.475090680290612
+        },
+        {
+          "name": "Body5",
+          "faces": 48,
+          "volume_mm3": 108.37138864688897
+        },
+        {
+          "name": "Body6",
+          "faces": 50,
+          "volume_mm3": 77.60932836049444
+        },
+        {
+          "name": "Body7",
+          "faces": 37,
+          "volume_mm3": 12.306138870885764
+        },
+        {
+          "name": "Body8",
+          "faces": 29,
+          "volume_mm3": 3.239483393804669
+        },
+        {
+          "name": "Body9",
+          "faces": 29,
+          "volume_mm3": 229.09592559565337
+        },
+        {
+          "name": "Body10",
+          "faces": 5,
+          "volume_mm3": 0.16243085861602075
+        },
+        {
+          "name": "Body11",
+          "faces": 5,
+          "volume_mm3": 0.08962794007373369
+        },
+        {
+          "name": "Body12",
+          "faces": 34,
+          "volume_mm3": 84.10814132912297
+        },
+        {
+          "name": "Body13",
+          "faces": 24,
+          "volume_mm3": 4.369280840959123
+        },
+        {
+          "name": "Body14",
+          "faces": 23,
+          "volume_mm3": 7.060853457357417
+        },
+        {
+          "name": "Body15",
+          "faces": 67,
+          "volume_mm3": 1175.7000768978899
+        },
+        {
+          "name": "Body16",
+          "faces": 41,
+          "volume_mm3": 247.19003017720223
+        },
+        {
+          "name": "Body17",
+          "faces": 5,
+          "volume_mm3": 0.25786376388403853
+        },
+        {
+          "name": "Body18",
+          "faces": 16,
+          "volume_mm3": 9.483180460547578
+        },
+        {
+          "name": "Body19",
+          "faces": 16,
+          "volume_mm3": 9.736250322251905
+        },
+        {
+          "name": "Body20",
+          "faces": 4,
+          "volume_mm3": 0.00011359610616324
+        },
+        {
+          "name": "Body21",
+          "faces": 10,
+          "volume_mm3": 36.233756510455194
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1+Cutaway_X0_AIR_not_material:1",
+      "component": "Cutaway_X0_AIR_not_material",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": [
+        {
+          "name": "Body1",
+          "faces": 17,
+          "volume_mm3": 730.0523188445338
+        }
+      ]
+    },
+    {
+      "path": "swept_island_geometry_checked_study:1",
+      "component": "swept_island_geometry_checked_study",
+      "visible": true,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bodies": []
+    }
+  ],
+  "selection": [
+    {
+      "type": "adsk::fusion::BRepFace",
+      "centroid_mm": [
+        16.466675409562846,
+        -42.11578119093194,
+        -56.84756024829593
+      ],
+      "area_mm2": 138.89544692306376,
+      "component": "Bambu_Beacon_P22"
+    }
+  ]
+}

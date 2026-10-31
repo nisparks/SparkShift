@@ -1,0 +1,412 @@
+{
+  "roots": [
+    "01_Voron24_350_Frame_and_Enclosure:1",
+    "02_Monolith_2WD_9mm_Gantry_System:1",
+    "07_SparkShift_Toolhead_3010_Assembly:1",
+    "07_SparkShift_Toolhead_3010_Assembly:2",
+    "07_SparkShift_Toolhead_3010_Assembly:3",
+    "07_SparkShift_Toolhead_3010_Assembly:4",
+    "07_SparkShift_Toolhead_3010_Assembly:5",
+    "07_SparkShift_Toolhead_3010_Assembly:6",
+    "07_SparkShift_Toolhead_3010_Assembly:7",
+    "07_SparkShift_Toolhead_3010_Assembly:8",
+    "07_SparkShift_Toolhead_3010_Assembly:9",
+    "04_Assembled_SparkShift_Primary:1",
+    "03_Front_Dock_Rack_and_Docks:1",
+    "Open CASCADE STEP translator 7.9 12:1"
+  ],
+  "frame": "01_Voron24_350_Frame_and_Enclosure:1",
+  "count": 26,
+  "rows": [
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Bed:1",
+      "body": "R1_BED_350_NOMINAL",
+      "min": [
+        0.0,
+        9.0,
+        -8.0
+      ],
+      "max": [
+        350.0,
+        359.0,
+        0.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Door_buffer:1",
+      "body": "Stock 350",
+      "min": [
+        -80.0,
+        -60.0,
+        302.0
+      ],
+      "max": [
+        80.0,
+        -40.0,
+        472.0
+      ],
+      "faces": 70
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Door_buffer:1",
+      "body": "Stock 350 (1)",
+      "min": [
+        270.0,
+        -60.0,
+        302.0
+      ],
+      "max": [
+        430.0,
+        -40.0,
+        472.0
+      ],
+      "faces": 70
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Door_buffer:1",
+      "body": "Stock 350 (2)",
+      "min": [
+        77.0,
+        -60.0,
+        -58.0
+      ],
+      "max": [
+        273.0,
+        -40.0,
+        -38.0
+      ],
+      "faces": 50
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Door_buffer:1",
+      "body": "Stock 350 (3)",
+      "min": [
+        77.0,
+        -60.0,
+        452.0
+      ],
+      "max": [
+        273.0,
+        -40.0,
+        472.0
+      ],
+      "faces": 50
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Door_buffer:1",
+      "body": "Stock 350 (4)",
+      "min": [
+        -80.0,
+        -60.0,
+        -58.0
+      ],
+      "max": [
+        80.0,
+        -40.0,
+        112.0
+      ],
+      "faces": 70
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Door_buffer:1",
+      "body": "Stock 350 (5)",
+      "min": [
+        270.0,
+        -60.0,
+        -58.0
+      ],
+      "max": [
+        430.0,
+        -40.0,
+        112.0
+      ],
+      "faces": 70
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Door_buffer:1",
+      "body": "Stock 350 (6)",
+      "min": [
+        -80.0,
+        -60.0,
+        109.0
+      ],
+      "max": [
+        -60.0,
+        -40.0,
+        305.0
+      ],
+      "faces": 68
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Door_buffer:1",
+      "body": "Stock 350 (7)",
+      "min": [
+        410.0,
+        -60.0,
+        109.0
+      ],
+      "max": [
+        430.0,
+        -40.0,
+        305.0
+      ],
+      "faces": 68
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Enclosure_panels_and_door:1",
+      "body": "R1_LID_PLANE_NOMINAL",
+      "min": [
+        -80.0,
+        -60.0,
+        622.0
+      ],
+      "max": [
+        430.0,
+        470.0,
+        625.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Enclosure_panels_and_door:1",
+      "body": "R1_REAR_PANEL_NOMINAL",
+      "min": [
+        -80.0,
+        480.0,
+        -58.0
+      ],
+      "max": [
+        430.0,
+        483.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Enclosure_panels_and_door:1",
+      "body": "R1_REAR_PANEL_NOMINAL (1)",
+      "min": [
+        -80.0,
+        -63.0,
+        -58.0
+      ],
+      "max": [
+        430.0,
+        -60.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Enclosure_panels_and_door:1",
+      "body": "R1_SIDE_PANEL_left_NOMINAL",
+      "min": [
+        -86.0,
+        -40.0,
+        -58.0
+      ],
+      "max": [
+        -83.0,
+        470.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Enclosure_panels_and_door:1",
+      "body": "R1_SIDE_PANEL_left_NOMINAL (1)",
+      "min": [
+        433.0,
+        -40.0,
+        -58.0
+      ],
+      "max": [
+        436.0,
+        470.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_post_0_0_NOMINAL",
+      "min": [
+        -80.0,
+        -40.0,
+        -58.0
+      ],
+      "max": [
+        -60.0,
+        -20.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_post_0_0_NOMINAL (1)",
+      "min": [
+        -80.0,
+        450.0,
+        -58.0
+      ],
+      "max": [
+        -60.0,
+        470.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_post_0_0_NOMINAL (2)",
+      "min": [
+        410.0,
+        -40.0,
+        -58.0
+      ],
+      "max": [
+        430.0,
+        -20.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_post_0_0_NOMINAL (3)",
+      "min": [
+        410.0,
+        450.0,
+        -58.0
+      ],
+      "max": [
+        430.0,
+        470.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_lower_front_NOMINAL",
+      "min": [
+        -60.0,
+        -40.0,
+        -58.0
+      ],
+      "max": [
+        410.0,
+        -20.0,
+        -38.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_lower_front_NOMINAL (1)",
+      "min": [
+        -60.0,
+        450.0,
+        -58.0
+      ],
+      "max": [
+        410.0,
+        470.0,
+        -38.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_lower_front_NOMINAL (2)",
+      "min": [
+        -60.0,
+        -40.0,
+        452.0
+      ],
+      "max": [
+        410.0,
+        -20.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_lower_front_NOMINAL (3)",
+      "min": [
+        -60.0,
+        450.0,
+        452.0
+      ],
+      "max": [
+        410.0,
+        470.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_lower_left_NOMINAL",
+      "min": [
+        -80.0,
+        -20.0,
+        -58.0
+      ],
+      "max": [
+        -60.0,
+        450.0,
+        -38.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_lower_left_NOMINAL (1)",
+      "min": [
+        410.0,
+        -20.0,
+        -58.0
+      ],
+      "max": [
+        430.0,
+        450.0,
+        -38.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_lower_left_NOMINAL (2)",
+      "min": [
+        -80.0,
+        -20.0,
+        452.0
+      ],
+      "max": [
+        -60.0,
+        450.0,
+        472.0
+      ],
+      "faces": 6
+    },
+    {
+      "path": "01_Voron24_350_Frame_and_Enclosure:1/Frame_extrusions:1",
+      "body": "R1_FRAME_lower_left_NOMINAL (3)",
+      "min": [
+        410.0,
+        -20.0,
+        452.0
+      ],
+      "max": [
+        430.0,
+        450.0,
+        472.0
+      ],
+      "faces": 6
+    }
+  ]
+}

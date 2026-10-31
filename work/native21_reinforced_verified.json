@@ -1,0 +1,64 @@
+{
+  "Bambu": {
+    "file": "21_Bambu_Toolhead_And_Closed_Panel_Dock_REVIEW.f3d",
+    "sha256": "22370d2d3e448598fd4c65c5fa0c9ca65c4367c2873de4b8f38286eba17da7b1",
+    "source_step_sha256": "71f4be6e325ef9f34b639c8ed45d763830db1934d4a75af1c07bd8bca9d82d24",
+    "reopened_bodies": 145,
+    "all_bodies_solid": true,
+    "core_bodies": 101,
+    "lead_bounds_errors_mm": [
+      3.552713678800501e-15,
+      3.552713678800501e-15,
+      1.7763568394002505e-15,
+      3.552713678800501e-15
+    ],
+    "lead_bounds_tolerance_mm": 0.02,
+    "dock_ymax_mm": 81.410082
+  },
+  "RedLizard": {
+    "file": "21_RedLizard_Toolhead_And_Closed_Panel_Dock_REVIEW.f3d",
+    "sha256": "a2fb745a88d67df670a88ad88c59e348e5d3df0ae73c227f1a9dd512751c8aa6",
+    "source_step_sha256": "10c319650ee8fc4b5d46f885326972343a8c6a18348dc73a5942a76721f499c6",
+    "reopened_bodies": 144,
+    "all_bodies_solid": true,
+    "core_bodies": 101,
+    "lead_bounds_errors_mm": [
+      3.552713678800501e-15,
+      3.552713678800501e-15,
+      1.7763568394002505e-15,
+      3.552713678800501e-15
+    ],
+    "lead_bounds_tolerance_mm": 0.02,
+    "dock_ymax_mm": 81.410082
+  },
+  "FullRack": {
+    "file": "21_Ten_Tool_Side2510_Rack_REVIEW.f3d",
+    "sha256": "5009275b9f790d113a5c35b39c86591da67cff6decf3d547c8562b6f06a675ae",
+    "source_step_sha256": "e2ebd90ae5a2fc26fde46921b41b68247265643030f9b72f0f4d0875ce93fdb9",
+    "reopened_bodies": 738,
+    "all_bodies_solid": true,
+    "tools": [
+      "T0_Bambu",
+      "T1_RedLizard",
+      "T2_Bambu",
+      "T3_RedLizard",
+      "T4_Bambu",
+      "T5_RedLizard",
+      "T6_Bambu",
+      "T7_RedLizard",
+      "T8_Bambu",
+      "T9_RedLizard"
+    ],
+    "lead_bounds_errors_mm": [
+      7.005951374594588e-12,
+      9.976020010071807e-12,
+      1.000444171950221e-11,
+      4.000355602329364e-12
+    ],
+    "lead_bounds_tolerance_mm": 0.02,
+    "hidden_for_clarity_only": [
+      "Monolith_X_Gantry_At_Dock",
+      "Carriage_At_T0"
+    ]
+  }
+}

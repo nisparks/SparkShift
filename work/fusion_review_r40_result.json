@@ -1,0 +1,19 @@
+{
+  "document": "40 P20-to-P21 screws (native review)",
+  "bodies": 244,
+  "native_volumes_mm3": {
+    "P20_CPAP_Hose_Inlet_Button_Head_Lugs_R40_REVIEW": 7938.7452955550725,
+    "P21_CPAP_Gantry_Bridge_Moved_Inserts_R40_REVIEW": 10209.057625476033
+  },
+  "native_gaps_mm": {
+    "button_head_to_ebb42": 0.5912,
+    "p21_to_x_beam_note": 0.0,
+    "probe_cable_to_x_beam_note": 0.2
+  },
+  "archive_mb": 21.9,
+  "images": {
+    "lugs": true,
+    "side": true,
+    "overall": true
+  }
+}

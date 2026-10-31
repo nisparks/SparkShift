@@ -1,0 +1,263 @@
+{
+ "p20": {
+  "file": "stl\\P20_CPAP_Hose_Inlet_Thick_Sleeve_R41_REVIEW_PRINT_ORIENTED.stl",
+  "orientation": "bottom down (-Z)",
+  "volume_mm3": 8164.01,
+  "mesh_volume_mm3": 8163.01,
+  "watertight": true,
+  "mb": 1.52,
+  "smoothness": {
+   "triangles": 30390,
+   "smallest_triangle_mm2": 3.006026080234601e-06,
+   "degenerate_triangles": 0,
+   "max_bend_on_curves_deg": 19.79,
+   "p99_bend_on_curves_deg": 2.94
+  },
+  "smoothness_previous_export": {
+   "triangles": 13488,
+   "smallest_triangle_mm2": 1.2906874214777664e-05,
+   "degenerate_triangles": 0,
+   "max_bend_on_curves_deg": 19.79,
+   "p99_bend_on_curves_deg": 5.6
+  },
+  "chosen": {
+   "bed_contact_mm2": 110.1,
+   "overhang_mm2": 276.8,
+   "footprint_mm": [
+    41.2,
+    32.9
+   ],
+   "height_mm": 51.6
+  },
+  "all_candidates": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 0.0,
+    "overhang_mm2": 2706.4,
+    "footprint_mm": [
+     41.2,
+     51.6
+    ],
+    "height_mm": 32.9
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 2.0,
+    "overhang_mm2": 2641.2,
+    "footprint_mm": [
+     41.2,
+     51.6
+    ],
+    "height_mm": 32.9
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 81.3,
+    "overhang_mm2": 375.1,
+    "footprint_mm": [
+     41.2,
+     32.9
+    ],
+    "height_mm": 51.6
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 110.1,
+    "overhang_mm2": 279.0,
+    "footprint_mm": [
+     41.2,
+     32.9
+    ],
+    "height_mm": 51.6
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 5.3,
+    "overhang_mm2": 1542.6,
+    "footprint_mm": [
+     51.6,
+     32.9
+    ],
+    "height_mm": 41.2
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 5.1,
+    "overhang_mm2": 1544.7,
+    "footprint_mm": [
+     51.6,
+     32.9
+    ],
+    "height_mm": 41.2
+   }
+  }
+ },
+ "p21": {
+  "file": "stl\\P21_CPAP_Gantry_Bridge_Thick_Joints_R41_REVIEW_PRINT_ORIENTED.stl",
+  "orientation": "top down (+Z)",
+  "volume_mm3": 11269.78,
+  "mesh_volume_mm3": 11269.76,
+  "watertight": true,
+  "mb": 0.95,
+  "smoothness": {
+   "triangles": 19098,
+   "smallest_triangle_mm2": 9.290791128455285e-06,
+   "degenerate_triangles": 0,
+   "max_bend_on_curves_deg": 18.85,
+   "p99_bend_on_curves_deg": 2.28
+  },
+  "smoothness_previous_export": {
+   "triangles": 9348,
+   "smallest_triangle_mm2": 0.00013337107202460174,
+   "degenerate_triangles": 0,
+   "max_bend_on_curves_deg": 18.85,
+   "p99_bend_on_curves_deg": 2.86
+  },
+  "chosen": {
+   "bed_contact_mm2": 922.8,
+   "overhang_mm2": 111.4,
+   "footprint_mm": [
+    42.0,
+    45.7
+   ],
+   "height_mm": 33.6
+  },
+  "all_candidates": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 735.0,
+    "overhang_mm2": 2214.7,
+    "footprint_mm": [
+     42.0,
+     33.6
+    ],
+    "height_mm": 45.7
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 239.0,
+    "overhang_mm2": 2635.4,
+    "footprint_mm": [
+     42.0,
+     33.6
+    ],
+    "height_mm": 45.7
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 922.8,
+    "overhang_mm2": 111.1,
+    "footprint_mm": [
+     42.0,
+     45.7
+    ],
+    "height_mm": 33.6
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 110.1,
+    "overhang_mm2": 976.0,
+    "footprint_mm": [
+     42.0,
+     45.7
+    ],
+    "height_mm": 33.6
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 39.3,
+    "overhang_mm2": 779.4,
+    "footprint_mm": [
+     33.6,
+     45.7
+    ],
+    "height_mm": 42.0
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 39.3,
+    "overhang_mm2": 779.3,
+    "footprint_mm": [
+     33.6,
+     45.7
+    ],
+    "height_mm": 42.0
+   }
+  }
+ },
+ "p22": {
+  "file": "stl\\P22_CPAP_Lower_Plenum_Wide_Jets_Face_Mounts_R41_REVIEW_PRINT_ORIENTED.stl",
+  "orientation": "back face down (-Y)",
+  "volume_mm3": 17380.65,
+  "mesh_volume_mm3": 17380.69,
+  "watertight": true,
+  "mb": 0.96,
+  "smoothness": {
+   "triangles": 19284,
+   "smallest_triangle_mm2": 3.181832647606169e-07,
+   "degenerate_triangles": 0,
+   "max_bend_on_curves_deg": 19.81,
+   "p99_bend_on_curves_deg": 1.43
+  },
+  "smoothness_previous_export": {
+   "triangles": 10076,
+   "smallest_triangle_mm2": 2.033285550317631e-06,
+   "degenerate_triangles": 0,
+   "max_bend_on_curves_deg": 19.07,
+   "p99_bend_on_curves_deg": 2.86
+  },
+  "chosen": {
+   "bed_contact_mm2": 148.5,
+   "overhang_mm2": 1554.9,
+   "footprint_mm": [
+    44.8,
+    28.9
+   ],
+   "height_mm": 74.7
+  },
+  "all_candidates": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 146.3,
+    "overhang_mm2": 1555.0,
+    "footprint_mm": [
+     44.8,
+     28.9
+    ],
+    "height_mm": 74.7
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 0.0,
+    "overhang_mm2": 1578.6,
+    "footprint_mm": [
+     44.8,
+     28.9
+    ],
+    "height_mm": 74.7
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 123.5,
+    "overhang_mm2": 3189.4,
+    "footprint_mm": [
+     44.8,
+     74.7
+    ],
+    "height_mm": 28.9
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 106.1,
+    "overhang_mm2": 3254.8,
+    "footprint_mm": [
+     44.8,
+     74.7
+    ],
+    "height_mm": 28.9
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 426.9,
+    "overhang_mm2": 2830.2,
+    "footprint_mm": [
+     28.9,
+     74.7
+    ],
+    "height_mm": 44.8
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 426.2,
+    "overhang_mm2": 2831.9,
+    "footprint_mm": [
+     28.9,
+     74.7
+    ],
+    "height_mm": 44.8
+   }
+  }
+ }
+}

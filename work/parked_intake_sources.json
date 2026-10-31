@@ -1,0 +1,20 @@
+[
+  {
+    "component": "T0_Bambu",
+    "bodies": 25,
+    "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T0_Bambu.step",
+    "world_y_offset_mm": 43.41,
+    "world_z_offset_mm": 191.2794,
+    "bay_x_mm": 7,
+    "full_rack_source_sha256": "e2ebd90ae5a2fc26fde46921b41b68247265643030f9b72f0f4d0875ce93fdb9"
+  },
+  {
+    "component": "T1_RedLizard",
+    "bodies": 24,
+    "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\parked_intake_T1_RedLizard.step",
+    "world_y_offset_mm": 43.41,
+    "world_z_offset_mm": 191.2794,
+    "bay_x_mm": 44.3,
+    "full_rack_source_sha256": "e2ebd90ae5a2fc26fde46921b41b68247265643030f9b72f0f4d0875ce93fdb9"
+  }
+]

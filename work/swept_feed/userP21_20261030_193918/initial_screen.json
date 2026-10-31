@@ -1,0 +1,190 @@
+{
+  "status": "RAW_USER_SNAPSHOT_SCREEN_NOT_YET_MATED",
+  "source_sha256": "1924a9adcdbded32578c2ae548e22acad8503a6dda8709281e6154e825e8ca62",
+  "exchange": {
+    "p01": {
+      "reference": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_mechanical\\p01.brep",
+      "sha256": "e56126b004f4b85ea75cf5742487ee3d807c95794afd6ab3af42d600a68f7e33",
+      "native_step_omitted_hidden_component": true
+    },
+    "p21": {
+      "repaired_exchange_wires": [
+        {
+          "centre_mm": [
+            4.0,
+            -33.2,
+            -45.25
+          ],
+          "length_mm": 13.0,
+          "face_area_before_mm2": 444.1142390161075,
+          "face_area_after_mm2": 444.11423901610755
+        },
+        {
+          "centre_mm": [
+            -4.0,
+            -33.2,
+            -45.25
+          ],
+          "length_mm": 13.0,
+          "face_area_before_mm2": 444.1142390161075,
+          "face_area_after_mm2": 444.1142390161076
+        }
+      ],
+      "sewing_tolerance_mm": 1e-07,
+      "surfaces_preserved": "Two zero-area inner line loops removed; all real boundaries and surfaces retained.",
+      "faces_before": 162,
+      "faces_after": 162
+    },
+    "p22": {
+      "reference": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_mechanical\\p22.brep",
+      "sha256": "e7b4b8d6dd143dbeae3b22d7f62f6177ab5a13a6109336ddcc8a4d0c2d9e427d",
+      "native_step_omitted_hidden_component": true
+    }
+  },
+  "parts": {
+    "p01": {
+      "volume_mm3": 33802.19152392163,
+      "faces": 267,
+      "bounds_mm": [
+        -22.50000000000003,
+        22.50000000000004,
+        0.2999999999999998,
+        29.0,
+        -58.32842712474619,
+        62.22059521522802
+      ]
+    },
+    "p21": {
+      "volume_mm3": 12160.351483199773,
+      "faces": 162,
+      "bounds_mm": [
+        -21.0,
+        21.0,
+        -45.4,
+        0.30000000000000027,
+        -65.0,
+        -17.78
+      ]
+    },
+    "p22": {
+      "volume_mm3": 17789.41442571734,
+      "faces": 432,
+      "bounds_mm": [
+        -22.420000100000003,
+        22.420000100000003,
+        -45.40000000000001,
+        29.276190576190483,
+        -77.85000009999999,
+        -48.9999999
+      ]
+    }
+  },
+  "p21_mesh": {
+    "watertight": true,
+    "consistent_winding": true,
+    "triangles": 15814
+  },
+  "added_vs_previous_fork_mm3": 677.9367639487106,
+  "removed_vs_previous_fork_mm3": 117.8062150786569,
+  "added_bounds_mm": [
+    -4.460000000000001,
+    4.46,
+    -38.97,
+    -25.699999899999998,
+    -65.0,
+    -49.0
+  ],
+  "removed_bounds_mm": [
+    -4.0,
+    4.0,
+    -33.6,
+    -24.7,
+    -59.5,
+    -48.5
+  ],
+  "p21_cable_overlap_mm3": 0.0,
+  "new_material_cable_gap_mm": 0.44999999999999996,
+  "p21_overlap_with_checked_mates_mm3": {
+    "p01": 0.0,
+    "p22": 483.0540206143949
+  },
+  "added_in_actual_lower_channel_air_mm3": 132.9461804036507,
+  "upper_p20_p24_interface_change_mm3": 0.0,
+  "hardware_overlap_mm3": {
+    "C28_P22_P01_M3x8_BUTTON_0": 0.0,
+    "C28_P22_P01_M3x4_HEATSET_0": 0.0,
+    "C28_P22_P01_M3x8_BUTTON_1": 0.0,
+    "C28_P22_P01_M3x4_HEATSET_1": 0.0,
+    "C28_P21_P22_M3x10_BUTTON": 0.0,
+    "C28_P21_P22_M3x4_HEATSET": 0.0
+  },
+  "p21_p22_overlap_bounds_mm": [
+    -4.457824078019013,
+    4.457824078019013,
+    -38.9700001,
+    -29.546291201783614,
+    -65.00000010000001,
+    -48.99999999999999
+  ],
+  "gantry": {
+    "0": {
+      "p21_overlap_mm3": 0.0,
+      "new_material_gap_mm": 1.220600000000009
+    },
+    "175": {
+      "p21_overlap_mm3": 0.0,
+      "new_material_gap_mm": 1.220600000000009
+    },
+    "350": {
+      "p21_overlap_mm3": 0.0,
+      "new_material_gap_mm": 1.220600000000009
+    }
+  },
+  "bambu_overlaps_mm3": {
+    "body": 0.0,
+    "fan inserts": 0.0,
+    "fan": 0.0,
+    "fan screws": 0.0,
+    "hotend": 0.0,
+    "hotend hardware": 0.0,
+    "P18": 0.0,
+    "bushings and magnets": 0.0
+  },
+  "root_sections_mm2": [
+    {
+      "y_mm": -33,
+      "previous_fork": 9.200260509828292,
+      "user_shape": 70.39210183658865
+    },
+    {
+      "y_mm": -32.5,
+      "previous_fork": 8.79999999999826,
+      "user_shape": 68.84210183658894
+    },
+    {
+      "y_mm": -32,
+      "previous_fork": 8.799999999999823,
+      "user_shape": 67.29210183660065
+    },
+    {
+      "y_mm": -31.5,
+      "previous_fork": 23.958800691148987,
+      "user_shape": 65.74210183661295
+    },
+    {
+      "y_mm": -31,
+      "previous_fork": 37.55939151392931,
+      "user_shape": 64.19210183661268
+    },
+    {
+      "y_mm": -30.5,
+      "previous_fork": 52.41349399839067,
+      "user_shape": 62.64210183661242
+    },
+    {
+      "y_mm": -30,
+      "previous_fork": 51.38142832868871,
+      "user_shape": 50.027751293291374
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "source_brep_sha256": "e7b4b8d6dd143dbeae3b22d7f62f6177ab5a13a6109336ddcc8a4d0c2d9e427d",
+  "source_step_sha256": "bc8553dfe1e324a5127df4e06d097908bd64e6228e48ce568534b9f2961e0ddb",
+  "native_export_sha256": "edd2260db949387d970f6d493e507c870ccff1d958c6945b894d5e92833eb025",
+  "source_default_volume_mm3": 17789.41442571734,
+  "native_api_volume_mm3": 17789.826954211767,
+  "native_roundtrip_default_volume_mm3": 17790.103646464424,
+  "source_faces": 432,
+  "native_faces": 418,
+  "checks": [
+    {
+      "coincidence_tolerance_mm": 1e-05,
+      "both_differences_valid": true,
+      "source_only_mm3": 0.0,
+      "native_only_mm3": 0.0
+    },
+    {
+      "coincidence_tolerance_mm": 0.001,
+      "both_differences_valid": true,
+      "source_only_mm3": 0.0,
+      "native_only_mm3": 0.0
+    }
+  ],
+  "conclusion": "The native STEP and source have zero valid Boolean difference at the listed tolerances. Their default volume-integrator values are not interchangeable. The native import merges faces; source trimmed-surface mass integration is tolerance-sensitive. Geometry agreement, not a relaxed volume-only threshold, qualifies this native review."
+}

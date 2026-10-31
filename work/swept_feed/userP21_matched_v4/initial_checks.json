@@ -1,0 +1,172 @@
+{
+  "variant": "userP21_matched_v4",
+  "base_p22": "C28 clean Beacon + 45 deg mounts + screw boss (no fork features)",
+  "lower_relief": true,
+  "open_front": true,
+  "removed_from_user_p21_mm3": 126.63211620346826,
+  "user_p21_upper_connection_change_mm3": 0.0,
+  "p22": {
+    "valid": true,
+    "mesh": {
+      "watertight": true,
+      "consistent_winding": true,
+      "triangles": 52954
+    },
+    "bounds_mm": [
+      -22.420000100000003,
+      22.420000100000003,
+      -45.40000000000001,
+      29.276190576190483,
+      -77.85000009999999,
+      -48.9999999
+    ],
+    "volume_mm3": 17661.44976057865
+  },
+  "p21_p22_overlap_mm3": 0.0,
+  "p21_p22_gap_mm": 0.0,
+  "p22_cable_overlap_mm3": 0.0,
+  "p22_cable_gap_mm": 2.8969356707386242,
+  "p21_cable_gap_mm": 0.049999999999997186,
+  "material_in_fork_reference_channel_air_mm3": 579.3026486983917,
+  "material_in_clean_c28_channel_air_mm3": {
+    "p22": 476.9650024802324,
+    "p21": 104.72547089991983
+  },
+  "remaining_channel_air_mm3": {
+    "clean_c28": 16658.066802817935,
+    "after": 16081.095806581792
+  },
+  "hardware_overlaps_mm3": {
+    "C28_P22_P01_M3x8_BUTTON_0": 0.0,
+    "C28_P22_P01_M3x4_HEATSET_0": 0.0,
+    "C28_P22_P01_M3x8_BUTTON_1": 0.0,
+    "C28_P22_P01_M3x4_HEATSET_1": 0.0,
+    "C28_P21_P22_M3x10_BUTTON": 0.0,
+    "C28_P21_P22_M3x4_HEATSET": 0.0
+  },
+  "duct_cavity": {
+    "volume_mm3": 27089.74353889885,
+    "bounds_mm": [
+      -20.756391259878782,
+      20.756391259878782,
+      -56.700000099998434,
+      -19.99999989999999,
+      -68.9000001,
+      29.0
+    ],
+    "sealed": true
+  },
+  "baseline_duct_cavity_mm3": 27775.6,
+  "construction_volumes_mm3": {
+    "extension": 763.9369646576579,
+    "socket": 1902.6555522875817,
+    "keel": 472.00892233028327,
+    "dam": 6.899999999999903,
+    "reinforcement": 2294.9006454164683,
+    "front_opening": 1439.7641841403763,
+    "skirt": 15.857521073509728
+  },
+  "front_opening": {
+    "original_channel_corridor_overlap_mm3": 0.0,
+    "gap_to_remaining_channel_air_mm": 1.2122925383069116,
+    "removed_dry_material_mm3": 453.24038169800576,
+    "removed_material_gap_to_remaining_channel_air_mm": 1.2122925383069116,
+    "cable_gap_mm": 0.0
+  },
+  "geometric_sections_mm2": {
+    "z": [
+      {
+        "position_mm": -50,
+        "clean_c28": 186.99513021379977,
+        "after": 183.76576095305344,
+        "change_percent": -1.7269804069517947
+      },
+      {
+        "position_mm": -52,
+        "clean_c28": 285.02068771921256,
+        "after": 239.84473437477376,
+        "change_percent": -15.85006116782084
+      },
+      {
+        "position_mm": -54,
+        "clean_c28": 412.5497554784155,
+        "after": 351.34975519798047,
+        "change_percent": -14.834574367754527
+      },
+      {
+        "position_mm": -56,
+        "clean_c28": 551.4134178740856,
+        "after": 487.6559700083706,
+        "change_percent": -11.562549223325913
+      },
+      {
+        "position_mm": -58,
+        "clean_c28": 721.1255675388727,
+        "after": 660.8511037856944,
+        "change_percent": -8.358386731299639
+      },
+      {
+        "position_mm": -60,
+        "clean_c28": 1137.1094708449637,
+        "after": 1088.4278606737482,
+        "change_percent": -4.281171814974072
+      }
+    ],
+    "y": [
+      {
+        "position_mm": -39,
+        "clean_c28": 519.9345343908261,
+        "after": 432.4480786806599,
+        "change_percent": -16.82643677682778
+      },
+      {
+        "position_mm": -37,
+        "clean_c28": 549.4996391988434,
+        "after": 479.99129701670796,
+        "change_percent": -12.64938813853943
+      },
+      {
+        "position_mm": -35,
+        "clean_c28": 486.5092803182776,
+        "after": 425.9803119960841,
+        "change_percent": -12.441482777593693
+      },
+      {
+        "position_mm": -33,
+        "clean_c28": 473.7738253635268,
+        "after": 421.39537646799033,
+        "change_percent": -11.055580973758195
+      },
+      {
+        "position_mm": -31,
+        "clean_c28": 445.5684221150654,
+        "after": 409.0254418592174,
+        "change_percent": -8.201429554271922
+      },
+      {
+        "position_mm": -29,
+        "clean_c28": 403.0830355843233,
+        "after": 388.4562715594147,
+        "change_percent": -3.6287223062377527
+      },
+      {
+        "position_mm": -27,
+        "clean_c28": 352.9432931292629,
+        "after": 352.9432931292629,
+        "change_percent": 0.0
+      }
+    ]
+  },
+  "section_scope": "Clean-C28 main-channel corridor versus the remaining corridor after this variant. Planes through a curved flow path are geometric diagnostics, not pressure/flow/thermal predictions.",
+  "source_sha256": {
+    "generator": "787b54d707f5e70967a2690b0b0205dd97b339792d2f6f4790f45d1744e7bb26",
+    "p21": "f6f2ef672b70560666ba747b8f42aecfd4722f6eb78d3e2bc98ace7b0efc8237",
+    "clean_c28_beacon": "86a32938b4240bd09e2dd51bbbfcea31ab5f6ea675d76fc7be9008dd4a94a936",
+    "original_p21": "1535c553a15c9fa7c65b3c2ad009edd5960db46d282a4455364b7bb0dfd4462c"
+  },
+  "body_sha256": {
+    "p01": "64e7778c1ca1d8be19dedd22c04d5cc52e7c22c55c4c2b6d3a7a8da3e743e510",
+    "p21": "6863057170cf1e4b311b98d43ccf57011d600e0b296255729884f354c52983fe",
+    "p22": "0267bbb8a175ccd18791526c79c01d51d909f50270e2f9c72b99044cf2f1b599"
+  }
+}

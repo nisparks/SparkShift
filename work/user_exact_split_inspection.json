@@ -1,0 +1,97 @@
+{
+  "parts": [
+    {
+      "name": "Body1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 8915.935889369364
+    },
+    {
+      "name": "Body2",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 5457.969854997762
+    }
+  ],
+  "overlap_mm3": 0.0,
+  "added_vs_original_mm3": 202.62549018530493,
+  "removed_vs_original_mm3": 87.25046406995679,
+  "contact_faces": [
+    {
+      "area_mm2": 202.6787139176312,
+      "center_mm": [
+        -1.1102230246251565e-16,
+        19.767917353084883,
+        -19.2794
+      ]
+    },
+    {
+      "area_mm2": 11.171470955320498,
+      "center_mm": [
+        11.384411731334499,
+        26.799999999999997,
+        -49.75
+      ]
+    },
+    {
+      "area_mm2": 11.171470955370001,
+      "center_mm": [
+        -11.384411731330001,
+        26.8,
+        -49.75
+      ]
+    },
+    {
+      "area_mm2": 195.95778268492597,
+      "center_mm": [
+        3.0105433191582677e-15,
+        26.8,
+        -23.301309824689692
+      ]
+    }
+  ],
+  "fan_paths": [
+    {
+      "x_mm": -12,
+      "z_mm": -49.5,
+      "Body1_material_in_hole_path_mm3": 7.389025921243188,
+      "Body2_material_in_hole_path_mm3": 54.750880857399466,
+      "rear_nominal_side_edge_margin_mm": 0.40000009999999975
+    },
+    {
+      "x_mm": -12,
+      "z_mm": -25.5,
+      "Body1_material_in_hole_path_mm3": 7.389025921243162,
+      "Body2_material_in_hole_path_mm3": 47.51823333794163,
+      "rear_nominal_side_edge_margin_mm": 0.40000009999999975
+    },
+    {
+      "x_mm": 12,
+      "z_mm": -49.5,
+      "Body1_material_in_hole_path_mm3": 7.389025921243211,
+      "Body2_material_in_hole_path_mm3": 54.75057735448811,
+      "rear_nominal_side_edge_margin_mm": 0.40000009999999975
+    },
+    {
+      "x_mm": 12,
+      "z_mm": -25.5,
+      "Body1_material_in_hole_path_mm3": 7.389025921243198,
+      "Body2_material_in_hole_path_mm3": 47.518211196133535,
+      "rear_nominal_side_edge_margin_mm": 0.40000009999999975
+    }
+  ],
+  "print_faces": [
+    {
+      "body": "Body1",
+      "bed_y_mm": 35.93000010000001,
+      "contact_area_mm2": 1209.8086573036032,
+      "build_height_mm": 23.63000010000001
+    },
+    {
+      "body": "Body2",
+      "bed_y_mm": 11.5,
+      "contact_area_mm2": 899.3411243374825,
+      "build_height_mm": 15.300000100000013
+    }
+  ]
+}

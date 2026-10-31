@@ -1,0 +1,1417 @@
+{
+ "P20": {
+  "valid": true,
+  "solids": 1,
+  "faces": 202,
+  "edges": 588,
+  "volume_mm3": 8161.25,
+  "small_or_thin_faces": [
+   {
+    "area_mm2": 0.4721,
+    "width_mm": 0.2752,
+    "type": "CYLINDER",
+    "centre": [
+     9.248,
+     -34.582,
+     -14.562
+    ],
+    "bounds": [
+     8.98,
+     9.3,
+     -35.116,
+     -34.3,
+     -15.307,
+     -14.2
+    ],
+    "inherited": true
+   },
+   {
+    "area_mm2": 0.4721,
+    "width_mm": 0.2752,
+    "type": "CYLINDER",
+    "centre": [
+     -9.248,
+     -34.582,
+     -14.562
+    ],
+    "bounds": [
+     -9.3,
+     -8.98,
+     -35.116,
+     -34.3,
+     -15.307,
+     -14.2
+    ],
+    "inherited": true
+   },
+   {
+    "area_mm2": 0.067,
+    "width_mm": 0.1114,
+    "type": "CYLINDER",
+    "centre": [
+     2.006,
+     -37.828,
+     -12.834
+    ],
+    "bounds": [
+     1.814,
+     2.195,
+     -37.917,
+     -37.725,
+     -12.94,
+     -12.617
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.067,
+    "width_mm": 0.1114,
+    "type": "CYLINDER",
+    "centre": [
+     -2.006,
+     -37.828,
+     -12.834
+    ],
+    "bounds": [
+     -2.195,
+     -1.814,
+     -37.917,
+     -37.725,
+     -12.94,
+     -12.617
+    ],
+    "inherited": false
+   }
+  ],
+  "short_edges": [
+   {
+    "length_mm": 0.0758,
+    "mid": [
+     -4.46,
+     -35.078,
+     -14.2
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0758,
+    "mid": [
+     4.46,
+     -35.078,
+     -14.2
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.02,
+    "mid": [
+     1.95,
+     -34.21,
+     -17.78
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.02,
+    "mid": [
+     -1.95,
+     -34.21,
+     -17.78
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0909,
+    "mid": [
+     -12.5,
+     -41.0,
+     8.572
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0517,
+    "mid": [
+     -13.367,
+     -40.058,
+     11.105
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.09,
+    "mid": [
+     -4.46,
+     -35.925,
+     -21.58
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.09,
+    "mid": [
+     4.46,
+     -35.925,
+     -21.58
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0576,
+    "mid": [
+     -11.582,
+     -44.257,
+     -16.243
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0576,
+    "mid": [
+     11.582,
+     -44.257,
+     -16.243
+    ],
+    "faces": 2,
+    "inherited": false
+   }
+  ],
+  "shallow_creases": [
+   {
+    "angle_deg": 20.9,
+    "length_mm": 1.98,
+    "mid": [
+     1.95,
+     -28.844,
+     -16.79
+    ],
+    "faces": [
+     "PLANE",
+     "CYLINDER"
+    ],
+    "inherited": false
+   },
+   {
+    "angle_deg": 20.9,
+    "length_mm": 1.6,
+    "mid": [
+     1.95,
+     -28.844,
+     -15.0
+    ],
+    "faces": [
+     "PLANE",
+     "CYLINDER"
+    ],
+    "inherited": false
+   },
+   {
+    "angle_deg": 21.59,
+    "length_mm": 3.58,
+    "mid": [
+     9.265,
+     -30.713,
+     -15.99
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 21.59,
+    "length_mm": 3.58,
+    "mid": [
+     -9.265,
+     -30.713,
+     -15.99
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 20.9,
+    "length_mm": 1.6,
+    "mid": [
+     -1.95,
+     -28.844,
+     -15.0
+    ],
+    "faces": [
+     "CYLINDER",
+     "PLANE"
+    ],
+    "inherited": false
+   },
+   {
+    "angle_deg": 20.9,
+    "length_mm": 1.98,
+    "mid": [
+     -1.95,
+     -28.844,
+     -16.79
+    ],
+    "faces": [
+     "CYLINDER",
+     "PLANE"
+    ],
+    "inherited": false
+   },
+   {
+    "angle_deg": 22.81,
+    "length_mm": 1.462,
+    "mid": [
+     18.914,
+     -33.272,
+     -16.835
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 18.5,
+    "length_mm": 2.958,
+    "mid": [
+     20.484,
+     -37.587,
+     -13.537
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 4.81,
+    "length_mm": 0.617,
+    "mid": [
+     20.594,
+     -35.289,
+     -14.446
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 22.81,
+    "length_mm": 1.462,
+    "mid": [
+     -18.914,
+     -33.272,
+     -16.835
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 4.81,
+    "length_mm": 0.617,
+    "mid": [
+     -20.594,
+     -35.289,
+     -14.446
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 18.5,
+    "length_mm": 2.958,
+    "mid": [
+     -20.484,
+     -37.587,
+     -13.537
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 22.78,
+    "length_mm": 4.5,
+    "mid": [
+     -12.5,
+     -43.25,
+     5.786
+    ],
+    "faces": [
+     "PLANE",
+     "PLANE"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 22.78,
+    "length_mm": 4.5,
+    "mid": [
+     12.5,
+     -43.25,
+     5.786
+    ],
+    "faces": [
+     "PLANE",
+     "PLANE"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 19.36,
+    "length_mm": 1.433,
+    "mid": [
+     -19.943,
+     -33.349,
+     20.004
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 16.49,
+    "length_mm": 1.221,
+    "mid": [
+     17.458,
+     -33.409,
+     19.79
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 20.63,
+    "length_mm": 0.058,
+    "mid": [
+     -11.582,
+     -44.257,
+     -16.243
+    ],
+    "faces": [
+     "BSPLINE",
+     "PLANE"
+    ],
+    "inherited": false
+   },
+   {
+    "angle_deg": 20.6,
+    "length_mm": 23.107,
+    "mid": [
+     0.0,
+     -44.257,
+     -16.243
+    ],
+    "faces": [
+     "BSPLINE",
+     "PLANE"
+    ],
+    "inherited": false
+   },
+   {
+    "angle_deg": 20.63,
+    "length_mm": 0.058,
+    "mid": [
+     11.582,
+     -44.257,
+     -16.243
+    ],
+    "faces": [
+     "BSPLINE",
+     "PLANE"
+    ],
+    "inherited": false
+   },
+   {
+    "angle_deg": 24.4,
+    "length_mm": 45.992,
+    "mid": [
+     0.002,
+     -56.7,
+     11.193
+    ],
+    "faces": [
+     "PLANE",
+     "CYLINDER"
+    ],
+    "inherited": true
+   }
+  ],
+  "dihedral_histogram_deg": {
+   "tangent_<0.3": 146,
+   "0.3-5": 2,
+   "5-25": 18,
+   "25-60": 113,
+   "60-120": 291,
+   ">120": 1
+  }
+ },
+ "P21": {
+  "valid": true,
+  "solids": 1,
+  "faces": 138,
+  "edges": 425,
+  "volume_mm3": 11269.78,
+  "small_or_thin_faces": [],
+  "short_edges": [
+   {
+    "length_mm": 0.0444,
+    "mid": [
+     1.928,
+     -30.0,
+     -17.78
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0444,
+    "mid": [
+     -1.928,
+     -30.0,
+     -17.78
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.02,
+    "mid": [
+     1.95,
+     -34.21,
+     -49.0
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.02,
+    "mid": [
+     -1.95,
+     -34.21,
+     -49.0
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.09,
+    "mid": [
+     -4.46,
+     -35.925,
+     -51.4
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.09,
+    "mid": [
+     4.46,
+     -35.925,
+     -51.4
+    ],
+    "faces": 2,
+    "inherited": false
+   }
+  ],
+  "shallow_creases": [
+   {
+    "angle_deg": 10.11,
+    "length_mm": 18.4,
+    "mid": [
+     -0.0,
+     -21.074,
+     -24.1
+    ],
+    "faces": [
+     "PLANE",
+     "PLANE"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 18.85,
+    "length_mm": 1.958,
+    "mid": [
+     8.114,
+     -29.979,
+     -26.5
+    ],
+    "faces": [
+     "PLANE",
+     "PLANE"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 18.85,
+    "length_mm": 1.958,
+    "mid": [
+     2.886,
+     -29.979,
+     -26.5
+    ],
+    "faces": [
+     "PLANE",
+     "PLANE"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 18.85,
+    "length_mm": 1.958,
+    "mid": [
+     -2.886,
+     -29.979,
+     -26.5
+    ],
+    "faces": [
+     "PLANE",
+     "PLANE"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 18.85,
+    "length_mm": 1.958,
+    "mid": [
+     -8.114,
+     -29.979,
+     -26.5
+    ],
+    "faces": [
+     "PLANE",
+     "PLANE"
+    ],
+    "inherited": true
+   }
+  ],
+  "dihedral_histogram_deg": {
+   "tangent_<0.3": 124,
+   "0.3-5": 0,
+   "5-25": 5,
+   "25-60": 34,
+   "60-120": 250,
+   ">120": 2
+  }
+ },
+ "P22": {
+  "valid": true,
+  "solids": 1,
+  "faces": 249,
+  "edges": 728,
+  "volume_mm3": 17381.19,
+  "small_or_thin_faces": [
+   {
+    "area_mm2": 0.4905,
+    "width_mm": 0.0537,
+    "type": "PLANE",
+    "centre": [
+     2.25,
+     -33.173,
+     -54.059
+    ],
+    "bounds": [
+     2.25,
+     2.25,
+     -33.2,
+     -33.146,
+     -58.6,
+     -49.5
+    ],
+    "inherited": true
+   },
+   {
+    "area_mm2": 0.0028,
+    "width_mm": 0.0045,
+    "type": "PLANE",
+    "centre": [
+     3.654,
+     -34.604,
+     -51.95
+    ],
+    "bounds": [
+     3.65,
+     3.664,
+     -35.067,
+     -34.45,
+     -51.95,
+     -51.95
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.0568,
+    "width_mm": 0.0295,
+    "type": "PLANE",
+    "centre": [
+     11.421,
+     17.176,
+     -74.078
+    ],
+    "bounds": [
+     10.347,
+     11.779,
+     16.929,
+     17.798,
+     -74.757,
+     -73.852
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.2736,
+    "width_mm": 0.1571,
+    "type": "CYLINDER",
+    "centre": [
+     -10.701,
+     29.085,
+     -71.924
+    ],
+    "bounds": [
+     -11.733,
+     -10.2,
+     28.984,
+     29.276,
+     -72.085,
+     -71.857
+    ],
+    "inherited": true
+   },
+   {
+    "area_mm2": 0.0577,
+    "width_mm": 0.0483,
+    "type": "PLANE",
+    "centre": [
+     -11.647,
+     17.277,
+     -72.2
+    ],
+    "bounds": [
+     -11.757,
+     -11.6,
+     17.0,
+     18.11,
+     -72.2,
+     -72.2
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.2065,
+    "width_mm": 0.2231,
+    "type": "PLANE",
+    "centre": [
+     18.948,
+     -35.15,
+     -51.675
+    ],
+    "bounds": [
+     18.76,
+     19.135,
+     -35.15,
+     -35.15,
+     -51.95,
+     -51.4
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.0872,
+    "width_mm": 0.1294,
+    "type": "PLANE",
+    "centre": [
+     18.893,
+     -35.004,
+     -51.95
+    ],
+    "bounds": [
+     18.76,
+     19.135,
+     -35.15,
+     -34.739,
+     -51.95,
+     -51.95
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.2065,
+    "width_mm": 0.2231,
+    "type": "PLANE",
+    "centre": [
+     -18.948,
+     -35.15,
+     -51.675
+    ],
+    "bounds": [
+     -19.135,
+     -18.76,
+     -35.15,
+     -35.15,
+     -51.95,
+     -51.4
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.0872,
+    "width_mm": 0.1294,
+    "type": "PLANE",
+    "centre": [
+     -18.893,
+     -35.004,
+     -51.95
+    ],
+    "bounds": [
+     -19.135,
+     -18.76,
+     -35.15,
+     -34.739,
+     -51.95,
+     -51.95
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.0028,
+    "width_mm": 0.0045,
+    "type": "PLANE",
+    "centre": [
+     -3.654,
+     -34.604,
+     -51.95
+    ],
+    "bounds": [
+     -3.664,
+     -3.65,
+     -35.067,
+     -34.45,
+     -51.95,
+     -51.95
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.013,
+    "width_mm": 0.045,
+    "type": "CYLINDER",
+    "centre": [
+     -11.768,
+     16.964,
+     -73.798
+    ],
+    "bounds": [
+     -11.782,
+     -11.741,
+     16.917,
+     17.057,
+     -73.876,
+     -73.668
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.4206,
+    "width_mm": 0.1683,
+    "type": "PLANE",
+    "centre": [
+     -11.287,
+     26.2,
+     -73.287
+    ],
+    "bounds": [
+     -11.6,
+     -10.2,
+     26.2,
+     26.2,
+     -73.6,
+     -72.2
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.1984,
+    "width_mm": 0.1163,
+    "type": "PLANE",
+    "centre": [
+     -10.988,
+     16.937,
+     -73.6
+    ],
+    "bounds": [
+     -11.796,
+     -10.2,
+     16.874,
+     17.0,
+     -73.6,
+     -73.6
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.0572,
+    "width_mm": 0.0269,
+    "type": "PLANE",
+    "centre": [
+     -11.413,
+     17.18,
+     -74.083
+    ],
+    "bounds": [
+     -11.779,
+     -10.2,
+     16.929,
+     17.893,
+     -74.85,
+     -73.852
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.0861,
+    "width_mm": 0.082,
+    "type": "CYLINDER",
+    "centre": [
+     -10.515,
+     27.76,
+     -76.644
+    ],
+    "bounds": [
+     -11.15,
+     -10.2,
+     27.7,
+     27.879,
+     -76.65,
+     -76.617
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.2736,
+    "width_mm": 0.1571,
+    "type": "CYLINDER",
+    "centre": [
+     10.701,
+     29.085,
+     -71.924
+    ],
+    "bounds": [
+     10.2,
+     11.733,
+     28.984,
+     29.276,
+     -72.085,
+     -71.857
+    ],
+    "inherited": true
+   },
+   {
+    "area_mm2": 0.4206,
+    "width_mm": 0.1683,
+    "type": "PLANE",
+    "centre": [
+     11.287,
+     26.2,
+     -73.287
+    ],
+    "bounds": [
+     10.2,
+     11.6,
+     26.2,
+     26.2,
+     -73.6,
+     -72.2
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.0577,
+    "width_mm": 0.0483,
+    "type": "PLANE",
+    "centre": [
+     11.647,
+     17.277,
+     -72.2
+    ],
+    "bounds": [
+     11.6,
+     11.757,
+     17.0,
+     18.11,
+     -72.2,
+     -72.2
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.0861,
+    "width_mm": 0.082,
+    "type": "CYLINDER",
+    "centre": [
+     10.515,
+     27.76,
+     -76.644
+    ],
+    "bounds": [
+     10.2,
+     11.15,
+     27.7,
+     27.879,
+     -76.65,
+     -76.617
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.1984,
+    "width_mm": 0.1163,
+    "type": "PLANE",
+    "centre": [
+     10.988,
+     16.937,
+     -73.6
+    ],
+    "bounds": [
+     10.2,
+     11.796,
+     16.874,
+     17.0,
+     -73.6,
+     -73.6
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.0004,
+    "width_mm": 0.002,
+    "type": "CYLINDER",
+    "centre": [
+     10.275,
+     17.834,
+     -74.794
+    ],
+    "bounds": [
+     10.2,
+     10.347,
+     17.796,
+     17.866,
+     -74.824,
+     -74.757
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.013,
+    "width_mm": 0.045,
+    "type": "CYLINDER",
+    "centre": [
+     11.768,
+     16.964,
+     -73.798
+    ],
+    "bounds": [
+     11.741,
+     11.782,
+     16.917,
+     17.057,
+     -73.876,
+     -73.668
+    ],
+    "inherited": false
+   },
+   {
+    "area_mm2": 0.4905,
+    "width_mm": 0.0537,
+    "type": "PLANE",
+    "centre": [
+     -2.25,
+     -33.173,
+     -54.059
+    ],
+    "bounds": [
+     -2.25,
+     -2.25,
+     -33.2,
+     -33.146,
+     -58.6,
+     -49.5
+    ],
+    "inherited": true
+   }
+  ],
+  "short_edges": [
+   {
+    "length_mm": 0.0638,
+    "mid": [
+     -2.25,
+     -33.173,
+     -49.517
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.054,
+    "mid": [
+     2.25,
+     -33.173,
+     -58.6
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.054,
+    "mid": [
+     -2.25,
+     -33.173,
+     -58.6
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0638,
+    "mid": [
+     2.25,
+     -33.173,
+     -49.517
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0136,
+    "mid": [
+     3.657,
+     -34.45,
+     -51.95
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.056,
+    "mid": [
+     18.76,
+     -28.732,
+     -68.9
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0556,
+    "mid": [
+     12.662,
+     14.102,
+     -70.892
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0166,
+    "mid": [
+     11.78,
+     16.923,
+     -73.846
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0022,
+    "mid": [
+     10.347,
+     17.797,
+     -74.757
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0817,
+    "mid": [
+     11.789,
+     16.896,
+     -73.634
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0022,
+    "mid": [
+     10.2,
+     17.865,
+     -74.824
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0022,
+    "mid": [
+     -10.2,
+     17.892,
+     -74.85
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0863,
+    "mid": [
+     -11.769,
+     16.959,
+     -73.6
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0556,
+    "mid": [
+     -12.662,
+     14.102,
+     -70.892
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0453,
+    "mid": [
+     -11.789,
+     16.896,
+     -73.6
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0817,
+    "mid": [
+     -11.789,
+     16.896,
+     -73.634
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.056,
+    "mid": [
+     -18.76,
+     -28.732,
+     -68.9
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0136,
+    "mid": [
+     -3.657,
+     -34.45,
+     -51.95
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0166,
+    "mid": [
+     -11.78,
+     16.923,
+     -73.846
+    ],
+    "faces": 2,
+    "inherited": true
+   },
+   {
+    "length_mm": 0.0863,
+    "mid": [
+     11.769,
+     16.959,
+     -73.6
+    ],
+    "faces": 2,
+    "inherited": false
+   },
+   {
+    "length_mm": 0.0453,
+    "mid": [
+     11.789,
+     16.896,
+     -73.6
+    ],
+    "faces": 2,
+    "inherited": false
+   }
+  ],
+  "shallow_creases": [
+   {
+    "angle_deg": 17.09,
+    "length_mm": 0.389,
+    "mid": [
+     15.064,
+     20.45,
+     -65.147
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 17.09,
+    "length_mm": 0.389,
+    "mid": [
+     -15.064,
+     20.45,
+     -65.147
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 22.44,
+    "length_mm": 4.247,
+    "mid": [
+     -12.089,
+     -43.425,
+     -56.091
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 22.44,
+    "length_mm": 4.247,
+    "mid": [
+     12.089,
+     -43.425,
+     -56.091
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 23.3,
+    "length_mm": 6.068,
+    "mid": [
+     -12.871,
+     -45.163,
+     -57.544
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   },
+   {
+    "angle_deg": 23.3,
+    "length_mm": 6.068,
+    "mid": [
+     12.871,
+     -45.163,
+     -57.544
+    ],
+    "faces": [
+     "CYLINDER",
+     "CYLINDER"
+    ],
+    "inherited": true
+   }
+  ],
+  "dihedral_histogram_deg": {
+   "tangent_<0.3": 180,
+   "0.3-5": 0,
+   "5-25": 6,
+   "25-60": 22,
+   "60-120": 492,
+   ">120": 20
+  }
+ },
+ "P23_Cartographer": {
+  "valid": true,
+  "solids": 1,
+  "faces": 50,
+  "edges": 132,
+  "volume_mm3": 3032.85,
+  "small_or_thin_faces": [],
+  "short_edges": [],
+  "shallow_creases": [],
+  "dihedral_histogram_deg": {
+   "tangent_<0.3": 22,
+   "0.3-5": 0,
+   "5-25": 0,
+   "25-60": 0,
+   "60-120": 102,
+   ">120": 0
+  }
+ },
+ "P23_Beacon": {
+  "valid": true,
+  "solids": 1,
+  "faces": 50,
+  "edges": 132,
+  "volume_mm3": 3188.22,
+  "small_or_thin_faces": [],
+  "short_edges": [],
+  "shallow_creases": [],
+  "dihedral_histogram_deg": {
+   "tangent_<0.3": 22,
+   "0.3-5": 0,
+   "5-25": 0,
+   "25-60": 0,
+   "60-120": 102,
+   ">120": 0
+  }
+ }
+}

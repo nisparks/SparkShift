@@ -1,0 +1,500 @@
+{
+ "type": "machine",
+ "name": "Bambu Lab H2D 0.4 nozzle",
+ "from": "system",
+ "instantiation": "true",
+ "nozzle_diameter": [
+  "0.4",
+  "0.4"
+ ],
+ "printer_variant": "0.4",
+ "auxiliary_fan": "1",
+ "best_object_pos": "0.3x0.5",
+ "default_filament_profile": [
+  "Bambu PLA Basic @BBL H2D"
+ ],
+ "default_print_profile": "0.20mm Standard @BBL H2D",
+ "deretraction_speed": [
+  "30",
+  "30",
+  "30",
+  "30",
+  "30"
+ ],
+ "extruder_clearance_height_to_lid": "201",
+ "extruder_clearance_height_to_rod": "47.4",
+ "extruder_clearance_max_radius": "96",
+ "extruder_clearance_dist_to_rod": "50",
+ "extruder_colour": [
+  "#018001",
+  "#018001"
+ ],
+ "enable_long_retraction_when_cut": [
+  "2"
+ ],
+ "enable_pre_heating": "1",
+ "extruder_height_gap": "5",
+ "extruder_offset": [
+  "0x0",
+  "0x0"
+ ],
+ "fan_direction": "left",
+ "gcode_flavor": "marlin",
+ "grab_length": [
+  "0",
+  "0"
+ ],
+ "group_algo_with_time": "0",
+ "extruder_max_nozzle_count": [
+  "1",
+  "1"
+ ],
+ "hotend_cooling_rate": [
+  "2",
+  "2",
+  "2",
+  "2",
+  "2"
+ ],
+ "hotend_heating_rate": [
+  "3.6",
+  "3.6",
+  "3.6",
+  "3.6",
+  "3.6"
+ ],
+ "long_retractions_when_cut": [
+  "0",
+  "0",
+  "0",
+  "0",
+  "0"
+ ],
+ "machine_load_filament_time": "30",
+ "machine_max_acceleration_e": [
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000"
+ ],
+ "machine_max_acceleration_extruding": [
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000"
+ ],
+ "machine_max_acceleration_retracting": [
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000",
+  "5000"
+ ],
+ "machine_max_acceleration_x": [
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000"
+ ],
+ "machine_max_acceleration_y": [
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000",
+  "20000"
+ ],
+ "machine_max_acceleration_z": [
+  "500",
+  "500",
+  "500",
+  "500",
+  "500",
+  "500",
+  "500",
+  "500",
+  "500",
+  "500"
+ ],
+ "machine_max_force_Y": "0",
+ "machine_bed_mass_Y": "0",
+ "machine_max_printed_mass": "0",
+ "machine_max_jerk_e": [
+  "2.5",
+  "2.5",
+  "2.5",
+  "2.5",
+  "2.5",
+  "2.5",
+  "2.5",
+  "2.5",
+  "2.5",
+  "2.5"
+ ],
+ "machine_max_jerk_x": [
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9"
+ ],
+ "machine_max_jerk_y": [
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9",
+  "9"
+ ],
+ "machine_max_jerk_z": [
+  "3",
+  "3",
+  "3",
+  "3",
+  "3",
+  "3",
+  "3",
+  "3",
+  "3",
+  "3"
+ ],
+ "machine_max_speed_e": [
+  "50",
+  "50",
+  "50",
+  "50",
+  "50",
+  "50",
+  "50",
+  "50",
+  "50",
+  "50"
+ ],
+ "machine_max_speed_x": [
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000"
+ ],
+ "machine_max_speed_y": [
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000",
+  "1000"
+ ],
+ "machine_max_speed_z": [
+  "30",
+  "30",
+  "30",
+  "30",
+  "30",
+  "30",
+  "30",
+  "30",
+  "30",
+  "30"
+ ],
+ "machine_min_extruding_rate": [
+  "0",
+  "0"
+ ],
+ "machine_min_travel_rate": [
+  "0",
+  "0"
+ ],
+ "machine_prepare_compensation_time": "260",
+ "machine_switch_extruder_time": "5.6",
+ "machine_unload_filament_time": "30",
+ "machine_hotend_change_time": "0",
+ "master_extruder_id": "2",
+ "max_layer_height": [
+  "0.28",
+  "0.28"
+ ],
+ "min_layer_height": [
+  "0.08",
+  "0.08"
+ ],
+ "nozzle_height": "4",
+ "nozzle_flush_dataset": [
+  "1",
+  "2",
+  "1",
+  "2",
+  "2"
+ ],
+ "print_in_clockwise": "0",
+ "printable_height": "325",
+ "printer_settings_id": "",
+ "printer_structure": "corexy",
+ "printer_technology": "FFF",
+ "retract_before_wipe": [
+  "0%",
+  "0%",
+  "0%",
+  "0%",
+  "0%"
+ ],
+ "retract_length_toolchange": [
+  "2",
+  "2",
+  "2",
+  "2",
+  "2"
+ ],
+ "retract_restart_extra": [
+  "0",
+  "0",
+  "0",
+  "0",
+  "0"
+ ],
+ "retract_restart_extra_toolchange": [
+  "0",
+  "0",
+  "0",
+  "0",
+  "0"
+ ],
+ "retract_when_changing_layer": [
+  "1",
+  "1",
+  "1",
+  "1",
+  "1"
+ ],
+ "retraction_distances_when_cut": [
+  "10",
+  "10",
+  "10",
+  "10",
+  "10"
+ ],
+ "retraction_length": [
+  "0.8",
+  "0.8",
+  "0.8",
+  "0.8",
+  "0.8"
+ ],
+ "retraction_minimum_travel": [
+  "1",
+  "1",
+  "1",
+  "1",
+  "1"
+ ],
+ "retraction_speed": [
+  "30",
+  "30",
+  "30",
+  "30",
+  "30"
+ ],
+ "scan_first_layer": "0",
+ "silent_mode": "0",
+ "single_extruder_multi_material": "1",
+ "support_air_filtration": "0",
+ "support_cooling_filter": "1",
+ "support_fast_purge_mode": "0",
+ "cooling_filter_enabled": "0",
+ "support_chamber_temp_control": "1",
+ "support_object_skip_flush": "0",
+ "wipe": [
+  "1",
+  "1",
+  "1",
+  "1",
+  "1"
+ ],
+ "wrapping_exclude_area": [
+  "145x310",
+  "256x310",
+  "256x326",
+  "145x326"
+ ],
+ "z_hop": [
+  "0.4",
+  "0.4",
+  "0.4",
+  "0.4",
+  "0.4"
+ ],
+ "upward_compatible_machine": [
+  "Bambu Lab H2D Pro 0.4 nozzle"
+ ],
+ "machine_start_gcode": "G0 Z20 F9000\nG92 E0; G1 E-10 F1200\nG28\nM970 Q1 A10 B10 C130 K0\nM970 Q1 A10 B131 C250 K1\nM974 Q1 S1 P0\nM970 Q0 A10 B10 C130 H20 K0\nM970 Q0 A10 B131 C250 K1\nM974 Q0 S1 P0\nM220 S100 ;Reset Feedrate\nM221 S100 ;Reset Flowrate\nG29 ;Home\nG90;\nG92 E0 ;Reset Extruder \nG1 Z2.0 F3000 ;Move Z Axis up \nG1 X10.1 Y20 Z0.28 F5000.0 ;Move to start position\nM109 S205;\nG1 X10.1 Y200.0 Z0.28 F1500.0 E15 ;Draw the first line\nG1 X10.4 Y200.0 Z0.28 F5000.0 ;Move to side a little\nG1 X10.4 Y20 Z0.28 F1500.0 E30 ;Draw the second line\nG92 E0 ;Reset Extruder \nG1 X110 Y110 Z2.0 F3000 ;Move Z Axis up",
+ "machine_end_gcode": ";===== date: 20230428 =====================\nM400 ; wait for buffer to clear\nG92 E0 ; zero the extruder\nG1 E-0.8 F1800 ; retract\nG1 Z{max_layer_z + 0.5} F900 ; lower z a little\nG1 X65 Y245 F12000 ; move to safe pos \nG1 Y265 F3000\n\nG1 X65 Y245 F12000\nG1 Y265 F3000\nM140 S0 ; turn off bed\nM106 S0 ; turn off fan\nM106 P2 S0 ; turn off remote part cooling fan\nM106 P3 S0 ; turn off chamber cooling fan\n\nG1 X100 F12000 ; wipe\n; pull back filament to AMS\nM620 S255\nG1 X20 Y50 F12000\nG1 Y-3\nT255\nG1 X65 F12000\nG1 Y265\nG1 X100 F12000 ; wipe\nM621 S255\nM104 S0 ; turn off hotend\n\nM622.1 S1 ; for prev firmware, default turned on\nM1002 judge_flag timelapse_record_flag\nM622 J1\n    M400 ; wait all motion done\n    M991 S0 P-1 ;end smooth timelapse at safe pos\n    M400 S3 ;wait for last picture to be taken\nM623; end of \"timelapse_record_flag\"\n\nM400 ; wait all motion done\nM17 S\nM17 Z0.4 ; lower z motor current to reduce impact if there is something in the bottom\n{if (max_layer_z + 100.0) < 250}\n    G1 Z{max_layer_z + 100.0} F600\n    G1 Z{max_layer_z +98.0}\n{else}\n    G1 Z250 F600\n    G1 Z248\n{endif}\nM400 P100\nM17 R ; restore z current\n\nG90\nG1 X128 Y250 F3600\n\nM220 S100  ; Reset feedrate magnitude\nM201.2 K1.0 ; Reset acc magnitude\nM73.2   R1.0 ;Reset left time magnitude\nM1002 set_gcode_claim_speed_level : 0\n\nM17 X0.8 Y0.8 Z0.5 ; lower motor current to 45% power\n",
+ "time_lapse_gcode": ";========Date 20250206========\nM622.1 S1 ; for prev firmware, default turned on\nM1002 judge_flag timelapse_record_flag\nM622 J1\n{if timelapse_type == 0} ; timelapse without wipe tower\nM971 S11 C10 O0 T3000\n{elsif timelapse_type == 1} ; timelapse with wipe tower\nG92 E0\nG1 X65 Y245 F20000 ; move to safe pos\nG17\nG2 Z{layer_z} I0.86 J0.86 P1 F20000\nG1 Y265 F3000\nM400 P300\nM971 S11 C10 O0 T3000\nG92 E0\nG1 X100 F5000\nG1 Y255 F20000\n{endif}\nM623\n",
+ "wrapping_detection_gcode": "",
+ "change_filament_gcode": "M620 S[next_extruder]A\nM204 S9000\nG1 Z{max_layer_z + 8.0} F1200\n\nM400\nM106 P1 S0\nM106 P2 S0\n{if old_filament_temp > 142 && next_extruder < 255}\nM104 S[old_filament_temp]\n{endif}\n{if toolchange_count == 2}\n; get travel path for change filament\n;M620.1 X[travel_point_1_x] Y[travel_point_1_y] F21000 P0\n;M620.1 X[travel_point_2_x] Y[travel_point_2_y] F21000 P1\n;M620.1 X[travel_point_3_x] Y[travel_point_3_y] F21000 P2\n{endif}\n\nM620.10 A0 F[old_filament_e_feedrate] L[flush_length] H{nozzle_diameter[previous_extruder]} T{nozzle_temperature_range_high[previous_extruder]} P[old_filament_temp]\nM620.10 A1 F[new_filament_e_feedrate] L[flush_length] H{nozzle_diameter[next_extruder]} T{nozzle_temperature_range_high[next_extruder]} P[new_filament_temp]\n\nT[next_extruder]\nM400\nM83\n{if next_extruder < 255}\n\nM628 S0\n\n{if flush_length_1 > 1}\n; FLUSH_START\n; always use highest temperature to flush\nM400\nM1002 set_filament_type:UNKNOWN\nM109 S[nozzle_temperature_range_high]\n{if flush_length_1 > 23.7}\nG1 E23.7 F{old_filament_e_feedrate} ; do not need pulsatile flushing for start part\nG1 E{(flush_length_1 - 23.7) * 0.02} F50\nG1 E{(flush_length_1 - 23.7) * 0.23} F{old_filament_e_feedrate}\nG1 E{(flush_length_1 - 23.7) * 0.02} F50\nG1 E{(flush_length_1 - 23.7) * 0.23} F{new_filament_e_feedrate}\nG1 E{(flush_length_1 - 23.7) * 0.02} F50\nG1 E{(flush_length_1 - 23.7) * 0.23} F{new_filament_e_feedrate}\nG1 E{(flush_length_1 - 23.7) * 0.02} F50\nG1 E{(flush_length_1 - 23.7) * 0.23} F{new_filament_e_feedrate}\n{else}\nG1 E{flush_length_1} F{old_filament_e_feedrate}\n{endif}\n; FLUSH_END\nG1 E-[old_retract_length_toolchange] F1800\nG1 E[old_retract_length_toolchange] F300\nM400\nM1002 set_filament_type:{filament_type[next_extruder]}\n{endif}\n\n{if flush_length_1 > 45 && flush_length_2 > 1}\n; WIPE\nM400\nM106 P1 S255\nM400 S3\nG1 Y327.6 F20000\nG1 Y336 F9000\nG1 Y327.6 F20000\nG1 Y336 F9000\nM400\nM106 P1 S0\n{endif}\n\n{if flush_length_2 > 1}\n; FLUSH_START\nG1 E{flush_length_2 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_2 * 0.02} F50\nG1 E{flush_length_2 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_2 * 0.02} F50\nG1 E{flush_length_2 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_2 * 0.02} F50\nG1 E{flush_length_2 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_2 * 0.02} F50\nG1 E{flush_length_2 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_2 * 0.02} F50\n; FLUSH_END\nG1 E-[new_retract_length_toolchange] F1800\nG1 E[new_retract_length_toolchange] F300\n{endif}\n\n{if flush_length_2 > 45 && flush_length_3 > 1}\n; WIPE\nM400\nM106 P1 S255\nM400 S3\nG1 Y327.6 F20000\nG1 Y336 F9000\nG1 Y327.6 F20000\nG1 Y336 F9000\nM400\nM106 P1 S0\n{endif}\n\n{if flush_length_3 > 1}\n\n; FLUSH_START\nG1 E{flush_length_3 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_3 * 0.02} F50\nG1 E{flush_length_3 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_3 * 0.02} F50\nG1 E{flush_length_3 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_3 * 0.02} F50\nG1 E{flush_length_3 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_3 * 0.02} F50\nG1 E{flush_length_3 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_3 * 0.02} F50\n; FLUSH_END\nG1 E-[new_retract_length_toolchange] F1800\nG1 E[new_retract_length_toolchange] F300\n{endif}\n\n{if flush_length_3 > 45 && flush_length_4 > 1}\n; WIPE\nM400\nM106 P1 S255\nM400 S3\nG1 Y327.6 F20000\nG1 Y336 F9000\nG1 Y327.6 F20000\nG1 Y336 F9000\nM400\nM106 P1 S0\n{endif}\n\n{if flush_length_4 > 1}\n; FLUSH_START\nG1 E{flush_length_4 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_4 * 0.02} F50\nG1 E{flush_length_4 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_4 * 0.02} F50\nG1 E{flush_length_4 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_4 * 0.02} F50\nG1 E{flush_length_4 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_4 * 0.02} F50\nG1 E{flush_length_4 * 0.18} F{new_filament_e_feedrate}\nG1 E{flush_length_4 * 0.02} F50\n; FLUSH_END\n{endif}\n\nM400\nM109 S[new_filament_temp]\nG1 E2 F60 ;Compensate for filament spillage during waiting temperature\n\nM400\nG92 E0\nG1 E-[new_retract_length_toolchange] F1800\nM400\nM106 P1 S255\nM400 S3\nG1 Y327.6 F20000\nG1 Y336 F9000\nG1 Y327.6 F20000\nG1 Y336 F9000\nG1 Y327.6 F20000\nM400\nM106 P1 S0\n\nM629\n\nM400\n{else}\nG1 X[x_after_toolchange] Y[y_after_toolchange] Z[z_after_toolchange] F12000\n{endif}\nM400\nM83\nG1 Y295 F30000\nG1 Y265 F18000\n{if layer_z <= (initial_layer_print_height + 0.001)}\nM204 S[initial_layer_acceleration]\n{else}\nM204 S[default_acceleration]\n{endif}\nM621 S[next_extruder]A\nG1 Z{max_layer_z + 3.0} F3000\n\n",
+ "bed_exclude_area": [],
+ "bed_temperature_formula": "by_highest_temp",
+ "default_nozzle_volume_type": [
+  "Standard",
+  "Standard"
+ ],
+ "extruder_clearance_radius": "49",
+ "extruder_printable_area": [
+  "0x0,325x0,325x320,0x320",
+  "25x0,350x0,350x320,25x320"
+ ],
+ "extruder_printable_height": [
+  "320",
+  "325"
+ ],
+ "extruder_type": [
+  "Direct Drive",
+  "Direct Drive"
+ ],
+ "extruder_variant_list": [
+  "Direct Drive Standard,Direct Drive High Flow",
+  "Direct Drive Standard,Direct Drive High Flow,Direct Drive TPU High Flow"
+ ],
+ "head_wrap_detect_zone": [],
+ "machine_max_acceleration_travel": [
+  "9000",
+  "9000",
+  "9000",
+  "9000",
+  "9000",
+  "9000",
+  "9000",
+  "9000",
+  "9000",
+  "9000"
+ ],
+ "nozzle_type": [
+  "hardened_steel",
+  "hardened_steel",
+  "hardened_steel",
+  "hardened_steel",
+  "hardened_steel"
+ ],
+ "nozzle_volume": [
+  "130",
+  "133",
+  "145",
+  "148",
+  "148"
+ ],
+ "physical_extruder_map": [
+  "1",
+  "0"
+ ],
+ "printable_area": [
+  "0x0",
+  "350x0",
+  "350x320",
+  "0x320"
+ ],
+ "printer_extruder_id": [
+  "1",
+  "1",
+  "2",
+  "2",
+  "2"
+ ],
+ "printer_extruder_variant": [
+  "Direct Drive Standard",
+  "Direct Drive High Flow",
+  "Direct Drive Standard",
+  "Direct Drive High Flow",
+  "Direct Drive TPU High Flow"
+ ],
+ "retract_lift_above": [
+  "0",
+  "0",
+  "0",
+  "0",
+  "0"
+ ],
+ "retract_lift_below": [
+  "319",
+  "319",
+  "319",
+  "319",
+  "319"
+ ],
+ "wipe_distance": [
+  "2",
+  "2",
+  "2",
+  "2",
+  "2"
+ ],
+ "z_hop_types": [
+  "Auto Lift",
+  "Auto Lift",
+  "Auto Lift",
+  "Auto Lift",
+  "Auto Lift"
+ ],
+ "layer_change_gcode": "; layer num/total_layer_count: {layer_num+1}/[total_layer_count]\n; update layer progress\nM73 L{layer_num+1}\nM991 S0 P{layer_num} ;notify layer change",
+ "machine_pause_gcode": "M400 U1",
+ "setting_id": "GM033",
+ "printer_model": "Bambu Lab H2D",
+ "deretract_speed_extruder_change": [
+  "15",
+  "15",
+  "15",
+  "15",
+  "15"
+ ],
+ "include": [
+  "Bambu Lab H2D 0.4 nozzle template machine_start_gcode",
+  "Bambu Lab H2D 0.4 nozzle template machine_end_gcode",
+  "Bambu Lab H2D 0.4 nozzle template layer_change_gcode",
+  "Bambu Lab H2D 0.4 nozzle template time_lapse_gcode",
+  "Bambu Lab H2D 0.4 nozzle template wrapping_detection_gcode",
+  "Bambu Lab H2D 0.4 nozzle template change_filament_gcode"
+ ]
+}

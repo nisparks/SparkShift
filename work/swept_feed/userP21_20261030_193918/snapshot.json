@@ -1,0 +1,56 @@
+{
+  "document": "53 Bambu C28 - angled mounts and lower retainer",
+  "folder": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\userP21_20261030_193918",
+  "parts": {
+    "p01": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\userP21_20261030_193918\\p01_user_snapshot.step",
+      "sha256": "0e0b0a4df5eaa26f25e3da6acf73fae1381041961894eb3d85b5704696e37a4a",
+      "faces": 267,
+      "native_volume_mm3": 33802.15520179278
+    },
+    "p21": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\userP21_20261030_193918\\p21_user_snapshot.step",
+      "sha256": "1924a9adcdbded32578c2ae548e22acad8503a6dda8709281e6154e825e8ca62",
+      "faces": 162,
+      "native_volume_mm3": 12160.346772208166
+    },
+    "p22": {
+      "file": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\userP21_20261030_193918\\p22_user_snapshot.step",
+      "sha256": "2fd64c746ac8b33b567c314b4794f2d4f028458f65bae2570229981b6e82df78",
+      "faces": 418,
+      "native_volume_mm3": 17789.826954211767
+    }
+  },
+  "native_archive": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\userP21_20261030_193918\\User_P21_Direction_Original_Document.f3d",
+  "native_archive_sha256": "814386fbbcd681715b0e86820ab97edccef204961c3d3f3c2a44b77956341976",
+  "features": [
+    "Group1",
+    "Group2",
+    "Extrude1",
+    "Extrude2",
+    "Sketch1",
+    "Extrude3",
+    "Sketch2",
+    "Extrude4",
+    "Extrude5",
+    "Extrude6",
+    "Fillet1",
+    "DeleteFace1",
+    "DeleteFace2",
+    "DeleteFace3",
+    "DeleteFace4",
+    "DeleteFace5",
+    "Extrude7",
+    "Extrude8",
+    "Extrude9",
+    "Chamfer1",
+    "Chamfer2",
+    "Chamfer3",
+    "DeleteFace6",
+    "DeleteFace7",
+    "Fillet2"
+  ],
+  "timeline_unchanged_during_export": true,
+  "active_document": "53 Bambu C28 - angled mounts and lower retainer",
+  "scope": "User-directed P21 snapshot; primary components only, not the stale inspection copies. No document edits or camera changes."
+}

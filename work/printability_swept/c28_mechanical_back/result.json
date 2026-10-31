@@ -1,0 +1,61 @@
+{
+    "error_string": "Success.",
+    "export_time": 1037,
+    "layer_height": 0.20000000298023224,
+    "plate_index": 0,
+    "prepare_time": 82,
+    "return_code": 0,
+    "sliced_plates": [
+        {
+            "feature_type_times": {
+                "Bottom surface": 11.081759452819824,
+                "Bridge": 12.406963348388672,
+                "Brim": 12.689111709594727,
+                "Custom": 34.83232879638672,
+                "Flush": 334.40020751953125,
+                "Gap infill": 312.4118957519531,
+                "Inner wall": 924.9301147460938,
+                "Internal solid infill": 181.9698944091797,
+                "Ironing": 245.2773895263672,
+                "Outer wall": 933.5975952148438,
+                "Prime tower": 4451.24267578125,
+                "Sparse infill": 31.311033248901367,
+                "Support": 1689.252197265625,
+                "Support interface": 41.6231575012207,
+                "Support transition": 61.37576675415039,
+                "Top surface": 36.76070785522461,
+                "Travel": 2245.96826171875,
+                "Undefined": 2230.692626953125
+            },
+            "filament_change_times": 0,
+            "filaments": [
+                {
+                    "filament_id": "GFB99",
+                    "id": 1,
+                    "main_used_g": 24.910627365112305,
+                    "total_used_g": 45.42954635620117
+                },
+                {
+                    "filament_id": "GFS06",
+                    "id": 5,
+                    "main_used_g": 0.18504387140274048,
+                    "total_used_g": 3.55377459526062
+                }
+            ],
+            "generate_support_material_time": 443,
+            "id": 1,
+            "infill_time": 46,
+            "layer_filament_change": 0,
+            "main_predication": 6740.90380859375,
+            "make_perimeters_time": 126,
+            "obj_cached_cnt": 0,
+            "sliced_time": 3982,
+            "sliced_time_with_cache": 2871,
+            "total_predication": 11546.0732421875,
+            "triangle_count": 42974,
+            "warning_message": ""
+        }
+    ],
+    "sparse_infill_density": 50.0,
+    "wall_loops": 5
+}

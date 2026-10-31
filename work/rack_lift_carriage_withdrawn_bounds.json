@@ -1,0 +1,15 @@
+{
+  "source_archive": "22_Low_Z_Bed_Interference_DIAGNOSTIC.f3d",
+  "source_archive_sha256": "aa902d879241433bc5741b8614186146a2a839cbc54d4841f85db76d45592c5d",
+  "component": "Carriage_At_T0",
+  "bodies": 246,
+  "bounds_mm": [
+    -15.720000000000054,
+    31.94505827434,
+    70.24,
+    162.77999999999997,
+    0.011200000000020083,
+    140.57179521522008
+  ],
+  "frame": "Bambu active nozzle Z0.2; X gantry and carriage withdrawn Y60; conservative Fusion occurrence bounding box"
+}

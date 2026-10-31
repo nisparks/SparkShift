@@ -1,0 +1,4302 @@
+{
+ "P20": {
+  "fit_cylinders_by_axis_mm2": {
+   "(0.0, 0.0, 1.0)": 1641.2
+  },
+  "orientations": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 0.0,
+    "height_mm": 32.9,
+    "needs_support_mm2": 1935.4,
+    "needs_support_from_plate_mm2": 914.9,
+    "unsupported_mm2": 1020.4,
+    "rough_unsupported_mm2": 229.6,
+    "unsupported_regions": [
+     {
+      "area_mm2": 703.48,
+      "print_z_mm": 20.41,
+      "print_span_xy_mm": [
+       37.09,
+       28.0
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.0,
+       -38.94,
+       -1.95
+      ]
+     },
+     {
+      "area_mm2": 135.16,
+      "print_z_mm": 18.66,
+      "print_span_xy_mm": [
+       8.43,
+       15.5
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -0.0,
+       -40.68,
+       22.21
+      ]
+     },
+     {
+      "area_mm2": 53.42,
+      "print_z_mm": 20.45,
+      "print_span_xy_mm": [
+       6.04,
+       8.64
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -0.0,
+       -38.89,
+       -17.25
+      ]
+     },
+     {
+      "area_mm2": 50.17,
+      "print_z_mm": 23.47,
+      "print_span_xy_mm": [
+       13.19,
+       3.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -11.06,
+       -35.88,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 50.17,
+      "print_z_mm": 23.47,
+      "print_span_xy_mm": [
+       13.19,
+       3.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       11.06,
+       -35.88,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 5.58,
+      "print_z_mm": 24.22,
+      "print_span_xy_mm": [
+       13.78,
+       0.38
+      ],
+      "flattest_deg": 11.2,
+      "assembly_centre": [
+       11.3,
+       -35.12,
+       -16.77
+      ]
+     },
+     {
+      "area_mm2": 5.4,
+      "print_z_mm": 24.22,
+      "print_span_xy_mm": [
+       13.76,
+       0.38
+      ],
+      "flattest_deg": 11.4,
+      "assembly_centre": [
+       -11.23,
+       -35.12,
+       -16.78
+      ]
+     },
+     {
+      "area_mm2": 5.11,
+      "print_z_mm": 32.06,
+      "print_span_xy_mm": [
+       3.05,
+       1.6
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -5.5,
+       -27.29,
+       -15.0
+      ]
+     },
+     {
+      "area_mm2": 5.11,
+      "print_z_mm": 32.06,
+      "print_span_xy_mm": [
+       3.05,
+       1.6
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       5.5,
+       -27.29,
+       -15.0
+      ]
+     },
+     {
+      "area_mm2": 3.42,
+      "print_z_mm": 30.72,
+      "print_span_xy_mm": [
+       1.65,
+       1.98
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -5.5,
+       -28.62,
+       -16.79
+      ]
+     },
+     {
+      "area_mm2": 3.42,
+      "print_z_mm": 30.72,
+      "print_span_xy_mm": [
+       1.65,
+       1.98
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       5.5,
+       -28.62,
+       -16.79
+      ]
+     }
+    ]
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 1.3,
+    "height_mm": 32.9,
+    "needs_support_mm2": 1912.6,
+    "needs_support_from_plate_mm2": 1176.2,
+    "unsupported_mm2": 736.4,
+    "rough_unsupported_mm2": 402.1,
+    "unsupported_regions": [
+     {
+      "area_mm2": 628.7,
+      "print_z_mm": 24.9,
+      "print_span_xy_mm": [
+       23.22,
+       46.24
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -0.01,
+       -51.3,
+       1.93
+      ]
+     },
+     {
+      "area_mm2": 90.6,
+      "print_z_mm": 16.32,
+      "print_span_xy_mm": [
+       23.8,
+       3.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -0.0,
+       -42.72,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 5.11,
+      "print_z_mm": 6.71,
+      "print_span_xy_mm": [
+       3.05,
+       1.6
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -5.5,
+       -33.11,
+       -15.0
+      ]
+     },
+     {
+      "area_mm2": 5.11,
+      "print_z_mm": 6.71,
+      "print_span_xy_mm": [
+       3.05,
+       1.6
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       5.5,
+       -33.11,
+       -15.0
+      ]
+     },
+     {
+      "area_mm2": 3.42,
+      "print_z_mm": 5.37,
+      "print_span_xy_mm": [
+       1.65,
+       1.98
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -5.5,
+       -31.78,
+       -16.79
+      ]
+     },
+     {
+      "area_mm2": 3.42,
+      "print_z_mm": 5.37,
+      "print_span_xy_mm": [
+       1.65,
+       1.98
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       5.5,
+       -31.78,
+       -16.79
+      ]
+     }
+    ]
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 81.3,
+    "height_mm": 51.6,
+    "needs_support_mm2": 245.1,
+    "needs_support_from_plate_mm2": 201.4,
+    "unsupported_mm2": 43.7,
+    "rough_unsupported_mm2": 45.8,
+    "unsupported_regions": [
+     {
+      "area_mm2": 12.36,
+      "print_z_mm": 10.72,
+      "print_span_xy_mm": [
+       2.97,
+       4.09
+      ],
+      "flattest_deg": 0.7,
+      "assembly_centre": [
+       -16.73,
+       -37.8,
+       19.28
+      ]
+     },
+     {
+      "area_mm2": 12.36,
+      "print_z_mm": 10.72,
+      "print_span_xy_mm": [
+       2.97,
+       4.09
+      ],
+      "flattest_deg": 0.7,
+      "assembly_centre": [
+       14.27,
+       -37.8,
+       19.28
+      ]
+     },
+     {
+      "area_mm2": 7.1,
+      "print_z_mm": 42.94,
+      "print_span_xy_mm": [
+       7.79,
+       1.25
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.0,
+       -38.34,
+       -12.94
+      ]
+     },
+     {
+      "area_mm2": 5.93,
+      "print_z_mm": 9.58,
+      "print_span_xy_mm": [
+       1.67,
+       3.52
+      ],
+      "flattest_deg": 0.4,
+      "assembly_centre": [
+       -16.74,
+       -34.04,
+       20.42
+      ]
+     },
+     {
+      "area_mm2": 5.93,
+      "print_z_mm": 9.58,
+      "print_span_xy_mm": [
+       1.67,
+       3.52
+      ],
+      "flattest_deg": 0.4,
+      "assembly_centre": [
+       14.26,
+       -34.04,
+       20.42
+      ]
+     }
+    ]
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 110.1,
+    "height_mm": 51.6,
+    "needs_support_mm2": 250.1,
+    "needs_support_from_plate_mm2": 214.9,
+    "unsupported_mm2": 35.2,
+    "rough_unsupported_mm2": 20.3,
+    "unsupported_regions": [
+     {
+      "area_mm2": 11.51,
+      "print_z_mm": 46.29,
+      "print_span_xy_mm": [
+       2.97,
+       3.7
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -16.75,
+       -37.65,
+       24.71
+      ]
+     },
+     {
+      "area_mm2": 11.51,
+      "print_z_mm": 46.29,
+      "print_span_xy_mm": [
+       2.97,
+       3.7
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       14.25,
+       -37.65,
+       24.71
+      ]
+     },
+     {
+      "area_mm2": 6.1,
+      "print_z_mm": 45.16,
+      "print_span_xy_mm": [
+       1.71,
+       3.54
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -16.75,
+       -34.0,
+       23.58
+      ]
+     },
+     {
+      "area_mm2": 6.1,
+      "print_z_mm": 45.16,
+      "print_span_xy_mm": [
+       1.71,
+       3.54
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       14.25,
+       -34.0,
+       23.58
+      ]
+     }
+    ]
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 3.9,
+    "height_mm": 41.2,
+    "needs_support_mm2": 958.9,
+    "needs_support_from_plate_mm2": 463.3,
+    "unsupported_mm2": 495.6,
+    "rough_unsupported_mm2": 267.9,
+    "unsupported_regions": [
+     {
+      "area_mm2": 309.94,
+      "print_z_mm": 29.59,
+      "print_span_xy_mm": [
+       42.37,
+       14.57
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       8.99,
+       -46.78,
+       12.38
+      ]
+     },
+     {
+      "area_mm2": 82.19,
+      "print_z_mm": 30.96,
+      "print_span_xy_mm": [
+       12.51,
+       10.87
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       10.36,
+       -37.2,
+       19.31
+      ]
+     },
+     {
+      "area_mm2": 24.23,
+      "print_z_mm": 22.55,
+      "print_span_xy_mm": [
+       3.58,
+       7.15
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       1.95,
+       -31.71,
+       -16.06
+      ]
+     },
+     {
+      "area_mm2": 12.7,
+      "print_z_mm": 16.27,
+      "print_span_xy_mm": [
+       8.08,
+       2.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -4.33,
+       -36.66,
+       -17.97
+      ]
+     },
+     {
+      "area_mm2": 11.11,
+      "print_z_mm": 6.57,
+      "print_span_xy_mm": [
+       2.88,
+       3.71
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -14.03,
+       -37.65,
+       22.0
+      ]
+     },
+     {
+      "area_mm2": 11.11,
+      "print_z_mm": 37.57,
+      "print_span_xy_mm": [
+       2.88,
+       3.71
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       16.97,
+       -37.65,
+       22.0
+      ]
+     },
+     {
+      "area_mm2": 6.58,
+      "print_z_mm": 23.75,
+      "print_span_xy_mm": [
+       3.8,
+       1.71
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       3.15,
+       -35.48,
+       -19.66
+      ]
+     },
+     {
+      "area_mm2": 6.1,
+      "print_z_mm": 5.43,
+      "print_span_xy_mm": [
+       1.66,
+       3.54
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.17,
+       -34.03,
+       22.01
+      ]
+     },
+     {
+      "area_mm2": 6.1,
+      "print_z_mm": 36.43,
+      "print_span_xy_mm": [
+       1.66,
+       3.54
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.83,
+       -34.03,
+       22.01
+      ]
+     },
+     {
+      "area_mm2": 5.35,
+      "print_z_mm": 29.0,
+      "print_span_xy_mm": [
+       1.6,
+       3.18
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       8.4,
+       -30.2,
+       -15.0
+      ]
+     },
+     {
+      "area_mm2": 4.87,
+      "print_z_mm": 18.02,
+      "print_span_xy_mm": [
+       1.6,
+       2.92
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -2.58,
+       -30.2,
+       -15.0
+      ]
+     },
+     {
+      "area_mm2": 4.75,
+      "print_z_mm": 39.28,
+      "print_span_xy_mm": [
+       3.76,
+       2.01
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       18.68,
+       -36.82,
+       -15.66
+      ]
+     },
+     {
+      "area_mm2": 4.06,
+      "print_z_mm": 38.5,
+      "print_span_xy_mm": [
+       3.8,
+       1.03
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       17.9,
+       -36.67,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 3.26,
+      "print_z_mm": 16.68,
+      "print_span_xy_mm": [
+       1.98,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -3.92,
+       -30.2,
+       -16.79
+      ]
+     },
+     {
+      "area_mm2": 3.26,
+      "print_z_mm": 27.68,
+      "print_span_xy_mm": [
+       1.98,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       7.08,
+       -30.2,
+       -16.79
+      ]
+     }
+    ]
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 3.8,
+    "height_mm": 41.2,
+    "needs_support_mm2": 988.9,
+    "needs_support_from_plate_mm2": 530.5,
+    "unsupported_mm2": 458.4,
+    "rough_unsupported_mm2": 309.6,
+    "unsupported_regions": [
+     {
+      "area_mm2": 313.11,
+      "print_z_mm": 29.57,
+      "print_span_xy_mm": [
+       42.37,
+       14.77
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -8.97,
+       -46.84,
+       12.37
+      ]
+     },
+     {
+      "area_mm2": 41.81,
+      "print_z_mm": 33.98,
+      "print_span_xy_mm": [
+       5.8,
+       7.58
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -13.38,
+       -35.93,
+       22.11
+      ]
+     },
+     {
+      "area_mm2": 24.23,
+      "print_z_mm": 22.55,
+      "print_span_xy_mm": [
+       3.58,
+       7.15
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -1.95,
+       -31.71,
+       -16.06
+      ]
+     },
+     {
+      "area_mm2": 12.7,
+      "print_z_mm": 16.27,
+      "print_span_xy_mm": [
+       8.08,
+       2.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       4.33,
+       -36.66,
+       -17.97
+      ]
+     },
+     {
+      "area_mm2": 11.12,
+      "print_z_mm": 40.07,
+      "print_span_xy_mm": [
+       2.89,
+       3.71
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -19.47,
+       -37.65,
+       22.0
+      ]
+     },
+     {
+      "area_mm2": 11.12,
+      "print_z_mm": 9.07,
+      "print_span_xy_mm": [
+       2.89,
+       3.71
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       11.53,
+       -37.65,
+       22.0
+      ]
+     },
+     {
+      "area_mm2": 6.58,
+      "print_z_mm": 23.75,
+      "print_span_xy_mm": [
+       3.8,
+       1.71
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -3.15,
+       -35.48,
+       -19.66
+      ]
+     },
+     {
+      "area_mm2": 6.1,
+      "print_z_mm": 38.92,
+      "print_span_xy_mm": [
+       1.66,
+       3.54
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -18.32,
+       -34.03,
+       22.01
+      ]
+     },
+     {
+      "area_mm2": 6.1,
+      "print_z_mm": 7.92,
+      "print_span_xy_mm": [
+       1.66,
+       3.54
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       12.68,
+       -34.03,
+       22.01
+      ]
+     },
+     {
+      "area_mm2": 5.35,
+      "print_z_mm": 29.0,
+      "print_span_xy_mm": [
+       1.6,
+       3.18
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -8.4,
+       -30.2,
+       -15.0
+      ]
+     },
+     {
+      "area_mm2": 4.87,
+      "print_z_mm": 18.02,
+      "print_span_xy_mm": [
+       1.6,
+       2.92
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       2.58,
+       -30.2,
+       -15.0
+      ]
+     },
+     {
+      "area_mm2": 4.74,
+      "print_z_mm": 39.29,
+      "print_span_xy_mm": [
+       3.76,
+       2.04
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -18.69,
+       -36.81,
+       -15.67
+      ]
+     },
+     {
+      "area_mm2": 4.06,
+      "print_z_mm": 38.5,
+      "print_span_xy_mm": [
+       3.8,
+       1.03
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -17.9,
+       -36.67,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 3.26,
+      "print_z_mm": 27.68,
+      "print_span_xy_mm": [
+       1.98,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -7.08,
+       -30.2,
+       -16.79
+      ]
+     },
+     {
+      "area_mm2": 3.26,
+      "print_z_mm": 16.68,
+      "print_span_xy_mm": [
+       1.98,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       3.92,
+       -30.2,
+       -16.79
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "P21": {
+  "fit_cylinders_by_axis_mm2": {},
+  "orientations": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 724.6,
+    "height_mm": 45.7,
+    "needs_support_mm2": 1508.8,
+    "needs_support_from_plate_mm2": 174.3,
+    "unsupported_mm2": 1334.5,
+    "rough_unsupported_mm2": 110.9,
+    "unsupported_regions": [
+     {
+      "area_mm2": 366.48,
+      "print_z_mm": 10.36,
+      "print_span_xy_mm": [
+       13.77,
+       26.58
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -11.35,
+       -35.04,
+       -34.87
+      ]
+     },
+     {
+      "area_mm2": 366.18,
+      "print_z_mm": 10.36,
+      "print_span_xy_mm": [
+       13.77,
+       26.58
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       11.35,
+       -35.04,
+       -34.86
+      ]
+     },
+     {
+      "area_mm2": 183.67,
+      "print_z_mm": 6.51,
+      "print_span_xy_mm": [
+       6.0,
+       29.82
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -0.0,
+       -38.89,
+       -36.49
+      ]
+     },
+     {
+      "area_mm2": 62.91,
+      "print_z_mm": 34.5,
+      "print_span_xy_mm": [
+       9.67,
+       6.32
+      ],
+      "flattest_deg": 11.5,
+      "assembly_centre": [
+       15.1,
+       -10.9,
+       -20.94
+      ]
+     },
+     {
+      "area_mm2": 62.91,
+      "print_z_mm": 34.5,
+      "print_span_xy_mm": [
+       9.67,
+       6.32
+      ],
+      "flattest_deg": 11.5,
+      "assembly_centre": [
+       -15.1,
+       -10.9,
+       -20.94
+      ]
+     },
+     {
+      "area_mm2": 58.81,
+      "print_z_mm": 10.95,
+      "print_span_xy_mm": [
+       15.44,
+       3.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -10.94,
+       -34.45,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 58.81,
+      "print_z_mm": 10.95,
+      "print_span_xy_mm": [
+       15.44,
+       3.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       10.94,
+       -34.45,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 34.04,
+      "print_z_mm": 15.4,
+      "print_span_xy_mm": [
+       3.9,
+       8.73
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.0,
+       -30.0,
+       -22.14
+      ]
+     },
+     {
+      "area_mm2": 31.68,
+      "print_z_mm": 9.52,
+      "print_span_xy_mm": [
+       13.19,
+       2.4
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -11.06,
+       -35.88,
+       -50.2
+      ]
+     },
+     {
+      "area_mm2": 31.68,
+      "print_z_mm": 9.52,
+      "print_span_xy_mm": [
+       13.19,
+       2.4
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       11.06,
+       -35.88,
+       -50.2
+      ]
+     },
+     {
+      "area_mm2": 14.47,
+      "print_z_mm": 7.85,
+      "print_span_xy_mm": [
+       3.68,
+       3.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -0.0,
+       -37.55,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 10.98,
+      "print_z_mm": 31.77,
+      "print_span_xy_mm": [
+       2.27,
+       4.62
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -6.0,
+       -13.63,
+       -20.09
+      ]
+     },
+     {
+      "area_mm2": 10.98,
+      "print_z_mm": 31.77,
+      "print_span_xy_mm": [
+       2.27,
+       4.62
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       6.0,
+       -13.63,
+       -20.09
+      ]
+     },
+     {
+      "area_mm2": 9.17,
+      "print_z_mm": 16.77,
+      "print_span_xy_mm": [
+       1.71,
+       5.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       5.5,
+       -28.63,
+       -23.92
+      ]
+     },
+     {
+      "area_mm2": 9.17,
+      "print_z_mm": 16.77,
+      "print_span_xy_mm": [
+       1.71,
+       5.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -5.5,
+       -28.63,
+       -23.92
+      ]
+     },
+     {
+      "area_mm2": 8.37,
+      "print_z_mm": 17.37,
+      "print_span_xy_mm": [
+       2.27,
+       3.52
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -5.5,
+       -28.03,
+       -19.54
+      ]
+     },
+     {
+      "area_mm2": 8.37,
+      "print_z_mm": 17.37,
+      "print_span_xy_mm": [
+       2.27,
+       3.52
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       5.5,
+       -28.03,
+       -19.54
+      ]
+     },
+     {
+      "area_mm2": 2.94,
+      "print_z_mm": 31.18,
+      "print_span_xy_mm": [
+       1.65,
+       1.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       6.0,
+       -14.22,
+       -23.25
+      ]
+     },
+     {
+      "area_mm2": 2.94,
+      "print_z_mm": 31.18,
+      "print_span_xy_mm": [
+       1.65,
+       1.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -6.0,
+       -14.22,
+       -23.25
+      ]
+     }
+    ]
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 237.6,
+    "height_mm": 45.7,
+    "needs_support_mm2": 2010.1,
+    "needs_support_from_plate_mm2": 1039.4,
+    "unsupported_mm2": 970.6,
+    "rough_unsupported_mm2": 547.2,
+    "unsupported_regions": [
+     {
+      "area_mm2": 663.0,
+      "print_z_mm": 43.85,
+      "print_span_xy_mm": [
+       24.86,
+       26.6
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.01,
+       -43.55,
+       -34.87
+      ]
+     },
+     {
+      "area_mm2": 96.61,
+      "print_z_mm": 44.44,
+      "print_span_xy_mm": [
+       25.32,
+       3.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.0,
+       -44.14,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 57.22,
+      "print_z_mm": 43.02,
+      "print_span_xy_mm": [
+       23.8,
+       2.4
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.0,
+       -42.72,
+       -50.2
+      ]
+     },
+     {
+      "area_mm2": 44.8,
+      "print_z_mm": 33.5,
+      "print_span_xy_mm": [
+       9.15,
+       9.79
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       12.25,
+       -33.2,
+       -21.04
+      ]
+     },
+     {
+      "area_mm2": 44.8,
+      "print_z_mm": 33.5,
+      "print_span_xy_mm": [
+       9.15,
+       9.79
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -12.25,
+       -33.2,
+       -21.04
+      ]
+     },
+     {
+      "area_mm2": 10.98,
+      "print_z_mm": 18.27,
+      "print_span_xy_mm": [
+       2.27,
+       4.62
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -6.0,
+       -17.97,
+       -20.09
+      ]
+     },
+     {
+      "area_mm2": 10.98,
+      "print_z_mm": 18.27,
+      "print_span_xy_mm": [
+       2.27,
+       4.62
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       6.0,
+       -17.97,
+       -20.09
+      ]
+     },
+     {
+      "area_mm2": 9.81,
+      "print_z_mm": 32.08,
+      "print_span_xy_mm": [
+       1.65,
+       5.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       5.5,
+       -31.78,
+       -24.15
+      ]
+     },
+     {
+      "area_mm2": 9.81,
+      "print_z_mm": 32.08,
+      "print_span_xy_mm": [
+       1.65,
+       5.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -5.5,
+       -31.78,
+       -24.15
+      ]
+     },
+     {
+      "area_mm2": 8.37,
+      "print_z_mm": 32.67,
+      "print_span_xy_mm": [
+       2.27,
+       3.52
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -5.5,
+       -32.37,
+       -19.54
+      ]
+     },
+     {
+      "area_mm2": 8.37,
+      "print_z_mm": 32.67,
+      "print_span_xy_mm": [
+       2.27,
+       3.52
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       5.5,
+       -32.37,
+       -19.54
+      ]
+     },
+     {
+      "area_mm2": 2.94,
+      "print_z_mm": 17.68,
+      "print_span_xy_mm": [
+       1.65,
+       1.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       6.0,
+       -17.38,
+       -23.25
+      ]
+     },
+     {
+      "area_mm2": 2.94,
+      "print_z_mm": 17.68,
+      "print_span_xy_mm": [
+       1.65,
+       1.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -6.0,
+       -17.38,
+       -23.25
+      ]
+     }
+    ]
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 922.8,
+    "height_mm": 33.6,
+    "needs_support_mm2": 96.5,
+    "needs_support_from_plate_mm2": 96.5,
+    "unsupported_mm2": 0.0,
+    "rough_unsupported_mm2": 0.0,
+    "unsupported_regions": []
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 110.1,
+    "height_mm": 33.6,
+    "needs_support_mm2": 976.0,
+    "needs_support_from_plate_mm2": 976.0,
+    "unsupported_mm2": 0.0,
+    "rough_unsupported_mm2": 0.0,
+    "unsupported_regions": []
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 37.9,
+    "height_mm": 42.0,
+    "needs_support_mm2": 621.8,
+    "needs_support_from_plate_mm2": 303.9,
+    "unsupported_mm2": 317.9,
+    "rough_unsupported_mm2": 102.7,
+    "unsupported_regions": [
+     {
+      "area_mm2": 103.05,
+      "print_z_mm": 22.92,
+      "print_span_xy_mm": [
+       31.22,
+       5.52
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       1.92,
+       -33.58,
+       -30.2
+      ]
+     },
+     {
+      "area_mm2": 73.66,
+      "print_z_mm": 16.63,
+      "print_span_xy_mm": [
+       29.82,
+       2.47
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -4.37,
+       -36.33,
+       -36.06
+      ]
+     },
+     {
+      "area_mm2": 55.86,
+      "print_z_mm": 39.7,
+      "print_span_xy_mm": [
+       26.61,
+       2.04
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       18.7,
+       -36.6,
+       -34.85
+      ]
+     },
+     {
+      "area_mm2": 10.61,
+      "print_z_mm": 40.29,
+      "print_span_xy_mm": [
+       3.8,
+       2.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       19.29,
+       -36.52,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 10.46,
+      "print_z_mm": 17.18,
+      "print_span_xy_mm": [
+       4.62,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -3.82,
+       -15.8,
+       -20.09
+      ]
+     },
+     {
+      "area_mm2": 10.46,
+      "print_z_mm": 29.18,
+      "print_span_xy_mm": [
+       4.62,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       8.18,
+       -15.8,
+       -20.09
+      ]
+     },
+     {
+      "area_mm2": 9.01,
+      "print_z_mm": 28.08,
+      "print_span_xy_mm": [
+       5.56,
+       1.66
+      ],
+      "flattest_deg": 0.9,
+      "assembly_centre": [
+       7.08,
+       -30.21,
+       -23.98
+      ]
+     },
+     {
+      "area_mm2": 9.01,
+      "print_z_mm": 17.08,
+      "print_span_xy_mm": [
+       5.56,
+       1.66
+      ],
+      "flattest_deg": 0.9,
+      "assembly_centre": [
+       -3.92,
+       -30.21,
+       -23.98
+      ]
+     },
+     {
+      "area_mm2": 7.97,
+      "print_z_mm": 17.68,
+      "print_span_xy_mm": [
+       3.52,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -3.32,
+       -30.2,
+       -19.54
+      ]
+     },
+     {
+      "area_mm2": 7.97,
+      "print_z_mm": 28.68,
+      "print_span_xy_mm": [
+       3.52,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       7.68,
+       -30.2,
+       -19.54
+      ]
+     },
+     {
+      "area_mm2": 7.1,
+      "print_z_mm": 17.9,
+      "print_span_xy_mm": [
+       3.8,
+       1.85
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -3.1,
+       -35.37,
+       -19.66
+      ]
+     },
+     {
+      "area_mm2": 4.18,
+      "print_z_mm": 24.15,
+      "print_span_xy_mm": [
+       2.4,
+       1.72
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       3.15,
+       -35.49,
+       -50.19
+      ]
+     },
+     {
+      "area_mm2": 2.8,
+      "print_z_mm": 28.58,
+      "print_span_xy_mm": [
+       1.7,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       7.58,
+       -15.8,
+       -23.25
+      ]
+     },
+     {
+      "area_mm2": 2.8,
+      "print_z_mm": 16.58,
+      "print_span_xy_mm": [
+       1.7,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -4.42,
+       -15.8,
+       -23.25
+      ]
+     },
+     {
+      "area_mm2": 2.56,
+      "print_z_mm": 38.9,
+      "print_span_xy_mm": [
+       2.4,
+       1.03
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       17.9,
+       -36.67,
+       -50.2
+      ]
+     }
+    ]
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 37.9,
+    "height_mm": 42.0,
+    "needs_support_mm2": 621.3,
+    "needs_support_from_plate_mm2": 303.9,
+    "unsupported_mm2": 317.4,
+    "rough_unsupported_mm2": 103.3,
+    "unsupported_regions": [
+     {
+      "area_mm2": 103.05,
+      "print_z_mm": 22.92,
+      "print_span_xy_mm": [
+       31.22,
+       5.52
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -1.92,
+       -33.58,
+       -30.2
+      ]
+     },
+     {
+      "area_mm2": 73.66,
+      "print_z_mm": 16.63,
+      "print_span_xy_mm": [
+       29.82,
+       2.47
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       4.37,
+       -36.33,
+       -36.06
+      ]
+     },
+     {
+      "area_mm2": 55.33,
+      "print_z_mm": 39.7,
+      "print_span_xy_mm": [
+       26.61,
+       2.04
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -18.7,
+       -36.6,
+       -34.8
+      ]
+     },
+     {
+      "area_mm2": 10.61,
+      "print_z_mm": 40.29,
+      "print_span_xy_mm": [
+       3.8,
+       2.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -19.29,
+       -36.52,
+       -19.68
+      ]
+     },
+     {
+      "area_mm2": 10.46,
+      "print_z_mm": 29.18,
+      "print_span_xy_mm": [
+       4.62,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -8.18,
+       -15.8,
+       -20.09
+      ]
+     },
+     {
+      "area_mm2": 10.46,
+      "print_z_mm": 17.18,
+      "print_span_xy_mm": [
+       4.62,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       3.82,
+       -15.8,
+       -20.09
+      ]
+     },
+     {
+      "area_mm2": 8.99,
+      "print_z_mm": 17.08,
+      "print_span_xy_mm": [
+       5.56,
+       1.66
+      ],
+      "flattest_deg": 0.5,
+      "assembly_centre": [
+       3.92,
+       -30.21,
+       -23.98
+      ]
+     },
+     {
+      "area_mm2": 8.99,
+      "print_z_mm": 28.08,
+      "print_span_xy_mm": [
+       5.56,
+       1.66
+      ],
+      "flattest_deg": 0.5,
+      "assembly_centre": [
+       -7.08,
+       -30.21,
+       -23.98
+      ]
+     },
+     {
+      "area_mm2": 7.97,
+      "print_z_mm": 28.68,
+      "print_span_xy_mm": [
+       3.52,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -7.68,
+       -30.2,
+       -19.54
+      ]
+     },
+     {
+      "area_mm2": 7.97,
+      "print_z_mm": 17.68,
+      "print_span_xy_mm": [
+       3.52,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       3.32,
+       -30.2,
+       -19.54
+      ]
+     },
+     {
+      "area_mm2": 7.1,
+      "print_z_mm": 17.9,
+      "print_span_xy_mm": [
+       3.8,
+       1.85
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       3.1,
+       -35.37,
+       -19.66
+      ]
+     },
+     {
+      "area_mm2": 4.18,
+      "print_z_mm": 24.15,
+      "print_span_xy_mm": [
+       2.4,
+       1.72
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -3.15,
+       -35.49,
+       -50.19
+      ]
+     },
+     {
+      "area_mm2": 2.8,
+      "print_z_mm": 16.58,
+      "print_span_xy_mm": [
+       1.7,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       4.42,
+       -15.8,
+       -23.25
+      ]
+     },
+     {
+      "area_mm2": 2.8,
+      "print_z_mm": 28.58,
+      "print_span_xy_mm": [
+       1.7,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -7.58,
+       -15.8,
+       -23.25
+      ]
+     },
+     {
+      "area_mm2": 2.56,
+      "print_z_mm": 38.9,
+      "print_span_xy_mm": [
+       2.4,
+       1.03
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -17.9,
+       -36.67,
+       -50.2
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "P22": {
+  "fit_cylinders_by_axis_mm2": {
+   "(0.0, 0.0, 1.0)": 1547.2,
+   "(1.0, 0.0, 0.0)": 3880.8
+  },
+  "orientations": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 144.2,
+    "height_mm": 74.7,
+    "needs_support_mm2": 947.7,
+    "needs_support_from_plate_mm2": 266.6,
+    "unsupported_mm2": 681.1,
+    "rough_unsupported_mm2": 213.7,
+    "unsupported_regions": [
+     {
+      "area_mm2": 307.78,
+      "print_z_mm": 40.0,
+      "print_span_xy_mm": [
+       22.9,
+       13.44
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.0,
+       -5.4,
+       -64.08
+      ]
+     },
+     {
+      "area_mm2": 76.4,
+      "print_z_mm": 61.35,
+      "print_span_xy_mm": [
+       8.2,
+       10.36
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       18.05,
+       15.95,
+       -55.84
+      ]
+     },
+     {
+      "area_mm2": 76.4,
+      "print_z_mm": 61.35,
+      "print_span_xy_mm": [
+       8.2,
+       10.36
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -18.05,
+       15.95,
+       -55.84
+      ]
+     },
+     {
+      "area_mm2": 63.05,
+      "print_z_mm": 7.35,
+      "print_span_xy_mm": [
+       4.32,
+       14.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.01,
+       -38.05,
+       -58.49
+      ]
+     },
+     {
+      "area_mm2": 41.74,
+      "print_z_mm": 10.95,
+      "print_span_xy_mm": [
+       15.44,
+       2.95
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -10.95,
+       -34.45,
+       -50.35
+      ]
+     },
+     {
+      "area_mm2": 41.72,
+      "print_z_mm": 10.95,
+      "print_span_xy_mm": [
+       15.44,
+       2.95
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       10.95,
+       -34.45,
+       -50.35
+      ]
+     },
+     {
+      "area_mm2": 13.14,
+      "print_z_mm": 72.89,
+      "print_span_xy_mm": [
+       3.67,
+       3.97
+      ],
+      "flattest_deg": 10.7,
+      "assembly_centre": [
+       12.15,
+       27.49,
+       -74.89
+      ]
+     },
+     {
+      "area_mm2": 13.08,
+      "print_z_mm": 72.9,
+      "print_span_xy_mm": [
+       3.67,
+       3.96
+      ],
+      "flattest_deg": 10.7,
+      "assembly_centre": [
+       -12.14,
+       27.5,
+       -74.89
+      ]
+     },
+     {
+      "area_mm2": 9.18,
+      "print_z_mm": 7.85,
+      "print_span_xy_mm": [
+       3.68,
+       2.4
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.0,
+       -37.55,
+       -50.2
+      ]
+     },
+     {
+      "area_mm2": 7.13,
+      "print_z_mm": 28.07,
+      "print_span_xy_mm": [
+       2.27,
+       3.0
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -17.33,
+       -71.5
+      ]
+     },
+     {
+      "area_mm2": 7.13,
+      "print_z_mm": 28.07,
+      "print_span_xy_mm": [
+       2.27,
+       3.0
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -17.33,
+       -71.5
+      ]
+     },
+     {
+      "area_mm2": 4.92,
+      "print_z_mm": 56.96,
+      "print_span_xy_mm": [
+       7.88,
+       0.62
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.56,
+       11.56,
+       -71.11
+      ]
+     },
+     {
+      "area_mm2": 4.92,
+      "print_z_mm": 56.96,
+      "print_span_xy_mm": [
+       7.88,
+       0.62
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.56,
+       11.56,
+       -71.11
+      ]
+     },
+     {
+      "area_mm2": 4.91,
+      "print_z_mm": 8.9,
+      "print_span_xy_mm": [
+       0.32,
+       15.31
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       3.49,
+       -36.5,
+       -59.06
+      ]
+     },
+     {
+      "area_mm2": 4.91,
+      "print_z_mm": 8.9,
+      "print_span_xy_mm": [
+       0.32,
+       15.31
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -3.49,
+       -36.5,
+       -59.06
+      ]
+     },
+     {
+      "area_mm2": 1.9,
+      "print_z_mm": 47.27,
+      "print_span_xy_mm": [
+       2.27,
+       0.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       1.87,
+       -70.4
+      ]
+     },
+     {
+      "area_mm2": 1.9,
+      "print_z_mm": 47.27,
+      "print_span_xy_mm": [
+       2.27,
+       0.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       1.87,
+       -70.4
+      ]
+     }
+    ]
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 0.0,
+    "height_mm": 74.7,
+    "needs_support_mm2": 953.2,
+    "needs_support_from_plate_mm2": 539.1,
+    "unsupported_mm2": 414.1,
+    "rough_unsupported_mm2": 488.3,
+    "unsupported_regions": [
+     {
+      "area_mm2": 265.2,
+      "print_z_mm": 72.32,
+      "print_span_xy_mm": [
+       28.48,
+       10.13
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -0.05,
+       -43.05,
+       -56.63
+      ]
+     },
+     {
+      "area_mm2": 61.02,
+      "print_z_mm": 73.42,
+      "print_span_xy_mm": [
+       25.32,
+       2.4
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.0,
+       -44.14,
+       -50.2
+      ]
+     },
+     {
+      "area_mm2": 54.02,
+      "print_z_mm": 58.62,
+      "print_span_xy_mm": [
+       4.34,
+       12.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       0.0,
+       -29.34,
+       -64.65
+      ]
+     },
+     {
+      "area_mm2": 7.13,
+      "print_z_mm": 50.94,
+      "print_span_xy_mm": [
+       2.27,
+       3.0
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -21.67,
+       -71.5
+      ]
+     },
+     {
+      "area_mm2": 7.13,
+      "print_z_mm": 50.94,
+      "print_span_xy_mm": [
+       2.27,
+       3.0
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -21.67,
+       -71.5
+      ]
+     },
+     {
+      "area_mm2": 7.03,
+      "print_z_mm": 45.86,
+      "print_span_xy_mm": [
+       3.05,
+       2.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -16.59,
+       -71.9
+      ]
+     },
+     {
+      "area_mm2": 7.03,
+      "print_z_mm": 45.86,
+      "print_span_xy_mm": [
+       3.05,
+       2.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -16.59,
+       -71.9
+      ]
+     },
+     {
+      "area_mm2": 1.9,
+      "print_z_mm": 31.74,
+      "print_span_xy_mm": [
+       2.27,
+       0.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -2.47,
+       -70.4
+      ]
+     },
+     {
+      "area_mm2": 1.9,
+      "print_z_mm": 31.74,
+      "print_span_xy_mm": [
+       2.27,
+       0.8
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -2.47,
+       -70.4
+      ]
+     },
+     {
+      "area_mm2": 0.64,
+      "print_z_mm": 12.28,
+      "print_span_xy_mm": [
+       1.56,
+       1.4
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -11.42,
+       17.0,
+       -73.15
+      ]
+     },
+     {
+      "area_mm2": 0.64,
+      "print_z_mm": 12.28,
+      "print_span_xy_mm": [
+       1.56,
+       1.4
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       11.42,
+       17.0,
+       -73.15
+      ]
+     }
+    ]
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 123.5,
+    "height_mm": 28.8,
+    "needs_support_mm2": 2786.7,
+    "needs_support_from_plate_mm2": 1725.2,
+    "unsupported_mm2": 1061.5,
+    "rough_unsupported_mm2": 70.6,
+    "unsupported_regions": [
+     {
+      "area_mm2": 462.98,
+      "print_z_mm": 19.84,
+      "print_span_xy_mm": [
+       17.36,
+       47.37
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.12,
+       -13.66,
+       -68.84
+      ]
+     },
+     {
+      "area_mm2": 462.98,
+      "print_z_mm": 19.84,
+      "print_span_xy_mm": [
+       17.36,
+       47.37
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.12,
+       -13.66,
+       -68.84
+      ]
+     },
+     {
+      "area_mm2": 60.59,
+      "print_z_mm": 27.5,
+      "print_span_xy_mm": [
+       9.59,
+       8.77
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       13.99,
+       22.62,
+       -76.5
+      ]
+     },
+     {
+      "area_mm2": 60.11,
+      "print_z_mm": 27.5,
+      "print_span_xy_mm": [
+       9.57,
+       8.75
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -13.98,
+       22.65,
+       -76.5
+      ]
+     },
+     {
+      "area_mm2": 7.42,
+      "print_z_mm": 6.85,
+      "print_span_xy_mm": [
+       1.72,
+       4.16
+      ],
+      "flattest_deg": 0.6,
+      "assembly_centre": [
+       17.99,
+       18.02,
+       -55.85
+      ]
+     },
+     {
+      "area_mm2": 7.42,
+      "print_z_mm": 6.85,
+      "print_span_xy_mm": [
+       1.72,
+       4.16
+      ],
+      "flattest_deg": 0.6,
+      "assembly_centre": [
+       -18.01,
+       18.02,
+       -55.85
+      ]
+     }
+    ]
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 99.6,
+    "height_mm": 28.8,
+    "needs_support_mm2": 2777.0,
+    "needs_support_from_plate_mm2": 1771.6,
+    "unsupported_mm2": 1005.4,
+    "rough_unsupported_mm2": 143.6,
+    "unsupported_regions": [
+     {
+      "area_mm2": 486.54,
+      "print_z_mm": 20.93,
+      "print_span_xy_mm": [
+       17.36,
+       48.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.12,
+       -13.25,
+       -56.92
+      ]
+     },
+     {
+      "area_mm2": 486.53,
+      "print_z_mm": 20.93,
+      "print_span_xy_mm": [
+       17.36,
+       48.7
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.12,
+       -13.25,
+       -56.92
+      ]
+     },
+     {
+      "area_mm2": 6.95,
+      "print_z_mm": 4.32,
+      "print_span_xy_mm": [
+       0.72,
+       9.2
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -10.57,
+       21.6,
+       -73.53
+      ]
+     },
+     {
+      "area_mm2": 6.95,
+      "print_z_mm": 4.32,
+      "print_span_xy_mm": [
+       0.72,
+       9.2
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       10.57,
+       21.6,
+       -73.53
+      ]
+     },
+     {
+      "area_mm2": 6.79,
+      "print_z_mm": 25.15,
+      "print_span_xy_mm": [
+       1.64,
+       4.04
+      ],
+      "flattest_deg": 1.0,
+      "assembly_centre": [
+       18.01,
+       17.98,
+       -52.7
+      ]
+     },
+     {
+      "area_mm2": 6.79,
+      "print_z_mm": 25.15,
+      "print_span_xy_mm": [
+       1.64,
+       4.04
+      ],
+      "flattest_deg": 1.0,
+      "assembly_centre": [
+       -17.99,
+       17.98,
+       -52.7
+      ]
+     },
+     {
+      "area_mm2": 2.17,
+      "print_z_mm": 4.25,
+      "print_span_xy_mm": [
+       1.4,
+       1.68
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -10.88,
+       26.98,
+       -73.6
+      ]
+     },
+     {
+      "area_mm2": 2.17,
+      "print_z_mm": 4.25,
+      "print_span_xy_mm": [
+       1.4,
+       1.68
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       10.88,
+       26.98,
+       -73.6
+      ]
+     }
+    ]
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 414.5,
+    "height_mm": 44.8,
+    "needs_support_mm2": 2332.8,
+    "needs_support_from_plate_mm2": 572.4,
+    "unsupported_mm2": 1760.4,
+    "rough_unsupported_mm2": 432.6,
+    "unsupported_regions": [
+     {
+      "area_mm2": 685.43,
+      "print_z_mm": 42.63,
+      "print_span_xy_mm": [
+       25.22,
+       59.36
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       20.21,
+       -10.52,
+       -63.48
+      ]
+     },
+     {
+      "area_mm2": 424.09,
+      "print_z_mm": 9.87,
+      "print_span_xy_mm": [
+       16.7,
+       47.03
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -12.55,
+       0.53,
+       -64.69
+      ]
+     },
+     {
+      "area_mm2": 182.39,
+      "print_z_mm": 33.56,
+      "print_span_xy_mm": [
+       14.96,
+       13.18
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       11.14,
+       -12.03,
+       -63.8
+      ]
+     },
+     {
+      "area_mm2": 136.19,
+      "print_z_mm": 18.25,
+      "print_span_xy_mm": [
+       17.5,
+       8.54
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -4.17,
+       -32.24,
+       -60.55
+      ]
+     },
+     {
+      "area_mm2": 112.06,
+      "print_z_mm": 32.62,
+      "print_span_xy_mm": [
+       17.13,
+       13.53
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       10.2,
+       21.01,
+       -70.78
+      ]
+     },
+     {
+      "area_mm2": 59.67,
+      "print_z_mm": 33.94,
+      "print_span_xy_mm": [
+       15.76,
+       4.42
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       11.52,
+       12.45,
+       -65.42
+      ]
+     },
+     {
+      "area_mm2": 46.39,
+      "print_z_mm": 36.39,
+      "print_span_xy_mm": [
+       14.03,
+       3.82
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       13.97,
+       17.97,
+       -56.57
+      ]
+     },
+     {
+      "area_mm2": 36.92,
+      "print_z_mm": 25.04,
+      "print_span_xy_mm": [
+       9.1,
+       4.58
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       2.62,
+       -30.99,
+       -54.7
+      ]
+     },
+     {
+      "area_mm2": 22.75,
+      "print_z_mm": 24.33,
+      "print_span_xy_mm": [
+       9.6,
+       2.32
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       1.91,
+       -34.38,
+       -53.8
+      ]
+     },
+     {
+      "area_mm2": 7.47,
+      "print_z_mm": 8.78,
+      "print_span_xy_mm": [
+       3.0,
+       2.37
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -13.64,
+       -19.5,
+       -71.5
+      ]
+     },
+     {
+      "area_mm2": 7.47,
+      "print_z_mm": 40.38,
+      "print_span_xy_mm": [
+       3.0,
+       2.37
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       17.96,
+       -19.5,
+       -71.5
+      ]
+     },
+     {
+      "area_mm2": 7.36,
+      "print_z_mm": 35.32,
+      "print_span_xy_mm": [
+       2.2,
+       3.18
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       12.9,
+       -19.5,
+       -71.9
+      ]
+     },
+     {
+      "area_mm2": 7.14,
+      "print_z_mm": 41.99,
+      "print_span_xy_mm": [
+       1.68,
+       4.13
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       19.57,
+       18.0,
+       -54.29
+      ]
+     },
+     {
+      "area_mm2": 7.14,
+      "print_z_mm": 5.99,
+      "print_span_xy_mm": [
+       1.68,
+       4.13
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -16.43,
+       18.0,
+       -54.29
+      ]
+     },
+     {
+      "area_mm2": 6.72,
+      "print_z_mm": 41.71,
+      "print_span_xy_mm": [
+       2.4,
+       2.71
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       19.29,
+       -36.51,
+       -50.2
+      ]
+     },
+     {
+      "area_mm2": 4.61,
+      "print_z_mm": 19.33,
+      "print_span_xy_mm": [
+       2.4,
+       1.85
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -3.09,
+       -35.4,
+       -50.2
+      ]
+     },
+     {
+      "area_mm2": 2.18,
+      "print_z_mm": 19.12,
+      "print_span_xy_mm": [
+       15.31,
+       0.13
+      ],
+      "flattest_deg": 28.1,
+      "assembly_centre": [
+       -3.3,
+       -36.56,
+       -59.01
+      ]
+     },
+     {
+      "area_mm2": 1.99,
+      "print_z_mm": 8.78,
+      "print_span_xy_mm": [
+       0.8,
+       2.37
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -13.64,
+       -0.3,
+       -70.4
+      ]
+     },
+     {
+      "area_mm2": 1.81,
+      "print_z_mm": 40.4,
+      "print_span_xy_mm": [
+       0.8,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       17.98,
+       -0.3,
+       -70.4
+      ]
+     },
+     {
+      "area_mm2": 0.62,
+      "print_z_mm": 41.92,
+      "print_span_xy_mm": [
+       0.62,
+       3.0
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       19.5,
+       10.81,
+       -70.99
+      ]
+     }
+    ]
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 415.5,
+    "height_mm": 44.8,
+    "needs_support_mm2": 2332.0,
+    "needs_support_from_plate_mm2": 571.6,
+    "unsupported_mm2": 1760.4,
+    "rough_unsupported_mm2": 432.3,
+    "unsupported_regions": [
+     {
+      "area_mm2": 684.99,
+      "print_z_mm": 42.63,
+      "print_span_xy_mm": [
+       25.22,
+       59.29
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -20.21,
+       -10.54,
+       -63.48
+      ]
+     },
+     {
+      "area_mm2": 423.37,
+      "print_z_mm": 9.87,
+      "print_span_xy_mm": [
+       16.68,
+       46.98
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       12.55,
+       0.57,
+       -64.69
+      ]
+     },
+     {
+      "area_mm2": 182.54,
+      "print_z_mm": 33.56,
+      "print_span_xy_mm": [
+       14.98,
+       13.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -11.14,
+       -12.04,
+       -63.8
+      ]
+     },
+     {
+      "area_mm2": 136.19,
+      "print_z_mm": 18.25,
+      "print_span_xy_mm": [
+       17.5,
+       8.54
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       4.17,
+       -32.24,
+       -60.55
+      ]
+     },
+     {
+      "area_mm2": 112.06,
+      "print_z_mm": 32.62,
+      "print_span_xy_mm": [
+       17.13,
+       13.53
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -10.2,
+       21.01,
+       -70.78
+      ]
+     },
+     {
+      "area_mm2": 60.81,
+      "print_z_mm": 33.93,
+      "print_span_xy_mm": [
+       15.84,
+       4.56
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -11.51,
+       12.43,
+       -65.4
+      ]
+     },
+     {
+      "area_mm2": 46.44,
+      "print_z_mm": 36.39,
+      "print_span_xy_mm": [
+       14.04,
+       3.82
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -13.97,
+       17.97,
+       -56.57
+      ]
+     },
+     {
+      "area_mm2": 36.79,
+      "print_z_mm": 25.03,
+      "print_span_xy_mm": [
+       9.1,
+       4.57
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -2.61,
+       -31.0,
+       -54.7
+      ]
+     },
+     {
+      "area_mm2": 22.75,
+      "print_z_mm": 24.33,
+      "print_span_xy_mm": [
+       9.6,
+       2.32
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -1.91,
+       -34.38,
+       -53.8
+      ]
+     },
+     {
+      "area_mm2": 7.47,
+      "print_z_mm": 40.38,
+      "print_span_xy_mm": [
+       3.0,
+       2.37
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -17.96,
+       -19.5,
+       -71.5
+      ]
+     },
+     {
+      "area_mm2": 7.47,
+      "print_z_mm": 8.78,
+      "print_span_xy_mm": [
+       3.0,
+       2.37
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       13.64,
+       -19.5,
+       -71.5
+      ]
+     },
+     {
+      "area_mm2": 7.36,
+      "print_z_mm": 35.32,
+      "print_span_xy_mm": [
+       2.2,
+       3.18
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -12.9,
+       -19.5,
+       -71.9
+      ]
+     },
+     {
+      "area_mm2": 6.98,
+      "print_z_mm": 6.0,
+      "print_span_xy_mm": [
+       1.65,
+       4.13
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       16.42,
+       17.99,
+       -54.29
+      ]
+     },
+     {
+      "area_mm2": 6.98,
+      "print_z_mm": 42.0,
+      "print_span_xy_mm": [
+       1.65,
+       4.13
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -19.58,
+       17.99,
+       -54.29
+      ]
+     },
+     {
+      "area_mm2": 6.72,
+      "print_z_mm": 41.71,
+      "print_span_xy_mm": [
+       2.4,
+       2.71
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -19.29,
+       -36.51,
+       -50.2
+      ]
+     },
+     {
+      "area_mm2": 4.61,
+      "print_z_mm": 19.33,
+      "print_span_xy_mm": [
+       2.4,
+       1.85
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       3.09,
+       -35.4,
+       -50.2
+      ]
+     },
+     {
+      "area_mm2": 2.44,
+      "print_z_mm": 19.13,
+      "print_span_xy_mm": [
+       15.31,
+       0.15
+      ],
+      "flattest_deg": 27.6,
+      "assembly_centre": [
+       3.29,
+       -36.57,
+       -59.29
+      ]
+     },
+     {
+      "area_mm2": 1.99,
+      "print_z_mm": 8.78,
+      "print_span_xy_mm": [
+       0.8,
+       2.37
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       13.64,
+       -0.3,
+       -70.4
+      ]
+     },
+     {
+      "area_mm2": 1.81,
+      "print_z_mm": 40.4,
+      "print_span_xy_mm": [
+       0.8,
+       2.17
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -17.98,
+       -0.3,
+       -70.4
+      ]
+     },
+     {
+      "area_mm2": 0.62,
+      "print_z_mm": 41.92,
+      "print_span_xy_mm": [
+       0.62,
+       3.0
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -19.5,
+       10.81,
+       -70.99
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "P23_Cartographer": {
+  "fit_cylinders_by_axis_mm2": {},
+  "orientations": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 40.4,
+    "height_mm": 35.7,
+    "needs_support_mm2": 157.4,
+    "needs_support_from_plate_mm2": 100.3,
+    "unsupported_mm2": 57.1,
+    "rough_unsupported_mm2": 18.7,
+    "unsupported_regions": [
+     {
+      "area_mm2": 8.9,
+      "print_z_mm": 16.2,
+      "print_span_xy_mm": [
+       8.9,
+       1.0
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.95,
+       -7.95,
+       -73.97
+      ]
+     },
+     {
+      "area_mm2": 8.9,
+      "print_z_mm": 16.2,
+      "print_span_xy_mm": [
+       8.9,
+       1.0
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.95,
+       -7.95,
+       -73.97
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 7.66,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -16.49,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 7.66,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -16.49,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 26.86,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       2.71,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 26.86,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       2.71,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 2.51,
+      "print_z_mm": 25.43,
+      "print_span_xy_mm": [
+       1.65,
+       1.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       1.28,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.51,
+      "print_z_mm": 25.43,
+      "print_span_xy_mm": [
+       1.65,
+       1.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       1.28,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.51,
+      "print_z_mm": 6.23,
+      "print_span_xy_mm": [
+       1.65,
+       1.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -17.92,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.51,
+      "print_z_mm": 6.23,
+      "print_span_xy_mm": [
+       1.65,
+       1.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -17.92,
+       -73.74
+      ]
+     }
+    ]
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 42.3,
+    "height_mm": 35.7,
+    "needs_support_mm2": 139.1,
+    "needs_support_from_plate_mm2": 77.6,
+    "unsupported_mm2": 61.5,
+    "rough_unsupported_mm2": 18.7,
+    "unsupported_regions": [
+     {
+      "area_mm2": 11.1,
+      "print_z_mm": 27.55,
+      "print_span_xy_mm": [
+       9.5,
+       3.67
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.01,
+       -16.0,
+       -73.71
+      ]
+     },
+     {
+      "area_mm2": 11.1,
+      "print_z_mm": 27.55,
+      "print_span_xy_mm": [
+       9.5,
+       3.67
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.01,
+       -16.0,
+       -73.71
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 34.06,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -22.51,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 34.06,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -22.51,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 14.86,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -3.31,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 14.86,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -3.31,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 2.51,
+      "print_z_mm": 13.43,
+      "print_span_xy_mm": [
+       1.65,
+       1.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -1.88,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.51,
+      "print_z_mm": 13.43,
+      "print_span_xy_mm": [
+       1.65,
+       1.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -1.88,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.51,
+      "print_z_mm": 32.63,
+      "print_span_xy_mm": [
+       1.65,
+       1.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -21.08,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.51,
+      "print_z_mm": 32.63,
+      "print_span_xy_mm": [
+       1.65,
+       1.45
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -21.08,
+       -73.74
+      ]
+     }
+    ]
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 829.7,
+    "height_mm": 3.7,
+    "needs_support_mm2": 90.4,
+    "needs_support_from_plate_mm2": 90.4,
+    "unsupported_mm2": 0.0,
+    "rough_unsupported_mm2": 0.0,
+    "unsupported_regions": []
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 776.9,
+    "height_mm": 3.7,
+    "needs_support_mm2": 143.3,
+    "needs_support_from_plate_mm2": 143.3,
+    "unsupported_mm2": 0.0,
+    "rough_unsupported_mm2": 0.0,
+    "unsupported_regions": []
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 84.8,
+    "height_mm": 40.8,
+    "needs_support_mm2": 124.2,
+    "needs_support_from_plate_mm2": 27.6,
+    "unsupported_mm2": 96.7,
+    "rough_unsupported_mm2": 29.2,
+    "unsupported_regions": [
+     {
+      "area_mm2": 29.38,
+      "print_z_mm": 31.9,
+      "print_span_xy_mm": [
+       3.67,
+       10.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       11.5,
+       -10.61,
+       -72.27
+      ]
+     },
+     {
+      "area_mm2": 26.53,
+      "print_z_mm": 31.31,
+      "print_span_xy_mm": [
+       3.67,
+       7.18
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       10.91,
+       -19.61,
+       -72.64
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 39.22,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       18.82,
+       -19.5,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 7.62,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -12.78,
+       -19.5,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 39.22,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       18.82,
+       -0.3,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 7.62,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -12.78,
+       -0.3,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 3.32,
+      "print_z_mm": 31.67,
+      "print_span_xy_mm": [
+       3.67,
+       0.83
+      ],
+      "flattest_deg": 18.9,
+      "assembly_centre": [
+       11.27,
+       11.13,
+       -72.64
+      ]
+     },
+     {
+      "area_mm2": 2.39,
+      "print_z_mm": 6.18,
+      "print_span_xy_mm": [
+       1.45,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -14.22,
+       -0.3,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.39,
+      "print_z_mm": 37.78,
+      "print_span_xy_mm": [
+       1.45,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       17.38,
+       -0.3,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.39,
+      "print_z_mm": 37.78,
+      "print_span_xy_mm": [
+       1.45,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       17.38,
+       -19.5,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.39,
+      "print_z_mm": 6.18,
+      "print_span_xy_mm": [
+       1.45,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -14.22,
+       -19.5,
+       -73.74
+      ]
+     }
+    ]
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 84.8,
+    "height_mm": 40.8,
+    "needs_support_mm2": 124.2,
+    "needs_support_from_plate_mm2": 27.6,
+    "unsupported_mm2": 96.7,
+    "rough_unsupported_mm2": 29.2,
+    "unsupported_regions": [
+     {
+      "area_mm2": 29.38,
+      "print_z_mm": 31.9,
+      "print_span_xy_mm": [
+       3.67,
+       10.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -11.5,
+       -10.61,
+       -72.27
+      ]
+     },
+     {
+      "area_mm2": 26.53,
+      "print_z_mm": 31.31,
+      "print_span_xy_mm": [
+       3.67,
+       7.18
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -10.91,
+       -19.61,
+       -72.64
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 7.62,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       12.78,
+       -19.5,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 39.22,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -18.82,
+       -19.5,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 7.62,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       12.78,
+       -0.3,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 39.22,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -18.82,
+       -0.3,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 3.32,
+      "print_z_mm": 31.67,
+      "print_span_xy_mm": [
+       3.67,
+       0.83
+      ],
+      "flattest_deg": 18.9,
+      "assembly_centre": [
+       -11.27,
+       11.13,
+       -72.64
+      ]
+     },
+     {
+      "area_mm2": 2.39,
+      "print_z_mm": 37.78,
+      "print_span_xy_mm": [
+       1.45,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -17.38,
+       -0.3,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.39,
+      "print_z_mm": 6.18,
+      "print_span_xy_mm": [
+       1.45,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       14.22,
+       -0.3,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.39,
+      "print_z_mm": 6.18,
+      "print_span_xy_mm": [
+       1.45,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       14.22,
+       -19.5,
+       -73.74
+      ]
+     },
+     {
+      "area_mm2": 2.39,
+      "print_z_mm": 37.78,
+      "print_span_xy_mm": [
+       1.45,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -17.38,
+       -19.5,
+       -73.74
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "P23_Beacon": {
+  "fit_cylinders_by_axis_mm2": {},
+  "orientations": {
+   "back face down (-Y)": {
+    "bed_contact_mm2": 42.6,
+    "height_mm": 35.7,
+    "needs_support_mm2": 167.8,
+    "needs_support_from_plate_mm2": 105.7,
+    "unsupported_mm2": 62.1,
+    "rough_unsupported_mm2": 19.4,
+    "unsupported_regions": [
+     {
+      "area_mm2": 10.68,
+      "print_z_mm": 16.2,
+      "print_span_xy_mm": [
+       8.9,
+       1.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.95,
+       -7.95,
+       -74.07
+      ]
+     },
+     {
+      "area_mm2": 10.68,
+      "print_z_mm": 16.2,
+      "print_span_xy_mm": [
+       8.9,
+       1.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.95,
+       -7.95,
+       -74.07
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 26.86,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       2.71,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 26.86,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       2.71,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 7.66,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -16.49,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 7.66,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -16.49,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 2.85,
+      "print_z_mm": 25.43,
+      "print_span_xy_mm": [
+       1.65,
+       1.65
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       1.28,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.85,
+      "print_z_mm": 25.43,
+      "print_span_xy_mm": [
+       1.65,
+       1.65
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       1.28,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.85,
+      "print_z_mm": 6.23,
+      "print_span_xy_mm": [
+       1.65,
+       1.65
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -17.92,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.85,
+      "print_z_mm": 6.23,
+      "print_span_xy_mm": [
+       1.65,
+       1.65
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -17.92,
+       -73.84
+      ]
+     }
+    ]
+   },
+   "front down (+Y)": {
+    "bed_contact_mm2": 44.6,
+    "height_mm": 35.7,
+    "needs_support_mm2": 148.5,
+    "needs_support_from_plate_mm2": 81.8,
+    "unsupported_mm2": 66.7,
+    "rough_unsupported_mm2": 19.4,
+    "unsupported_regions": [
+     {
+      "area_mm2": 13.0,
+      "print_z_mm": 27.55,
+      "print_span_xy_mm": [
+       9.5,
+       3.87
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.1,
+       -16.0,
+       -73.83
+      ]
+     },
+     {
+      "area_mm2": 13.0,
+      "print_z_mm": 27.55,
+      "print_span_xy_mm": [
+       9.5,
+       3.87
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.1,
+       -16.0,
+       -73.83
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 14.86,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -3.31,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 14.86,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -3.31,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 34.06,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -22.51,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 7.32,
+      "print_z_mm": 34.06,
+      "print_span_xy_mm": [
+       3.15,
+       2.22
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -22.51,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 2.85,
+      "print_z_mm": 13.43,
+      "print_span_xy_mm": [
+       1.65,
+       1.65
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -1.88,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.85,
+      "print_z_mm": 13.43,
+      "print_span_xy_mm": [
+       1.65,
+       1.65
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -1.88,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.85,
+      "print_z_mm": 32.63,
+      "print_span_xy_mm": [
+       1.65,
+       1.65
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -15.8,
+       -21.08,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.85,
+      "print_z_mm": 32.63,
+      "print_span_xy_mm": [
+       1.65,
+       1.65
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       15.8,
+       -21.08,
+       -73.84
+      ]
+     }
+    ]
+   },
+   "top down (+Z)": {
+    "bed_contact_mm2": 829.7,
+    "height_mm": 3.9,
+    "needs_support_mm2": 90.4,
+    "needs_support_from_plate_mm2": 90.4,
+    "unsupported_mm2": 0.0,
+    "rough_unsupported_mm2": 0.0,
+    "unsupported_regions": []
+   },
+   "bottom down (-Z)": {
+    "bed_contact_mm2": 776.9,
+    "height_mm": 3.9,
+    "needs_support_mm2": 143.3,
+    "needs_support_from_plate_mm2": 143.3,
+    "unsupported_mm2": 0.0,
+    "rough_unsupported_mm2": 0.0,
+    "unsupported_regions": []
+   },
+   "left side down (-X)": {
+    "bed_contact_mm2": 88.3,
+    "height_mm": 40.8,
+    "needs_support_mm2": 129.1,
+    "needs_support_from_plate_mm2": 29.1,
+    "unsupported_mm2": 100.0,
+    "rough_unsupported_mm2": 30.4,
+    "unsupported_regions": [
+     {
+      "area_mm2": 29.81,
+      "print_z_mm": 31.9,
+      "print_span_xy_mm": [
+       3.87,
+       10.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       11.5,
+       -10.55,
+       -72.3
+      ]
+     },
+     {
+      "area_mm2": 27.98,
+      "print_z_mm": 31.31,
+      "print_span_xy_mm": [
+       3.87,
+       7.18
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       10.91,
+       -19.61,
+       -72.74
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 7.62,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -12.78,
+       -0.3,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 39.22,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       18.82,
+       -0.3,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 7.62,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -12.78,
+       -19.5,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 39.22,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       18.82,
+       -19.5,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 3.5,
+      "print_z_mm": 31.67,
+      "print_span_xy_mm": [
+       3.87,
+       0.83
+      ],
+      "flattest_deg": 18.9,
+      "assembly_centre": [
+       11.27,
+       11.13,
+       -72.74
+      ]
+     },
+     {
+      "area_mm2": 2.71,
+      "print_z_mm": 6.18,
+      "print_span_xy_mm": [
+       1.65,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -14.22,
+       -0.3,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.71,
+      "print_z_mm": 37.78,
+      "print_span_xy_mm": [
+       1.65,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       17.38,
+       -0.3,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.71,
+      "print_z_mm": 6.18,
+      "print_span_xy_mm": [
+       1.65,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -14.22,
+       -19.5,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.71,
+      "print_z_mm": 37.78,
+      "print_span_xy_mm": [
+       1.65,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       17.38,
+       -19.5,
+       -73.84
+      ]
+     }
+    ]
+   },
+   "right side down (+X)": {
+    "bed_contact_mm2": 88.3,
+    "height_mm": 40.8,
+    "needs_support_mm2": 129.1,
+    "needs_support_from_plate_mm2": 29.1,
+    "unsupported_mm2": 100.0,
+    "rough_unsupported_mm2": 30.4,
+    "unsupported_regions": [
+     {
+      "area_mm2": 29.81,
+      "print_z_mm": 31.9,
+      "print_span_xy_mm": [
+       3.87,
+       10.2
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -11.5,
+       -10.55,
+       -72.3
+      ]
+     },
+     {
+      "area_mm2": 27.98,
+      "print_z_mm": 31.31,
+      "print_span_xy_mm": [
+       3.87,
+       7.18
+      ],
+      "flattest_deg": 0.0,
+      "assembly_centre": [
+       -10.91,
+       -19.61,
+       -72.74
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 39.22,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -18.82,
+       -0.3,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 7.62,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       12.78,
+       -0.3,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 39.22,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -18.82,
+       -19.5,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 6.97,
+      "print_z_mm": 7.62,
+      "print_span_xy_mm": [
+       2.22,
+       3.01
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       12.78,
+       -19.5,
+       -71.91
+      ]
+     },
+     {
+      "area_mm2": 3.5,
+      "print_z_mm": 31.67,
+      "print_span_xy_mm": [
+       3.87,
+       0.83
+      ],
+      "flattest_deg": 18.9,
+      "assembly_centre": [
+       -11.27,
+       11.13,
+       -72.74
+      ]
+     },
+     {
+      "area_mm2": 2.71,
+      "print_z_mm": 37.78,
+      "print_span_xy_mm": [
+       1.65,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -17.38,
+       -0.3,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.71,
+      "print_z_mm": 6.18,
+      "print_span_xy_mm": [
+       1.65,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       14.22,
+       -0.3,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.71,
+      "print_z_mm": 37.78,
+      "print_span_xy_mm": [
+       1.65,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       -17.38,
+       -19.5,
+       -73.84
+      ]
+     },
+     {
+      "area_mm2": 2.71,
+      "print_z_mm": 6.18,
+      "print_span_xy_mm": [
+       1.65,
+       1.58
+      ],
+      "flattest_deg": 1.4,
+      "assembly_centre": [
+       14.22,
+       -19.5,
+       -73.84
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

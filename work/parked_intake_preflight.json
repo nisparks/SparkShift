@@ -1,0 +1,113 @@
+{
+  "nominal_port_outer_inner_radius_mm": [
+    11,
+    4
+  ],
+  "checks": [
+    {
+      "tool": "Bambu",
+      "neighbor": "Bambu",
+      "gauge_limit_mm": 20,
+      "nearest_annular_intake_obstruction_mm": 1.8499999000000003,
+      "slab_obstruction_samples": [
+        {
+          "gap_mm": 2,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 13.536004798986758,
+          "fraction_of_nominal_annular_port": 0.04103470616141637
+        },
+        {
+          "gap_mm": 5,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 13.53600479898676,
+          "fraction_of_nominal_annular_port": 0.04103470616141638
+        },
+        {
+          "gap_mm": 10,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 170.38103400725592,
+          "fraction_of_nominal_annular_port": 0.5165139765973924
+        }
+      ]
+    },
+    {
+      "tool": "Bambu",
+      "neighbor": "RedLizard",
+      "gauge_limit_mm": 20,
+      "nearest_annular_intake_obstruction_mm": 4.849999899999997,
+      "slab_obstruction_samples": [
+        {
+          "gap_mm": 2,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 0,
+          "fraction_of_nominal_annular_port": 0.0
+        },
+        {
+          "gap_mm": 5,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 12.792960169065283,
+          "fraction_of_nominal_annular_port": 0.03878214947970417
+        },
+        {
+          "gap_mm": 10,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 104.70668566890478,
+          "fraction_of_nominal_annular_port": 0.3174206971233431
+        }
+      ]
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "Bambu",
+      "gauge_limit_mm": 20,
+      "nearest_annular_intake_obstruction_mm": 1.6999999000000017,
+      "slab_obstruction_samples": [
+        {
+          "gap_mm": 2,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 13.536004798986758,
+          "fraction_of_nominal_annular_port": 0.04103470616141637
+        },
+        {
+          "gap_mm": 5,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 13.536004798986758,
+          "fraction_of_nominal_annular_port": 0.04103470616141637
+        },
+        {
+          "gap_mm": 10,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 170.2776561242395,
+          "fraction_of_nominal_annular_port": 0.5162005841957079
+        }
+      ]
+    },
+    {
+      "tool": "RedLizard",
+      "neighbor": "RedLizard",
+      "gauge_limit_mm": 20,
+      "nearest_annular_intake_obstruction_mm": 4.699999899999998,
+      "slab_obstruction_samples": [
+        {
+          "gap_mm": 2,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 0,
+          "fraction_of_nominal_annular_port": 0.0
+        },
+        {
+          "gap_mm": 5,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 16.56053768450325,
+          "fraction_of_nominal_annular_port": 0.05020364633806291
+        },
+        {
+          "gap_mm": 10,
+          "slab_thickness_mm": 0.1,
+          "mean_obstruction_area_mm2": 108.6729679957307,
+          "fraction_of_nominal_annular_port": 0.3294445721331025
+        }
+      ]
+    }
+  ],
+  "qualification": "Geometric space gauges for the generic fan reference, not CFD or a certified airflow gap. Neighbor tools partially obstruct the intake corridor. Confirm selected fan orientation, hot-soak cooling and actual wire exits with all parked fans powered."
+}

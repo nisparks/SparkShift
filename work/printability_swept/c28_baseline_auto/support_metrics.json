@@ -1,0 +1,32 @@
+{
+  "input_brep": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_clean\\p22_swept_beacon.brep",
+  "printer": "Bambu Lab H2D 0.4 nozzle",
+  "material": "Generic ABS @BBL H2D",
+  "interface_material": "Bambu Support for ABS @BBL H2D",
+  "layer_height_mm": "0.2",
+  "wall_loops": "5",
+  "support_policy": "tree(auto), allow support on the part, small-overhang removal disabled; identical assessment policy for before/after, not a support-free claim",
+  "support_extrusion_by_role": {
+    "Support": {
+      "extrusion_mm": 3781.593290000094,
+      "moves": 51980
+    },
+    "Support transition": {
+      "extrusion_mm": 90.38029999999961,
+      "moves": 1788
+    },
+    "Support interface": {
+      "extrusion_mm": 87.44035999999971,
+      "moves": 1348
+    }
+  },
+  "support_deposition_volume_mm3": 9523.506611159697,
+  "support_feature_time_s": {
+    "Support": 1750.076904296875,
+    "Support interface": 51.38541030883789,
+    "Support transition": 73.843017578125
+  },
+  "total_estimated_time_s": 11213.623046875,
+  "warnings": "",
+  "limitations": "Slicer prediction only; no physical print. Deposited support excludes prime-tower/waste, startup custom G-code before explicit extrusion-mode initialization, and extrusion-only pressure recovery. The generated startup G-code is not approved for printing. Global presets and printer were not modified."
+}

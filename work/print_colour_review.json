@@ -1,0 +1,124 @@
+{
+ "step": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\print_colour_review.step",
+ "groups": {
+  "Carriage_T4_withdrawn_60mm": 242,
+  "T0_Bambu_Red": 27,
+  "Dock_0": 14,
+  "T1_RedLizard_Orange": 24,
+  "Dock_1": 14,
+  "T2_Bambu_Yellow": 27,
+  "Dock_2": 14,
+  "T3_RedLizard_Lime": 24,
+  "Dock_3": 14,
+  "T4_Bambu_Green": 27,
+  "Dock_4": 14,
+  "T5_RedLizard_Teal": 24,
+  "Dock_5": 14,
+  "T6_Bambu_Cyan": 27,
+  "Dock_6": 14,
+  "T7_RedLizard_Blue": 24,
+  "Dock_7": 14,
+  "T8_Bambu_Violet": 27,
+  "Dock_8": 14,
+  "T9_RedLizard_Magenta": 24,
+  "Dock_9": 14,
+  "Rack": 27,
+  "X_gantry_withdrawn_60mm": 80
+ },
+ "bodies": 744,
+ "size_mb": 158.9,
+ "tool_split": {
+  "Bambu": [
+   [
+    "bushing_0",
+    [
+     -8.3,
+     -1.3,
+     39.5,
+     45.0,
+     17.5,
+     24.5
+    ]
+   ],
+   [
+    "bushing_1",
+    [
+     1.3,
+     8.3,
+     39.5,
+     45.0,
+     17.5,
+     24.5
+    ]
+   ],
+   [
+    "magnet_2",
+    [
+     -9.0,
+     -3.0,
+     41.7,
+     45.7,
+     -5.0,
+     1.0
+    ]
+   ],
+   [
+    "magnet_3",
+    [
+     3.0,
+     9.0,
+     41.7,
+     45.7,
+     -5.0,
+     1.0
+    ]
+   ]
+  ],
+  "RedLizard": [
+   [
+    "bushing_0",
+    [
+     -8.3,
+     -1.3,
+     39.5,
+     45.0,
+     17.5,
+     24.5
+    ]
+   ],
+   [
+    "bushing_1",
+    [
+     1.3,
+     8.3,
+     39.5,
+     45.0,
+     17.5,
+     24.5
+    ]
+   ],
+   [
+    "magnet_2",
+    [
+     -9.0,
+     -3.0,
+     41.7,
+     45.7,
+     -5.0,
+     1.0
+    ]
+   ],
+   [
+    "magnet_3",
+    [
+     3.0,
+     9.0,
+     41.7,
+     45.7,
+     -5.0,
+     1.0
+    ]
+   ]
+  ]
+ }
+}

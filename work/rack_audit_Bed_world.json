@@ -1,0 +1,16 @@
+{
+  "source_document": "00_Complete_Printer_Voron24_350_SparkShift",
+  "occurrence": "01_Voron24_350_Frame_and_Enclosure:1+Bed:1",
+  "body": "R1_BED_350_NOMINAL",
+  "min_mm": [
+    0.0,
+    9.0,
+    -8.0
+  ],
+  "max_mm": [
+    350.0,
+    359.0,
+    0.0
+  ],
+  "purpose": "Source modeled bed envelope only; not a measured physical bed or commissioned printer coordinates."
+}

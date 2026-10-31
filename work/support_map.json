@@ -1,0 +1,271 @@
+{
+ "P20": {
+  "support_samples_near_part": 18764,
+  "support_samples_inside_part": 0,
+  "unsupported_from_straight_below": [
+   {
+    "area_mm2": 11.0,
+    "print_z_mm": 46.3,
+    "print_bbox_mm": [
+     247.8,
+     163.4,
+     250.7,
+     167.1
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 11.0,
+    "print_z_mm": 46.3,
+    "print_bbox_mm": [
+     216.8,
+     163.4,
+     219.7,
+     167.1
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 6.1,
+    "print_z_mm": 45.16,
+    "print_bbox_mm": [
+     248.4,
+     167.1,
+     250.1,
+     170.6
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 6.1,
+    "print_z_mm": 45.16,
+    "print_bbox_mm": [
+     217.4,
+     167.1,
+     219.1,
+     170.6
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   }
+  ]
+ },
+ "P21": {
+  "support_samples_near_part": 20156,
+  "support_samples_inside_part": 0,
+  "unsupported_from_straight_below": []
+ },
+ "P22": {
+  "support_samples_near_part": 118570,
+  "support_samples_inside_part": 0,
+  "unsupported_from_straight_below": [
+   {
+    "area_mm2": 307.8,
+    "print_z_mm": 40.0,
+    "print_bbox_mm": [
+     163.6,
+     153.9,
+     186.4,
+     167.4
+    ],
+    "support_samples_below": 4518,
+    "interface_samples_below": 2998
+   },
+   {
+    "area_mm2": 76.4,
+    "print_z_mm": 61.35,
+    "print_bbox_mm": [
+     152.9,
+     147.1,
+     161.1,
+     157.4
+    ],
+    "support_samples_below": 1402,
+    "interface_samples_below": 918
+   },
+   {
+    "area_mm2": 76.4,
+    "print_z_mm": 61.35,
+    "print_bbox_mm": [
+     188.9,
+     147.1,
+     197.1,
+     157.4
+    ],
+    "support_samples_below": 1355,
+    "interface_samples_below": 859
+   },
+   {
+    "area_mm2": 62.5,
+    "print_z_mm": 7.34,
+    "print_bbox_mm": [
+     172.9,
+     148.0,
+     177.1,
+     162.4
+    ],
+    "support_samples_below": 354,
+    "interface_samples_below": 313
+   },
+   {
+    "area_mm2": 41.7,
+    "print_z_mm": 10.95,
+    "print_bbox_mm": [
+     156.4,
+     145.6,
+     171.8,
+     148.3
+    ],
+    "support_samples_below": 1080,
+    "interface_samples_below": 612
+   },
+   {
+    "area_mm2": 41.7,
+    "print_z_mm": 10.95,
+    "print_bbox_mm": [
+     178.2,
+     145.6,
+     193.6,
+     148.3
+    ],
+    "support_samples_below": 1121,
+    "interface_samples_below": 696
+   },
+   {
+    "area_mm2": 13.1,
+    "print_z_mm": 72.9,
+    "print_bbox_mm": [
+     185.2,
+     169.3,
+     188.9,
+     173.2
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 13.1,
+    "print_z_mm": 72.9,
+    "print_bbox_mm": [
+     161.1,
+     169.3,
+     164.8,
+     173.2
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 9.0,
+    "print_z_mm": 7.84,
+    "print_bbox_mm": [
+     173.2,
+     145.6,
+     176.8,
+     148.0
+    ],
+    "support_samples_below": 103,
+    "interface_samples_below": 97
+   },
+   {
+    "area_mm2": 7.1,
+    "print_z_mm": 28.07,
+    "print_bbox_mm": [
+     158.1,
+     166.6,
+     160.3,
+     169.6
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 7.1,
+    "print_z_mm": 28.07,
+    "print_bbox_mm": [
+     189.7,
+     166.6,
+     191.9,
+     169.6
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 4.9,
+    "print_z_mm": 56.96,
+    "print_bbox_mm": [
+     186.6,
+     167.4,
+     194.5,
+     168.0
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 4.9,
+    "print_z_mm": 56.96,
+    "print_bbox_mm": [
+     155.5,
+     167.4,
+     163.4,
+     168.0
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 4.9,
+    "print_z_mm": 8.9,
+    "print_bbox_mm": [
+     178.3,
+     148.0,
+     178.6,
+     163.3
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 4.9,
+    "print_z_mm": 8.9,
+    "print_bbox_mm": [
+     171.4,
+     148.0,
+     171.7,
+     163.3
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 1.9,
+    "print_z_mm": 47.27,
+    "print_bbox_mm": [
+     158.1,
+     166.6,
+     160.3,
+     167.4
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   },
+   {
+    "area_mm2": 1.9,
+    "print_z_mm": 47.27,
+    "print_bbox_mm": [
+     189.7,
+     166.6,
+     191.9,
+     167.4
+    ],
+    "support_samples_below": 0,
+    "interface_samples_below": 0
+   }
+  ]
+ }
+}

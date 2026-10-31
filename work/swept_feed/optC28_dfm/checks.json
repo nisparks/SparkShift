@@ -1,0 +1,73 @@
+{
+  "label": "R43 swept-island routing study, not print-qualified or CFD-validated",
+  "valid": true,
+  "solids": 1,
+  "shells": 1,
+  "volume_mm3": 17637.310736167106,
+  "cartographer_valid": true,
+  "cartographer_solids": 1,
+  "cartographer_shells": 1,
+  "connected_air_solids": 1,
+  "air_cut_obstruction_mm3": 0.0,
+  "nominal_wall_mm": 0.8,
+  "mouth_height_mm": 0.9,
+  "roof_raise_mm": 3.0,
+  "mouth_span_mm": 18.0,
+  "outlet_angle_deg": 28.0,
+  "obsolete_rear_mounts_removed": true,
+  "conformal_outlet_wall": true,
+  "full_height_feed_clearance": true,
+  "mouth_floor_reference_height_mm": null,
+  "printable_c28_variant": true,
+  "hotend_scope": "Bambu only",
+  "assembly": {
+    "Beacon": {
+      "probe_overlap_mm3": 0.0,
+      "probe_gap_mm": 0.0,
+      "bottom_sensing_keepout_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "R37_PROBE_M3x6_LOW_HEAD_0_overlap_mm3": 0.0,
+      "R37_PROBE_M3x3_HEATSET_0_overlap_mm3": 0.0,
+      "R37_PROBE_M3x6_LOW_HEAD_1_overlap_mm3": 0.0,
+      "R37_PROBE_M3x3_HEATSET_1_overlap_mm3": 0.0
+    },
+    "Cartographer": {
+      "probe_overlap_mm3": 0.0,
+      "probe_gap_mm": 0.0,
+      "bottom_sensing_keepout_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "R42_CARTO_M3x5_LOW_HEAD_0_overlap_mm3": 0.0,
+      "R42_CARTO_M3x3_HEATSET_0_overlap_mm3": 0.0,
+      "R42_CARTO_M3x5_LOW_HEAD_1_overlap_mm3": 0.0,
+      "R42_CARTO_M3x3_HEATSET_1_overlap_mm3": 0.0
+    },
+    "Probe_Cable_Route_R37_REVIEW": {
+      "overlap_mm3": 0.0,
+      "baseline_overlap_mm3": 0.0,
+      "gap_mm": 0.05
+    },
+    "Bambu:body": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 6.2793
+    },
+    "Bambu:hotend": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 1.9176
+    },
+    "Bambu:silicone_sock": {
+      "gap_mm": 3.2,
+      "overlap_mm3": 0.0
+    }
+  },
+  "mesh_watertight": true,
+  "sampled_wall_check": {
+    "normal_offset_mm": 0.75,
+    "samples": 5611,
+    "outside_solid": 0,
+    "triangulated_outside_solid": 9,
+    "classification": "Failed triangle-mesh samples reclassified with exact BREP solids; points outside the intended mouth trim are an open outlet, not missing walls.",
+    "failed_points_mm": []
+  },
+  "new_outlet_lowest_mm": -74.37577904342348,
+  "outlet_underside_above_bed_mm": 4.7042209565765205
+}
