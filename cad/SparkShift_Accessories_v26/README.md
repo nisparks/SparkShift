@@ -33,12 +33,15 @@ parts, not a print release: whole-set support rises 1.7%, inlet-down P22 introdu
 trapped-support risk, and the changed assembly still needs its own CFD.
 [Unbranded mechanical image](./images/r43_c28_mechanical_review_share.jpg).
 
-**Latest Bambu user-post review:** [the user's sloped P21 post with a matched,
-sealed P22 receiver](./R43_SWEPT_FEED_REVIEW.md#user-post-retainer-review), retained
-by the underside M3. Fit, service, 19 movement paths and matched slicing pass as
-review parts: whole-set support +0.9% and time +8.1% versus the original C28 parts.
-Matched CFD: duct pressure +5.1% with an unchanged jet split.
-[Unbranded image](./images/r43_c28_user_retainer_review_share.jpg).
+**Latest Bambu user-post review:** [the user's sloped P21 post, made
+flow-neutral](./R43_SWEPT_FEED_REVIEW.md#flow-neutral-user-post-retainer). The post and
+its socket stay inside the clean C28 spine, except under P21's own cable boss. It is
+retained by the underside M3. Matched CFD: duct pressure +0.5% with an unchanged jet
+split (the earlier sealed receiver was +5.1%). Duct air is -0.35%. Fit, the 18 mm
+service drop and 19 movement paths pass as review parts. Matched slicing: whole-set
+support +1.0% and time +7.7% versus the original C28 parts. The post's smallest
+section is 16.3 mm2, so snug the M3.
+[Unbranded image](./images/r43_c28_flow_neutral_retainer_review_share.jpg).
 
 This directory contains the parametric OpenCASCADE (`OCP`) CAD generator (`build_and_verify_accessories_v26.py`), 3D finite-volume CFD solver (`simulate_cpap_cfd_v26.py`), VTK multi-angle renderer (`render_accessories_v26.py`), animated GIF generator (`animate_accessories_v26.py`), and manufacturing-ready **STEP (`.step`)** and **binary STL (`.stl`)** files for the **SparkShift v26** accessory and toolhead cooling suite on a **Voron 2.4R2 350 with a Monolith 2WD 9mm gantry**.
 

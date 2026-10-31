@@ -1,0 +1,52 @@
+{
+  "document": "55 Bambu C28 - flow-neutral user post (REVIEW)",
+  "archive": "swept_feed\\optC28_flow_neutral_retainer\\55_C28_Flow_Neutral_User_Post_Review.f3d",
+  "archive_bytes": 2510987,
+  "archive_sha256": "b5c37d85fb7eb1777499d8e1ae1e4b1072c807871f7bacf99ee911e73b9f2c7c",
+  "native_volumes": {
+    "p01": {
+      "native_mm3": 33802.15520179293,
+      "cad_mm3": 33802.191523921625,
+      "relative_difference": 1.0745495205942687e-06,
+      "bodies": 1
+    },
+    "p21": {
+      "native_mm3": 11931.821191635745,
+      "cad_mm3": 11931.821433403391,
+      "relative_difference": 2.0262425762244975e-08,
+      "bodies": 1
+    },
+    "p22": {
+      "native_mm3": 17403.806077572757,
+      "cad_mm3": 17403.406431346433,
+      "relative_difference": 2.2963678283358194e-05,
+      "bodies": 1
+    }
+  },
+  "named_views": [
+    "1 Bambu flow-neutral user post - review, not print release",
+    "2 Post and receiver from the rear-left",
+    "3 Section X 1.2 mm: P22 skin + faired 45 deg keel behind the P21 boss",
+    "4 Underside M3 retainer",
+    "5 Angled P01/P22 mount"
+  ],
+  "snapshots": [
+    "swept_feed\\optC28_flow_neutral_retainer\\fusion_flow_neutral_view.png",
+    "swept_feed\\optC28_flow_neutral_retainer\\fusion_flow_neutral_keel_view.png"
+  ],
+  "user_document_53_unchanged": {
+    "timeline": 25,
+    "modified": true,
+    "p21_volume_mm3": [
+      12160.3468
+    ]
+  },
+  "earlier_documents_preserved": true,
+  "geometry_report_sha256": "260e156945d6eb7dda02e9c9f3a4700f15ea224dd6cefaa21f24b9ee6a337717",
+  "source_step_sha256": "d0020ba12f4abc678490aacb4b4ead5f4b21a1b7d30b8ea74f452b2e5da1146f",
+  "scope": "Bambu/Beacon flow-neutral user-post assembly with hardware, cable and Beacon reference. The Cartographer-seat P22 is a separate STEP. Documents 53, 54 and earlier documents were not edited or closed.",
+  "section_analyses": [
+    "Keel, skin and post at X 1.2 mm (YZ plane offset 1.2 mm; toggle in Analysis)"
+  ],
+  "note": "View 3 was replaced after creation by a section view (the keel sits inside the enclosed plenum); the archive was re-exported after that change. Only document 55 was edited."
+}

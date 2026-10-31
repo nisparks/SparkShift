@@ -1,24 +1,33 @@
-"""Incremental real-scene movement checks for the Bambu C28 user-post retainer review.
+"""Incremental real-scene movement checks for the Bambu C28 user-post retainer reviews.
 
-Same paths and method as audit_c28_mechanical_motion_r43.py, applied to the user-post build in
-WORK/swept_feed/optC28_user_retainer (run audit_c28_user_retainer_r43.py first). Adds the
-Cartographer receiver's new material, which the fork-study motion audit did not check separately.
+Same paths and method as audit_c28_mechanical_motion_r43.py, applied to a user-post build: the sealed
+receiver in WORK/swept_feed/optC28_user_retainer (audit_c28_user_retainer_r43.py) or, with
+--variant flow-neutral, WORK/swept_feed/optC28_flow_neutral_retainer
+(audit_c28_flow_neutral_retainer_r43.py). Adds the Cartographer receiver's new material.
 """
+import argparse
 import json
 
 import cadquery as cq
 
 import r43_c28_mechanical as M
 from audit_c28_mechanical_motion_r43 import check_path
-from audit_c28_mechanical_r43 import BASELINE, ROOT, SOURCE, bounds, digest
-from audit_c28_user_retainer_r43 import OUTPUT
+from audit_c28_mechanical_r43 import BASELINE, ROOT, SOURCE, acc, bounds, digest
 from build_chute_chamfer_rack_r36 import CENTERS, PITCH, world
 from build_inlet_screws_r40 import DOCK_NOZZLE_Y, GANTRY_CENTERS, REAR_LIMITS
 
-REPORT = ROOT / "verification_c28_user_retainer_motion_r43.json"
+VARIANTS = {
+    "sealed": ("optC28_user_retainer", "verification_c28_user_retainer_motion_r43.json"),
+    "flow-neutral": ("optC28_flow_neutral_retainer", "verification_c28_flow_neutral_retainer_motion_r43.json"),
+}
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--variant", choices=sorted(VARIANTS), default="sealed")
+    variant = parser.parse_args().variant
+    OUTPUT = acc.WORK / "swept_feed" / VARIANTS[variant][0]
+    REPORT = ROOT / VARIANTS[variant][1]
     build_file = OUTPUT / "build_manifest.json"
     geometry = json.loads(build_file.read_text())
     assert geometry["generator_sha256"] == digest(ROOT / "r43_c28_user_joint.py")
@@ -69,10 +78,11 @@ def main():
         "status": "INCREMENTAL_RIGID_TRANSLATION_PATHS_CLEAR",
         "source_build_manifest_sha256": digest(build_file),
         "audit_sha256": digest(__file__),
-        "scope": "All material added by the user-post P21, its seal skirt, both matched P22 receivers and the "
-                 "angled mounts, plus every fastener, against the actual frozen Monolith/Bambu scene. "
-                 "Unchanged material inherits the previous qualification; removals cannot create a collision. "
-                 "This is not a new certification of the original rack, rail reach, or firmware limits.",
+        "variant": variant,
+        "scope": "All material added to P21 (post and recess fill, or post and seal skirt), both matched P22 "
+                 "receivers and the angled mounts, plus every fastener, against the actual frozen Monolith/Bambu "
+                 "scene. Unchanged material inherits the previous qualification; removals cannot create a "
+                 "collision. This is not a new certification of the original rack, rail reach, or firmware limits.",
         "added_material_mm3": {n: s.Volume() for n, s in added},
         "paths": rows, "bed_gap_of_new_material_and_hardware_mm": bed_gaps,
         "complete_p22_to_bed_mm_at_nozzle_0p2": {k: bounds(s)[4] - bed for k, s in lower.items()},

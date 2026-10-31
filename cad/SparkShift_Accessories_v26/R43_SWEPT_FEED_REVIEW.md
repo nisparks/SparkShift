@@ -18,9 +18,95 @@ The [earlier decision-summary image](images/sparkshift_c28_design_review_share.j
 is retained as a historical 32/28-degree comparison and explicitly labels its
 pre-inlet-cleanup CFD.
 
+## Flow-neutral user-post retainer
+
+**Current Bambu mechanical candidate: review parts, not a print release.** This is your
+document-53 post, tweaked so it does not cost airflow. The post and its P22 socket stay
+inside the clean C28 spine, behind a 0.84 mm P22 skin and 0.18 mm slip. The one
+exception is directly under P21's own cable boss, whose wake the post may fill. The
+underside M3x10 screw, the M3x4 insert (X0, Y-28.2 mm) and the angled P01/P22 mounts
+are unchanged.
+
+![Flow-neutral user post: CAD, plan section, CFD and printing data](images/r43_c28_flow_neutral_retainer_review_share.jpg)
+
+[Share JPEG](images/r43_c28_flow_neutral_retainer_review_share.jpg) |
+[Full-size PNG](images/r43_c28_flow_neutral_retainer_review.png) |
+[Matched CFD maps](images/r43_flow_neutral_retainer_v5d_cfd.png) |
+[Assembly STEP](step/55_C28_Bambu_User_Post_Flow_Neutral_REVIEW.step).
+
+| Change from your post | Volume | Why |
+| :--- | ---: | :--- |
+| Post trimmed to the clean spine; it keeps P21's boss wake in the cable zone, with a rounded channel back | 891 to 586 mm3 | Removes the lobe intrusion that cost the sealed receiver +5.1% pressure. |
+| Post kept 0.18 mm outside the plan shadow of P22 above the joint | included above | P22 drops 18 mm clear of the post, and assembles the same way. |
+| P21 recess filled, probe-cable passage kept | +76 mm3 | Gives the post arms a solid root. It replaces your upper block, which overlapped P22. |
+| P22 notch boss removed | -40 mm3 | It sat over the post arms. |
+| P22 skin under the P21 boss, with a faired 45-degree keel behind it | +89 mm3 in the clean duct (keel 27) | Seals the socket. The keel and 45-degree socket bevels let the back-down print support itself there. |
+
+| Check | Sealed receiver (v4) | Flow-neutral (v5d) |
+| :--- | ---: | ---: |
+| Duct air vs clean C28 | -686 mm3 (-2.5%) | -98 mm3 (-0.35%) |
+| CFD pressure, 180 L/min | +5.1% (1,480 Pa) | +0.5% (1,415 vs 1,408 Pa) |
+| Estimated blower flow / side jets / rear branch | -1.0% / +0.2% / -0.4% | -0.1% / -0.1% / -0.1% |
+| Weakest near-print sector | -13.6% | -0.4% |
+| P22 support, back down (original 9,524 mm3) | 9,060 mm3 | 9,085 mm3 |
+| Support in the duct near the post (clean 233 mm3) | 195 mm3 | 208 mm3 |
+| Socket / rear-passage support | 2.9 / 0 mm3 | 0.3 / 0 mm3 |
+| P21 support, top down (original 643 mm3) | 1,275 mm3 | 1,257 mm3 |
+| Three-part set vs original C28 | support +0.9%, time +8.1% | support +1.0%, time +7.7% |
+| Post plan section at Z -51.6 mm | 29.5 mm2 (as drawn) | 16.3 mm2 |
+| Service and motion | 18 mm drop clear; 19 paths, >= 0.60 mm sampled | 18 mm drop clear; 19 paths, >= 0.60 mm sampled, 0.35 mm bound |
+
+Other checks pass:
+
+- Valid single solids with no part or hardware overlap.
+- Cable gaps are 0.45 mm (post) and 2.15 mm (P22).
+- All three inserts keep complete 1.2 mm walls.
+- No new metal is in either probe's keepouts, and no new plastic in their sensing keepouts.
+- The lower jets, probe seat, swept feeds and outlet are unchanged (0 mm3).
+- STEP exports round-trip. Fusion document **55 Bambu C28 - flow-neutral user post (REVIEW)** matches the CAD within 0.0023% native volume, and documents 53 and 54 are unchanged. View 3 and a saved X 1.2 mm section show the keel.
+
+How it got here:
+
+- **v5b (skin only):** CFD +0.4%. P22 needed 62 mm3 more support trapped in the rear plenum and 16 mm3 in the socket.
+- **v5c (keel and bevels added):** fixed the support; CFD +0.8%. Like v5b, it kept P22's notch-boss nose over the post arms. The 18 mm service sweep caught this: P22 could not drop off or go on.
+- **v5d:** fixes it on the dry side. Only a 0.05 mm3 dead-end slip sliver of the duct changes, and its CFD repeats v5c within 0.3% (1,415 vs 1,419 Pa).
+
+These are nominal CAD checks, **not strength, torque, sealing, thermal or print-fit
+qualification.** Print P21 top face down and P22 back face down. The post's smallest
+section is 45% below your post as drawn: snug the M3, do not torque it.
+
+| Area | Next improvement | Why |
+| :--- | :--- | :--- |
+| Post root | Print first. If the post flexes, try a stiffer P21 material before adding plastic. | Extra width would re-enter the airway. |
+| Near-print airflow | Use time-averaged runs before judging sectors | Single snapshots vary: an exterior-only control moved one sector -15.4%. |
+| First article | Check post and socket fit, seal, insert pull-out, cable motion and hot running | The 0.18 mm socket slip and 0.45 mm cable gap are nominal. |
+
+Review parts:
+[P21](step/P21_C28_Bambu_User_Post_Flow_Neutral_REVIEW.step) |
+[P22 Beacon](step/P22_C28_Bambu_Flow_Neutral_Receiver_Beacon_REVIEW.step) |
+[P22 Cartographer](step/P22_C28_Bambu_Flow_Neutral_Receiver_Cartographer_REVIEW.step) |
+[P01](step/P01_C28_Bambu_45deg_Mounts_REVIEW.step); print-oriented STLs share these names in `stl/`.
+
+Evidence:
+[geometry, seal and service](verification_c28_flow_neutral_retainer_geometry_r43.json) |
+[real-scene movement](verification_c28_flow_neutral_retainer_motion_r43.json) |
+[matched slicing](verification_c28_flow_neutral_retainer_slicing_r43.json) |
+matched CFD [v5d](verification_flow_neutral_retainer_v5d_cfd_r43.json),
+[v5c](verification_flow_neutral_retainer_v5c_cfd_r43.json) and
+[v5b](verification_flow_neutral_retainer_v5b_cfd_r43.json) |
+[Fusion review](verification_c28_flow_neutral_retainer_fusion_r43.json).
+Reproduce with `audit_c28_flow_neutral_retainer_r43.py`, then with
+`--variant flow-neutral`: `audit_c28_user_retainer_motion_r43.py` and
+`audit_c28_user_retainer_slicing_r43.py`. Then run
+`cfd_direct_mount_r43.py --flow-neutral v5d` and `render_c28_flow_neutral_retainer_r43.py`.
+`r43_c28_user_joint.flow_neutral_parts` rebuilds v5b and v5c through its
+`print_bevels` and `full_recess` flags.
+
 ## User-post retainer review
 
-**Current Bambu mechanical candidate: review parts, not a print release.** The
+**Superseded by the [flow-neutral retainer](#flow-neutral-user-post-retainer)**, which
+uses the same post idea without the airflow penalty. Kept as the sealed-receiver (v4)
+record. Review parts, not a print release. The
 user's Fusion P21 post (document 53) is kept as drawn above Z -58.5 mm and retained
 by the same underside M3x10 screw and M3x4 insert (axis X0, Y-28.2 mm). The angled
 P01/P22 mounts from the [mechanical review](#mechanical-review) are unchanged.

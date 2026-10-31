@@ -7,6 +7,7 @@ Use --feed-cleanup for the matched 28-degree feed-entry remnant removal.
 Use --slot-height for the 0.9/1.1 mm slot comparison with the lower lip retained.
 Use --printability for the Bambu C28 support-reduction geometry comparison.
 Use --user-retainer for the user-post P21, matched P22 receiver and angled P01 against clean C28.
+Use --flow-neutral v5b|v5c for a flow-neutral user-post retainer variant against clean C28.
 Requires saved session CFD artifacts; not thermal validation or mesh independence.
 """
 import argparse
@@ -40,7 +41,11 @@ USER_RETAINER_SWAP = {
     "added": ["C28_P22_P01_M3x4_HEATSET_0", "C28_P22_P01_M3x4_HEATSET_1", "C28_P22_P01_M3x8_BUTTON_0",
               "C28_P22_P01_M3x8_BUTTON_1", "P01_C28_Bambu_45deg_Mounts"],
 }
-
+FLOW_NEUTRAL = {   # variant: (case, label)
+    "v5b": ("r43userpostV5_bambu_bed", "flow-neutral post, P22 skin under P21 boss"),
+    "v5c": ("r43userpostV5c_bambu_bed", "flow-neutral post, skin with 45 deg keel"),
+    "v5d": ("r43userpostV5d_bambu_bed", "flow-neutral post, keel, full recess fill"),
+}
 
 def coverage(grid, factor):
     radii, angles = np.arange(1, 5.01, .25), np.linspace(0, 2 * np.pi, 144, endpoint=False)
@@ -172,7 +177,9 @@ def main():
     group.add_argument("--slot-height", action="store_true")
     group.add_argument("--printability", action="store_true")
     group.add_argument("--user-retainer", action="store_true")
+    group.add_argument("--flow-neutral", choices=sorted(FLOW_NEUTRAL))
     args = parser.parse_args()
+    user_retainer = args.user_retainer or bool(args.flow_neutral)
     pairs = ({"Bambu": ("r43directAq_bambu_bed", "r43directC28q_bambu_bed")}
              if args.aim else PAIRS)
     labels = ("32 deg direct A", "28 deg conformal C") if args.aim else ("before cleanup", "cleaned direct mount")
@@ -193,12 +200,19 @@ def main():
         pairs = {"Bambu": ("r43directC28clean_bambu_bed", "r43userpostC28_bambu_bed")}
         labels = ("C28 clean / original P21", "C28 / user post + receiver")
         stem = "user_retainer"
+    if args.flow_neutral:
+        case, label = FLOW_NEUTRAL[args.flow_neutral]
+        pairs = {"Bambu": ("r43directC28clean_bambu_bed", case)}
+        labels = ("C28 clean / original P21", f"C28 / {label}")
+        stem = f"flow_neutral_retainer_{args.flow_neutral}"
     sections = [("x", 0, (-8, 36, -79.8, -63.8)),
                 ("z", -78.78, (-14, 14, 8.7, 36.7))]
     if args.feed_cleanup:
         sections.insert(0, ("x", 16, (-14, 6, -71, -57)))
     if args.user_retainer:
         sections[:0] = [("z", -56, (-24, 24, -48, -14)), ("x", 10, (-48, -14, -72, -44))]
+    if args.flow_neutral:
+        sections[:0] = [("z", -55, (-24, 24, -48, -14)), ("x", 2.5, (-48, -14, -72, -44))]
     cases, changes = {}, {}
     fig, axes = plt.subplots(len(sections), len(pairs) * 2,
                              figsize=(12 * len(pairs), 6 * len(sections)), squeeze=False)
@@ -240,7 +254,7 @@ def main():
             "before": names[0], "after": names[1],
             "controls": validate_pair(tool, old, new,
                                       args.aim or args.feed_cleanup or args.slot_height or args.printability
-                                      or args.user_retainer, args.user_retainer),
+                                      or user_retainer, user_retainer),
             "pressure_pct": 100 * (new["inlet_pressure_pa_at_180"] / old["inlet_pressure_pa_at_180"] - 1),
             "rear_branch_flow_pct": 100 * (
                 new["rear_branch_at_180"]["lpm"] / old["rear_branch_at_180"]["lpm"] - 1),
@@ -259,7 +273,9 @@ def main():
                 new["coverage_at_estimated_blower"]["weakest_to_strongest_sector_mean_ratio"]
                 - old["coverage_at_estimated_blower"]["weakest_to_strongest_sector_mean_ratio"]),
         }
-    title = ("User-post retainer: sealed post, matched receiver and angled mounts vs clean C28" if args.user_retainer else
+    title = (f"Flow-neutral user-post retainer {args.flow_neutral}: post, P22 skin and angled mounts vs clean C28"
+             if args.flow_neutral else
+             "User-post retainer: sealed post, matched receiver and angled mounts vs clean C28" if args.user_retainer else
              "C28 printability changes: same internal airway, matched numerical settings" if args.printability else
              "Rear-slot height: 0.9 vs 1.1 mm, same lower lip and 28-degree aim" if args.slot_height else
              "Feed-entry cleanup: same 28-degree aim and matched refinement" if args.feed_cleanup else
@@ -289,7 +305,7 @@ def main():
             for name, row in cases.items() if "p21_variant" in row},
             "extra_obstacle_sha256": {
             name: {k: hashlib.sha256(Path(v).read_bytes()).hexdigest() for k, v in row["extra_obstacles"].items()}
-            for name, row in cases.items() if "extra_obstacles" in row}} if args.user_retainer else {}),
+            for name, row in cases.items() if "extra_obstacles" in row}} if user_retainer else {}),
         "comparison_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "inputs_sha256": {
             name: {
