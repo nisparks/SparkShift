@@ -1,0 +1,171 @@
+{
+  "status": "MATCHED_SLICER_COMPARISON_COMPLETE_NOT_PRINT_QUALIFIED",
+  "generator_sha256": "787b54d707f5e70967a2690b0b0205dd97b339792d2f6f4790f45d1744e7bb26",
+  "printer": "H2D 0.4 mm, Generic ABS, Bambu Support for ABS interface, 0.2 mm layers, 5 walls",
+  "poses": "P01 back down; P21 top down; P22 back down. The P22 inlet-face-down pose is not used.",
+  "comparisons": {
+    "P01_back_down": {
+      "original": {
+        "run": "c28_original_p01_back",
+        "support_deposition_volume_mm3": 4807.79719559638,
+        "total_estimated_time_s": 10028.236328125,
+        "support_metrics_sha256": "291dbe65fce2c648e8b7f23ea8c40e91d25354c55dca0c0762b9905095c4c910",
+        "input": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\r43_scene\\s0096.brep"
+      },
+      "fork_study": {
+        "run": "c28_mechanical_p01_back",
+        "support_deposition_volume_mm3": 4775.164159125099,
+        "total_estimated_time_s": 9882.888671875,
+        "support_metrics_sha256": "9bf900249823414228bd4b5acb0c43df66b51c01764dde4db172381f42cb81bd",
+        "input": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_mechanical\\p01.brep"
+      },
+      "user_post": {
+        "run": "c28_mechanical_p01_back",
+        "support_deposition_volume_mm3": 4775.164159125099,
+        "total_estimated_time_s": 9882.888671875,
+        "support_metrics_sha256": "9bf900249823414228bd4b5acb0c43df66b51c01764dde4db172381f42cb81bd",
+        "input": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_mechanical\\p01.brep"
+      },
+      "identical_machine_process_and_all_filaments": true,
+      "user_post_vs_original_pct": {
+        "support_deposition_volume_mm3": -0.6787523504770743,
+        "total_estimated_time_s": -1.4493840341831654
+      },
+      "user_post_vs_fork_study_pct": {
+        "support_deposition_volume_mm3": 0.0,
+        "total_estimated_time_s": 0.0
+      },
+      "sliced_input_matches_audited_part": {
+        "faces": [
+          267,
+          267
+        ],
+        "volume_mm3_difference": 0.0,
+        "area_mm2_difference": 0.0,
+        "bounds_mm_difference": 0.0
+      }
+    },
+    "P21_top_down": {
+      "original": {
+        "run": "c28_original_p21_top",
+        "support_deposition_volume_mm3": 642.8112685152574,
+        "total_estimated_time_s": 2717.13916015625,
+        "support_metrics_sha256": "a5e3e185b46fc76acd01c64af1086c571cb8dd77c0dccf89e0ce692f0bf12ab4",
+        "input": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\r43_scene\\s0106.brep"
+      },
+      "fork_study": {
+        "run": "c28_mechanical_p21_top",
+        "support_deposition_volume_mm3": 1317.761288076387,
+        "total_estimated_time_s": 4771.00634765625,
+        "support_metrics_sha256": "1cb1a98e4c36e0a5b3f11684340936215ecfdf1d9fd6443b930de6e246e4e58d",
+        "input": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_mechanical\\p21.brep"
+      },
+      "user_post": {
+        "run": "c28_user_p21_top_v4",
+        "support_deposition_volume_mm3": 1274.6249869756946,
+        "total_estimated_time_s": 4797.88671875,
+        "support_metrics_sha256": "3e8a4f307d3a111880ea384ff42d7a73392fe9a44f16447c3d0804871bb94e4d",
+        "input": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\userP21_matched_v4\\p21.brep"
+      },
+      "identical_machine_process_and_all_filaments": true,
+      "user_post_vs_original_pct": {
+        "support_deposition_volume_mm3": 98.2891479049174,
+        "total_estimated_time_s": 76.57861581421895
+      },
+      "user_post_vs_fork_study_pct": {
+        "support_deposition_volume_mm3": -3.273453355399525,
+        "total_estimated_time_s": 0.5634109270668874
+      },
+      "sliced_input_matches_audited_part": {
+        "faces": [
+          178,
+          178
+        ],
+        "volume_mm3_difference": 3.637978807091713e-11,
+        "area_mm2_difference": 2.1827872842550278e-11,
+        "bounds_mm_difference": 0.0
+      }
+    },
+    "P22_back_down": {
+      "original": {
+        "run": "c28_baseline_auto",
+        "support_deposition_volume_mm3": 9523.506611159697,
+        "total_estimated_time_s": 11213.623046875,
+        "support_metrics_sha256": "f863c1cfe3c4f95ff51013ae6e669c4dd07e4008a2f97feca639954bb1ff6338",
+        "input": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_clean\\p22_swept_beacon.brep"
+      },
+      "fork_study": {
+        "run": "c28_mechanical_back",
+        "support_deposition_volume_mm3": 9136.188544587527,
+        "total_estimated_time_s": 11546.0732421875,
+        "support_metrics_sha256": "30775f7d28c6003ff2d6ce1cd0f88901128637f00b4775f14b24f7a6cba5f35a",
+        "input": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_mechanical\\p22.brep"
+      },
+      "user_post": {
+        "run": "c28_user_p21_receiver_back_v4",
+        "support_deposition_volume_mm3": 9059.51936701313,
+        "total_estimated_time_s": 11214.1611328125,
+        "support_metrics_sha256": "9d6466a4fcffd94f06233f8a0a1d596dcf1bd6e159a3bc780df24be1dd4fe1a6",
+        "input": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\userP21_matched_v4\\p22.brep"
+      },
+      "identical_machine_process_and_all_filaments": true,
+      "user_post_vs_original_pct": {
+        "support_deposition_volume_mm3": -4.872021022202722,
+        "total_estimated_time_s": 0.004798502100977764
+      },
+      "user_post_vs_fork_study_pct": {
+        "support_deposition_volume_mm3": -0.8391812099786122,
+        "total_estimated_time_s": -2.8746752459723357
+      },
+      "sliced_input_matches_audited_part": {
+        "faces": [
+          445,
+          445
+        ],
+        "volume_mm3_difference": 0.0,
+        "area_mm2_difference": 0.0,
+        "bounds_mm_difference": 0.0
+      }
+    }
+  },
+  "three_separate_parts_total": {
+    "original": {
+      "support_deposition_volume_mm3": 14974.115075271335,
+      "total_estimated_time_s": 23958.99853515625
+    },
+    "fork_study": {
+      "support_deposition_volume_mm3": 15229.113991789014,
+      "total_estimated_time_s": 26199.96826171875
+    },
+    "user_post": {
+      "support_deposition_volume_mm3": 15109.308513113923,
+      "total_estimated_time_s": 25894.9365234375
+    },
+    "user_post_vs_original_pct": {
+      "support_deposition_volume_mm3": 0.9028475950866088,
+      "total_estimated_time_s": 8.080212473991978
+    },
+    "user_post_vs_fork_study_pct": {
+      "support_deposition_volume_mm3": -0.7866871227025118,
+      "total_estimated_time_s": -1.1642446862309308
+    }
+  },
+  "support_access": {
+    "rear_passage_support_mm3": 0.0,
+    "receiver_socket_support_mm3": {
+      "fork_study": 0.3082176300781072,
+      "user_post": 2.873253525760484
+    },
+    "channel_air_near_receiver_support_mm3": {
+      "fork_study": 237.21587678106317,
+      "user_post": 194.74786937103323
+    },
+    "screens_sha256": {
+      "rear_passage_support_screen.json": "a99985187ce32e68bbfa21f874851df681db8a99c4a8908efd9e08b84420721a",
+      "receiver_support_screen.json": "c6c9c02d574bc349f6f54d30b4dfc0abd5774a94eeba829d8045dc2890fa190f"
+    },
+    "limitation": "Sampled support centrelines, not bead-solid collision or proof of physical removability."
+  },
+  "verdict": "The user post moves support into P21 (+98.3% vs the original P21) but the matched receiver lowers P22 support (-4.9%). The three-part set changes support by +0.9% and total time by +8.1% against the original C28 parts, while adding positive mid/lower retention. It is not a whole-set support reduction.",
+  "limitations": "Slicer prediction only. Support excludes prime tower/waste. No physical print or machine G-code approval. Global profiles and printer were not changed."
+}

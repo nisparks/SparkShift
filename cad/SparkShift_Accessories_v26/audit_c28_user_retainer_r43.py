@@ -9,6 +9,7 @@ import json
 import cadquery as cq
 import numpy as np
 import trimesh
+from scipy.spatial import cKDTree
 
 import fast_geometry as fg
 import r37_parts as P37
@@ -33,6 +34,61 @@ NAMES = {
 }
 ASSEMBLY = ROOT / "step" / "54_C28_Bambu_User_Post_Retainer_REVIEW.step"
 BASELINE_DUCT_AIR_MM3 = 27775.6
+STEP_PROPERTY_TOLERANCE = 5e-3
+
+
+def congruent_step_roundtrip(before, after):
+    """STEP check for exchange-derived bodies whose own exact self-difference is invalid, as P01's is."""
+    assert not before.copy().cut(before.copy()).isValid(), "Use the exact Boolean comparison"
+    meshes = []
+    for body in (before, after):
+        vertices, faces = body.tessellate(.015, .07)
+        meshes.append(trimesh.Trimesh([v.toTuple() for v in vertices], faces, process=True))
+    a, b = meshes
+    assert a.is_watertight and b.is_watertight
+    distance, mapping = cKDTree(a.vertices).query(b.vertices)
+    assert len(a.vertices) == len(b.vertices) == len(np.unique(mapping))
+    assert float(distance.max()) < 1e-5
+    patch_errors, patch_counts = [], []
+    for source, target, source_faces, target_faces in (
+        (a, b, a.faces, mapping[b.faces]), (b, a, mapping[b.faces], a.faces),
+    ):
+        existing = set(map(tuple, np.sort(target_faces, axis=1)))
+        changed = [i for i, face in enumerate(np.sort(source_faces, axis=1)) if tuple(face) not in existing]
+        triangles = source.triangles[changed]
+        points = np.vstack([triangles.mean(axis=1), (triangles[:, 0] + triangles[:, 1]) / 2,
+                            (triangles[:, 0] + triangles[:, 2]) / 2, (triangles[:, 1] + triangles[:, 2]) / 2])
+        errors = trimesh.proximity.closest_point(target, points)[1] if len(points) else np.array([0.0])
+        patch_errors.append(float(errors.max()))
+        patch_counts.append(len(changed))
+    assert max(patch_errors) < 1e-5, patch_errors
+    differences = {
+        "volume_mm3": abs(before.Volume() - after.Volume()),
+        "area_mm2": abs(before.Area() - after.Area()),
+        "centroid_mm": (before.Center() - after.Center()).Length,
+        "bounds_mm": max(abs(x - y) for x, y in zip(bounds(before), bounds(after))),
+    }
+    assert differences["volume_mm3"] < STEP_PROPERTY_TOLERANCE and differences["area_mm2"] < STEP_PROPERTY_TOLERANCE
+    assert differences["centroid_mm"] < 1e-5 and differences["bounds_mm"] < 1e-5
+    return {
+        "method": "This exchange-derived body's own exact self-difference is invalid, so Boolean volumes are "
+                  "not used. Complete watertight tessellations have one-to-one matching vertices; alternate "
+                  "triangulation patches agree at every centroid and edge midpoint in both directions; CAD "
+                  "centroid and bounds match within 1e-5 mm and volume/area within the recorded differences.",
+        "property_tolerance_mm3_mm2": STEP_PROPERTY_TOLERANCE,
+        "maximum_vertex_difference_mm": float(distance.max()), "differences": differences,
+        "triangles_per_representation": len(a.faces), "retriangulated_patch_triangles": patch_counts,
+        "maximum_patch_sample_difference_mm": max(patch_errors), "self_boolean_valid": False,
+    }
+
+
+def step_roundtrip(before, after):
+    removed, added = before.cut(after), after.cut(before)
+    if removed.isValid() and added.isValid():
+        difference = max(removed.Volume(), added.Volume())
+        assert difference < 1e-3, difference
+        return {"method": "Exact Boolean difference in both directions.", "maximum_exact_difference_mm3": difference}
+    return congruent_step_roundtrip(before, after)
 
 
 def duct_cavity(p21, p22):
@@ -264,13 +320,10 @@ def export_review(parts, cart, hardware, cable, carriage, tools, report):
         cq.exporters.export(body, str(step))
         restored = cq.importers.importStep(str(step)).val()
         assert restored.isValid() and len(restored.Solids()) == 1, key
-        removed_step, added_step = body.cut(restored), restored.cut(body)
-        assert removed_step.isValid() and added_step.isValid(), (key, "Invalid STEP comparison")
-        difference = max(removed_step.Volume(), added_step.Volume())
-        assert difference < 1e-3, (key, difference)
-        report["step_roundtrips"][key] = {"maximum_exact_difference_mm3": difference}
+        report["step_roundtrips"][key] = step_roundtrip(body, restored)
         report["exports_sha256"][str(step.relative_to(ROOT))] = digest(step)
-        print("STEP", key, difference, flush=True)
+        print("STEP", key, json.dumps({k: v for k, v in report["step_roundtrips"][key].items()
+                                       if k != "method"}), flush=True)
     export_prints({"p21": parts["p21"], "p22": parts["p22"], "cartographer": cart}, report)
     assembly = cq.Assembly(name="C28_Bambu_User_Post_Retainer_REVIEW")
     colors = {"p01": (.36, .44, .54), "p21": (.94, .55, .18), "p22": (.08, .58, .72)}

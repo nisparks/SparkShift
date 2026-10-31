@@ -1,0 +1,43 @@
+{
+  "document": "54 Bambu C28 - user post retainer (REVIEW)",
+  "archive": "swept_feed\\optC28_user_retainer\\54_C28_User_Post_Retainer_Review.f3d",
+  "archive_bytes": 2517205,
+  "archive_sha256": "c98678651dd75ebf44a8884ecdc52670219fef30942c45f9cbc97999fd530c0c",
+  "native_volumes": {
+    "p01": {
+      "native_mm3": 33802.15520179293,
+      "cad_mm3": 33802.191523921625,
+      "relative_difference": 1.0745495205942687e-06,
+      "bodies": 1
+    },
+    "p21": {
+      "native_mm3": 12049.572178281089,
+      "cad_mm3": 12049.576317303852,
+      "relative_difference": 3.434994438324927e-07,
+      "bodies": 1
+    },
+    "p22": {
+      "native_mm3": 17661.86139570269,
+      "cad_mm3": 17661.44976057865,
+      "relative_difference": 2.3306983833213163e-05,
+      "bodies": 1
+    }
+  },
+  "named_views": [
+    "1 Bambu user-post assembly - review, not print release",
+    "2 Post and receiver from the rear-left",
+    "3 Underside M3 retainer",
+    "4 Angled P01/P22 mount"
+  ],
+  "user_document_53_unchanged": {
+    "timeline": 25,
+    "modified": true,
+    "p21_volume_mm3": [
+      12160.3468
+    ]
+  },
+  "earlier_documents_preserved": true,
+  "geometry_report_sha256": "66baeddea52a3747d65bbfaaf8c1099d47965d40178f305a15e114c4c3f3bf29",
+  "source_step_sha256": "2d80e2eebd7e4303a00ed2a78b8d0597ba13326bdc60232741a9617eaa7214fa",
+  "scope": "Bambu/Beacon user-post assembly with hardware, cable and Beacon reference. The Cartographer-seat P22 is a separate STEP. Document 53 and earlier documents were not edited or closed."
+}

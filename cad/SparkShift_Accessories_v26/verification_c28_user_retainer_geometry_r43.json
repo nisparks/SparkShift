@@ -1,0 +1,323 @@
+{
+  "status": "STATIC_GEOMETRY_SEAL_EXPORT_AND_SERVICE_PATH_VERIFIED_REVIEW_ONLY",
+  "scope": "Bambu only; separate user-post retainer review. R43 and the fork study are unchanged.",
+  "source_sha256": {
+    "r43_c28_mechanical.py": "cd678a830a941fbf1fe44b03f02a04d1ffd0895b04d05ab8edc63e59f981551f",
+    "r43_c28_user_joint.py": "787b54d707f5e70967a2690b0b0205dd97b339792d2f6f4790f45d1744e7bb26",
+    "audit_c28_user_retainer_r43.py": "82ba56f6916c7abe00a8b2548b039e938aa564f1f8386dd7f97af2da33887974"
+  },
+  "user_p21_snapshot": {
+    "step": "C:\\Users\\nspar\\AppData\\Local\\Temp\\sparkshift_workdata\\work\\swept_feed\\userP21_20261030_193918\\p21_user_snapshot.step",
+    "sha256": "1924a9adcdbded32578c2ae548e22acad8503a6dda8709281e6154e825e8ca62",
+    "fusion_document": "53 Bambu C28 - angled mounts and lower retainer",
+    "exchange_repair": {
+      "repaired_exchange_wires": [
+        {
+          "centre_mm": [
+            4.0,
+            -33.2,
+            -45.25
+          ],
+          "length_mm": 13.0,
+          "face_area_before_mm2": 444.1142390161075,
+          "face_area_after_mm2": 444.11423901610755
+        },
+        {
+          "centre_mm": [
+            -4.0,
+            -33.2,
+            -45.25
+          ],
+          "length_mm": 13.0,
+          "face_area_before_mm2": 444.1142390161075,
+          "face_area_after_mm2": 444.1142390161076
+        }
+      ],
+      "sewing_tolerance_mm": 1e-07,
+      "surfaces_preserved": "Two zero-area inner line loops removed; all real boundaries and surfaces retained.",
+      "faces_before": 162,
+      "faces_after": 162
+    }
+  },
+  "frozen_scene_manifest_sha256": "93fd3ba08b3d69fba5462b8b8d684875f2f3ea8ca37bc0784a9c4620adf92144",
+  "frozen_c28_beacon_sha256": "86a32938b4240bd09e2dd51bbbfcea31ab5f6ea675d76fc7be9008dd4a94a936",
+  "user_p21_tweaks_mm3": {
+    "lower_rear_side_relief_removed": 126.63211620349264,
+    "rear_seal_skirt_added": 15.857521073509723,
+    "upper_post_unchanged_above_z": -58.5
+  },
+  "parts": {
+    "p01": {
+      "valid_single_solid_shell": true,
+      "volume_mm3": 33802.191523921625,
+      "bounds_mm": [
+        -22.50000000000003,
+        22.50000000000004,
+        0.2999999999999998,
+        29.0,
+        -58.32842712474619,
+        62.22059521522802
+      ],
+      "added_mm3": 442.69347952633836,
+      "removed_mm3": 39.48059980702542,
+      "mesh": {
+        "watertight": true,
+        "consistent_winding": true,
+        "triangles": 37686
+      },
+      "cable_overlap_mm3": 0.0,
+      "new_material_cable_gap_mm": 26.670634289382004
+    },
+    "p21": {
+      "valid_single_solid_shell": true,
+      "volume_mm3": 12049.576317303852,
+      "bounds_mm": [
+        -21.0,
+        21.0,
+        -45.4,
+        0.30000000000000027,
+        -65.0,
+        -17.78
+      ],
+      "added_mm3": 779.7944889480376,
+      "removed_mm3": 0.0,
+      "mesh": {
+        "watertight": true,
+        "consistent_winding": true,
+        "triangles": 16840
+      },
+      "cable_overlap_mm3": 0.0,
+      "new_material_cable_gap_mm": 0.44999999999999996
+    },
+    "p22": {
+      "valid_single_solid_shell": true,
+      "volume_mm3": 17661.44976057865,
+      "bounds_mm": [
+        -22.420000100000003,
+        22.420000100000003,
+        -45.40000000000001,
+        29.276190576190483,
+        -77.85000009999999,
+        -48.9999999
+      ],
+      "added_mm3": 883.1075919087974,
+      "removed_mm3": 1261.6945574874412,
+      "mesh": {
+        "watertight": true,
+        "consistent_winding": true,
+        "triangles": 52954
+      },
+      "cable_overlap_mm3": 0.0,
+      "new_material_cable_gap_mm": 2.9836140205010775
+    }
+  },
+  "interfaces": [
+    {
+      "a": "p01",
+      "b": "p21",
+      "overlap_mm3": 0.0,
+      "gap_mm": 0.0
+    },
+    {
+      "a": "p01",
+      "b": "p22",
+      "overlap_mm3": 0.0,
+      "gap_mm": 0.04999999999999739
+    },
+    {
+      "a": "p21",
+      "b": "p22",
+      "overlap_mm3": 0.0,
+      "gap_mm": 0.0
+    }
+  ],
+  "exports_sha256": {
+    "step\\P01_C28_Bambu_45deg_Mounts_REVIEW.step": "c6c5bc79dec20bb1e4d8e98e1a5cf9e1eb6abf1150f979742639c4693b6fe741",
+    "step\\P21_C28_Bambu_User_Post_Sealed_REVIEW.step": "a3c3976b13be811bda48b77dfd00ea679b990a884d570528af8852c75373ccd8",
+    "step\\P22_C28_Bambu_User_Post_Receiver_Beacon_REVIEW.step": "580dc290fba94e51c23d04f532a6e3610fc16c1597b1de0db01906ff544377aa",
+    "step\\P22_C28_Bambu_User_Post_Receiver_Cartographer_REVIEW.step": "8b6481e30888b602d925bb47c7646b821941b69cc7dc89c00c4dbd8e7bc145d2",
+    "stl\\P21_C28_Bambu_User_Post_Sealed_REVIEW_PRINT_ORIENTED.stl": "2d40bfd8206903263a41d3a3202c96a18e6da61b0f3b147e554a2075cc5fd8fb",
+    "stl\\P22_C28_Bambu_User_Post_Receiver_Beacon_REVIEW_PRINT_ORIENTED.stl": "852a5baac79b4f42126e67c197555be9aad446c3a3e0c1e6148b5931ca29439f",
+    "stl\\P22_C28_Bambu_User_Post_Receiver_Cartographer_REVIEW_PRINT_ORIENTED.stl": "14fa026c1c2c02b09a21ced512272b4651d37631501105128c0418245520147e",
+    "step\\54_C28_Bambu_User_Post_Retainer_REVIEW.step": "2d80e2eebd7e4303a00ed2a78b8d0597ba13326bdc60232741a9617eaa7214fa"
+  },
+  "limitations": [
+    "No physical strength, torque, heat, sealing or print-fit qualification.",
+    "The seal is nominal face contact in the existing sleeve-bottom plane; the printed fit needs a bench check.",
+    "Sampled service/movement paths are recorded separately from static fit.",
+    "Fasteners use nominal head/shank envelopes; heat-set knurls are not modelled."
+  ],
+  "hardware_in_plastic_mm3": {
+    "C28_P22_P01_M3x8_BUTTON_0": {
+      "p01": 0.0,
+      "p21": 0.0,
+      "p22": 0.0
+    },
+    "C28_P22_P01_M3x4_HEATSET_0": {
+      "p01": 0.0,
+      "p21": 0.0,
+      "p22": 0.0
+    },
+    "C28_P22_P01_M3x8_BUTTON_1": {
+      "p01": 0.0,
+      "p21": 0.0,
+      "p22": 0.0
+    },
+    "C28_P22_P01_M3x4_HEATSET_1": {
+      "p01": 0.0,
+      "p21": 0.0,
+      "p22": 0.0
+    },
+    "C28_P21_P22_M3x10_BUTTON": {
+      "p01": 0.0,
+      "p21": 0.0,
+      "p22": 0.0
+    },
+    "C28_P21_P22_M3x4_HEATSET": {
+      "p01": 0.0,
+      "p21": 0.0,
+      "p22": 0.0
+    }
+  },
+  "insert_walls": {
+    "p01_insert_0_1p2mm_wall_fraction": 1.0,
+    "p01_insert_1_1p2mm_wall_fraction": 1.0,
+    "post_insert_1p2mm_wall_fraction": 0.9999999999999998
+  },
+  "new_material_hardware_vs_unchanged_and_bambu_mm3": [],
+  "head_to_mounted_bambu_mm": {
+    "C28_P22_P01_M3x8_BUTTON_0": {
+      "mm": 6.656012609979523,
+      "part": "hotend"
+    },
+    "C28_P22_P01_M3x8_BUTTON_1": {
+      "mm": 3.492714651940041,
+      "part": "fan"
+    },
+    "C28_P21_P22_M3x10_BUTTON": {
+      "greater_than_mm": 30
+    }
+  },
+  "driver_access": {
+    "inclined_mount_0": {
+      "clear": true,
+      "shaft_diameter_mm": 5,
+      "straight_reach_mm": 35
+    },
+    "inclined_mount_1": {
+      "clear": true,
+      "shaft_diameter_mm": 5,
+      "straight_reach_mm": 35
+    },
+    "underside_retainer": {
+      "clear": true,
+      "shaft_diameter_mm": 5,
+      "straight_reach_mm": 35
+    }
+  },
+  "probes": {
+    "Beacon": {
+      "new_material_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "metal_in_bottom_keepout_mm3": 0.0,
+      "new_plastic_in_bottom_keepout_mm3": 0.0
+    },
+    "Cartographer": {
+      "new_material_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "metal_in_bottom_keepout_mm3": 0.0,
+      "new_plastic_in_bottom_keepout_mm3": 0.0
+    }
+  },
+  "lower_jets_and_probe_seat_changes_mm3": 0.0,
+  "c28_swept_feed_and_outlet_changes_mm3": 0.0,
+  "p01_changes_outside_mount_zones_mm3": 0.0,
+  "air_changes": {
+    "duct_cavity_after": {
+      "volume_mm3": 27089.74353889885,
+      "bounds_mm": [
+        -20.756391259878782,
+        20.756391259878782,
+        -56.700000099998434,
+        -19.99999989999999,
+        -68.9000001,
+        29.0
+      ],
+      "sealed_inside_carriage": true
+    },
+    "duct_cavity_baseline_mm3": 27775.6,
+    "duct_air_change_mm3": -685.8564611011498,
+    "new_material_in_clean_c28_channel_mm3": {
+      "p21": 104.7254708998984,
+      "p22": 476.9650024802324
+    },
+    "front_opening_gap_to_remaining_channel_mm": 1.2122925383069116,
+    "front_opening_overlap_with_original_channel_corridor_mm3": 0.0,
+    "note": "The post and receiver occupy part of the clean C28 channel. The duct remains closed: the skirt lands on the receiver top in the original sleeve-bottom plane and a dam closes the sleeve slot beside the socket. CFD is reported separately."
+  },
+  "lower_duct_service": {
+    "downward_release_mm": 18,
+    "sample_step_mm": 0.25,
+    "samples": 73,
+    "collisions": [],
+    "sequence": "Park/remove the Bambu tool, raise clear of the bed, free the probe lead, remove both angled mount screws and the underside retainer screw, lower P22 18 mm. P21 and EBB42 stay."
+  },
+  "cartographer_mesh": {
+    "watertight": true,
+    "consistent_winding": true,
+    "triangles": 52954
+  },
+  "cartographer_brep_sha256": "5591491a69dda7ac3237b8b844a6f0641d9ba254f90bd9875bbf9ce155d8f99e",
+  "step_roundtrips": {
+    "p01_existing_export": {
+      "method": "Complete watertight tessellations have one-to-one matching vertices. Alternate triangulation patches agree at every centroid and edge midpoint in both directions. CAD volume, area, centroid and bounds also match. P01's inherited exact self-difference is invalid; its invalid Boolean volume is not used as evidence.",
+      "maximum_vertex_difference_mm": 9.809544286398121e-12,
+      "differences": {
+        "volume_mm3": 4.040848580189049e-07,
+        "area_mm2": 2.331944415345788e-08,
+        "centroid_mm": 4.6511493062678887e-10,
+        "bounds_mm": 8.597567102697212e-13
+      },
+      "triangles_per_representation": 37686,
+      "retriangulated_patch_triangles": [
+        5257,
+        5257
+      ],
+      "maximum_patch_sample_difference_mm": 1.1152686737934831e-10,
+      "inherited_self_boolean_valid": false
+    },
+    "p21": {
+      "method": "This exchange-derived body's own exact self-difference is invalid, so Boolean volumes are not used. Complete watertight tessellations have one-to-one matching vertices; alternate triangulation patches agree at every centroid and edge midpoint in both directions; CAD centroid and bounds match within 1e-5 mm and volume/area within the recorded differences.",
+      "property_tolerance_mm3_mm2": 0.005,
+      "maximum_vertex_difference_mm": 2.956219577648318e-10,
+      "differences": {
+        "volume_mm3": 0.001096094531021663,
+        "area_mm2": 0.0002791896458802512,
+        "centroid_mm": 1.6409376678558495e-06,
+        "bounds_mm": 0.0
+      },
+      "triangles_per_representation": 16840,
+      "retriangulated_patch_triangles": [
+        2025,
+        2025
+      ],
+      "maximum_patch_sample_difference_mm": 2.3164880535467281e-10,
+      "self_boolean_valid": false
+    },
+    "p22": {
+      "method": "Exact Boolean difference in both directions.",
+      "maximum_exact_difference_mm3": 0.0
+    },
+    "cartographer": {
+      "method": "Exact Boolean difference in both directions.",
+      "maximum_exact_difference_mm3": 0.0
+    }
+  },
+  "print_orientations": {
+    "p21": "Top face down",
+    "p22": "Back face down",
+    "cartographer": "Back face down"
+  },
+  "print_pose_warning": "Do not use the P22 inlet-face-down pose with the assessed supports.",
+  "exports_audit_sha256": "82ba56f6916c7abe00a8b2548b039e938aa564f1f8386dd7f97af2da33887974"
+}

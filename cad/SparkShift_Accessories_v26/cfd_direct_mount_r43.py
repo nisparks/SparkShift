@@ -6,6 +6,7 @@ cleanup comparison also changes local hotend refinement; it cannot isolate clean
 Use --feed-cleanup for the matched 28-degree feed-entry remnant removal.
 Use --slot-height for the 0.9/1.1 mm slot comparison with the lower lip retained.
 Use --printability for the Bambu C28 support-reduction geometry comparison.
+Use --user-retainer for the user-post P21, matched P22 receiver and angled P01 against clean C28.
 Requires saved session CFD artifacts; not thermal validation or mesh independence.
 """
 import argparse
@@ -32,6 +33,13 @@ PAIRS = {
 }
 REPAIR_BOXES = [[5.0, 8.0, 19.0, 22.0, -56.0, -53.0],
                 [-8.0, -5.0, 19.0, 22.0, -56.0, -53.0]]
+USER_RETAINER_SWAP = {
+    "left_out_added": ["P01_Back_case", "R41_P22_P01_M3x8_BUTTON"],
+    "removed": ["P01_Back_case_COTS_MR74_Lowered_Bosses_No_Tab_R41_REVIEW",
+                "R41_P22_P01_M3x8_BUTTON_0", "R41_P22_P01_M3x8_BUTTON_1"],
+    "added": ["C28_P22_P01_M3x4_HEATSET_0", "C28_P22_P01_M3x4_HEATSET_1", "C28_P22_P01_M3x8_BUTTON_0",
+              "C28_P22_P01_M3x8_BUTTON_1", "P01_C28_Bambu_45deg_Mounts"],
+}
 
 
 def coverage(grid, factor):
@@ -61,11 +69,13 @@ def coverage(grid, factor):
     }
 
 
-def validate_pair(tool, old, new, matched):
-    if old["left_out"] != new["left_out"] or old["stage"] != new["stage"]:
-        raise ValueError(f"{tool}: obstacle exclusions or flow schedules differ")
-    if old["solver_settings"] != new["solver_settings"] or old["domain_controls"] != new["domain_controls"]:
-        raise ValueError(f"{tool}: solver settings, ambient domain or obstacles differ")
+def validate_pair(tool, old, new, matched, user_retainer=False):
+    if old["stage"] != new["stage"] or old["solver_settings"] != new["solver_settings"]:
+        raise ValueError(f"{tool}: flow schedules or solver settings differ")
+    if user_retainer:
+        swap = validate_user_retainer_swap(old, new)
+    elif old["left_out"] != new["left_out"] or old["domain_controls"] != new["domain_controls"]:
+        raise ValueError(f"{tool}: obstacle exclusions, ambient domain or obstacles differ")
     boxes = [list(b) for b in HOTEND_BOXES[tool] + FEED_BOXES + [OUTLET_BOX]]
     for row in (old, new):
         if row["refinement"]["level"] != 3 or row["refinement"]["nominal_cell_mm"] != .125:
@@ -74,12 +84,35 @@ def validate_pair(tool, old, new, matched):
     expected_new = boxes + REPAIR_BOXES if tool == "Bambu" else boxes
     if old["refinement"]["boxes_mm"] != expected_old or new["refinement"]["boxes_mm"] != expected_new:
         raise ValueError(f"{tool}: unexpected local refinement boxes")
+    if user_retainer:
+        return {
+            "matched_refinement": old["refinement"]["boxes_mm"] == new["refinement"]["boxes_mm"],
+            "obstacle_swap": swap,
+            "interpretation": "Matched refinement and solver settings. Duct P21/P22 and the angled P01 with its "
+                              "screws are replaced together; the difference is the whole mechanical change, "
+                              "not thermal validation.",
+        }
     return {
         "matched_refinement": old["refinement"]["boxes_mm"] == new["refinement"]["boxes_mm"],
         "interpretation": ("Matched refinement; geometry/aim study, not thermal validation."
                            if matched else "Bambu includes a hotend mesh repair; do not attribute its "
                            "difference to cleanup alone. Red Lizard retains matched refinement."),
     }
+
+
+def validate_user_retainer_swap(old, new):
+    """Only the declared P01/screw replacement may change the ambient obstacles."""
+    a, b = old["domain_controls"], new["domain_controls"]
+    for key in ("duct", "tool", "bed", "outlet_box_mm", "inlet", "bounds_mm"):
+        if a[key] != b[key]:
+            raise ValueError(f"User-retainer domain control {key} differs")
+    if new["left_out"] != old["left_out"] + USER_RETAINER_SWAP["left_out_added"]:
+        raise ValueError("User-retainer left-out parts differ from the declared swap")
+    removed = sorted(set(a["obstacles"]) - set(b["obstacles"]))
+    added = sorted(set(b["obstacles"]) - set(a["obstacles"]))
+    if removed != USER_RETAINER_SWAP["removed"] or added != USER_RETAINER_SWAP["added"]:
+        raise ValueError(f"Undeclared obstacle change: removed {removed}, added {added}")
+    return {"removed": removed, "added": added}
 
 
 def metrics(name):
@@ -102,7 +135,7 @@ def metrics(name):
     log = (C.results_dir(name) / "log.simpleFoam").read_text()
     if "Time = 1200\n" not in log or "\nEnd\n" not in log:
         raise ValueError(f"{name}: solver did not finish normally at iteration 1200")
-    return {
+    row = {
         "mesh": mesh, "tool": metadata["tool"], "bed": metadata["bed"],
         "left_out": metadata["left_out"],
         "p22_variant": metadata["p22_variant"],
@@ -125,6 +158,10 @@ def metrics(name):
             last[last[:, 0] > 1100, 2].mean() / last[last[:, 0] <= 800, 2].mean() - 1)),
         "refinement": settings["additional_refinement"],
     }
+    for key in ("p21_variant", "extra_obstacles"):
+        if key in metadata:
+            row[key] = metadata[key]
+    return row
 
 
 def main():
@@ -134,6 +171,7 @@ def main():
     group.add_argument("--feed-cleanup", action="store_true")
     group.add_argument("--slot-height", action="store_true")
     group.add_argument("--printability", action="store_true")
+    group.add_argument("--user-retainer", action="store_true")
     args = parser.parse_args()
     pairs = ({"Bambu": ("r43directAq_bambu_bed", "r43directC28q_bambu_bed")}
              if args.aim else PAIRS)
@@ -151,10 +189,16 @@ def main():
         pairs = {"Bambu": ("r43directC28clean_bambu_bed", "r43printC28_bambu_bed")}
         labels = ("C28 / before printability changes", "C28 / lower-support exterior")
         stem = "printability"
+    if args.user_retainer:
+        pairs = {"Bambu": ("r43directC28clean_bambu_bed", "r43userpostC28_bambu_bed")}
+        labels = ("C28 clean / original P21", "C28 / user post + receiver")
+        stem = "user_retainer"
     sections = [("x", 0, (-8, 36, -79.8, -63.8)),
                 ("z", -78.78, (-14, 14, 8.7, 36.7))]
     if args.feed_cleanup:
         sections.insert(0, ("x", 16, (-14, 6, -71, -57)))
+    if args.user_retainer:
+        sections[:0] = [("z", -56, (-24, 24, -48, -14)), ("x", 0, (-48, -14, -72, -44))]
     cases, changes = {}, {}
     fig, axes = plt.subplots(len(sections), len(pairs) * 2,
                              figsize=(12 * len(pairs), 6 * len(sections)), squeeze=False)
@@ -195,7 +239,8 @@ def main():
         changes[tool] = {
             "before": names[0], "after": names[1],
             "controls": validate_pair(tool, old, new,
-                                      args.aim or args.feed_cleanup or args.slot_height or args.printability),
+                                      args.aim or args.feed_cleanup or args.slot_height or args.printability
+                                      or args.user_retainer, args.user_retainer),
             "pressure_pct": 100 * (new["inlet_pressure_pa_at_180"] / old["inlet_pressure_pa_at_180"] - 1),
             "rear_branch_flow_pct": 100 * (
                 new["rear_branch_at_180"]["lpm"] / old["rear_branch_at_180"]["lpm"] - 1),
@@ -214,7 +259,8 @@ def main():
                 new["coverage_at_estimated_blower"]["weakest_to_strongest_sector_mean_ratio"]
                 - old["coverage_at_estimated_blower"]["weakest_to_strongest_sector_mean_ratio"]),
         }
-    title = ("C28 printability changes: same internal airway, matched numerical settings" if args.printability else
+    title = ("User-post retainer: sealed post, matched receiver and angled mounts vs clean C28" if args.user_retainer else
+             "C28 printability changes: same internal airway, matched numerical settings" if args.printability else
              "Rear-slot height: 0.9 vs 1.1 mm, same lower lip and 28-degree aim" if args.slot_height else
              "Feed-entry cleanup: same 28-degree aim and matched refinement" if args.feed_cleanup else
              "Rear-aim study: matched local refinement" if args.aim else
@@ -238,6 +284,12 @@ def main():
             name: hashlib.sha256(Path(row["p22_variant"]).read_bytes()).hexdigest()
             for name, row in cases.items()
         },
+        **({"p21_geometry_sha256": {
+            name: hashlib.sha256(Path(row["p21_variant"]).read_bytes()).hexdigest()
+            for name, row in cases.items() if "p21_variant" in row},
+            "extra_obstacle_sha256": {
+            name: {k: hashlib.sha256(Path(v).read_bytes()).hexdigest() for k, v in row["extra_obstacles"].items()}
+            for name, row in cases.items() if "extra_obstacles" in row}} if args.user_retainer else {}),
         "comparison_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "inputs_sha256": {
             name: {

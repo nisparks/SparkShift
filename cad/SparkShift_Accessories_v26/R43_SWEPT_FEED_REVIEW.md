@@ -372,4 +372,6 @@ behavior; its default regression against frozen C28 is recorded in the trial aud
 - **On another machine:** builders read frozen working inputs from `acc.WORK` and
   vendor probe models from `acc.SENSOR_DIR`. Set `SPARKSHIFT_WORK` and
   `SPARKSHIFT_SENSOR_DIR` to copies of those folders; the defaults are this
-  workstation's session paths. Those inputs are not stored in this branch.
+  workstation's session paths. A copy of the working inputs is in the data-only
+  branch `nisparks-beacon-cpap-ebb42-workdata`; its README lists the setup and the
+  vendor probe models to add.
