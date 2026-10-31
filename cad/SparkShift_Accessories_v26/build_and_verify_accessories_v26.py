@@ -7,6 +7,7 @@ All coordinates are in the v26 assembly world frame (mm: +X left/arm, +Y forward
 import hashlib
 import json
 import math
+import os
 import struct
 import time
 from pathlib import Path
@@ -48,8 +49,13 @@ HERE = Path(__file__).resolve().parent
 STEP_DIR = HERE / "step"
 STL_DIR = HERE / "stl"
 IMG_DIR = HERE / "images"
-WORK = Path(r"C:\Users\nspar\.copilot\session-state\601ee3b1-e729-45ee-9b22-df076d6c9dc8\files")
-SENSOR_DIR = Path(r"C:\Users\nspar\.copilot\session-state\4cb0e434-6f95-42f4-83ee-667c5a4a7f3c\files\compact_direct_cam\accessory_sources")
+# Working caches and vendor probe models live outside the repository; override both on another machine.
+WORK = Path(os.environ.get(
+    "SPARKSHIFT_WORK",
+    r"C:\Users\nspar\.copilot\session-state\601ee3b1-e729-45ee-9b22-df076d6c9dc8\files"))
+SENSOR_DIR = Path(os.environ.get(
+    "SPARKSHIFT_SENSOR_DIR",
+    r"C:\Users\nspar\.copilot\session-state\4cb0e434-6f95-42f4-83ee-667c5a4a7f3c\files\compact_direct_cam\accessory_sources"))
 
 
 def load_brep_list(brep_path):

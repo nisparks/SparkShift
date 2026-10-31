@@ -12,13 +12,15 @@ manifold's front. Under the neck a manifold (0.5 mm under the block, its air Y12
 rear jet (|X| <= 6, Z-77.05..-75.3, under the Bambu's sock as before). Below the probe a 0.8 mm wall stands in front of
 its edge, so the probe still goes in from below.
 
-The seat is the Beacon's (Z-74.67); the Cartographer's board top is 0.2 mm higher, so it would need its own P22 or a
-0.2 mm shim, as P23 does now. A study (cfd_cpap_r43.py, case r43centre_bambu_bed, and with jet=False the duct's body
+The seat is the Beacon's (Z-74.67); the Cartographer's board top is 0.2 mm higher, so it needs a matching P22 seat;
+a shim must not be assumed to preserve the probe/nozzle datum. A study (cfd_cpap_r43.py, case r43centre_bambu_bed,
+and with jet=False the duct's body
 alone, r43centrebody_bambu_bed; domains built with P23 and its rear screws left out), not adopted. The rear jet drew
 17.7 L/min of 180 (10 %; the first variant 7 %): it blows into the space where the side jets meet. The body alone
 doubled the air leaving up the hotend slot (28 %, against 16 %), by filling the space where the side jets' air ran
 back along the print under the probe. With the jet open, 11 % less air reached the print within 5 mm than with
 revision 43 (at each design's own blower flow).
+These airflow results apply to this routing, not all rear jets, and are not a thermal cooling prediction.
 """
 import cadquery as cq
 

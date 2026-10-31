@@ -1,0 +1,36 @@
+{
+  "cases": [
+    "r43directC28q_bambu_bed",
+    "r43directC28clean_bambu_bed"
+  ],
+  "matched_dictionaries_sha256": {
+    "system\\blockMeshDict": "bb93f080d4768e1cb9fb2cf35102f9b41e1a82096e38eb1a10742623abb2009f",
+    "system\\controlDict": "42bcbfa50944f8cded661766c7d84211594cdae03b6db147a029b8654cf430a1",
+    "system\\decomposeParDict": "07b4d030ae8b63f9642a7881972bee33c01d7fd12783adc1923051ed19607370",
+    "system\\fvSchemes": "ef66b7e9ce0fb83a7973340ebdbfd2482c50e52c7c7f9b200afbf5377349ebfe",
+    "system\\fvSchemes.first": "ef66b7e9ce0fb83a7973340ebdbfd2482c50e52c7c7f9b200afbf5377349ebfe",
+    "system\\fvSchemes.second": "63203bb3123690f096e5c72fa7e2d5df3d1dd3105d55baafee00e0feddb59d53",
+    "system\\fvSolution": "0f418f0028785ceae55d7b61ac89b6239e498cd4d8e1e25b762df6fc2f467a22",
+    "system\\meshQualityDict": "6957843c806ed02ddc0fc7683c7849d89402acda9b67295fd2d530f2e7baaa93",
+    "system\\snappyHexMeshDict": "476cf184e93f8bad4a03dba2f564338a92a62e785491d21faa3c3bbdf6577c8c",
+    "system\\surfaceFeatureExtractDict": "423fb5986ecc9bfea4a97e95b4417359631a61140a167ea1308d6b7ee2e0e9e2",
+    "constant\\transportProperties": "ac0fd60667285dd0026603d7c585a4bc0f5bc601dc82701a897a56170c583643",
+    "constant\\turbulenceProperties": "2516b59d2024e23c552c240e0fac6faa9c67938aa89ee2456afdac3dddc857b5",
+    "0.orig\\k": "356fd1e274d245c82ded8f9b04dc898b70e9dcb0050e2db846ba00a9cc735ed9",
+    "0.orig\\nut": "c0f682b6f6eeee82e9cf6af34cfe4c3f821a1da40a8d305adf0a6b433db5f4c2",
+    "0.orig\\omega": "0a50e41108339be9aff004b096dc54987950f16f185e583cf7215da33b0864e7",
+    "0.orig\\p": "b46d15e50f2f57dff1948c67c8766d9f7ec5fd9b65d14b0ee0135a21c084925b",
+    "0.orig\\U": "2ed43b5061124ab7f94992dad6d8e7ee47e25ca7cfda62cee2a20c0a3212c0ca"
+  },
+  "matched_domain_keys": [
+    "bed",
+    "tool",
+    "duct",
+    "left_out",
+    "inlet",
+    "outlet_box_mm",
+    "bounds_mm",
+    "obstacles"
+  ],
+  "initial_boundary_directory": "0.orig"
+}

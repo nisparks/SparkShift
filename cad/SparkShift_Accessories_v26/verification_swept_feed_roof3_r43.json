@@ -1,0 +1,201 @@
+{
+  "label": "R43 taller swept-island routing study; airflow CFD completed, not thermally validated or print-qualified",
+  "valid": true,
+  "solids": 1,
+  "shells": 1,
+  "volume_mm3": 18607.078063501827,
+  "cartographer_valid": true,
+  "cartographer_solids": 1,
+  "cartographer_shells": 1,
+  "connected_air_solids": 1,
+  "air_cut_obstruction_mm3": 0.0,
+  "nominal_wall_mm": 0.8,
+  "mouth_height_mm": 1.3,
+  "roof_raise_mm": 3.0,
+  "mouth_span_mm": 18.0,
+  "outlet_angle_deg": 32.0,
+  "assembly": {
+    "Beacon": {
+      "probe_overlap_mm3": 0.0,
+      "probe_gap_mm": 0.0,
+      "bottom_sensing_keepout_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "R37_PROBE_M3x6_LOW_HEAD_0_overlap_mm3": 0.0,
+      "R37_PROBE_M3x3_HEATSET_0_overlap_mm3": 0.0,
+      "R37_PROBE_M3x6_LOW_HEAD_1_overlap_mm3": 0.0,
+      "R37_PROBE_M3x3_HEATSET_1_overlap_mm3": 0.0
+    },
+    "Cartographer": {
+      "probe_overlap_mm3": 0.0,
+      "probe_gap_mm": 0.0,
+      "bottom_sensing_keepout_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "R42_CARTO_M3x5_LOW_HEAD_0_overlap_mm3": 0.0,
+      "R42_CARTO_M3x3_HEATSET_0_overlap_mm3": 0.0,
+      "R42_CARTO_M3x5_LOW_HEAD_1_overlap_mm3": 0.0,
+      "R42_CARTO_M3x3_HEATSET_1_overlap_mm3": 0.0
+    },
+    "Probe_Cable_Route_R37_REVIEW": {
+      "overlap_mm3": 0.0,
+      "baseline_overlap_mm3": 0.0,
+      "gap_mm": 0.05
+    },
+    "Bambu:body": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 6.2793
+    },
+    "Bambu:hotend": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 1.9176
+    },
+    "Bambu:silicone_sock": {
+      "gap_mm": 3.2,
+      "overlap_mm3": 0.0
+    },
+    "RedLizard:hotend and hardware": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 0.5316
+    }
+  },
+  "mesh_watertight": true,
+  "sampled_wall_check": {
+    "normal_offset_mm": 0.75,
+    "samples": 6913,
+    "outside_solid": 0,
+    "failed_points_mm": []
+  },
+  "new_outlet_lowest_mm": -74.50348793266423,
+  "outlet_underside_above_bed_mm": 4.57651206733577,
+  "source": "r43_swept_feed.py; released r43_parts.py unchanged",
+  "status": "Geometry passed; airflow CFD comparison uses 1200-iteration fields; solver continued to 2400 but those later fields are not used; not print-qualified",
+  "withdrawal": {
+    "carriage_retreat": "-Y",
+    "length_mm": 60,
+    "sample_step_mm": 0.5,
+    "tools": {
+      "Bambu": {
+        "gap_mm": 1.9176407971648268,
+        "retreat_mm": 0.0,
+        "tool_part": "hotend"
+      },
+      "RedLizard": {
+        "gap_mm": 0.5316170668620934,
+        "retreat_mm": 0.0,
+        "tool_part": "hotend and hardware"
+      }
+    },
+    "limitation": "Sampled rigid-body path, not a continuous-motion or thermal validation"
+  },
+  "nozzle_to_probe_gap_mm": {
+    "Beacon": 0.4008,
+    "Cartographer": 0.2584
+  },
+  "print": {
+    "orientation": "Original back face down, same as R43; study only",
+    "support_threshold_deg": 30.0,
+    "released_r43": {
+      "on_plate_mm2": 323.1,
+      "needs_support_mm2": 386.2,
+      "over_the_part_mm2": 372.1,
+      "reachable_from_plate_mm2": 14.1,
+      "steeper_than_45_mm2": 1242.0
+    },
+    "swept_study": {
+      "on_plate_mm2": 323.1,
+      "needs_support_mm2": 554.4,
+      "over_the_part_mm2": 407.4,
+      "reachable_from_plate_mm2": 147.0,
+      "steeper_than_45_mm2": 1545.1
+    },
+    "orientation_sweep": {
+      "flat_faces_tried": 10,
+      "best": [
+        {
+          "needs_support_mm2": 554.4,
+          "on_plate_mm2": 323.1,
+          "up_in_assembly": [
+            -0.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "needs_support_mm2": 735.0,
+          "on_plate_mm2": 141.5,
+          "up_in_assembly": [
+            -0.688,
+            0.726,
+            -0.0
+          ]
+        },
+        {
+          "needs_support_mm2": 735.8,
+          "on_plate_mm2": 142.1,
+          "up_in_assembly": [
+            0.688,
+            0.726,
+            -0.0
+          ]
+        },
+        {
+          "needs_support_mm2": 1537.2,
+          "on_plate_mm2": 229.0,
+          "up_in_assembly": [
+            0.0,
+            0.707,
+            0.707
+          ]
+        }
+      ]
+    },
+    "limitation": "Geometric overhang screening only; not sliced or physically printed. Do not trap HIPS inside the narrow outlet. Internal bridge access still requires slicer review."
+  },
+  "cartographer_rebuild_difference_mm3": {
+    "export_only": 0.0,
+    "rebuild_only": 0.0
+  },
+  "cartographer_generator_matches_export": true,
+  "geometry_checks_pass": true,
+  "comparison_to_original": {
+    "original_dedicated_air_volume_mm3": 779.8137570882811,
+    "taller_dedicated_air_volume_mm3": 1484.3297037601778,
+    "original_air_removed_mm3": 0.0,
+    "sections": [
+      {
+        "y_mm": -10,
+        "original_area_mm2": 42.00000000000003,
+        "taller_area_mm2": 67.20000000000002
+      },
+      {
+        "y_mm": -6,
+        "original_area_mm2": 36.47999999999972,
+        "taller_area_mm2": 59.280000000000236
+      },
+      {
+        "y_mm": -2,
+        "original_area_mm2": 33.599999999999994,
+        "taller_area_mm2": 57.599999999999625
+      },
+      {
+        "y_mm": 1,
+        "original_area_mm2": 44.799999999999685,
+        "taller_area_mm2": 86.80000000000045
+      },
+      {
+        "y_mm": 4.25,
+        "original_area_mm2": 38.59197528224026,
+        "taller_area_mm2": 92.61086687836763
+      },
+      {
+        "y_mm": 8,
+        "original_area_mm2": 26.94703604771416,
+        "taller_area_mm2": 64.05987862210434
+      }
+    ],
+    "control": "Roof raised 3 mm; feed floors, outlet position, height, span and direction unchanged.",
+    "default_generator_vs_frozen_difference_mm3": {
+      "generated_only": 0.0,
+      "frozen_only": 0.0
+    }
+  }
+}

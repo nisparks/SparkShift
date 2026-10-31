@@ -83,6 +83,36 @@ CASES = {   # name: (label, design)
                             "(r43_centre_feed.py), print surface (46 cores)", "study"),
     "r43centrebody_bambu_bed": ("Check: the centre-feed variant with its rear jet closed (the duct's body alone), "
                                 "print surface (46 cores)", "study"),
+    "r43swept2_bambu_bed": ("Study: swept-island feed over the probe, bounded curved angled rear outlet, Bambu, "
+                           "print surface (46 cores)", "study"),
+    "r43swept2_redlizard_bed": ("Study: swept-island feed over the probe, bounded curved angled rear outlet, Red Lizard, "
+                               "print surface (46 cores)", "study"),
+    "r43swept3_bambu_bed": ("Study: swept-island feed with roof raised 3 mm, same floor and outlet, Bambu, "
+                           "print surface (46 cores)", "study"),
+    "r43swept3_redlizard_bed": ("Study: swept-island feed with roof raised 3 mm, same floor and outlet, Red Lizard, "
+                               "print surface (46 cores)", "study"),
+    "r43optA_bambu_bed": ("Study: taller swept feed, 0.9 mm rear slot, 32 degree aim, Bambu, "
+                         "print surface (46 cores)", "study"),
+    "r43optB38_bambu_bed": ("Study: taller swept feed, 0.9 mm rear slot, 38 degree aim, Bambu, "
+                           "print surface (46 cores)", "study"),
+    "r43optAfine_bambu_bed": ("Resolution check: candidate A, 0.125 mm local outlet mesh, Bambu, "
+                             "print surface (46 cores)", "study"),
+    "r43optAfine_redlizard_bed": ("Cross-tool check: candidate A, 0.125 mm local outlet mesh, Red Lizard, "
+                                 "print surface (46 cores)", "study"),
+    "r43directA_bambu_bed": ("Direct-mount cleanup: candidate A without obsolete P23 rear ears, "
+                            "0.125 mm local outlet mesh, Bambu, print surface (46 cores)", "study"),
+    "r43directA_redlizard_bed": ("Direct-mount cleanup: candidate A without obsolete P23 rear ears, "
+                                "0.125 mm local outlet mesh, Red Lizard, print surface (46 cores)", "study"),
+    "r43directAq_bambu_bed": ("Direct mount A, 32 degrees, symmetric hotend mesh repair, Bambu", "study"),
+    "r43directC28_bambu_bed": ("Direct mount C, 28-degree rear aim, matched repaired mesh, Bambu", "study"),
+    "r43directC28q_bambu_bed": ("Direct mount C, 28-degree rear aim, conformal outlet walls, "
+                              "matched repaired mesh, Bambu", "study"),
+    "r43directC28clean_bambu_bed": ("Direct mount C, 28-degree rear aim, full-height feed clearance, "
+                                  "matched repaired mesh, Bambu", "study"),
+    "r43directD11_bambu_bed": ("Outlet-height study: 1.1 mm roof-only slot enlargement from cleaned "
+                             "C28, retained lower lip and 28-degree aim, Bambu", "study"),
+    "r43printC28_bambu_bed": ("Bambu C28 printability study: protected 0.9 mm airway, "
+                            "seat notch, rear-leg ramps and relief chamfers", "study"),
 }
 N_EXP = 1.983                                    # dP ~ Q^n (revision 41's fit), for single-flow cases
 
@@ -138,6 +168,8 @@ def print_sweep(g):
 
 
 def analyse(name):
+    if not P.mesh_stats(name)["mesh_ok"]:
+        raise ValueError(f"{name}: refusing analysis because checkMesh did not report Mesh OK")
     meta = json.loads((C.results_dir(name) / "domain.json").read_text())
     C.JET_WINDOW = window_for(name)
     rows = []
@@ -166,8 +198,13 @@ def operating(rows, hose=True):
 
 def report():
     cases = {}
+    excluded = {}
     for name, (label, design) in CASES.items():
         if not (C.results_dir(name) / "analysis_r43.json").exists():
+            continue
+        mesh = P.mesh_stats(name)
+        if not mesh["mesh_ok"]:
+            excluded[name] = {"reason": "checkMesh did not report Mesh OK", "mesh": mesh}
             continue
         rows = rows_of(name)
         meta = json.loads((C.results_dir(name) / "domain.json").read_text())
@@ -176,7 +213,8 @@ def report():
         f = op["lpm"] / at180["lpm"]
         cases[name] = {
             "label": label, "design": design, "tool": meta["tool"], "print_surface": meta["bed"],
-            "mesh": P.mesh_stats(name), "flows_lpm": [r["lpm"] for r in rows],
+            "obstacle_exclusions": meta.get("left_out", []),
+            "mesh": mesh, "flows_lpm": [r["lpm"] for r in rows],
             "at_180_lpm": {"inlet_total_pa": at180["inlet_total_pa"], "jets": at180["jets"],
                            "bead_rings": at180["bead_rings"], "annulus": at180["annulus"],
                            "over_print": at180.get("over_print"),
@@ -187,8 +225,9 @@ def report():
                                             over_bead_mean_ms=round(at180["annulus"]["over_tip_0.3"]["mean_ms_r1_5"] * f, 1)),
             "operating_point_no_hose": operating(rows, hose=False)}
     out = {"method": "As verification_cfd_cpap_r41.json: OpenFOAM v2512 simpleFoam, k-omega SST, the same domain, mesh "
-                     "settings and blower curve; only P22 changes. Speeds scale with flow at these Reynolds numbers.",
-           "cases": cases}
+                     "settings and blower curve. P22 changes; integrated-probe studies also omit P23 and its rear "
+                     "hardware as recorded in obstacle_exclusions. Speed scaling estimates airflow, not heat transfer.",
+           "cases": cases, "excluded_failed_mesh_cases": excluded}
     pairs = {"bambu": ("r43_bambu", "r41bm_bambu"), "redlizard": ("r43_redlizard", "r41bm_redlizard"),
              "bambu_print_surface": ("r43_bambu_bed", "r41bm_bambu_bed")}
     out["r43_vs_r41"] = {}
@@ -219,7 +258,7 @@ def report():
         pb = base["at_180_lpm"]["over_print"]
         search = {}
         for name, c in cases.items():
-            if not c["print_surface"] or name == "r41bm_bambu_bed":
+            if not c["print_surface"] or c["tool"] != "Bambu" or name == "r41bm_bambu_bed":
                 continue
             fa, pa = c["operating_point_1m_hose"]["lpm"] / 180.0, c["at_180_lpm"]["over_print"]
             search[name] = {

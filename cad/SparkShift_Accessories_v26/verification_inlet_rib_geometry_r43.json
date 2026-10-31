@@ -1,0 +1,184 @@
+{
+  "optC28_inlet_ribs": {
+    "label": "Bambu/Beacon-seat geometric rib study; airflow and slicing not yet qualified",
+    "main_ribs": 2,
+    "rear_spine": false,
+    "nominal_rib_thickness_mm": 0.8,
+    "valid_single_solid_shell": true,
+    "watertight_mesh": true,
+    "added_mm3": 721.4922733032195,
+    "removed_mm3": 0.0,
+    "same_outer_bounds": true,
+    "unchanged_live_mount_regions": true,
+    "material_outside_reference_box_mm3": 0.0,
+    "reported_bbox_difference_mm": [
+      -0.005704591098407263,
+      0.005704591098407263,
+      -1.0074860767872451e-07,
+      0.0008652958685146928,
+      -0.0008201019834928047,
+      0.046277826167461455
+    ],
+    "p21_insertion_screen": [
+      {
+        "p21_lift_z_mm": 0.0,
+        "added_material_gap_mm": 0.19999999999999574
+      },
+      {
+        "p21_lift_z_mm": 0.5,
+        "added_material_gap_mm": 0.20000000000000284
+      },
+      {
+        "p21_lift_z_mm": 1.0,
+        "added_material_gap_mm": 0.20000000000000284
+      },
+      {
+        "p21_lift_z_mm": 1.5,
+        "added_material_gap_mm": 0.20000000000000284
+      },
+      {
+        "p21_lift_z_mm": 2.0,
+        "added_material_gap_mm": 0.20000000000000284
+      },
+      {
+        "p21_lift_z_mm": 2.5,
+        "added_material_gap_mm": 0.22360679774998532
+      },
+      {
+        "p21_lift_z_mm": 3.0,
+        "added_material_gap_mm": 0.6324555320336623
+      },
+      {
+        "p21_lift_z_mm": 3.5,
+        "added_material_gap_mm": 1.1180339887498785
+      },
+      {
+        "p21_lift_z_mm": 4.0,
+        "added_material_gap_mm": 1.6124515496596923
+      },
+      {
+        "p21_lift_z_mm": 4.5,
+        "added_material_gap_mm": 2.1095023109728808
+      },
+      {
+        "p21_lift_z_mm": 5.0,
+        "added_material_gap_mm": 2.6076809620810413
+      },
+      {
+        "p21_lift_z_mm": 5.5,
+        "added_material_gap_mm": 3.1064449134017944
+      },
+      {
+        "p21_lift_z_mm": 6.0,
+        "added_material_gap_mm": 3.6055512754639705
+      }
+    ],
+    "probe_checks": [
+      {
+        "probe": "Beacon",
+        "added_overlap_mm3": 0.0
+      },
+      {
+        "probe": "Cartographer",
+        "added_overlap_mm3": 0.0
+      }
+    ],
+    "joint_open_area_at_z-50_mm2": {
+      "before": 188.5546643912069,
+      "after": 177.17302497428093
+    },
+    "rear_air_components": 1,
+    "construction": "0.8 mm constant-normal plan ribs with rounded ends, following the inlet bend; socket-zone ends clipped 0.2 mm inside the P21 sleeve bore. Not fitted to individual CFD trajectories; trial CFD is required."
+  },
+  "optC28_three_ribs": {
+    "label": "Bambu/Beacon-seat geometric rib study; airflow and slicing not yet qualified",
+    "main_ribs": 2,
+    "rear_spine": true,
+    "nominal_rib_thickness_mm": 0.8,
+    "valid_single_solid_shell": true,
+    "watertight_mesh": true,
+    "added_mm3": 746.0987986319817,
+    "removed_mm3": 0.0,
+    "same_outer_bounds": true,
+    "unchanged_live_mount_regions": true,
+    "material_outside_reference_box_mm3": 0.0,
+    "reported_bbox_difference_mm": [
+      -0.003627400240816314,
+      0.003627400240816314,
+      -1.0000002959031917e-07,
+      0.0008652958685146928,
+      -0.0008201019834928047,
+      0.046277826167461455
+    ],
+    "p21_insertion_screen": [
+      {
+        "p21_lift_z_mm": 0.0,
+        "added_material_gap_mm": 0.19999999999999574
+      },
+      {
+        "p21_lift_z_mm": 0.5,
+        "added_material_gap_mm": 0.20000000000000284
+      },
+      {
+        "p21_lift_z_mm": 1.0,
+        "added_material_gap_mm": 0.20000000000000284
+      },
+      {
+        "p21_lift_z_mm": 1.5,
+        "added_material_gap_mm": 0.20000000000000284
+      },
+      {
+        "p21_lift_z_mm": 2.0,
+        "added_material_gap_mm": 0.20000000000000284
+      },
+      {
+        "p21_lift_z_mm": 2.5,
+        "added_material_gap_mm": 0.22360679774998532
+      },
+      {
+        "p21_lift_z_mm": 3.0,
+        "added_material_gap_mm": 0.6324555320336623
+      },
+      {
+        "p21_lift_z_mm": 3.5,
+        "added_material_gap_mm": 1.1180339887498785
+      },
+      {
+        "p21_lift_z_mm": 4.0,
+        "added_material_gap_mm": 1.6124515496596923
+      },
+      {
+        "p21_lift_z_mm": 4.5,
+        "added_material_gap_mm": 2.1095023109728808
+      },
+      {
+        "p21_lift_z_mm": 5.0,
+        "added_material_gap_mm": 2.6076809620810413
+      },
+      {
+        "p21_lift_z_mm": 5.5,
+        "added_material_gap_mm": 3.1064449134017944
+      },
+      {
+        "p21_lift_z_mm": 6.0,
+        "added_material_gap_mm": 3.6055512754639705
+      }
+    ],
+    "probe_checks": [
+      {
+        "probe": "Beacon",
+        "added_overlap_mm3": 0.0
+      },
+      {
+        "probe": "Cartographer",
+        "added_overlap_mm3": 0.0
+      }
+    ],
+    "joint_open_area_at_z-50_mm2": {
+      "before": 188.5546643912069,
+      "after": 177.17302497428096
+    },
+    "rear_air_components": 1,
+    "construction": "0.8 mm constant-normal plan ribs with rounded ends, following the inlet bend; socket-zone ends clipped 0.2 mm inside the P21 sleeve bore. Not fitted to individual CFD trajectories; trial CFD is required."
+  }
+}

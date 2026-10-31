@@ -1,0 +1,29 @@
+{
+  "airway_change_from_uncorrected_28_mm3": {
+    "new_only_mm3": 0.0,
+    "old_only_mm3": 0.0
+  },
+  "old_report_stored_points_checked": 30,
+  "old_report_stored_points_confirmed_missing_wall": 0,
+  "outer_material_change_from_original_28_mm3": {
+    "removed": 0.007195970240524874,
+    "added": 0.00041890539207142363
+  },
+  "cartographer_wall_screen": {
+    "samples": 5611,
+    "normal_offset_mm": 0.75,
+    "triangulated_suspects": 9,
+    "exact_failures": []
+  },
+  "live_probe_bore_region_difference_from_cleaned_32_mm3": {
+    "beacon": 0.0,
+    "cartographer": 0.0
+  },
+  "inputs_sha256": {
+    "C:\\Users\\nspar\\Dev\\copilot-worktrees\\CxChanger\\nisparks-solid-winner\\cad\\SparkShift_Accessories_v26\\r43_swept_feed.py": "8a656604f4c21c727998507fabcc6ec89b4b2a74dba3b47b77dcbb522cbcf7bd",
+    "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_conformal\\p22_swept_beacon.brep": "cc57f9611c5d6dca6530f12218e6f871892baac047b5fb47eb4265152f26cff8",
+    "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_conformal\\p22_swept_cartographer.brep": "fafd99117cee7b7a4dff991ac9b40954a27d3e4ac1d662408b6c37059edec755",
+    "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_conformal\\swept_air.brep": "2a81ef9ff20f8c481156c65af6f2fea1c93d2b500ef334bfbb684b11f6949d4e"
+  },
+  "note": "Stored old screening failures do not establish an actual missing CAD wall. The exact-CAD fallback corrects tessellation classification, not the wall requirement. Not slicing, continuous wall-thickness or thermal qualification."
+}

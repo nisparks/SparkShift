@@ -1,0 +1,67 @@
+{
+  "status": "CHECKED_MECHANICAL_STUDY_DELIVERED_PRINT_OPTIMIZATION_PENDING",
+  "evidence_sha256": {
+    "verification_c28_mechanical_geometry_r43.json": "6483e554b74cfc0a214f5555f47c0bfc328849443ada8f014a06e1b973dfaf6e",
+    "verification_c28_mechanical_motion_r43.json": "775bd1717620eb11b5c99887dce1f73da704a438700a33a1fb3f0ce822a3889b",
+    "verification_c28_mechanical_slicing_r43.json": "3c5ad79cc0f308bdd0da346b9366cdbbb15d2a75dfe3fe2f8bd88fbb861f0dc2",
+    "verification_c28_mechanical_support_access_r43.json": "b6427e846bd49ed4af7a4d6abf4a12a894758a3a00cf6c174b0cf166f7907463"
+  },
+  "current_generator_sha256": "cd678a830a941fbf1fe44b03f02a04d1ffd0895b04d05ab8edc63e59f981551f",
+  "share_image_sha256": "d86e35f23cf17ee61bd8c33c69e1632e06f7a7b3d47ebb11cba2f5f78ced6bfb",
+  "renderer_sha256": "0828285a0ca59d85a4eb4ebae37d098991e6f85160323f076e8042a806247477",
+  "print_meshes": {
+    "p01": {
+      "height_mm": 28.700000762939453,
+      "watertight": true,
+      "orientation": "Back face down"
+    },
+    "p21": {
+      "height_mm": 47.220001220703125,
+      "watertight": true,
+      "orientation": "Top face down"
+    },
+    "p22": {
+      "height_mm": 74.67619323730467,
+      "watertight": true,
+      "orientation": "Back face down"
+    },
+    "cartographer": {
+      "height_mm": 74.67619323730467,
+      "watertight": true,
+      "orientation": "Back face down"
+    }
+  },
+  "live_fusion_edits": {
+    "document": "53 Bambu C28 - angled mounts and lower retainer",
+    "status": "LIVE_EDITS_PRESERVED_NOT_REQUALIFIED",
+    "archive": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\53_C28_Live_Edits_Preserved.f3d",
+    "archive_sha256": "0311f7721929c2534fc5db660eecbda7d05fb9fe6498edbaaff016b92a23845b",
+    "timeline_at_backup": [
+      "Group1",
+      "Group2",
+      "Extrude1",
+      "Extrude2",
+      "Sketch1",
+      "Extrude3",
+      "Sketch2",
+      "Extrude4",
+      "Extrude5",
+      "Extrude6",
+      "Fillet1",
+      "DeleteFace1",
+      "DeleteFace2",
+      "DeleteFace3",
+      "DeleteFace4",
+      "DeleteFace5",
+      "Extrude7"
+    ],
+    "decision": "New live edits appeared after import. User was unavailable; preserve them rather than overwrite or silently adopt them. The edited document was left active. Fusion's Documents.add API explicitly permits only visible new documents, so no additional document was created while live editing continued. This archive is a snapshot, not a qualification of later edits or a substitute for the checked STEP/STL set."
+  },
+  "remaining": [
+    "Reconcile the live Fusion edits before adopting a new baseline.",
+    "Reduce whole-set support; the mechanical study currently adds 1.7%.",
+    "Do not use the assessed inlet-down pose: rear-passage support risk.",
+    "Fresh CFD must represent revised P01, P21 and P22, not only P22.",
+    "Physical fit, cable service, tightening, sealing and thermal qualification."
+  ]
+}

@@ -1,0 +1,553 @@
+{
+  "status": "INCREMENTAL_RIGID_TRANSLATION_PATHS_CLEAR",
+  "source_build_manifest_sha256": "51cd9537069136cf11005ef78cb0f355a7bcf69851ae387633a058f261440137",
+  "audit_sha256": "e8176ccbd3ae78c8d1226059a2729bd413436a3a0f9a4a2afc6d5a3e8f1e52c0",
+  "scope": "All added material and every new fastener against the actual frozen Monolith/Bambu scene. Unchanged material inherits the previous qualification; removals cannot create a collision. This is not a new certification of the original rack, rail reach, or firmware limits.",
+  "paths": [
+    {
+      "label": "Own Bambu tool and dock: carriage withdrawal",
+      "start_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        0.0,
+        -60.0,
+        0.0
+      ],
+      "initial_step_mm": 0.5,
+      "exact_distance_samples": 121,
+      "minimum_sample": {
+        "mm": 0.6,
+        "offset_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 0.34999999999999754,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Adjacent Bambu bay at X -37.3",
+      "start_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        0.0,
+        -60.0,
+        0.0
+      ],
+      "initial_step_mm": 1,
+      "exact_distance_samples": 61,
+      "minimum_sample": {
+        "mm": 1.1,
+        "offset_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 0.5999999999999985,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Adjacent Bambu bay at X 37.3",
+      "start_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        0.0,
+        -60.0,
+        0.0
+      ],
+      "initial_step_mm": 1,
+      "exact_distance_samples": 61,
+      "minimum_sample": {
+        "mm": 1.1,
+        "offset_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 0.5999999999999985,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "X travel against actual X gantry",
+      "start_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        350.0,
+        0.0,
+        0.0
+      ],
+      "initial_step_mm": 1,
+      "exact_distance_samples": 351,
+      "minimum_sample": {
+        "mm": 0.7206000000000217,
+        "offset_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "capped": false,
+        "moving_part": "p21",
+        "obstacle": "X_Gantry"
+      },
+      "continuous_clearance_lower_bound_mm": 0.22060000000001567,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Rear nozzle Y 359: full X travel",
+      "start_offset_mm": [
+        0.0,
+        338.29,
+        0.0
+      ],
+      "end_offset_mm": [
+        350.0,
+        338.29,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 176,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          0.0,
+          338.29,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999988,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Rear nozzle Y 365.15: full X travel",
+      "start_offset_mm": [
+        0.0,
+        344.44,
+        0.0
+      ],
+      "end_offset_mm": [
+        350.0,
+        344.44,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 176,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          0.0,
+          344.44,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999988,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 0: fixed gantry/rack approach",
+      "start_offset_mm": [
+        7.0,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        7.0,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          7.0,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 1: fixed gantry/rack approach",
+      "start_offset_mm": [
+        44.3,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        44.3,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          44.3,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 2: fixed gantry/rack approach",
+      "start_offset_mm": [
+        81.6,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        81.6,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          81.6,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 3: fixed gantry/rack approach",
+      "start_offset_mm": [
+        118.89999999999999,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        118.89999999999999,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          118.89999999999999,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 4: fixed gantry/rack approach",
+      "start_offset_mm": [
+        156.2,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        156.2,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          156.2,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 5: fixed gantry/rack approach",
+      "start_offset_mm": [
+        193.5,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        193.5,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          193.5,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 6: fixed gantry/rack approach",
+      "start_offset_mm": [
+        230.79999999999998,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        230.79999999999998,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          230.79999999999998,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 7: fixed gantry/rack approach",
+      "start_offset_mm": [
+        268.09999999999997,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        268.09999999999997,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          268.09999999999997,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 8: fixed gantry/rack approach",
+      "start_offset_mm": [
+        305.4,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        305.4,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          305.4,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Bay 9: fixed gantry/rack approach",
+      "start_offset_mm": [
+        342.7,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        342.7,
+        60.0,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 31,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          342.7,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.099999999999997,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Y travel at X 0",
+      "start_offset_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        0.0,
+        344.44,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 174,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.1045086705202223,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Y travel at X 175",
+      "start_offset_mm": [
+        175.0,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        175.0,
+        344.44,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 174,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          175.0,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.1045086705202223,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    },
+    {
+      "label": "Y travel at X 350",
+      "start_offset_mm": [
+        350.0,
+        0.0,
+        0.0
+      ],
+      "end_offset_mm": [
+        350.0,
+        344.44,
+        0.0
+      ],
+      "initial_step_mm": 2,
+      "exact_distance_samples": 174,
+      "minimum_sample": {
+        "mm": 2.1,
+        "offset_mm": [
+          350.0,
+          0.0,
+          0.0
+        ],
+        "capped": true,
+        "moving_part": null,
+        "obstacle": null
+      },
+      "continuous_clearance_lower_bound_mm": 1.1045086705202223,
+      "method": "Exact BREP face distances, adaptively refined. Distance is 1-Lipschitz under translation: the smaller endpoint distance minus half the interval length bounds every point in it. Capped readings are conservative lower bounds, not reported exact distances."
+    }
+  ],
+  "bed_gap_of_new_material_and_hardware_mm": {
+    "p01": 20.751572875253807,
+    "p21": 14.079999999999998,
+    "p22": 8.279999900000007,
+    "C28_P22_P01_M3x8_BUTTON_0": 17.887790411448293,
+    "C28_P22_P01_M3x4_HEATSET_0": 21.974867606706532,
+    "C28_P22_P01_M3x8_BUTTON_1": 17.887790411448293,
+    "C28_P22_P01_M3x4_HEATSET_1": 21.974867606706532,
+    "C28_P21_P22_M3x10_BUTTON": 6.6299999999999955,
+    "C28_P21_P22_M3x4_HEATSET": 14.079999999999998
+  },
+  "complete_p22_to_bed_mm_at_nozzle_0p2": 1.22999990000001,
+  "limitations": "Rigid nominal CAD only; no cable dynamics, printed deflection, thermal growth or machine test."
+}

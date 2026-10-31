@@ -1,0 +1,124 @@
+{
+  "status": "GEOMETRY_VERIFIED_LOW_SUPPORT_C28_REVIEW",
+  "hotend_scope": "Bambu only",
+  "airflow_geometry": "0.9 mm rear slot, 28-degree aim, roof raised 3 mm, cleaned main-channel entries",
+  "changes": [
+    "45-degree rear-leg ramps",
+    "45-degree relief-step chamfers",
+    "protected truncated-V notch in the direct-mount seat"
+  ],
+  "rejected_change": "Reducing the existing upper-notch radius from 5 to 2 mm caused non-watertight tessellation at its feed-envelope intersection. It is not in this candidate.",
+  "nominal_air_cutter_unchanged": true,
+  "variants": {
+    "Beacon": {
+      "added_mm3": 63.4472100000001,
+      "removed_mm3": 466.1742978234842,
+      "same_outer_bounds": true,
+      "main_channel_material_unchanged": true,
+      "live_mount_and_inlet_region_changes_mm3": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "step_roundtrip_max_difference_mm3": 0.0,
+      "print_stl_watertight": true,
+      "print_stl_triangles": 41894,
+      "wall_screen": {
+        "watertight": true,
+        "winding_consistent": true,
+        "normal_samples": [
+          {
+            "offset_mm": 0.1,
+            "samples": 6063,
+            "mesh_suspects": 0,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.35,
+            "samples": 6022,
+            "mesh_suspects": 0,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.6,
+            "samples": 5840,
+            "mesh_suspects": 3,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.75,
+            "samples": 5611,
+            "mesh_suspects": 9,
+            "exact_failures": 0
+          }
+        ],
+        "limitation": "Sampled wall-normal material, not a continuous minimum-thickness proof. Open main-channel connections and the outlet are excluded by exact CAD."
+      },
+      "before_brep_sha256": "86a32938b4240bd09e2dd51bbbfcea31ab5f6ea675d76fc7be9008dd4a94a936",
+      "after_brep_sha256": "65a98ef0e7c7a1de9095925a93fe184e56d303953adc861bcbb2e09cc187ff9a"
+    },
+    "Cartographer": {
+      "added_mm3": 63.4472100000001,
+      "removed_mm3": 438.120295464317,
+      "same_outer_bounds": true,
+      "main_channel_material_unchanged": true,
+      "live_mount_and_inlet_region_changes_mm3": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "step_roundtrip_max_difference_mm3": 0.0,
+      "print_stl_watertight": true,
+      "print_stl_triangles": 41894,
+      "wall_screen": {
+        "watertight": true,
+        "winding_consistent": true,
+        "normal_samples": [
+          {
+            "offset_mm": 0.1,
+            "samples": 6063,
+            "mesh_suspects": 0,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.35,
+            "samples": 6022,
+            "mesh_suspects": 0,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.6,
+            "samples": 5840,
+            "mesh_suspects": 3,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.75,
+            "samples": 5611,
+            "mesh_suspects": 9,
+            "exact_failures": 0
+          }
+        ],
+        "limitation": "Sampled wall-normal material, not a continuous minimum-thickness proof. Open main-channel connections and the outlet are excluded by exact CAD."
+      },
+      "before_brep_sha256": "ab049fb4770e4a8179a9a282b8cc5258766d4d339e6fd13de3c623e66f00ee48",
+      "after_brep_sha256": "9c35f3e8cdaac5fa575f0cff57354724f6bf2234e0d8fe5ef327e6f6a7d537c0"
+    }
+  },
+  "outputs_sha256": {
+    "step\\P22_C28_Bambu_Low_Support_Beacon_REVIEW.step": "87cf9cc505c593f6f9f5c08246aeef8a072f793945b99d9851f32fdaecdc989f",
+    "stl\\P22_C28_Bambu_Low_Support_Beacon_REVIEW_PRINT_ORIENTED.stl": "0d8768ab621d1616e3b19fca4e9f084b22ef0f516ffb9ae643767252b1edb882",
+    "step\\P22_C28_Bambu_Low_Support_Cartographer_REVIEW.step": "9f5b42ea957e92aed6842d9ee13cff09be1caa2cbc93dfe175615ca872920494",
+    "stl\\P22_C28_Bambu_Low_Support_Cartographer_REVIEW_PRINT_ORIENTED.stl": "c6d2bf7e95a73859e3170db30f5d13e3d1997fbdb27e82db41441eb3928d0d57"
+  },
+  "source_sha256": {
+    "r43_swept_feed.py": "f384a2c27291d5c933f2cdf8eb75a9bd208b5708815e1416e9d4a910008a3dee",
+    "r43_swept_printable.py": "bdd428777098142d90f36b93cb3b31cd73db7b4a12e9d2fccb884cd6b12b1731"
+  },
+  "limitations": "Geometry and sampling only. External air boundaries change, so the existing CFD is not automatically a result for this variant. Slicing and physical print checks are separate.",
+  "audit_sha256": "4f82ea9a2bf8d5e813cdc38a6290b6cdcb664f8ff20d55f706a7a74bf6351090"
+}

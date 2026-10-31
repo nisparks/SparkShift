@@ -1,0 +1,17 @@
+{
+  "document": "52 Slot-height study - 0.9 vs 1.1 mm",
+  "parts": [
+    {
+      "component": "C28_P22",
+      "bodies": 1
+    },
+    {
+      "component": "D11_P22",
+      "bodies": 1
+    }
+  ],
+  "active_document": "52 Slot-height study - 0.9 vs 1.1 mm",
+  "archive": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\52_Slot_Height_Comparison.f3d",
+  "original_documents_preserved": true,
+  "selection_status": "D11 is an unselected trial; C28 remains the comparison baseline"
+}

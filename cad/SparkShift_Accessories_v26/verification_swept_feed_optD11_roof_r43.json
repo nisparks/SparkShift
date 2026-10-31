@@ -1,0 +1,165 @@
+{
+  "label": "R43 swept-island routing study, not print-qualified or CFD-validated",
+  "valid": true,
+  "solids": 1,
+  "shells": 1,
+  "volume_mm3": 18038.45535009206,
+  "cartographer_valid": true,
+  "cartographer_solids": 1,
+  "cartographer_shells": 1,
+  "connected_air_solids": 1,
+  "air_cut_obstruction_mm3": 0.0,
+  "nominal_wall_mm": 0.8,
+  "mouth_height_mm": 1.1,
+  "roof_raise_mm": 3.0,
+  "mouth_span_mm": 18.0,
+  "outlet_angle_deg": 28.0,
+  "obsolete_rear_mounts_removed": true,
+  "conformal_outlet_wall": true,
+  "full_height_feed_clearance": true,
+  "mouth_floor_reference_height_mm": 0.9,
+  "assembly": {
+    "Beacon": {
+      "probe_overlap_mm3": 0.0,
+      "probe_gap_mm": 0.0,
+      "bottom_sensing_keepout_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "R37_PROBE_M3x6_LOW_HEAD_0_overlap_mm3": 0.0,
+      "R37_PROBE_M3x3_HEATSET_0_overlap_mm3": 0.0,
+      "R37_PROBE_M3x6_LOW_HEAD_1_overlap_mm3": 0.0,
+      "R37_PROBE_M3x3_HEATSET_1_overlap_mm3": 0.0
+    },
+    "Cartographer": {
+      "probe_overlap_mm3": 0.0,
+      "probe_gap_mm": 0.0,
+      "bottom_sensing_keepout_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "R42_CARTO_M3x5_LOW_HEAD_0_overlap_mm3": 0.0,
+      "R42_CARTO_M3x3_HEATSET_0_overlap_mm3": 0.0,
+      "R42_CARTO_M3x5_LOW_HEAD_1_overlap_mm3": 0.0,
+      "R42_CARTO_M3x3_HEATSET_1_overlap_mm3": 0.0
+    },
+    "Probe_Cable_Route_R37_REVIEW": {
+      "overlap_mm3": 0.0,
+      "baseline_overlap_mm3": 0.0,
+      "gap_mm": 0.05
+    },
+    "Bambu:body": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 6.2793
+    },
+    "Bambu:hotend": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 1.9176
+    },
+    "Bambu:silicone_sock": {
+      "gap_mm": 3.2,
+      "overlap_mm3": 0.0
+    },
+    "RedLizard:hotend and hardware": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 0.6193
+    }
+  },
+  "mesh_watertight": true,
+  "sampled_wall_check": {
+    "normal_offset_mm": 0.75,
+    "samples": 5493,
+    "outside_solid": 0,
+    "triangulated_outside_solid": 2,
+    "classification": "Failed triangle-mesh samples reclassified with exact BREP solids; points outside the intended mouth trim are an open outlet, not missing walls.",
+    "failed_points_mm": []
+  },
+  "new_outlet_lowest_mm": -74.37577904342348,
+  "outlet_underside_above_bed_mm": 4.7042209565765205,
+  "source": "r43_swept_feed.py; released r43_parts.py unchanged",
+  "status": "Geometry study; CFD pending; not print-qualified",
+  "withdrawal": {
+    "carriage_retreat": "-Y",
+    "length_mm": 60,
+    "sample_step_mm": 0.5,
+    "tools": {
+      "Bambu": {
+        "gap_mm": 1.9176407971648268,
+        "retreat_mm": 0.0,
+        "tool_part": "hotend"
+      },
+      "RedLizard": {
+        "gap_mm": 0.6192647543810317,
+        "retreat_mm": 0.0,
+        "tool_part": "hotend and hardware"
+      }
+    },
+    "limitation": "Sampled rigid-body path, not a continuous-motion or thermal validation"
+  },
+  "nozzle_to_probe_gap_mm": {
+    "Beacon": 0.5926,
+    "Cartographer": 0.4445
+  },
+  "print": {
+    "orientation": "Original back face down, same as R43; study only",
+    "support_threshold_deg": 30.0,
+    "released_r43": {
+      "on_plate_mm2": 323.1,
+      "needs_support_mm2": 386.2,
+      "over_the_part_mm2": 372.1,
+      "reachable_from_plate_mm2": 14.1,
+      "steeper_than_45_mm2": 1242.0
+    },
+    "swept_study": {
+      "on_plate_mm2": 323.1,
+      "needs_support_mm2": 510.2,
+      "over_the_part_mm2": 352.3,
+      "reachable_from_plate_mm2": 157.9,
+      "steeper_than_45_mm2": 1474.0
+    },
+    "orientation_sweep": {
+      "flat_faces_tried": 10,
+      "best": [
+        {
+          "needs_support_mm2": 510.2,
+          "on_plate_mm2": 323.1,
+          "up_in_assembly": [
+            0.0,
+            1.0,
+            -0.0
+          ]
+        },
+        {
+          "needs_support_mm2": 695.1,
+          "on_plate_mm2": 141.5,
+          "up_in_assembly": [
+            -0.688,
+            0.726,
+            -0.0
+          ]
+        },
+        {
+          "needs_support_mm2": 695.9,
+          "on_plate_mm2": 142.1,
+          "up_in_assembly": [
+            0.688,
+            0.726,
+            -0.0
+          ]
+        },
+        {
+          "needs_support_mm2": 1535.9,
+          "on_plate_mm2": 229.0,
+          "up_in_assembly": [
+            -0.0,
+            0.707,
+            0.707
+          ]
+        }
+      ]
+    },
+    "limitation": "Geometric overhang screening only; not sliced or physically printed. Do not trap HIPS inside the narrow outlet. Internal bridge access still requires slicer review."
+  },
+  "cartographer_rebuild_difference_mm3": {
+    "export_only": 0.0,
+    "rebuild_only": 0.0
+  },
+  "cartographer_generator_matches_export": true,
+  "geometry_checks_pass": true
+}

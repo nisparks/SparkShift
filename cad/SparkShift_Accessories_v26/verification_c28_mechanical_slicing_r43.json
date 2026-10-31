@@ -1,0 +1,115 @@
+{
+  "status": "MATCHED_SLICER_COMPARISON_COMPLETE_NOT_PRINT_QUALIFIED",
+  "generator_sha256": "cd678a830a941fbf1fe44b03f02a04d1ffd0895b04d05ab8edc63e59f981551f",
+  "printer": "H2D 0.4 mm, Generic ABS, Bambu Support for ABS interface, 0.2 mm layers, 5 walls",
+  "comparisons": {
+    "P01_back_down": {
+      "before": {
+        "support_deposition_volume_mm3": 4807.79719559638,
+        "total_estimated_time_s": 10028.236328125
+      },
+      "after": {
+        "support_deposition_volume_mm3": 4775.164159125099,
+        "total_estimated_time_s": 9882.888671875
+      },
+      "identical_machine_process_and_all_filaments": true,
+      "percent_change": {
+        "support_deposition_volume_mm3": -0.6787523504770743,
+        "total_estimated_time_s": -1.4493840341831654
+      },
+      "source_sha256": {
+        "c28_original_p01_back/support_metrics.json": "291dbe65fce2c648e8b7f23ea8c40e91d25354c55dca0c0762b9905095c4c910",
+        "c28_original_p01_back/model_print_oriented.stl": "c49b34903809f16b50ee1295489c4e5b13ee903d4e9ddd104516637640d8f87f",
+        "c28_original_p01_back/sliced.3mf": "90b1b9a52c1f5e136abd20a087bffaae20673e70f29eb7d3791741d31ac7b709",
+        "c28_mechanical_p01_back/support_metrics.json": "9bf900249823414228bd4b5acb0c43df66b51c01764dde4db172381f42cb81bd",
+        "c28_mechanical_p01_back/model_print_oriented.stl": "a0e4b0940e09cc8c69a0c13968ab2331bd72efd45c3768158ba0c92db24ad0d3",
+        "c28_mechanical_p01_back/sliced.3mf": "91e1797e6664fc45a8acfc68baee9d2dfbf2b7908ac530fa3149111d609681e3"
+      }
+    },
+    "P21_top_down": {
+      "before": {
+        "support_deposition_volume_mm3": 642.8112685152574,
+        "total_estimated_time_s": 2717.13916015625
+      },
+      "after": {
+        "support_deposition_volume_mm3": 1317.761288076387,
+        "total_estimated_time_s": 4771.00634765625
+      },
+      "identical_machine_process_and_all_filaments": true,
+      "percent_change": {
+        "support_deposition_volume_mm3": 104.99971805411951,
+        "total_estimated_time_s": 75.58932636272819
+      },
+      "source_sha256": {
+        "c28_original_p21_top/support_metrics.json": "a5e3e185b46fc76acd01c64af1086c571cb8dd77c0dccf89e0ce692f0bf12ab4",
+        "c28_original_p21_top/model_print_oriented.stl": "c5781cfde10dae7db99561689c7cb1152c217e9c985f29c4827404129979df6b",
+        "c28_original_p21_top/sliced.3mf": "67295a88f1451967b16b9abe314a9a87f4aed323dfcdce4a6c215ac932a3d0ad",
+        "c28_mechanical_p21_top/support_metrics.json": "1cb1a98e4c36e0a5b3f11684340936215ecfdf1d9fd6443b930de6e246e4e58d",
+        "c28_mechanical_p21_top/model_print_oriented.stl": "4bfbe4267d7b019b159af09f4e3cb3706e705f40dabd5ca998c8e92c53f35e7e",
+        "c28_mechanical_p21_top/sliced.3mf": "2f3dde7e5739073152fbe0d15243bb3560020e47cae1f3ae368741a67f1f50b2"
+      }
+    },
+    "P22_back_down": {
+      "before": {
+        "support_deposition_volume_mm3": 9523.506611159697,
+        "total_estimated_time_s": 11213.623046875
+      },
+      "after": {
+        "support_deposition_volume_mm3": 9136.188544587527,
+        "total_estimated_time_s": 11546.0732421875
+      },
+      "identical_machine_process_and_all_filaments": true,
+      "percent_change": {
+        "support_deposition_volume_mm3": -4.066969052326885,
+        "total_estimated_time_s": 2.964699222747158
+      },
+      "source_sha256": {
+        "c28_baseline_auto/support_metrics.json": "f863c1cfe3c4f95ff51013ae6e669c4dd07e4008a2f97feca639954bb1ff6338",
+        "c28_baseline_auto/model_print_oriented.stl": "add26e9f4e4a257bcf4e6dcac92a24ad93b2568e94fa785408e4b1c4c7f71fc2",
+        "c28_baseline_auto/sliced.3mf": "ca4deeb94e1ffd46e19fea909e2bafc52a9ae2ebfc5e23c5575e947f60285b6d",
+        "c28_mechanical_back/support_metrics.json": "30775f7d28c6003ff2d6ce1cd0f88901128637f00b4775f14b24f7a6cba5f35a",
+        "c28_mechanical_back/model_print_oriented.stl": "6a23eef419ca0bb2bc5ee8b71b493cf7c2022ff1d22d997a63b55034af682b18",
+        "c28_mechanical_back/sliced.3mf": "dbedfa6c8b757169ef9a2b19ab0c9e4e07c8a4cd35360949e7759d112f362174"
+      }
+    },
+    "P22_inlet_down": {
+      "before": {
+        "support_deposition_volume_mm3": 10229.541844252259,
+        "total_estimated_time_s": 11421.720703125
+      },
+      "after": {
+        "support_deposition_volume_mm3": 10463.248724552654,
+        "total_estimated_time_s": 11583.10546875
+      },
+      "identical_machine_process_and_all_filaments": true,
+      "percent_change": {
+        "support_deposition_volume_mm3": 2.284627052302546,
+        "total_estimated_time_s": 1.4129636840169324
+      },
+      "source_sha256": {
+        "c28_inlet_face_baseline/support_metrics.json": "15040faead0ed9bc5516a49bd4db11c6a6d5ffb0b1c978e7d1bb8741b5396119",
+        "c28_inlet_face_baseline/model_print_oriented.stl": "19aacc88b27d71e0ec54a15f50ed0220ce198b9486425998808df26986e5f57c",
+        "c28_inlet_face_baseline/sliced.3mf": "f0a25b0b7733a09c5d0a94595993ee96d110bb1054789b3dd05fbda7781718c5",
+        "c28_mechanical_inlet_face/support_metrics.json": "49261c0dd9396545c061ac3298d79549c3208bfbe4494474f6e0687f2ac382d6",
+        "c28_mechanical_inlet_face/model_print_oriented.stl": "b887e74cc28d366eb8b1d4adf2bcdd42a51dacf1b67bffd79cfbe7148a6e8f5e",
+        "c28_mechanical_inlet_face/sliced.3mf": "c7842f4cb0d66418dbf3c53375a7dad86c764dc0e312920382c7938b80ba345c"
+      }
+    }
+  },
+  "three_separate_parts_total": {
+    "before": {
+      "support_deposition_volume_mm3": 14974.115075271335,
+      "total_estimated_time_s": 23958.99853515625
+    },
+    "after": {
+      "support_deposition_volume_mm3": 15229.113991789014,
+      "total_estimated_time_s": 26199.96826171875
+    },
+    "percent_change": {
+      "support_deposition_volume_mm3": 1.7029314602957202,
+      "total_estimated_time_s": 9.353353076399307
+    }
+  },
+  "verdict": "Positive retention is added, but this is not yet a whole-assembly support reduction. The mid-duct tongue adds more support than the inclined mounts save. P22 back-down remains lower-support than inlet-face-down in these controlled runs.",
+  "limitations": "Slicer prediction only. Support excludes prime tower/waste. No physical print or machine G-code approval. Global profiles and printer were not changed."
+}

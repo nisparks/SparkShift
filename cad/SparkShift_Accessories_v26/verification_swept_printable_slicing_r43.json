@@ -1,0 +1,345 @@
+{
+  "scope": "Bambu hotend; one-piece C28; Beacon-seat model sliced, both probe variants geometry-qualified",
+  "cases": {
+    "c28_baseline_auto": {
+      "input_brep": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_clean\\p22_swept_beacon.brep",
+      "printer": "Bambu Lab H2D 0.4 nozzle",
+      "material": "Generic ABS @BBL H2D",
+      "interface_material": "Bambu Support for ABS @BBL H2D",
+      "layer_height_mm": "0.2",
+      "wall_loops": "5",
+      "support_policy": "tree(auto), allow support on the part, small-overhang removal disabled; identical assessment policy for before/after, not a support-free claim",
+      "support_extrusion_by_role": {
+        "Support": {
+          "extrusion_mm": 3781.593290000094,
+          "moves": 51980
+        },
+        "Support transition": {
+          "extrusion_mm": 90.38029999999961,
+          "moves": 1788
+        },
+        "Support interface": {
+          "extrusion_mm": 87.44035999999971,
+          "moves": 1348
+        }
+      },
+      "support_deposition_volume_mm3": 9523.506611159697,
+      "support_feature_time_s": {
+        "Support": 1750.076904296875,
+        "Support interface": 51.38541030883789,
+        "Support transition": 73.843017578125
+      },
+      "total_estimated_time_s": 11213.623046875,
+      "warnings": "",
+      "limitations": "Slicer prediction only; no physical print. Deposited support excludes prime-tower/waste, startup custom G-code before explicit extrusion-mode initialization, and extrusion-only pressure recovery. The generated startup G-code is not approved for printing. Global presets and printer were not modified."
+    },
+    "c28_dfm_auto": {
+      "input_brep": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_dfm\\p22_swept_beacon.brep",
+      "printer": "Bambu Lab H2D 0.4 nozzle",
+      "material": "Generic ABS @BBL H2D",
+      "interface_material": "Bambu Support for ABS @BBL H2D",
+      "layer_height_mm": "0.2",
+      "wall_loops": "5",
+      "support_policy": "tree(auto), allow support on the part, small-overhang removal disabled; identical assessment policy for before/after, not a support-free claim",
+      "support_extrusion_by_role": {
+        "Support": {
+          "extrusion_mm": 3695.007740000064,
+          "moves": 50346
+        },
+        "Support transition": {
+          "extrusion_mm": 67.36856999999978,
+          "moves": 1282
+        },
+        "Support interface": {
+          "extrusion_mm": 65.8450599999998,
+          "moves": 1093
+        }
+      },
+      "support_deposition_volume_mm3": 9207.951476298045,
+      "support_feature_time_s": {
+        "Support": 1687.592041015625,
+        "Support interface": 40.11936569213867,
+        "Support transition": 56.11428451538086
+      },
+      "total_estimated_time_s": 10451.658203125,
+      "warnings": "",
+      "limitations": "Slicer prediction only; no physical print. Deposited support excludes prime-tower/waste, startup custom G-code before explicit extrusion-mode initialization, and extrusion-only pressure recovery. The generated startup G-code is not approved for printing. Global presets and printer were not modified."
+    },
+    "c28_dfm_rear_corner_v2": {
+      "input_brep": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_dfm\\p22_swept_beacon.brep",
+      "printer": "Bambu Lab H2D 0.4 nozzle",
+      "material": "Generic ABS @BBL H2D",
+      "interface_material": "Bambu Support for ABS @BBL H2D",
+      "layer_height_mm": "0.2",
+      "wall_loops": "5",
+      "support_policy": "tree(auto), allow support on the part, small-overhang removal disabled; identical assessment policy for before/after, not a support-free claim",
+      "support_extrusion_by_role": {
+        "Support": {
+          "extrusion_mm": 2084.9593700000046,
+          "moves": 36652
+        },
+        "Support interface": {
+          "extrusion_mm": 116.76678999999938,
+          "moves": 2005
+        },
+        "Support transition": {
+          "extrusion_mm": 114.10738999999991,
+          "moves": 1339
+        }
+      },
+      "support_deposition_volume_mm3": 5570.232464269099,
+      "support_feature_time_s": {
+        "Support": 1117.6072998046875,
+        "Support interface": 70.93695068359375,
+        "Support transition": 91.40157318115234
+      },
+      "total_estimated_time_s": 13293.96875,
+      "warnings": "",
+      "limitations": "Slicer prediction only; no physical print. Deposited support excludes prime-tower/waste, startup custom G-code before explicit extrusion-mode initialization, and extrusion-only pressure recovery. The generated startup G-code is not approved for printing. Global presets and printer were not modified.",
+      "placement": {
+        "orientation": "rear-corner",
+        "assembly_to_print": [
+          [
+            0.7259526839058267,
+            0.6877446479107829,
+            0.0,
+            180.434344291687
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0,
+            96.57500076293945
+          ],
+          [
+            -0.6877446479107829,
+            0.7259526839058267,
+            0.0,
+            41.89893341064453
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "bed_contact_mm2": 141.16455206791528,
+        "print_bounds_mm": [
+          [
+            139.28434658050537,
+            145.57500076293945,
+            0.0
+          ],
+          [
+            210.71565341949463,
+            174.42499923706055,
+            72.63169288635254
+          ]
+        ],
+        "note": "Geometric plate contact only; brim and warpage need physical validation."
+      }
+    },
+    "c28_baseline_bridges": {
+      "input_brep": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_clean\\p22_swept_beacon.brep",
+      "printer": "Bambu Lab H2D 0.4 nozzle",
+      "material": "Generic ABS @BBL H2D",
+      "interface_material": "Bambu Support for ABS @BBL H2D",
+      "layer_height_mm": "0.2",
+      "wall_loops": "5",
+      "support_policy": "tree(auto), allow support on the part, small-overhang removal disabled; identical assessment policy for before/after, not a support-free claim",
+      "support_recognized_bridges": false,
+      "support_extrusion_by_role": {
+        "Support": {
+          "extrusion_mm": 3781.5933700000937,
+          "moves": 51977
+        },
+        "Support transition": {
+          "extrusion_mm": 90.38030999999961,
+          "moves": 1786
+        },
+        "Support interface": {
+          "extrusion_mm": 87.44035999999971,
+          "moves": 1348
+        }
+      },
+      "support_deposition_volume_mm3": 9523.506827635065,
+      "support_feature_time_s": {
+        "Support": 1750.1060791015625,
+        "Support interface": 51.38541030883789,
+        "Support transition": 73.86935424804688
+      },
+      "total_estimated_time_s": 11213.984375,
+      "warnings": "",
+      "limitations": "Slicer prediction only; no physical print. Deposited support excludes prime-tower/waste, startup custom G-code before explicit extrusion-mode initialization, and extrusion-only pressure recovery. The generated startup G-code is not approved for printing. Global presets and printer were not modified.",
+      "placement": {
+        "orientation": "back",
+        "assembly_to_print": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            175.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0,
+            96.57500000000002
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            45.400000000000006
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "bed_contact_mm2": 323.11284613609314,
+        "print_bounds_mm": [
+          [
+            152.57999992370605,
+            145.57499980926514,
+            0.0
+          ],
+          [
+            197.42000007629395,
+            174.42500019073486,
+            74.67619323730467
+          ]
+        ],
+        "note": "Geometric plate contact only; brim and warpage need physical validation."
+      }
+    },
+    "c28_dfm_bridges": {
+      "input_brep": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_dfm\\p22_swept_beacon.brep",
+      "printer": "Bambu Lab H2D 0.4 nozzle",
+      "material": "Generic ABS @BBL H2D",
+      "interface_material": "Bambu Support for ABS @BBL H2D",
+      "layer_height_mm": "0.2",
+      "wall_loops": "5",
+      "support_policy": "tree(auto), allow support on the part, small-overhang removal disabled; identical assessment policy for before/after, not a support-free claim",
+      "support_recognized_bridges": false,
+      "support_extrusion_by_role": {
+        "Support": {
+          "extrusion_mm": 3695.0073700000644,
+          "moves": 50346
+        },
+        "Support transition": {
+          "extrusion_mm": 67.36856999999978,
+          "moves": 1282
+        },
+        "Support interface": {
+          "extrusion_mm": 65.8450599999998,
+          "moves": 1093
+        }
+      },
+      "support_deposition_volume_mm3": 9207.950586343752,
+      "support_feature_time_s": {
+        "Support": 1687.5977783203125,
+        "Support interface": 40.11936569213867,
+        "Support transition": 56.11428451538086
+      },
+      "total_estimated_time_s": 10450.8115234375,
+      "warnings": "",
+      "limitations": "Slicer prediction only; no physical print. Deposited support excludes prime-tower/waste, startup custom G-code before explicit extrusion-mode initialization, and extrusion-only pressure recovery. The generated startup G-code is not approved for printing. Global presets and printer were not modified.",
+      "placement": {
+        "orientation": "back",
+        "assembly_to_print": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            175.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0,
+            96.57500000000002
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            45.400000000000006
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "bed_contact_mm2": 323.11284613609314,
+        "print_bounds_mm": [
+          [
+            152.57999992370605,
+            145.57499980926514,
+            0.0
+          ],
+          [
+            197.42000007629395,
+            174.42500019073486,
+            74.67619323730467
+          ]
+        ],
+        "note": "Geometric plate contact only; brim and warpage need physical validation."
+      }
+    }
+  },
+  "geometry_only_support_volume_change_pct": -3.313434302569629,
+  "geometry_only_total_estimated_time_change_pct": -6.794992488733098,
+  "geometric_overhang_area_mm2": [
+    510.2,
+    369.7
+  ],
+  "rear_corner_support_change_pct": -41.51069882450788,
+  "rear_corner_status": "Rejected with current ABS support bodies: sampled deposition inside narrow rear passage; see verification_swept_support_access_r43.json",
+  "bridge_aware_setting_result": "No meaningful support-volume change in either geometry",
+  "airflow_report": "verification_printability_cfd_r43.json",
+  "access_report": "verification_swept_support_access_r43.json",
+  "limitations": "Same saved H2D 0.4 mm ABS / Support for ABS profiles, 0.2 mm layers and 5 walls. No physical print. Deposited support excludes prime tower/waste; generated startup G-code is not approved for printing.",
+  "input_sha256": {
+    "c28_baseline_auto": {
+      "model_print_oriented.stl": "add26e9f4e4a257bcf4e6dcac92a24ad93b2568e94fa785408e4b1c4c7f71fc2",
+      "process.json": "7780969073913bea765c83997390aafd6bd7a3541ab564de877eabe376390e51",
+      "machine.json": "394af5eca1c558825e7d113214fbddfeb4637c6d901e32189e8eb1a00413ab7a",
+      "support_metrics.json": "f863c1cfe3c4f95ff51013ae6e669c4dd07e4008a2f97feca639954bb1ff6338",
+      "sliced.3mf": "ca4deeb94e1ffd46e19fea909e2bafc52a9ae2ebfc5e23c5575e947f60285b6d"
+    },
+    "c28_dfm_auto": {
+      "model_print_oriented.stl": "2924e7a2f2f87f6f7931f88a81567c8ba94cf8b67ea09e6762b1f524fc7b3b97",
+      "process.json": "7780969073913bea765c83997390aafd6bd7a3541ab564de877eabe376390e51",
+      "machine.json": "394af5eca1c558825e7d113214fbddfeb4637c6d901e32189e8eb1a00413ab7a",
+      "support_metrics.json": "d512b0efa883302557cd53facd1957fcb1b5af0289823aa6d6d99c55c2e3a675",
+      "sliced.3mf": "2c8ddd2f1092ccf49eb348e194860402b2be02a82acbe558550a967526aef439"
+    },
+    "c28_dfm_rear_corner_v2": {
+      "model_print_oriented.stl": "21acad336fc251af5944ef17fb8492c36a0aba1f2189676a476a9ecfdb584007",
+      "process.json": "7780969073913bea765c83997390aafd6bd7a3541ab564de877eabe376390e51",
+      "machine.json": "394af5eca1c558825e7d113214fbddfeb4637c6d901e32189e8eb1a00413ab7a",
+      "support_metrics.json": "092028f7203eefd941fc13b363457feb1421f3272fd75e9bb786957dfb5822d9",
+      "sliced.3mf": "a2256d5b36013334bbcbc7725a681b03719497e677c8a61b320b3e0fca879236"
+    },
+    "c28_baseline_bridges": {
+      "model_print_oriented.stl": "add26e9f4e4a257bcf4e6dcac92a24ad93b2568e94fa785408e4b1c4c7f71fc2",
+      "process.json": "979d163f7fcb68386e9643d337f116c4709e2fdc9396f62f6429a18d2aca6d3f",
+      "machine.json": "394af5eca1c558825e7d113214fbddfeb4637c6d901e32189e8eb1a00413ab7a",
+      "support_metrics.json": "8a7d4c565c8f535358c75e2dc423f61fed8a92b793dc998ad64dae0d3b8eaa90",
+      "sliced.3mf": "6d85ffecf80d9935aaf7c3869134a26b59dddb807680e616b146bc62d7865189"
+    },
+    "c28_dfm_bridges": {
+      "model_print_oriented.stl": "2924e7a2f2f87f6f7931f88a81567c8ba94cf8b67ea09e6762b1f524fc7b3b97",
+      "process.json": "979d163f7fcb68386e9643d337f116c4709e2fdc9396f62f6429a18d2aca6d3f",
+      "machine.json": "394af5eca1c558825e7d113214fbddfeb4637c6d901e32189e8eb1a00413ab7a",
+      "support_metrics.json": "b81ad24f6b71e03fc13279aa166050bd85167d63d829dba7e6f1febbbb3c5f97",
+      "sliced.3mf": "668e43b968cac28444ff9500f51ee311189079543829a9daab0ab7887d173532"
+    }
+  }
+}

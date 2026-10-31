@@ -1,0 +1,177 @@
+{
+  "label": "Candidate A direct-mount cleanup, obsolete rear P23 ears removed; geometry review only",
+  "valid": true,
+  "solids": 1,
+  "shells": 1,
+  "volume_mm3": 18087.71862773984,
+  "cartographer_valid": true,
+  "cartographer_solids": 1,
+  "cartographer_shells": 1,
+  "connected_air_solids": 1,
+  "air_cut_obstruction_mm3": 0.0,
+  "nominal_wall_mm": 0.8,
+  "mouth_height_mm": 0.9,
+  "roof_raise_mm": 3.0,
+  "mouth_span_mm": 18.0,
+  "outlet_angle_deg": 32.0,
+  "obsolete_rear_mounts_removed": true,
+  "assembly": {
+    "Beacon": {
+      "probe_overlap_mm3": 0.0,
+      "probe_gap_mm": 0.0,
+      "bottom_sensing_keepout_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "R37_PROBE_M3x6_LOW_HEAD_0_overlap_mm3": 0.0,
+      "R37_PROBE_M3x3_HEATSET_0_overlap_mm3": 0.0,
+      "R37_PROBE_M3x6_LOW_HEAD_1_overlap_mm3": 0.0,
+      "R37_PROBE_M3x3_HEATSET_1_overlap_mm3": 0.0
+    },
+    "Cartographer": {
+      "probe_overlap_mm3": 0.0,
+      "probe_gap_mm": 0.0,
+      "bottom_sensing_keepout_overlap_mm3": 0.0,
+      "metal_in_top_keepout_mm3": 0.0,
+      "R42_CARTO_M3x5_LOW_HEAD_0_overlap_mm3": 0.0,
+      "R42_CARTO_M3x3_HEATSET_0_overlap_mm3": 0.0,
+      "R42_CARTO_M3x5_LOW_HEAD_1_overlap_mm3": 0.0,
+      "R42_CARTO_M3x3_HEATSET_1_overlap_mm3": 0.0
+    },
+    "Probe_Cable_Route_R37_REVIEW": {
+      "overlap_mm3": 0.0,
+      "baseline_overlap_mm3": 0.0,
+      "gap_mm": 0.05
+    },
+    "Bambu:body": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 6.2793
+    },
+    "Bambu:hotend": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 1.9176
+    },
+    "Bambu:silicone_sock": {
+      "gap_mm": 3.2,
+      "overlap_mm3": 0.0
+    },
+    "RedLizard:hotend and hardware": {
+      "overlap_mm3": 0.0,
+      "gap_mm": 0.6376
+    }
+  },
+  "mesh_watertight": true,
+  "sampled_wall_check": {
+    "normal_offset_mm": 0.75,
+    "samples": 5538,
+    "outside_solid": 0,
+    "failed_points_mm": []
+  },
+  "new_outlet_lowest_mm": -74.33387831343256,
+  "outlet_underside_above_bed_mm": 4.746121690318347,
+  "source": "r43_swept_feed.py; released r43_parts.py unchanged",
+  "status": "Geometry checks passed for both probes and sampled hotend withdrawal. Cleaned exterior not re-simulated; prior CFD applies to untrimmed candidate A. Not print-qualified.",
+  "cleanup_regression": {
+    "Beacon": {
+      "removed_mm3": 546.2306133241249,
+      "added_bore_plug_mm3": 25.901300455492535
+    },
+    "Cartographer": {
+      "removed_mm3": 522.4226643151256,
+      "added_bore_plug_mm3": 25.901300455492535
+    },
+    "changes_outside_obsolete_rear_mount_regions_mm3": 0.0,
+    "airway_obstruction_change_mm3": 0.0000005620368170866641,
+    "idempotence_difference_mm3": 0.0,
+    "opt_in_generator_vs_export_difference_mm3": 0.0,
+    "rear_ears_absent_and_insert_holes_closed": true,
+    "live_probe_mounting_bores_retained": true,
+    "both_step_roundtrips_valid_single_solid": true
+  },
+  "withdrawal": {
+    "carriage_retreat": "-Y",
+    "length_mm": 60,
+    "sample_step_mm": 0.5,
+    "tools": {
+      "Bambu": {
+        "gap_mm": 1.9176407971648268,
+        "retreat_mm": 0.0,
+        "tool_part": "hotend"
+      },
+      "RedLizard": {
+        "gap_mm": 0.6376009197081931,
+        "retreat_mm": 0.0,
+        "tool_part": "hotend and hardware"
+      }
+    },
+    "limitation": "Sampled rigid-body path, not a continuous-motion or thermal validation"
+  },
+  "nozzle_to_probe_gap_mm": {
+    "Beacon": 0.5975,
+    "Cartographer": 0.451
+  },
+  "print": {
+    "orientation": "Original back face down, same as R43; study only",
+    "support_threshold_deg": 30.0,
+    "released_r43": {
+      "on_plate_mm2": 323.1,
+      "needs_support_mm2": 386.2,
+      "over_the_part_mm2": 372.1,
+      "reachable_from_plate_mm2": 14.1,
+      "steeper_than_45_mm2": 1242.0
+    },
+    "swept_study": {
+      "on_plate_mm2": 323.1,
+      "needs_support_mm2": 519.3,
+      "over_the_part_mm2": 361.4,
+      "reachable_from_plate_mm2": 157.9,
+      "steeper_than_45_mm2": 1512.6
+    },
+    "orientation_sweep": {
+      "flat_faces_tried": 10,
+      "best": [
+        {
+          "needs_support_mm2": 519.3,
+          "on_plate_mm2": 323.1,
+          "up_in_assembly": [
+            0.0,
+            1.0,
+            -0.0
+          ]
+        },
+        {
+          "needs_support_mm2": 696.9,
+          "on_plate_mm2": 141.5,
+          "up_in_assembly": [
+            -0.688,
+            0.726,
+            -0.0
+          ]
+        },
+        {
+          "needs_support_mm2": 697.7,
+          "on_plate_mm2": 142.1,
+          "up_in_assembly": [
+            0.688,
+            0.726,
+            -0.0
+          ]
+        },
+        {
+          "needs_support_mm2": 1535.7,
+          "on_plate_mm2": 229.0,
+          "up_in_assembly": [
+            -0.0,
+            0.707,
+            0.707
+          ]
+        }
+      ]
+    },
+    "limitation": "Geometric overhang screening only; not sliced or physically printed. Do not trap HIPS inside the narrow outlet. Internal bridge access still requires slicer review."
+  },
+  "cartographer_rebuild_difference_mm3": {
+    "export_only": 0.0,
+    "rebuild_only": 0.0
+  },
+  "cartographer_generator_matches_export": true,
+  "geometry_checks_pass": true
+}

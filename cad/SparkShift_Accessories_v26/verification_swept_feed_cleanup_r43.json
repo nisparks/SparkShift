@@ -1,0 +1,297 @@
+{
+  "status": "SEPARATE_GEOMETRY_CLEANUP_VERIFIED_NOT_PRINT_OR_THERMALLY_QUALIFIED",
+  "parameters": {
+    "roof_raise_mm": 3,
+    "mouth_height_mm": 0.9,
+    "angle_deg": 28,
+    "remove_rear_mounts": true,
+    "conformal_outlet": true,
+    "clear_feed_intrusions": true
+  },
+  "root_cause": "The inherited rear-jet duct_air() clearance was limited to Z-80..-60. Raised swept feeds extend above Z-60, leaving their outer roofs in the existing side channels. Clip only the new envelope against full-height channel air; preserve the original duct and its cable-support rib.",
+  "nominal_swept_air_cutter_difference": {
+    "added_mm3": 0.0,
+    "removed_mm3": 0.0
+  },
+  "historical_default_regression": {
+    "new_only_mm3": 0.0,
+    "reference_only_mm3": 0.0
+  },
+  "frozen_c28_geometry_unchanged": true,
+  "released_r43_brep_sha256": "a9c37df2e297d63d8679bae1dd171b190b720d147a3978c80c9edaf3a6174fca",
+  "variants": {
+    "Beacon": {
+      "before_volume_mm3": 18087.953494845395,
+      "after_volume_mm3": 18040.037272131685,
+      "removed_mm3": 47.92764153961534,
+      "added_mm3": 0.0,
+      "removed_regions": [
+        {
+          "volume_mm3": 23.963821144354167,
+          "bounds_mm": [
+            -18.900000100000003,
+            -12.849999899999998,
+            -10.8000001,
+            -4.4124451756569,
+            -60.0000001,
+            -58.6999999
+          ]
+        },
+        {
+          "volume_mm3": 23.963814673211715,
+          "bounds_mm": [
+            12.8499999,
+            18.900000100000003,
+            -10.8000001,
+            -4.4124451756569,
+            -60.00000010000001,
+            -58.6999999
+          ]
+        }
+      ],
+      "valid_single_solid_shell": true,
+      "faces_before_after": [
+        383,
+        351
+      ],
+      "small_faces_under_0_01_mm2_before_after": [
+        18,
+        18
+      ],
+      "released_material_removed_mm3": 0.0,
+      "cable_support_rib_removed_mm3": 0.0,
+      "step_roundtrip_max_difference_mm3": 0.0,
+      "wall_screen": {
+        "watertight": true,
+        "winding_consistent": true,
+        "normal_samples": [
+          {
+            "offset_mm": 0.1,
+            "samples": 6063,
+            "mesh_suspects": 0,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.35,
+            "samples": 6022,
+            "mesh_suspects": 0,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.6,
+            "samples": 5840,
+            "mesh_suspects": 3,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.75,
+            "samples": 5611,
+            "mesh_suspects": 9,
+            "exact_failures": 0
+          }
+        ],
+        "limitation": "Sampled wall-normal material, not a continuous minimum-thickness proof. Open main-channel connections and the outlet are excluded by exact CAD."
+      }
+    },
+    "Cartographer": {
+      "before_volume_mm3": 17962.49283049394,
+      "after_volume_mm3": 17914.5798091113,
+      "removed_mm3": 47.92741784159409,
+      "added_mm3": 0.0,
+      "removed_regions": [
+        {
+          "volume_mm3": 23.963821144354167,
+          "bounds_mm": [
+            -18.900000100000003,
+            -12.849999899999998,
+            -10.8000001,
+            -4.4124451756569,
+            -60.0000001,
+            -58.6999999
+          ]
+        },
+        {
+          "volume_mm3": 23.963859783191573,
+          "bounds_mm": [
+            12.8499999,
+            18.900000100000003,
+            -10.8000001,
+            -4.4124451756569,
+            -60.00000010000001,
+            -58.6999999
+          ]
+        }
+      ],
+      "valid_single_solid_shell": true,
+      "faces_before_after": [
+        383,
+        351
+      ],
+      "small_faces_under_0_01_mm2_before_after": [
+        18,
+        18
+      ],
+      "released_material_removed_mm3": 0.0,
+      "cable_support_rib_removed_mm3": 0.0,
+      "step_roundtrip_max_difference_mm3": 0.0,
+      "wall_screen": {
+        "watertight": true,
+        "winding_consistent": true,
+        "normal_samples": [
+          {
+            "offset_mm": 0.1,
+            "samples": 6063,
+            "mesh_suspects": 0,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.35,
+            "samples": 6022,
+            "mesh_suspects": 0,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.6,
+            "samples": 5840,
+            "mesh_suspects": 3,
+            "exact_failures": 0
+          },
+          {
+            "offset_mm": 0.75,
+            "samples": 5611,
+            "mesh_suspects": 9,
+            "exact_failures": 0
+          }
+        ],
+        "limitation": "Sampled wall-normal material, not a continuous minimum-thickness proof. Open main-channel connections and the outlet are excluded by exact CAD."
+      }
+    }
+  },
+  "inputs_sha256": {
+    "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_conformal\\p22_swept_beacon.brep": "cc57f9611c5d6dca6530f12218e6f871892baac047b5fb47eb4265152f26cff8",
+    "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_clean\\p22_swept_beacon.brep": "86a32938b4240bd09e2dd51bbbfcea31ab5f6ea675d76fc7be9008dd4a94a936",
+    "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_conformal\\p22_swept_cartographer.brep": "fafd99117cee7b7a4dff991ac9b40954a27d3e4ac1d662408b6c37059edec755",
+    "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\optC28_clean\\p22_swept_cartographer.brep": "ab049fb4770e4a8179a9a282b8cc5258766d4d339e6fd13de3c623e66f00ee48"
+  },
+  "outputs_sha256": {
+    "step\\P22_Swept_C28_Clean_Feed_Beacon_REVIEW.step": "6526f60cd5da35ef270ae2b72eb63069fb1f81f8cbe58bbc5ad0c50cfa992a9e",
+    "step\\P22_Swept_C28_Clean_Feed_Cartographer_REVIEW.step": "0035c33613b8f67164489022236083aed1307b7d045789a019ef9def3b0778d8"
+  },
+  "limitations": "The connected fluid domain changes even though the nominal swept-air cutter does not. Old CFD cannot be relabelled as cleaned-geometry CFD. Mount strength, tolerances, thermal behavior and slicing are not qualified.",
+  "main_channel_cross_sections": [
+    {
+      "side": -1,
+      "y_mm": -10.0,
+      "original_channel_mm2": 85.06537087671127,
+      "before_open_mm2": 78.83880906459135,
+      "after_open_mm2": 85.06537087671127,
+      "area_recovered_mm2": 6.226561812119925
+    },
+    {
+      "side": 1,
+      "y_mm": -10.0,
+      "original_channel_mm2": 85.06537087671123,
+      "before_open_mm2": 78.83880906458967,
+      "after_open_mm2": 85.06537087671123,
+      "area_recovered_mm2": 6.22656181212156
+    },
+    {
+      "side": -1,
+      "y_mm": -9.0,
+      "original_channel_mm2": 84.6368134084518,
+      "before_open_mm2": 79.55078886727108,
+      "after_open_mm2": 84.6368134084518,
+      "area_recovered_mm2": 5.08602454118072
+    },
+    {
+      "side": 1,
+      "y_mm": -9.0,
+      "original_channel_mm2": 84.63681340845179,
+      "before_open_mm2": 79.55078886727108,
+      "after_open_mm2": 84.63681340845179,
+      "area_recovered_mm2": 5.086024541180706
+    },
+    {
+      "side": -1,
+      "y_mm": -8.0,
+      "original_channel_mm2": 84.34277452449733,
+      "before_open_mm2": 79.69162536164882,
+      "after_open_mm2": 84.34277452449733,
+      "area_recovered_mm2": 4.651149162848512
+    },
+    {
+      "side": 1,
+      "y_mm": -8.0,
+      "original_channel_mm2": 84.34277452449733,
+      "before_open_mm2": 79.69162536164905,
+      "after_open_mm2": 84.34277452449733,
+      "area_recovered_mm2": 4.651149162848284
+    },
+    {
+      "side": -1,
+      "y_mm": -7.0,
+      "original_channel_mm2": 84.1830157884788,
+      "before_open_mm2": 80.2847277205365,
+      "after_open_mm2": 84.1830157884788,
+      "area_recovered_mm2": 3.8982880679423033
+    },
+    {
+      "side": 1,
+      "y_mm": -7.0,
+      "original_channel_mm2": 84.1830157884788,
+      "before_open_mm2": 80.28472772053654,
+      "after_open_mm2": 84.1830157884788,
+      "area_recovered_mm2": 3.8982880679422607
+    },
+    {
+      "side": -1,
+      "y_mm": -6.0,
+      "original_channel_mm2": 84.15099999999825,
+      "before_open_mm2": 81.8964985846234,
+      "after_open_mm2": 84.15099999999825,
+      "area_recovered_mm2": 2.254501415374847
+    },
+    {
+      "side": 1,
+      "y_mm": -6.0,
+      "original_channel_mm2": 84.15099999999822,
+      "before_open_mm2": 81.89649858462327,
+      "after_open_mm2": 84.15099999999822,
+      "area_recovered_mm2": 2.2545014153749463
+    },
+    {
+      "side": -1,
+      "y_mm": -5.0,
+      "original_channel_mm2": 84.15099999999825,
+      "before_open_mm2": 83.43491050371037,
+      "after_open_mm2": 84.15099999999825,
+      "area_recovered_mm2": 0.7160894962878785
+    },
+    {
+      "side": 1,
+      "y_mm": -5.0,
+      "original_channel_mm2": 84.15099999999822,
+      "before_open_mm2": 83.43491050371046,
+      "after_open_mm2": 84.15099999999822,
+      "area_recovered_mm2": 0.7160894962877649
+    },
+    {
+      "side": -1,
+      "y_mm": -4.0,
+      "original_channel_mm2": 84.15099999999917,
+      "before_open_mm2": 84.15099999999917,
+      "after_open_mm2": 84.15099999999917,
+      "area_recovered_mm2": 0.0
+    },
+    {
+      "side": 1,
+      "y_mm": -4.0,
+      "original_channel_mm2": 84.15099999999916,
+      "before_open_mm2": 84.15099999999916,
+      "after_open_mm2": 84.15099999999916,
+      "area_recovered_mm2": 0.0
+    }
+  ],
+  "generator_sha256": "74d6fd76ae2085060caed2df77d7e11f581a34842fb2d2988e673d27a48d61bd",
+  "audit_sha256": "220e95cf478562d803de2bb82149488a693cb20f866f38337e4a220afdd52dfc"
+}

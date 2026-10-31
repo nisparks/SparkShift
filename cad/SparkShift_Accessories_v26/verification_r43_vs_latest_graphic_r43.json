@@ -1,0 +1,81 @@
+{
+  "cases": [
+    "r43_bambu_bed",
+    "r43directC28clean_bambu_bed"
+  ],
+  "metrics": {
+    "r43_bambu_bed": {
+      "pressure_pa": 2192.1,
+      "estimated_blower_lpm": 207.5,
+      "rear_lpm": 0.0,
+      "speeds": {
+        "r5_mm": 33.32680555555555,
+        "r10_mm": 31.620694444444442,
+        "r14_mm": 26.502361111111107
+      },
+      "radial_r8_lpm": 47.60972222222222,
+      "sector_ratio": 0.6718888594474306,
+      "mesh": {
+        "cells": 1638926,
+        "volume_mm3": 152966.0,
+        "max_non_orthogonality_deg": 64.3,
+        "max_skewness": 3.53,
+        "mesh_ok": true
+      }
+    },
+    "r43directC28clean_bambu_bed": {
+      "pressure_pa": 1408.2,
+      "estimated_blower_lpm": 231.1,
+      "rear_lpm": 39.95420329874148,
+      "speeds": {
+        "r5_mm": 26.30688333333333,
+        "r10_mm": 30.954561111111108,
+        "r14_mm": 29.336861111111112
+      },
+      "radial_r8_lpm": 45.449666666666666,
+      "sector_ratio": 0.8390008674889995,
+      "mesh": {
+        "cells": 2479266,
+        "volume_mm3": 154035.0,
+        "max_non_orthogonality_deg": 64.3,
+        "max_skewness": 3.32,
+        "mesh_ok": true
+      }
+    }
+  },
+  "latest_geometry": "optC28_clean; full-height feed clearance, 28 degrees, 0.9 mm slot",
+  "visuals_flow_lpm": 180,
+  "iteration": 1200,
+  "speed_range_ms": [
+    0,
+    65
+  ],
+  "contains_branding": false,
+  "comparison_limitations": "Accepted but different local meshes/decomposition; geometry-specific mounts. Steady snapshots, not mesh-independent or thermally validated.",
+  "sources_sha256": {
+    "verification_swept_feed_cfd_r43.json": "c95bf3e9b89920bbbdaf273666d1523f4af4b16b1f7b0873719786253db9e873",
+    "verification_feed_cleanup_cfd_r43.json": "bc9e608bad14006b1e68ad927ac00e7359b4440c4e1331bdda0041c77f332536"
+  },
+  "geometry_sha256": {
+    "r43": "a9c37df2e297d63d8679bae1dd171b190b720d147a3978c80c9edaf3a6174fca",
+    "latest": "86a32938b4240bd09e2dd51bbbfcea31ab5f6ea675d76fc7be9008dd4a94a936"
+  },
+  "outputs": {
+    "images\\r43_vs_latest_c28.png": {
+      "sha256": "0c07d41b432d57e9cae59822d4c5dc155b806ac534d7716625ca2b94e9c3d9d0",
+      "bytes": 2085633,
+      "dimensions": [
+        2400,
+        4260
+      ]
+    },
+    "images\\r43_vs_latest_c28_share.jpg": {
+      "sha256": "b4fe57b4152ead8389969e62f86786dd55b29c2d0ec280821a54504e8f21f5c0",
+      "bytes": 1119958,
+      "dimensions": [
+        1920,
+        3408
+      ]
+    }
+  }
+}

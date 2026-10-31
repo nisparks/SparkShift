@@ -1,0 +1,54 @@
+{
+  "output": "sparkshift_r43_vs_candidate_a_public.png",
+  "technical_companion": "sparkshift_r43_vs_candidate_a_technical.png",
+  "report": "verification_swept_feed_cfd_r43.json",
+  "report_sha256": "c95bf3e9b89920bbbdaf273666d1523f4af4b16b1f7b0873719786253db9e873",
+  "renderer_sha256": "58c8e9f57603666823561420302793b225b0aecf6039647e6873df569ad0fd40",
+  "output_sha256": {
+    "sparkshift_r43_vs_candidate_a_public.png": "b7c4476c392ea1d45401b6dc79364d0e472ec9b2aeedff35cebe67633e8af06a",
+    "sparkshift_r43_vs_candidate_a_technical.png": "6fbafd5c17d975f950007f261c2821c591a80d2301b92f32a680210026073721",
+    "sparkshift_r43_vs_candidate_a_public_share.jpg": "ae15c74e0c20075291c66d145da1839826fb8d9d900b6487ff64f7d7a88535ae"
+  },
+  "geometry_sha256": {
+    "released_p22": "a9c37df2e297d63d8679bae1dd171b190b720d147a3978c80c9edaf3a6174fca",
+    "candidate_a_p22": "895143499d84dcbf87c9ce6a2254f29d92a13f87124653348387ea87a66d545c"
+  },
+  "cases": [
+    "r43_bambu_bed",
+    "r43optAfine_bambu_bed"
+  ],
+  "iteration": 1200,
+  "maps_flow_lpm": 180,
+  "maps_speed_scale_ms": [
+    0,
+    65
+  ],
+  "upper_speed_colour_saturates_at_ms": 65,
+  "candidate_geometry": {
+    "roof_raise_mm": 3,
+    "mouth_height_mm": 0.9,
+    "angle_deg": 32
+  },
+  "images_are_airflow_not_temperature": true,
+  "cad_view_heater_block_omitted_but_nozzle_tip_retained": true,
+  "streamlines_seed_count": 128,
+  "streamlines_density_is_not_flow_rate": true,
+  "published_camera": {
+    "eye_mm": [
+      45,
+      55,
+      -97
+    ],
+    "focus_mm": [
+      0,
+      17,
+      -74.5
+    ],
+    "up": [
+      0,
+      0,
+      1
+    ],
+    "parallel_scale_mm": 18
+  }
+}

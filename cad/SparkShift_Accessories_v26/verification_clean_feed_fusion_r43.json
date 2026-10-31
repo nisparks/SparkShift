@@ -1,0 +1,37 @@
+{
+  "new_document": "51 Cleaned C28 feed - both probes - REVIEW",
+  "review_components": [
+    {
+      "component": "Bambu_Beacon_P22",
+      "bodies": 1,
+      "volume_mm3": 18040.611630766536
+    },
+    {
+      "component": "RedLizard_Carto_P22",
+      "bodies": 1,
+      "volume_mm3": 17915.15313697481
+    },
+    {
+      "component": "Air_route_P22",
+      "bodies": 1,
+      "volume_mm3": 9020.044121894165
+    }
+  ],
+  "archive": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\51_Cleaned_C28_Feed_Review.f3d",
+  "archive_bytes": 20972977,
+  "original_documents_unchanged": true,
+  "native_remnant_witnesses": [
+    {
+      "document": "50 Candidate A - taller feed, 0.9mm slot, 32deg - CFD study",
+      "faces": 395,
+      "cap_witness_is_material": true,
+      "both_witnesses_pass": true
+    },
+    {
+      "document": "51 Cleaned C28 feed - both probes - REVIEW",
+      "faces": 346,
+      "cap_witness_is_material": false,
+      "both_witnesses_pass": true
+    }
+  ]
+}

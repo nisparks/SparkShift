@@ -1,0 +1,158 @@
+{
+  "c28_baseline_auto": {
+    "coordinate_method": "Known back-face transform reconstructed and surface-checked; max error 0.003736 mm",
+    "sample_spacing_mm": 0.5,
+    "total_support_samples": 428898,
+    "within_passage_bounds": 6982,
+    "narrow_rear_passage_samples": 0,
+    "estimated_support_in_passage_mm3": 0.0,
+    "exact_cad_witnesses_mm": [],
+    "scope": "Dedicated rear passage only, excluding the main channels and open outlet extension.",
+    "limitation": "Sampled deposition centerlines at layer mid-height, not bead-solid collision or physical removability proof. Nonzero deposition here is a trapped-support warning."
+  },
+  "c28_dfm_auto": {
+    "coordinate_method": "Known back-face transform reconstructed and surface-checked; max error 0.021085 mm",
+    "sample_spacing_mm": 0.5,
+    "total_support_samples": 408737,
+    "within_passage_bounds": 10398,
+    "narrow_rear_passage_samples": 0,
+    "estimated_support_in_passage_mm3": 0.0,
+    "exact_cad_witnesses_mm": [],
+    "scope": "Dedicated rear passage only, excluding the main channels and open outlet extension.",
+    "limitation": "Sampled deposition centerlines at layer mid-height, not bead-solid collision or physical removability proof. Nonzero deposition here is a trapped-support warning."
+  },
+  "c28_dfm_rear_corner_v2": {
+    "coordinate_method": "Recorded placement matrix",
+    "sample_spacing_mm": 0.5,
+    "total_support_samples": 261820,
+    "within_passage_bounds": 15832,
+    "narrow_rear_passage_samples": 1528,
+    "estimated_support_in_passage_mm3": 29.959516873892255,
+    "exact_cad_witnesses_mm": [
+      [
+        -7.652137014936158,
+        -0.9114226070313705,
+        -66.82373010266241
+      ],
+      [
+        -8.136755745389229,
+        -1.095035039496341,
+        -67.33003826483969
+      ],
+      [
+        -9.701899576736553,
+        -2.302302830703224,
+        -66.3099558701494
+      ],
+      [
+        -7.449504505438365,
+        0.10704518059616497,
+        -66.72989963228542
+      ],
+      [
+        -9.45705792670935,
+        -1.5193474852752478,
+        -67.28623755282229
+      ],
+      [
+        -7.91338967429071,
+        0.21857511866456925,
+        -67.8693435586195
+      ],
+      [
+        -7.545836714899718,
+        0.8422832344729225,
+        -67.18996095969064
+      ],
+      [
+        -9.042240134490235,
+        -0.29986206138540705,
+        -67.15955377347001
+      ],
+      [
+        -9.364827446376754,
+        -0.32997104468205585,
+        -65.19164370053556
+      ],
+      [
+        -9.20323557803409,
+        0.09861603750156611,
+        -65.41018724695635
+      ],
+      [
+        -9.601766059432098,
+        -0.003439106384912627,
+        -66.61561998222584
+      ],
+      [
+        -7.858545342410943,
+        1.9235332008625408,
+        -67.87532397893762
+      ],
+      [
+        -9.143724968552224,
+        0.981494656692961,
+        -67.63629238316457
+      ],
+      [
+        -9.267277949249177,
+        1.4154445624875245,
+        -70.29161228378223
+      ],
+      [
+        -9.46050992822985,
+        1.5078827366806262,
+        -65.86699923706055
+      ],
+      [
+        -8.323358292001696,
+        2.8606843358083958,
+        -67.35981051604378
+      ],
+      [
+        -9.765734823776242,
+        1.7697224073546687,
+        -70.80024923706054
+      ],
+      [
+        -8.750833867657919,
+        3.0067075726941885,
+        -71.09049923706056
+      ],
+      [
+        -9.098970632964086,
+        3.2278938930694974,
+        -67.4655547926161
+      ],
+      [
+        -9.69769108767358,
+        2.9361850902563376,
+        -70.28568673706053
+      ]
+    ],
+    "scope": "Dedicated rear passage only, excluding the main channels and open outlet extension.",
+    "limitation": "Sampled deposition centerlines at layer mid-height, not bead-solid collision or physical removability proof. Nonzero deposition here is a trapped-support warning."
+  },
+  "c28_baseline_bridges": {
+    "coordinate_method": "Recorded placement matrix",
+    "sample_spacing_mm": 0.5,
+    "total_support_samples": 428900,
+    "within_passage_bounds": 6982,
+    "narrow_rear_passage_samples": 0,
+    "estimated_support_in_passage_mm3": 0.0,
+    "exact_cad_witnesses_mm": [],
+    "scope": "Dedicated rear passage only, excluding the main channels and open outlet extension.",
+    "limitation": "Sampled deposition centerlines at layer mid-height, not bead-solid collision or physical removability proof. Nonzero deposition here is a trapped-support warning."
+  },
+  "c28_dfm_bridges": {
+    "coordinate_method": "Recorded placement matrix",
+    "sample_spacing_mm": 0.5,
+    "total_support_samples": 408737,
+    "within_passage_bounds": 10398,
+    "narrow_rear_passage_samples": 0,
+    "estimated_support_in_passage_mm3": 0.0,
+    "exact_cad_witnesses_mm": [],
+    "scope": "Dedicated rear passage only, excluding the main channels and open outlet extension.",
+    "limitation": "Sampled deposition centerlines at layer mid-height, not bead-solid collision or physical removability proof. Nonzero deposition here is a trapped-support warning."
+  }
+}

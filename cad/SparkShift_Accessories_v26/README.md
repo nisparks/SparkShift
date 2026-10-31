@@ -19,6 +19,20 @@ starting with a first-article set; it suggests a [colour for each part](../../PR
 Earlier front-fan, vented-dock and firmware descriptions below are historical;
 their qualification claims do not apply to the current CAD-review-only design.
 
+**Latest separate rear-feed review:** the [C28 geometry cleanup and improvement
+report](./R43_SWEPT_FEED_REVIEW.md) identifies and removes two unnecessary feed roofs
+inside the main channels. It includes both probe review STEP files, preserved
+clearances, remaining design priorities and a separate matched CFD pass. The
+earlier identification of the circled feature from Fusion's selected section-reference
+face was incorrect. This variant does not replace released R43 or the current print set.
+
+**Latest separate Bambu mechanical review:** [paired 45-degree P01/P22 tabs and a
+forked P21 tongue retained by an underside M3 screw](./R43_SWEPT_FEED_REVIEW.md#mechanical-review).
+The cable, sensing datums and C28 outlets stay in place. These are matched review
+parts, not a print release: whole-set support rises 1.7%, inlet-down P22 introduces
+trapped-support risk, and the changed assembly still needs its own CFD.
+[Unbranded mechanical image](./images/r43_c28_mechanical_review_share.jpg).
+
 This directory contains the parametric OpenCASCADE (`OCP`) CAD generator (`build_and_verify_accessories_v26.py`), 3D finite-volume CFD solver (`simulate_cpap_cfd_v26.py`), VTK multi-angle renderer (`render_accessories_v26.py`), animated GIF generator (`animate_accessories_v26.py`), and manufacturing-ready **STEP (`.step`)** and **binary STL (`.stl`)** files for the **SparkShift v26** accessory and toolhead cooling suite on a **Voron 2.4R2 350 with a Monolith 2WD 9mm gantry**.
 
 All **14 pure-primitive accessory/dock/rack/jig parts** (`P20`–`P29_L/R`, `P17_HF_tool_carrier_3010`, `P17_HF_tool_carrier_2510`, and `P18_Tool_docking_backplate_3010`) plus **5 COTS-qualified core drop-in parts** (`P01_Back_case_COTS_MR74`, `P02_Motor_servo_plate_12p5mm`, `P03_Front_case_COTS`, `P04F_Swing_arm_front_half_COTS`, and `P05_Servo_cam_COTS`) are constructed from **analytical CAD primitives** (`GeomAbs_Plane`, `GeomAbs_Cylinder`, `GeomAbs_Cone` — **`0` BSpline/mesh/sphere faces** and **`0` sliver faces `< 0.15 mm²`** on all 16 pure-primitive parts) and mount to the existing **SparkShift AHG v26** carriage and Voron 2.4R2 frame with **zero unintended modifications (`0.000 mm³` cut/clash)** to any of the 135 existing v26 bodies.
@@ -1662,7 +1676,8 @@ above is fed through 2.6 x 2.5 mm inside, so its jet draws only 7 % of the air. 
   0.8 mm wall in front of the board's edge closes the drop below the board, so the probe still goes
   in from below.
 - **Probes.** The seat is the Beacon's. The Cartographer's board top is 0.2 mm higher, so it would
-  need its own P22, or a full-outline 0.2 mm shim.
+  need a P22 with the matching Cartographer seat. A shim must not be assumed to preserve the
+  probe/nozzle datum or cure the interference.
 
 The CFD runs with P23 and its rear screws left out (`cfd_cpap_r41.py domain ... --leave-out
 P23_Probe_Mount,R37_REAR_`), and a check case closes the rear jet to separate the duct's body from
@@ -1684,7 +1699,264 @@ its jet. Against revision 41 as above:
 - **Steadiness.** This solution isn't quite steady: its duct pressure wanders about 1 % over the
   last 500 iterations, against 0.1 % for revision 43. The gaps at 5 and 10 mm are well outside that.
 
-Anything in the space behind the nozzle at the print's level costs more than a rear jet returns.
+These results reject the tested low-manifold layouts, not rear cooling in general. Their abrupt
+takeoffs, transverse mixing and tight drop do not demonstrate efficient supply routing. "Within
+5/10/14 mm" means area-weighted mean speed 0.3 mm above the bed at the estimated blower operating
+point, not heat transfer or measured cooling. Increased upward flow is a flow-distribution
+observation, not by itself proof of lost cooling.
+
+**Swept-island routing study (in progress, separate from released R43).**
+[`r43_swept_feed.py`](./r43_swept_feed.py) follows the proposed smooth inner-channel route: two
+forward-swept takeoffs through the existing island, merging over the probe into an enclosed
+passage and a curved, downward-aimed outlet following its nose. It removes the low crossbar and
+does not use the PCB as an air seal. Separate Beacon and Cartographer seats retain their existing
+probe datums. Both probe-specific models pass the geometry/interference checks in
+[`verification_swept_feed_r43.json`](./verification_swept_feed_r43.json): one valid solid and shell,
+connected unobstructed passages, watertight mesh, and no retained probe metal in the sensing
+keepouts. The new walls use a true 0.8 mm normal offset, with 5,478 samples checked at 0.75 mm.
+The curved outlet spans 18 mm with a 1.3 mm opening, angled 32 degrees down; its underside is
+4.58 mm above the bed. These are geometry checks, not a cooling or print qualification.
+
+The minimum Bambu hotend gap remains 1.918 mm (silicone sock 3.2 mm); the new outlet brings the
+Red Lizard gap to 0.532 mm. Those same minima hold on a sampled 60 mm withdrawal at 0.5 mm steps.
+The new nozzle housing clears the Beacon by 0.401 mm and the Cartographer by 0.258 mm, excluding
+their intended mounting contact. These small gaps require tolerance and heat/warping review.
+
+The original back-face-down orientation remains best among ten tested flat-face orientations,
+but the 30-degree geometric support-screening area increases from 386 to 561 mm2, with unchanged
+323 mm2 plate contact. Internal bridging and support-removal access need slicer review; do not
+trap HIPS inside the narrow outlet. Neither version is print-qualified.
+
+**Larger-passage comparison.** A separate variant raises the feed/transition roof 3 mm, retaining
+the probe-side floor and the original outlet. Dedicated passage volume rises from 780 to
+1,484 mm3; the combined feed area at Y1 rises from 44.8 to 86.8 mm2. Both probe seats pass the
+same geometry/withdrawal checks, with unchanged minimum hotend/probe gaps. See
+[`verification_swept_feed_roof3_r43.json`](./verification_swept_feed_roof3_r43.json).
+
+At matched 180 L/min and the 1,200-iteration snapshot, Bambu's rear branch rises from 42.5 to
+49.6 L/min, while the upstream-to-merged-trunk total-pressure drop falls from 275 to 166 Pa.
+Total inlet pressure falls from 1,386 to 1,267 Pa; estimated blower flow rises only 2.0%.
+Thus the larger passage improves supply routing, but changes the downstream balance:
+the near-print mean-speed proxy within 5 mm falls another 29.7%, and its weakest/strongest
+quadrant ratio falls from 0.69 to 0.46. Red Lizard shows the same supply trend, with 44.7 to
+50.8 L/min in the rear branch and 316 to 159 Pa upstream-to-trunk drop, but is a separate tool,
+not a direct Bambu comparison. These section integrals have approximately 1-2% continuity
+discrepancies and no formal mesh-independence qualification.
+
+The original swept Bambu case is already 30.3% below released R43 in the 5 mm mean-speed proxy,
+despite its lower restriction. These are **not equivalent cooling percentages**: there is no
+temperature solution or deposited bead, and low sampled speed near an impingement stagnation
+point need not mean weak heat transfer. Pressure, branch split, near-print net radial flow and
+directional coverage are retained in
+[`verification_swept_feed_cfd_r43.json`](./verification_swept_feed_cfd_r43.json).
+Only passing meshes are accepted. The released reference is the passing 30-core R43 case;
+the old 46-core R43 case failed a skewness check and is excluded. The controlled swept pairs
+use 46 cores and identical recorded local hotend refinements.
+
+![Same-scale original and enlarged swept passages, orange air volume](./images/r43_swept_feed_area_study.png)
+
+**First outlet-optimization pass (CFD complete, not adopted).** With the taller feed fixed, two separate candidates reduce
+the rear slot to 0.9 mm: one keeps the 32-degree aim; one uses 38 degrees. They test flow split
+and aim independently, rather than treating maximum flow or speed as the objective. Both pass
+geometry/withdrawal screens for both probe seats; Red Lizard gaps are 0.638 and 0.530 mm.
+A 40-degree candidate is rejected at 0.497 mm, below the 0.5 mm screening threshold.
+The narrow slot still requires slicer, heat/tolerance and mesh-resolution review.
+
+At 180 L/min, candidate A (32 degrees) carries 37.8 L/min through the rear branch, versus
+49.6 L/min for the taller 1.3 mm outlet. It restores more side-jet flow rather than maximizing
+rear flow. At each estimated blower point, net radial flow through an 8 mm cylinder in the
+first 1 mm above the bed recovers from 28.4 to 47.4 L/min (released R43: 47.6). Its 1-5 mm
+quadrant mean-speed balance is 0.70 weakest/strongest, versus 0.46 for the taller 1.3 mm slot.
+Candidate B (38 degrees) gives 45.1 L/min net radial flow and a 0.61 balance ratio. These
+are diagnostic comparisons, not a weighted cooling score or fresh-air-tracer measurement.
+
+| Bambu case | Inlet pressure at 180 L/min | Estimated blower flow | Mean speed within 5 / 10 / 14 mm at estimated blower flow |
+| :--- | ---: | ---: | :--- |
+| Released R43 | 2,192 Pa | 207.5 L/min | 33.3 / 31.6 / 26.5 m/s |
+| Taller feed, 1.3 mm slot | 1,267 Pa | 236.5 L/min | 16.3 / 24.8 / 25.2 m/s |
+| Candidate A, 0.9 mm, 32 degrees | 1,455 Pa | 229.5 L/min | 26.5 / 29.6 / 26.9 m/s |
+| Candidate B, 0.9 mm, 38 degrees | 1,448 Pa | 229.8 L/min | 22.8 / 29.8 / 27.5 m/s |
+
+Candidate A is the more balanced **rear-feed candidate for further validation**, not a proven
+replacement for R43: its 5 mm mean-speed proxy is still 20.4% lower than released R43, despite
+33.6% lower inlet pressure at 180 L/min. It has not been thermally simulated or printed.
+The narrow-slot A/B meshes pass `checkMesh` after identical local feed-junction refinement;
+up to about 3% branch-section mismatch and VTK contour warnings remain, and the 0.9 mm slot
+needs a local resolution/mesh-independence study before strong performance claims. The
+roof-only pair was solved beyond 1,200 iterations, but the comparison uses the saved
+1,200-iteration fields consistently. Released R43 remains unchanged.
+
+![Bambu outlet optimization, same-flow CFD maps](./images/r43_swept_outlet_optimization.png)
+
+![Directional coverage, near-print net radial flow and estimated blower flow](./images/r43_swept_flow_coverage.png)
+
+**Candidate A: completed local outlet-resolution check.** The same frozen A geometry was
+re-run with nominal outlet cells reduced from 0.25 to 0.125 mm, on both tools. Both meshes
+pass `checkMesh`: Bambu has 2,477,411 cells (maximum skewness 3.40), Red Lizard 2,378,756
+(3.71). These are two local resolutions, not a global mesh-independence study.
+
+| Candidate A / Bambu | Previous outlet mesh | Finer outlet mesh |
+| :--- | ---: | ---: |
+| Inlet total pressure at 180 L/min | 1,455 Pa | 1,445 Pa |
+| Rear branch at 180 L/min | 37.8 L/min | 40.3 L/min |
+| Estimated WS7040 flow, 1 m hose | 229.5 L/min | 229.9 L/min |
+| Mean speed, radius 1-5 mm, at estimated blower flow | 26.5 m/s | 23.3 m/s |
+| Net radial flow, radius 8 mm / first 1 mm above bed, at estimated blower flow | 47.4 L/min | 51.2 L/min |
+| Weakest/strongest quadrant mean-speed ratio, radius 1-5 mm | 0.70 | 0.65 |
+
+Pressure changes only -0.7%, but rear flow changes +6.4% and the within-5-mm mean speed
+changes -12.1%. **The lower supply restriction is much less sensitive than the near-nozzle
+air distribution.** The finer A result is 34.1% lower in inlet pressure than R43 at the same
+flow, but 30.0% lower in the 1-5 mm mean-speed proxy; neither percentage is a thermal result.
+The earlier coarse-grid coverage preference is therefore provisional, not proof that A is
+the ideal design. A still merits investigation as a rear-feed variant, not replacement of R43.
+
+Both fine runs reached 1,200 iterations; their velocity/turbulence residuals still oscillate.
+Over the last 500 iterations, inlet-pressure peak-to-peak variation is 3.1% for Bambu A,
+2.8% for Red Lizard A, versus 0.6% for the R43 reference. Pressure entries average the last
+100 iterations; velocity maps and section integrals use the iteration-1,200 snapshot.
+Fine Bambu branch-section mismatch is recorded in the JSON rather than treated as exact
+continuity. The Red Lizard A check gives 1,471 Pa and 40.5 L/min rear flow at 180 L/min,
+but is a separate tool case, not a direct Bambu performance comparison.
+
+![Candidate A local resolution and cross-tool CFD check](./images/r43_candidate_a_resolution.png)
+
+![Candidate A resolution sensitivity in coverage and near-bed flow](./images/r43_candidate_a_resolution_metrics.png)
+
+**Public comparison graphics.** The main graphic focuses on the actual outlet openings:
+matched diagonal opaque CAD views show one side outlet and the curved rear slot. The
+opposite side is symmetrical. The heater block is omitted **only in those CAD views** to
+expose the openings; the real nozzle tip is retained. The modelled hotend and sock are
+retained in CFD. Three-point lighting/contact shading is illustrative, not thermal data.
+
+The paired 3D streamlines use the same 128 upstream seeds, camera, scale and 0-65 m/s
+colour range at 180 L/min. Seed/line density does not represent volumetric flow. The walls
+are cropped/ghosted and the bed hidden in the streamline rendering, not removed from the
+simulation. The technical companion includes common-scale point-probed plane maps, full
+diagnostic values, refinement sensitivity and numerical/physical limitations.
+Neither image claims a cooling winner or print qualification.
+
+![R43 versus candidate A: public outlet and CFD comparison](./images/sparkshift_r43_vs_candidate_a_public.png)
+
+[Sharing JPEG](./images/sparkshift_r43_vs_candidate_a_public_share.jpg) |
+[Technical companion](./images/sparkshift_r43_vs_candidate_a_technical.png) |
+[Graphic evidence manifest](./verification_public_cfd_graphic_r43.json).
+Regenerate with `python render_r43_public_comparison.py` when the saved CAD/CFD session
+artifacts are available; `--design-only` regenerates the CAD views without reading CFD fields.
+
+**Direct-mount cleanup, separate from the simulated candidate.** The integrated probe
+seat does not need P23's old rear ears or their two insert holes at X +/-15.8, Y -19.5 mm.
+`r43_swept_feed.p22(..., remove_rear_mounts=True)` trims those unused pads back to the
+duct underside and closes their blind bores. `clean_direct_mount(part)` also applies the
+same operation to an existing swept variant. The probe's own two mounting bores, seat
+datum, cable relief, outlet geometry and internal air passages remain unchanged.
+Historical generator defaults, frozen candidate-A CFD artifacts and released R43 are
+preserved. The public CFD images remain explicitly associated with the untrimmed
+candidate; the cleaned-exterior simulations are a separate study below.
+
+![Before and after removing obsolete bracket attachment points](./images/r43_direct_mount_cleanup.png)
+
+[Cleaned Beacon P22 STEP](./step/P22_Swept_A_Direct_Mount_Beacon_REVIEW.step) |
+[Cleaned Cartographer P22 STEP](./step/P22_Swept_A_Direct_Mount_Cartographer_REVIEW.step) |
+[Both probe/tool arrangements and routing cutaway](./step/P22_Swept_A_Direct_Mount_Assembly_REVIEW.step) |
+[Geometry report](./verification_swept_feed_optA_direct_r43.json).
+These are review CAD, not print-qualified releases.
+
+**Cleaned-exterior CFD and further optimization.** The original cleaned Bambu mesh,
+`r43directA_bambu_bed`, failed `checkMesh` (two skew faces, maximum skewness 6.74);
+its solver was not run and it is excluded. The fault was near the upper hotend, not
+the new outlet. Case `r43directAq_bambu_bed` adds symmetric local hotend refinement,
+passes with 2,485,515 cells and maximum skewness 3.32, and is the new 32-degree baseline.
+The cleaned Red Lizard case passes and reached 1,200 iterations. These retain the
+Beacon CFD scene; Cartographer is geometry-qualified, not independently simulated.
+
+The Bambu before/after comparison now includes a refinement change, **not an isolated
+cleanup effect**. `python cfd_direct_mount_r43.py` records that confound rather than
+silently accepting mismatched meshes. Historical public graphics are not overwritten.
+
+A separate **28-degree rear-aim candidate** retains the 3 mm raised roof, 18 x 0.9 mm
+mouth and cleaned direct mounts. The initial triangle-mesh wall screen flagged
+142 points on the 28-degree model and one on the 30-degree model; these were not
+accepted for CFD without investigation. Exact BREP inspection of the 30 stored
+28-degree points did **not** confirm missing walls: the mesh classifier disagreed
+with CAD. Opt-in `p22(..., conformal_outlet=True)` also offsets the exact extended air
+loft before trimming the opening, avoiding separately constructed loft surfaces;
+it preserves the airway and changes less than 0.01 mm3 of outer material in this case.
+This is not evidence that the old CAD had thin walls. Historical defaults are unchanged.
+The conformal 28-degree model passes the 0.75 mm wall-normal sampling screen
+(5,611 samples), probe/metal keepouts, both hotends and the sampled 60 mm withdrawal.
+Nine triangulated lip disagreements are resolved against the exact BREP: seven
+points are inside the solid, two are outside the intended open-mouth trim; no missing
+interior wall is waived. Minimum new outlet/probe gaps are 0.593 mm for Beacon and
+0.445 mm for Cartographer; the Red Lizard gap is 0.713 mm, Bambu 1.918 mm and sock 3.2 mm.
+These still need manufacturing and thermal tolerance allowances.
+
+[Matched outlet geometry views](./images/r43_direct_aim_geometry.png) |
+[28-degree Beacon STEP](./step/P22_Swept_C28_Direct_Mount_Beacon_REVIEW.step) |
+[28-degree Cartographer STEP](./step/P22_Swept_C28_Direct_Mount_Cartographer_REVIEW.step) |
+[Geometry qualification](./verification_swept_feed_optC28_conformal_r43.json) |
+[Wall/bore/airway regression](./verification_direct_aim_regression_r43.json).
+These are study/review files, not selected cooling improvements or print releases.
+
+Case `r43directC28q_bambu_bed` uses **identical local refinement, flow, solver settings,
+ambient domain and obstacles** to the repaired 32-degree baseline. Its solver is gated
+on `Mesh OK.`. Compare with `python cfd_direct_mount_r43.py --aim`, which produces a
+separate report and common-scale velocity maps. The objective is near-print airflow
+and coverage at comparable restriction, not maximum rear-branch volume.
+
+**Matched 32/28-degree Bambu result:** both accepted meshes reached 1,200 iterations.
+The 28-degree design is a promising coverage candidate, **not an overall or thermal
+winner**. Values below use the cleaned/repaired 32-degree baseline, not the historical
+untrimmed public graphic. Speed/coverage and radial-flow entries scale the iteration
+1,200 field to each design's estimated WS7040 operation with 1 m hose.
+
+| Diagnostic | Cleaned 32 degrees | Conformal 28 degrees |
+| :--- | ---: | ---: |
+| Inlet total pressure at 180 L/min | 1,451 Pa | 1,461 Pa (+0.7%) |
+| Estimated total blower flow | 229.7 L/min | 229.4 L/min |
+| Rear branch at 180 L/min | 39.94 L/min | 39.45 L/min |
+| Mean speed, radius 1-5 mm, 0.3 mm over bed | 22.31 m/s | 24.20 m/s (+8.5%) |
+| Mean speed, radius 1-10 mm | 27.56 m/s | 28.50 m/s (+3.4%) |
+| Weakest sector area-mean speed, radius 1-5 mm | 17.18 m/s | 23.12 m/s (+34.6%) |
+| Weakest/strongest sector mean-speed ratio | 0.640 | 0.883 |
+| Area below descriptive 10 m/s threshold, radius 1-5 mm | 4.08% | 4.24% |
+| Net radial flow, radius 8 mm / first 1 mm above bed | 37.65 L/min | 33.14 L/min (-12.0%) |
+
+Shallower aim redistributes the air more evenly near the nozzle with almost unchanged
+supply restriction. It does **not** improve every proxy: the low-speed area fraction
+is essentially unchanged/slightly higher, and radius-8-mm net outward flow falls.
+At radius 5 mm the signed net flow is inward in both snapshots (-2.30 / -5.23 L/min);
+that describes recirculation, not negative fresh-air delivery or a heat-transfer score.
+No fresh-air tracer or temperature equation was solved.
+
+Pressure peak-to-peak over the final 500 iterations is 2.71% / 3.09%, and residuals
+remain oscillatory; field comparisons are single saved snapshots, not time-averaged
+thermal results. Approximate side-plus-rear section closure is +0.14% / +0.06%.
+The near-print fields remain resolution-sensitive based on the earlier A study.
+Retain 28 degrees for further coverage/thermal investigation, preserve 32 degrees as
+the comparison, and do not replace released R43 or declare a cooling-efficiency gain.
+Red Lizard has geometry checks only for the new angle; its 28-degree flow is untested.
+
+[Matched aim CFD report](./verification_direct_aim_cfd_r43.json) |
+[Common-scale 32/28-degree CFD maps](./images/r43_direct_aim_cfd.png).
+Neither geometry nor airflow screening establishes print qualification.
+
+The completed cleaned 32-degree baseline gives 1,451 Pa at 180 L/min, 39.9 L/min in
+the rear branch and an estimated 229.7 L/min with the 1 m hose. At estimated blower
+flow, mean speed at radii 1-5 / 1-10 / 1-14 mm is 22.3 / 27.6 / 26.7 m/s, and the
+radius-8-mm net radial flow is 37.6 L/min. The latter differs substantially from the
+historical untrimmed fine-A snapshot (51.2 L/min), despite similar restriction; do not
+silently transfer the older distribution to the cleaned design. Exterior change,
+Bambu hotend refinement and oscillating saved fields confound that comparison.
+
+Cleaned Red Lizard gives 1,464 Pa, 40.8 L/min rear flow and an estimated 229.3 L/min;
+its corresponding mean speeds are 23.7 / 25.2 / 25.8 m/s and net radial flow 30.6 L/min.
+Both runs reached 1,200 iterations; last-500 pressure peak-to-peak is 2.71% / 2.57%.
+Approximate side-plus-rear section closure is +0.14% / -1.09% relative to the imposed
+180 L/min. These are pressure/airflow diagnostics, not measured cooling.
+
+[Cleaned-exterior report](./verification_direct_mount_cfd_r43.json) |
+[Common-scale cleaned-exterior maps](./images/r43_direct_mount_cfd.png).
 
 ![Revision 43 CFD: system curves against the blower, the design search, and the air over a print round the nozzle](./images/89_cfd_r43_design_search.png)
 

@@ -1,0 +1,37 @@
+{
+  "qualification": "verification_swept_feed_optC28_conformal_r43.json",
+  "geometry_only": true,
+  "thermal_or_print_qualification": false,
+  "camera": {
+    "eye": [
+      45,
+      55,
+      -97
+    ],
+    "focus": [
+      0,
+      17,
+      -74.5
+    ],
+    "up": [
+      0,
+      0,
+      1
+    ]
+  },
+  "step_roundtrip": {
+    "Beacon": {
+      "valid_single_solid": true,
+      "max_difference_mm3": 0.0
+    },
+    "Cartographer": {
+      "valid_single_solid": true,
+      "max_difference_mm3": 0.0
+    }
+  },
+  "outputs_sha256": {
+    "images\\r43_direct_aim_geometry.png": "a878d53a6d03e7a1d7b9ee6563026ed72d864bf95bac3abbe6497531454c5882",
+    "step\\P22_Swept_C28_Direct_Mount_Beacon_REVIEW.step": "3d09be84ed500d062c05e306fb25ec331214e571cdb2a976d311aaf36d105a1b",
+    "step\\P22_Swept_C28_Direct_Mount_Cartographer_REVIEW.step": "277870909dadd348d77a094870f068fb4c42fce4849ffbf239fcdb6f0e26b576"
+  }
+}

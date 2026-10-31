@@ -1,0 +1,28 @@
+{
+  "description": "Current cleaned C28 design views with explicitly labelled pre-cleanup 32/28 aim CFD.",
+  "cfd_report_sha256": "1c3591b75a483b9ce35dd7ef591f3fd3e68cd450925aa4bf5b250cb3f28a6876",
+  "cfd_cases": [
+    "r43directAq_bambu_bed",
+    "r43directC28q_bambu_bed"
+  ],
+  "not_cleaned_geometry_cfd": true,
+  "renderer_sha256": "5a2174430c149ec48989541e3be46de4147b487b9d0bd5581ae7d8ed9a0b2d3d",
+  "outputs": {
+    "images\\sparkshift_c28_design_review.png": {
+      "sha256": "bf5618806f60301191fa52c7e269c7afbc0dbf72c88383764cca0cf3eeaab15f",
+      "dimensions": [
+        2400,
+        3420
+      ],
+      "bytes": 1356814
+    },
+    "images\\sparkshift_c28_design_review_share.jpg": {
+      "sha256": "f50ebe25c9926a451271cdb006185817f42b8d59296309f09f9370b931927823",
+      "dimensions": [
+        1920,
+        2736
+      ],
+      "bytes": 883301
+    }
+  }
+}
