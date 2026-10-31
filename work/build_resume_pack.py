@@ -26,7 +26,8 @@ TOP_FILES = [
 SWEPT = ["optC28_clean", "optC28_mechanical", "userP21_20261030_193918", "userP21_matched_v4",
          "optC28_user_retainer", "optC28_conformal", "optC28_dfm", "optD11_roof",
          "optC28_flow_neutral_retainer", "userP21_flow_neutral_v5", "userP21_flow_neutral_v5c",
-         "userP21_flow_neutral_v5d", "flow_tweak"]
+         "userP21_flow_neutral_v5d", "flow_tweak", "balance_v5d_D11", "balance_v5d_visor753",
+         "balance_v5d_visor746", "lip_v5d_t15"]
 MAX_MB = 20
 PACKAGES = ["cadquery", "cadquery-ocp", "numpy", "trimesh", "scipy", "vtk", "pyvista", "matplotlib",
             "Pillow", "manifold3d", "rtree", "shapely"]

@@ -104,6 +104,8 @@ def main():
     parser.add_argument("--analyse-only", action="store_true")
     parser.add_argument("--orientation", choices=("back", "rear-corner", "inlet-face"), default="back")
     parser.add_argument("--no-support-bridges", action="store_true")
+    parser.add_argument("--abs-interface", action="store_true",
+                        help="single-material supports: ABS interface with a 0.2 mm top gap, no breakaway filament")
     args = parser.parse_args()
     out = args.output
     if args.analyse_only:
@@ -121,6 +123,9 @@ def main():
                     "wipe_tower_x": ["165"], "wipe_tower_y": ["250"]})
     if args.no_support_bridges:
         process["bridge_no_support"] = "1"
+    if args.abs_interface:
+        process.update({"support_interface_filament": "0", "support_top_z_distance": "0.2",
+                        "support_interface_spacing": "0.5"})
     process_path = out / "process.json"
     process_path.write_text(json.dumps(process, indent=2))
     filaments = []

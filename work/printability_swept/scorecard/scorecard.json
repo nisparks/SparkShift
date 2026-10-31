@@ -1,0 +1,96 @@
+{
+  "P22 breakaway interface": {
+    "run": "c28_flow_neutral_v5d_receiver_back",
+    "support_mm3": 9084.817087507465,
+    "sampled_support_mm3": 9084.817087507283,
+    "inside_airway_mm3": 1152.1041194130498,
+    "inside_airway_fraction": 0.12681643541258875,
+    "total_h": 3.102178005642361,
+    "prime_tower_h": 1.1606787109375,
+    "flush_h": 0.08355560302734374,
+    "support_h": 0.49460978613959417,
+    "abs_used_g": 44.461509704589844,
+    "abs_in_part_g": 23.827436447143555,
+    "interface_material_g": 3.142326593399048,
+    "inside_airway_by_region_mm3": {
+      "plenum/lobes Y<-26": 894.826283732272,
+      "side channels -26<=Y<11": 213.5974249696812,
+      "jets/outlets Y>=11": 0.0
+    }
+  },
+  "P22 ABS interface": {
+    "run": "c28_v5d_receiver_back_absif",
+    "support_mm3": 4619.526546925996,
+    "sampled_support_mm3": 4619.526546925954,
+    "inside_airway_mm3": 576.2297265808543,
+    "inside_airway_fraction": 0.12473783205430525,
+    "total_h": 1.3144646538628473,
+    "prime_tower_h": 0.0,
+    "flush_h": 0.0,
+    "support_h": 0.2524470165040758,
+    "abs_used_g": 21.706378936767578,
+    "abs_in_part_g": 16.902070999145508,
+    "interface_material_g": 0,
+    "inside_airway_by_region_mm3": {
+      "plenum/lobes Y<-26": 419.80969654892994,
+      "side channels -26<=Y<11": 81.71543489614226,
+      "jets/outlets Y>=11": 0.0
+    }
+  },
+  "P21 breakaway interface": {
+    "run": "c28_flow_neutral_v5d_p21_top",
+    "support_mm3": 1256.6412476081227,
+    "sampled_support_mm3": 1256.6412476081282,
+    "inside_airway_mm3": 266.26020466740783,
+    "inside_airway_fraction": 0.21188243277403432,
+    "total_h": 1.3219117567274306,
+    "prime_tower_h": 0.4602629258897569,
+    "flush_h": 0.030666662851969402,
+    "support_h": 0.07802219496832953,
+    "abs_used_g": 21.542247772216797,
+    "abs_in_part_g": 11.810280799865723,
+    "interface_material_g": 0.8199036717414856
+  },
+  "P21 ABS interface": {
+    "run": "c28_v5d_p21_top_absif",
+    "support_mm3": 676.4098332369456,
+    "sampled_support_mm3": 676.4098332369488,
+    "inside_airway_mm3": 132.91834017618584,
+    "inside_airway_fraction": 0.19650562964188026,
+    "total_h": 0.7176083713107639,
+    "prime_tower_h": 0.0,
+    "flush_h": 0.0,
+    "support_h": 0.05846284833219316,
+    "abs_used_g": 12.0018310546875,
+    "abs_in_part_g": 11.298365592956543,
+    "interface_material_g": 0
+  },
+  "P01 breakaway interface": {
+    "run": "c28_mechanical_p01_back",
+    "support_mm3": 4775.164159125099,
+    "sampled_support_mm3": 4775.164159125015,
+    "inside_airway_mm3": 0.0,
+    "inside_airway_fraction": 0.0,
+    "total_h": 2.745246853298611,
+    "prime_tower_h": 0.5320308091905382,
+    "flush_h": 0.0524444580078125,
+    "support_h": 0.2787326134575738,
+    "abs_used_g": 39.8247184753418,
+    "abs_in_part_g": 33.41801452636719,
+    "interface_material_g": 2.67042875289917
+  },
+  "P01 ABS interface": {
+    "run": "c28_p01_back_absif",
+    "support_mm3": 2316.264630108132,
+    "sampled_support_mm3": 2316.264630108102,
+    "inside_airway_mm3": 0.0,
+    "inside_airway_fraction": 0.0,
+    "total_h": 2.044438205295139,
+    "prime_tower_h": 0.0,
+    "flush_h": 0.0,
+    "support_h": 0.1818035782708062,
+    "abs_used_g": 33.29602813720703,
+    "abs_in_part_g": 30.887115478515625,
+    "interface_material_g": 0
+  }
+}

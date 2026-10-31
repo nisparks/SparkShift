@@ -1,0 +1,71 @@
+{
+  "input_brep": "swept_feed\\optC28_flow_neutral_retainer\\p01.brep",
+  "printer": "Bambu Lab H2D 0.4 nozzle",
+  "material": "Generic ABS @BBL H2D",
+  "interface_material": "Bambu Support for ABS @BBL H2D",
+  "layer_height_mm": "0.2",
+  "wall_loops": "5",
+  "support_policy": "tree(auto), allow support on the part, small-overhang removal disabled; identical assessment policy for before/after, not a support-free claim",
+  "support_recognized_bridges": true,
+  "support_extrusion_by_role": {
+    "Support": {
+      "extrusion_mm": 840.3196100000123,
+      "moves": 18844
+    },
+    "Support interface": {
+      "extrusion_mm": 122.67132000000043,
+      "moves": 1668
+    }
+  },
+  "support_deposition_volume_mm3": 2316.264630108132,
+  "support_feature_time_s": {
+    "Support": 578.6449584960938,
+    "Support interface": 75.8479232788086
+  },
+  "total_estimated_time_s": 7359.9775390625,
+  "warnings": "",
+  "limitations": "Slicer prediction only; no physical print. Deposited support excludes prime-tower/waste, startup custom G-code before explicit extrusion-mode initialization, and extrusion-only pressure recovery. The generated startup G-code is not approved for printing. Global presets and printer were not modified.",
+  "placement": {
+    "orientation": "back",
+    "assembly_to_print": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        175.0
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0,
+        161.94608404524092
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        -0.2999999999999936
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bed_contact_mm2": 2982.1403149934595,
+    "print_bounds_mm": [
+      [
+        152.5,
+        99.72549057006836,
+        0.0
+      ],
+      [
+        197.5,
+        220.27450942993164,
+        28.700000762939453
+      ]
+    ],
+    "note": "Geometric plate contact only; brim and warpage need physical validation."
+  }
+}
