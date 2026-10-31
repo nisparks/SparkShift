@@ -198,7 +198,7 @@ def main():
     if args.feed_cleanup:
         sections.insert(0, ("x", 16, (-14, 6, -71, -57)))
     if args.user_retainer:
-        sections[:0] = [("z", -56, (-24, 24, -48, -14)), ("x", 0, (-48, -14, -72, -44))]
+        sections[:0] = [("z", -56, (-24, 24, -48, -14)), ("x", 10, (-48, -14, -72, -44))]
     cases, changes = {}, {}
     fig, axes = plt.subplots(len(sections), len(pairs) * 2,
                              figsize=(12 * len(pairs), 6 * len(sections)), squeeze=False)

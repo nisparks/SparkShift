@@ -33,6 +33,13 @@ parts, not a print release: whole-set support rises 1.7%, inlet-down P22 introdu
 trapped-support risk, and the changed assembly still needs its own CFD.
 [Unbranded mechanical image](./images/r43_c28_mechanical_review_share.jpg).
 
+**Latest Bambu user-post review:** [the user's sloped P21 post with a matched,
+sealed P22 receiver](./R43_SWEPT_FEED_REVIEW.md#user-post-retainer-review), retained
+by the underside M3. Fit, service, 19 movement paths and matched slicing pass as
+review parts: whole-set support +0.9% and time +8.1% versus the original C28 parts.
+Matched CFD: duct pressure +5.1% with an unchanged jet split.
+[Unbranded image](./images/r43_c28_user_retainer_review_share.jpg).
+
 This directory contains the parametric OpenCASCADE (`OCP`) CAD generator (`build_and_verify_accessories_v26.py`), 3D finite-volume CFD solver (`simulate_cpap_cfd_v26.py`), VTK multi-angle renderer (`render_accessories_v26.py`), animated GIF generator (`animate_accessories_v26.py`), and manufacturing-ready **STEP (`.step`)** and **binary STL (`.stl`)** files for the **SparkShift v26** accessory and toolhead cooling suite on a **Voron 2.4R2 350 with a Monolith 2WD 9mm gantry**.
 
 All **14 pure-primitive accessory/dock/rack/jig parts** (`P20`–`P29_L/R`, `P17_HF_tool_carrier_3010`, `P17_HF_tool_carrier_2510`, and `P18_Tool_docking_backplate_3010`) plus **5 COTS-qualified core drop-in parts** (`P01_Back_case_COTS_MR74`, `P02_Motor_servo_plate_12p5mm`, `P03_Front_case_COTS`, `P04F_Swing_arm_front_half_COTS`, and `P05_Servo_cam_COTS`) are constructed from **analytical CAD primitives** (`GeomAbs_Plane`, `GeomAbs_Cylinder`, `GeomAbs_Cone` — **`0` BSpline/mesh/sphere faces** and **`0` sliver faces `< 0.15 mm²`** on all 16 pure-primitive parts) and mount to the existing **SparkShift AHG v26** carriage and Voron 2.4R2 frame with **zero unintended modifications (`0.000 mm³` cut/clash)** to any of the 135 existing v26 bodies.

@@ -18,6 +18,65 @@ The [earlier decision-summary image](images/sparkshift_c28_design_review_share.j
 is retained as a historical 32/28-degree comparison and explicitly labels its
 pre-inlet-cleanup CFD.
 
+## User-post retainer review
+
+**Current Bambu mechanical candidate: review parts, not a print release.** The
+user's Fusion P21 post (document 53) is kept as drawn above Z -58.5 mm and retained
+by the same underside M3x10 screw and M3x4 insert (axis X0, Y-28.2 mm). The angled
+P01/P22 mounts from the [mechanical review](#mechanical-review) are unchanged.
+
+![User post, matched receiver, measured fit, printing and CFD](images/r43_c28_user_retainer_review_share.jpg)
+
+[Share JPEG](images/r43_c28_user_retainer_review_share.jpg) |
+[Full-size PNG](images/r43_c28_user_retainer_review.png) |
+[Matched CFD maps](images/r43_user_retainer_cfd.png) |
+[Assembly STEP](step/54_C28_Bambu_User_Post_Retainer_REVIEW.step) |
+[User's Fusion snapshot](53_C28_User_P21_Direction_FUSION_SNAPSHOT.f3d).
+
+| Change to the user's direction | Volume | Reason |
+| :--- | ---: | :--- |
+| Lower rear/side relief on the post, below Z -58.5 mm | -126.6 mm3 | Leaves room for printable receiver walls; the upper connection is untouched. |
+| 45-degree seal skirt on P21 | +15.9 mm3 | Lands on the receiver top in the original sleeve-bottom plane, so the socket cannot open the duct. |
+| Matched P22 receiver: 0.25 mm socket clearance, 1.25 mm walls, open front into the dry bay, slot dam and 45-degree rear keel | P22 +883 / -1,262 mm3 vs clean C28, including the angled mount | Locates and seals the post. The open front stays 1.21 mm from the remaining channel air. |
+
+| Check | Result |
+| :--- | :--- |
+| Duct seal | Closed. Duct air 27,090 mm3 vs 27,776 mm3 (-686 mm3, -2.5%); the post and receiver occupy 105 + 477 mm3 of the clean C28 channel. |
+| Fit | Valid single solids, no part or hardware overlap. New-material cable gaps 0.45 mm (post) and 2.98 mm (receiver). Complete 1.2 mm walls around all three inserts. Lower jets, probe seat, swept feeds and outlet unchanged (0 mm3). No new metal in either probe's keepouts and no new plastic in their sensing keepouts. |
+| Service | P22 lowers 18 mm (73 samples) clear of P01, P21 and the cable; P21 and the EBB42 stay on the carriage. |
+| Motion | 19 real-scene paths clear for all new material and fasteners. Every sampled gap is at least 0.60 mm, and at least 1.10 mm to the X gantry (the forked tongue reached 0.72 mm). Certified continuous bound: 0.35 mm. |
+| Printing, H2D ABS, matched settings | Support: P01 -0.7%, P21 +98% (643 to 1,275 mm3), P22 -4.9%. Three-part set: support +0.9%, time +8.1% vs the original C28 parts; -0.8% and -1.2% vs the forked tongue. Rear passage 0 mm3; socket 2.9 mm3. |
+| CFD, 180 L/min, matched | Duct pressure +5.1% (1,480 vs 1,408 Pa); estimated blower flow -1.0%. Side jets +0.2%, rear branch -0.4%. The X = 10 mm section shows a longer low-speed zone on the elbow's inner side beside the receiver. |
+| Near-print sectors | Weakest sector -13.6%. The exterior-only printability control moved it -15.4%, so this is not attributed to the post. |
+| Exports and Fusion | Both receivers round-trip exactly. The exchange-derived P21 matches within 1e-5 mm by tessellation congruence (its own exact self-difference is invalid). Fusion document **54 Bambu C28 - user post retainer (REVIEW)** imports within 0.0023% native volume; document 53 is unchanged. |
+
+Print P21 top face down and P22 back face down; do not use the P22 inlet-face-down
+pose. Install all inserts before assembly. These are nominal CAD checks, **not
+strength, torque, sealing, thermal or print-fit qualification**.
+
+| Area | Next improvement | Why |
+| :--- | :--- | :--- |
+| Duct pressure | Slim the receiver walls where they narrow the elbow lobes | The +5.1% comes from the narrowed inner side; the jet split is unchanged. |
+| P21 support | Shape the post underside for top-down printing, or accept the extra 0.63 cm3 | P21 support roughly doubles; P22 saves 0.46 cm3. |
+| Near-print airflow | Use time-averaged or longer runs before judging sector changes | Single-snapshot sector metrics move about 15% with exterior-only changes. |
+| First article | Print, then check post/socket fit, seal, insert pull-out, cable motion and hot operation | Gaps of 0.45 mm (cable) and 0.25 mm (socket) are nominal. |
+
+Review parts:
+[P21](step/P21_C28_Bambu_User_Post_Sealed_REVIEW.step) |
+[P22 Beacon](step/P22_C28_Bambu_User_Post_Receiver_Beacon_REVIEW.step) |
+[P22 Cartographer](step/P22_C28_Bambu_User_Post_Receiver_Cartographer_REVIEW.step) |
+[P01](step/P01_C28_Bambu_45deg_Mounts_REVIEW.step); print-oriented STLs share these names in `stl/`.
+
+Evidence:
+[geometry, seal and service](verification_c28_user_retainer_geometry_r43.json) |
+[real-scene movement](verification_c28_user_retainer_motion_r43.json) |
+[matched slicing](verification_c28_user_retainer_slicing_r43.json) |
+[matched CFD](verification_user_retainer_cfd_r43.json) |
+[Fusion review](verification_c28_user_retainer_fusion_r43.json).
+Reproduce with `audit_c28_user_retainer_r43.py`, `audit_c28_user_retainer_motion_r43.py`,
+`audit_c28_user_retainer_slicing_r43.py`, `cfd_direct_mount_r43.py --user-retainer`
+and `render_c28_user_retainer_r43.py`.
+
 ## Mechanical review
 
 **Separate matched P01/P21/P22 replacements, not a P22-only drop-in or a new
@@ -33,14 +92,13 @@ was saved as `53_C28_Live_Edits_Preserved.f3d` in the session artifacts. The che
 pre-edit STEP/STL files remain separate. Those edits must be reconciled before
 adopting a new baseline; they were not overwritten or silently accepted.
 
-**User P21 direction: adopted for development, not yet qualified.** The user then
-confirmed the edited P21 (a sloped post retained by the underside M3 screw) as the
-intended printable direction, with tweaks allowed. Its 25-feature native document
-is archived in this repository as
+**User P21 direction: adopted.** The user then confirmed the edited P21 (a sloped
+post retained by the underside M3 screw) as the intended printable direction, with
+tweaks allowed. Its 25-feature native document is archived in this repository as
 [`53_C28_User_P21_Direction_FUSION_SNAPSHOT.f3d`](53_C28_User_P21_Direction_FUSION_SNAPSHOT.f3d)
-(P21 12,160.35 mm3; the open document was unchanged when archived). A matched P22
-receiver is being qualified with `r43_c28_user_joint.py` and
-`audit_c28_user_retainer_r43.py`. The forked-tongue tables below do not describe it.
+(P21 12,160.35 mm3; the open document was unchanged when archived). Its matched
+receiver and checks are in the [user-post retainer review](#user-post-retainer-review).
+The forked-tongue tables below do not describe it.
 
 ![Angled mounts, forked tongue and underside screw](images/r43_c28_mechanical_review_share.jpg)
 

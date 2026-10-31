@@ -71,9 +71,10 @@ def data_lines():
                 f"{geometry['lower_duct_service']['downward_release_mm']} mm for service; P21 + EBB42 stay."),
     ]
     if motion:
-        gantry = min(r["continuous_clearance_lower_bound_mm"] for r in motion["paths"])
-        lines.append(("MOTION", f"{len(motion['paths'])} real-scene paths clear; smallest certified clearance "
-                                f"{gantry:.2f} mm (rigid nominal CAD)."))
+        bound = min(r["continuous_clearance_lower_bound_mm"] for r in motion["paths"])
+        sampled = min(r["minimum_sample"]["mm"] for r in motion["paths"])
+        lines.append(("MOTION", f"{len(motion['paths'])} real-scene paths clear. Every sampled gap is at least "
+                                f"{sampled:.2f} mm (capped readings); certified continuous bound {bound:.2f} mm."))
     if slicing:
         c = slicing["comparisons"]
         t = slicing["three_separate_parts_total"]["user_post_vs_original_pct"]
@@ -84,11 +85,16 @@ def data_lines():
                                f"Rear passage: {slicing['support_access']['rear_passage_support_mm3']:.0f} mm3."))
     if cfd:
         change = cfd["comparison_by_tool"]["Bambu"]
-        speeds = change["mean_speed_pct"]
-        lines.append(("CFD 180 L/MIN", f"Inlet pressure {change['pressure_pct']:+.1f}%, rear branch "
-                                       f"{change['rear_branch_flow_pct']:+.1f}%, weakest near-print sector "
-                                       f"{change['weakest_sector_speed_pct']:+.1f}%, mean speed r5 "
-                                       f"{speeds.get('r5_mm', float('nan')):+.1f}%."))
+        before, after = (cfd["cases"][change[k]] for k in ("before", "after"))
+        flow = 100 * (after["estimated_blower_lpm_1m_hose"] / before["estimated_blower_lpm_1m_hose"] - 1)
+        jets = 100 * (after["side_jet_flow_lpm_at_180"] / before["side_jet_flow_lpm_at_180"] - 1)
+        lines.append(("CFD 180 L/MIN", f"Duct pressure {change['pressure_pct']:+.1f}% (est. blower flow {flow:+.1f}%). "
+                                       f"Split unchanged: side jets {jets:+.1f}%, rear {change['rear_branch_flow_pct']:+.1f}%."))
+        control = report("verification_printability_cfd_r43.json")
+        if control:
+            band = control["comparison_by_tool"]["Bambu"]["weakest_sector_speed_pct"]
+            lines.append(("NEAR PRINT", f"Weakest sector {change['weakest_sector_speed_pct']:+.1f}%: same size as an "
+                                        f"exterior-only control ({band:+.1f}%), so not attributed to the post."))
     else:
         lines.append(("CFD", "Pending."))
     return lines
