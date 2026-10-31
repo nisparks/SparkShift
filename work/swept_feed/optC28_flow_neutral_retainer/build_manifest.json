@@ -1,0 +1,16 @@
+{
+  "generator_sha256": "aa1435d3a3b560c9c913e19df8f66c3e6902a17459e2ea44e134a4b938a635f9",
+  "mechanical_generator_sha256": "cd678a830a941fbf1fe44b03f02a04d1ffd0895b04d05ab8edc63e59f981551f",
+  "frozen_scene_manifest_sha256": "93fd3ba08b3d69fba5462b8b8d684875f2f3ea8ca37bc0784a9c4620adf92144",
+  "body_sha256": {
+    "p01.brep": "e56126b004f4b85ea75cf5742487ee3d807c95794afd6ab3af42d600a68f7e33",
+    "p01_added.brep": "545e6d680f8a09620b80f51e6a3ee0287e8eb62293867050cce9640a913459ed",
+    "p01_removed.brep": "3dd049580d53027dc363eb91ff0fabdd876e6967b8f41ad8b770257c8ec40343",
+    "p21.brep": "3f4b87ec06ea2544e638267c61340fddb890d14b2bd65e3222ee5160873f292e",
+    "p21_added.brep": "cc9efdd7018d0cf11b1df05950665e25ae20d61275ed0d284d82bc55b0e7dc86",
+    "p21_removed.brep": "fdc75bfe05a54932b6580d63f4b6c2252e66e24302a5c754eeeb1b59d04840bc",
+    "p22.brep": "635f1c63c2c866c7b26ca39e51a5f0eb60a8e838c13e78e8db11996185088437",
+    "p22_added.brep": "45429e85d79f95cae5ad089e5feafacf3cd7a6a73cd9da0717cddc9fedc8e1ea",
+    "p22_removed.brep": "b0edb1fcc0fb03f5753b127d038ac4848d106af4cda5bae717c9fe391cec0a8e"
+  }
+}

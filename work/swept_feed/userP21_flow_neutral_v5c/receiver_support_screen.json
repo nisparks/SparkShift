@@ -1,0 +1,82 @@
+{
+  "c28_baseline_auto": {
+    "remaining_channel_air_near_receiver": {
+      "target_volume_mm3": 4965.294780877753,
+      "samples": 12804,
+      "support_mm3": 233.30440905412541
+    }
+  },
+  "c28_mechanical_back": {
+    "receiver_socket": {
+      "target_volume_mm3": 810.0022065808963,
+      "samples": 14,
+      "support_mm3": 0.3082176300781072
+    },
+    "remaining_channel_air_near_receiver": {
+      "target_volume_mm3": 4960.283606404109,
+      "samples": 12905,
+      "support_mm3": 237.21587678106317
+    }
+  },
+  "c28_user_p21_receiver_back_v1": {
+    "receiver_socket": {
+      "target_volume_mm3": 2090.0731511223703,
+      "samples": 17922,
+      "support_mm3": 345.8064675922541
+    },
+    "remaining_channel_air_near_receiver": {
+      "target_volume_mm3": 4335.61430685119,
+      "samples": 17508,
+      "support_mm3": 343.6517889432546
+    }
+  },
+  "c28_user_p21_receiver_back_v2": {
+    "receiver_socket": {
+      "target_volume_mm3": 1902.6555522874817,
+      "samples": 15866,
+      "support_mm3": 306.6602173212782
+    },
+    "remaining_channel_air_near_receiver": {
+      "target_volume_mm3": 4462.164292306187,
+      "samples": 16210,
+      "support_mm3": 310.41322723931285
+    }
+  },
+  "c28_user_p21_receiver_back_v4": {
+    "receiver_socket": {
+      "target_volume_mm3": 1902.6555522875099,
+      "samples": 142,
+      "support_mm3": 2.873253525760484
+    },
+    "remaining_channel_air_near_receiver": {
+      "target_volume_mm3": 4388.323852490984,
+      "samples": 10609,
+      "support_mm3": 194.74786937103323
+    }
+  },
+  "c28_flow_neutral_receiver_back": {
+    "receiver_socket": {
+      "target_volume_mm3": 1244.3174656559422,
+      "samples": 692,
+      "support_mm3": 16.12060086469969
+    },
+    "remaining_channel_air_near_receiver": {
+      "target_volume_mm3": 4907.240632032438,
+      "samples": 15732,
+      "support_mm3": 295.73931795655267
+    }
+  },
+  "c28_flow_neutral_v5c_receiver_back": {
+    "receiver_socket": {
+      "target_volume_mm3": 1243.5571534503024,
+      "samples": 117,
+      "support_mm3": 2.2040598584722084
+    },
+    "remaining_channel_air_near_receiver": {
+      "target_volume_mm3": 4880.645437767215,
+      "samples": 11572,
+      "support_mm3": 212.71272000798814
+    }
+  },
+  "scope": "Sampled support centrelines in assembly coordinates. Socket support is open to the socket mouth; channel-air support near the receiver indicates possible trapped support."
+}

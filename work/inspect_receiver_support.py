@@ -15,11 +15,16 @@ import r43_c28_mechanical as M  # noqa: E402
 import r43_swept_feed as F  # noqa: E402
 
 FORK = S / "swept_feed" / "optC28_mechanical"
+CLEAN = S / "swept_feed" / "optC28_clean"
 VARIANTS = {
+    "c28_baseline_auto": CLEAN,
     "c28_mechanical_back": FORK,
     "c28_user_p21_receiver_back_v1": S / "swept_feed" / "userP21_matched_v1",
     "c28_user_p21_receiver_back_v2": S / "swept_feed" / "userP21_matched_v2",
     "c28_user_p21_receiver_back_v4": S / "swept_feed" / "userP21_matched_v4",
+    "c28_flow_neutral_receiver_back": S / "swept_feed" / "userP21_flow_neutral_v5",
+    "c28_flow_neutral_v5c_receiver_back": S / "swept_feed" / "userP21_flow_neutral_v5c",
+    "c28_flow_neutral_v5d_receiver_back": S / "swept_feed" / "userP21_flow_neutral_v5d",
 }
 
 
@@ -37,12 +42,20 @@ def main():
     region = M.box(-12, 12, -47, -18, -68, -48)
     reports = {}
     for tag, folder in VARIANTS.items():
-        p22 = cq.Shape.importBrep(str(folder / "p22.brep"))
-        targets = {
-            "receiver_socket": socket_for(folder).intersect(region).cut(p22),
-            "remaining_channel_air_near_receiver": F.main_channel_air().cut(p22).cut(
-                cq.Shape.importBrep(str(folder / "p21.brep"))).intersect(region),
-        }
+        if folder == CLEAN:
+            # The original C28 parts: no socket, so only the channel air near the joint is screened.
+            p22 = cq.Shape.importBrep(str(S / "swept_feed" / "optC28_clean" / "p22_swept_beacon.brep"))
+            manifest = json.loads((S / "r43_scene" / "manifest.json").read_text())
+            p21 = cq.Shape.importBrep(str(S / "r43_scene" / next(f for n, f in manifest["carriage"]
+                                                                if n.startswith("P21_"))))
+            targets = {"remaining_channel_air_near_receiver": F.main_channel_air().cut(p22).cut(p21).intersect(region)}
+        else:
+            p22 = cq.Shape.importBrep(str(folder / "p22.brep"))
+            targets = {
+                "receiver_socket": socket_for(folder).intersect(region).cut(p22),
+                "remaining_channel_air_near_receiver": F.main_channel_air().cut(p22).cut(
+                    cq.Shape.importBrep(str(folder / "p21.brep"))).intersect(region),
+            }
         run = S / "printability_swept" / tag
         transform = np.array(json.loads((run / "placement.json").read_text())["assembly_to_print"]) \
             if (run / "placement.json").exists() else None

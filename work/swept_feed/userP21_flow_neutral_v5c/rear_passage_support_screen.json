@@ -1,0 +1,13 @@
+{
+  "c28_flow_neutral_v5c_receiver_back": {
+    "coordinate_method": "Recorded placement matrix",
+    "sample_spacing_mm": 0.5,
+    "total_support_samples": 415018,
+    "within_passage_bounds": 6983,
+    "narrow_rear_passage_samples": 0,
+    "estimated_support_in_passage_mm3": 0.0,
+    "exact_cad_witnesses_mm": [],
+    "scope": "Dedicated rear passage only, excluding the main channels and open outlet extension.",
+    "limitation": "Sampled deposition centerlines at layer mid-height, not bead-solid collision or physical removability proof. Nonzero deposition here is a trapped-support warning."
+  }
+}

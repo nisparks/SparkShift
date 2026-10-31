@@ -1,0 +1,130 @@
+{
+ "z=-50": {
+  "clean channel air": 187.0,
+  "clean P22": 153.4,
+  "original P21": 110.08,
+  "v4 P22": 132.11,
+  "user P21 (sealed)": 115.88,
+  "cable": 7.07
+ },
+ "z=-52": {
+  "clean channel air": 285.02,
+  "clean P22": 308.96,
+  "original P21": 0,
+  "v4 P22": 302.17,
+  "user P21 (sealed)": 30.78,
+  "cable": 7.63
+ },
+ "z=-54": {
+  "clean channel air": 412.55,
+  "clean P22": 366.36,
+  "original P21": 0,
+  "v4 P22": 366.26,
+  "user P21 (sealed)": 36.98,
+  "cable": 37.11
+ },
+ "z=-56": {
+  "clean channel air": 551.41,
+  "clean P22": 422.31,
+  "original P21": 0,
+  "v4 P22": 424.77,
+  "user P21 (sealed)": 43.18,
+  "cable": 49.39
+ },
+ "z=-58": {
+  "clean channel air": 721.12,
+  "clean P22": 1076.96,
+  "original P21": 0,
+  "v4 P22": 1075.94,
+  "user P21 (sealed)": 70.65,
+  "cable": 7.96
+ },
+ "z=-60": {
+  "clean channel air": 1137.11,
+  "clean P22": 776.5,
+  "original P21": 0,
+  "v4 P22": 739.72,
+  "user P21 (sealed)": 90.79,
+  "cable": 7.07
+ },
+ "z=-62": {
+  "clean channel air": 1165.87,
+  "clean P22": 738.65,
+  "original P21": 0,
+  "v4 P22": 705.19,
+  "user P21 (sealed)": 61.47,
+  "cable": 7.07
+ },
+ "z=-64": {
+  "clean channel air": 1160.58,
+  "clean P22": 714.9,
+  "original P21": 0,
+  "v4 P22": 686.85,
+  "user P21 (sealed)": 49.16,
+  "cable": 7.07
+ },
+ "z=-66": {
+  "clean channel air": 1120.27,
+  "clean P22": 709.44,
+  "original P21": 0,
+  "v4 P22": 755.94,
+  "user P21 (sealed)": 0,
+  "cable": 7.07
+ },
+ "z=-68": {
+  "clean channel air": 1034.73,
+  "clean P22": 674.62,
+  "original P21": 0,
+  "v4 P22": 704.37,
+  "user P21 (sealed)": 0,
+  "cable": 0
+ },
+ "x=0": {
+  "clean channel air": 11.0,
+  "clean P22": 321.15,
+  "original P21": 335.89,
+  "v4 P22": 266.93,
+  "user P21 (sealed)": 401.55,
+  "cable": 340.46
+ },
+ "x=2.5": {
+  "clean channel air": 77.93,
+  "clean P22": 317.65,
+  "original P21": 460.6,
+  "v4 P22": 256.29,
+  "user P21 (sealed)": 602.74,
+  "cable": 0
+ },
+ "x=3.6": {
+  "clean channel air": 95.61,
+  "clean P22": 326.1,
+  "original P21": 428.11,
+  "v4 P22": 251.39,
+  "user P21 (sealed)": 468.85,
+  "cable": 0
+ },
+ "x=4.2": {
+  "clean channel air": 182.19,
+  "clean P22": 276.36,
+  "original P21": 374.19,
+  "v4 P22": 276.5,
+  "user P21 (sealed)": 398.79,
+  "cable": 0
+ },
+ "x=5.0": {
+  "clean channel air": 217.97,
+  "clean P22": 272.61,
+  "original P21": 293.57,
+  "v4 P22": 407.35,
+  "user P21 (sealed)": 295.39,
+  "cable": 0
+ },
+ "x=5.8": {
+  "clean channel air": 238.98,
+  "clean P22": 278.54,
+  "original P21": 289.63,
+  "v4 P22": 348.67,
+  "user P21 (sealed)": 289.77,
+  "cable": 0
+ }
+}

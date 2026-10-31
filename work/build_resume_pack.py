@@ -24,7 +24,9 @@ TOP_FILES = [
     "parked_intake_T0_Bambu.step", "parked_intake_T1_RedLizard.step", "53_C28_Live_Edits_Preserved.f3d",
 ]
 SWEPT = ["optC28_clean", "optC28_mechanical", "userP21_20261030_193918", "userP21_matched_v4",
-         "optC28_user_retainer", "optC28_conformal", "optC28_dfm", "optD11_roof"]
+         "optC28_user_retainer", "optC28_conformal", "optC28_dfm", "optD11_roof",
+         "optC28_flow_neutral_retainer", "userP21_flow_neutral_v5", "userP21_flow_neutral_v5c",
+         "userP21_flow_neutral_v5d", "flow_tweak"]
 MAX_MB = 20
 PACKAGES = ["cadquery", "cadquery-ocp", "numpy", "trimesh", "scipy", "vtk", "pyvista", "matplotlib",
             "Pillow", "manifold3d", "rtree", "shapely"]

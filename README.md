@@ -17,7 +17,8 @@ $env:SPARKSHIFT_SENSOR_DIR = (Resolve-Path ..\SparkShift-workdata\sensor_sources
 $env:SPARKSHIFT_CAD = (Resolve-Path .\cad\SparkShift_Accessories_v26).Path
 
 cd cad\SparkShift_Accessories_v26
-python audit_c28_user_retainer_r43.py
+python audit_c28_flow_neutral_retainer_r43.py    # current Bambu retainer (v5d)
+python audit_c28_user_retainer_r43.py            # earlier sealed receiver (v4)
 ```
 
 Before running probe checks, copy the vendor probe models listed under
@@ -32,7 +33,8 @@ Bambu Studio's command-line interface at its default Windows install path.
 
 - `work/` mirrors the original session working folder (`SPARKSHIFT_WORK`):
   frozen r41/r43 scene BREPs, carriage/gantry/EBB42 caches, the C28 study BREPs
-  (cleaned feed, angled mounts, the user's P21 snapshot and the matched receiver),
+  (cleaned feed, angled mounts, the user's P21 snapshot, the sealed receiver and the
+  flow-neutral retainer builds v5b to v5d with their Fusion review archives),
   H2D slicer presets, slice metrics, CFD scripts with small P22 BREPs, and session
   tools.
 - `sensor_sources/` holds probe measurements (`SPARKSHIFT_SENSOR_DIR`).
