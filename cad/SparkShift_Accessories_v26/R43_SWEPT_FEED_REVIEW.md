@@ -56,6 +56,28 @@ collides, as in the [next section](#where-the-air-passes-the-nozzle-tip). The ti
 | Front reach: chamber front wall thinned to 0.8 mm (F08) | 231 L/min | 1417 Pa | 12 / 15 deg | +2.8 / +1.7 mm | +2.2 / 2.3 mm | +0.5 / 2.2 mm |
 | Ramp + floor-lip chamfer (RC) | 208 L/min | 2177 Pa | 24 / 17 deg | +3.7 / -0.9 mm | +3.3 / 1.7 mm | +0.9 / 1.7 mm |
 | Louver + floor-lip chamfer (LC) | 218 L/min | 1857 Pa | 21 / 14 deg | +2.7 / -0.1 mm | +2.5 / 2.3 mm | +0.6 / 2.1 mm |
+| Divider 0.8 mm, 30 deg (L30t) | 199 L/min | 2515 Pa | 18 / 10 deg | +2.0 / +0.5 mm | +2.1 / 2.2 mm | +0.3 / 2.1 mm |
+| Divider 0.8 mm, 40 deg (L40t) | 152 L/min | 5689 Pa | 16 / 11 deg | +2.7 / -0.2 mm | +3.1 / 1.3 mm | +0.5 / 1.4 mm |
+| Airfoil divider, 0.8 to 0.5 mm (L30a) | 210 L/min | 2105 Pa | 19 / 11 deg | +2.2 / +0.4 mm | +2.1 / 2.1 mm | +0.3 / 2.1 mm |
+| Nose cut, 28-degree edge (NC28) | 226 L/min | 1563 Pa | 14 / 16 deg | +3.3 / +1.4 mm | +2.6 / 2.2 mm | +0.8 / 2.2 mm |
+| Front-only airfoil divider, Y 20.5 on (L30aF) | 218 L/min | 1846 Pa | 17 / 10 deg | +1.9 / +0.8 mm | +1.6 / 2.1 mm | -0.3 / 2.1 mm |
+| Nose cut + airfoil divider (NCL) | 202 L/min | 2400 Pa | 23 / 12 deg | +2.4 / -0.6 mm | +2.3 / 1.8 mm | +0.1 / 1.9 mm |
+| Straight roof, 32 deg (SR32) | 229 L/min | 1461 Pa | 15 / 16 deg | +3.1 / +1.2 mm | +2.4 / 2.1 mm | +0.7 / 2.0 mm |
+| Straight roof, 36 deg (SR36) | 229 L/min | 1479 Pa | 15 / 16 deg | +3.3 / +1.2 mm | +2.6 / 2.1 mm | +0.8 / 2.1 mm |
+| Split roof (SPR) | 221 L/min | 1735 Pa | 13 / 15 deg | +3.6 / +1.4 mm | +3.2 / 2.0 mm | +1.2 / 1.9 mm |
+| Split roof, deeper (SPD) | 216 L/min | 1922 Pa | 13 / 14 deg | +3.4 / +1.4 mm | +3.1 / 2.0 mm | +1.1 / 1.9 mm |
+| Split roof, ends ramped at the slot face (SPRT) | 216 L/min | 1913 Pa | 12 / 16 deg | +3.5 / +1.6 mm | +3.1 / 2.0 mm | +1.2 / 1.9 mm |
+| Split roof, rear end ramped at the slot face (SPRR) | 219 L/min | 1817 Pa | 13 / 16 deg | +3.6 / +1.5 mm | +3.2 / 2.0 mm | +1.4 / 1.9 mm |
+| Split roof, ends faded out (SPF) | 219 L/min | 1819 Pa | 12 / 15 deg | +3.6 / +1.6 mm | +3.3 / 2.1 mm | +1.3 / 2.0 mm |
+| Floor-lip chamfer, 22 deg (CH) | 232 L/min | 1383 Pa | 15 / 17 deg | +3.4 / +1.3 mm | +2.7 / 2.6 mm | +0.9 / 2.4 mm |
+| Ramp + 12-degree lip bevel (RMC) | 207 L/min | 2197 Pa | 23 / 16 deg | +3.6 / -0.7 mm | +3.2 / 1.7 mm | +1.0 / 1.7 mm |
+| Ramp + 6-degree lip bevel (RVM) | 205 L/min | 2266 Pa | 20 / 15 deg | +3.3 / -0.3 mm | +2.9 / 1.5 mm | +0.5 / 1.7 mm |
+| Ramp + 15-degree long chamfer (RCX) | 210 L/min | 2096 Pa | 24 / 17 deg | +3.7 / -0.8 mm | +3.3 / 1.9 mm | +0.9 / 1.9 mm |
+| Ramp + lip trimmed 1.5 mm (RT15) | 213 L/min | 2014 Pa | 27 / 18 deg | +4.0 / -1.4 mm | +3.5 / 1.9 mm | +1.0 / 1.9 mm |
+| Ramp + front wall toed in (RFT) | 182 L/min | 3360 Pa | 18 / 0 deg | -0.2 / +0.0 mm | +0.6 / 1.9 mm | -1.5 / 2.0 mm |
+| RVM + front wall toed in (RVMT) | 183 L/min | 3284 Pa | 19 / 1 deg | -0.1 / -0.2 mm | +0.6 / 1.9 mm | -1.6 / 2.0 mm |
+| Rear slot 2.0 mm (RS20) | 247 L/min | 1042 Pa | 12 / 16 deg | +3.2 / +1.8 mm | +2.7 / 2.7 mm | +0.7 / 2.4 mm |
+| RVM + 2.0 mm rear slot (RVMS) | 228 L/min | 1508 Pa | 21 / 14 deg | +3.3 / -0.4 mm | +3.0 / 1.6 mm | +0.8 / 1.6 mm |
 
 | Outlet change | Through the fresh bead | Speed at the bead, r 0.6-2 mm | Over the print, r <= 10 mm | Aimed at the hotend | Passing above 3.6 mm | Sectors R / F / L / Re |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -72,6 +94,28 @@ collides, as in the [next section](#where-the-air-passes-the-nozzle-tip). The ti
 | Front reach: chamber front wall thinned to 0.8 mm (F08) | 7.0 L/min | 17.9 m/s | 95 L/min | 63 L/min | 61 L/min | 23 / 26 / 25 / 30 m/s |
 | Ramp + floor-lip chamfer (RC) | 6.0 L/min | 19.2 m/s | 83 L/min | 2 L/min | 19 L/min | 18 / 23 / 18 / 24 m/s |
 | Louver + floor-lip chamfer (LC) | 6.5 L/min | 17.1 m/s | 90 L/min | 31 L/min | 50 L/min | 24 / 28 / 25 / 11 m/s |
+| Divider 0.8 mm, 30 deg (L30t) | 8.0 L/min | 18.6 m/s | 102 L/min | 30 L/min | 49 L/min | 34 / 33 / 34 / 16 m/s |
+| Divider 0.8 mm, 40 deg (L40t) | 3.4 L/min | 11.3 m/s | 96 L/min | 4 L/min | 9 L/min | 30 / 36 / 31 / 17 m/s |
+| Airfoil divider, 0.8 to 0.5 mm (L30a) | 6.4 L/min | 21.9 m/s | 104 L/min | 30 L/min | 49 L/min | 33 / 33 / 35 / 12 m/s |
+| Nose cut, 28-degree edge (NC28) | 5.6 L/min | 18.9 m/s | 94 L/min | 35 L/min | 58 L/min | 25 / 25 / 25 / 26 m/s |
+| Front-only airfoil divider, Y 20.5 on (L30aF) | 4.2 L/min | 15.4 m/s | 99 L/min | 45 L/min | 49 L/min | 29 / 29 / 29 / 24 m/s |
+| Nose cut + airfoil divider (NCL) | 5.9 L/min | 21.7 m/s | 94 L/min | 2 L/min | 33 L/min | 33 / 30 / 34 / 19 m/s |
+| Straight roof, 32 deg (SR32) | 7.7 L/min | 18.5 m/s | 98 L/min | 28 L/min | 51 L/min | 25 / 24 / 25 / 28 m/s |
+| Straight roof, 36 deg (SR36) | 6.9 L/min | 18.2 m/s | 93 L/min | 23 L/min | 51 L/min | 25 / 24 / 24 / 28 m/s |
+| Split roof (SPR) | 5.1 L/min | 19.6 m/s | 93 L/min | 8 L/min | 42 L/min | 23 / 23 / 23 / 24 m/s |
+| Split roof, deeper (SPD) | 4.0 L/min | 15.6 m/s | 93 L/min | 4 L/min | 37 L/min | 22 / 25 / 23 / 18 m/s |
+| Split roof, ends ramped at the slot face (SPRT) | 5.9 L/min | 20.1 m/s | 96 L/min | 13 L/min | 43 L/min | 25 / 28 / 27 / 19 m/s |
+| Split roof, rear end ramped at the slot face (SPRR) | 5.0 L/min | 21.7 m/s | 94 L/min | 7 L/min | 42 L/min | 24 / 25 / 24 / 20 m/s |
+| Split roof, ends faded out (SPF) | 4.2 L/min | 20.7 m/s | 90 L/min | 14 L/min | 41 L/min | 24 / 22 / 23 / 24 m/s |
+| Floor-lip chamfer, 22 deg (CH) | 4.8 L/min | 13.9 m/s | 78 L/min | 58 L/min | 65 L/min | 12 / 21 / 13 / 26 m/s |
+| Ramp + 12-degree lip bevel (RMC) | 6.1 L/min | 20.4 m/s | 86 L/min | 2 L/min | 16 L/min | 22 / 24 / 22 / 21 m/s |
+| **Ramp + 6-degree lip bevel (RVM)** | **9.2 L/min** | 21.4 m/s | 96 L/min | 4 L/min | 18 L/min | 28 / 26 / 27 / 25 m/s |
+| Ramp + 15-degree long chamfer (RCX) | 6.2 L/min | 18.4 m/s | 75 L/min | 4 L/min | 21 L/min | 16 / 22 / 15 / 24 m/s |
+| Ramp + lip trimmed 1.5 mm (RT15) | 4.9 L/min | 16.1 m/s | 68 L/min | 3 L/min | 20 L/min | 16 / 18 / 17 / 20 m/s |
+| Ramp + front wall toed in (RFT) | 9.0 L/min | 23.2 m/s | 80 L/min | 11 L/min | 32 L/min | 32 / 46 / 31 / 31 m/s |
+| RVM + front wall toed in (RVMT) | 8.0 L/min | 20.3 m/s | 80 L/min | 7 L/min | 30 L/min | 27 / 44 / 26 / 29 m/s |
+| Rear slot 2.0 mm (RS20) | 2.0 L/min | 11.3 m/s | 80 L/min | 85 L/min | 60 L/min | 16 / 21 / 17 / 14 m/s |
+| RVM + 2.0 mm rear slot (RVMS) | 4.7 L/min | 11.1 m/s | 95 L/min | 21 L/min | 13 L/min | 19 / 24 / 19 / 12 m/s |
 
 ![Where the air passes the tip: current, roof ramp, louver + vanes; dashed lines are the aim](images/r43_aim_round_compare.png)
 
@@ -96,6 +140,28 @@ nozzle axis below the tip, or meets the print first.
 | Front reach (F08) | 11% | 17.9 m/s | 19.9 m/s | 28.1 m/s | 25.9 m/s | 0.64 |
 | Ramp + floor-lip chamfer (RC) | **84%** | 19.2 m/s | 22.7 m/s | 27.0 m/s | 18.8 m/s | 0.71 |
 | Louver + floor-lip chamfer (LC) | 55% | 17.1 m/s | 16.6 m/s | **15.9 m/s** | 22.4 m/s | 1.07 |
+| Divider 0.8 mm, 30 deg (L30t) | 35% | 18.6 m/s | 19.3 m/s | 20.5 m/s | 22.1 m/s | 0.91 |
+| Divider 0.8 mm, 40 deg (L40t) | 72% | 11.3 m/s | 12.7 m/s | 16.4 m/s | 15.9 m/s | 0.69 |
+| **Airfoil divider, 0.8 to 0.5 mm (L30a)** | 37% | 21.9 m/s | 21.2 m/s | 19.9 m/s | 23.1 m/s | **1.10** |
+| Nose cut, 28-degree edge (NC28) | 17% | 18.9 m/s | 20.2 m/s | 26.3 m/s | 24.3 m/s | 0.72 |
+| Front-only airfoil divider, Y 20.5 on (L30aF) | 28% | 15.4 m/s | **13.6 m/s** | 24.6 m/s | 21.6 m/s | 0.63 |
+| Nose cut + airfoil divider (NCL) | 54% | 21.7 m/s | 22.1 m/s | 25.0 m/s | 18.2 m/s | 0.87 |
+| Straight roof, 32 deg (SR32) | 16% | 18.5 m/s | 20.2 m/s | 26.6 m/s | 23.4 m/s | 0.70 |
+| Straight roof, 36 deg (SR36) | 17% | 18.2 m/s | 19.9 m/s | 26.3 m/s | 23.3 m/s | 0.69 |
+| Split roof (SPR) | 20% | 19.6 m/s | 17.1 m/s | 20.6 m/s | 22.6 m/s | 0.95 |
+| Split roof, deeper (SPD) | 21% | 15.6 m/s | 13.2 m/s | 17.6 m/s | 19.7 m/s | 0.89 |
+| Split roof, ends ramped at the slot face (SPRT) | 23% | 20.1 m/s | 16.7 m/s | 20.0 m/s | 22.4 m/s | 1.00 |
+| Split roof, rear end ramped at the slot face (SPRR) | 21% | 21.7 m/s | 19.2 m/s | 20.6 m/s | 22.3 m/s | 1.05 |
+| Split roof, ends faded out (SPF) | 17% | 20.7 m/s | 17.6 m/s | 19.9 m/s | 22.5 m/s | 1.04 |
+| Floor-lip chamfer, 22 deg (CH) | 21% | 13.9 m/s | 17.7 m/s | 27.4 m/s | 24.9 m/s | 0.51 |
+| Ramp + 12-degree lip bevel (RMC) | 83% | 20.4 m/s | 22.0 m/s | 26.2 m/s | 19.5 m/s | 0.78 |
+| Ramp + 6-degree lip bevel (RVM) | 78% | 21.4 m/s | 23.7 m/s | 28.1 m/s | 19.1 m/s | 0.76 |
+| Ramp + 15-degree long chamfer (RCX) | 83% | 18.4 m/s | 21.5 m/s | 27.0 m/s | 18.9 m/s | 0.68 |
+| Ramp + lip trimmed 1.5 mm (RT15) | 86% | 16.1 m/s | 18.0 m/s | 25.0 m/s | 17.9 m/s | 0.64 |
+| Ramp + front wall toed in (RFT) | 55% | 23.2 m/s | 28.9 m/s | 41.7 m/s | 17.7 m/s | 0.56 |
+| RVM + front wall toed in (RVMT) | 67% | 20.3 m/s | 27.1 m/s | 41.2 m/s | 17.8 m/s | 0.49 |
+| Rear slot 2.0 mm (RS20) | 15% | 11.3 m/s | 10.4 m/s | **15.2 m/s** | 21.0 m/s | 0.74 |
+| RVM + 2.0 mm rear slot (RVMS) | 66% | 11.1 m/s | **10.1 m/s** | **13.4 m/s** | **15.1 m/s** | 0.83 |
 
 The bead trails the nozzle in whichever direction the head moves, so the weakest direction matters as much as the
 mean. Speed 0.3 mm above the print:
@@ -108,6 +174,27 @@ mean. Speed 0.3 mm above the print:
 | Louver + vanes (LV3) | 19.9 / 22.4 / 18.4 / 21.8 m/s | **18.4 m/s** | 14.8 / 29.7 / 30.5 / 30.2 m/s | 14.8 m/s |
 | Ramp + floor-lip chamfer (RC) | 27.3 / 19.6 / 10.6 / 19.6 m/s | 10.6 m/s | 23.5 / 17.8 / 23.8 / 17.7 m/s | 17.7 m/s |
 | Louver + floor-lip chamfer (LC) | 16.9 / 19.1 / 13.1 / 19.4 m/s | 13.1 m/s | 10.0 / 25.0 / 29.2 / 25.0 m/s | 10.0 m/s |
+| Divider 0.8 mm, 30 deg (L30t) | 15.1 / 20.8 / 16.7 / 22.3 m/s | 15.1 m/s | 16.0 / 35.3 / 34.9 / 35.2 m/s | 16.0 m/s |
+| Airfoil divider, 0.8 to 0.5 mm (L30a) | 21.0 / 24.9 / 17.3 / 24.5 m/s | 17.3 m/s | 10.9 / 35.3 / 34.5 / 34.4 m/s | 10.9 m/s |
+| Nose cut, 28-degree edge (NC28) | 26.1 / 19.6 / 9.7 / 20.1 m/s | 9.7 m/s | 26.4 / 25.2 / 26.5 / 25.9 m/s | 25.2 m/s |
+| Front-only airfoil divider, Y 20.5 on (L30aF) | 15.1 / 15.6 / 14.6 / 16.1 m/s | 14.6 m/s | 25.0 / 30.2 / 30.8 / 30.7 m/s | **25.0 m/s** |
+| Nose cut + airfoil divider (NCL) | 24.1 / 23.8 / 15.0 / 23.9 m/s | 15.0 m/s | 18.8 / 35.0 / 31.3 / 34.5 m/s | 18.8 m/s |
+| Straight roof, 32 deg (SR32) | 24.8 / 18.7 / 11.1 / 19.2 m/s | 11.1 m/s | 28.8 / 25.4 / 25.9 / 25.7 m/s | 25.4 m/s |
+| Straight roof, 36 deg (SR36) | 24.6 / 18.4 / 10.9 / 18.9 m/s | 10.9 m/s | 29.2 / 25.2 / 25.7 / 26.5 m/s | 25.2 m/s |
+| Split roof (SPR) | 22.8 / 24.5 / 8.2 / 23.7 m/s | 8.2 m/s | 23.6 / 22.5 / 24.7 / 23.2 m/s | 22.5 m/s |
+| Split roof, deeper (SPD) | 18.2 / 17.6 / 8.9 / 18.1 m/s | 8.9 m/s | 17.4 / 22.9 / 27.4 / 22.8 m/s | 17.4 m/s |
+| Split roof, ends ramped at the slot face (SPRT) | 21.3 / 25.1 / 11.6 / 23.2 m/s | 11.6 m/s | 18.1 / 26.5 / 29.4 / 25.1 m/s | 18.1 m/s |
+| Split roof, rear end ramped at the slot face (SPRR) | 23.9 / 25.3 / 10.8 / 27.8 m/s | 10.8 m/s | 18.8 / 23.8 / 26.3 / 23.9 m/s | 18.8 m/s |
+| Split roof, ends faded out (SPF) | 22.8 / 26.5 / 7.6 / 26.7 m/s | 7.6 m/s | 23.4 / 22.8 / 23.9 / 23.3 m/s | 22.8 m/s |
+| Floor-lip chamfer, 22 deg (CH) | 20.2 / 12.3 / 10.8 / 12.3 m/s | 10.8 m/s | 26.5 / 13.4 / 22.3 / 12.4 m/s | 12.4 m/s |
+| Ramp + 12-degree lip bevel (RMC) | 28.5 / 22.4 / 8.8 / 22.2 m/s | 8.8 m/s | 20.2 / 21.9 / 26.2 / 22.3 m/s | 20.2 m/s |
+| Ramp + 6-degree lip bevel (RVM) | 29.9 / 22.0 / 10.6 / 23.3 m/s | 10.6 m/s | 24.0 / 27.3 / 27.2 / 28.4 m/s | 24.0 m/s |
+| Ramp + 15-degree long chamfer (RCX) | 25.8 / 18.9 / 9.6 / 19.6 m/s | 9.6 m/s | 23.8 / 14.7 / 23.7 / 15.5 m/s | 14.7 m/s |
+| Ramp + lip trimmed 1.5 mm (RT15) | 19.2 / 19.6 / 8.4 / 17.8 m/s | 8.4 m/s | 20.1 / 16.8 / 19.5 / 15.8 m/s | 15.8 m/s |
+| Ramp + front wall toed in (RFT) | 26.1 / 21.0 / 24.5 / 21.2 m/s | **21.0 m/s** | 31.6 / 32.6 / 48.9 / 33.4 m/s | **31.6 m/s** |
+| RVM + front wall toed in (RVMT) | 23.0 / 17.4 / 23.8 / 16.9 m/s | 16.9 m/s | 30.5 / 26.8 / 46.0 / 28.0 m/s | 26.8 m/s |
+| Rear slot 2.0 mm (RS20) | 8.3 / 14.3 / 9.7 / 13.2 m/s | 8.3 m/s | 14.0 / 16.5 / 22.6 / 16.1 m/s | 14.0 m/s |
+| RVM + 2.0 mm rear slot (RVMS) | 6.9 / 13.0 / 10.8 / 13.4 m/s | 6.9 m/s | 11.8 / 18.6 / 25.2 / 19.2 m/s | 11.8 m/s |
 
 - **The louver keeps the nozzle hottest for the most bead air.** It halves the air on the sides of the cone,
   where the side jets hit (22.8 to 10.1 m/s on the left, 22.7 to 12.7 on the right), and still adds 16% at the
@@ -166,21 +253,321 @@ Printed back-down, the U's curl would also be a 63-degree overhang inside the ch
 
 ![Why U1 leans the jets further forward](images/r43_user_u_bowl_compare.png)
 
-**Recommendation.** With the goal of a hot nozzle and a cold bead, the louver is the direction to take. It is the
-only change that takes air off the nozzle (cone -30%) while adding air at the bead (+16%, weakest direction +43%),
-for 7% of the blower flow. Its weak point is the print 2-5 mm behind the nozzle, and its 0.5 mm blade is a single
-extrusion line: a printable 0.8 mm blade needs one confirming CFD. The ramp gives the bead the most air (+29%)
-and prints like the existing roof (matched slicing: support 4.67 against 4.62 cm3, same time), but it leaves the
-nozzle cone as exposed as now. Floor-lip chamfers, the lip trim and removing the lean all made the bead worse.
-CFD cannot settle a thermal trade like this: the chosen candidate needs a printed test.
+### Dividers: why they choke, and a printable one
 
-Evidence: the `side_jet_*`, `side_chamber_*` and `rejected_*` cases, each with its `tip_approach` blocks
-`aim_line`, `below_tip` and `hot_nozzle_cold_bead`, and `hotend_clearance_limits` in
-[verification_outlet_balance_r43.json](verification_outlet_balance_r43.json).
-Reproduce the geometry with the session's `build_aim_variant.py`: `--ramp-angle 45`; `--vanes 20.6,23.2,25.6
---vane-thick 0.45 --tip-x 10.25 --vane-x-out 12.55`; `--louver-z -75.3 --louver-angle 30`; `--u-csv
-user_u_centreline_mm.csv`. Then run the CFD as in the earlier sections and `cfd_tip_approach_r43.py`, whose aim
-line is new in this round.
+The divider is outlet geometry: a fin printed with P22 that splits each jet's opening into two stacked slots. The
+lower slot keeps the flat floor and feeds the bead. The upper slot gets its own floor at 30 degrees and passes under
+the nozzle cone. A reshaped roof or floor alone cannot give the top and bottom of one jet different angles: the ramp
+shrinks the opening, and floor chamfers land the bottom short of the bead. So far the divider is the only change
+that takes air off the nozzle.
+
+The air reaches the divider's leading edge already heading 24-34 degrees down, so a 30-degree fin meets it
+head-on. The choking comes from the slot shape. Each fin rises outward faster than the bell-mouth roof above it, so
+the upper slot is narrowest upstream rather than at the exit:
+
+| Divider | Upper slot at X 11.6 / at the exit | Duct at 180 L/min | Blower flow |
+| :--- | ---: | ---: | ---: |
+| None (current; one 3.44 mm opening) | - | 1420 Pa | 231 L/min |
+| 0.5 mm flat, 30 deg (L30) | - | 1969 Pa | 214 L/min |
+| 0.8 mm flat, 30 deg (L30t) | 0.88 / 1.20 mm | 2515 Pa | 199 L/min |
+| 0.8 mm flat, 40 deg (L40t) | 0.48 / 1.12 mm | 5689 Pa | 152 L/min |
+| Airfoil, 0.8 mm tapering to 0.5 mm, 30 deg (L30a) | 0.90 / 1.36 mm | 2105 Pa | 210 L/min |
+
+- **At 40 degrees the upper slot's inlet closes to 0.48 mm** and the duct pressure quadruples. Rejected.
+- **A square-ended 0.8 mm fin separates the flow at both ends.** At 180 L/min the side jets' exit dynamic
+  pressure rises from 977 to 1,579 Pa on 12% less flow, and the loss between the side channels and the exits
+  rises from 156 to 626 Pa.
+- **A round leading edge and a taper to 0.5 mm at the exit recover most of that (L30a).** It is now the best
+  divider: bead 21.9 m/s, weakest bead direction 17.3 m/s against 11.1 today, nozzle cone 19.9 m/s against 27.3,
+  and the most air over the print of any design (104 L/min).
+- **Every divider weakens the print 2-5 mm behind the nozzle** (11-16 m/s against 29 today), where the centre
+  slot's air lands. The divider's rear part turns air down onto the print just behind the nozzle, which stalls the
+  centre slot's air. With the divider on the front part only (Y 20.5 on, L30aF), the print 2-5 mm out is the most
+  even of any design (25-31 m/s every way) and the tip sees the least air (13.6 m/s). But the fresh-bead ring drops
+  to 15.4 m/s: the rear part of the divided jet is also what feeds the bead.
+- **The fins print.** The matched H2D ABS slices extrude them on every layer of each side: 90% of the CAD volume
+  for the flat 0.8 mm fin, 82% for the airfoil, whose 0.5 mm tail prints slightly thin. Support (4.73 and 4.20
+  against 4.62 cm3) and time (1.31-1.32 h) barely change.
+
+### Steering without blocking: the nose cut
+
+Every device placed in the outlet sits in the fastest air of the duct, about 50 m/s, and losses grow with the
+square of speed. The side chamber's air moves at 10-15 m/s. So the cheapest way to steer is with the shape of the
+walls the air already follows. The jet's roof is a convex bell-mouth round whose last tangent at the exit is
+horizontal. The nose cut removes the round's lower part inboard of the point where it points 28 degrees down,
+leaving a sharp edge there (X 11.33, Z-73.32) and a face rising 30 degrees to the slot face. It removes 6.4 mm3 per
+side and adds nothing, so every hotend clearance is unchanged, and the exit area grows 12%.
+
+| At the exit (X 10.3), inward-flux-weighted over Y 18-27, both jets | Bottom to top quarter | Mean |
+| :--- | :--- | ---: |
+| Current (released v5d) | 9 / 13 / 15 / 15 deg | 13 deg |
+| Nose cut, 28-degree edge (NC28) | 10 / 16 / 19 / 20 deg | 16 deg |
+| Airfoil divider (L30a) | 11 / 16 / 30 / 22 deg | 19 deg |
+
+The nose cut costs only 2% of the blower flow and keeps the region behind the nozzle intact (26 m/s at 2-5 mm),
+with all four sectors at 25-26 m/s. But it steers only about 3 degrees: the air already leaves the round at about
+15 degrees today, and the 2.65 mm flat floor sets most of the jet's direction. Bead +7%, nozzle cone -4%, sock -5%.
+It is a near-free improvement, not the step change the divider gives. Adding it to the airfoil divider (NCL) made
+the divider worse: 202 against 210 L/min, and the nozzle cone 25.0 against 19.9 m/s.
+
+**Direction after review: no fins, vanes or louvers in the outlet.** Only the outlet's own walls change from here.
+
+### Walls only: close the window the nozzle's air comes from
+
+**A steeper roof steers only the top of the jet.** The straight roof (SR32) replaces the last 2.5 mm of the
+bell-mouth round with a straight roof rising 32 degrees outward from the existing exit edge. It only removes
+material, so the exit opening and every clearance are unchanged. Like the nose cut, it turns the top quarter of
+each jet down (21 degrees against 15) but leaves the bottom half on the flat floor, and the air under the straight
+roof is slow. At 36 degrees (SR36) nothing changes further. Both keep the flow and cut the air aimed at the hotend
+from 62 to 23-28 L/min, but the nozzle cone still sees 26 m/s. The 45-degree ramp leaves the steepest jets of any
+wall change, 21 degrees on average, and scrubs the cone the most.
+
+**Where the cone's air comes from.** Each side-jet streamline was traced back to where it leaves the opening. In
+every design, the air that passes within 0.5 mm of the nozzle cone leaves through one stripe of the opening: Z-74.3
+to -75.4, from Y 19 to 24, the rear-middle of its upper half (red below). Air above the stripe passes over the cone
+onto the sock. Air below it passes under the cone or in front. Steering the roof does not move the stripe.
+
+![Where the side-jet air that hits the nozzle cone leaves the opening](images/r43_cone_scrub_origin.png)
+
+| Outlet change | Exit angle, bottom to top quarter | Side-jet air within 0.5 mm of the cone | Blower flow | Bead, r 0.6-2 mm | Nozzle cone, 1 mm to the sock |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| Current (released v5d) | 9 / 13 / 15 / 15 deg (mean 13) | 11% | 231 L/min | 17.6 m/s | 27.3 m/s |
+| Nose cut, 28-degree edge (NC28) | 10 / 16 / 19 / 20 deg (16) | 12% | 226 L/min | 18.9 m/s | 26.3 m/s |
+| Straight roof, 32 deg (SR32) | 10 / 15 / 18 / 21 deg (16) | 12% | 229 L/min | 18.5 m/s | 26.6 m/s |
+| Straight roof, 36 deg (SR36) | 10 / 15 / 19 / 22 deg (17) | 13% | 229 L/min | 18.2 m/s | 26.3 m/s |
+| 45-degree roof ramp (R45) | 11 / 18 / 25 / 32 deg (21) | 16% | 204 L/min | 22.7 m/s | 27.8 m/s |
+| Side-jet roof lowered 1.0 mm | 7 / 10 / 12 / 12 deg (10) | 13% | 209 L/min | 20.7 m/s | 27.3 m/s |
+| Side-jet roof lowered 1.7 mm | 5 / 7 / 9 / 11 deg (8) | 10% | 180 L/min | 17.7 m/s | 20.7 m/s |
+| **Split roof (SPR)** | 7 / 12 / 16 / 20 deg (14) | 10% | 221 L/min | **19.6 m/s** | **20.6 m/s** |
+| Split roof, deeper (SPD) | 7 / 11 / 15 / 20 deg (13) | 8% | 216 L/min | 15.6 m/s | 17.6 m/s |
+| Airfoil divider (L30a, excluded) | 11 / 16 / 30 / 22 deg (19) | 4% | 210 L/min | 21.9 m/s | 19.9 m/s |
+
+**The split roof (SPR)** lowers the roof only over that window and keeps the 32-degree straight roof elsewhere.
+Over Y 19.5-23.0 the bell-mouth round moves down 1.45 mm with the roof, to Z-75.0 at the exit. The window stops at
+Y 19.5 because the heel's floor climbs behind it, and at least 1.35 mm stays open there. It adds 11.8 mm3 per side
+inside the jet passage, all at |X| >= 10.2, and the opening shrinks 5.5%. Every hotend clearance is unchanged,
+mounted and along the 60 mm withdrawal.
+
+| At each design's blower point | Current | Straight roof (SR32) | Split roof (SPR) | Deeper (SPD) |
+| :--- | ---: | ---: | ---: | ---: |
+| Blower flow | 231 L/min | 229 L/min | 221 L/min | 216 L/min |
+| Bead, r 0.6-2 mm | 17.6 m/s | 18.5 m/s | **19.6 m/s** | 15.6 m/s |
+| Bead ring, weakest direction | 11.1 m/s (front) | 11.1 m/s (front) | 8.2 m/s (front) | 8.9 m/s (front) |
+| Nozzle tip to 1 mm | 19.3 m/s | 20.2 m/s | 17.1 m/s | 13.2 m/s |
+| Nozzle cone, 1 mm to the sock | 27.3 m/s | 26.6 m/s | **20.6 m/s** | 17.6 m/s |
+| Sock and heater block | 25.7 m/s | 23.4 m/s | 22.6 m/s | 19.7 m/s |
+| Bead / nozzle above 1 mm | 0.65 | 0.70 | **0.95** | 0.89 |
+| Air aimed at the hotend | 62 L/min | 28 L/min | 8 L/min | 4 L/min |
+| Print 2-5 mm out, weakest direction | 24.2 m/s | 25.4 m/s | 22.5 m/s | 17.4 m/s |
+
+- **The split roof takes as much air off the nozzle as the louvers did, with no blade.** The cone sees 20.6 m/s
+  against 27.3 today and 19.0-20.5 with the louver and dividers (L30, L30t, L30a). Lowering the whole roof to the
+  same cone speed cost 22% of the flow; the split roof costs 4%.
+- **The bead gets 11% more air,** and the left and right of the bead ring 24 m/s against 18. Air aimed at the
+  hotend falls from 62 to 8 L/min.
+- **Its weak point is the front of the bead ring,** 8.2 m/s against 11.1. With the window closed, the jets' air is
+  weighted to the front of the opening. They meet further forward (3.2 mm against 2.6), and the slow pocket in
+  front of the tip grows.
+- **Going deeper costs the bead.** Lowering the roof to Z-75.4 over Y 20-24 (SPD) cuts the cone to 17.6 m/s but
+  the bead to 15.6 m/s. The air under the window is also what feeds the sides of the bead.
+- **The rest of the cone's air now leaves just under the lowered roof and at the window's two ends** (map). It
+  meets the cone lower and slower.
+
+### Re-scored: air delivered onto the bead
+
+**The bead measure above favours jets that collide.** "Bead, r 0.6-2 mm" is the mean air speed 0.3 mm above the
+print. It counts air moving sideways past the bead. Where a jet strikes the print the air turns and slows, yet
+that is where impingement cooling is strongest and the air is fresh. So this round also measures the air arriving
+onto the print around the nozzle. It is the downward flow through a plane 0.5 mm above the print in the bead ring
+(r 0.6-2 mm) and in the print around it (r 2-5 mm), together with the flow rising through the same rings. The
+byte-identical repeat run agrees within 5% for the arriving flow and 17% for the rising flow at r 2-5 mm.
+
+| Outlet change | Arriving onto the bead ring | Rising off the bead ring | Print r 2-5 mm, arriving / rising | Nozzle cone, 1 mm to the sock | Blower flow |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| Current (released v5d) | 1.5 L/min | 0.0 L/min | 7.4 / 7.7 L/min | 27.3 m/s | 231 L/min |
+| Floor lip trimmed 1.5 mm | 2.6 L/min | 0.0 L/min | 5.1 / 3.2 L/min | 22.0 m/s | 234 L/min |
+| Side-jet roof lowered 1.0 mm | 2.8 L/min | 0.0 L/min | 8.3 / 4.7 L/min | 27.3 m/s | 209 L/min |
+| Side-jet roof lowered 1.7 mm | 0.1 L/min | 1.2 L/min | 9.0 / 5.6 L/min | 20.7 m/s | 180 L/min |
+| Vanes in the side passages (VC3) | 3.1 L/min | 0.0 L/min | 6.0 / 2.4 L/min | 22.6 m/s | 218 L/min |
+| Louver blade in each jet (L30) | 0.0 L/min | 2.9 L/min | 3.5 / 10.2 L/min | 19.0 m/s | 214 L/min |
+| 45-degree roof ramp (R45) | 0.4 L/min | 0.9 L/min | 5.4 / 10.4 L/min | 27.8 m/s | 204 L/min |
+| Louver + vanes (LV3) | 0.0 L/min | 1.7 L/min | 4.0 / 11.5 L/min | 21.3 m/s | 199 L/min |
+| Ramp + vanes (RV3) | 3.5 L/min | 0.0 L/min | 7.0 / 8.7 L/min | 33.6 m/s | 191 L/min |
+| User's U end (U1) | 1.3 L/min | 0.0 L/min | 7.0 / 3.9 L/min | 24.1 m/s | 229 L/min |
+| Front reach (F08) | 1.5 L/min | 0.0 L/min | 7.7 / 7.3 L/min | 28.1 m/s | 231 L/min |
+| Ramp + floor-lip chamfer (RC) | 2.9 L/min | 0.1 L/min | 6.5 / 6.7 L/min | 27.0 m/s | 208 L/min |
+| Louver + floor-lip chamfer (LC) | 0.0 L/min | 2.1 L/min | 5.0 / 5.7 L/min | 15.9 m/s | 218 L/min |
+| Divider 0.8 mm, 30 deg (L30t) | 0.0 L/min | 3.5 L/min | 1.9 / 14.4 L/min | 20.5 m/s | 199 L/min |
+| Divider 0.8 mm, 40 deg (L40t) | 0.5 L/min | 1.0 L/min | 5.9 / 13.9 L/min | 16.4 m/s | 152 L/min |
+| Airfoil divider, 0.8 to 0.5 mm (L30a) | 0.0 L/min | 3.4 L/min | 3.6 / 11.0 L/min | 19.9 m/s | 210 L/min |
+| Nose cut, 28-degree edge (NC28) | 1.1 L/min | 0.1 L/min | 6.7 / 7.5 L/min | 26.3 m/s | 226 L/min |
+| Front-only airfoil divider, Y 20.5 on (L30aF) | 0.3 L/min | 1.0 L/min | 4.5 / 8.4 L/min | 24.6 m/s | 218 L/min |
+| Nose cut + airfoil divider (NCL) | 0.0 L/min | 2.2 L/min | 3.7 / 11.6 L/min | 25.0 m/s | 202 L/min |
+| Straight roof, 32 deg (SR32) | 1.1 L/min | 0.1 L/min | 7.2 / 7.7 L/min | 26.6 m/s | 229 L/min |
+| Straight roof, 36 deg (SR36) | 1.2 L/min | 0.1 L/min | 7.1 / 6.8 L/min | 26.3 m/s | 229 L/min |
+| Split roof (SPR) | 0.8 L/min | 0.5 L/min | 6.7 / 3.6 L/min | 20.6 m/s | 221 L/min |
+| Split roof, deeper (SPD) | 0.7 L/min | 1.0 L/min | 6.0 / 4.8 L/min | 17.6 m/s | 216 L/min |
+| Split roof, ends ramped at the slot face (SPRT) | 0.3 L/min | 1.2 L/min | 7.9 / 5.7 L/min | 20.0 m/s | 216 L/min |
+| Split roof, rear end ramped at the slot face (SPRR) | 0.3 L/min | 1.3 L/min | 8.6 / 5.2 L/min | 20.6 m/s | 219 L/min |
+| Split roof, ends faded out (SPF) | 0.6 L/min | 0.3 L/min | 6.7 / 3.2 L/min | 19.9 m/s | 219 L/min |
+| **Floor-lip chamfer alone (CH)** | **3.4 L/min** | 0.0 L/min | 7.1 / 4.3 L/min | 27.4 m/s | **232 L/min** |
+| Ramp + 12-degree lip bevel (RMC) | 1.4 L/min | 0.4 L/min | 6.7 / 7.9 L/min | 26.2 m/s | 207 L/min |
+| Ramp + 6-degree lip bevel (RVM) | 1.2 L/min | 0.2 L/min | 5.9 / 10.5 L/min | 28.1 m/s | 205 L/min |
+| Ramp + 15-degree long chamfer (RCX) | 3.4 L/min | 0.1 L/min | 7.9 / 6.2 L/min | 27.0 m/s | 210 L/min |
+| **Ramp + lip trimmed 1.5 mm (RT15)** | **4.0 L/min** | 0.0 L/min | 6.9 / 6.2 L/min | 25.0 m/s | 213 L/min |
+| Ramp + front wall toed in (RFT) | 2.9 L/min | 0.0 L/min | 9.8 / 9.5 L/min | 41.7 m/s | 182 L/min |
+| RVM + front wall toed in (RVMT) | 4.3 L/min | 0.0 L/min | 8.8 / 9.2 L/min | 41.2 m/s | 183 L/min |
+| RVM + 2.0 mm rear slot (RVMS) | 0.0 L/min | 2.2 L/min | 9.5 / 2.6 L/min | **13.4 m/s** | 228 L/min |
+| Rear slot 2.0 mm (RS20) | 0.8 L/min | 0.2 L/min | **10.7 / 1.8 L/min** | 15.2 m/s | 247 L/min |
+
+- **Cutting the floor lip delivers the most air onto the bead of any blade-free outlet.** The chamfer alone (CH)
+  drops the lip's top from |X| 11.2 to 0.4 mm lower at the slot face, over Y 22.4-28.6. It puts 3.4 L/min onto the
+  bead ring against 1.5 today, with nothing rising there, at no cost in flow. Both jets' aim lines now cross at
+  the bead. The lip trim (2.6 L/min), the chamfer under the ramp (RC, 2.9; RCX, 3.4) and the ramp with the lip
+  trimmed (RT15, 4.0) do the same. The speed measure ranked all of them down.
+- **The louvers and dividers put no air onto the bead.** Their jets meet at the nozzle and turn up it: 2-3.5 L/min
+  rises off the bead ring. Their high bead speed is that collision.
+- **The split roofs keep air off the nozzle but deliver little onto the bead** (0.3-0.8 L/min).
+- **The chamfer leaves the nozzle cone as exposed as today** (27.4 m/s). Only the lip trim, among blade-free
+  outlets, has both: 2.6 L/min onto the bead and the cone at 22.0 m/s.
+
+### Scored by the user's target zones: hit the bead, punish high exponentially, low quadratically
+
+**The user's rule, 2026-10-31.** Love hitting the bead, punish air passing higher exponentially and air passing
+lower quadratically, and prefer more low to more high. The bead is taken as 0-0.4 mm below the nozzle tip, so it
+does not overlap the nozzle. Each outlet has its own target and nothing crosses the centre: the left jet's is the
+half-disc left of the nozzle, the right jet's is the right half, and the rear slot's is the half behind it.
+`cfd_bead_zones_r43.py` scores every flux-weighted streamline against its own zone, here 4 mm in radius.
+
+- Inside the zone it scores +1.
+- Passing D above tip level over the zone, it scores 1 - (e^(D/1 mm) - 1).
+- Reaching tip level short of the zone, it scores 1 - (D/1 mm)^2. D is the drop a 20-degree jet makes over the
+  shortfall.
+
+*Path* follows the real streamline; *aim* extends its exit direction straight. A score of 1 puts every litre in
+its zone. The byte-identical repeat agrees within 0.2 on the side-jet path score. Air in the zones varies by up
+to 0.8 L/min between identical runs, because only 1-3% of the streamlines enter them.
+
+![Where each side jet's air really goes, with the target zones](images/r43_bead_zone_paths.png)
+
+| Outlet change | Side jets, path score | Side jets, aim score | Side-jet exit angle, bottom to top quarter (mean) | Air in the zones | Arriving on the bead ring | Side-jet air passing the cone | Nozzle cone, 1 mm to the sock | Blower flow |
+| :--- | ---: | ---: | :--- | ---: | ---: | ---: | ---: | ---: |
+| Current (released v5d) | -16.8 | -3.8 | 9 / 13 / 15 / 15 deg (13) | 3.0 L/min | 1.5 L/min | 11% | 27.3 m/s | 231 L/min |
+| Current, byte-identical repeat | -16.6 | -3.8 | 9 / 13 / 15 / 15 deg (13) | 3.8 L/min | 1.4 L/min | 10% | 27.2 m/s | 231 L/min |
+| Floor lip trimmed 1.5 mm | -17.6 | -1.4 | 23 / 19 / 18 / 17 deg (19) | 2.8 L/min | 2.6 L/min | 11% | 22.0 m/s | 234 L/min |
+| Floor-lip chamfer, 22 deg (CH) | -18.5 | -2.5 | 17 / 16 / 17 / 15 deg (16) | 4.5 L/min | 3.4 L/min | 11% | 27.4 m/s | 232 L/min |
+| Side-jet roof lowered 1.0 mm | -8.9 | -2.7 | 7 / 10 / 12 / 12 deg (10) | 4.6 L/min | 2.8 L/min | 13% | 27.3 m/s | 209 L/min |
+| Side-jet roof lowered 1.7 mm | -7.9 | -2.0 | 5 / 7 / 9 / 11 deg (8) | 2.2 L/min | 0.1 L/min | 10% | 20.7 m/s | 180 L/min |
+| Nose cut, 28-degree edge (NC28) | -15.7 | -1.7 | 10 / 16 / 19 / 20 deg (16) | 4.4 L/min | 1.2 L/min | 12% | 26.3 m/s | 226 L/min |
+| Straight roof, 32 deg (SR32) | -14.1 | -1.0 | 10 / 15 / 18 / 21 deg (16) | 4.4 L/min | 1.1 L/min | 12% | 26.6 m/s | 229 L/min |
+| Split roof (SPR) | -13.3 | -1.7 | 7 / 12 / 16 / 20 deg (14) | 2.5 L/min | 0.8 L/min | 10% | 20.6 m/s | 221 L/min |
+| Split roof, ends faded out (SPF) | -13.4 | -2.7 | 6 / 10 / 14 / 18 deg (12) | 2.1 L/min | 0.6 L/min | 10% | 19.9 m/s | 219 L/min |
+| 45-degree roof ramp (R45) | **-4.9** | +0.7 | 11 / 18 / 25 / 31 deg (21) | 3.3 L/min | 0.4 L/min | 16% | 27.8 m/s | 204 L/min |
+| **Ramp + 6-degree lip bevel (RVM)** | **-5.1** | **+0.8** | 14 / 19 / 25 / 32 deg (22) | **5.3 L/min** | 1.2 L/min | 18% | 28.1 m/s | 205 L/min |
+| Ramp + 12-degree lip bevel (RMC) | -6.9 | +0.7 | 17 / 21 / 26 / 32 deg (24) | 4.4 L/min | 1.4 L/min | 13% | 26.2 m/s | 207 L/min |
+| Ramp + 22-degree lip chamfer (RC) | -7.1 | +0.5 | 21 / 23 / 27 / 33 deg (26) | 3.9 L/min | 2.9 L/min | 13% | 27.0 m/s | 208 L/min |
+| Ramp + 15-degree long chamfer (RCX) | -9.0 | +0.6 | 20 / 23 / 27 / 33 deg (26) | 4.1 L/min | 3.4 L/min | 14% | 27.0 m/s | 210 L/min |
+| Ramp + lip trimmed 1.5 mm (RT15) | -9.5 | +0.3 | 29 / 27 / 29 / 34 deg (30) | 3.5 L/min | 4.0 L/min | 12% | 25.0 m/s | 213 L/min |
+| Ramp + front wall toed in (RFT) | -8.2 | +0.8 | 10 / 16 / 22 / 30 deg (19) | 4.7 L/min | 2.9 L/min | 31% | 41.7 m/s | 182 L/min |
+| RVM + front wall toed in (RVMT) | -8.2 | +0.9 | 12 / 17 / 22 / 30 deg (20) | 5.5 L/min | 4.3 L/min | 29% | 41.2 m/s | 183 L/min |
+| RVM + 2.0 mm rear slot (RVMS) | -8.3 | +0.7 | 15 / 20 / 25 / 32 deg (23) | 4.4 L/min | 0.0 L/min | 0% | **13.4 m/s** | 228 L/min |
+| Rear slot 2.0 mm (RS20) | -19.2 | -5.1 | 10 / 13 / 14 / 14 deg (13) | 3.7 L/min | 0.8 L/min | 4% | **15.2 m/s** | **247 L/min** |
+| Louver blade (L30, excluded) | -16.6 | +0.0 | 12 / 18 / 26 / 20 deg (18) | 4.1 L/min | 0.0 L/min | 6% | 19.0 m/s | 214 L/min |
+| Airfoil divider (L30a, excluded) | -16.5 | +0.1 | 11 / 16 / 30 / 22 deg (19) | 4.4 L/min | 0.0 L/min | 4% | 19.9 m/s | 210 L/min |
+| Ramp + vanes (RV3, excluded) | -6.9 | +0.7 | 9 / 17 / 25 / 32 deg (21) | 4.1 L/min | 3.5 L/min | 22% | 33.6 m/s | 191 L/min |
+
+- **Make each side jet converge: steer the roof hard and the floor gently.** The two best scores, the 45-degree
+  roof ramp (R45, -4.9) and the ramp with a 6-degree lip bevel (RVM, -5.1), have the most convergent jets. Their top
+  quarter leaves 31-32 degrees down and their bottom quarter 11-14, a spread of 18-20 degrees, so the layers close
+  on the zone. Every steeper floor cut shrinks that spread and lands the bottom short: a 12-degree bevel scores
+  -6.9, the 22-degree chamfer -7.1, the long chamfer -9.0 and the lip trim -9.5. Floor cuts without the ramp leave
+  the top at 15-17 degrees and score no better than today (-17.6, -18.5), although they put the most air onto the
+  bead ring. The nose cut with the long chamfer (NCX, removal only) confirms it: -18.3, 4.3 L/min in the zones,
+  2.2 L/min onto the bead ring, 12% cone scrub at 229 L/min.
+- **RVM is the most promising wall-only design.** It pairs the best score with the most air in the zones, 5.3 L/min
+  against 3.0 today, and the most through the fresh bead of any design, 9.2 L/min against 6.0 (louvers included).
+  It costs 11% of the blower flow, and like every ramp it leaves the nozzle cone as exposed as today (28 m/s).
+- **In every design, 81-95% of the side-jet air still passes above the zones.** The jets meet under the nozzle and
+  the collision lifts both. Doing better needs each jet to reach the print on its own side before the jets meet.
+- **Removing the forward lean outright makes the jets collide on the nozzle.** RFT toes each passage's front end
+  wall in, so the exit ends at Y 25.6 instead of 27.55. The jets then leave straight across, 0 degrees forward
+  against 14, and the weakest bead direction rises to 21 m/s. But the narrower exit chokes the duct (182 L/min),
+  and the jets now meet head-on at the nozzle: 31% of their air passes the cone, at 42 m/s, and the score falls to
+  -8.2. The same toe-in on RVM (RVMT) does the same: 183 L/min, 41 m/s on the cone, score -8.2. The lean is what
+  keeps today's collision off the nozzle, as the vanes showed earlier (RV3).
+- **A bigger rear slot reaches its zone but slows the side jets.** Raising its upper lip to 2.0 mm (RS20) lets it
+  carry 60 L/min against 52, 28% of 247 L/min against 22% of 231. Its air now reaches the rear zone: 2.9 L/min,
+  score -10.1 against -16.1. It also puts the most air onto the print 2-5 mm out of any design (10.7 L/min arriving,
+  1.8 rising). The nozzle cone sees 15 m/s against 27, and only 4% of the side-jet air passes it. But the side
+  jets slow down: they score -19.2 and the bead ring falls to 11 m/s.
+- **With RVM's side jets, the 2.0 mm rear slot balances the three outlets (RVMS).** The rear slot carries 66 L/min
+  and each side jet 63, at 228 L/min in total, close to today's 231. The rear jet reaches its zone, and the nozzle
+  cone sees 13.4 m/s with almost no side-jet air passing it, the least of any design. On all the air it ties RVM.
+  The cost is aim and air at the bead: the side jets score -8.3 against -5.1, and the bead ring's air speed falls
+  to 11 m/s against 21.
+
+| At each design's blower point | Current | RVM | Rear slot 2.0 mm (RS20) | RVM + 2.0 mm rear slot (RVMS) |
+| :--- | ---: | ---: | ---: | ---: |
+| Blower flow | 231 L/min | 205 L/min | 247 L/min | 228 L/min |
+| Rear slot / each side jet | 52 / 90 L/min | 62 / 71 L/min | 60 / 78 L/min | **66 / 63 L/min** |
+| Rear zone: path score (air in it) | -16.0 (0.0 L/min) | -14.8 (0.7) | -10.1 (2.9) | **-5.2 (2.8)** |
+| Side jets: path score | -16.8 | **-5.1** | -19.2 | -8.3 |
+| All the air: path score | -16.6 | -8.1 | -16.7 | -7.2 |
+| Nozzle cone, 1 mm to the sock | 27.3 m/s | 28.1 m/s | 15.2 m/s | **13.4 m/s** |
+| Sock and heater block | 25.7 m/s | 19.1 m/s | 21.0 m/s | **15.1 m/s** |
+| Bead ring, r 0.6-2 mm | 17.6 m/s | **21.4 m/s** | 11.3 m/s | 11.1 m/s |
+| Through the fresh bead | 6.0 L/min | **9.2 L/min** | 2.0 L/min | 4.7 L/min |
+
+Identical runs differ by 0.2 in the side-jet score, 0.8 in the all-air score and 2.8 in the rear-zone score, so
+RVM and RVMS tie on all the air, and the rear zone's gain and the side jets' loss are real.
+
+### What the literature adds
+
+A research pass found no validated rule such as "aim N mm below the tip": the common 30-45-degree and 5-10 mm
+figures are forum consensus. Some findings do bear on this duct:
+
+- **Opposed jets that meet head-on choke and oscillate.** The Voron Dragon Burner's CFD redesign fixed it by turning
+  its ducts and opening them, not by stopping the jets meeting
+  ([chirpy2605/voron, Dragon Burner CFD](https://github.com/chirpy2605/voron/tree/main/V0/Dragon_Burner/cfd)). With
+  mirror symmetry, the jets' angle in plan is the free lever.
+- **A slot fed from the side leans downstream, roughly by tan(lean) = feed speed / exit speed.** This is
+  handbook-level guidance; the side jets' 15-degree lean implies chamber air at about 27% of the exit speed. The
+  standard wall-only fix tapers the feed so its speed stays even along the slot
+  ([manifold flow uniformity, JAFM](https://www.jafmonline.net/article_2401_cfc36d2a6d698682e3bd7f2e5ef9ead4.pdf)).
+- **Without vanes, a jet turns by wall curvature or by an asymmetric exit lip.** Curvature works in proportion to
+  jet thickness over wall radius, and a bevelled lip deflects the jet toward the shorter side (Coanda and bevelled
+  nozzle studies). This matches the ramp and the bevels here. A short straight roof turns only the layer next to it,
+  as SR32, SR36 and the nose cut showed.
+- **A convergent passage speeds up and collimates the jet.** A 3D-printer duct study measured 23% higher exit
+  velocity with a convergent-divergent passage
+  ([Choudhary et al., Mater. Today Proc. 2022](https://www.sciencedirect.com/science/article/pii/S2214785321069534)).
+- **The classic impingement optimum (slot-to-surface distance of 5-8 slot heights) does not apply.** These jets work
+  at 1-3 slot heights, where a second heat-transfer peak forms away from the stagnation point (Lytle and Webb
+  1994; Zuckerman and Lior 2006).
+
+**Recommendation.** Under the no-blade rule and the user's zones, two designs lead, and they differ only in the
+rear slot. Both take each side jet's roof down in a 45-degree ramp and bevel its floor lip 6 degrees.
+
+- **RVM** keeps today's 0.9 mm rear slot. It aims the side jets best (-5.1 against -16.8) and puts the most air
+  through the fresh bead (9.2 L/min). It costs 11% of the blower flow, and it brushes the nozzle as hard as today.
+- **RVMS** opens the rear slot to 2.0 mm. The three outlets carry equal flow, the blower flow is today's, the rear
+  jet reaches its zone, and the nozzle cone sees half today's air speed. But the bead sees less air speed.
+
+Print both for a thermal A/B: one P22 with two rear-slot heights. Both slice like today's part: matched H2D ABS
+slicing gives support 4.67 against 4.62 cm3 and 1.31-1.32 h, with no new support in the jets or the rear slot. The
+bevel only removes material, and the slot raises its upper lip as the earlier D11 trial did. Removing the jets'
+forward lean (RFT, RVMT) put their collision on the nozzle and is not recommended. This is airflow, not
+temperature: the printed test decides.
+
+Evidence: the `side_jet_*`, `side_chamber_*`, `rear_slot_*` and `rejected_*` cases in
+[verification_outlet_balance_r43.json](verification_outlet_balance_r43.json), each with its `tip_approach` and
+`bead_zones` blocks, and `hotend_clearance_limits`. Reproduce the geometry with the session's
+`build_aim_variant.py`: `--ramp-angle 45` (R45); `--ramp-angle 45 --floor-chamfer 11.7,-77.21` (RVM);
+`--floor-chamfer 11.2,-77.45` (CH); `--ramp-angle 45 --lip-trim 1.5` (RT15); `--roof-secant 32` (SR32);
+`--visor=-75.0,19.5,23.0 --visor-taper both --roof-secant 32 --roof-secant-y 24.45,27.55` (SPF);
+`--ramp-angle 45 --front-toe 25.6` (RFT). The rear slot uses `build_rear_slot_variant.py <name> 2.0 [source
+folder]`, with source `aim_v5d_RVM` for RVMS. Then run the CFD as in the earlier sections,
+`cfd_tip_approach_r43.py` and `cfd_bead_zones_r43.py`.
 
 ## Where the air passes the nozzle tip
 

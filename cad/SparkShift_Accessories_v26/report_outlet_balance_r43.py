@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 
+import cfd_bead_zones_r43 as Z
 import cfd_cpap_r41 as C
 import cfd_cpap_r41_post as P
 import cfd_cpap_r43 as A
@@ -55,6 +56,106 @@ CASES = {   # label: (case, description)
     "side_jet_louver_chamfer_lc": ("r43avgV5dLC_bambu_bed",
                                    "Current set, the L30 louver plus the same floor-lip chamfer (screening; within the "
                                    "hotend clearance limits)"),
+    "side_jet_divider_l30t": ("r43avgV5dL30t_bambu_bed",
+                              "Current set, the L30 louver thickened to a printable 0.8 mm divider (screening; within "
+                              "the hotend clearance limits)"),
+    "side_jet_divider_l40t": ("r43avgV5dL40t_bambu_bed",
+                              "Current set, a 0.8 mm divider rising outward at 40 degrees; chokes, 0.48 mm upper-slot "
+                              "throat (screening; within the hotend clearance limits)"),
+    "side_jet_airfoil_divider_l30a": ("r43avgV5dL30a_bambu_bed",
+                                      "Current set, a 30-degree airfoil divider in each side jet: 0.8 mm round leading "
+                                      "edge tapering to 0.5 mm at the exit, exit edge at |X| 10.25, Z-75.3 (screening; "
+                                      "within the hotend clearance limits)"),
+    "side_jet_airfoil_divider_front_l30af": ("r43avgV5dL30aF_bambu_bed",
+                                             "Current set, the L30a divider from Y 20.5 forward only (screening; "
+                                             "within the hotend clearance limits)"),
+    "side_jet_nose_cut_nc28": ("r43avgV5dNC28_bambu_bed",
+                               "Current set, the lower part of each side jet's bell-mouth round cut away, leaving a "
+                               "sharp 28-degree roof edge at the exit; material removed only (screening; within the "
+                               "hotend clearance limits)"),
+    "side_jet_nose_cut_divider_ncl": ("r43avgV5dNCL_bambu_bed",
+                                      "Current set, the NC28 nose cut plus the L30a divider (screening; within the "
+                                      "hotend clearance limits)"),
+    "side_jet_secant_roof_sr32": ("r43avgV5dSR32_bambu_bed",
+                                  "Current set, each side jet's roof made straight from the exit edge (|X| 10.2, "
+                                  "Z-73.6) rising outward at 32 degrees into the bell-mouth round; same exit, material "
+                                  "removed only (screening; within the hotend clearance limits)"),
+    "side_jet_secant_roof_sr36": ("r43avgV5dSR36_bambu_bed",
+                                  "Current set, the same straight roof at 36 degrees (screening; within the hotend "
+                                  "clearance limits)"),
+    "side_jet_split_roof_spr": ("r43avgV5dSPR_bambu_bed",
+                                "Current set, each side jet's roof lowered to Z-75.0 over Y 19.5-23.0 only, the window "
+                                "whose air scrubs the nozzle cone, with the SR32 straight roof elsewhere (screening; "
+                                "within the hotend clearance limits)"),
+    "side_jet_split_roof_deeper_spd": ("r43avgV5dSPD_bambu_bed",
+                                       "Current set, the split roof deeper and wider: roof lowered to Z-75.4 over Y "
+                                       "20.0-24.0, SR32 straight roof elsewhere (screening; within the hotend "
+                                       "clearance limits)"),
+    "side_jet_split_roof_ramped_ends_sprt": ("r43avgV5dSPRT_bambu_bed",
+                                             "Current set, the SPR split roof with both ends ramped back up to the "
+                                             "roof at 45 degrees along the slot face (Y 18.05-19.5 and 23.0-24.45; "
+                                             "square further out along the round), straight roof outside them "
+                                             "(screening; within the hotend clearance limits)"),
+    "side_jet_split_roof_ramped_rear_sprr": ("r43avgV5dSPRR_bambu_bed",
+                                             "Current set, the SPR split roof with only its rear end ramped the same "
+                                             "way (screening; within the hotend clearance limits)"),
+    "side_jet_split_roof_faded_ends_spf": ("r43avgV5dSPF_bambu_bed",
+                                           "Current set, the split roof with both ends faded out at 45 degrees along "
+                                           "the whole bell-mouth round (Y 18.05-19.5 and 23.0-24.45), straight roof "
+                                           "only ahead of it (Y 24.45-27.55) (screening; within the hotend clearance "
+                                           "limits; matched slicing adds no support in the jets)"),
+    "side_jet_split_roof_faded_rear_spfr": ("r43avgV5dSPFR_bambu_bed",
+                                            "Current set, the split roof with its rear end faded out at 45 degrees "
+                                            "along the whole round (Y 18.05-19.5), a square front end at Y 23.0 that "
+                                            "faces up when printed back face down, and the straight roof ahead of it "
+                                            "(Y 23.0-27.55) (screening; within the hotend clearance limits)"),
+    "side_jet_split_roof_chamfer_spfc": ("r43avgV5dSPFC_bambu_bed",
+                                         "Current set, the SPF split roof plus the floor-lip chamfer of CH (screening; "
+                                         "within the hotend clearance limits)"),
+    "side_jet_floor_chamfer_ch": ("r43avgV5dCH_bambu_bed",
+                                  "Current set, each side jet's floor lip chamfered from |X| 11.2 down to Z-77.45 at "
+                                  "the slot face (22 degrees), over Y 22.4-28.6; material removed only (screening; "
+                                  "within the hotend clearance limits)"),
+    "side_jet_floor_chamfer_long_chx": ("r43avgV5dCHX_bambu_bed",
+                                        "Current set, a longer, deeper floor-lip chamfer: from |X| 12.5 down to "
+                                        "Z-77.65 at the slot face (15 degrees), 0.2 mm lip left at the edge "
+                                        "(screening; within the hotend clearance limits)"),
+    "side_jet_nose_cut_chamfer_ncx": ("r43avgV5dNCX_bambu_bed",
+                                      "Current set, a 31-degree nose cut on the roof plus the CHX floor chamfer: the "
+                                      "whole opening turned down by removing material only (screening; within the "
+                                      "hotend clearance limits)"),
+    "side_jet_ramp_mild_chamfer_rmc": ("r43avgV5dRMC_bambu_bed",
+                                       "Current set, the R45 roof ramp plus a floor-lip chamfer from |X| 11.7 down to "
+                                       "Z-77.37 at the slot face (12 degrees) (screening; within the hotend clearance "
+                                       "limits)"),
+    "side_jet_ramp_gentle_chamfer_rvm": ("r43avgV5dRVM_bambu_bed",
+                                         "Current set, the R45 roof ramp plus a gentle floor-lip chamfer from |X| 11.7 "
+                                         "down to Z-77.21 at the slot face (6 degrees) (screening; within the hotend "
+                                         "clearance limits)"),
+    "side_jet_ramp_deep_chamfer_rcx": ("r43avgV5dRCX_bambu_bed",
+                                       "Current set, the R45 roof ramp plus the CHX floor chamfer (screening; within "
+                                       "the hotend clearance limits)"),
+    "side_jet_ramp_lip_trim_rt15": ("r43avgV5dRT15_bambu_bed",
+                                    "Current set, the R45 roof ramp plus the floor lip trimmed back 1.5 mm under the "
+                                    "jet passage (screening; within the hotend clearance limits)"),
+    "side_jet_ramp_lip_trim_rt25": ("r43avgV5dRT25_bambu_bed",
+                                    "Current set, the R45 roof ramp plus the floor lip trimmed back 2.5 mm "
+                                    "(screening; within the hotend clearance limits)"),
+    "side_jet_ramp_front_toe_rft": ("r43avgV5dRFT_bambu_bed",
+                                    "Current set, the R45 roof ramp plus each passage's front end wall toed in: the "
+                                    "exit ends at Y 25.6 at the slot face, the wall running back to |X| 12.6 at "
+                                    "Y 27.65, to turn the front of each jet rearward (screening; within the hotend "
+                                    "clearance limits)"),
+    "side_jet_ramp_chamfer_toe_rvmt": ("r43avgV5dRVMT_bambu_bed",
+                                       "Current set, RVM plus the RFT front-wall toe-in (screening; within the hotend "
+                                       "clearance limits)"),
+    "rear_slot_2mm_rs20": ("r43avgV5dRS20_bambu_bed",
+                           "Current set, the rear centre slot's mouth raised from 0.9 to 2.0 mm by its upper lip only, "
+                           "lower lip and probe gaps fixed (as the D11 trial); screening, within the hotend clearance "
+                           "limits"),
+    "ramp_chamfer_rear_slot_2mm_rvms": ("r43avgV5dRVMS_bambu_bed",
+                                        "Current set, RVM plus the 2.0 mm rear slot of RS20 (screening; within the "
+                                        "hotend clearance limits)"),
     "rejected_nozzles_n22": ("r43avgV5dN22_bambu_bed",
                              "REJECTED, breaks the hotend clearance limit (1.27 mm to the sock): side-jet nozzles "
                              "turned down 22 degrees reaching into the hotend slot to |X| 8.27, plus two vanes"),
@@ -119,6 +220,15 @@ def tip_summary(case):
             "print_level_sectors_ms": t["print_level"]["sectors_ms"], "print_level_peak_r5": t["print_level"]["peak_r5"]}
 
 
+def zones_summary(case):
+    """The user's own-side target zones, air arriving on the print and the cone scrub, from cfd_bead_zones_r43.py."""
+    path = C.results_dir(case) / "bead_zones.json"
+    if not path.exists():
+        return None
+    z = json.loads(path.read_text())
+    return {k: v for k, v in z.items() if k not in ("case", "definitions")}
+
+
 def main():
     out = {"method": "OpenFOAM v2512 simpleFoam, k-omega SST, 180 L/min inlet, 1,200 iterations; fieldAverage of U "
                      "and p over iterations 700-1200 (written with cfd_cpap_r41.py case --average-from 700). "
@@ -141,6 +251,10 @@ def main():
             tip = tip_summary(case)
             if tip:
                 out["cases"][label]["tip_approach"] = tip
+            zones = zones_summary(case)
+            if zones:
+                out["cases"][label]["bead_zones"] = zones
+    out["bead_zones_definitions"] = Z.__doc__[Z.__doc__.index("Definitions"):].strip()
     snapshot = {name: D.coverage(B.load(name, False), A.operating(A.rows_of(name))["lpm"] / 180)
                 for name in ("r43userpostV5d_bambu_bed", "r43avgV5d_bambu_bed")}
     out["snapshot_repeatability"] = {
@@ -177,7 +291,8 @@ def main():
             "withdrawal_min_mm": json.loads(withdrawal.read_text())}
     out["source_sha256"] = {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in (
         "cfd_outlet_balance_r43.py", "render_outlet_balance_r43.py", "report_outlet_balance_r43.py",
-        "render_scene_symmetry_r43.py", "cfd_nozzle_focus_r43.py", "cfd_tip_approach_r43.py", "cfd_cpap_r41.py",
+        "render_scene_symmetry_r43.py", "cfd_nozzle_focus_r43.py", "cfd_tip_approach_r43.py", "cfd_bead_zones_r43.py",
+        "cfd_cpap_r41.py",
         "cfd_swept_refine_r43.py", "cfd/run_case.sh")}
     (ROOT / "verification_outlet_balance_r43.json").write_text(json.dumps(out, indent=2) + "\n")
     for label, row in out["cases"].items():

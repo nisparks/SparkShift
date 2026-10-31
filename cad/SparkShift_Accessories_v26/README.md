@@ -46,13 +46,20 @@ section is 16.3 mm2, so snug the M3.
 **Latest airflow review:** [aiming at the bead within the hotend clearance
 limits](./R43_SWEPT_FEED_REVIEW.md#aiming-at-the-bead-within-the-hotend-clearance-limits).
 Hard limit: nothing nearer the Bambu hotend than the released P22 (sock 3.20, cradle 1.918, nozzle 5.20 mm, mounted
-and withdrawn). Outlet extensions into the hotend slot came within 1.2-1.3 mm of the sock and were rejected. Goal:
-cool the bead as it leaves the tip and keep air off the nozzle and heater block. Of 12 outlet changes tested inside
-the limit, a louver blade in each side jet balances that best: 30% less air on the nozzle cone, 16% more at the bead
-and 43% more in its weakest direction, for 7% less blower flow. A 45-degree ramp at the end of each jet's roof gives
-the bead the most air (+29%) and prints like today's part, but leaves the cone as exposed. Aiming steeper only
-lands the jets short of the bead. The opposed side jets still meet at the nozzle, so every design is a trade.
-[Comparison](./images/r43_aim_round_compare.png) | [clearance sections](./images/r43_aim_clearance_sections.png).
+and withdrawn). Goal: cool the bead as it leaves the tip and keep air off the nozzle and heater block, with the
+outlet walls only (no louvers, vanes or fins). Each outlet is scored on whether its air reaches its own target zone
+just below the tip: the left jet to the left of the nozzle, the right jet to the right, and the rear slot behind it.
+Hits are rewarded, air passing high is punished exponentially and air landing short quadratically. Two wall-only
+designs lead, and they differ only in the rear slot. Both end each side jet's roof in a 45-degree ramp and bevel its
+floor lip 6 degrees. With today's 0.9 mm rear slot (RVM), the side jets score -5.1 against -16.8 today, and the most
+air of any design passes through the fresh bead, for 11% less blower flow. With a 2.0 mm rear slot (RVMS), the three
+outlets carry equal flow (66 / 63 / 63 L/min) at today's blower flow. The rear jet reaches its zone, and the nozzle
+cone sees half today's air speed, but the bead sees less. A printed thermal A/B of the two should decide.
+
+The jets that score best converge: the top of each jet leaves about 32 degrees down and the bottom about 12.
+Steeper floor cuts land the jets short. Removing the jets' forward lean puts their collision on the nozzle.
+[Real air paths and zones](./images/r43_bead_zone_paths.png) |
+[clearance sections](./images/r43_aim_clearance_sections.png).
 
 **Tip-approach review:** [where the air passes the nozzle
 tip](./R43_SWEPT_FEED_REVIEW.md#where-the-air-passes-the-nozzle-tip).
