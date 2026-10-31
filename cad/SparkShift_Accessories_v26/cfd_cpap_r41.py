@@ -132,11 +132,13 @@ def obstacles(duct, tool, outlet, leave_out=(), extra=()):
     return out
 
 
-def fluid_domain(duct, tool, bed, p22=None, leave_out=(), p21=None, extra=()):
+def fluid_domain(duct, tool, bed, p22=None, leave_out=(), p21=None, extra=(), mirror_half=None):
     o = list(OUTLET)
     if bed:
         o[4] = NOZZLE_TIP_Z - BED_GAP
     d = fuse_all(duct_parts(duct, p22, p21))
+    if mirror_half:
+        d = mirrored_half(d, mirror_half)
     cx, cy, r = SPIGOT
     inlet_point = (cx, cy, 20.0)
     # the duct's own air: close the spigot mouth, fill the outlet box, keep the pocket at the inlet
@@ -146,7 +148,10 @@ def fluid_domain(duct, tool, bed, p22=None, leave_out=(), p21=None, extra=()):
     if cb[0] < -39 or cb[1] > 39 or cb[2] < -69 or cb[5] > 44:
         raise RuntimeError("the duct's air leaks to the outside")
     obs = obstacles(duct, tool, o, leave_out, extra)
-    air = cut_all(box(*o), [d] + [s for _, s in obs])
+    solids = [s for _, s in obs]
+    if mirror_half:
+        solids = [mirrored_half(fuse_all(solids), mirror_half)]
+    air = cut_all(box(*o), [d] + solids)
     fluid = fuse_all([cavity, R.shape(acc.cyl_z(cx, cy, EXT[0], EXT[0] + EXT[1], r)), air])
     main = solid_containing(fluid, inlet_point)
     dropped = [round(s.Volume(), 2) for s in fluid.Solids() if not s.isSame(main)]
@@ -203,12 +208,23 @@ def write_stl(fluid, groups, path, lin=0.01, ang=0.25):
     return counts
 
 
-def build_domain(name, duct, tool, bed, p22=None, leave_out=(), p21=None, extra_files=()):
+def mirrored_half(shape, half):
+    """One half of a solid (x <= 0 for 'left') fused with its mirror image: an exactly mirror-symmetric version, as a
+    diagnostic for left/right differences. It drops whatever the other half has that this half lacks."""
+    x0 = -100.0 if half == "left" else 0.0
+    part = shape.intersect(cq.Solid.makeBox(100, 400, 400, cq.Vector(x0, -200, -200)))
+    whole = part.fuse(part.mirror("YZ"), glue=True)
+    if not whole.isValid() or abs(whole.Volume() - 2 * part.Volume()) > 1e-3 * max(part.Volume(), 1):
+        raise RuntimeError(f"The mirrored {half} half is not a valid symmetric solid")
+    return whole
+
+
+def build_domain(name, duct, tool, bed, p22=None, leave_out=(), p21=None, extra_files=(), mirror_half=None):
     t0 = time.perf_counter()
     out = CFD / "domains" / name
     out.mkdir(parents=True, exist_ok=True)
     extra = [(Path(f).stem, cq.Shape.importBrep(str(f))) for f in extra_files]
-    fluid, o, obs, dropped, cavity = fluid_domain(duct, tool, bed, p22, leave_out, p21, extra)
+    fluid, o, obs, dropped, cavity = fluid_domain(duct, tool, bed, p22, leave_out, p21, extra, mirror_half)
     z_top = EXT[0] + EXT[1]
     groups = patch_faces(fluid, o, z_top, bed)
     areas = {k: round(sum(f.Area() for f in v), 2) for k, v in groups.items()}
@@ -228,6 +244,8 @@ def build_domain(name, duct, tool, bed, p22=None, leave_out=(), p21=None, extra_
         meta["p21_variant"] = str(p21)
     if extra_files:
         meta["extra_obstacles"] = {Path(f).stem: str(f) for f in extra_files}
+    if mirror_half:
+        meta["mirrored_half"] = mirror_half
     (out / "domain.json").write_text(json.dumps(meta, indent=1))
     return meta
 
@@ -252,7 +270,10 @@ def inlet_turbulence(lpm, area_mm2, d_mm):
     return u, k, math.sqrt(k) / (0.09 ** 0.25 * lm), lm
 
 
-def write_case(name, flows, interval, upwind, np_, wall_levels="1 2", zone_level=2, domain=None, roughness_mm=0.0):
+def write_case(name, flows, interval, upwind, np_, wall_levels="1 2", zone_level=2, domain=None, roughness_mm=0.0,
+               average_from=None):
+    """average_from: also average U (mean and fluctuation) and p over the iterations from this one to the end;
+    the means are written to the VTK with the instantaneous fields."""
     dom = CFD / "domains" / (domain or name)
     case = CFD / "cases" / name
     meta = json.loads((dom / "domain.json").read_text())
@@ -395,6 +416,12 @@ relaxationFactors { fields { p 0.3; } equations { U 0.7; k 0.5; omega 0.5; } }
 cache { grad(U); }
 """)
     total = sum(iters)
+    if average_from is not None and not 0 < average_from < total:
+        raise ValueError(f"Averaging must start inside the run: {average_from}")
+    averaging = "" if average_from is None else f"""
+    meanFields {{ type fieldAverage; libs (fieldFunctionObjects); timeStart {average_from}; restartOnRestart false;
+               writeControl writeTime;
+               fields ( U {{ mean on; prime2Mean on; base iteration; }} p {{ mean on; prime2Mean off; base iteration; }} ); }}"""
     foam(case / "system" / "controlDict", "controlDict", f"""
 application     simpleFoam;
 startFrom       latestTime;
@@ -422,7 +449,7 @@ functions
     flows    {{ type surfaceFieldValue; libs (fieldFunctionObjects); regionType patch; name ambient;
                operation sum; fields (phi); writeFields false; log false; writeControl timeStep; writeInterval 5; }}
     residuals {{ type solverInfo; libs (utilityFunctionObjects); fields (U p k omega); }}
-    yPlus    {{ type yPlus; libs (fieldFunctionObjects); writeControl writeTime; log false; }}
+    yPlus    {{ type yPlus; libs (fieldFunctionObjects); writeControl writeTime; log false; }}{averaging}
 }}
 """)
     foam(case / "constant" / "transportProperties", "transportProperties", f"\ntransportModel  Newtonian;\nnu {NU};\n")
@@ -509,6 +536,12 @@ boundaryField
     for fname, text in (("np.txt", f"{np_}\n"), ("upwind.txt", f"{upwind}\n"),
                         ("times.txt", ",".join(str(s["end"]) for s in stages) + "\n")):
         (case / fname).write_text(text, newline="\n")
+    if average_from is not None:
+        settings = json.loads((case / "stages.json").read_text())
+        settings["averaging"] = {"from_iteration": average_from, "to_iteration": total, "fields": ["UMean", "UPrime2Mean",
+                                                                                                    "pMean"]}
+        (case / "stages.json").write_text(json.dumps(settings, indent=1))
+        (case / "vtkfields.txt").write_text("(U p k omega nut pTotal yPlus UMean UPrime2Mean pMean)\n", newline="\n")
     return case
 
 
@@ -564,6 +597,9 @@ def main():
     d.add_argument("--p21", help="a BREP of a P21 variant, instead of the scene's P21")
     d.add_argument("--extra-obstacles", default="", help="comma-separated BREPs added as obstacles (named by file "
                                                          "stem), replacing left-out parts such as a revised P01")
+    d.add_argument("--mirror-half", choices=("left", "right"),
+                   help="diagnostic: keep this half of the duct and obstacles and mirror it, for an exactly "
+                        "mirror-symmetric scene")
     c = sub.add_parser("case")
     c.add_argument("name")
     c.add_argument("--domain")
@@ -574,6 +610,7 @@ def main():
     c.add_argument("--wall-levels", default="1 2")
     c.add_argument("--zone-level", type=int, default=2)
     c.add_argument("--roughness-mm", type=float, default=0.0, help="equivalent sand-grain roughness of the walls")
+    c.add_argument("--average-from", type=int, help="average U and p from this iteration to the end (fieldAverage)")
     a_ = sub.add_parser("analyse")
     a_.add_argument("name")
     r_ = sub.add_parser("report")
@@ -582,10 +619,11 @@ def main():
     if a.cmd == "domain":
         leave_out = tuple(s for s in a.leave_out.split(",") if s)
         extra = tuple(s for s in a.extra_obstacles.split(",") if s)
-        print(json.dumps(build_domain(a.name, a.duct, a.tool, a.bed, a.p22, leave_out, a.p21, extra), indent=1))
+        print(json.dumps(build_domain(a.name, a.duct, a.tool, a.bed, a.p22, leave_out, a.p21, extra, a.mirror_half),
+                         indent=1))
     elif a.cmd == "case":
         print(write_case(a.name, [float(v) for v in a.flows.split(",")], a.interval, a.upwind, a.np,
-                         a.wall_levels, a.zone_level, a.domain, a.roughness_mm))
+                         a.wall_levels, a.zone_level, a.domain, a.roughness_mm, a.average_from))
     elif a.cmd == "analyse":
         import cfd_cpap_r41_post as post
         out = post.analyse_case(a.name)

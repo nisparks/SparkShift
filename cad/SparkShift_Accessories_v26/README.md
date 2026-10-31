@@ -43,6 +43,26 @@ support +1.0% and time +7.7% versus the original C28 parts. The post's smallest
 section is 16.3 mm2, so snug the M3.
 [Unbranded image](./images/r43_c28_flow_neutral_retainer_review_share.jpg).
 
+**Latest airflow review:** [aim at the fresh bead and the side-jet floor
+lip](./R43_SWEPT_FEED_REVIEW.md#aim-at-the-fresh-bead-and-the-side-jet-floor-lip).
+At the 231 L/min blower point, 96 L/min passes over the print within 10 mm of the nozzle but only 6 L/min through
+the fresh-bead zone. The side jets leave 12 degrees down and 15 degrees forward. Their top quarter points at the
+heater block, and they meet head-on at the nozzle, so the air there is slowest (18 m/s against 26 m/s at
+2-5 mm). Trimming each jet's floor lip back 1.5 mm aimed the jets 5 degrees lower but cut the air over the print
+to 67 L/min and every near-print sector by 23-32%, so the lip stays. The duct is mirror-symmetric; the CFD's
+left/right difference comes from the hotend fan on the right of the scene.
+[Aim figure](./images/r43_nozzle_focus_current.png) | [lip trim](./images/r43_lip_trim_screen.png).
+
+**Printability and airflow review:** [printability, bottlenecks and centre/side
+balance](./R43_SWEPT_FEED_REVIEW.md#printability-bottlenecks-and-centreside-balance).
+Single-material ABS supports instead of the breakaway interface cut the three-part set
+from 7.2 to 4.1 h by removing the prime tower. Iteration-averaged CFD shows 40% of the air
+rising past the hotend, mostly from the upper half of each side jet, which faces the heater
+block. A bigger centre slot weakened every near-print sector. Lowering the side-jet roof by
+1.0 or 1.7 mm cut the rising air but cost about as much total flow from the blower. The
+current outlets and 78/22 side/centre split stay.
+[Outlet balance figure](./images/r43_outlet_balance_current.png).
+
 This directory contains the parametric OpenCASCADE (`OCP`) CAD generator (`build_and_verify_accessories_v26.py`), 3D finite-volume CFD solver (`simulate_cpap_cfd_v26.py`), VTK multi-angle renderer (`render_accessories_v26.py`), animated GIF generator (`animate_accessories_v26.py`), and manufacturing-ready **STEP (`.step`)** and **binary STL (`.stl`)** files for the **SparkShift v26** accessory and toolhead cooling suite on a **Voron 2.4R2 350 with a Monolith 2WD 9mm gantry**.
 
 All **14 pure-primitive accessory/dock/rack/jig parts** (`P20`–`P29_L/R`, `P17_HF_tool_carrier_3010`, `P17_HF_tool_carrier_2510`, and `P18_Tool_docking_backplate_3010`) plus **5 COTS-qualified core drop-in parts** (`P01_Back_case_COTS_MR74`, `P02_Motor_servo_plate_12p5mm`, `P03_Front_case_COTS`, `P04F_Swing_arm_front_half_COTS`, and `P05_Servo_cam_COTS`) are constructed from **analytical CAD primitives** (`GeomAbs_Plane`, `GeomAbs_Cylinder`, `GeomAbs_Cone` — **`0` BSpline/mesh/sphere faces** and **`0` sliver faces `< 0.15 mm²`** on all 16 pure-primitive parts) and mount to the existing **SparkShift AHG v26** carriage and Voron 2.4R2 frame with **zero unintended modifications (`0.000 mm³` cut/clash)** to any of the 135 existing v26 bodies.

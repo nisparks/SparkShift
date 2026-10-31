@@ -18,6 +18,202 @@ The [earlier decision-summary image](images/sparkshift_c28_design_review_share.j
 is retained as a historical 32/28-degree comparison and explicitly labels its
 pre-inlet-cleanup CFD.
 
+## Aim at the fresh bead, and the side-jet floor lip
+
+**Review of the current Bambu set, 2026-10-31.** The question was whether it gives "a focused, laminar and precise
+stream of air directed exactly at the extruded filament just below the nozzle tip". The method is iteration-mean
+CFD at the set's 231 L/min blower point, analysed with `cfd_nozzle_focus_r43.py`. The fresh bead is taken as
+within 2 mm of the nozzle axis and 1 mm of the print. This is airflow, not temperature.
+
+![Aim, delivery and speed at the nozzle, current set](images/r43_nozzle_focus_current.png)
+
+| Criterion | Current set |
+| :--- | :--- |
+| Air aimed at the fresh bead | 11 L/min (5%) |
+| Air aimed at the nozzle body or heater block | 62 L/min (27%) |
+| Air that passes through the fresh bead zone | 6 L/min (3%) |
+| Air over the print within 10 mm | 96 L/min (42%) |
+| Air that rises past the hotend without reaching the print | 78 L/min (34%) |
+| Air that passes within 0.5 mm of the nozzle body or heater block | 74 L/min (32%) |
+| Mean speed 0.3 mm above the print | 18 m/s at r 0.6-2 mm, 26 m/s at r 2-5 mm |
+| Laminar | No. Reynolds number about 8,700 on the side jets' 3.45 mm height and 3,200 on the 0.9 mm centre slot; 5-7% turbulence at the openings |
+
+- **Focused only from the sides.** Each side jet reaches the nozzle about 3 opening heights (10 mm) from its
+  exit, so it arrives still coherent. The centre slot is about 13 slot heights (12 mm) from the bead. Its jet has
+  spread out before it lands behind the nozzle.
+- **Not precise.** Each side jet leaves 12 degrees down and 15 degrees forward, because the side channels feed it
+  from the rear. Its bottom quarter leaves about 7 degrees down along the flat floor lip and skims the print.
+  Its middle points past the nozzle, and its top quarter points at the heater block.
+- **Slowest air at the bead.** The two side jets meet head-on at the nozzle, so the slowest near-print air is
+  right at the tip.
+- **Laminar is not achievable at this flow.** Every opening of a CPAP cooler runs turbulent at 231 L/min. The
+  useful part of the rule is a coherent jet aimed at the bead and kept off the hotend.
+
+### Floor lip trimmed back 1.5 mm (screening)
+
+The 0.75 mm floor lip under each side jet runs flat from X 12.85 to the exit at X 10.2. That flattens the jet's
+bottom. This screening trial trims it back 1.5 mm where the jet is full height (Y 21.9-27.5) and changes nothing
+else. The session's `build_lip_variant.py` builds it from the audited v5d P22.
+
+| At each design's blower point | Current | Lip trimmed 1.5 mm |
+| :--- | ---: | ---: |
+| Total flow (duct pressure) | 231 L/min (2.32 kPa) | 234 L/min (2.24 kPa) |
+| Side-jet aim | 12 degrees down, 15 forward | 17 degrees down, 19 forward |
+| Side-jet air aimed at the print within 10 mm | 29% | 76% |
+| Side-jet air aimed at the nozzle body or heater block | 33% | 23% |
+| Air over the print within 10 mm | 96 L/min | 67 L/min |
+| Air that rises past the hotend without reaching the print | 78 L/min | 89 L/min |
+| Mean speed at the fresh bead, r 0.6-2 mm | 18 m/s | 11 m/s |
+| Near-print sectors R / F / L / Re | 23 / 25 / 24 / 29 m/s | 16 / 17 / 17 / 22 m/s |
+| Air dropping through the trimmed floor | none | 10 L/min |
+| Air flowing outward under P22 | 25 L/min | 24 L/min |
+
+![Floor lip, current and trimmed](images/r43_lip_trim_screen.png)
+
+**Keep the lip.** The trim aims the jets lower as intended, but it cools worse. With the lip, the bottom of each
+jet stays level and skims across the print into the bead zone at speed. Trimmed, the jets land on the print 4-6 mm
+from the nozzle and spread. Some of the air drops through the opened floor, and the inward flows meet under the
+nozzle and rise. The near-print sectors lose 23-32%.
+
+The exit angle comes from the duct itself, not from the CFD's print surface: removing the lip alone turned it 5
+degrees further down. The print surface, 0.2 mm below the tip across the whole CFD box, shapes the jets after they
+leave. That is the realistic case for a broad print.
+
+### Left and right
+
+The duct is mirror-symmetric. P20, P21 and P22 have no material without a mirror partner, and the duct splits the
+side flow 69.9 / 70.0 L/min. The CFD scene is not symmetric. The Bambu hotend fan sits on the right, with 535 mm3
+inside the CFD box, and its underside closes the right half of the open space above the hotend. Smaller
+asymmetric parts include the fan screws (41 mm3), hotend details just above the jets (4 mm3), and a chiral pair of
+carriage parts.
+
+In that static scene the left jet puts more of its air over the print: 43-44% against 36% in both averaged runs.
+In operation the hotend fan runs and the head moves; the steady CFD models neither. The duct's symmetry is the
+requirement, and it is met.
+
+`cfd_cpap_r41.py domain --mirror-half` builds an exactly mirrored scene, symmetric to 0.006 mm. Its mesh failed
+the skewness check at one face about 23 mm above the jets. The diagnostic run was dropped once the scene
+explanation was accepted.
+
+![Scene mirrored onto itself: red has no mirror partner](images/r43_scene_symmetry.png)
+
+![Left against right in the current scene](images/r43_left_right.png)
+
+Evidence: the `nozzle_focus` blocks and the `side_jet_lip_trim_1p5` case in
+[verification_outlet_balance_r43.json](verification_outlet_balance_r43.json). Reproduce with
+`cfd_nozzle_focus_r43.py <case> <out.png>` (after `cfd_outlet_balance_r43.py <case> --mean`), its `--compare` mode,
+and `render_outlet_balance_r43.py <out.png> --symmetry`. The lip-trim case is `r43avgV5dLip15_bambu_bed`.
+
+## Printability, bottlenecks and centre/side balance
+
+**Review of the current Bambu set (flow-neutral post, v5d), 2026-10-31.** Matched H2D ABS slices, iteration-averaged
+CFD and per-outlet streamline tracing. This is airflow and slicer evidence, not print or thermal qualification.
+
+![Where the centre slot's and side jets' air goes, and where the pressure goes](images/r43_outlet_balance_current.png)
+
+### Printability: the interface material is the bottleneck, not the geometry
+
+| Part, pose | Support | Print time (of it, prime tower) | ABS used | Support inside the airway |
+| :--- | ---: | ---: | ---: | ---: |
+| P01, back down | 4.78 → 2.32 cm3 | 2.75 h (0.53) → 2.04 h | 39.8 → 33.3 g | none |
+| P21, top down | 1.26 → 0.68 cm3 | 1.32 h (0.46) → 0.72 h | 21.5 → 12.0 g | 0.27 → 0.13 cm3 |
+| P22, back down | 9.08 → 4.62 cm3 | 3.10 h (1.16) → 1.31 h | 44.5 → 21.7 g | 1.15 → 0.58 cm3 |
+| Three-part set | 15.1 → 7.6 cm3 | **7.17 h → 4.07 h** | 105.8 → 67.0 g | 1.42 → 0.71 cm3 |
+
+The first value is the audited setup: tree supports with a Bambu Support for ABS interface. The second uses
+ABS for the interface too, with a 0.2 mm top gap; nothing else changes. The breakaway interface forces a prime
+tower and purge on every part. That takes 2.15 h of the 7.2 h set and about 37 g of ABS, more than any geometry
+feature costs.
+
+![Where the slicer puts support, inside and outside the airway](images/r43_printability_support_map.png)
+
+Most of P22's support is trees climbing the outside to the outlet-end overhangs (7.9 cm3). Inside the airway it
+stays in the plenum lobes under the open receiver (0.89 cm3) and the start of the side channels (0.21 cm3). There
+is none in the jets or the centre passage.
+
+**Recommendation:** print P01 and P21 with single-material supports; all of their support is external or short.
+Print one P22 the same way and check that the lobe support comes out through the receiver opening. If it does
+not, keep the breakaway interface for P22 only; the set then takes 5.9 h.
+
+### Near-print numbers now use iteration means
+
+| Same geometry and settings | Right / front / left / rear sector (m/s) |
+| :--- | :--- |
+| Snapshot at iteration 1,200, first run | 27.5 / 24.8 / 25.7 / 33.4 |
+| Snapshot, identical re-run | 23.5 / 26.9 / 25.1 / 33.3 |
+| Mean of iterations 700-1,200 | 23.2 / 25.1 / 24.3 / 28.6 |
+| Mean, identical re-run | 22.3 / 24.9 / 25.0 / 28.3 |
+
+Parallel meshing is not bit-reproducible: the runs have 2,483,116, 2,483,519 and 2,483,235 cells. Near-print
+speed also swings 15-21% RMS between iterations. One snapshot therefore carries that much error: the re-runs'
+snapshots differ by up to 22% in a sector. That explains earlier sector swings such as the -15.4%
+"exterior-only" change. Iteration means repeat within 4% per sector and 0.6% for the sector mean. Air over the
+print and rising air repeat within about 4%, inlet pressure within 0.7%. Balance comparisons below use iteration
+means. `cfd_cpap_r41.py case --average-from 700` adds the averaging at no extra solver cost.
+
+### Where the air goes (current set, 180 L/min)
+
+| Outlet | Supplied | Passes within 1 mm of the print, r <= 10 mm | r <= 5 mm | Rises past the hotend |
+| :--- | ---: | ---: | ---: | ---: |
+| Left jet | 69.9 L/min | 30.5 (44%) | 7.8 | 29.8 (43%) |
+| Right jet | 70.0 L/min | 24.9 (36%) | 6.8 | 33.3 (48%) |
+| Centre slot | 40.5 L/min | 19.7 (49%) | 3.0 | 8.1 (20%) |
+| All | 180 L/min | 75.1 (42%) | 17.6 | 71.2 (40%) |
+
+At the 231 L/min blower point this is about 96 L/min over the print and 91 L/min rising past the hotend. Each
+side-jet opening is 3.45 mm tall. Its bottom millimetre (18% of the side flow) reaches the print 99% of the time.
+Its upper half (54% of the side flow) faces the side of the Bambu heater block, whose bottom is at Z -75.5 mm;
+at most 10% of that air reaches the print, and it also cools the heater.
+
+### Bottlenecks, largest first
+
+1. **Side jets into the heater block:** 40% of all the air rises without passing over the print.
+2. **Final turn into the side jets: -156 Pa.** This is the largest single pressure loss, 42% of the side path's
+   internal loss. Upstream losses are smaller: joint, lobes and elbow -77 Pa, P21 -46 Pa, P20 -27 Pa. The side
+   exits keep 1,050 of the 1,416 Pa, 977 Pa of it as jet speed.
+3. **Duct versus hose:** at the blower point the duct takes 2.32 of the blower's 2.67 kPa, the 1 m hose 0.35 kPa.
+4. **Wake around the nozzle:** a slow ring (5-15 m/s) within about 2 mm of the nozzle.
+5. **Printing:** the interface prime tower (above).
+
+### Balance trials
+
+Iteration-mean CFD. Air values are at each design's own blower operating point.
+
+| Trial | Total flow | Centre share | Sectors R / F / L / Re (m/s) | Sector mean | Over the print, r <= 10 mm | Rising |
+| :--- | ---: | ---: | :--- | ---: | ---: | ---: |
+| Current | 231 L/min | 22% | 23.2 / 25.1 / 24.3 / 28.6 | 25.3 | 96 L/min | 91 L/min |
+| Current, identical re-run | 231 L/min | 22% | 22.3 / 24.9 / 25.0 / 28.3 | 25.1 | 99 L/min | 88 L/min |
+| Centre slot 1.1 mm (D11 outlet) | 234 L/min | 24% | 19.5 / 21.3 / 21.2 / 18.8 | 20.2 | 87 L/min | 97 L/min |
+| Side-jet roof lowered 1.0 mm (screening) | 209 L/min | 29% | 22.9 / 21.6 / 22.9 / 31.2 | 24.6 | 94 L/min | 79 L/min |
+| Side-jet roof lowered 1.7 mm (screening visor) | 180 L/min | 37% | 23.1 / 32.9 / 28.2 / 9.9 | 23.5 | 91 L/min | 64 L/min |
+
+![Balance trials compared](images/r43_balance_trials.png)
+
+- **A bigger centre slot weakens every sector.** It lowers the plenum pressure and slows the centre jet. The
+  sectors look more even (0.88) only because the strongest one falls. This confirms the earlier snapshot
+  rejection of D11 with averaged data.
+- **Closing the upper side jet cuts the waste.** Rising air falls 30% and the side jets reach 60 m/s, but the
+  duct becomes 2.4 times more restrictive: total flow drops to 180 L/min. The faster side jets also meet the
+  centre jet behind the nozzle and turn it aside, so the rear sector collapses to 9.9 m/s
+  ([visor field](images/r43_outlet_balance_visor_screen.png)). Air over the print does not improve: 91 vs
+  96 L/min is inside the 4% repeat spread.
+- **Half the drop is a smaller version of the same trade.** Rising air falls about 12% and the side jets reach
+  47 m/s. Total flow drops 10%, and air over the print is unchanged (94 vs 96-99 L/min). The centre now carries
+  29%: the rear sector grows while the front weakens, so the weakest/strongest ratio falls to 0.69.
+
+**Keep the current outlets and the 78/22 side/centre split.** There is no room to keep the side-jet area while
+lowering its roof: the floor is already 0.8 mm above P22's underside, and the heater block spans the jets' full
+length (Y 18.4-28.6). Any lower roof therefore costs total flow, and the WS7040 with a 1 m hose gives up about as
+much air as the roof saves. Further gains need a reshaped outlet rather than a smaller one. For example, a roof
+that turns the upper jet down under the block instead of closing it, tuned together with the centre slot's
+landing point. Judge that with a printed thermal test, not only more single-parameter CFD.
+
+Evidence: [verification_outlet_balance_r43.json](verification_outlet_balance_r43.json). Reproduce with
+`cfd_outlet_balance_r43.py <case> --mean`, `render_outlet_balance_r43.py` and `report_outlet_balance_r43.py`.
+The averaged cases are `r43avgV5d_bambu_bed`, `r43avgV5dRep_bambu_bed`, `r43avgV5dD11_bambu_bed`,
+`r43avgV5dVisor_bambu_bed` and `r43avgV5dVisorMild_bambu_bed`. The session's `build_visor_variant.py` builds the
+visor screens from the audited v5d P22.
+
 ## Flow-neutral user-post retainer
 
 **Current Bambu mechanical candidate: review parts, not a print release.** This is your

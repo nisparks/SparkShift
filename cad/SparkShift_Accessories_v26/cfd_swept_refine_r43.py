@@ -24,7 +24,8 @@ FEED_BOXES = [
 OUTLET_BOX = (-10.0, 10.0, 3.0, 15.0, -75.0, -66.0)
 
 
-def refine(name, cleaned_bambu=False):
+def refine(name, cleaned_bambu=False, symmetric=False):
+    """symmetric: add the mirror image of every box that has no mirror partner (for a mirror-symmetric scene)."""
     case = C.CFD / "cases" / name
     metadata = json.loads((case / "domain.json").read_text())
     stages_path = case / "stages.json"
@@ -37,6 +38,8 @@ def refine(name, cleaned_bambu=False):
             raise ValueError("Cleaned-Bambu hotend refinement requires the Bambu tool")
         boxes += [(5.0, 8.0, 19.0, 22.0, -56.0, -53.0),
                   (-8.0, -5.0, 19.0, 22.0, -56.0, -53.0)]
+    if symmetric:
+        boxes += [m for m in [(-b[1], -b[0], *b[2:]) for b in boxes] if m not in boxes]
     path = case / "system" / "snappyHexMeshDict"
     text = path.read_text()
     geometry, regions = [], []
@@ -63,6 +66,8 @@ def refine(name, cleaned_bambu=False):
         "limitation": "Local two-resolution sensitivity only; not global or thermal mesh independence.",
         "cleaned_bambu_hotend_fix": cleaned_bambu,
     }
+    if symmetric:
+        stages["additional_refinement"]["mirror_symmetric_boxes"] = True
     path.write_text(text, newline="\n")
     stages_path.write_text(json.dumps(stages, indent=2) + "\n", newline="\n")
     return stages["additional_refinement"]
@@ -72,6 +77,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("names", nargs="+")
     parser.add_argument("--cleaned-bambu", action="store_true")
+    parser.add_argument("--symmetric", action="store_true", help="mirror-pair every refinement box")
     args = parser.parse_args()
     for name in args.names:
-        print(name, json.dumps(refine(name, cleaned_bambu=args.cleaned_bambu)))
+        print(name, json.dumps(refine(name, cleaned_bambu=args.cleaned_bambu, symmetric=args.symmetric)))

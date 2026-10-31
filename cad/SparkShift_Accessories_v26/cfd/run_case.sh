@@ -46,9 +46,12 @@ if [ "$WHAT" = all ] || [ "$WHAT" = solve ] || [ "$WHAT" = post ]; then
 fi
 
 if [ "$WHAT" = all ] || [ "$WHAT" = solve ] || [ "$WHAT" = post ] || [ "$WHAT" = vtk ]; then
+    # Optional per-case field list, e.g. with fieldAverage means; older cases keep the default.
+    FIELDS='(U p k omega nut pTotal yPlus)'
+    if [ -f vtkfields.txt ]; then FIELDS=$(cat vtkfields.txt); fi
     for t in $(tr ',' ' ' < times.txt); do
         stamp "foamToVTK $t"
-        foamToVTK -time $t -fields '(U p k omega nut pTotal yPlus)' > log.foamToVTK.$t 2>&1
+        foamToVTK -time $t -fields "$FIELDS" > log.foamToVTK.$t 2>&1
     done
 fi
 stamp "done"
