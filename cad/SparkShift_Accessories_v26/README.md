@@ -43,7 +43,18 @@ support +1.0% and time +7.7% versus the original C28 parts. The post's smallest
 section is 16.3 mm2, so snug the M3.
 [Unbranded image](./images/r43_c28_flow_neutral_retainer_review_share.jpg).
 
-**Latest airflow review:** [where the air passes the nozzle
+**Latest airflow review:** [aiming at the bead within the hotend clearance
+limits](./R43_SWEPT_FEED_REVIEW.md#aiming-at-the-bead-within-the-hotend-clearance-limits).
+Hard limit: nothing nearer the Bambu hotend than the released P22 (sock 3.20, cradle 1.918, nozzle 5.20 mm, mounted
+and withdrawn). Outlet extensions into the hotend slot came within 1.2-1.3 mm of the sock and were rejected. Goal:
+cool the bead as it leaves the tip and keep air off the nozzle and heater block. Of 12 outlet changes tested inside
+the limit, a louver blade in each side jet balances that best: 30% less air on the nozzle cone, 16% more at the bead
+and 43% more in its weakest direction, for 7% less blower flow. A 45-degree ramp at the end of each jet's roof gives
+the bead the most air (+29%) and prints like today's part, but leaves the cone as exposed. Aiming steeper only
+lands the jets short of the bead. The opposed side jets still meet at the nozzle, so every design is a trade.
+[Comparison](./images/r43_aim_round_compare.png) | [clearance sections](./images/r43_aim_clearance_sections.png).
+
+**Tip-approach review:** [where the air passes the nozzle
 tip](./R43_SWEPT_FEED_REVIEW.md#where-the-air-passes-the-nozzle-tip).
 The mean flow misses the bead. The side jets' air passes on average 2.6 mm in front of the nozzle and 2.3 mm above
 the print; their fastest stream (47 L/min at 46 m/s) crosses in front of the nozzle 1-3.6 mm up. The centre

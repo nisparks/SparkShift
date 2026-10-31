@@ -1,6 +1,7 @@
 """Where does the cooling air pass the nozzle tip: at the fresh bead, in front of it, behind it, or above it?
 
 Usage: python cfd_tip_approach_r43.py <case> <out.png> [title]
+       python cfd_tip_approach_r43.py --compare <out.png> <label=case> ...   (after the single-case run of each)
 Needs cfd_outlet_balance_r43.py <case> --mean (flux-weighted streamlines, 600 per outlet) and
 cfd_nozzle_focus_r43.py <case> (saved front and side sections). Writes results/<case>/tip_approach.json. Air values
 are at the case's blower operating point (WS7040, 1 m hose).
@@ -12,6 +13,17 @@ are at the case's blower operating point (WS7040, 1 m hose).
 - Nozzle surface: mean speed 0.2-0.6 mm off the nozzle cone, in each quarter around it, from the print up to the
   heater block. The CFD mesh closes the 0.2 mm gap under the tip, as the bead does when printing.
 - Print level: mean speed 0.3 mm above the print around the nozzle.
+- Aim line: where each outlet points, before its air bends or collides. A straight line from the mean of the
+  outlet's equal-flux seeds along the mean of their initial directions (first 0.5 mm), taken where it passes the
+  nozzle axis: its fore/aft (or sideways) miss and its height above the print. A negative height means the line
+  meets the print first; the distance from the axis where it does is also given.
+- Aimed below the tip: the share of each outlet's streamlines whose own initial-direction line passes the nozzle
+  axis below the tip's height, or meets the print first. Arrival: inward flux through vertical cylinders of radius
+  3 and 5 mm around the nozzle axis, by height band (below the tip, tip to 1 mm, nozzle cone to 3.6 mm, above).
+- Hot nozzle, cold bead: area-weighted mean air speed 0.4 mm off the CFD's wall faces of the exposed nozzle (below
+  the sock, within 4 mm of the axis; tip to 1 mm and 1 mm to the sock) and of the sock and heater block (Z-75.45 to
+  -71, |X| <= 7.3, Y 17.5-29.5). Convective cooling grows with this speed; the bead's own speed is the print-level
+  ring mean of cfd_nozzle_focus_r43.py.
 """
 import json
 import sys
@@ -105,6 +117,80 @@ def summarise(c):
     return out
 
 
+def aim_line(case):
+    """Each outlet's mean aim line (see the definitions) where it passes the nozzle axis."""
+    pts, offsets, label = F.streamlines(case)
+    origin, dirs = F.initial_rays(pts, offsets)
+    out = {}
+    for i, key in enumerate(F.KEYS):
+        o, d = origin[label == i].mean(0), dirs[label == i].mean(0)
+        d /= np.linalg.norm(d)
+        t = -(o[0] * d[0] + (o[1] - NY) * d[1]) / (d[0] ** 2 + d[1] ** 2)
+        p = o + t * d
+        h = float(p[2] - BED_Z)
+        land = None
+        if h < 0:
+            q = o + (BED_Z - o[2]) / d[2] * d
+            land = float(np.hypot(q[0], q[1] - NY))
+        out[key] = {"from_mm": o.tolist(), "direction": d.tolist(), "at_axis_mm": p.tolist(),
+                    "front_mm": float(p[1] - NY), "right_mm": float(p[0]), "above_print_mm": h,
+                    "meets_print_first_at_r_mm": land}
+    side = {k: (out["left"][k] + out["right"][k]) / 2 for k in ("front_mm", "above_print_mm")}
+    out["side_jets_mean"] = side
+    return out
+
+
+def below_tip(case, report, factor, g):
+    """Aimed below the tip, per outlet, and arrival through cylinders around the nozzle (see the definitions)."""
+    pts, offsets, label = F.streamlines(case)
+    o, d = F.initial_rays(pts, offsets)
+    t = -(o[:, 0] * d[:, 0] + (o[:, 1] - NY) * d[:, 1]) / (d[:, 0] ** 2 + d[:, 1] ** 2)
+    below = o[:, 2] + t * d[:, 2] - BED_Z < TIP_H
+    aim, total, low = {}, 0.0, 0.0
+    for i, key in enumerate(F.KEYS):
+        lpm = report["outlets"][key]["lpm"] * factor
+        aim[key] = {"lpm": lpm, "aimed_below_tip_pct": 100 * float(below[label == i].mean())}
+        total, low = total + lpm, low + lpm * float(below[label == i].mean())
+    aim["all"] = {"lpm": total, "aimed_below_tip_pct": 100 * low / total}
+    bands = (("below the tip", 0.0, TIP_H), ("tip to 1 mm", TIP_H, 1.0), ("nozzle cone, 1-3.6 mm", 1.0, BLOCK_H),
+             ("above 3.6 mm", BLOCK_H, 8.0))
+    arrival = {}
+    for r in (3.0, 5.0):
+        h = np.arange(.01, 8.0, .02)
+        a = np.linspace(0, 2 * np.pi, 180, endpoint=False)
+        H, A = np.meshgrid(h, a, indexing="ij")
+        ok, u = F.probe(g, np.column_stack((r * np.cos(A.ravel()), NY + r * np.sin(A.ravel()), BED_Z + H.ravel())))
+        inward = np.where(ok, -(u[:, 0] * np.cos(A.ravel()) + u[:, 1] * np.sin(A.ravel())), 0.0) * factor
+        q = np.clip(inward, 0, None) * (r * 2 * np.pi / len(a)) * .02 * 1e-6 * 60000
+        lpm = {n: float(q[(H.ravel() >= lo) & (H.ravel() < hi)].sum()) for n, lo, hi in bands}
+        arrival[f"r {r:.0f} mm"] = {"inflow_lpm": sum(lpm.values()), "bands_lpm": lpm}
+    return {"aimed": aim, "arrival": arrival}
+
+
+def hot_walls(case, g, factor, off=.4):
+    """Mean air speed next to the hot parts (see the definitions)."""
+    poly = F.hotend_walls(case)
+    pts = vtk_to_numpy(poly.GetPoints().GetData()).astype(float)
+    cells = vtk_to_numpy(poly.GetPolys().GetData()).reshape(-1, 4)[:, 1:]
+    a, b, c = pts[cells[:, 0]], pts[cells[:, 1]], pts[cells[:, 2]]
+    cen = (a + b + c) / 3
+    n = np.cross(b - a, c - a)
+    area = np.linalg.norm(n, axis=1) / 2
+    n /= np.maximum(np.linalg.norm(n, axis=1), 1e-12)[:, None]
+    ok_m, u_m = F.probe(g, cen - off * n)
+    ok_p, u_p = F.probe(g, cen + off * n)
+    speed = np.linalg.norm(np.where(ok_m[:, None], u_m, u_p), axis=1) * factor
+    ok = ok_m | ok_p
+    r = np.hypot(cen[:, 0], cen[:, 1] - NY)
+    h = cen[:, 2] - BED_Z
+    groups = {"nozzle tip to 1 mm": ok & (cen[:, 2] < -75.45) & (r < 4.0) & (h <= 1.0) & (h > TIP_H - .05),
+              "nozzle 1 mm to the sock": ok & (cen[:, 2] < -75.45) & (r < 4.0) & (h > 1.0),
+              "sock and heater block": ok & (cen[:, 2] >= -75.45) & (cen[:, 2] <= -71.0) & (np.abs(cen[:, 0]) <= 7.3)
+                                       & (cen[:, 1] >= 17.5) & (cen[:, 1] <= 29.5)}
+    return {k: {"mean_ms": float(np.average(speed[m], weights=area[m])), "area_mm2": float(area[m].sum())}
+            for k, m in groups.items() if m.any()}
+
+
 def surface_profile(g, factor, h_max=5.2):
     """Mean speed 0.2-0.6 mm off the nozzle's surface: rays out from the nozzle axis at each height, sampled just
     beyond the first fluid point, then averaged over each quarter around the nozzle."""
@@ -147,7 +233,105 @@ def plan(g, factor, h=.3, half=8.0, step=.05):
             "peak_r5": {"right_mm": float(X[peak]), "front_mm": float(Y[peak] - NY), "ms": float(speed[peak])}}
 
 
+def compare(out_png, specs):
+    """Variants side by side: where the air passes the bead, in the side and front sections and as a matrix, with a
+    summary row per case. Run the single-case analysis (and cfd_nozzle_focus_r43.py) on each case first."""
+    cases = []
+    for spec in specs:
+        label, case = spec.split("=", 1)
+        report = json.loads((C.results_dir(case) / "outlet_balance_mean.json").read_text())
+        factor = report["operating_point_1m_hose"]["lpm"] / 180
+        res = json.loads((C.results_dir(case) / "tip_approach.json").read_text())
+        if "aim_line" not in res:
+            res["aim_line"] = aim_line(case)
+        _, sections = F.load_cached(case)
+        cases.append((label, report, res, closest(case, report, factor), sections))
+    n = len(cases)
+    fig = plt.figure(figsize=(10 * n, 19), dpi=100)
+    fig.patch.set_facecolor(R.BG)
+    grid = fig.add_gridspec(4, n, height_ratios=[.8, .8, 1, .42], hspace=.3, wspace=.18)
+    lines = []
+    for i, (label, report, res, c, sections) in enumerate(cases):
+        a = res["closest_approach"]
+        p = c["point"]
+        for row, (sec, axis, title_, xlabel) in enumerate((
+                (sections["side"], 1, "side section (X 0)", "Y (mm), toward the front"),
+                (sections["front"], 0, "front section (Y 22.7)", "X (mm)"))):
+            ax = fig.add_subplot(grid[row, i])
+            centre = NY if axis == 1 else 0.0
+            F.draw_section(ax, sec, f"{label}: {title_}", xlabel, [], (centre - F.BEAD_R, centre + F.BEAD_R))
+            slab = (np.abs(p[:, 0]) <= 2.5) if axis == 1 else (np.abs(p[:, 1] - NY) <= 2.5)
+            for k, key in enumerate(F.KEYS):
+                m = (c["label"] == k) & slab
+                ax.scatter(p[m, axis], p[m, 2], s=7, color=R.COLORS[key], edgecolor="k", lw=.2, alpha=.85, zorder=10)
+                s = a[key]
+                ax.scatter((s["front_mm"] + NY) if axis == 1 else s["right_mm"], s["above_print_mm"] + BED_Z, s=280,
+                           marker="o", color=R.COLORS[key], edgecolor="w", lw=2.2, zorder=12)
+                if axis == 0 and key == "centre":
+                    continue
+                al = res["aim_line"][key]
+                (x0, z0), (x1, z1) = (al["from_mm"][axis], al["from_mm"][2]), (al["at_axis_mm"][axis], al["at_axis_mm"][2])
+                ax.plot([x0, x1], [z0, z1], color=R.COLORS[key], lw=2.4, ls="--", zorder=13)
+                ax.scatter([x1], [z1], s=150, marker="X", color=R.COLORS[key], edgecolor="w", lw=1.2, zorder=14)
+            ax.set_xlim(centre - 11, centre + 11)
+            ax.set_ylim(BED_Z - .7, BED_Z + 7.2)
+        ax = fig.add_subplot(grid[2, i])
+        R.style(ax, f"{label}: where the air passes the bead (L/min)")
+        M = np.array([[a["cells"][f"{lv}/{pl_}"]["lpm"] for pl_, _ in PLACES] for lv, _ in LEVELS])
+        ax.imshow(M, cmap="magma", vmin=0, vmax=70, aspect="auto")
+        for r_, (lv, _) in enumerate(LEVELS):
+            for k_, (pl_, _) in enumerate(PLACES):
+                cell = a["cells"][f"{lv}/{pl_}"]
+                text = f"{cell['lpm']:.0f}"
+                if cell["mean_speed_ms"] is not None and cell["lpm"] >= 1:
+                    text += f"\n{cell['mean_speed_ms']:.0f} m/s"
+                ax.text(k_, r_, text, ha="center", va="center", fontsize=12, fontweight="bold",
+                        color="#0f1d2e" if M[r_, k_] > 38 else R.TEXT)
+        ax.set_xticks(range(len(PLACES)), [t for _, t in PLACES], color=R.MUTED, fontsize=10)
+        ax.set_yticks(range(len(LEVELS)), [t for _, t in LEVELS], color=R.MUTED, fontsize=10)
+        ax.add_patch(plt.Rectangle((.5, 1.5), 1, 1, fill=False, ec="#ffd43b", lw=3))
+        side = {k: (a["left"][k] * a["left"]["lpm"] + a["right"][k] * a["right"]["lpm"]) / (a["left"]["lpm"] + a["right"]["lpm"])
+                for k in ("front_mm", "above_print_mm")}
+        bead = res["print_level"]["sectors_ms"]["r 0.6-2.0 mm"]
+        surf = res["nozzle_surface"]["band_means_ms"]["tip to 1 mm"]["all"]
+        aim = res["aim_line"]["side_jets_mean"]
+        lines.append([label, f"{report['operating_point_1m_hose']['lpm']:.0f}",
+                      f"{aim['front_mm']:+.1f} / {aim['above_print_mm']:+.1f}",
+                      f"{side['front_mm']:+.1f} / {side['above_print_mm']:.1f}",
+                      f"{a['centre']['front_mm']:+.1f} / {a['centre']['above_print_mm']:.1f}",
+                      f"{a['cells']['print/at']['lpm']:.1f}",
+                      f"{sum(a['cells'][f'print/{q}']['lpm'] for q, _ in PLACES):.0f}",
+                      f"{sum(a['cells'][f'block/{q}']['lpm'] for q, _ in PLACES):.0f}",
+                      "/".join(f"{bead[q]:.0f}" for q in ("behind", "left", "front", "right")), f"{surf:.0f}"])
+    ax = fig.add_subplot(grid[3, :])
+    ax.axis("off")
+    head = ["case", "blower\nL/min", "side jets aim at\nthe axis: front / up", "side jets pass\nfront / up (mm)",
+            "centre slot pass\nfront / up (mm)",
+            "at the bead\nL/min", "print level\nL/min", "above 3.6 mm\nL/min", "within 2 mm\nB/L/F/R m/s",
+            "nozzle surface\ntip-1 mm m/s"]
+    table = ax.table(cellText=lines, colLabels=head, loc="center", cellLoc="center")
+    table.auto_set_font_size(False)
+    table.set_fontsize(13)
+    table.scale(1, 2.6)
+    for (r_, k_), cell in table.get_celld().items():
+        cell.set_facecolor(R.PANEL if r_ else "#1d3550")
+        cell.set_edgecolor(R.EDGE)
+        cell.get_text().set_color(R.TEXT)
+        if r_ == 0:
+            cell.set_height(cell.get_height() * 1.7)
+    fig.suptitle("Where the air passes the nozzle tip: " + " vs ".join(c[0] for c in cases) + ". Iteration-mean CFD, "
+                 "each design at its own blower point. Dots: closest approach to the bead of air passing within 2.5 mm "
+                 "of the section; rings: each outlet's mean; dashed lines: each outlet's mean aim, X where it passes "
+                 "the nozzle axis. Airflow, not temperature.", color=R.TEXT, fontsize=15,
+                 wrap=True)
+    fig.savefig(out_png, facecolor=R.BG, bbox_inches="tight", pad_inches=.4)
+    print(out_png)
+
+
 def main():
+    if sys.argv[1] == "--compare":
+        compare(sys.argv[2], sys.argv[3:])
+        return
     case, out_png = sys.argv[1], sys.argv[2]
     title = sys.argv[3] if len(sys.argv) > 3 else "current Bambu set"
     report = json.loads((C.results_dir(case) / "outlet_balance_mean.json").read_text())
@@ -158,6 +342,8 @@ def main():
     g = B.load(case, True)
     surf = surface_profile(g, factor)
     pl = plan(g, factor)
+    low = below_tip(case, report, factor, g)
+    hot = hot_walls(case, g, factor)
     del g
     _, sections = F.load_cached(case)
     hs, prof = surf["h_mm"], surf["profiles"]
@@ -168,7 +354,9 @@ def main():
                    "band_means_ms": {b: {k: float(np.nanmean(v[m])) for k, v in prof.items()} for b, m in bands.items()},
                    "fastest_height_mm": float(hs[np.nanargmax(prof["all"])])}
     result = {"case": case, "operating_point_lpm": op["lpm"], "bead_point_mm": BEAD.tolist(),
-              "heater_block_skirt_above_print_mm": BLOCK_H, "closest_approach": summary, "nozzle_surface": surface,
+              "heater_block_skirt_above_print_mm": BLOCK_H, "closest_approach": summary, "aim_line": aim_line(case),
+              "below_tip": low, "hot_nozzle_cold_bead": hot,
+              "nozzle_surface": surface,
               "print_level": {k: v for k, v in pl.items() if k not in ("x", "y", "speed")},
               "definitions": __doc__.split("\n\n", 2)[2].strip()}
     (C.results_dir(case) / "tip_approach.json").write_text(json.dumps(result, indent=1) + "\n")

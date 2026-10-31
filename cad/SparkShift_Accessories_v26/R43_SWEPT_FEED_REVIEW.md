@@ -18,6 +18,170 @@ The [earlier decision-summary image](images/sparkshift_c28_design_review_share.j
 is retained as a historical 32/28-degree comparison and explicitly labels its
 pre-inlet-cleanup CFD.
 
+## Aiming at the bead within the hotend clearance limits
+
+**Screening round, 2026-10-31.** The question was how to make the air average just below the nozzle tip without
+coming any nearer the silicone sock or hotend. Iteration-mean CFD at each design's own blower point. This is
+airflow, not temperature, and none of these parts is print-qualified.
+
+**Hard limit.** No P22 material may be nearer any Bambu hotend part than the released P22, mounted and along the
+60 mm withdrawal. Those gaps are heater cradle 1.918, wire bail 2.10, silicone sock 3.20, ceramic block 4.592,
+and nozzle and melt block 5.20 mm. So nothing is added inside the hotend slot (|X| < 10.2 mm) or below P22's
+underside. The session's `build_aim_variant.py` measures this with exact BREP distances and refuses to export a
+variant that breaks it. `aim_withdrawal.py` rechecks the withdrawal in 1 mm steps. Every variant in the tables
+matches the released gaps exactly, mounted and withdrawn.
+
+**Rejected.** The first trials extended each side jet into the hotend slot, to |X| 8.2-8.3 mm, as downturned
+nozzles or deflector lips. They came within 1.20-1.27 mm of the sock and 3.22-3.27 mm of the nozzle, so they are
+discarded. Their CFD is kept only as evidence: even they left the air passing 2.3-2.5 mm up.
+
+![The hard limit at the jet: released, rejected and compliant outlets](images/r43_aim_clearance_sections.png)
+
+**Two measures.** *Aim* is where each outlet's mean exit direction, extended in a straight line, passes the nozzle
+axis: what the outlet points at. *Passes* is where the air actually comes closest to the bead after it bends and
+collides, as in the [next section](#where-the-air-passes-the-nozzle-tip). The tip is 0.2 mm above the print.
+
+| Outlet change | Blower flow | Duct at 180 L/min | Side jets leave (down / forward) | Side jets aim at the nozzle axis (front / up) | Side jets pass (front / up) | All the air passes (front / up) |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Current (released v5d) | 231 L/min | 1420 Pa | 12 / 15 deg | +3.2 / +1.8 mm | +2.6 / 2.3 mm | +0.8 / 2.3 mm |
+| Floor lip trimmed 1.5 mm | 234 L/min | 1333 Pa | 17 / 18 deg | +3.4 / +0.9 mm | +2.6 / 2.5 mm | +0.7 / 2.4 mm |
+| Side-jet roof lowered 1.0 mm | 209 L/min | 2151 Pa | 10 / 13 deg | +3.2 / +1.7 mm | +2.9 / 1.8 mm | +0.9 / 1.8 mm |
+| Side-jet roof lowered 1.7 mm | 180 L/min | 3442 Pa | 8 / 12 deg | +3.0 / +1.6 mm | +3.1 / 1.6 mm | +0.6 / 1.6 mm |
+| Vanes in the side passages (VC3) | 218 L/min | 1836 Pa | 11 / 2 deg | +0.4 / +1.8 mm | +0.6 / 2.7 mm | -1.2 / 2.6 mm |
+| Louver blade in each jet (L30) | 214 L/min | 1969 Pa | 19 / 11 deg | +2.2 / +0.5 mm | +2.1 / 2.2 mm | +0.3 / 2.1 mm |
+| **45-degree roof ramp (R45)** | 204 L/min | 2328 Pa | 19 / 14 deg | +3.2 / **-0.1 mm** | +2.9 / **1.4 mm** | +0.6 / 1.6 mm |
+| **Louver + vanes (LV3)** | 199 L/min | 2509 Pa | 19 / 3 deg | **+0.7 / +0.3 mm** | +1.3 / 2.2 mm | -0.7 / 2.1 mm |
+| Ramp + vanes (RV3) | 191 L/min | 2884 Pa | 20 / 2 deg | +1.2 / -0.4 mm | +1.8 / 1.7 mm | -0.5 / 1.8 mm |
+| User's U end in each side chamber (U1) | 229 L/min | 1479 Pa | 12 / 21 deg | +3.6 / +1.9 mm | +2.9 / 2.4 mm | +1.1 / 2.2 mm |
+| Front reach: chamber front wall thinned to 0.8 mm (F08) | 231 L/min | 1417 Pa | 12 / 15 deg | +2.8 / +1.7 mm | +2.2 / 2.3 mm | +0.5 / 2.2 mm |
+| Ramp + floor-lip chamfer (RC) | 208 L/min | 2177 Pa | 24 / 17 deg | +3.7 / -0.9 mm | +3.3 / 1.7 mm | +0.9 / 1.7 mm |
+| Louver + floor-lip chamfer (LC) | 218 L/min | 1857 Pa | 21 / 14 deg | +2.7 / -0.1 mm | +2.5 / 2.3 mm | +0.6 / 2.1 mm |
+
+| Outlet change | Through the fresh bead | Speed at the bead, r 0.6-2 mm | Over the print, r <= 10 mm | Aimed at the hotend | Passing above 3.6 mm | Sectors R / F / L / Re |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Current (released v5d) | 6.0 L/min | 17.6 m/s | 96 L/min | 62 L/min | 64 L/min | 23 / 25 / 24 / 29 m/s |
+| Floor lip trimmed 1.5 mm | 5.1 L/min | 11.3 m/s | 67 L/min | 40 L/min | 54 L/min | 16 / 17 / 17 / 22 m/s |
+| Side-jet roof lowered 1.0 mm | 6.1 L/min | 20.7 m/s | 94 L/min | 30 L/min | 25 L/min | 23 / 22 / 23 / 31 m/s |
+| Side-jet roof lowered 1.7 mm | 3.5 L/min | 17.7 m/s | 91 L/min | 25 L/min | 18 L/min | 23 / 33 / 28 / 10 m/s |
+| Vanes in the side passages (VC3) | 5.7 L/min | 12.2 m/s | 82 L/min | 57 L/min | 70 L/min | 9 / 20 / 11 / 21 m/s |
+| Louver blade in each jet (L30) | 6.0 L/min | 20.4 m/s | 100 L/min | 34 L/min | 50 L/min | 31 / 32 / 32 / 13 m/s |
+| **45-degree roof ramp (R45)** | 7.4 L/min | **22.7 m/s** | 98 L/min | **2 L/min** | **21 L/min** | 34 / 28 / 31 / 23 m/s |
+| **Louver + vanes (LV3)** | **8.0 L/min** | 20.6 m/s | 94 L/min | 16 L/min | 46 L/min | 29 / 29 / 29 / 16 m/s |
+| Ramp + vanes (RV3) | 6.3 L/min | 15.3 m/s | 85 L/min | 2 L/min | 22 L/min | 18 / 31 / 20 / 22 m/s |
+| User's U end in each side chamber (U1) | 5.3 L/min | 16.1 m/s | 88 L/min | 54 L/min | 56 L/min | 22 / 23 / 22 / 24 m/s |
+| Front reach: chamber front wall thinned to 0.8 mm (F08) | 7.0 L/min | 17.9 m/s | 95 L/min | 63 L/min | 61 L/min | 23 / 26 / 25 / 30 m/s |
+| Ramp + floor-lip chamfer (RC) | 6.0 L/min | 19.2 m/s | 83 L/min | 2 L/min | 19 L/min | 18 / 23 / 18 / 24 m/s |
+| Louver + floor-lip chamfer (LC) | 6.5 L/min | 17.1 m/s | 90 L/min | 31 L/min | 50 L/min | 24 / 28 / 25 / 11 m/s |
+
+![Where the air passes the tip: current, roof ramp, louver + vanes; dashed lines are the aim](images/r43_aim_round_compare.png)
+
+**Hot nozzle, cold bead.** The goal is to cool the bead the moment it leaves the tip while keeping air off the
+nozzle and heater block, which the heater must make up. The hotend fan cools the heatsink above. Convective cooling
+grows with the air speed next to a surface, so the next table compares mean air speed 0.4 mm off the CFD's walls
+with the speed at the bead. *Aimed below the tip* is the share of all the air whose exit direction passes the
+nozzle axis below the tip, or meets the print first.
+
+| Outlet change | Aimed below the tip | Bead, r 0.6-2 mm | Nozzle, tip to 1 mm | Nozzle, 1 mm to the sock | Sock and heater block | Bead / nozzle above 1 mm |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Current (released v5d) | 13% | 17.6 m/s | 19.3 m/s | 27.3 m/s | 25.7 m/s | 0.65 |
+| Floor lip trimmed 1.5 mm | 27% | 11.3 m/s | 13.1 m/s | 22.0 m/s | 23.5 m/s | 0.51 |
+| Side-jet roof lowered 1.0 mm | 16% | 20.7 m/s | 21.3 m/s | 27.3 m/s | 20.2 m/s | 0.76 |
+| Side-jet roof lowered 1.7 mm | 21% | 17.7 m/s | 13.6 m/s | 20.7 m/s | 17.6 m/s | 0.86 |
+| Vanes in the side passages (VC3) | 18% | 12.2 m/s | 16.6 m/s | 22.6 m/s | 21.9 m/s | 0.54 |
+| **Louver blade in each jet (L30)** | 39% | 20.4 m/s | 19.1 m/s | **19.0 m/s** | 22.4 m/s | **1.08** |
+| **45-degree roof ramp (R45)** | **59%** | **22.7 m/s** | 23.8 m/s | 27.8 m/s | 19.0 m/s | 0.82 |
+| Louver + vanes (LV3) | 46% | 20.6 m/s | 21.9 m/s | 21.3 m/s | **18.4 m/s** | 0.97 |
+| Ramp + vanes (RV3) | 57% | 15.3 m/s | 21.6 m/s | 33.6 m/s | 16.1 m/s | 0.45 |
+| User's U end (U1) | 14% | 16.1 m/s | 16.6 m/s | 24.1 m/s | 23.7 m/s | 0.67 |
+| Front reach (F08) | 11% | 17.9 m/s | 19.9 m/s | 28.1 m/s | 25.9 m/s | 0.64 |
+| Ramp + floor-lip chamfer (RC) | **84%** | 19.2 m/s | 22.7 m/s | 27.0 m/s | 18.8 m/s | 0.71 |
+| Louver + floor-lip chamfer (LC) | 55% | 17.1 m/s | 16.6 m/s | **15.9 m/s** | 22.4 m/s | 1.07 |
+
+The bead trails the nozzle in whichever direction the head moves, so the weakest direction matters as much as the
+mean. Speed 0.3 mm above the print:
+
+| Outlet change | Bead ring, r 0.6-2 mm: behind / left / front / right | Weakest | Print, r 2-5 mm: behind / left / front / right | Weakest |
+| :--- | :--- | ---: | :--- | ---: |
+| Current (released v5d) | 23.7 / 17.9 / 11.1 / 17.5 m/s | 11.1 m/s | 29.4 / 25.1 / 26.6 / 24.2 m/s | 24.2 m/s |
+| 45-degree roof ramp (R45) | 29.7 / 23.7 / 11.9 / 25.8 m/s | 11.9 m/s | 22.3 / 31.2 / 29.7 / 34.6 m/s | 22.3 m/s |
+| Louver blade in each jet (L30) | 20.3 / 23.2 / 15.9 / 22.3 m/s | 15.9 m/s | 12.1 / 33.2 / 33.2 / 32.1 m/s | 12.1 m/s |
+| Louver + vanes (LV3) | 19.9 / 22.4 / 18.4 / 21.8 m/s | **18.4 m/s** | 14.8 / 29.7 / 30.5 / 30.2 m/s | 14.8 m/s |
+| Ramp + floor-lip chamfer (RC) | 27.3 / 19.6 / 10.6 / 19.6 m/s | 10.6 m/s | 23.5 / 17.8 / 23.8 / 17.7 m/s | 17.7 m/s |
+| Louver + floor-lip chamfer (LC) | 16.9 / 19.1 / 13.1 / 19.4 m/s | 13.1 m/s | 10.0 / 25.0 / 29.2 / 25.0 m/s | 10.0 m/s |
+
+- **The louver keeps the nozzle hottest for the most bead air.** It halves the air on the sides of the cone,
+  where the side jets hit (22.8 to 10.1 m/s on the left, 22.7 to 12.7 on the right), and still adds 16% at the
+  bead. It costs 7% of the blower flow.
+- **The ramp puts the most air at the bead and the least on the sock, but not off the nozzle.** Its lower,
+  faster side jets collide and drive air up the back of the cone (22.5 to 27.5 m/s).
+- **Removing the lean is worst for the nozzle.** With ramp and vanes the jets collide on the nozzle, and the cone
+  sees 34 m/s.
+- **Aiming steeper is not more air at the bead.** Adding a floor-lip chamfer to the ramp (RC) aims 84% of all the
+  air, and 97% of the side jets, below the tip. But the jets land short of the nozzle and spread, as with the lip
+  trim. The bead gets 19 m/s against 23 with the ramp alone, and the print 2-5 mm out gets 21 m/s against 26 today.
+  The same chamfer under the louver (LC) cut the bead to 17 m/s from 20. Aim the jets at tip height, not into the
+  print short of it.
+- **The louver designs give the most even bead ring.** With louver and vanes every direction at the bead gets at
+  least 18 m/s, against 11 now. Their weak point is the print 2-5 mm behind the nozzle (12-15 m/s against 29),
+  where the centre slot's air is pushed aside.
+
+- **The centre slot already aims at the bead.** In every design its aim line meets the print 0.3-0.8 mm short of
+  the nozzle axis, just behind the tip. Its air still passes about 5 mm behind, because the side jets and the
+  nozzle cone turn it.
+- **The side jets aim 3.2 mm in front and 1.8 mm up.** Height and lean have separate causes, and each has its own
+  fix inside the duct.
+- **Height: the 45-degree roof ramp.** The last 1.7 mm of each jet's roof becomes a straight 45-degree ramp from
+  the slot face into the bell-mouth round, 0.92 mm lower at the exit. The aim line drops to print level at the
+  axis. The side jets pass 1.4 mm up instead of 2.3, and air aimed at the hotend falls from 62 to 2 L/min.
+- **Lean: vanes across each passage.** Three 0.45 mm vanes cut the forward lean from 15 to 2 degrees but leave
+  the height. It comes from the side chamber's forward flow, not from the outlet.
+- **Both: louver + vanes.** A 0.5 mm louver blade turns each jet's upper half down. With the vanes, each jet aims
+  0.7 mm in front of the axis and 0.3 mm above the print, at the bead. It puts the most air through the bead of
+  any design: 8.0 L/min, up a third.
+- **The mean of all the air still passes about 2 mm up.** In every design, compliant or not, the two side jets
+  meet head-on at the nozzle, and the collision turns part of each upward. Aiming moves where they meet, not
+  that they meet.
+- **Aiming the two side jets exactly at the bead backfires.** With the ramp and the vanes together (RV3), each
+  jet aims 1.2 mm in front at print level, and all the air passes nearest the bead (-0.5 / 1.8 mm). But the jets
+  now collide on the bead itself, so the air there slows to 15 m/s against 23 with the ramp alone. With the ramp
+  alone they meet about 3 mm in front, and the air sweeps across the bead at speed.
+- **Every redirecting change costs air.** Blower flow falls to 191-218 L/min from 231. The faster side jets also
+  push the centre slot's air aside: the rear sector drops to 13-23 m/s from 29 while the sides rise.
+
+**User's U end (U1).** The user's sketch rounded the side chamber's lower-front corner into a U and curled the
+front wall back to the ceiling ([sketch on the R43 and current ducts](images/r43_user_u_bowl_flow.png)). On
+today's duct its bottom matches the floor within 0.5 mm, so the new parts are the rounded corner and the curl. It
+was built inside each chamber from |X| 12.6 outward, following the front wall forward where the chamber reaches
+further. It stays within the hard limits and leaves the jet exits unchanged.
+
+![U1 in the current side chamber; orange is added](images/r43_user_u_bowl_geometry.png)
+
+It costs almost no air (229 L/min) and evens the sectors, but it leans the jets further forward: 21 degrees
+instead of 15. Air through the bead falls 12%. The fill takes chamber volume from the front of each jet passage.
+Only 29% of the passage's inflow now enters ahead of Y 24, against 38%, so the front of each jet is fed by air
+running forward along the passage. To bring the jets rearward the front of the passage needs more direct feed,
+not less. The inverse test (F08) thins each chamber's front wall to 0.8 mm from the inside, so more chamber air
+sits ahead of the passage. It moves the jets 0.4 mm rearward at no cost: the right direction, but a small effect.
+Printed back-down, the U's curl would also be a 63-degree overhang inside the chamber.
+
+![Why U1 leans the jets further forward](images/r43_user_u_bowl_compare.png)
+
+**Recommendation.** With the goal of a hot nozzle and a cold bead, the louver is the direction to take. It is the
+only change that takes air off the nozzle (cone -30%) while adding air at the bead (+16%, weakest direction +43%),
+for 7% of the blower flow. Its weak point is the print 2-5 mm behind the nozzle, and its 0.5 mm blade is a single
+extrusion line: a printable 0.8 mm blade needs one confirming CFD. The ramp gives the bead the most air (+29%)
+and prints like the existing roof (matched slicing: support 4.67 against 4.62 cm3, same time), but it leaves the
+nozzle cone as exposed as now. Floor-lip chamfers, the lip trim and removing the lean all made the bead worse.
+CFD cannot settle a thermal trade like this: the chosen candidate needs a printed test.
+
+Evidence: the `side_jet_*`, `side_chamber_*` and `rejected_*` cases, each with its `tip_approach` blocks
+`aim_line`, `below_tip` and `hot_nozzle_cold_bead`, and `hotend_clearance_limits` in
+[verification_outlet_balance_r43.json](verification_outlet_balance_r43.json).
+Reproduce the geometry with the session's `build_aim_variant.py`: `--ramp-angle 45`; `--vanes 20.6,23.2,25.6
+--vane-thick 0.45 --tip-x 10.25 --vane-x-out 12.55`; `--louver-z -75.3 --louver-angle 30`; `--u-csv
+user_u_centreline_mm.csv`. Then run the CFD as in the earlier sections and `cfd_tip_approach_r43.py`, whose aim
+line is new in this round.
+
 ## Where the air passes the nozzle tip
 
 **Current Bambu set, 2026-10-31.** Same iteration-mean CFD at the 231 L/min blower point, analysed with
@@ -47,7 +211,8 @@ on the nozzle axis midway between the tip and the print. This is airflow, not te
 Putting the mean flow on the bead would take side jets with no forward lean, leaving about 20 degrees down so
 that they meet at the bead, and a centre slot that lands 1-2 mm behind the tip instead of meeting the cone.
 These are P22 outlet changes and are untested. The side jets would still meet head-on, so they need CFD before
-any decision.
+any decision. (Tested since, within the hotend clearance limits: see
+[aiming at the bead](#aiming-at-the-bead-within-the-hotend-clearance-limits).)
 
 Evidence: the `tip_approach` block of each case in
 [verification_outlet_balance_r43.json](verification_outlet_balance_r43.json). Reproduce with
@@ -662,6 +827,7 @@ or claimed as performance improvements.
 | Medium: entry-region CFD resolution | The old cap-to-ceiling clearance was about 0.1 mm; matching mesh settings does not prove this small gap was resolved. | Add the same focused entry refinement to both geometries for a follow-up sensitivity study. Keep quality limits unchanged and monitor section closure as well as near-print results. | The cleanup's geometric benefit is clear, but a CFD percentage can contain both physical and under-resolution effects. A passing `checkMesh` is necessary, not a mesh-independence certificate. |
 | Medium: tool/probe coverage | Current-angle airflow evidence is for Bambu with the Beacon scene. Red Lizard and Cartographer have geometry checks, not all corresponding CFD combinations. | Cross-check the leading cleaned geometry with the other hotend and the actual alternative probe envelope before making a shared performance claim. | The hotend and probe influence impingement, recirculation and blocked paths. A common mounting interface does not guarantee common cooling behavior. |
 | Low: tiny residual CAD faces | Eighteen faces below 0.01 mm2 remain in each variant; the count is unchanged by the cleanup. The bodies are valid and watertight. | Investigate only those that produce thin material, bad export, poor meshing or slicer defects. Merge equivalent faces only with shape-equivalence checks. | Small trimmed faces are not the same as detached debris. Blanket healing or deletion risks moving the narrow slot or changing walls. |
+| Medium (noted 2026-10-31, not changed): top-surface wedge under the P01 mount | On each side (\|X\| 14.5-21.5) P22's top falls away from the P01 45-degree mount into a wedge-shaped valley, 0.6 mm deep at Y 10 and 1.4 mm at Y 14.3, where it ends at P22's riser. Printed back-down, the riser's underside is a flat 1.1-1.4 mm overhang over that valley. | Fill the valley so P22's top runs straight into the riser, keeping a small even gap to P01. | The user flagged it as a large printability gain. It is outside the airway, so airflow is unaffected; recheck the P01 gap and the slicer's support afterwards. |
 
 **Opening-size recommendation:** retain the 0.9 mm final slot as the Bambu baseline.
 The controlled 1.1 mm trial increased rear flow but reduced the near-print speed and

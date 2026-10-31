@@ -24,6 +24,43 @@ CASES = {   # label: (case, description)
     "current_repeat": ("r43avgV5dRep_bambu_bed", "Byte-identical repeat of the current case (run-to-run spread)"),
     "side_jet_lip_trim_1p5": ("r43avgV5dLip15_bambu_bed",
                               "Current set, each side jet's floor lip trimmed back 1.5 mm from the exit (screening)"),
+    "side_jet_vanes_vc3": ("r43avgV5dVC3_bambu_bed",
+                           "Current set, three 0.45 mm straightening vanes across each side-jet passage at Y 20.6, 23.2 "
+                           "and 25.6, inside the duct (screening; within the hotend clearance limits)"),
+    "side_jet_louver_l30": ("r43avgV5dL30_bambu_bed",
+                            "Current set, a 0.5 mm louver blade along each side jet: exit edge at |X| 10.25, Z-75.3, "
+                            "rising outward at 30 degrees (screening; within the hotend clearance limits)"),
+    "side_jet_roof_ramp_r45": ("r43avgV5dR45_bambu_bed",
+                               "Current set, each side jet's roof ends in a straight 45-degree ramp from the slot face "
+                               "into the bell-mouth round, roof 0.92 mm lower at the exit (screening; within the hotend "
+                               "clearance limits)"),
+    "side_jet_louver_vanes_lv3": ("r43avgV5dLV3_bambu_bed",
+                                  "Current set, the L30 louver and the VC3 vanes together (screening; within the "
+                                  "hotend clearance limits)"),
+    "side_chamber_user_u_u1": ("r43avgV5dU1_bambu_bed",
+                               "Current set, the user's U end in each side chamber: the lower-front corner rounded "
+                               "and the front wall curled back to the ceiling, following the front wall forward at "
+                               "|X| 12.6-15.8 (screening; within the hotend clearance limits)"),
+    "side_jet_roof_ramp_vanes_rv3": ("r43avgV5dRV3_bambu_bed",
+                                     "Current set, the R45 roof ramp and the VC3 vanes together (screening; within the "
+                                     "hotend clearance limits)"),
+    "side_chamber_front_reach_f08": ("r43avgV5dF08_bambu_bed",
+                                     "Current set, each side chamber's front wall thinned from the inside to about "
+                                     "0.8 mm (0.82 mm minimum) between Z-76.65 and -71.6, so more chamber air sits in "
+                                     "front of the jet passage (screening; within the hotend clearance limits)"),
+    "side_jet_roof_ramp_chamfer_rc": ("r43avgV5dRC_bambu_bed",
+                                      "Current set, the R45 roof ramp plus a floor-lip chamfer from |X| 11.2 down to "
+                                      "Z-77.45 at the slot face, 0.4 mm lip left (screening; within the hotend "
+                                      "clearance limits)"),
+    "side_jet_louver_chamfer_lc": ("r43avgV5dLC_bambu_bed",
+                                   "Current set, the L30 louver plus the same floor-lip chamfer (screening; within the "
+                                   "hotend clearance limits)"),
+    "rejected_nozzles_n22": ("r43avgV5dN22_bambu_bed",
+                             "REJECTED, breaks the hotend clearance limit (1.27 mm to the sock): side-jet nozzles "
+                             "turned down 22 degrees reaching into the hotend slot to |X| 8.27, plus two vanes"),
+    "rejected_plates_ab": ("r43avgV5dAimAB_bambu_bed",
+                           "REJECTED, breaks the hotend clearance limit (1.20 mm to the sock): three guide plates in "
+                           "each side chamber and a 28-degree deflector lip reaching into the hotend slot to |X| 8.2"),
 }
 KEYS = ("left", "right", "centre")
 
@@ -76,6 +113,8 @@ def tip_summary(case):
     a = t["closest_approach"]
     return {"cells_lpm_at_operating_point": a["cells"], "cells_by_outlet_lpm": a.get("cells_by_outlet"),
             "mean_passing_point_mm": {k: a[k] for k in ("left", "right", "centre", "all")},
+            "aim_line": t.get("aim_line"), "below_tip": t.get("below_tip"),
+            "hot_nozzle_cold_bead": t.get("hot_nozzle_cold_bead"),
             "nozzle_surface_band_means_ms": t["nozzle_surface"]["band_means_ms"],
             "print_level_sectors_ms": t["print_level"]["sectors_ms"], "print_level_peak_r5": t["print_level"]["peak_r5"]}
 
@@ -88,10 +127,10 @@ def main():
                      "nozzle axis, and the share leaving upward past the hotend (Z > -70 mm). Values at each "
                      "design's own estimated WS7040 operating point with a 1 m hose (flow exponent 1.983).",
            "limitations": "Airflow only: no temperature, heat transfer or printed result. Streamlines in a mean field "
-                          "show transport, not residence. The visors and the lip trim are CFD screening prototypes, "
-                          "not qualified or printed parts. Streamlines start at the outlet sections, so air that a "
-                          "trimmed floor releases before them is reported only as the nozzle_focus side_spill_lpm "
-                          "flux.",
+                          "show transport, not residence. The visors, the lip trim and the aim variants (vanes, louver, "
+                          "roof ramp) are CFD screening prototypes, not qualified or printed parts. Streamlines start "
+                          "at the outlet sections, so air that a trimmed floor releases before them is reported only "
+                          "as the nozzle_focus side_spill_lpm flux.",
            "cases": {}}
     for label, (case, text) in CASES.items():
         if (C.results_dir(case) / "outlet_balance_mean.json").exists():
@@ -128,6 +167,14 @@ def main():
     scorecard = C.CFD.parent / "printability_swept" / "scorecard" / "scorecard.json"
     if scorecard.exists():
         out["printability"] = json.loads(scorecard.read_text())
+    mounted, withdrawal = (C.CFD.parent / f"aim_hotend_{k}.json" for k in ("mounted_gaps", "withdrawal"))
+    if mounted.exists() and withdrawal.exists():
+        out["hotend_clearance_limits"] = {
+            "rule": "Hard limit: no P22 material nearer any Bambu hotend part than the released P22, mounted and "
+                    "along the 60 mm -Y withdrawal (1 mm steps), and nothing added inside the hotend slot "
+                    "(|X| < 10.2 mm). Exact BREP distances.",
+            "mounted_gap_mm": json.loads(mounted.read_text()),
+            "withdrawal_min_mm": json.loads(withdrawal.read_text())}
     out["source_sha256"] = {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in (
         "cfd_outlet_balance_r43.py", "render_outlet_balance_r43.py", "report_outlet_balance_r43.py",
         "render_scene_symmetry_r43.py", "cfd_nozzle_focus_r43.py", "cfd_tip_approach_r43.py", "cfd_cpap_r41.py",
