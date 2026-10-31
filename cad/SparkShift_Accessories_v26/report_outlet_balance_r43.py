@@ -67,6 +67,19 @@ def focus_summary(case):
                                                   "scrubs_hotend_pct", "opening")} for k, v in f["outlets"].items()}}
 
 
+def tip_summary(case):
+    """Where the air passes the nozzle tip, from cfd_tip_approach_r43.py, when it has been run on the case."""
+    path = C.results_dir(case) / "tip_approach.json"
+    if not path.exists():
+        return None
+    t = json.loads(path.read_text())
+    a = t["closest_approach"]
+    return {"cells_lpm_at_operating_point": a["cells"], "cells_by_outlet_lpm": a.get("cells_by_outlet"),
+            "mean_passing_point_mm": {k: a[k] for k in ("left", "right", "centre", "all")},
+            "nozzle_surface_band_means_ms": t["nozzle_surface"]["band_means_ms"],
+            "print_level_sectors_ms": t["print_level"]["sectors_ms"], "print_level_peak_r5": t["print_level"]["peak_r5"]}
+
+
 def main():
     out = {"method": "OpenFOAM v2512 simpleFoam, k-omega SST, 180 L/min inlet, 1,200 iterations; fieldAverage of U "
                      "and p over iterations 700-1200 (written with cfd_cpap_r41.py case --average-from 700). "
@@ -86,6 +99,9 @@ def main():
             focus = focus_summary(case)
             if focus:
                 out["cases"][label]["nozzle_focus"] = focus
+            tip = tip_summary(case)
+            if tip:
+                out["cases"][label]["tip_approach"] = tip
     snapshot = {name: D.coverage(B.load(name, False), A.operating(A.rows_of(name))["lpm"] / 180)
                 for name in ("r43userpostV5d_bambu_bed", "r43avgV5d_bambu_bed")}
     out["snapshot_repeatability"] = {
@@ -114,8 +130,8 @@ def main():
         out["printability"] = json.loads(scorecard.read_text())
     out["source_sha256"] = {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in (
         "cfd_outlet_balance_r43.py", "render_outlet_balance_r43.py", "report_outlet_balance_r43.py",
-        "render_scene_symmetry_r43.py", "cfd_nozzle_focus_r43.py", "cfd_cpap_r41.py", "cfd_swept_refine_r43.py",
-        "cfd/run_case.sh")}
+        "render_scene_symmetry_r43.py", "cfd_nozzle_focus_r43.py", "cfd_tip_approach_r43.py", "cfd_cpap_r41.py",
+        "cfd_swept_refine_r43.py", "cfd/run_case.sh")}
     (ROOT / "verification_outlet_balance_r43.json").write_text(json.dumps(out, indent=2) + "\n")
     for label, row in out["cases"].items():
         print(label, json.dumps({k: row[k] for k in ("inlet_total_pa_at_180", "sector_mean_ms", "weakest_to_strongest",

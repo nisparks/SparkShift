@@ -278,6 +278,190 @@
             }
           }
         }
+      },
+      "tip_approach": {
+        "cells_lpm_at_operating_point": {
+          "block/behind": {
+            "lpm": 12.835044337587366,
+            "pct": 5.550262642012771,
+            "mean_speed_ms": 15.292919573870508
+          },
+          "block/at": {
+            "lpm": 0.0,
+            "pct": 0.0,
+            "mean_speed_ms": null
+          },
+          "block/front": {
+            "lpm": 8.391554224711196,
+            "pct": 3.6287626826066632,
+            "mean_speed_ms": 31.802671882535712
+          },
+          "block/beside": {
+            "lpm": 42.30477086510529,
+            "pct": 18.293866630743604,
+            "mean_speed_ms": 22.083271053207426
+          },
+          "cone/behind": {
+            "lpm": 20.881852686643278,
+            "pct": 9.029946746913705,
+            "mean_speed_ms": 20.19691034728693
+          },
+          "cone/at": {
+            "lpm": 6.892619292466263,
+            "pct": 2.9805777337722104,
+            "mean_speed_ms": 20.26667607005458
+          },
+          "cone/front": {
+            "lpm": 46.749400115018894,
+            "pct": 20.215859187571017,
+            "mean_speed_ms": 46.038301143669
+          },
+          "cone/beside": {
+            "lpm": 16.729021067178415,
+            "pct": 7.23413633988726,
+            "mean_speed_ms": 24.59814795848588
+          },
+          "print/behind": {
+            "lpm": 3.352909750566894,
+            "pct": 1.44989991784554,
+            "mean_speed_ms": 8.612937842200836
+          },
+          "print/at": {
+            "lpm": 5.544198202410931,
+            "pct": 2.3974795375377713,
+            "mean_speed_ms": 18.332852725676023
+          },
+          "print/front": {
+            "lpm": 20.22720256363727,
+            "pct": 8.74685616882597,
+            "mean_speed_ms": 37.74662390617558
+          },
+          "print/beside": {
+            "lpm": 47.34254356134082,
+            "pct": 20.47235241228348,
+            "mean_speed_ms": 24.235952617045704
+          }
+        },
+        "cells_by_outlet_lpm": {
+          "left": {
+            "block/behind": 1.645903923205342,
+            "block/at": 0.0,
+            "block/front": 4.189573622704508,
+            "block/beside": 19.900474707846406,
+            "cone/behind": 2.0947868113522534,
+            "cone/at": 3.591063105175292,
+            "cone/front": 24.538931218697822,
+            "cone/beside": 4.788084140233723,
+            "print/behind": 0.0,
+            "print/at": 2.842924958263773,
+            "print/front": 10.922816944908178,
+            "print/beside": 15.112390567612682
+          },
+          "right": {
+            "block/behind": 2.1009903010033444,
+            "block/at": 0.0,
+            "block/front": 4.201980602006688,
+            "block/beside": 21.610185953177258,
+            "cone/behind": 4.0519098662207345,
+            "cone/at": 3.3015561872909682,
+            "cone/front": 22.210468896321068,
+            "cone/beside": 5.852758695652175,
+            "print/behind": 0.0,
+            "print/at": 2.7012732441471563,
+            "print/front": 9.304385618729093,
+            "print/beside": 14.406790635451506
+          },
+          "centre": {
+            "block/behind": 9.088150113378676,
+            "block/at": 0.0,
+            "block/front": 0.0,
+            "block/beside": 0.7941102040816325,
+            "cone/behind": 14.735156009070291,
+            "cone/at": 0.0,
+            "cone/front": 0.0,
+            "cone/beside": 6.088178231292516,
+            "print/behind": 3.352909750566894,
+            "print/at": 0.0,
+            "print/front": 0.0,
+            "print/beside": 17.823362358276633
+          }
+        },
+        "mean_passing_point_mm": {
+          "left": {
+            "front_mm": 2.704143678923084,
+            "right_mm": -4.255811345049854,
+            "above_print_mm": 2.227424930324139,
+            "from_axis_mm": 5.7097657874146925,
+            "median_distance_to_bead_mm": 7.0138386482117605,
+            "lpm": 89.62694999999998
+          },
+          "right": {
+            "front_mm": 2.418649010674212,
+            "right_mm": 3.925783879593961,
+            "above_print_mm": 2.4388151836076286,
+            "from_axis_mm": 5.469100233114702,
+            "median_distance_to_bead_mm": 6.994375058889796,
+            "lpm": 89.7423
+          },
+          "centre": {
+            "front_mm": -5.227981308852734,
+            "right_mm": -0.1404733076330503,
+            "above_print_mm": 2.060337142944335,
+            "from_axis_mm": 7.444591871928436,
+            "median_distance_to_bead_mm": 7.748696265456535,
+            "lpm": 51.881866666666646
+          },
+          "all": {
+            "front_mm": 0.8137554054876737,
+            "right_mm": -0.1574674921196751,
+            "above_print_mm": 2.2719731312983424,
+            "from_axis_mm": 6.005583322131929,
+            "median_distance_to_bead_mm": 7.229998231332173,
+            "lpm": 231.25111666666663
+          }
+        },
+        "nozzle_surface_band_means_ms": {
+          "tip to 1 mm": {
+            "front": 7.705986022949219,
+            "right": 13.979852676391602,
+            "behind": 15.759556770324707,
+            "left": 14.204038619995117,
+            "all": 12.846826553344727
+          },
+          "1-3.6 mm": {
+            "front": 19.47412872314453,
+            "right": 22.66168785095215,
+            "behind": 22.547592163085938,
+            "left": 22.774843215942383,
+            "all": 21.817136764526367
+          },
+          "above 3.6 mm": {
+            "front": 13.076289176940918,
+            "right": 22.495595932006836,
+            "behind": 28.000167846679688,
+            "left": 22.173349380493164,
+            "all": 21.38645362854004
+          }
+        },
+        "print_level_sectors_ms": {
+          "r 0.6-2.0 mm": {
+            "right": 17.476978302001953,
+            "front": 11.094999313354492,
+            "left": 17.93711280822754,
+            "behind": 23.707735061645508
+          },
+          "r 2.0-5.0 mm": {
+            "right": 24.168119430541992,
+            "front": 26.620203018188477,
+            "left": 25.14939308166504,
+            "behind": 29.440704345703125
+          }
+        },
+        "print_level_peak_r5": {
+          "right_mm": -2.842170943040401e-14,
+          "front_mm": -4.400000000000013,
+          "ms": 42.067588806152344
+        }
       }
     },
     "centre_slot_1p1": {
@@ -1335,9 +1519,10 @@
   "source_sha256": {
     "cfd_outlet_balance_r43.py": "a0088890bc4c8aacacd1507cca12d878cd199ed53a4dd4e43d2390c8ed812168",
     "render_outlet_balance_r43.py": "6aeb2126bb10151690e35adef8e853cdf57701d19d4931dde169a34f25ac88c9",
-    "report_outlet_balance_r43.py": "63f2219c41b57d6843a2207cfa17dbb855937e6c90521021bf356496e1542476",
+    "report_outlet_balance_r43.py": "318ff08134982af699f7873a0b07e5bd50a623a4fe3801112fde62d6553d4afa",
     "render_scene_symmetry_r43.py": "17fbfbb8e6415e31d2bff9f8303de2f4032773a846cad68469dec0ae3955b4d5",
     "cfd_nozzle_focus_r43.py": "09b89b57796d45a85d7f6b856659f7b586148af2f578004680077346e7883e18",
+    "cfd_tip_approach_r43.py": "39bc51d1f7fa61405568d681645679f83fedcca8a7653704252b39b8c67fc686",
     "cfd_cpap_r41.py": "eded66db2e567dd74d30cf75538fca4515cd3a534212ab3da55739890eabca7f",
     "cfd_swept_refine_r43.py": "6720435baa67e3928c88347cdceee4c1d9fb1ecf7f1238c100db094a75dddd21",
     "cfd/run_case.sh": "ab09ab25c4b800e2b6271e235d72ff47ba27f966eaf5789423cc358c027e82f5"

@@ -18,6 +18,42 @@ The [earlier decision-summary image](images/sparkshift_c28_design_review_share.j
 is retained as a historical 32/28-degree comparison and explicitly labels its
 pre-inlet-cleanup CFD.
 
+## Where the air passes the nozzle tip
+
+**Current Bambu set, 2026-10-31.** Same iteration-mean CFD at the 231 L/min blower point, analysed with
+`cfd_tip_approach_r43.py`. Each of 1,785 flux-weighted streamlines is placed where it comes closest to the bead,
+on the nozzle axis midway between the tip and the print. This is airflow, not temperature.
+
+![Where the air passes the nozzle tip](images/r43_tip_approach_current.png)
+
+| Passes the bead (L/min) | Behind | At the nozzle, <= 2 mm | In front | Beside |
+| :--- | ---: | ---: | ---: | ---: |
+| Above 3.6 mm (heater-block skirt and up) | 13 | 0 | 8 | 42 |
+| 1-3.6 mm up (nozzle cone) | 21 | 7 | **47, at 46 m/s** | 17 |
+| Print level, <= 1 mm up | 3 | **6, at 18 m/s** | 20, at 38 m/s | 47 |
+
+- **Side jets: in front and above.** Their air passes on average 2.6 mm in front of the nozzle axis and 2.3 mm
+  above the print. The largest and fastest stream is their cores meeting 1-3.6 mm up in front of the nozzle. That
+  follows from their 15-degree forward lean and 12-degree drop. Their top quarter passes beside the hotend at
+  heater-block height.
+- **Centre slot: behind and above.** Its air passes on average 5.2 mm behind the nozzle axis and 2.1 mm up. The
+  middle of the slot meets the back of the nozzle cone 2.5-4.5 mm up; the rest lands behind and beside it. None
+  of it passes at the bead.
+- **The tip sits in a slow pocket.** 0.2-0.6 mm off the nozzle cone the air averages 13 m/s from the tip to 1 mm
+  up and 22 m/s higher up. The front of the tip is slowest, 8 m/s. At print level within 2 mm of the axis the
+  air runs 24 m/s behind, 18 left, 17 right and 11 in front. The fastest print-level air within 5 mm is 4.4 mm
+  behind the nozzle, at 42 m/s.
+
+Putting the mean flow on the bead would take side jets with no forward lean, leaving about 20 degrees down so
+that they meet at the bead, and a centre slot that lands 1-2 mm behind the tip instead of meeting the cone.
+These are P22 outlet changes and are untested. The side jets would still meet head-on, so they need CFD before
+any decision.
+
+Evidence: the `tip_approach` block of each case in
+[verification_outlet_balance_r43.json](verification_outlet_balance_r43.json). Reproduce with
+`cfd_tip_approach_r43.py <case> <out.png>` after `cfd_outlet_balance_r43.py <case> --mean` and
+`cfd_nozzle_focus_r43.py <case> <out.png>`.
+
 ## Aim at the fresh bead, and the side-jet floor lip
 
 **Review of the current Bambu set, 2026-10-31.** The question was whether it gives "a focused, laminar and precise
@@ -44,7 +80,8 @@ within 2 mm of the nozzle axis and 1 mm of the print. This is airflow, not tempe
 - **Not precise.** Each side jet leaves 12 degrees down and 15 degrees forward, because the side channels feed it
   from the rear. Its bottom quarter leaves about 7 degrees down along the flat floor lip and skims the print.
   Its middle points past the nozzle, and its top quarter points at the heater block.
-- **Slowest air at the bead.** The two side jets meet head-on at the nozzle, so the slowest near-print air is
+- **Slowest air at the bead.** The two side jets meet head-on just in front of the nozzle (see
+  [where the air passes the nozzle tip](#where-the-air-passes-the-nozzle-tip)), so the slowest near-print air is
   right at the tip.
 - **Laminar is not achievable at this flow.** Every opening of a CPAP cooler runs turbulent at 231 L/min. The
   useful part of the rule is a coherent jet aimed at the bead and kept off the hotend.

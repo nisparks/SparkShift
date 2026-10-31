@@ -43,12 +43,19 @@ support +1.0% and time +7.7% versus the original C28 parts. The post's smallest
 section is 16.3 mm2, so snug the M3.
 [Unbranded image](./images/r43_c28_flow_neutral_retainer_review_share.jpg).
 
-**Latest airflow review:** [aim at the fresh bead and the side-jet floor
+**Latest airflow review:** [where the air passes the nozzle
+tip](./R43_SWEPT_FEED_REVIEW.md#where-the-air-passes-the-nozzle-tip).
+The mean flow misses the bead. The side jets' air passes on average 2.6 mm in front of the nozzle and 2.3 mm above
+the print; their fastest stream (47 L/min at 46 m/s) crosses in front of the nozzle 1-3.6 mm up. The centre
+slot's air passes 5.2 mm behind and 2.1 mm up. Only 6 L/min passes at the bead, and the tip sits in a slow
+pocket. [Tip figure](./images/r43_tip_approach_current.png).
+
+**Aim and floor-lip review:** [aim at the fresh bead and the side-jet floor
 lip](./R43_SWEPT_FEED_REVIEW.md#aim-at-the-fresh-bead-and-the-side-jet-floor-lip).
 At the 231 L/min blower point, 96 L/min passes over the print within 10 mm of the nozzle but only 6 L/min through
 the fresh-bead zone. The side jets leave 12 degrees down and 15 degrees forward. Their top quarter points at the
-heater block, and they meet head-on at the nozzle, so the air there is slowest (18 m/s against 26 m/s at
-2-5 mm). Trimming each jet's floor lip back 1.5 mm aimed the jets 5 degrees lower but cut the air over the print
+heater block, and they meet head-on just in front of the nozzle, so the air at the tip is slowest (18 m/s against
+26 m/s at 2-5 mm). Trimming each jet's floor lip back 1.5 mm aimed the jets 5 degrees lower but cut the air over the print
 to 67 L/min and every near-print sector by 23-32%, so the lip stays. The duct is mirror-symmetric; the CFD's
 left/right difference comes from the hotend fan on the right of the scene.
 [Aim figure](./images/r43_nozzle_focus_current.png) | [lip trim](./images/r43_lip_trim_screen.png).
