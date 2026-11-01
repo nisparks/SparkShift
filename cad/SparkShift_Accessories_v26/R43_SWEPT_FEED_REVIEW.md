@@ -257,7 +257,9 @@ variants keep every hotend, probe and withdrawal gap ([design](images/r43_rear_c
   the nozzle adds about 40% to that loss, not 100%.
 
 ### Method
-`evaluate_part_cooler_r43.py` scores all nine matched fine-mesh cases at their own blower estimate:
+`evaluate_part_cooler_r43.py` scores all eleven matched fine-mesh cases (the two
+side-aft variants below were added later; scores are min-max normalised over the set, so they shift when
+cases are added, while the ranking of the original nine is unchanged) at their own blower estimate:
 delivery 40% (downward L/min r 0.6-5 mm plus below-tip ring speeds and the low-speed spots),
 uniformity 25% (weakest sector / mean around the nozzle), lift-off 15% (up / down, r 2-5 mm), and
 nozzle heat 20% (Churchill-Bernstein cylinder, 4 mm nozzle at 250 C in 35 C air, over the 50.8 mm2 of bare
@@ -265,15 +267,17 @@ nozzle below the sock). Every weight was moved +-10 points as a sensitivity chec
 
 | Rank | Case | Score | Down onto bead + print (L/min) | Ring r 0.6-2 (m/s) | Uniformity | Up / down | Bare nozzle (W) | Blower (L/min) | Centre share |
 |---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | **A** | **0.80** | **18.6** | **33.9** | **0.73** | **0.25** | 3.00 | 195 | 37% |
-| 2 | FR2 | 0.61 | 13.4 | 23.7 | 0.57 | 0.39 | 2.39 | 200 | 56% |
-| 3 | RVMS | 0.58 | 10.9 | 9.7 | 0.70 | 0.70 | 2.05 | 227 | 44% |
-| 4 | B | 0.53 | 9.5 | 24.7 | 0.67 | 0.57 | 2.78 | 204 | 43% |
-| 5 | RVMS 40 | 0.51 | 8.9 | 7.3 | 0.69 | 0.78 | 2.11 | 227 | 44% |
-| 6 | FR1 | 0.50 | 14.0 | 15.7 | 0.55 | 0.87 | 2.33 | 218 | 48% |
-| 7 | FR1 0.9 mm | 0.45 | 8.5 | 17.2 | 0.50 | 1.24 | 2.11 | 191 | 34% |
-| 8 | RVM | 0.40 | 7.3 | 22.1 | 0.59 | 1.55 | 2.66 | 206 | 30% |
-| 9 | FR1 1.4 mm | 0.34 | 9.7 | 7.5 | 0.41 | 1.36 | 2.04 | 205 | 42% |
+| 1 | **A** | **0.72** | **18.6** | **33.9** | **0.73** | **0.25** | 3.00 | 195 | 37% |
+| 2 | A aft F | 0.69 | 12.7 | 41.2 | 0.78 | 0.64 | 3.03 | 180 | 43% |
+| 3 | A aft C | 0.66 | 13.4 | 38.5 | 0.71 | 0.48 | 2.87 | 195 | 37% |
+| 4 | FR2 | 0.57 | 13.4 | 23.7 | 0.57 | 0.39 | 2.39 | 200 | 56% |
+| 5 | RVMS | 0.54 | 10.9 | 9.7 | 0.70 | 0.70 | 2.05 | 227 | 44% |
+| 6 | RVMS 40 | 0.48 | 8.9 | 7.3 | 0.69 | 0.78 | 2.11 | 227 | 44% |
+| 7 | B | 0.48 | 9.5 | 24.7 | 0.67 | 0.57 | 2.78 | 204 | 43% |
+| 8 | FR1 | 0.47 | 14.0 | 15.7 | 0.55 | 0.87 | 2.33 | 218 | 48% |
+| 9 | FR1 0.9 mm | 0.41 | 8.5 | 17.2 | 0.50 | 1.24 | 2.11 | 191 | 34% |
+| 10 | RVM | 0.34 | 7.3 | 22.1 | 0.59 | 1.55 | 2.66 | 206 | 30% |
+| 11 | FR1 1.4 mm | 0.32 | 9.7 | 7.5 | 0.41 | 1.36 | 2.04 | 205 | 42% |
 
 ([figure](images/r43_part_cooler_scorecard.png), [data](verification_part_cooler_scorecard_r43.json))
 
@@ -305,6 +309,44 @@ nozzle below the sock). Every weight was moved +-10 points as a sensitivity chec
   - overhang and bridge quality in all four print directions.
 - Retune PID with the fan running.
 - If A's nozzle temperature droops visibly, the fallback is FR2 (rank 2).
+
+### Side outlets moved aft (tested, not adopted)
+The user asked to try the side openings further back, with nothing closer to the hotend. Both variants keep A's
+rear outlet and add material only outboard of the slot face (|X| >= 10.2), above Z -77.85, and outside the
+withdrawal path. All builder checks passed. `build_side_aft_r43.py` cuts a pocket under the feed shell at
+|X| 10.15-12.65, then rakes the front of the opening (`build_side_rake_r43.rake`) so the opening moves aft at
+about the same area instead of only growing.
+
+| Variant | Opening at the slot face | Opening centroid | Printing |
+|---|---|---|---|
+| A | 22.1 mm2, Y 17.5-27.4 | Y 23.2 | 1385 mm2 steeper than 45 deg |
+| A aft C | 22.9 mm2, Y 16.8-26.6 | Y 22.4 (0.85 mm aft) | 45-degree pocket end, self-supporting; 1363 mm2 |
+| A aft F | 23.3 mm2, Y 16.5-25.1 | Y 20.8 (2.4 mm aft) | vertical pocket end, needs a small support; 1393 mm2 |
+
+Fine CFD, matched settings ([figure](images/r43_cooling_review_cfd_side_aft.png),
+[data](verification_cooling_review_r43_side_aft.json)):
+
+| | A | A aft C | A aft F |
+|---|---:|---:|---:|
+| Score (11-case set) | **0.72** | 0.66 | 0.69 |
+| Down onto bead + print (L/min) | **18.6** | 13.4 | 12.7 |
+| Ring r 0.6-2 mm (m/s) | 33.9 | 38.5 | **41.2** |
+| Uniformity | 0.73 | 0.71 | **0.78** |
+| Up / down | **0.25** | 0.48 | 0.64 |
+| Blower estimate (L/min) | **195** | 195 | 180 |
+| Outlets at 180 L/min, left / right / centre | - | 57 / 57 / 66 | 50 / 50 / 75 |
+
+- Moving the jets aft makes the air right at the nozzle faster and more even, but sends much less of it down
+  onto the bead and print (-28% and -32%) and roughly 2x (C) and 2.6x (F) as much back up.
+- Why: the side jets now meet behind the nozzle. In A aft C's centre section a fast layer runs backward along
+  the print from Y 20 to Y 8. The jets' stagnation pad sits behind the tip and pushes air aft and up instead of
+  down and forward. This is the opposition found earlier, moved to the wrong side of the nozzle.
+- A aft F's narrower, longer pocket is also more restrictive: blower estimate 180 vs 195 L/min, and the
+  side share falls to 57%.
+- Some side-jet air now turns back along the slot face aft of Y 16.5, so both cases were measured over the
+  long-jet window (Y 12.3-29), as the earlier long-jet studies were. Outlet closure: +0.1% (C), -2.9% (F).
+- A stays the chosen design under every weighting tested. Within these limits, further aft only trades
+  delivery for speed at the tip.
 
 ## Aiming at the bead within the hotend clearance limits
 

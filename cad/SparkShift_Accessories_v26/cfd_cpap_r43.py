@@ -113,6 +113,10 @@ CASES = {   # name: (label, design)
                              "C28, retained lower lip and 28-degree aim, Bambu", "study"),
     "r43printC28_bambu_bed": ("Bambu C28 printability study: protected 0.9 mm airway, "
                             "seat notch, rear-leg ramps and relief chamfers", "study"),
+    # Side openings moved aft from Y17.5 to Y16.5-16.8: some jet air turns back along the slot face, so measure
+    # the side jets over the long-jet window.
+    "r43auditAFTCfine": ("Design A with side openings moved aft, 45-degree self-supporting pocket, Bambu", "long"),
+    "r43auditAFTFfine": ("Design A with side openings moved aft, flat pocket with a vertical aft wall, Bambu", "long"),
 }
 N_EXP = 1.983                                    # dP ~ Q^n (revision 41's fit), for single-flow cases
 

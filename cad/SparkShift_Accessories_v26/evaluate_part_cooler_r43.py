@@ -37,6 +37,8 @@ LABELS = {
     "r43auditFR1H09fine_bambu_bed": "FR1 0.9",
     "r43auditRC24fine_bambu_bed": "A",
     "r43auditRC36fine_bambu_bed": "B",
+    "r43auditAFTCfine": "A aft C",
+    "r43auditAFTFfine": "A aft F",
 }
 WEIGHTS = {"delivery": .40, "uniformity": .25, "lift_off": .15, "nozzle_heat": .20}
 # Bare nozzle below the sock, as a cylinder in cross-flow; film properties of air near 140 C.
