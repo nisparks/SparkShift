@@ -7,7 +7,11 @@ import cfd_cpap_r41 as C
 
 
 def digest(path):
-    with Path(path).open("rb") as stream:
+    path = Path(path)
+    if path.suffix == ".py":
+        # Source fingerprints must survive CRLF/LF checkout differences.
+        return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+    with path.open("rb") as stream:
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
