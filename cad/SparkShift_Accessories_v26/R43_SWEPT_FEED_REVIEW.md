@@ -548,6 +548,8 @@ figures are forum consensus. Some findings do bear on this duct:
 **Recommendation.** Under the no-blade rule and the user's zones, two designs lead, and they differ only in the
 rear slot. Both take each side jet's roof down in a 45-degree ramp and bevel its floor lip 6 degrees.
 
+![Current, RVM and RVMS outlets in section, with the added and removed material and the CFD jet angles](images/r43_top_two_outlets.png)
+
 - **RVM** keeps today's 0.9 mm rear slot. It aims the side jets best (-5.1 against -16.8) and puts the most air
   through the fresh bead (9.2 L/min). It costs 11% of the blower flow, and it brushes the nozzle as hard as today.
 - **RVMS** opens the rear slot to 2.0 mm. The three outlets carry equal flow, the blower flow is today's, the rear
