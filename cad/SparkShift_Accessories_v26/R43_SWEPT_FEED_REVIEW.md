@@ -18,6 +18,161 @@ The [earlier decision-summary image](images/sparkshift_c28_design_review_share.j
 is retained as a historical 32/28-degree comparison and explicitly labels its
 pre-inlet-cleanup CFD.
 
+## R&D audit and design review
+
+**2026-10-31: the earlier RVM/RVMS ranking is being re-evaluated, not accepted as a printing result.**
+The audit found a post-processing error, a target-definition error and a misleading interpretation of the
+velocity plot. These are separate from the initially broken angle-edit script.
+
+- **The rear mask was fixed at 0.9 mm.** Applying it to RVMS's 2.0 mm opening measured only 52.29 L/min of rear
+  flow at the simulated 180 L/min inlet. Using the actual passage measures 77.95 L/min. The three measured
+  outlets then sum to 177.98 rather than 152.32 L/min. The earlier "66 / 63 / 63 L/min, balanced outlets" claim
+  is withdrawn; at the estimated blower point the rear branch is about 99 L/min, not 66. The pressure-derived
+  total flow and velocity field did not change, but rear-seeded delivery and weighted scores need recomputing.
+- **The 9.2 vs 6.0 L/min "fresh bead" comparison was not below the tip.** That historical envelope extends
+  1 mm above the print, hence 0.8 mm ABOVE this nozzle tip. The 0.3 mm speed maps are also 0.1 mm above the tip.
+  The user's own-side target is below the tip; the flat-bed CFD can represent only its bottom-truncated
+  0.2 mm air layer. New section overlays stop at the tip, and own-side paths stop at their first centre crossing.
+- **The peak-speed scan did not track the rear jet.** Several claimed downstream core samples actually had
+  negative Y velocity: return flow moving toward the rear. A low-speed point beside a solid also does not by
+  itself establish poor heat transfer. The earlier confident "not the sock" diagnosis and prediction that a
+  40-42 degree tilt would preserve 228 L/min and restore RVM-like bead speed were unsupported.
+- **The initial angle script omitted the angle argument.** Its reference and trials used the generator's
+  32-degree default. Its checks failed and those failed attempts were not submitted to CFD. The new builder
+  passes the angle explicitly, compares the emitted local shape, and refuses to overwrite an experiment.
+- **OCC operations need isolated references.** A fuzzy fuse can mutate shared in-memory topology, making a
+  previously valid reference invalid and corrupting subsequent difference checks. Deep-copying operands
+  reproduces valid differences without changing the saved source. New builds check input validity as well
+  as the result; invalid signed boolean volumes are not accepted as clearance or shape evidence.
+
+The corrected analysis uses case-specific passage dimensions, a 3% inlet/outlet measurement-closure gate,
+content fingerprints for fields and derived caches, and unique VTK dataset selection. Trimmed outlets with
+genuine unmeasured spill require an explicit override and are not represented as a closed three-outlet balance.
+Historical figures/tables below are retained for traceability; their old "bead" labels and enlarged-rear-slot
+delivery values must not be used as current evidence.
+
+**Research direction, verified against original sources.** There is no supported universal "magic" angle.
+[Dragon Burner's original CFD/print comparison](https://github.com/chirpy2605/voron/tree/main/V0/Dragon_Burner/cfd)
+emphasizes escape of spent air and opposed-jet interaction, and explicitly uses angled **baffles**. Its result
+cannot be claimed for our no-baffle walls without testing them. [Seregi and Ficzere (2025)](https://doi.org/10.3311/PPme.42624)
+report CFD benefits from two-sided flow but still call for experimental validation. [Keim's Purdue thesis
+(2026)](https://doi.org/10.25394/PGS.33104093.v1) experimentally finds nonuniform effects of fan cooling on
+geometry, crystallinity and interlayer weld behavior: more blower flow is not automatically a better print.
+The [Zuckerman/Lior review](https://doi.org/10.1016/S0065-2717(06)39006-5) and
+[inclined-jet review](https://doi.org/10.1007/s11630-019-1200-y) provide context on impingement and model limitations,
+not a validated outlet angle for this toolhead.
+
+**Corrected historical comparison.** These cases use the same original mesh settings, now reprocessed with
+1,800 requested streamlines per outlet, complete rear masks, first-crossing own-side rules and a strict
+below-tip boundary (only 0.00001 mm coordinate tolerance, not the former 0.02 mm band above the tip).
+The target is r <= 4 mm on each outlet's own side, between the print and tip, not the old 1 mm-high envelope.
+
+| Historical geometry | Estimated blower L/min | Own-side below-tip target L/min | All-air path score | Cone-adjacent speed m/s |
+| :--- | ---: | ---: | ---: | ---: |
+| Current v5d | 230.7 | 3.89 | -15.99 | 27.3 |
+| Byte-identical current repeat | 231.0 | 3.25 | -15.58 | 27.2 |
+| RVM | 205.4 | 4.10 | -8.45 | 28.1 |
+| RVMS | 227.9 | 3.31 | -9.50 | 13.4 |
+| RS20, wider rear only | 247.1 | 3.35 | -18.07 | 15.2 |
+| CH, floor chamfer only | 231.9 | 3.99 | -16.90 | 27.4 |
+
+RVM steers the high side-jet air better, but its below-tip delivery gain is much smaller than the former
+"9.2 versus 6.0 L/min" argument suggested. The current/repeat difference is 0.64 L/min: an observed numerical
+and sampling spread, not a statistical confidence interval. RS20 wins total volume but not the user's high-air
+penalty. RVMS is still a reasonable high-volume starting point, not a demonstrated printing/bridging winner.
+
+**Implemented, geometrically qualified candidate:** RVM's side-wall ramp and gentle bevel, a 2.0 mm rear opening,
+and 40-degree rear terminal walls. The change is confined to the rear nozzle; the gantry envelope, retainer,
+side jets and hardware are unchanged. The matched fine-mesh CFD comparison is the adoption gate, not the
+construction angle alone. **Outcome: not adopted.** On the fine mesh it put 1.97 L/min on target against RVMS's
+3.19; see [Collaborative outlets](#collaborative-outlets-what-opposes-the-rear-jet) for the adopted FR1.
+
+![Rear outlet before and after, with the old walls overlaid](images/r43_cooling_review_geometry.png)
+
+The candidate is one valid solid/shell; its STEP round trip and outside-edit-zone differences are zero.
+Its exact lower bound stays at Z -77.85 mm. Mounted and 60 mm withdrawal clearances (0.5 mm steps) retain every
+released hotend gap. Rear-nozzle-to-probe gaps increase from 0.5926 to 0.6025 mm for Beacon and 0.4445 to
+0.4613 mm for Cartographer. Wall-normal material samples pass through 0.75 mm of the nominal 0.8 mm wall.
+These small probe gaps still require first-article fit checks; unchanged nominal clearance is not a tolerance
+or thermal-deformation qualification.
+
+Matched H2D ABS slicing (0.2 mm layers, five walls, ABS support interface) predicts 4.646 cm3 support and
+78.39 min, against RVMS's 4.672 cm3 and 78.93 min. Both have zero sampled support deposition inside the rear
+airway. The native mesh export is watertight with consistent winding. No print was sent.
+See [geometry and slicing evidence](verification_cooling_review_geometry_r43.json).
+
+**Controlled re-test.** The new RVMS control, RVM and 40-degree candidate share byte-identical P21, hardware,
+boundaries, fluid properties, solver settings and an added 0.0625 mm cell-size region around the below-tip
+target. The earlier cases used 0.25 mm cells there, too coarse to treat a 0.2 mm air layer as mesh-independent.
+This is a local sensitivity test, not global mesh independence. Case inputs are hash-checked before solving;
+all downloaded solver outputs are verified before cleaning only that run's remote scratch files.
+The first fine RVMS control closes native ambient flow to within 0.003% of 180 L/min; cut-section accounting
+closes to 1.31%, reflecting post-processing integration error rather than a 15% lost branch.
+
+All conclusions remain airflow-screening conclusions: this solver has no temperature equation, moving
+deposited bead or unsupported bridge, and averaging SIMPLE iterations is not a transient simulation.
+The below-tip air gap is a target region, not a simulated solid filament. A low local air speed is not,
+on its own, evidence of poor heat transfer.
+
+### Collaborative outlets: what opposes the rear jet
+
+**Question (user):** is the rear outlet too weak against the sides, and should the outlets work together
+rather than against each other? Analysed with `cfd_flow_opposition_r43.py` (centreline velocity, Y-plane
+fluxes in the 0.2 mm tip-to-print gap and a 2 mm band, side inflow behind the nozzle) plus per-outlet
+streamline attribution and the pressure field.
+
+**Mechanism.** The rear and side jets do fight, but through pressure, not side air flowing backward. In RVMS
+the converging side jets build a ~1.4-1.5 kPa pad under the nozzle (X +-8, Y 19-28), falling to ~0 by Y 14.
+That adverse gradient exceeds the rear jet's ~730 Pa dynamic pressure, so the rear jet lands at Y ~17-18 and
+~22% of its traced lines splash back. 95-100% of the reverse flow behind the nozzle is the rear jet's own air.
+The side jets already lean forward (~13-25 degrees) and down (~21 degrees). That lean keeps their collision off
+the nozzle cone; removing it (earlier toe-in tests) put 42 m/s on the cone.
+
+**Why not a literal aft shift.** The aft end of each side opening is the feed's descending floor
+(Z -76.6 at Y 20 to -74.2 at Y 17), so moving the side outlets aft needs a feed-chamber redesign.
+Noted as a future change, not done. Instead, the front end wall of each side passage is raked forward
+(44.4 degrees, a <=45-degree overhang when printed back-down). This only adds material inside the existing
+side air, outboard of |X| 10.2.
+`build_side_rake_r43.py`: **FR1** rakes (|X| 12.65, Y 25.0) to (10.15, 27.45); **FR2** moves the exit front aft
+to (10.15, 25.85), a U that sends more air to the rear.
+
+| Matched fine mesh, own blower point | RVMS | RVM | RVMS 40 deg | **FR1** | FR2 |
+| --- | --- | --- | --- | --- | --- |
+| Blower estimate, L/min | 227 | 206 | 227 | **218** | 200 |
+| Left / right / centre, L/min | 63/63/99 | 72/71/62 | 63/64/98 | **56/56/105** | 44/44/110 |
+| Own-side below-tip target (r 4 mm), L/min | 3.19 | 4.99 | 1.97 | **5.12** | 3.70 |
+| Below-tip ring r 0.6-2 mm, mean / rear sector, m/s | 9.7 / 7.5 | 22.1 / 32.7 | 7.3 / 7.3 | **15.7 / 9.8** | 23.7 / 15.7 |
+| Gap net flux at Y 20 / nozzle, L/min | -0.74 / +0.54 | -1.23 / -0.85 | +0.02 / +0.60 | **-0.32 / +1.62** | +1.17 / +2.79 |
+| 2 mm band at Y 20: net / reverse, L/min | 6.0 / 6.4 | 0.1 / 12.2 | 18.4 / 3.2 | **27.0 / 1.8** | 37.6 / 0.0 |
+| Side air turned inward behind nozzle, L/min | 8.4 | 16.2 | 5.4 | **7.0** | 7.3 |
+| Tip-to-1 mm / heater-block air speed, m/s | 11.1 / 13.7 | 26.8 / 18.4 | 7.2 / 14.5 | **19.2 / 12.8** | 23.1 / 11.1 |
+| H2D ABS support, cm3 / time, min | 4.672 / 78.9 | - | 4.646 / 78.4 | **4.522 / 78.3** | 4.519 / 78.5 |
+| Support sampled in side-jet region, mm3 | 24.5 | - | - | **24.6** | 34.3 |
+
+![Matched fine-mesh comparison, including FR1 and FR2](images/r43_cooling_review_cfd.png)
+
+**Result.** Both rakes turn the shared flow under and just behind the nozzle forward. Reverse flux in the
+2 mm band at Y 20 falls from 6.4 to 1.8 L/min (FR1) and 0 (FR2), and net forward flux rises 4.5-6x. FR1 puts the most
+air on the own-side below-tip targets of any design (5.12 L/min) and raises the below-tip ring speed by 60% while
+lowering heater-block air speed. Its blower point drops only 4%, and it slices with slightly less support and no
+added support in the side jets. FR2 is the most cooperative and rear-dominant, but costs 12% blower flow, 30% side
+flow, and puts 30% less air on target than FR1.
+
+**Recommendation: FR1** (`step/P22_C28_Bambu_Forward_Rake_FR1_REVIEW.step`,
+`stl/P22_C28_Bambu_Forward_Rake_FR1_REVIEW_PRINT_ORIENTED.stl`). It is a geometry-qualified review candidate:
+- One valid mirror-exact solid, lowest Z -77.85.
+- Exact STEP round trip.
+- Every released hotend gap is unchanged, mounted and over a 60 mm -Y withdrawal in 0.5 mm steps.
+- Probe gaps are unchanged.
+
+Watch-outs for the thermal A/B print:
+- Air speed over the last 1 mm of nozzle rises from 11 to 19 m/s; that is a 0.14 mm2 tip area, but check
+  nozzle temperature droop.
+- The rear sector of the below-tip ring is still the weakest (9.8 m/s).
+- This is airflow and slicer evidence only; it is not a temperature or print qualification.
+
+Evidence: [collaborative-outlet study](verification_cooling_collaborative_r43.json).
+
 ## Aiming at the bead within the hotend clearance limits
 
 **Screening round, 2026-10-31.** The question was how to make the air average just below the nozzle tip without
@@ -545,7 +700,8 @@ figures are forum consensus. Some findings do bear on this duct:
   at 1-3 slot heights, where a second heat-transfer peak forms away from the stagnation point (Lytle and Webb
   1994; Zuckerman and Lior 2006).
 
-**Recommendation.** Under the no-blade rule and the user's zones, two designs lead, and they differ only in the
+**Historical recommendation, superseded by the [R&D audit](#rd-audit-and-design-review).** Under the old
+post-processing, two designs led, and they differ only in the
 rear slot. Both take each side jet's roof down in a 45-degree ramp and bevel its floor lip 6 degrees.
 
 ![Current, RVM and RVMS outlets in section, with the added and removed material and the CFD jet angles](images/r43_top_two_outlets.png)

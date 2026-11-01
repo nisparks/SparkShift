@@ -34,13 +34,13 @@ def inside(shape, point):
     return any(s.isInside(cq.Vector(*point), 1e-6) for s in shape.Solids())
 
 
-def wall_screen(part, air, channel):
+def wall_screen(part, air, channel, angle=28):
     material, passage = mesh(part), mesh(air)
-    keep = R.mouth_keep(28)
+    keep = R.mouth_keep(angle)
     centres = passage.triangles_center
     endpoints = np.array([R.mouth(float(np.clip(p[0], -10, 10))).toTuple() for p in centres])
     open_end = np.einsum(
-        "ij,j->i", centres - endpoints, R.outlet_axes(28)[0].toTuple()) > -.02
+        "ij,j->i", centres - endpoints, R.outlet_axes(angle)[0].toTuple()) > -.02
     channel_mesh, keep_mesh = mesh(channel), mesh(keep)
     rows = []
     for offset in (.1, .35, .6, .75):

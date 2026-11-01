@@ -43,25 +43,34 @@ support +1.0% and time +7.7% versus the original C28 parts. The post's smallest
 section is 16.3 mm2, so snug the M3.
 [Unbranded image](./images/r43_c28_flow_neutral_retainer_review_share.jpg).
 
-**Latest airflow review:** [aiming at the bead within the hotend clearance
-limits](./R43_SWEPT_FEED_REVIEW.md#aiming-at-the-bead-within-the-hotend-clearance-limits).
+**Latest airflow review:** [Collaborative outlets](./R43_SWEPT_FEED_REVIEW.md#collaborative-outlets-what-opposes-the-rear-jet).
+The rear jet was being pushed back by a ~1.5 kPa pressure pad that the converging side jets build under the nozzle.
+Side air was not flowing backward. Raking each side passage's front wall forward (FR1, inside the existing air,
+<=45-degree overhang) makes all three outlets push forward together. Reverse flux behind the nozzle falls from 6.4 to
+1.8 L/min, and FR1 puts the most air on the below-tip targets of any design (5.12 vs RVMS 3.19 L/min). It costs
+4% blower flow and needs no extra support. Recommended review part:
+`step/P22_C28_Bambu_Forward_Rake_FR1_REVIEW.step` (airflow and slicer screened, not print or thermal qualified).
+A true aft shift of the side outlets needs a feed-chamber redesign (future change).
+
+**Audit:** [R&D audit and design review](./R43_SWEPT_FEED_REVIEW.md#rd-audit-and-design-review).
+The earlier RVM/RVMS ranking was re-evaluated. The rear-outlet analysis clipped every case against a
+0.9 mm passage, undercounting RVMS's 2.0 mm slot; its claimed equal three-way flow split was wrong.
+The quoted 9.2 vs 6.0 L/min "fresh bead" envelope also extended 0.8 mm above the tip, not wholly below it.
+Geometry-aware flow accounting, cache fingerprints and below-tip overlays replace those assumptions.
 Hard limit: nothing nearer the Bambu hotend than the released P22 (sock 3.20, cradle 1.918, nozzle 5.20 mm, mounted
 and withdrawn). Goal: cool the bead as it leaves the tip and keep air off the nozzle and heater block, with the
 outlet walls only (no louvers, vanes or fins). Each outlet is scored on whether its air reaches its own target zone
 just below the tip: the left jet to the left of the nozzle, the right jet to the right, and the rear slot behind it.
-Hits are rewarded, air passing high is punished exponentially and air landing short quadratically. Two wall-only
-designs lead, and they differ only in the rear slot. Both end each side jet's roof in a 45-degree ramp and bevel its
-floor lip 6 degrees. With today's 0.9 mm rear slot (RVM), the side jets score -5.1 against -16.8 today, and the most
-air of any design passes through the fresh bead, for 11% less blower flow. With a 2.0 mm rear slot (RVMS), the three
-outlets carry equal flow (66 / 63 / 63 L/min) at today's blower flow. The rear jet reaches its zone, and the nozzle
-cone sees half today's air speed, but the bead sees less. A printed thermal A/B of the two should decide.
+Hits are rewarded, air passing high is punished exponentially and air landing short quadratically. The 2.0 mm,
+40-degree rear-slot candidate was built and tested on the fine mesh; it put less air on target (1.97 L/min) and was
+not adopted. Released parts and Fusion documents are unchanged.
 
 The jets that score best converge: the top of each jet leaves about 32 degrees down and the bottom about 12.
 Steeper floor cuts land the jets short. Removing the jets' forward lean puts their collision on the nozzle.
 [Real air paths and zones](./images/r43_bead_zone_paths.png) |
 [clearance sections](./images/r43_aim_clearance_sections.png).
 
-**Tip-approach review:** [where the air passes the nozzle
+**Historical tip-approach review (see the audit's metric corrections):** [where the air passes the nozzle
 tip](./R43_SWEPT_FEED_REVIEW.md#where-the-air-passes-the-nozzle-tip).
 The mean flow misses the bead. The side jets' air passes on average 2.6 mm in front of the nozzle and 2.3 mm above
 the print; their fastest stream (47 L/min at 46 m/s) crosses in front of the nozzle 1-3.6 mm up. The centre

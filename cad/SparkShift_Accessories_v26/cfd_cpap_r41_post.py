@@ -40,8 +40,8 @@ LABELS = {RELEASED: "Released duct (revision 40), Bambu",
 # ------------------------------------------------------------------ reading
 def vtk_dir(name, t):
     hits = sorted((C.results_dir(name) / "VTK").glob(f"*_{t}"))
-    if not hits:
-        raise FileNotFoundError(f"{name}: no VTK for time {t}")
+    if len(hits) != 1:
+        raise ValueError(f"{name}: expected exactly one VTK dataset for time {t}, found {len(hits)}")
     return hits[0]
 
 

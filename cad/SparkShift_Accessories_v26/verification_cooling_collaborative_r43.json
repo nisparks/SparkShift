@@ -1,0 +1,352 @@
+{
+  "status": "RECOMMENDED_REVIEW_CANDIDATE_FR1_AIRFLOW_AND_SLICER_SCREENED",
+  "question": "Do the side jets and rear jet oppose each other, and does forward-raking the side passages fix it?",
+  "mechanism": {
+    "side_jet_pressure_pad_pa": [
+      1400,
+      1500
+    ],
+    "pad_region": "X +-8, Y 19-28 under the nozzle, ~0 by Y 14",
+    "rear_jet_dynamic_pressure_pa": 730,
+    "rear_jet_back_splash_fraction_rvms": 0.22,
+    "reverse_flow_attributed_to_rear_jet_pct": [
+      95,
+      100
+    ],
+    "note": "The sides oppose the rear through pressure, not by side air flowing backward."
+  },
+  "fine_mesh_cases": {
+    "RVMS (control)": {
+      "case": "r43auditRVMS28fine_bambu_bed",
+      "blower_estimate_lpm": 227.3,
+      "outlets_lpm": {
+        "left": 62.9,
+        "right": 63.0,
+        "centre": 98.5
+      },
+      "own_side_below_tip_r4_lpm": 3.19,
+      "below_tip_ring_0p6_2_ms": {
+        "mean": 9.7,
+        "right": 13.9,
+        "front": 9.8,
+        "left": 7.4,
+        "rear": 7.5
+      },
+      "hot_part_speed_ms": {
+        "nozzle tip to 1 mm": 11.1,
+        "nozzle 1 mm to the sock": 12.6,
+        "sock and heater block": 13.7
+      },
+      "centre_uy_behind_nozzle_below_tip_ms": -13.7,
+      "gap_net_flux_lpm": {
+        "20.0": -0.74,
+        "22.7": 0.54
+      },
+      "gap_reverse_flux_lpm": {
+        "20.0": 0.84,
+        "22.7": 0.05
+      },
+      "band_2mm_y20_lpm": {
+        "net": 6.0,
+        "reverse": 6.4
+      },
+      "side_inflow_behind_nozzle_lpm": 8.4
+    },
+    "RVM": {
+      "case": "r43auditRVMfineV2_bambu_bed",
+      "blower_estimate_lpm": 205.6,
+      "outlets_lpm": {
+        "left": 71.6,
+        "right": 71.3,
+        "centre": 62.0
+      },
+      "own_side_below_tip_r4_lpm": 4.99,
+      "below_tip_ring_0p6_2_ms": {
+        "mean": 22.1,
+        "right": 23.5,
+        "front": 8.9,
+        "left": 23.7,
+        "rear": 32.7
+      },
+      "hot_part_speed_ms": {
+        "nozzle tip to 1 mm": 26.8,
+        "nozzle 1 mm to the sock": 20.8,
+        "sock and heater block": 18.4
+      },
+      "centre_uy_behind_nozzle_below_tip_ms": -32.0,
+      "gap_net_flux_lpm": {
+        "20.0": -1.23,
+        "22.7": -0.85
+      },
+      "gap_reverse_flux_lpm": {
+        "20.0": 1.3,
+        "22.7": 1.04
+      },
+      "band_2mm_y20_lpm": {
+        "net": 0.1,
+        "reverse": 12.2
+      },
+      "side_inflow_behind_nozzle_lpm": 16.2
+    },
+    "RVMS + 40-deg rear walls": {
+      "case": "r43auditRVMS40fineV2_bambu_bed",
+      "blower_estimate_lpm": 227.4,
+      "outlets_lpm": {
+        "left": 63.2,
+        "right": 63.5,
+        "centre": 97.9
+      },
+      "own_side_below_tip_r4_lpm": 1.97,
+      "below_tip_ring_0p6_2_ms": {
+        "mean": 7.3,
+        "right": 12.3,
+        "front": 5.2,
+        "left": 4.6,
+        "rear": 7.3
+      },
+      "hot_part_speed_ms": {
+        "nozzle tip to 1 mm": 7.2,
+        "nozzle 1 mm to the sock": 13.1,
+        "sock and heater block": 14.5
+      },
+      "centre_uy_behind_nozzle_below_tip_ms": -9.7,
+      "gap_net_flux_lpm": {
+        "20.0": 0.02,
+        "22.7": 0.6
+      },
+      "gap_reverse_flux_lpm": {
+        "20.0": 0.53,
+        "22.7": 0.03
+      },
+      "band_2mm_y20_lpm": {
+        "net": 18.4,
+        "reverse": 3.2
+      },
+      "side_inflow_behind_nozzle_lpm": 5.4
+    },
+    "FR1: sides raked forward": {
+      "case": "r43auditFR1fine_bambu_bed",
+      "blower_estimate_lpm": 218.0,
+      "outlets_lpm": {
+        "left": 55.7,
+        "right": 55.8,
+        "centre": 104.5
+      },
+      "own_side_below_tip_r4_lpm": 5.12,
+      "below_tip_ring_0p6_2_ms": {
+        "mean": 15.7,
+        "right": 21.4,
+        "front": 10.7,
+        "left": 20.9,
+        "rear": 9.8
+      },
+      "hot_part_speed_ms": {
+        "nozzle tip to 1 mm": 19.2,
+        "nozzle 1 mm to the sock": 15.9,
+        "sock and heater block": 12.8
+      },
+      "centre_uy_behind_nozzle_below_tip_ms": -12.4,
+      "gap_net_flux_lpm": {
+        "20.0": -0.32,
+        "22.7": 1.62
+      },
+      "gap_reverse_flux_lpm": {
+        "20.0": 0.58,
+        "22.7": -0.0
+      },
+      "band_2mm_y20_lpm": {
+        "net": 27.0,
+        "reverse": 1.8
+      },
+      "side_inflow_behind_nozzle_lpm": 7.0
+    },
+    "FR2: U, sides aft + raked forward": {
+      "case": "r43auditFR2fine_bambu_bed",
+      "blower_estimate_lpm": 200.2,
+      "outlets_lpm": {
+        "left": 43.5,
+        "right": 43.6,
+        "centre": 110.4
+      },
+      "own_side_below_tip_r4_lpm": 3.7,
+      "below_tip_ring_0p6_2_ms": {
+        "mean": 23.7,
+        "right": 30.5,
+        "front": 18.5,
+        "left": 30.2,
+        "rear": 15.7
+      },
+      "hot_part_speed_ms": {
+        "nozzle tip to 1 mm": 23.1,
+        "nozzle 1 mm to the sock": 16.6,
+        "sock and heater block": 11.1
+      },
+      "centre_uy_behind_nozzle_below_tip_ms": -9.5,
+      "gap_net_flux_lpm": {
+        "20.0": 1.17,
+        "22.7": 2.79
+      },
+      "gap_reverse_flux_lpm": {
+        "20.0": 0.0,
+        "22.7": 0.01
+      },
+      "band_2mm_y20_lpm": {
+        "net": 37.6,
+        "reverse": 0.0
+      },
+      "side_inflow_behind_nozzle_lpm": 7.3
+    }
+  },
+  "slicing_h2d_abs_0p2_5walls": {
+    "RVMS": {
+      "support_cm3": 4.672,
+      "print_min": 78.93,
+      "side_passage_support_mm3": 24.5
+    },
+    "RVMS40": {
+      "support_cm3": 4.646,
+      "print_min": 78.39,
+      "side_passage_support_mm3": null
+    },
+    "FR1": {
+      "support_cm3": 4.522,
+      "print_min": 78.3,
+      "side_passage_support_mm3": 24.6
+    },
+    "FR2": {
+      "support_cm3": 4.519,
+      "print_min": 78.52,
+      "side_passage_support_mm3": 34.3
+    }
+  },
+  "fr1_geometry": {
+    "status": "GEOMETRY_SCREENED_SEPARATE_CFD_CANDIDATE",
+    "source": "aim_v5d_RVMS",
+    "side_rake": {
+      "inner_y_at_x12p65": 25.0,
+      "exit_y_at_slot_face": 27.45,
+      "lean_deg": 44.42127443439221
+    },
+    "rear_slot": {
+      "mouth_height_mm": 2.0,
+      "angle_deg": 28,
+      "floor_reference_height_mm": 0.9,
+      "roof_raise_mm": 3.0
+    },
+    "source_sha256": {
+      "swept_feed\\aim_v5d_RVMS\\p22.brep": "80f31df3d6b47220bee4cc230a2c55610b87952eb5cd2a6239ac255893ee67ba",
+      "swept_feed\\aim_v5d_RVMS\\p21.brep": "d4a2316e3e753ddcdfa6ad3170c26fe89b191e7839243184117558f5aa501a11",
+      "swept_feed\\userP21_flow_neutral_v5d\\p22.brep": "0e8bcefa96f988d3384bd4268e288ee9273d20999719f0511c85af55b123804d",
+      "r43_scene\\manifest.json": "93fd3ba08b3d69fba5462b8b8d684875f2f3ea8ca37bc0784a9c4620adf92144"
+    },
+    "generator_sha256": {
+      "build_side_rake_r43.py": "4988c1110990e9683b603efc2e0dcaa412ca04b69c04703bf3dfe61cdc96bed0"
+    },
+    "fill_mm3": 27.180760015740965,
+    "mirror_difference_mm3": 0,
+    "lowest_z_mm": -77.85000009999999,
+    "slot_face_opening_mm2": {
+      "right": {
+        "before_mm2": 72.50994117260538,
+        "after_mm2": 71.11832324957813
+      },
+      "left": {
+        "before_mm2": 72.50994116602325,
+        "after_mm2": 71.11832324362373
+      }
+    },
+    "mounted_gap_mm": {
+      "ceramic block": {
+        "released_mm": 4.592424941284231,
+        "candidate_mm": 4.592424941284231
+      },
+      "heater cradle": {
+        "released_mm": 1.9176407971648268,
+        "candidate_mm": 1.9176407971648268
+      },
+      "bail": {
+        "released_mm": 2.099999999999996,
+        "candidate_mm": 2.099999999999996
+      },
+      "nozzle and heatsink": {
+        "released_mm": 5.199999999999882,
+        "candidate_mm": 5.199999999999882
+      },
+      "silicone sock": {
+        "released_mm": 3.199999999999438,
+        "candidate_mm": 3.199999999999438
+      },
+      "magnet": {
+        "released_mm": 11.045413292970569,
+        "candidate_mm": 11.045413292970569
+      }
+    },
+    "probe_gaps_mm": {
+      "Beacon": {
+        "source_mm": 0.0,
+        "candidate_mm": 0.0
+      },
+      "Cartographer": {
+        "source_mm": 0.0,
+        "candidate_mm": 0.0
+      }
+    },
+    "withdrawal": {
+      "length_mm": 60,
+      "step_mm": 0.5,
+      "axis": "-Y",
+      "parts": {
+        "ceramic block": {
+          "reference_min_mm": 4.592424941284231,
+          "candidate_min_mm": 4.592424941284231
+        },
+        "heater cradle": {
+          "reference_min_mm": 1.9176407971648268,
+          "candidate_min_mm": 1.9176407971648268
+        },
+        "bail": {
+          "reference_min_mm": 2.099999999999996,
+          "candidate_min_mm": 2.099999999999996
+        },
+        "nozzle and heatsink": {
+          "reference_min_mm": 5.199999999999353,
+          "candidate_min_mm": 5.199999999999353
+        },
+        "silicone sock": {
+          "reference_min_mm": 3.199999999999352,
+          "candidate_min_mm": 3.199999999999352
+        },
+        "magnet": {
+          "reference_min_mm": 11.045413292970569,
+          "candidate_min_mm": 11.045413292970569
+        }
+      },
+      "limitation": "Sampled rigid-body withdrawal, not continuous-motion or thermal qualification"
+    },
+    "hotend_overlap_mm3": {
+      "body": 0.0,
+      "fan inserts": 0.0,
+      "fan": 0.0,
+      "fan screws": 0.0,
+      "hotend": 0.0,
+      "hotend hardware": 0.0,
+      "P18": 0.0,
+      "bushings and magnets": 0.0
+    },
+    "constraint": "Adds material only inside each side passage's existing air, outboard of |X| 10.2. No vanes.",
+    "limitations": "Not thermally or physically print-qualified.",
+    "step_roundtrip_difference_mm3": 0,
+    "outputs_sha256": {
+      "p21.brep": "175c1fea63df02608c4cf79130ee4177bfa196d0b560244ec2296cbbc76d83cd",
+      "p22.brep": "fb5b3c0d061e48cb441685251fe2a6e77695fb5a98d1e3f71209186f5a310bcf",
+      "p22.step": "b56b3f44416d08fa0c9ccb6bfd3473a440700d13e4f6135a74a7ac08293a5523",
+      "p22_print_oriented.stl": "c341399e7794da5d9d2a71440efb10bec9c2e1c4cfe32cea45453860ee8d2c25"
+    }
+  },
+  "exports_sha256": {
+    "step/P22_C28_Bambu_Forward_Rake_FR1_REVIEW.step": "b56b3f44416d08fa0c9ccb6bfd3473a440700d13e4f6135a74a7ac08293a5523",
+    "stl/P22_C28_Bambu_Forward_Rake_FR1_REVIEW_PRINT_ORIENTED.stl": "c341399e7794da5d9d2a71440efb10bec9c2e1c4cfe32cea45453860ee8d2c25"
+  },
+  "future_change_not_done": "A literal aft shift of the side outlets needs a feed-chamber redesign: the aft end of each side opening is the feed's descending floor (Z -76.6 at Y 20 to -74.2 at Y 17).",
+  "limitations": "Steady RANS iteration means, no energy equation; airflow and slicer evidence only. No print sent."
+}

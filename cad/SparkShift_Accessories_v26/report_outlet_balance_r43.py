@@ -14,9 +14,18 @@ import cfd_cpap_r41_post as P
 import cfd_cpap_r43 as A
 import cfd_direct_mount_r43 as D
 import cfd_outlet_balance_r43 as B
+import cfd_provenance_r43 as V
+import cfd_nozzle_focus_r43 as F
+import cfd_tip_approach_r43 as T
 from build_modular_toolhead import ROOT
 
 CASES = {   # label: (case, description)
+    "review_rvm_fine": ("r43auditRVMfineV2_bambu_bed",
+                         "Audited RVM, fixed P21 input, 0.0625 mm below-tip refinement"),
+    "review_rvms_fine": ("r43auditRVMS28fine_bambu_bed",
+                          "Audited RVMS control, 2.0 mm rear slot, 0.0625 mm below-tip refinement"),
+    "review_rvms40_fine": ("r43auditRVMS40fineV2_bambu_bed",
+                            "Audited 2.0 mm, 40-degree rear slot, fixed P21, matched below-tip refinement"),
     "current": ("r43avgV5d_bambu_bed", "Current Bambu set: C28 outlets, flow-neutral user post (v5d)"),
     "centre_slot_1p1": ("r43avgV5dD11_bambu_bed", "Current set with the 1.1 mm centre slot (D11 outlet)"),
     "side_jet_visor": ("r43avgV5dVisor_bambu_bed", "Current set, side-jet roof lowered 1.7 mm to Z-75.3 (screening)"),
@@ -167,7 +176,9 @@ KEYS = ("left", "right", "centre")
 
 
 def summary(case, mean=True):
-    report = json.loads((C.results_dir(case) / f"outlet_balance{'_mean' if mean else ''}.json").read_text())
+    report = V.read_balance(case) if mean else json.loads((C.results_dir(case) / "outlet_balance.json").read_text())
+    if report.get("analysis_version") != 2:
+        raise ValueError(f"{case}: historical outlet analysis must be regenerated before comparison")
     op = report["operating_point_1m_hose"]
     factor = op["lpm"] / 180
     cov = D.coverage(B.load(case, mean), factor)
@@ -190,6 +201,10 @@ def summary(case, mean=True):
         "rising_total_lpm_at_operating_point": sum(rising.values()) * factor,
         "pressure_budget_at_180": report["pressure_budget"],
         "fields": report["fields"],
+        "analysis_version": report["analysis_version"],
+        "rear_slot": report["rear_slot"],
+        "measurement_closure": report["measurement_closure"],
+        "mesh_settings": json.loads((C.results_dir(case) / "stages.json").read_text()),
     }
 
 
@@ -198,9 +213,9 @@ def focus_summary(case):
     path = C.results_dir(case) / "nozzle_focus.json"
     if not path.exists():
         return None
-    f = json.loads(path.read_text())
+    f, _ = F.load_cached(case)
     return {"totals_lpm_at_operating_point": f["totals_lpm"], "near_print_ring_mean_ms": f["near_print_ring_mean_ms"],
-            "side_spill_lpm": f.get("side_spill_lpm"),
+            "side_spill_lpm": f.get("side_spill_lpm"), "metric_caution": f["metric_caution"],
             "outlets": {k: {kk: v[kk] for kk in ("down_deg", "forward_deg", "aim_pct", "delivery_pct",
                                                   "scrubs_hotend_pct", "opening")} for k, v in f["outlets"].items()}}
 
@@ -211,6 +226,8 @@ def tip_summary(case):
     if not path.exists():
         return None
     t = json.loads(path.read_text())
+    V.require_current(t.get("inputs_sha256"), V.focus_inputs(case), f"{case} tip-approach data")
+    V.require_current(t.get("analyser_sha256"), V.digest(Path(T.__file__)), f"{case} tip-approach code")
     a = t["closest_approach"]
     return {"cells_lpm_at_operating_point": a["cells"], "cells_by_outlet_lpm": a.get("cells_by_outlet"),
             "mean_passing_point_mm": {k: a[k] for k in ("left", "right", "centre", "all")},
@@ -226,13 +243,16 @@ def zones_summary(case):
     if not path.exists():
         return None
     z = json.loads(path.read_text())
+    V.require_current(z.get("inputs_sha256"), V.focus_inputs(case), f"{case} below-tip target data")
+    V.require_current(z.get("analyser_sha256"), V.digest(Path(Z.__file__)), f"{case} target scoring code")
     return {k: v for k, v in z.items() if k not in ("case", "definitions")}
 
 
 def main():
     out = {"method": "OpenFOAM v2512 simpleFoam, k-omega SST, 180 L/min inlet, 1,200 iterations; fieldAverage of U "
                      "and p over iterations 700-1200 (written with cfd_cpap_r41.py case --average-from 700). "
-                     "Outlet flows from cut sections; delivery from 600 flux-weighted streamlines per outlet in the "
+                     "Outlet flows from complete geometry-specific cut sections; delivery from flux-weighted "
+                     "streamlines per outlet (counts recorded in each case) in the "
                      "mean field: the share passing within 1 mm of the print surface inside 10 (or 5) mm of the "
                      "nozzle axis, and the share leaving upward past the hotend (Z > -70 mm). Values at each "
                      "design's own estimated WS7040 operating point with a 1 m hose (flow exponent 1.983).",
@@ -241,9 +261,19 @@ def main():
                           "roof ramp) are CFD screening prototypes, not qualified or printed parts. Streamlines start "
                           "at the outlet sections, so air that a trimmed floor releases before them is reported only "
                           "as the nozzle_focus side_spill_lpm flux.",
-           "cases": {}}
+           "analysis_version": 2,
+           "metric_caution": "Historical nozzle_focus totals_lpm/bead uses h<=1 mm above the print, not the "
+                             "user's below-tip zone. The 0.3 mm speed plane is above the nozzle tip. "
+                             "Compare matched mesh settings; iteration means are not transient CFD.",
+           "cases": {}, "excluded_historical_analyses": {}}
     for label, (case, text) in CASES.items():
         if (C.results_dir(case) / "outlet_balance_mean.json").exists():
+            saved = json.loads((C.results_dir(case) / "outlet_balance_mean.json").read_text())
+            if saved.get("analysis_version") != 2:
+                reason = "Legacy fixed rear-slot mask and unverified caches; rerun the analysis chain"
+                out["excluded_historical_analyses"][label] = {"case": case, "reason": reason}
+                print(f"EXCLUDED {case}: {reason}")
+                continue
             out["cases"][label] = {"case": case, "description": text, **summary(case)}
             focus = focus_summary(case)
             if focus:

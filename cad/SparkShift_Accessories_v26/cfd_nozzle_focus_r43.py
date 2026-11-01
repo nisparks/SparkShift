@@ -7,7 +7,8 @@ whose flux-weighted streamlines it reuses (600 per outlet). Writes results/<case
 Air values are at the case's blower operating point (WS7040, 1 m hose).
 
 Definitions, around the nozzle axis (X 0, Y 22.7):
-- Fresh bead: within 2 mm of the axis and 1 mm of the print surface.
+- Historical near-print envelope (JSON key "bead"): within 2 mm of the axis and 1 mm of the print surface.
+  This extends 0.8 mm ABOVE the nozzle tip; it is not the user's below-tip bead zone.
 - Aim: each streamline's initial direction (its first 0.5 mm) followed in a straight line through the CFD domain
   until it meets a wall: where the outlet points, before the jets bend or collide.
 - Delivery: where the streamline itself goes (exclusive, in this order): through the fresh bead; within 1 mm of the
@@ -30,6 +31,7 @@ import cfd_cpap_r41_post as P
 import cfd_direct_mount_r43 as D
 import cfd_outlet_balance_r43 as B
 import render_outlet_balance_r43 as R
+import cfd_provenance_r43 as V
 
 BED_Z = C.NOZZLE_TIP_Z - C.BED_GAP
 NY = C.NOZZLE_Y
@@ -39,7 +41,7 @@ SCRUB_MM = 0.5
 NU = 1.5e-5                                      # constant/transportProperties
 SLOT_MM = {"left": (3.45, 11.5), "right": (3.45, 11.5), "centre": (0.9, 18.0)}   # height and width of each opening
 KEYS = ("left", "right", "centre")
-DELIVERY = (("bead", "fresh bead (r <= 2 mm)", "#ffd43b"), ("r5", "print, r 2-5 mm", "#63e6be"),
+DELIVERY = (("bead", "near-print envelope (r <= 2, h <= 1 mm)", "#ffd43b"), ("r5", "print, r 2-5 mm", "#63e6be"),
             ("r10", "print, r 5-10 mm", "#2f9e77"), ("up", "rises past the hotend", "#ff6b6b"),
             ("other", "leaves elsewhere", "#5c7080"))
 AIM = (("bead", "the fresh bead or tip"), ("print5", "print, r 2-5 mm"), ("print10", "print, r 5-10 mm"),
@@ -197,7 +199,8 @@ def draw_section(ax, sec, title, xlabel, arrows, target):
     im = ax.imshow(speed, origin="lower", extent=(a[0], a[-1], z[0], z[-1]), cmap="turbo", vmin=0, vmax=60,
                    interpolation="bilinear")
     ax.streamplot(a, z, ua, uz, density=1.6, color=(1, 1, 1, .5), linewidth=.6, arrowsize=.7)
-    ax.add_patch(plt.Rectangle((target[0], BED_Z), target[1] - target[0], LOW, fill=False, ec="#ffd43b", lw=2,
+    ax.add_patch(plt.Rectangle((target[0], BED_Z), target[1] - target[0], C.NOZZLE_TIP_Z - BED_Z,
+                               fill=False, ec="#ffd43b", lw=2,
                                ls="--", zorder=6))
     ax.text((target[0] + target[1]) / 2, BED_Z - .35, "fresh bead", color="#ffd43b", ha="center", va="top",
             fontsize=11, fontweight="bold", zorder=7)
@@ -216,6 +219,7 @@ def draw_section(ax, sec, title, xlabel, arrows, target):
 
 def load_cached(case):
     result = json.loads((C.results_dir(case) / "nozzle_focus.json").read_text())
+    V.require_current(result.get("inputs_sha256"), V.focus_inputs(case), f"{case} nozzle-focus cache")
     data = np.load(C.results_dir(case) / "nozzle_focus_sections.npz")
     sections = {}
     for n in ("front", "side"):
@@ -330,7 +334,7 @@ def main():
         return
     case, out_png = sys.argv[1], sys.argv[2]
     title = sys.argv[3] if len(sys.argv) > 3 else "current Bambu set"
-    report = json.loads((C.results_dir(case) / "outlet_balance_mean.json").read_text())
+    report = V.read_balance(case)
     op = report["operating_point_1m_hose"]
     factor = op["lpm"] / 180
     g = B.load(case, True)
@@ -355,7 +359,7 @@ def main():
                      "scrubs_hotend_pct": 100 * float(scrub[mine].mean()),
                      "check_r10_pct_vs_balance_report": [100 * float(r10_any[mine].mean()),
                                                          report["delivery"][key]["r10_mm_pct"]]}
-        h, w = SLOT_MM[key]
+        h, w = (report["rear_slot"]["mouth_height_mm"], 18.0) if key == "centre" else SLOT_MM[key]
         mean = lpm / 60000 / (h * w * 1e-6)
         rows[key]["opening"] = {"height_width_mm": [h, w], "mean_speed_ms": mean, "reynolds_on_height": mean * h * 1e-3 / NU,
                                 "turbulence_intensity_at_section": report["outlets"][key]["turbulence_intensity"]}
@@ -389,7 +393,12 @@ def main():
               "section_rays_mm": {k: [[p.tolist(), q.tolist()] for p, q in v] for k, v in
                                   {**side_rays, "centre": centre_rays}.items()},
               "hotend_walls": {"triangles": walls.GetNumberOfCells(), "bounds_mm": list(walls.GetBounds())},
-              "definitions": __doc__.split("Definitions, ", 1)[1].strip()}
+              "inputs_sha256": V.focus_inputs(case),
+              "definitions": __doc__.split("Definitions, ", 1)[1].strip(),
+              "metric_caution": "The historical totals_lpm/bead envelope extends 1 mm above the print, hence "
+                                "0.8 mm ABOVE the nozzle tip. It is not the user's below-tip bead zone. "
+                                "The 0.3 mm sampling plane is 0.1 mm above the tip. "
+                                "Use bead_zones.json for the own-side below-tip target."}
     (C.results_dir(case) / "nozzle_focus.json").write_text(json.dumps(result, indent=1) + "\n")
 
     fig = plt.figure(figsize=(24, 15.5), dpi=100)
@@ -431,7 +440,7 @@ def main():
     ax = fig.add_subplot(grid[1, 2:4])
     R.style(ax, "Air speed around the nozzle, mean around the circle (m/s)")
     ax.axvspan(0, BEAD_R, color="#ffd43b", alpha=.13)
-    ax.text(BEAD_R / 2, 63, "fresh\nbead", color="#ffd43b", ha="center", va="top", fontsize=11)
+    ax.text(BEAD_R / 2, 63, "near-tip\nring", color="#ffd43b", ha="center", va="top", fontsize=11)
     for (name, p), color in zip(profiles.items(), ("#ffffff", "#74c0fc")):
         r = np.array(p["r_mm"])
         if color == "#ffffff":

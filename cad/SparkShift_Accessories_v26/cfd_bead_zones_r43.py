@@ -11,7 +11,8 @@ Definitions (iteration-mean field at each design's own blower point; airflow, no
   right jet's is the half to the right (X > 0), and the rear slot's is the half behind it (Y < 22.7). Each lies
   just below the nozzle tip: radius 2.5 mm and 0-0.4 mm below the tip, or radius 4 mm and 0-1 mm below. The CFD's
   print surface is 0.2 mm below the tip, so in the CFD each zone is the air layer between the tip and the print,
-  and the two sizes differ only in radius. Air that crosses to the other side counts for nothing.
+  and the two sizes differ only in radius. Paths stop at their first centre-plane crossing; a later return
+  from the other side cannot count as a successful hit.
 - Zone score, the user's rule: love hitting the bead, punish higher exponentially and lower quadratically. Each
   flux-weighted streamline of an outlet scores +1 if it passes through its own zone. If it reaches the zone's
   half-cylinder only above tip level, D is its lowest height there above the tip and it scores
@@ -32,6 +33,7 @@ Definitions (iteration-mean field at each design's own blower point; airflow, no
 """
 import json
 import sys
+from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
@@ -44,17 +46,18 @@ import cfd_cpap_r41 as C  # noqa: E402
 import cfd_nozzle_focus_r43 as F  # noqa: E402
 import cfd_outlet_balance_r43 as B  # noqa: E402
 import render_outlet_balance_r43 as R  # noqa: E402
+import cfd_provenance_r43 as V  # noqa: E402
 
 NY, BED_Z = F.NY, F.BED_Z
 TIP_H = C.NOZZLE_TIP_Z - BED_Z
-EPS = .02
+EPS = 1e-5                                    # coordinate roundoff only, not a band above the tip
 ZONES = {"r 2.5 mm": 2.5, "r 4 mm": 4.0}
 Y_BINS = ((16.5, 19.0), (19.0, 21.0), (21.0, 23.0), (23.0, 25.0), (25.0, 28.5))
 Z_BINS = ((-77.1, -76.2), (-76.2, -75.3), (-75.3, -74.4), (-74.4, -73.0))
 
 
 def operating(case):
-    report = json.loads((C.results_dir(case) / "outlet_balance_mean.json").read_text())
+    report = V.read_balance(case)
     return report, report["operating_point_1m_hose"]["lpm"] / 180
 
 
@@ -64,6 +67,9 @@ def own_side(key, p):
 
 def classify(key, p, radius):
     """(hit / higher / lower, D) for one path given as points."""
+    crossings = np.flatnonzero(~own_side(key, p))
+    if len(crossings):
+        p = p[:max(1, crossings[0])]
     h = p[:, 2] - BED_Z
     r = np.hypot(p[:, 0], p[:, 1] - NY)
     own = own_side(key, p)
@@ -90,7 +96,14 @@ def score(cat, d):
 def straight(o, d, step=.05, length=25.0):
     p = o + np.arange(0, length, step)[:, None] * d
     stop = np.flatnonzero(p[:, 2] <= BED_Z)
-    return p[: stop[0] + 1] if len(stop) else p
+    if not len(stop):
+        return p
+    i = int(stop[0])
+    p = p[:i + 1].copy()
+    if i:
+        t = (BED_Z - p[i - 1, 2]) / (p[i, 2] - p[i - 1, 2])
+        p[i] = p[i - 1] + t * (p[i] - p[i - 1])
+    return p
 
 
 def zones(report, factor, pts, offsets, label):
@@ -107,7 +120,7 @@ def zones(report, factor, pts, offsets, label):
                                 radius) for n in idx]
                 cats = [c for c, _ in res]
                 z[key][kind] = {"score": float(np.mean([score(c, dd) for c, dd in res])),
-                                "in_zone_lpm": lpm[key] * cats.count("hit") / len(cats),
+                                                "in_zone_lpm": lpm[key] * cats.count("hit") / len(cats),
                                 **{f"{c}_pct": 100 * cats.count(c) / len(cats) for c in ("hit", "higher", "lower")}}
         for kind in ("path", "aim"):
             z[f"side_jets_{kind}_score"] = (z["left"][kind]["score"] + z["right"][kind]["score"]) / 2
@@ -138,12 +151,15 @@ def reach(pts, offsets, label, radius=4.0):
     for side, sign in (("left", -1), ("right", 1)):
         for n in np.flatnonzero(label == F.KEYS.index(side)):
             p = pts[offsets[n]:offsets[n + 1]]
+            crossings = np.flatnonzero(~own_side(side, p))
+            if len(crossings):
+                p = p[:max(1, crossings[0])]
             m = (sign * p[:, 0] > 0) & (np.hypot(p[:, 0], p[:, 1] - NY) <= radius)
             lows.append(float((p[m, 2] - BED_Z).min()) if m.any() else np.nan)
     lows = np.array(lows)
     entered = np.isfinite(lows)
     out = {"enter_pct": 100 * float(entered.mean()), "median_lowest_mm": float(np.median(lows[entered]))}
-    for name, t in (("0.2", .22), ("0.5", .5), ("1.0", 1.0)):
+    for name, t in (("0.2", .2 + EPS), ("0.5", .5), ("1.0", 1.0)):
         out[f"lowest_within_{name}_mm_pct"] = 100 * float(np.mean(lows[entered] <= t)) * float(entered.mean())
     return out
 
@@ -216,7 +232,8 @@ def analyse(case):
             "zones": zones(report, factor, pts, offsets, label), "arriving_on_the_print": arrive,
             "own_side_reach_r4": reach(pts, offsets, label),
             "side_jet_exit_angle_deg": {"bottom_to_top": bands, "mean": mean},
-            "cone_scrub": scrub(starts, hits), "definitions": __doc__[__doc__.index("Definitions"):].strip()}
+            "cone_scrub": scrub(starts, hits), "definitions": __doc__[__doc__.index("Definitions"):].strip(),
+            "inputs_sha256": V.focus_inputs(case), "analyser_sha256": V.digest(Path(__file__))}
 
 
 def real_paths(case, side):

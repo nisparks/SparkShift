@@ -27,6 +27,7 @@ are at the case's blower operating point (WS7040, 1 m hose).
 """
 import json
 import sys
+from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
@@ -39,6 +40,7 @@ import cfd_cpap_r41 as C
 import cfd_outlet_balance_r43 as B
 import cfd_nozzle_focus_r43 as F
 import render_outlet_balance_r43 as R
+import cfd_provenance_r43 as V
 
 NY, BED_Z = C.NOZZLE_Y, F.BED_Z
 TIP_H = C.NOZZLE_TIP_Z - BED_Z
@@ -239,9 +241,11 @@ def compare(out_png, specs):
     cases = []
     for spec in specs:
         label, case = spec.split("=", 1)
-        report = json.loads((C.results_dir(case) / "outlet_balance_mean.json").read_text())
+        report = V.read_balance(case)
         factor = report["operating_point_1m_hose"]["lpm"] / 180
         res = json.loads((C.results_dir(case) / "tip_approach.json").read_text())
+        V.require_current(res.get("inputs_sha256"), V.focus_inputs(case), f"{case} tip-approach cache")
+        V.require_current(res.get("analyser_sha256"), V.digest(Path(__file__)), f"{case} tip-approach code")
         if "aim_line" not in res:
             res["aim_line"] = aim_line(case)
         _, sections = F.load_cached(case)
@@ -334,7 +338,7 @@ def main():
         return
     case, out_png = sys.argv[1], sys.argv[2]
     title = sys.argv[3] if len(sys.argv) > 3 else "current Bambu set"
-    report = json.loads((C.results_dir(case) / "outlet_balance_mean.json").read_text())
+    report = V.read_balance(case)
     op = report["operating_point_1m_hose"]
     factor = op["lpm"] / 180
     c = closest(case, report, factor)
@@ -358,7 +362,8 @@ def main():
               "below_tip": low, "hot_nozzle_cold_bead": hot,
               "nozzle_surface": surface,
               "print_level": {k: v for k, v in pl.items() if k not in ("x", "y", "speed")},
-              "definitions": __doc__.split("\n\n", 2)[2].strip()}
+              "definitions": __doc__.split("\n\n", 2)[2].strip(),
+              "inputs_sha256": V.focus_inputs(case), "analyser_sha256": V.digest(Path(__file__))}
     (C.results_dir(case) / "tip_approach.json").write_text(json.dumps(result, indent=1) + "\n")
 
     fig = plt.figure(figsize=(24, 17), dpi=100)

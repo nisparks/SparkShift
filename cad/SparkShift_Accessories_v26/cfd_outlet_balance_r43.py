@@ -15,6 +15,7 @@ results/<case>/outlet_balance[_mean].json and its streamlines (outlet_streamline
 import argparse
 import json
 import math
+from pathlib import Path
 
 import cadquery as cq
 import numpy as np
@@ -26,10 +27,54 @@ import cfd_cpap_r41 as C
 import cfd_cpap_r41_post as P
 import cfd_cpap_r43 as A
 import r43_swept_feed as F
+import cfd_provenance_r43 as V
 
 ROOF_RAISE, MOUTH_HEIGHT, ANGLE = 3.0, 0.9, 28.0     # C28's centre slot, as built for the cleaned C28 baseline
 BED_Z = C.NOZZLE_TIP_Z - C.BED_GAP
 SEEDS = 600
+
+
+def slot_parameters(case):
+    """Recover the passage actually built, not the baseline's smaller clipping mask."""
+    meta = json.loads((C.results_dir(case) / "domain.json").read_text())
+    source = Path(meta["p22_variant"])
+    expected = meta.get("geometry_sha256", {}).get("p22")
+    if expected is not None:
+        V.require_current(expected, V.digest(source), f"{case} P22 geometry")
+    checks_path = source.with_name("checks.json")
+    checks = json.loads(checks_path.read_text()) if checks_path.exists() else {}
+    params = meta.get("rear_slot") or checks.get("rear_slot")
+    if params is None and "mouth_height_mm" in checks:
+        params = {"mouth_height_mm": checks["mouth_height_mm"], "angle_deg": checks["angle_deg"],
+                  "floor_reference_height_mm": checks["floor_reference_height_mm"], "roof_raise_mm": 3.0}
+    if params is None and checks.get("source"):
+        upstream = Path(checks["source"])
+        if not upstream.is_absolute():
+            upstream = C.CFD.parent / upstream
+        qualification = upstream.with_name("qualification.json")
+        if qualification.exists():
+            qualified = json.loads(qualification.read_text())
+            params = {"mouth_height_mm": qualified["mouth_height_mm"],
+                      "angle_deg": qualified["outlet_angle_deg"],
+                      "floor_reference_height_mm": qualified["mouth_floor_reference_height_mm"],
+                      "roof_raise_mm": qualified["roof_raise_mm"]}
+    if params is None:
+        baseline = C.CFD.parent / "swept_feed" / "userP21_flow_neutral_v5d" / "p22.brep"
+        zone = cq.Solid.makeBox(20, 13, 10, cq.Vector(-10, 3, -75))
+        current = cq.Shape.importBrep(str(source)).intersect(zone)
+        reference = cq.Shape.importBrep(str(baseline)).intersect(zone)
+        difference = max(abs(current.copy().cut(reference.copy()).Volume()),
+                         abs(reference.copy().cut(current.copy()).Volume()))
+        if difference > .01:
+            raise ValueError(f"{case}: unknown rear passage differs from baseline by {difference:.4f} mm3")
+        params = {"mouth_height_mm": .9, "angle_deg": 28.0,
+                  "floor_reference_height_mm": .9, "roof_raise_mm": 3.0}
+    params = {k: float(params[k]) for k in (
+        "mouth_height_mm", "angle_deg", "floor_reference_height_mm", "roof_raise_mm")}
+    if (not all(math.isfinite(v) for v in params.values()) or params["mouth_height_mm"] <= 0
+            or params["floor_reference_height_mm"] <= 0 or not 0 < params["angle_deg"] < 90):
+        raise ValueError(f"{case}: invalid rear passage parameters {params}")
+    return params
 
 
 def load(name, mean=False):
@@ -59,8 +104,8 @@ def keep_inside(poly, solid):
     return select_cells(poly, solid.contains(pts[tris].mean(axis=1)))
 
 
-def slot_section(g, passage):
-    direction = np.array([0, math.cos(math.radians(ANGLE)), -math.sin(math.radians(ANGLE))])
+def slot_section(g, passage, angle=ANGLE):
+    direction = np.array([0, math.cos(math.radians(angle)), -math.sin(math.radians(angle))])
     mouth = F.mouth(F.HALF_WIDTH)
     origin = np.array([mouth.x, mouth.y, mouth.z]) - .6 * direction
     cut = P.clip_box(P.cut(g, origin, direction), (-9.8, 9.8, 2, 16, -78, -66))
@@ -73,10 +118,10 @@ def flux_stats(poly, normal):
     return row
 
 
-def outlets(g, passage):
+def outlets(g, passage, angle=ANGLE):
     slices = {side: (poly, n) for side, poly, n in P.jet_slices(g)}
     rows = {side: flux_stats(poly, n) for side, (poly, n) in slices.items()}
-    slot, normal = slot_section(g, passage)
+    slot, normal = slot_section(g, passage, angle)
     rows["centre"] = flux_stats(slot, normal)
     pts, tris, area = P.triangles(slot)
     x = pts[tris].mean(axis=1)[:, 0]
@@ -244,15 +289,34 @@ def main():
     parser.add_argument("case")
     parser.add_argument("--mean", action="store_true")
     parser.add_argument("--seeds", type=int, default=SEEDS, help="streamlines per outlet")
+    parser.add_argument("--allow-outlet-spill", action="store_true",
+                        help="report, rather than reject, >3%% unaccounted flow for deliberately trimmed exits")
     args = parser.parse_args()
     C.JET_WINDOW = A.window_for(args.case)
     g = load(args.case, args.mean)
-    passage = solid_mesh(F.nozzle(False, ROOF_RAISE, MOUTH_HEIGHT, ANGLE))
+    params = slot_parameters(args.case)
+    passage = solid_mesh(F.nozzle(False, params["roof_raise_mm"], params["mouth_height_mm"],
+                                  params["angle_deg"], True, params["floor_reference_height_mm"]))
     feeds = solid_mesh(F.feed(-1, roof_raise=ROOF_RAISE).fuse(F.feed(1, roof_raise=ROOF_RAISE)))
-    outlet_rows, sections, normal = outlets(g, passage)
+    outlet_rows, sections, normal = outlets(g, passage, params["angle_deg"])
+    inlet = section(g, "z", 80.0, (-9, 9, -58, -39, 79, 81), (0, 0, -1))["lpm"]
+    outlet_sum = sum(row["lpm"] for row in outlet_rows.values())
+    closure = 100 * (outlet_sum - inlet) / inlet
+    if abs(closure) > 3 and not args.allow_outlet_spill:
+        raise ValueError(f"{args.case}: outlet accounting error {closure:+.2f}% "
+                         f"({outlet_sum:.2f} out vs {inlet:.2f} L/min in); inspect masks or unmeasured spill")
     normals = {"left": (1, 0, 0), "right": (-1, 0, 0), "centre": normal}
     report = {"case": args.case, "fields": "iteration mean (UMean, pMean)" if args.mean else "snapshot at 1200",
-              "flow_lpm": 180, "outlets": outlet_rows, "pressure_budget": budget(g, feeds, outlet_rows)}
+              "flow_lpm": 180, "outlets": outlet_rows, "pressure_budget": budget(g, feeds, outlet_rows),
+              "analysis_version": 2, "rear_slot": params, "p22_sha256": V.digest(
+                  Path(json.loads((C.results_dir(args.case) / "domain.json").read_text())["p22_variant"])),
+              "field_inputs_sha256": V.field_inputs(args.case),
+              "measurement_closure": {"inlet_lpm": inlet, "outlets_lpm": outlet_sum, "error_pct": closure,
+                                      "within_3pct": abs(closure) <= 3,
+                                      "explicit_spill_override": args.allow_outlet_spill},
+              "sampling_note": "Rear seeds start on a full-passage interior section upstream of the curved mouth, "
+                               "not at a planar exit. Streamline metrics are transport proxies, not heat transfer."}
+    report["analyser_sha256"] = V.digest(Path(__file__))
     rows = A.rows_of(args.case)
     report["operating_point_1m_hose"] = A.operating(rows)
     report["delivery"], lines = delivery(g, sections, normals, outlet_rows, args.seeds)
@@ -260,7 +324,9 @@ def main():
     writer = vtk.vtkXMLPolyDataWriter()
     writer.SetFileName(str(C.results_dir(args.case) / f"outlet_streamlines{suffix}.vtp"))
     writer.SetInputData(lines)
-    writer.Write()
+    if writer.Write() != 1:
+        raise OSError("Could not write outlet streamlines")
+    report["streamlines_sha256"] = V.digest(C.results_dir(args.case) / f"outlet_streamlines{suffix}.vtp")
     (C.results_dir(args.case) / f"outlet_balance{suffix}.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({k: report[k] for k in ("outlets", "delivery", "operating_point_1m_hose")}, indent=1))
     for path, rows_ in report["pressure_budget"].items():

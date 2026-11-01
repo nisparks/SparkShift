@@ -1,0 +1,196 @@
+{
+  "geometry_qualification": {
+    "status": "GEOMETRY_SCREENED_SEPARATE_CFD_CANDIDATE",
+    "rear_slot": {
+      "mouth_height_mm": 2.0,
+      "floor_reference_height_mm": 0.9,
+      "angle_deg": 40.0,
+      "roof_raise_mm": 3.0
+    },
+    "source": "aim_v5d_RVM",
+    "source_sha256": {
+      "swept_feed\\aim_v5d_RVM\\p22.brep": "ac84ee37c517fb9c2ef74c6ddfd8e01bf9488160dd52c46cdd972d51a430e4c5",
+      "swept_feed\\aim_v5d_RVM\\p21.brep": "db3435df0542ff6ac5d6b749d52a4a36d8b3179dd3426fc798472b8dea94fb69",
+      "swept_feed\\userP21_flow_neutral_v5d\\p22.brep": "0e8bcefa96f988d3384bd4268e288ee9273d20999719f0511c85af55b123804d",
+      "cfd\\p22_r43.brep": "a9c37df2e297d63d8679bae1dd171b190b720d147a3978c80c9edaf3a6174fca",
+      "r43_scene\\manifest.json": "93fd3ba08b3d69fba5462b8b8d684875f2f3ea8ca37bc0784a9c4620adf92144"
+    },
+    "generator_sha256": {
+      "build_rvms_review_r43.py": "54551320e4491b9531db918c94b216f626e9f69690136f587f7797cf53a9be34",
+      "r43_swept_feed.py": "f384a2c27291d5c933f2cdf8eb75a9bd208b5708815e1416e9d4a910008a3dee"
+    },
+    "valid_single_solid_shell": true,
+    "source_local_difference_mm3": 0,
+    "outside_edit_zone_difference_mm3": 0,
+    "splice_difference_mm3": 0,
+    "rear_slot_mirror_difference_mm3": 0,
+    "lowest_z_mm": -77.85097001092852,
+    "volume_mm3": 17409.689474988318,
+    "source_volume_mm3": 17412.945366123484,
+    "mounted_gap_mm": {
+      "ceramic block": {
+        "released_mm": 4.592424941284231,
+        "candidate_mm": 4.592424941284231
+      },
+      "heater cradle": {
+        "released_mm": 1.9176407971648268,
+        "candidate_mm": 1.9176407971648268
+      },
+      "bail": {
+        "released_mm": 2.099999999999996,
+        "candidate_mm": 2.099999999999996
+      },
+      "nozzle and heatsink": {
+        "released_mm": 5.199999999999882,
+        "candidate_mm": 5.199999999999882
+      },
+      "silicone sock": {
+        "released_mm": 3.199999999999438,
+        "candidate_mm": 3.199999999999438
+      },
+      "magnet": {
+        "released_mm": 11.045413292970569,
+        "candidate_mm": 11.045413292970569
+      }
+    },
+    "probe_gaps_mm": {
+      "Beacon": {
+        "reference_mm": 0.5925654721425492,
+        "candidate_mm": 0.6024739763195389
+      },
+      "Cartographer": {
+        "reference_mm": 0.4445343205677759,
+        "candidate_mm": 0.46128445533751977
+      }
+    },
+    "withdrawal": {
+      "length_mm": 60,
+      "step_mm": 0.5,
+      "axis": "-Y",
+      "parts": {
+        "ceramic block": {
+          "reference_min_mm": 4.592424941284231,
+          "candidate_min_mm": 4.592424941284231
+        },
+        "heater cradle": {
+          "reference_min_mm": 1.9176407971648268,
+          "candidate_min_mm": 1.9176407971648268
+        },
+        "bail": {
+          "reference_min_mm": 2.099999999999996,
+          "candidate_min_mm": 2.099999999999996
+        },
+        "nozzle and heatsink": {
+          "reference_min_mm": 5.199999999999353,
+          "candidate_min_mm": 5.199999999999353
+        },
+        "silicone sock": {
+          "reference_min_mm": 3.199999999999352,
+          "candidate_min_mm": 3.199999999999352
+        },
+        "magnet": {
+          "reference_min_mm": 11.045413292970569,
+          "candidate_min_mm": 11.045413292970569
+        }
+      },
+      "limitation": "Sampled rigid-body withdrawal, not continuous-motion or thermal qualification"
+    },
+    "hotend_overlap_mm3": {
+      "body": 0.0,
+      "fan inserts": 0.0,
+      "fan": 0.0,
+      "fan screws": 0.0,
+      "hotend": 0.0,
+      "hotend hardware": 0.0,
+      "P18": 0.0,
+      "bushings and magnets": 0.0
+    },
+    "wall_screen": {
+      "watertight": true,
+      "winding_consistent": true,
+      "normal_samples": [
+        {
+          "offset_mm": 0.1,
+          "samples": 4590,
+          "mesh_suspects": 0,
+          "exact_failures": 0
+        },
+        {
+          "offset_mm": 0.35,
+          "samples": 4562,
+          "mesh_suspects": 0,
+          "exact_failures": 0
+        },
+        {
+          "offset_mm": 0.6,
+          "samples": 4550,
+          "mesh_suspects": 0,
+          "exact_failures": 0
+        },
+        {
+          "offset_mm": 0.75,
+          "samples": 4556,
+          "mesh_suspects": 0,
+          "exact_failures": 0
+        }
+      ],
+      "limitation": "Sampled wall-normal material, not a continuous minimum-thickness proof. Open main-channel connections and the outlet are excluded by exact CAD."
+    },
+    "side_jet_constraint": "Side jets and all material outside X+-10, Y3..16, Z-75..-65 are unchanged from RVM",
+    "limitations": "No new hardware or metal. No louvers/vanes. Not thermally or physically print-qualified.",
+    "step_roundtrip_difference_mm3": 0,
+    "outputs_sha256": {
+      "p21.brep": "62690053b65e91ecee59ef79fcd9a2f1df24d286109dc4c3b60cf96d0cc7ba28",
+      "p22.brep": "e485f6bb90a581f9aaca402b32e78602d63e8b02bbdc8d0e741ddf5923e32ab7",
+      "p22.step": "e5569ade743c550ff6b74290ec9f1e7ec101ec4fac183e0d7c2b8aba7749726c",
+      "p22_print_oriented.stl": "4580b367e7f060de0db0e81a629ac174cb3ac9bd9bf08dd50eea080d61082013",
+      "rear_air.brep": "846c87a2ed14606f44988a5920a83b8d16f9caa1caaeabe8d221cddb9a1f7828"
+    }
+  },
+  "exact_bounds_mm": {
+    "min": [
+      -22.420000100000003,
+      -45.40000000000001,
+      -77.85000009999999
+    ],
+    "max": [
+      22.420000100000003,
+      29.276190576190483,
+      -48.9999999
+    ]
+  },
+  "print_mesh": {
+    "watertight": true,
+    "winding_consistent": true,
+    "volume_mm3": 17410.747109169435
+  },
+  "matched_slicer_presets": {
+    "process.json": true,
+    "machine.json": true,
+    "filament1.json": true,
+    "filament2.json": true,
+    "filament3.json": true,
+    "filament4.json": true,
+    "filament5.json": true,
+    "filament6.json": true,
+    "filament7.json": true,
+    "filament8.json": true
+  },
+  "slicing": {
+    "RVMS": {
+      "support_mm3": 4672.13157686869,
+      "print_time_s": 4735.94482421875,
+      "sampled_support_inside_rear_air_mm3": 0.0,
+      "support_samples": 261996,
+      "metrics_sha256": "c15b71a26beb42083a8f2bd4ce07d8e8bd70c34c0395310b5d37f93bdae3a131"
+    },
+    "RVMS40": {
+      "support_mm3": 4645.752441643216,
+      "print_time_s": 4703.21240234375,
+      "sampled_support_inside_rear_air_mm3": 0.0,
+      "support_samples": 260631,
+      "metrics_sha256": "a140d1638f1b8a8fce0ad13cb6bf11759bb2587d609854547ba231df0ef2911f"
+    }
+  },
+  "material_note": "support_interface_filament=0: ABS itself is used; the historical helper labels the loaded unused breakaway preset as interface material. No print was sent."
+}
