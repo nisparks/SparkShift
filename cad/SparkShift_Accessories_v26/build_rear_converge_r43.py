@@ -30,9 +30,12 @@ ZONE = M.box(-10, 10, 3, 16, -79, -65)
 
 
 def rear_air(params):
+    # Same extended loft and mouth trim as the shell's passage, so the fill meets the lip exactly
+    # (a flush, differently lofted mouth left knife-edge slivers at the slot corners).
     xs = (-F.HALF_WIDTH, -6.0, -3.0, 0.0, 3.0, 6.0, F.HALF_WIDTH)
-    return cq.Solid.makeLoft([F.profile(x, 0.0, params["roof_raise_mm"], params["mouth_height_mm"],
+    loft = cq.Solid.makeLoft([F.profile(x, 0.7, params["roof_raise_mm"], params["mouth_height_mm"],
                                         params["angle_deg"], params["floor_reference_height_mm"]) for x in xs])
+    return loft.intersect(F.mouth_keep(params["angle_deg"]))
 
 
 def fill(p22, params, exit_x, yaw_deg):

@@ -237,6 +237,74 @@ variants keep every hotend, probe and withdrawal gap ([design](images/r43_rear_c
 - Airflow, not temperature. A thermal A/B print of FR1 versus A (nozzle temperature hold and overhang/bridge
   quality) decides whether the extra nozzle air matters.
 
+## Part-cooler scorecard: choosing the best design
+
+**Choice: A (converging rear outlet on FR1).** Review part:
+`step/P22_C28_Bambu_Converging_Rear_A_REVIEW.step`,
+`stl/P22_C28_Bambu_Converging_Rear_A_REVIEW_PRINT_ORIENTED.stl`.
+
+### What a part cooler should do (research basis)
+- Put air on the fresh bead and the layer just below it, from more than one side. Two-sided and ring-style
+  delivery cools more evenly than one side; uneven outlets and flow separation leave hot spots
+  (Seregi & Ficzere 2025, Periodica Polytechnica Mech. Eng., doi:10.3311/PPme.42624).
+- Cool the same in every print direction, so overhangs and bridges do not depend on which way the head moves
+  (common practice in CFD-designed ducts).
+- Do not blow air back up off the print. Air that glances upward cools nothing and carries heat back to the nozzle.
+- Keep air off the heater block and nozzle. Air on them drops the nozzle temperature; a silicone sock and a
+  PID retune at the working fan speed are the standard fix (CNC Kitchen and printer-forum measurements).
+  Cylinder heat loss grows with about speed^0.5 (Hilpert / Churchill-Bernstein), so doubling the air speed on
+  the nozzle adds about 40% to that loss, not 100%.
+
+### Method
+`evaluate_part_cooler_r43.py` scores all nine matched fine-mesh cases at their own blower estimate:
+delivery 40% (downward L/min r 0.6-5 mm plus below-tip ring speeds and the low-speed spots),
+uniformity 25% (weakest sector / mean around the nozzle), lift-off 15% (up / down, r 2-5 mm), and
+nozzle heat 20% (Churchill-Bernstein cylinder, 4 mm nozzle at 250 C in 35 C air, over the 50.8 mm2 of bare
+nozzle below the sock). Every weight was moved +-10 points as a sensitivity check.
+
+| Rank | Case | Score | Down onto bead + print (L/min) | Ring r 0.6-2 (m/s) | Uniformity | Up / down | Bare nozzle (W) | Blower (L/min) | Centre share |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | **A** | **0.80** | **18.6** | **33.9** | **0.73** | **0.25** | 3.00 | 195 | 37% |
+| 2 | FR2 | 0.61 | 13.4 | 23.7 | 0.57 | 0.39 | 2.39 | 200 | 56% |
+| 3 | RVMS | 0.58 | 10.9 | 9.7 | 0.70 | 0.70 | 2.05 | 227 | 44% |
+| 4 | B | 0.53 | 9.5 | 24.7 | 0.67 | 0.57 | 2.78 | 204 | 43% |
+| 5 | RVMS 40 | 0.51 | 8.9 | 7.3 | 0.69 | 0.78 | 2.11 | 227 | 44% |
+| 6 | FR1 | 0.50 | 14.0 | 15.7 | 0.55 | 0.87 | 2.33 | 218 | 48% |
+| 7 | FR1 0.9 mm | 0.45 | 8.5 | 17.2 | 0.50 | 1.24 | 2.11 | 191 | 34% |
+| 8 | RVM | 0.40 | 7.3 | 22.1 | 0.59 | 1.55 | 2.66 | 206 | 30% |
+| 9 | FR1 1.4 mm | 0.34 | 9.7 | 7.5 | 0.41 | 1.36 | 2.04 | 205 | 42% |
+
+([figure](images/r43_part_cooler_scorecard.png), [data](verification_part_cooler_scorecard_r43.json))
+
+### Why A
+- A ranks first under every weighting tested, including nozzle heat at 30%.
+- It is best on all three print-side goals: 33% more downward air than FR1, the most even ring, and about a
+  quarter as much air glancing back up.
+- Its one cost is the nozzle: about +0.7 W over FR1 on the bare nozzle, roughly 1% of a ~60 W heater.
+  That fits within normal heater headroom after a PID retune at the working fan speed. The sock and
+  heater block see about the same air as FR1 (13.3 vs 12.8 m/s).
+- Its blower estimate is 11% lower than FR1's (195 vs 218 L/min), but it puts more of that air where it counts.
+- The centre share (37%) is inside the 33-50% target.
+
+### Export and printability
+- The export uses a rebuild of A (`review_fr1_rc24m`). The builder's fill now uses the shell's own extended
+  passage loft and mouth trim. A flush, differently lofted mouth had left knife-edge slivers at the slot corners,
+  so the first STL was not one watertight body.
+- The rebuilt part differs from the CFD'd A by 0.28 mm3, all in those corner slivers. It passed every builder
+  check again.
+- STL: one watertight body. STEP round trip: matching volume.
+- Faces steeper than 45 degrees in the print orientation: 1385 mm2 for A vs 1380 mm2 for FR1, so supports are
+  essentially unchanged. Mesh screen only, not yet slicer screened.
+
+### Caveats and next test
+- Airflow, not temperature. The nozzle figure is an engineering estimate (assumed 4 mm nozzle; the Bambu heater
+  rating is from forum reports), not a thermal simulation.
+- Print and thermal A/B, FR1 vs A at the same fan setting:
+  - nozzle temperature hold;
+  - overhang and bridge quality in all four print directions.
+- Retune PID with the fan running.
+- If A's nozzle temperature droops visibly, the fallback is FR2 (rank 2).
+
 ## Aiming at the bead within the hotend clearance limits
 
 **Screening round, 2026-10-31.** The question was how to make the air average just below the nozzle tip without

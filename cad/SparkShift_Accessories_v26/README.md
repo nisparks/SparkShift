@@ -43,7 +43,13 @@ support +1.0% and time +7.7% versus the original C28 parts. The post's smallest
 section is 16.3 mm2, so snug the M3.
 [Unbranded image](./images/r43_c28_flow_neutral_retainer_review_share.jpg).
 
-**Latest airflow review:** [Collaborative outlets](./R43_SWEPT_FEED_REVIEW.md#collaborative-outlets-what-opposes-the-rear-jet).
+**Chosen design:** [Part-cooler scorecard](./R43_SWEPT_FEED_REVIEW.md#part-cooler-scorecard-choosing-the-best-design).
+Of nine matched CFD cases, A (FR1 with a converging rear outlet) ranks first on air onto the bead, even coverage
+and low lift-off under every weighting tested. Its cost is about +0.7 W of nozzle heat loss (estimate).
+Review part: `step/P22_C28_Bambu_Converging_Rear_A_REVIEW.step`. Airflow, not temperature: a thermal A/B print
+against FR1 is next.
+
+**Previous airflow review:** [Collaborative outlets](./R43_SWEPT_FEED_REVIEW.md#collaborative-outlets-what-opposes-the-rear-jet).
 The rear jet was being pushed back by a ~1.5 kPa pressure pad that the converging side jets build under the nozzle.
 Side air was not flowing backward. Raking each side passage's front wall forward (FR1, inside the existing air,
 <=45-degree overhang) makes all three outlets push forward together. Reverse flux behind the nozzle falls from 6.4 to
