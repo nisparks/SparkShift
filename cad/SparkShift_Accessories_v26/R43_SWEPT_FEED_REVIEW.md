@@ -242,6 +242,7 @@ variants keep every hotend, probe and withdrawal gap ([design](images/r43_rear_c
 **Choice: A (converging rear outlet on FR1).** Review part:
 `step/P22_C28_Bambu_Converging_Rear_A_REVIEW.step`,
 `stl/P22_C28_Bambu_Converging_Rear_A_REVIEW_PRINT_ORIENTED.stl`.
+[3D views of A](images/r43_design_a_views.png) (`render_design_a_r43.py`).
 
 ### What a part cooler should do (research basis)
 - Put air on the fresh bead and the layer just below it, from more than one side. Two-sided and ring-style
