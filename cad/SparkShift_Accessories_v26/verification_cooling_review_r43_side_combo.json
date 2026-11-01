@@ -1,0 +1,1614 @@
+{
+  "cases": {
+    "A": {
+      "case": "r43auditRC24fine_bambu_bed",
+      "blower_estimate_lpm": 194.9,
+      "outlets_estimate_lpm": {
+        "left": 61.198600000000006,
+        "right": 61.599227777777784,
+        "centre": 71.27926111111111
+      },
+      "outlet_accounting": {
+        "inlet_lpm": 180.0543559367465,
+        "outlets_lpm": 179.24,
+        "error_pct": -0.45228338548642477,
+        "within_3pct": true,
+        "explicit_spill_override": false
+      },
+      "rear_slot": {
+        "mouth_height_mm": 2.0,
+        "angle_deg": 28.0,
+        "floor_reference_height_mm": 0.9,
+        "roof_raise_mm": 3.0
+      },
+      "own_side_below_tip_r4": {
+        "left": {
+          "path": {
+            "score": -3.183318465750182,
+            "in_zone_lpm": 0.0,
+            "hit_pct": 0.0,
+            "higher_pct": 85.18725544997206,
+            "lower_pct": 14.812744550027949
+          },
+          "aim": {
+            "score": 0.17059961005462893,
+            "in_zone_lpm": 34.34510586920067,
+            "hit_pct": 56.12073784237004,
+            "higher_pct": 1.3974287311347122,
+            "lower_pct": 42.48183342649525
+          }
+        },
+        "right": {
+          "path": {
+            "score": -2.354959914668255,
+            "in_zone_lpm": 0.0,
+            "hit_pct": 0.0,
+            "higher_pct": 85.38633818589025,
+            "lower_pct": 14.613661814109742
+          },
+          "aim": {
+            "score": 0.1102679859620288,
+            "in_zone_lpm": 32.17921585479657,
+            "hit_pct": 52.23964165733483,
+            "higher_pct": 1.8477043673012319,
+            "lower_pct": 45.912653975363945
+          }
+        },
+        "centre": {
+          "path": {
+            "score": -8.56277606323717,
+            "in_zone_lpm": 4.218649736336001,
+            "hit_pct": 5.9184812953657175,
+            "higher_pct": 78.39195979899498,
+            "lower_pct": 15.689558905639307
+          },
+          "aim": {
+            "score": -17.092403629785906,
+            "in_zone_lpm": 6.288176022085738,
+            "hit_pct": 8.821887213847013,
+            "higher_pct": 87.88386376326075,
+            "lower_pct": 3.294249022892239
+          }
+        },
+        "side_jets_path_score": -2.769139190209218,
+        "all_path_score": -4.89613020236878,
+        "all_path_in_zone_lpm": 4.218649736336001,
+        "side_jets_aim_score": 0.14043379800832886,
+        "all_aim_score": -6.188783169310079,
+        "all_aim_in_zone_lpm": 72.81249774608298
+      },
+      "below_tip_ring_speed": {
+        "r0p6_2": {
+          "mean_ms": 33.93192672729492,
+          "sectors_ms": {
+            "right": 41.294437408447266,
+            "front": 29.256254196166992,
+            "left": 38.833370208740234,
+            "rear": 26.45039939880371
+          },
+          "valid_fraction": 1.0
+        },
+        "r2_4": {
+          "mean_ms": 30.167272567749023,
+          "sectors_ms": {
+            "right": 33.60978698730469,
+            "front": 35.44367980957031,
+            "left": 31.198760986328125,
+            "rear": 20.334932327270508
+          },
+          "valid_fraction": 1.0
+        }
+      },
+      "circled_pocket_mean_ms": 30.539207175925927,
+      "hot_part_speed_proxies": {
+        "nozzle tip to 1 mm": {
+          "mean_ms": 39.91656854939464,
+          "area_mm2": 0.12953892777451476
+        },
+        "nozzle 1 mm to the sock": {
+          "mean_ms": 26.211880929691766,
+          "area_mm2": 50.82051668843448
+        },
+        "sock and heater block": {
+          "mean_ms": 13.31546043066294,
+          "area_mm2": 251.11426092689075
+        }
+      },
+      "arriving_on_print": {
+        "bead ring r 0.6-2 mm": {
+          "down_lpm": 3.044580450928962,
+          "up_lpm": 0.8888351103793282
+        },
+        "print r 2-5 mm": {
+          "down_lpm": 15.552807063068798,
+          "up_lpm": 3.795843315665051
+        }
+      },
+      "traced_streamlines_by_outlet": {
+        "left": 1789,
+        "right": 1786,
+        "centre": 1791
+      },
+      "numerical_quality": {
+        "mesh": {
+          "cells": 3192311,
+          "volume_mm3": 153804.0,
+          "max_non_orthogonality_deg": 64.6,
+          "max_skewness": 3.4,
+          "mesh_ok": true
+        },
+        "tool": "Bambu",
+        "bed": true,
+        "left_out": [
+          "P23_Probe_Mount",
+          "R37_REAR_",
+          "P01_Back_case",
+          "R41_P22_P01_M3x8_BUTTON"
+        ],
+        "p22_variant": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\review_fr1_rc24\\p22.brep",
+        "domain_controls": {
+          "duct": "r41",
+          "tool": "Bambu",
+          "bed": true,
+          "outlet_box_mm": [
+            -30.0,
+            30.0,
+            -20.0,
+            50.0,
+            -79.08,
+            -45.0
+          ],
+          "inlet": {
+            "centre_mm": [
+              0.0,
+              -48.5,
+              94.6
+            ],
+            "radius_mm": 8.2,
+            "area_mm2": 211.24
+          },
+          "bounds_mm": [
+            -30.0,
+            30.0,
+            -56.705,
+            50.0,
+            -79.08,
+            94.605
+          ],
+          "obstacles": [
+            "Core_016",
+            "Core_017",
+            "Core_019",
+            "Core_020",
+            "Core_021",
+            "Core_023",
+            "Core_024",
+            "Core_027",
+            "Core_028",
+            "Core_031",
+            "Core_032",
+            "Core_034",
+            "Core_036",
+            "Probe_Cable_Route_R37_REVIEW",
+            "Beacon_RevH_Raised",
+            "ACC_CASE_BOSS_HEATSET_0",
+            "ACC_CASE_BOSS_HEATSET_1",
+            "R37_PROBE_M3x6_LOW_HEAD_0",
+            "R37_PROBE_M3x3_HEATSET_0",
+            "R37_PROBE_M3x6_LOW_HEAD_1",
+            "R37_PROBE_M3x3_HEATSET_1",
+            "C28_P22_P01_M3x4_HEATSET_0",
+            "C28_P22_P01_M3x4_HEATSET_1",
+            "C28_P22_P01_M3x8_BUTTON_0",
+            "C28_P22_P01_M3x8_BUTTON_1",
+            "P01_C28_Bambu_45deg_Mounts",
+            "Bambu:body",
+            "Bambu:fan inserts",
+            "Bambu:fan",
+            "Bambu:fan screws",
+            "Bambu:hotend",
+            "Bambu:hotend hardware"
+          ],
+          "left_out": [
+            "P23_Probe_Mount",
+            "R37_REAR_",
+            "P01_Back_case",
+            "R41_P22_P01_M3x8_BUTTON"
+          ]
+        },
+        "solver_settings": {
+          "np": 46,
+          "stages": [
+            {
+              "lpm": 180.0,
+              "end": 1200,
+              "inlet_velocity_ms": 14.202
+            }
+          ],
+          "nu": 1.5e-05,
+          "rho": 1.2,
+          "intensity": 0.05,
+          "mixing_length_m": 0.001148,
+          "wall_levels": "1 2",
+          "zone_level": 2,
+          "wall_roughness_mm": 0.0,
+          "background_cells": [
+            63,
+            110,
+            177
+          ],
+          "averaging": {
+            "from_iteration": 700,
+            "to_iteration": 1200,
+            "fields": [
+              "UMean",
+              "UPrime2Mean",
+              "pMean"
+            ]
+          },
+          "output_policy": {
+            "write_interval": 1200,
+            "compression": "on",
+            "reason": "Reduce storage on shared CFD host; no solver/physics change"
+          },
+          "below_tip_refinement": {
+            "box_mm": [
+              -6,
+              6,
+              16.7,
+              28.7,
+              -79.1,
+              -77.8
+            ],
+            "level": 4,
+            "nominal_cell_mm": 0.0625,
+            "purpose": "Sensitivity of the 0.2 mm below-tip target, not thermal validation"
+          }
+        },
+        "stage": {
+          "lpm": 180.0,
+          "end": 1200,
+          "inlet_velocity_ms": 14.202
+        },
+        "inlet_pressure_pa_at_180": 2684.7,
+        "side_jet_flow_lpm_at_180": 113.52,
+        "estimated_blower_lpm_1m_hose": 194.9,
+        "mean_speed_ms_at_estimated_blower": {
+          "r5_mm": 34.41067777777778,
+          "r10_mm": 33.804322222222225,
+          "r14_mm": 29.256655555555557
+        },
+        "net_radial_lpm_at_estimated_blower": {
+          "r3_mm": 11.585722222222222,
+          "r5_mm": 13.859555555555557,
+          "r8_mm": 56.73755555555556,
+          "r12_mm": 71.13850000000001
+        },
+        "pressure_last500_peak_to_peak_pct": 1.7340431717129587,
+        "pressure_last500_std_pct": 0.3707888106476839,
+        "pressure_first_to_last100_mean_pct": 0.8405636325094834,
+        "refinement": {
+          "reason": "Swept-outlet local resolution; inherited hotend/feed-junction details plus a level-3 box around the merged feed and rear outlet. Quality limits unchanged.",
+          "boxes_mm": [
+            [
+              4.0,
+              8.5,
+              19.5,
+              23.0,
+              -66.0,
+              -62.0
+            ],
+            [
+              -8.5,
+              -4.5,
+              18.0,
+              22.0,
+              -57.0,
+              -53.0
+            ],
+            [
+              8.0,
+              10.5,
+              3.0,
+              6.0,
+              -69.0,
+              -66.0
+            ],
+            [
+              -10.5,
+              -8.0,
+              3.0,
+              6.0,
+              -69.0,
+              -66.0
+            ],
+            [
+              -10.0,
+              10.0,
+              3.0,
+              15.0,
+              -75.0,
+              -66.0
+            ],
+            [
+              5.0,
+              8.0,
+              19.0,
+              22.0,
+              -56.0,
+              -53.0
+            ],
+            [
+              -8.0,
+              -5.0,
+              19.0,
+              22.0,
+              -56.0,
+              -53.0
+            ]
+          ],
+          "level": 3,
+          "nominal_cell_mm": 0.125,
+          "limitation": "Local two-resolution sensitivity only; not global or thermal mesh independence.",
+          "cleaned_bambu_hotend_fix": true
+        },
+        "p21_variant": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\aim_v5d_RVMS\\p21.brep",
+        "extra_obstacles": {
+          "C28_P21_P22_M3x10_BUTTON": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P21_P22_M3x10_BUTTON.brep",
+          "C28_P21_P22_M3x4_HEATSET": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P21_P22_M3x4_HEATSET.brep",
+          "C28_P22_P01_M3x4_HEATSET_0": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x4_HEATSET_0.brep",
+          "C28_P22_P01_M3x4_HEATSET_1": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x4_HEATSET_1.brep",
+          "C28_P22_P01_M3x8_BUTTON_0": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x8_BUTTON_0.brep",
+          "C28_P22_P01_M3x8_BUTTON_1": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x8_BUTTON_1.brep",
+          "P01_C28_Bambu_45deg_Mounts": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\P01_C28_Bambu_45deg_Mounts.brep"
+        }
+      },
+      "inputs_sha256": {
+        "domain.json": "8e3ab04f524028862182eae4cff01322cde2a1bf5be80c48fdcff5c99adef5da",
+        "stages.json": "e61cb2341978d954af68140147c4b07b99b0bd25e7e13d30d80c6fbbdf21bb64",
+        "VTK\\r43auditRC24fine_bambu_bed_1200\\internal.vtu": "7b5817196789e363b1fae131802a97af8a74706b63e5e1539155aacda40c97d4",
+        "outlet_balance_mean.json": "504317c092c082cb56c056458725cd7cd8a3422a61fe192edb7087774b69c38a",
+        "outlet_streamlines_mean.vtp": "dfd2ea2ace7fd539ee73f0669f68ca1ba5c7986478194760bceef86522027a8a",
+        "cfd_nozzle_focus_r43.py": "6152f9c269dfcb7a9d95c27e83a62801821ca2c5615aea15fb37a74345459c00"
+      }
+    },
+    "A aft F": {
+      "case": "r43auditAFTFfine",
+      "blower_estimate_lpm": 180.5,
+      "outlets_estimate_lpm": {
+        "left": 50.46980555555555,
+        "right": 49.92830555555555,
+        "centre": 74.88744444444445
+      },
+      "outlet_accounting": {
+        "inlet_lpm": 180.05460385662943,
+        "outlets_lpm": 174.8,
+        "error_pct": -2.9183390727478735,
+        "within_3pct": true,
+        "explicit_spill_override": false
+      },
+      "rear_slot": {
+        "mouth_height_mm": 2.0,
+        "angle_deg": 28.0,
+        "floor_reference_height_mm": 0.9,
+        "roof_raise_mm": 3.0
+      },
+      "own_side_below_tip_r4": {
+        "left": {
+          "path": {
+            "score": -5.793467748505551,
+            "in_zone_lpm": 0.1972577548235002,
+            "hit_pct": 0.3908431044109436,
+            "higher_pct": 90.50809603573423,
+            "lower_pct": 9.10106085985483
+          },
+          "aim": {
+            "score": -2.03848889495182,
+            "in_zone_lpm": 14.822511291023016,
+            "hit_pct": 29.369067560022334,
+            "higher_pct": 11.222780569514239,
+            "lower_pct": 59.40815187046343
+          }
+        },
+        "right": {
+          "path": {
+            "score": -7.398195105201963,
+            "in_zone_lpm": 0.05578581626319056,
+            "hit_pct": 0.11173184357541899,
+            "higher_pct": 88.2122905027933,
+            "lower_pct": 11.675977653631286
+          },
+          "aim": {
+            "score": -1.5074245750463675,
+            "in_zone_lpm": 13.862775341402855,
+            "hit_pct": 27.76536312849162,
+            "higher_pct": 8.659217877094973,
+            "lower_pct": 63.57541899441341
+          }
+        },
+        "centre": {
+          "path": {
+            "score": -20.752270188968744,
+            "in_zone_lpm": 3.838242277932529,
+            "hit_pct": 5.125348189415042,
+            "higher_pct": 82.2841225626741,
+            "lower_pct": 12.590529247910863
+          },
+          "aim": {
+            "score": -16.703843179608025,
+            "in_zone_lpm": 5.965963540699475,
+            "hit_pct": 7.9665738161559885,
+            "higher_pct": 88.74651810584959,
+            "lower_pct": 3.286908077994429
+          }
+        },
+        "side_jets_path_score": -6.595831426853756,
+        "all_path_score": -12.641423934682354,
+        "all_path_in_zone_lpm": 4.09128584901922,
+        "side_jets_aim_score": -1.7729567349990938,
+        "all_aim_score": -8.152716386313566,
+        "all_aim_in_zone_lpm": 34.65125017312535
+      },
+      "below_tip_ring_speed": {
+        "r0p6_2": {
+          "mean_ms": 41.21315002441406,
+          "sectors_ms": {
+            "right": 46.73023986816406,
+            "front": 40.27309036254883,
+            "left": 45.75975036621094,
+            "rear": 32.13300323486328
+          },
+          "valid_fraction": 1.0
+        },
+        "r2_4": {
+          "mean_ms": 33.693424224853516,
+          "sectors_ms": {
+            "right": 33.37358856201172,
+            "front": 41.8152961730957,
+            "left": 33.022178649902344,
+            "rear": 26.46096420288086
+          },
+          "valid_fraction": 1.0
+        }
+      },
+      "circled_pocket_mean_ms": 31.57677030723906,
+      "hot_part_speed_proxies": {
+        "nozzle tip to 1 mm": {
+          "mean_ms": 39.55073022904583,
+          "area_mm2": 0.12953892777451478
+        },
+        "nozzle 1 mm to the sock": {
+          "mean_ms": 26.67964957365079,
+          "area_mm2": 50.92079734340044
+        },
+        "sock and heater block": {
+          "mean_ms": 14.543510314072721,
+          "area_mm2": 251.18218416660412
+        }
+      },
+      "arriving_on_print": {
+        "bead ring r 0.6-2 mm": {
+          "down_lpm": 3.5437786462214502,
+          "up_lpm": 0.3494366000708289
+        },
+        "print r 2-5 mm": {
+          "down_lpm": 9.109996299386363,
+          "up_lpm": 7.698972414635774
+        }
+      },
+      "traced_streamlines_by_outlet": {
+        "left": 1791,
+        "right": 1790,
+        "centre": 1795
+      },
+      "numerical_quality": {
+        "mesh": {
+          "cells": 3189206,
+          "volume_mm3": 153757.0,
+          "max_non_orthogonality_deg": 64.3,
+          "max_skewness": 3.32,
+          "mesh_ok": true
+        },
+        "tool": "Bambu",
+        "bed": true,
+        "left_out": [
+          "P23_Probe_Mount",
+          "R37_REAR_",
+          "P01_Back_case",
+          "R41_P22_P01_M3x8_BUTTON"
+        ],
+        "p22_variant": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\review_a_aftf\\p22.brep",
+        "domain_controls": {
+          "duct": "r41",
+          "tool": "Bambu",
+          "bed": true,
+          "outlet_box_mm": [
+            -30.0,
+            30.0,
+            -20.0,
+            50.0,
+            -79.08,
+            -45.0
+          ],
+          "inlet": {
+            "centre_mm": [
+              0.0,
+              -48.5,
+              94.6
+            ],
+            "radius_mm": 8.2,
+            "area_mm2": 211.24
+          },
+          "bounds_mm": [
+            -30.0,
+            30.0,
+            -56.705,
+            50.0,
+            -79.08,
+            94.605
+          ],
+          "obstacles": [
+            "Core_016",
+            "Core_017",
+            "Core_019",
+            "Core_020",
+            "Core_021",
+            "Core_023",
+            "Core_024",
+            "Core_027",
+            "Core_028",
+            "Core_031",
+            "Core_032",
+            "Core_034",
+            "Core_036",
+            "Probe_Cable_Route_R37_REVIEW",
+            "Beacon_RevH_Raised",
+            "ACC_CASE_BOSS_HEATSET_0",
+            "ACC_CASE_BOSS_HEATSET_1",
+            "R37_PROBE_M3x6_LOW_HEAD_0",
+            "R37_PROBE_M3x3_HEATSET_0",
+            "R37_PROBE_M3x6_LOW_HEAD_1",
+            "R37_PROBE_M3x3_HEATSET_1",
+            "C28_P22_P01_M3x4_HEATSET_0",
+            "C28_P22_P01_M3x4_HEATSET_1",
+            "C28_P22_P01_M3x8_BUTTON_0",
+            "C28_P22_P01_M3x8_BUTTON_1",
+            "P01_C28_Bambu_45deg_Mounts",
+            "Bambu:body",
+            "Bambu:fan inserts",
+            "Bambu:fan",
+            "Bambu:fan screws",
+            "Bambu:hotend",
+            "Bambu:hotend hardware"
+          ],
+          "left_out": [
+            "P23_Probe_Mount",
+            "R37_REAR_",
+            "P01_Back_case",
+            "R41_P22_P01_M3x8_BUTTON"
+          ]
+        },
+        "solver_settings": {
+          "np": 46,
+          "stages": [
+            {
+              "lpm": 180.0,
+              "end": 1200,
+              "inlet_velocity_ms": 14.202
+            }
+          ],
+          "nu": 1.5e-05,
+          "rho": 1.2,
+          "intensity": 0.05,
+          "mixing_length_m": 0.001148,
+          "wall_levels": "1 2",
+          "zone_level": 2,
+          "wall_roughness_mm": 0.0,
+          "background_cells": [
+            63,
+            110,
+            177
+          ],
+          "averaging": {
+            "from_iteration": 700,
+            "to_iteration": 1200,
+            "fields": [
+              "UMean",
+              "UPrime2Mean",
+              "pMean"
+            ]
+          },
+          "output_policy": {
+            "write_interval": 1200,
+            "compression": "on",
+            "reason": "Reduce storage on shared CFD host; no solver/physics change"
+          },
+          "below_tip_refinement": {
+            "box_mm": [
+              -6,
+              6,
+              16.7,
+              28.7,
+              -79.1,
+              -77.8
+            ],
+            "level": 4,
+            "nominal_cell_mm": 0.0625,
+            "purpose": "Sensitivity of the 0.2 mm below-tip target, not thermal validation"
+          }
+        },
+        "stage": {
+          "lpm": 180.0,
+          "end": 1200,
+          "inlet_velocity_ms": 14.202
+        },
+        "inlet_pressure_pa_at_180": 3435.0,
+        "side_jet_flow_lpm_at_180": 99.49,
+        "estimated_blower_lpm_1m_hose": 180.5,
+        "mean_speed_ms_at_estimated_blower": {
+          "r5_mm": 38.286055555555556,
+          "r10_mm": 34.33511111111111,
+          "r14_mm": 26.774166666666666
+        },
+        "net_radial_lpm_at_estimated_blower": {
+          "r3_mm": 5.114166666666666,
+          "r5_mm": 1.9052777777777776,
+          "r8_mm": 29.581944444444446,
+          "r12_mm": 43.92166666666667
+        },
+        "pressure_last500_peak_to_peak_pct": 3.0556299657989605,
+        "pressure_last500_std_pct": 0.7221946610044887,
+        "pressure_first_to_last100_mean_pct": 0.23739556001718398,
+        "refinement": {
+          "reason": "Swept-outlet local resolution; inherited hotend/feed-junction details plus a level-3 box around the merged feed and rear outlet. Quality limits unchanged.",
+          "boxes_mm": [
+            [
+              4.0,
+              8.5,
+              19.5,
+              23.0,
+              -66.0,
+              -62.0
+            ],
+            [
+              -8.5,
+              -4.5,
+              18.0,
+              22.0,
+              -57.0,
+              -53.0
+            ],
+            [
+              8.0,
+              10.5,
+              3.0,
+              6.0,
+              -69.0,
+              -66.0
+            ],
+            [
+              -10.5,
+              -8.0,
+              3.0,
+              6.0,
+              -69.0,
+              -66.0
+            ],
+            [
+              -10.0,
+              10.0,
+              3.0,
+              15.0,
+              -75.0,
+              -66.0
+            ],
+            [
+              5.0,
+              8.0,
+              19.0,
+              22.0,
+              -56.0,
+              -53.0
+            ],
+            [
+              -8.0,
+              -5.0,
+              19.0,
+              22.0,
+              -56.0,
+              -53.0
+            ]
+          ],
+          "level": 3,
+          "nominal_cell_mm": 0.125,
+          "limitation": "Local two-resolution sensitivity only; not global or thermal mesh independence.",
+          "cleaned_bambu_hotend_fix": true
+        },
+        "p21_variant": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\aim_v5d_RVMS\\p21.brep",
+        "extra_obstacles": {
+          "C28_P21_P22_M3x10_BUTTON": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P21_P22_M3x10_BUTTON.brep",
+          "C28_P21_P22_M3x4_HEATSET": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P21_P22_M3x4_HEATSET.brep",
+          "C28_P22_P01_M3x4_HEATSET_0": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x4_HEATSET_0.brep",
+          "C28_P22_P01_M3x4_HEATSET_1": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x4_HEATSET_1.brep",
+          "C28_P22_P01_M3x8_BUTTON_0": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x8_BUTTON_0.brep",
+          "C28_P22_P01_M3x8_BUTTON_1": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x8_BUTTON_1.brep",
+          "P01_C28_Bambu_45deg_Mounts": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\P01_C28_Bambu_45deg_Mounts.brep"
+        }
+      },
+      "inputs_sha256": {
+        "domain.json": "162588b70bc70caa46c08279608a7449eac8985b3982b47c16771baf98d8eeaa",
+        "stages.json": "e61cb2341978d954af68140147c4b07b99b0bd25e7e13d30d80c6fbbdf21bb64",
+        "VTK\\r43auditAFTFfine_1200\\internal.vtu": "42531236ebafa437def662d36dd06512d7a41d1cda6831cd6081cb84a4488737",
+        "outlet_balance_mean.json": "d5288efebae2a2996a4367c4a0fb513a13f2ae298c4fa9bc34ab04332d0ece42",
+        "outlet_streamlines_mean.vtp": "af08d5dbe15912e34a2cd2f4cd909c728b90ff887de0b14f6d6425dc661d0b2c",
+        "cfd_nozzle_focus_r43.py": "6152f9c269dfcb7a9d95c27e83a62801821ca2c5615aea15fb37a74345459c00"
+      }
+    },
+    "A wide C": {
+      "case": "r43auditWIDECfine",
+      "blower_estimate_lpm": 204.4,
+      "outlets_estimate_lpm": {
+        "left": 66.44135555555556,
+        "right": 67.40657777777778,
+        "centre": 69.22346666666667
+      },
+      "outlet_accounting": {
+        "inlet_lpm": 180.05402366324543,
+        "outlets_lpm": 178.83,
+        "error_pct": -0.6798091141438232,
+        "within_3pct": true,
+        "explicit_spill_override": false
+      },
+      "rear_slot": {
+        "mouth_height_mm": 2.0,
+        "angle_deg": 28.0,
+        "floor_reference_height_mm": 0.9,
+        "roof_raise_mm": 3.0
+      },
+      "own_side_below_tip_r4": {
+        "left": {
+          "path": {
+            "score": -6.3181307290688835,
+            "in_zone_lpm": 0.0,
+            "hit_pct": 0.0,
+            "higher_pct": 89.00669642857143,
+            "lower_pct": 10.993303571428571
+          },
+          "aim": {
+            "score": -0.1976048450121531,
+            "in_zone_lpm": 26.13903776041667,
+            "hit_pct": 39.341517857142854,
+            "higher_pct": 3.125,
+            "lower_pct": 57.533482142857146
+          }
+        },
+        "right": {
+          "path": {
+            "score": -4.346238221535326,
+            "in_zone_lpm": 0.0,
+            "hit_pct": 0.0,
+            "higher_pct": 90.60927892677473,
+            "lower_pct": 9.390721073225265
+          },
+          "aim": {
+            "score": -0.43753566027661056,
+            "in_zone_lpm": 24.792357841127885,
+            "hit_pct": 36.780324203465625,
+            "higher_pct": 5.0307434320849636,
+            "lower_pct": 58.188932364449414
+          }
+        },
+        "centre": {
+          "path": {
+            "score": -14.478107374780397,
+            "in_zone_lpm": 3.659560007419774,
+            "hit_pct": 5.286588759042849,
+            "higher_pct": 77.18419588202559,
+            "lower_pct": 17.529215358931552
+          },
+          "aim": {
+            "score": -18.8934645234856,
+            "in_zone_lpm": 8.012510332034873,
+            "hit_pct": 11.5748469671675,
+            "higher_pct": 84.47412353923205,
+            "lower_pct": 3.951029493600445
+          }
+        },
+        "side_jets_path_score": -5.332184475302105,
+        "all_path_score": -8.445182325978696,
+        "all_path_in_zone_lpm": 3.659560007419774,
+        "side_jets_aim_score": -0.3175702526443818,
+        "all_aim_score": -6.65033592589254,
+        "all_aim_in_zone_lpm": 58.94390593357942
+      },
+      "below_tip_ring_speed": {
+        "r0p6_2": {
+          "mean_ms": 34.33696746826172,
+          "sectors_ms": {
+            "right": 37.36936950683594,
+            "front": 32.981388092041016,
+            "left": 38.33695602416992,
+            "rear": 28.716222763061523
+          },
+          "valid_fraction": 1.0
+        },
+        "r2_4": {
+          "mean_ms": 26.085655212402344,
+          "sectors_ms": {
+            "right": 25.531448364257812,
+            "front": 32.51817321777344,
+            "left": 24.43498992919922,
+            "rear": 21.772680282592773
+          },
+          "valid_fraction": 1.0
+        }
+      },
+      "circled_pocket_mean_ms": 30.05599287142256,
+      "hot_part_speed_proxies": {
+        "nozzle tip to 1 mm": {
+          "mean_ms": 34.51760370108478,
+          "area_mm2": 0.12953892777451478
+        },
+        "nozzle 1 mm to the sock": {
+          "mean_ms": 23.06479546035983,
+          "area_mm2": 50.85305296685907
+        },
+        "sock and heater block": {
+          "mean_ms": 14.948693001542951,
+          "area_mm2": 251.12592708588642
+        }
+      },
+      "arriving_on_print": {
+        "bead ring r 0.6-2 mm": {
+          "down_lpm": 2.8706451980003704,
+          "up_lpm": 0.3073486111944056
+        },
+        "print r 2-5 mm": {
+          "down_lpm": 7.3158868482087644,
+          "up_lpm": 4.1426889904815045
+        }
+      },
+      "traced_streamlines_by_outlet": {
+        "left": 1792,
+        "right": 1789,
+        "centre": 1797
+      },
+      "numerical_quality": {
+        "mesh": {
+          "cells": 3192325,
+          "volume_mm3": 153811.0,
+          "max_non_orthogonality_deg": 64.7,
+          "max_skewness": 3.32,
+          "mesh_ok": true
+        },
+        "tool": "Bambu",
+        "bed": true,
+        "left_out": [
+          "P23_Probe_Mount",
+          "R37_REAR_",
+          "P01_Back_case",
+          "R41_P22_P01_M3x8_BUTTON"
+        ],
+        "p22_variant": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\review_a_wideC\\p22.brep",
+        "domain_controls": {
+          "duct": "r41",
+          "tool": "Bambu",
+          "bed": true,
+          "outlet_box_mm": [
+            -30.0,
+            30.0,
+            -20.0,
+            50.0,
+            -79.08,
+            -45.0
+          ],
+          "inlet": {
+            "centre_mm": [
+              0.0,
+              -48.5,
+              94.6
+            ],
+            "radius_mm": 8.2,
+            "area_mm2": 211.24
+          },
+          "bounds_mm": [
+            -30.0,
+            30.0,
+            -56.705,
+            50.0,
+            -79.08,
+            94.605
+          ],
+          "obstacles": [
+            "Core_016",
+            "Core_017",
+            "Core_019",
+            "Core_020",
+            "Core_021",
+            "Core_023",
+            "Core_024",
+            "Core_027",
+            "Core_028",
+            "Core_031",
+            "Core_032",
+            "Core_034",
+            "Core_036",
+            "Probe_Cable_Route_R37_REVIEW",
+            "Beacon_RevH_Raised",
+            "ACC_CASE_BOSS_HEATSET_0",
+            "ACC_CASE_BOSS_HEATSET_1",
+            "R37_PROBE_M3x6_LOW_HEAD_0",
+            "R37_PROBE_M3x3_HEATSET_0",
+            "R37_PROBE_M3x6_LOW_HEAD_1",
+            "R37_PROBE_M3x3_HEATSET_1",
+            "C28_P22_P01_M3x4_HEATSET_0",
+            "C28_P22_P01_M3x4_HEATSET_1",
+            "C28_P22_P01_M3x8_BUTTON_0",
+            "C28_P22_P01_M3x8_BUTTON_1",
+            "P01_C28_Bambu_45deg_Mounts",
+            "Bambu:body",
+            "Bambu:fan inserts",
+            "Bambu:fan",
+            "Bambu:fan screws",
+            "Bambu:hotend",
+            "Bambu:hotend hardware"
+          ],
+          "left_out": [
+            "P23_Probe_Mount",
+            "R37_REAR_",
+            "P01_Back_case",
+            "R41_P22_P01_M3x8_BUTTON"
+          ]
+        },
+        "solver_settings": {
+          "np": 46,
+          "stages": [
+            {
+              "lpm": 180.0,
+              "end": 1200,
+              "inlet_velocity_ms": 14.202
+            }
+          ],
+          "nu": 1.5e-05,
+          "rho": 1.2,
+          "intensity": 0.05,
+          "mixing_length_m": 0.001148,
+          "wall_levels": "1 2",
+          "zone_level": 2,
+          "wall_roughness_mm": 0.0,
+          "background_cells": [
+            63,
+            110,
+            177
+          ],
+          "averaging": {
+            "from_iteration": 700,
+            "to_iteration": 1200,
+            "fields": [
+              "UMean",
+              "UPrime2Mean",
+              "pMean"
+            ]
+          },
+          "output_policy": {
+            "write_interval": 1200,
+            "compression": "on",
+            "reason": "Reduce storage on shared CFD host; no solver/physics change"
+          },
+          "below_tip_refinement": {
+            "box_mm": [
+              -6,
+              6,
+              16.7,
+              28.7,
+              -79.1,
+              -77.8
+            ],
+            "level": 4,
+            "nominal_cell_mm": 0.0625,
+            "purpose": "Sensitivity of the 0.2 mm below-tip target, not thermal validation"
+          }
+        },
+        "stage": {
+          "lpm": 180.0,
+          "end": 1200,
+          "inlet_velocity_ms": 14.202
+        },
+        "inlet_pressure_pa_at_180": 2301.8,
+        "side_jet_flow_lpm_at_180": 119.92,
+        "estimated_blower_lpm_1m_hose": 204.4,
+        "mean_speed_ms_at_estimated_blower": {
+          "r5_mm": 30.262555555555558,
+          "r10_mm": 32.28384444444445,
+          "r14_mm": 28.29804444444445
+        },
+        "net_radial_lpm_at_estimated_blower": {
+          "r3_mm": 3.8608888888888893,
+          "r5_mm": -6.472666666666667,
+          "r8_mm": 43.71888888888889,
+          "r12_mm": 65.74866666666667
+        },
+        "pressure_last500_peak_to_peak_pct": 2.401249195429732,
+        "pressure_last500_std_pct": 0.6309581675209888,
+        "pressure_first_to_last100_mean_pct": 0.26234474142805553,
+        "refinement": {
+          "reason": "Swept-outlet local resolution; inherited hotend/feed-junction details plus a level-3 box around the merged feed and rear outlet. Quality limits unchanged.",
+          "boxes_mm": [
+            [
+              4.0,
+              8.5,
+              19.5,
+              23.0,
+              -66.0,
+              -62.0
+            ],
+            [
+              -8.5,
+              -4.5,
+              18.0,
+              22.0,
+              -57.0,
+              -53.0
+            ],
+            [
+              8.0,
+              10.5,
+              3.0,
+              6.0,
+              -69.0,
+              -66.0
+            ],
+            [
+              -10.5,
+              -8.0,
+              3.0,
+              6.0,
+              -69.0,
+              -66.0
+            ],
+            [
+              -10.0,
+              10.0,
+              3.0,
+              15.0,
+              -75.0,
+              -66.0
+            ],
+            [
+              5.0,
+              8.0,
+              19.0,
+              22.0,
+              -56.0,
+              -53.0
+            ],
+            [
+              -8.0,
+              -5.0,
+              19.0,
+              22.0,
+              -56.0,
+              -53.0
+            ]
+          ],
+          "level": 3,
+          "nominal_cell_mm": 0.125,
+          "limitation": "Local two-resolution sensitivity only; not global or thermal mesh independence.",
+          "cleaned_bambu_hotend_fix": true
+        },
+        "p21_variant": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\aim_v5d_RVMS\\p21.brep",
+        "extra_obstacles": {
+          "C28_P21_P22_M3x10_BUTTON": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P21_P22_M3x10_BUTTON.brep",
+          "C28_P21_P22_M3x4_HEATSET": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P21_P22_M3x4_HEATSET.brep",
+          "C28_P22_P01_M3x4_HEATSET_0": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x4_HEATSET_0.brep",
+          "C28_P22_P01_M3x4_HEATSET_1": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x4_HEATSET_1.brep",
+          "C28_P22_P01_M3x8_BUTTON_0": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x8_BUTTON_0.brep",
+          "C28_P22_P01_M3x8_BUTTON_1": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x8_BUTTON_1.brep",
+          "P01_C28_Bambu_45deg_Mounts": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\P01_C28_Bambu_45deg_Mounts.brep"
+        }
+      },
+      "inputs_sha256": {
+        "domain.json": "abbbe065742cc20ab06f5448e994db18c638c0c7a245aa7ce99fd29a5e5f85ed",
+        "stages.json": "e61cb2341978d954af68140147c4b07b99b0bd25e7e13d30d80c6fbbdf21bb64",
+        "VTK\\r43auditWIDECfine_1200\\internal.vtu": "674c8e6a11d04e10928360d67bf6f8efcc580f7dc166ac615e870b71aa2d751c",
+        "outlet_balance_mean.json": "1e1aa58af7a8700b2a2afd785d9764d9b86e5c4c6b666712d8d0a4cc7be65283",
+        "outlet_streamlines_mean.vtp": "a556cb8ef16f61a59e00f219cec1cc2c0e4fdd59dabca93d7cab59a5e513eb9f",
+        "cfd_nozzle_focus_r43.py": "6152f9c269dfcb7a9d95c27e83a62801821ca2c5615aea15fb37a74345459c00"
+      }
+    },
+    "A wide F": {
+      "case": "r43auditWIDEFfine",
+      "blower_estimate_lpm": 208.2,
+      "outlets_estimate_lpm": {
+        "left": 67.42209999999999,
+        "right": 67.9426,
+        "centre": 67.86163333333333
+      },
+      "outlet_accounting": {
+        "inlet_lpm": 180.0543762942425,
+        "outlets_lpm": 175.7,
+        "error_pct": -2.418367375379229,
+        "within_3pct": true,
+        "explicit_spill_override": false
+      },
+      "rear_slot": {
+        "mouth_height_mm": 2.0,
+        "angle_deg": 28.0,
+        "floor_reference_height_mm": 0.9,
+        "roof_raise_mm": 3.0
+      },
+      "own_side_below_tip_r4": {
+        "left": {
+          "path": {
+            "score": -8.579079845007223,
+            "in_zone_lpm": 0.0,
+            "hit_pct": 0.0,
+            "higher_pct": 90.2575587905935,
+            "lower_pct": 9.742441209406495
+          },
+          "aim": {
+            "score": -0.715869378754598,
+            "in_zone_lpm": 23.59395996640537,
+            "hit_pct": 34.994400895856664,
+            "higher_pct": 3.3594624860022395,
+            "lower_pct": 61.6461366181411
+          }
+        },
+        "right": {
+          "path": {
+            "score": -7.377555295041621,
+            "in_zone_lpm": 0.0,
+            "hit_pct": 0.0,
+            "higher_pct": 89.94974874371859,
+            "lower_pct": 10.050251256281408
+          },
+          "aim": {
+            "score": -1.0031672658686186,
+            "in_zone_lpm": 21.433595198213286,
+            "hit_pct": 31.546621998883307,
+            "higher_pct": 3.908431044109436,
+            "lower_pct": 64.54494695700726
+          }
+        },
+        "centre": {
+          "path": {
+            "score": -20.24892518533929,
+            "in_zone_lpm": 3.137891680594243,
+            "hit_pct": 4.623955431754875,
+            "higher_pct": 83.95543175487465,
+            "lower_pct": 11.420612813370473
+          },
+          "aim": {
+            "score": -18.91860202419418,
+            "in_zone_lpm": 7.712408467966574,
+            "hit_pct": 11.364902506963789,
+            "higher_pct": 85.29247910863509,
+            "lower_pct": 3.3426183844011144
+          }
+        },
+        "side_jets_path_score": -7.978317570024423,
+        "all_path_score": -12.07419808093382,
+        "all_path_in_zone_lpm": 3.137891680594243,
+        "side_jets_aim_score": -0.8595183223116083,
+        "all_aim_score": -6.8902017760056955,
+        "all_aim_in_zone_lpm": 52.73996363258524
+      },
+      "below_tip_ring_speed": {
+        "r0p6_2": {
+          "mean_ms": 27.839839935302734,
+          "sectors_ms": {
+            "right": 31.256710052490234,
+            "front": 26.715343475341797,
+            "left": 31.32477378845215,
+            "rear": 22.106843948364258
+          },
+          "valid_fraction": 1.0
+        },
+        "r2_4": {
+          "mean_ms": 22.569984436035156,
+          "sectors_ms": {
+            "right": 21.32493782043457,
+            "front": 27.533287048339844,
+            "left": 22.341503143310547,
+            "rear": 19.026357650756836
+          },
+          "valid_fraction": 1.0
+        }
+      },
+      "circled_pocket_mean_ms": 24.272816051136363,
+      "hot_part_speed_proxies": {
+        "nozzle tip to 1 mm": {
+          "mean_ms": 25.60028548055947,
+          "area_mm2": 0.12953892777451478
+        },
+        "nozzle 1 mm to the sock": {
+          "mean_ms": 20.40894668350229,
+          "area_mm2": 50.90751737689183
+        },
+        "sock and heater block": {
+          "mean_ms": 14.759863322676326,
+          "area_mm2": 251.12584847868737
+        }
+      },
+      "arriving_on_print": {
+        "bead ring r 0.6-2 mm": {
+          "down_lpm": 3.1302699942956087,
+          "up_lpm": 0.1851137802881664
+        },
+        "print r 2-5 mm": {
+          "down_lpm": 7.210161749303369,
+          "up_lpm": 6.103674729923661
+        }
+      },
+      "traced_streamlines_by_outlet": {
+        "left": 1786,
+        "right": 1791,
+        "centre": 1795
+      },
+      "numerical_quality": {
+        "mesh": {
+          "cells": 3191411,
+          "volume_mm3": 153798.0,
+          "max_non_orthogonality_deg": 64.5,
+          "max_skewness": 3.32,
+          "mesh_ok": true
+        },
+        "tool": "Bambu",
+        "bed": true,
+        "left_out": [
+          "P23_Probe_Mount",
+          "R37_REAR_",
+          "P01_Back_case",
+          "R41_P22_P01_M3x8_BUTTON"
+        ],
+        "p22_variant": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\review_a_wideF\\p22.brep",
+        "domain_controls": {
+          "duct": "r41",
+          "tool": "Bambu",
+          "bed": true,
+          "outlet_box_mm": [
+            -30.0,
+            30.0,
+            -20.0,
+            50.0,
+            -79.08,
+            -45.0
+          ],
+          "inlet": {
+            "centre_mm": [
+              0.0,
+              -48.5,
+              94.6
+            ],
+            "radius_mm": 8.2,
+            "area_mm2": 211.24
+          },
+          "bounds_mm": [
+            -30.0,
+            30.0,
+            -56.705,
+            50.0,
+            -79.08,
+            94.605
+          ],
+          "obstacles": [
+            "Core_016",
+            "Core_017",
+            "Core_019",
+            "Core_020",
+            "Core_021",
+            "Core_023",
+            "Core_024",
+            "Core_027",
+            "Core_028",
+            "Core_031",
+            "Core_032",
+            "Core_034",
+            "Core_036",
+            "Probe_Cable_Route_R37_REVIEW",
+            "Beacon_RevH_Raised",
+            "ACC_CASE_BOSS_HEATSET_0",
+            "ACC_CASE_BOSS_HEATSET_1",
+            "R37_PROBE_M3x6_LOW_HEAD_0",
+            "R37_PROBE_M3x3_HEATSET_0",
+            "R37_PROBE_M3x6_LOW_HEAD_1",
+            "R37_PROBE_M3x3_HEATSET_1",
+            "C28_P22_P01_M3x4_HEATSET_0",
+            "C28_P22_P01_M3x4_HEATSET_1",
+            "C28_P22_P01_M3x8_BUTTON_0",
+            "C28_P22_P01_M3x8_BUTTON_1",
+            "P01_C28_Bambu_45deg_Mounts",
+            "Bambu:body",
+            "Bambu:fan inserts",
+            "Bambu:fan",
+            "Bambu:fan screws",
+            "Bambu:hotend",
+            "Bambu:hotend hardware"
+          ],
+          "left_out": [
+            "P23_Probe_Mount",
+            "R37_REAR_",
+            "P01_Back_case",
+            "R41_P22_P01_M3x8_BUTTON"
+          ]
+        },
+        "solver_settings": {
+          "np": 46,
+          "stages": [
+            {
+              "lpm": 180.0,
+              "end": 1200,
+              "inlet_velocity_ms": 14.202
+            }
+          ],
+          "nu": 1.5e-05,
+          "rho": 1.2,
+          "intensity": 0.05,
+          "mixing_length_m": 0.001148,
+          "wall_levels": "1 2",
+          "zone_level": 2,
+          "wall_roughness_mm": 0.0,
+          "background_cells": [
+            63,
+            110,
+            177
+          ],
+          "averaging": {
+            "from_iteration": 700,
+            "to_iteration": 1200,
+            "fields": [
+              "UMean",
+              "UPrime2Mean",
+              "pMean"
+            ]
+          },
+          "output_policy": {
+            "write_interval": 1200,
+            "compression": "on",
+            "reason": "Reduce storage on shared CFD host; no solver/physics change"
+          },
+          "below_tip_refinement": {
+            "box_mm": [
+              -6,
+              6,
+              16.7,
+              28.7,
+              -79.1,
+              -77.8
+            ],
+            "level": 4,
+            "nominal_cell_mm": 0.0625,
+            "purpose": "Sensitivity of the 0.2 mm below-tip target, not thermal validation"
+          }
+        },
+        "stage": {
+          "lpm": 180.0,
+          "end": 1200,
+          "inlet_velocity_ms": 14.202
+        },
+        "inlet_pressure_pa_at_180": 2166.6,
+        "side_jet_flow_lpm_at_180": 119.56,
+        "estimated_blower_lpm_1m_hose": 208.2,
+        "mean_speed_ms_at_estimated_blower": {
+          "r5_mm": 29.34463333333333,
+          "r10_mm": 31.542299999999994,
+          "r14_mm": 27.054433333333332
+        },
+        "net_radial_lpm_at_estimated_blower": {
+          "r3_mm": 6.592999999999999,
+          "r5_mm": -3.4699999999999998,
+          "r8_mm": 29.03233333333333,
+          "r12_mm": 56.907999999999994
+        },
+        "pressure_last500_peak_to_peak_pct": 2.3948376951565535,
+        "pressure_last500_std_pct": 0.49607557788952966,
+        "pressure_first_to_last100_mean_pct": 0.007181155394020422,
+        "refinement": {
+          "reason": "Swept-outlet local resolution; inherited hotend/feed-junction details plus a level-3 box around the merged feed and rear outlet. Quality limits unchanged.",
+          "boxes_mm": [
+            [
+              4.0,
+              8.5,
+              19.5,
+              23.0,
+              -66.0,
+              -62.0
+            ],
+            [
+              -8.5,
+              -4.5,
+              18.0,
+              22.0,
+              -57.0,
+              -53.0
+            ],
+            [
+              8.0,
+              10.5,
+              3.0,
+              6.0,
+              -69.0,
+              -66.0
+            ],
+            [
+              -10.5,
+              -8.0,
+              3.0,
+              6.0,
+              -69.0,
+              -66.0
+            ],
+            [
+              -10.0,
+              10.0,
+              3.0,
+              15.0,
+              -75.0,
+              -66.0
+            ],
+            [
+              5.0,
+              8.0,
+              19.0,
+              22.0,
+              -56.0,
+              -53.0
+            ],
+            [
+              -8.0,
+              -5.0,
+              19.0,
+              22.0,
+              -56.0,
+              -53.0
+            ]
+          ],
+          "level": 3,
+          "nominal_cell_mm": 0.125,
+          "limitation": "Local two-resolution sensitivity only; not global or thermal mesh independence.",
+          "cleaned_bambu_hotend_fix": true
+        },
+        "p21_variant": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\swept_feed\\aim_v5d_RVMS\\p21.brep",
+        "extra_obstacles": {
+          "C28_P21_P22_M3x10_BUTTON": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P21_P22_M3x10_BUTTON.brep",
+          "C28_P21_P22_M3x4_HEATSET": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P21_P22_M3x4_HEATSET.brep",
+          "C28_P22_P01_M3x4_HEATSET_0": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x4_HEATSET_0.brep",
+          "C28_P22_P01_M3x4_HEATSET_1": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x4_HEATSET_1.brep",
+          "C28_P22_P01_M3x8_BUTTON_0": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x8_BUTTON_0.brep",
+          "C28_P22_P01_M3x8_BUTTON_1": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\C28_P22_P01_M3x8_BUTTON_1.brep",
+          "P01_C28_Bambu_45deg_Mounts": "C:\\Users\\nspar\\.copilot\\session-state\\601ee3b1-e729-45ee-9b22-df076d6c9dc8\\files\\cfd\\variants\\userpost\\P01_C28_Bambu_45deg_Mounts.brep"
+        }
+      },
+      "inputs_sha256": {
+        "domain.json": "8d2672104a4a29731c52ee4572624e651de8661d94bb3a85f40a0da7e96fb6e4",
+        "stages.json": "e61cb2341978d954af68140147c4b07b99b0bd25e7e13d30d80c6fbbdf21bb64",
+        "VTK\\r43auditWIDEFfine_1200\\internal.vtu": "9a5886f221552d1f2ce879954ca62171b0d1ac87dcd7acac0bb59de522d7a35d",
+        "outlet_balance_mean.json": "093bddd758afcefd6ea349f136df44c7052054f2fd1af482ed338d59376b7d63",
+        "outlet_streamlines_mean.vtp": "e3acdb16296fce10408eed8154cdf58ccacf728a4a846b04711f714580587da5",
+        "cfd_nozzle_focus_r43.py": "6152f9c269dfcb7a9d95c27e83a62801821ca2c5615aea15fb37a74345459c00"
+      }
+    }
+  },
+  "matched_solver_and_mesh_settings": true,
+  "settings": {
+    "np": 46,
+    "stages": [
+      {
+        "lpm": 180.0,
+        "end": 1200,
+        "inlet_velocity_ms": 14.202
+      }
+    ],
+    "nu": 1.5e-05,
+    "rho": 1.2,
+    "intensity": 0.05,
+    "mixing_length_m": 0.001148,
+    "wall_levels": "1 2",
+    "zone_level": 2,
+    "wall_roughness_mm": 0.0,
+    "background_cells": [
+      63,
+      110,
+      177
+    ],
+    "averaging": {
+      "from_iteration": 700,
+      "to_iteration": 1200,
+      "fields": [
+        "UMean",
+        "UPrime2Mean",
+        "pMean"
+      ]
+    },
+    "additional_refinement": {
+      "reason": "Swept-outlet local resolution; inherited hotend/feed-junction details plus a level-3 box around the merged feed and rear outlet. Quality limits unchanged.",
+      "boxes_mm": [
+        [
+          4.0,
+          8.5,
+          19.5,
+          23.0,
+          -66.0,
+          -62.0
+        ],
+        [
+          -8.5,
+          -4.5,
+          18.0,
+          22.0,
+          -57.0,
+          -53.0
+        ],
+        [
+          8.0,
+          10.5,
+          3.0,
+          6.0,
+          -69.0,
+          -66.0
+        ],
+        [
+          -10.5,
+          -8.0,
+          3.0,
+          6.0,
+          -69.0,
+          -66.0
+        ],
+        [
+          -10.0,
+          10.0,
+          3.0,
+          15.0,
+          -75.0,
+          -66.0
+        ],
+        [
+          5.0,
+          8.0,
+          19.0,
+          22.0,
+          -56.0,
+          -53.0
+        ],
+        [
+          -8.0,
+          -5.0,
+          19.0,
+          22.0,
+          -56.0,
+          -53.0
+        ]
+      ],
+      "level": 3,
+      "nominal_cell_mm": 0.125,
+      "limitation": "Local two-resolution sensitivity only; not global or thermal mesh independence.",
+      "cleaned_bambu_hotend_fix": true
+    },
+    "output_policy": {
+      "write_interval": 1200,
+      "compression": "on",
+      "reason": "Reduce storage on shared CFD host; no solver/physics change"
+    },
+    "below_tip_refinement": {
+      "box_mm": [
+        -6,
+        6,
+        16.7,
+        28.7,
+        -79.1,
+        -77.8
+      ],
+      "level": 4,
+      "nominal_cell_mm": 0.0625,
+      "purpose": "Sensitivity of the 0.2 mm below-tip target, not thermal validation"
+    }
+  },
+  "image_sha256": "2bcc4c737f59d0d66ec444772f8ab861f310ec42b6c753b24ba82d0ff1b3969f",
+  "renderer_sha256": "7e1c2b2c57a498e5f5235ba31edde448777ba9ba86eef4bdd5eb5b6e0fa61eed",
+  "cautions": [
+    "The target is clipped by the modeled bed 0.2 mm below the tip.",
+    "A low velocity stagnation region is not proof of poor heat transfer.",
+    "Scaled velocities assume similar flow topology at the estimated blower point."
+  ]
+}

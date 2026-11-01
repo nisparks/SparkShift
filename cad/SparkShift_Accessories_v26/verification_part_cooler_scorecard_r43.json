@@ -2,12 +2,14 @@
   "ranking": [
     "A",
     "A aft F",
+    "A wide C",
     "A aft C",
+    "A wide F",
     "FR2",
     "RVMS",
+    "FR1",
     "RVMS 40",
     "B",
-    "FR1",
     "FR1 0.9",
     "RVM",
     "FR1 1.4"
@@ -54,11 +56,11 @@
       "bare_nozzle_loss_w": 2.0502515949340054,
       "scores": {
         "delivery": 0.1356518607183501,
-        "uniformity": 0.763900328508512,
+        "uniformity": 0.6680729022542071,
         "lift_off": 0.6565981796720624,
         "nozzle_heat": 0.9908552489709082
       },
-      "weighted_score": 0.541896603159459
+      "weighted_score": 0.5179397465958828
     },
     "RVM": {
       "case": "r43auditRVMfineV2_bambu_bed",
@@ -95,11 +97,11 @@
       "bare_nozzle_loss_w": 2.6563742716889758,
       "scores": {
         "delivery": 0.3696327010058991,
-        "uniformity": 0.4848878569167099,
+        "uniformity": 0.4240611317325275,
         "lift_off": 0.0,
         "nozzle_heat": 0.37845449941369613
       },
-      "weighted_score": 0.34476594451427633
+      "weighted_score": 0.32955926321823076
     },
     "RVMS 40": {
       "case": "r43auditRVMS40fineV2_bambu_bed",
@@ -133,11 +135,11 @@
       "bare_nozzle_loss_w": 2.1129848731058374,
       "scores": {
         "delivery": 0.04666775912109544,
-        "uniformity": 0.7403929614982014,
+        "uniformity": 0.6475144153458487,
         "lift_off": 0.5982706875653105,
         "nozzle_heat": 0.9274721946026226
       },
-      "weighted_score": 0.47900038607830964
+      "weighted_score": 0.45578074954022146
     },
     "FR1": {
       "case": "r43auditFR1fine_bambu_bed",
@@ -174,11 +176,11 @@
       "bare_nozzle_loss_w": 2.327686086669494,
       "scores": {
         "delivery": 0.39501141108682997,
-        "uniformity": 0.35896575182123885,
+        "uniformity": 0.31393531679363096,
         "lift_off": 0.5230336868677342,
         "nozzle_heat": 0.7105471575438632
       },
-      "weighted_score": 0.4683104869289745
+      "weighted_score": 0.4570528781720725
     },
     "FR2": {
       "case": "r43auditFR2fine_bambu_bed",
@@ -215,15 +217,15 @@
       "bare_nozzle_loss_w": 2.3870517502221005,
       "scores": {
         "delivery": 0.49664820082931876,
-        "uniformity": 0.41460640221570483,
+        "uniformity": 0.36259612947441566,
         "lift_off": 0.8951207363109955,
         "nozzle_heat": 0.6505665987365008
       },
-      "weighted_score": 0.5666923110796032
+      "weighted_score": 0.5536897428942809
     },
     "A": {
       "case": "r43auditRC24fine_bambu_bed",
-      "source": "verification_cooling_review_r43_side_aft.json",
+      "source": "verification_cooling_review_r43_side_combo.json",
       "blower_lpm": 194.9,
       "centre_share_pct": 36.72729301495202,
       "bead_ring_down_lpm": 3.044580450928962,
@@ -256,11 +258,11 @@
       "bare_nozzle_loss_w": 2.9970905089377435,
       "scores": {
         "delivery": 0.8731768624241657,
-        "uniformity": 0.8491239518502235,
+        "uniformity": 0.7426056537948189,
         "lift_off": 1.0,
         "nozzle_heat": 0.03420920538420289
       },
-      "weighted_score": 0.7183935740090628
+      "weighted_score": 0.6917639994952116
     },
     "B": {
       "case": "r43auditRC36fine_bambu_bed",
@@ -297,11 +299,11 @@
       "bare_nozzle_loss_w": 2.781694244893598,
       "scores": {
         "delivery": 0.3496002281242518,
-        "uniformity": 0.6929319360787689,
+        "uniformity": 0.6060071351253669,
         "lift_off": 0.7524438458255345,
         "nozzle_heat": 0.25183649208904085
       },
-      "weighted_score": 0.47630695056103134
+      "weighted_score": 0.4545757503226808
     },
     "FR1 1.4": {
       "case": "r43auditFR1H14fine_bambu_bed",
@@ -379,11 +381,11 @@
       "bare_nozzle_loss_w": 2.108331850876041,
       "scores": {
         "delivery": 0.32699998761334576,
-        "uniformity": 0.22705319698851165,
+        "uniformity": 0.19857052368910058,
         "lift_off": 0.24493032293540987,
         "nozzle_heat": 0.9321734117167708
       },
-      "weighted_score": 0.4107375250761319
+      "weighted_score": 0.4036168567512791
     },
     "A aft C": {
       "case": "r43auditAFTCfine",
@@ -420,15 +422,15 @@
       "bare_nozzle_loss_w": 2.874044489021265,
       "scores": {
         "delivery": 0.7629013684414634,
-        "uniformity": 0.7992554743115339,
+        "uniformity": 0.6989929241271685,
         "lift_off": 0.8266268756560518,
         "nozzle_heat": 0.15852970635985833
       },
-      "weighted_score": 0.6606743885748484
+      "weighted_score": 0.635608751028757
     },
     "A aft F": {
       "case": "r43auditAFTFfine",
-      "source": "verification_cooling_review_r43_side_aft.json",
+      "source": "verification_cooling_review_r43_side_combo.json",
       "blower_lpm": 180.5,
       "centre_share_pct": 42.723112128146454,
       "bead_ring_down_lpm": 3.5437786462214502,
@@ -461,11 +463,93 @@
       "bare_nozzle_loss_w": 3.030949016054408,
       "scores": {
         "delivery": 0.8247808342435335,
-        "uniformity": 1.0,
+        "uniformity": 0.8745550660497758,
         "lift_off": 0.7050507573621133,
         "nozzle_heat": 0.0
       },
-      "weighted_score": 0.6856699473017305
+      "weighted_score": 0.6543087138141744
+    },
+    "A wide C": {
+      "case": "r43auditWIDECfine",
+      "source": "verification_cooling_review_r43_side_combo.json",
+      "blower_lpm": 204.4,
+      "centre_share_pct": 34.08824022814964,
+      "bead_ring_down_lpm": 2.8706451980003704,
+      "print_down_lpm": 7.3158868482087644,
+      "down_total_lpm": 10.186532046209134,
+      "up_total_lpm": 4.45003760167591,
+      "up_over_down": 0.43685501419808215,
+      "ring_0p6_2_mean_ms": 34.33696746826172,
+      "ring_2_4_mean_ms": 26.085655212402344,
+      "ring_0p6_2_sectors_ms": {
+        "right": 37.36936950683594,
+        "front": 32.981388092041016,
+        "left": 38.33695602416992,
+        "rear": 28.716222763061523
+      },
+      "ring_2_4_sectors_ms": {
+        "right": 25.531448364257812,
+        "front": 32.51817321777344,
+        "left": 24.43498992919922,
+        "rear": 21.772680282592773
+      },
+      "weakest_sector_over_mean": 0.8354836812910802,
+      "spots_bed_plus_0p1_ms": {
+        "rear": 22.715320587158203,
+        "front": 32.34710693359375
+      },
+      "nozzle_tip_ms": 34.51760370108478,
+      "nozzle_cone_ms": 23.06479546035983,
+      "sock_ms": 14.948693001542951,
+      "bare_nozzle_loss_w": 2.804124799684521,
+      "scores": {
+        "delivery": 0.5653544541261107,
+        "uniformity": 1.0,
+        "lift_off": 0.8579912912987315,
+        "nozzle_heat": 0.22917360701025277
+      },
+      "weighted_score": 0.6506751967473046
+    },
+    "A wide F": {
+      "case": "r43auditWIDEFfine",
+      "source": "verification_cooling_review_r43_side_combo.json",
+      "blower_lpm": 208.2,
+      "centre_share_pct": 33.39214570290268,
+      "bead_ring_down_lpm": 3.1302699942956087,
+      "print_down_lpm": 7.210161749303369,
+      "down_total_lpm": 10.340431743598977,
+      "up_total_lpm": 6.288788510211828,
+      "up_over_down": 0.608174655193171,
+      "ring_0p6_2_mean_ms": 27.839839935302734,
+      "ring_2_4_mean_ms": 22.569984436035156,
+      "ring_0p6_2_sectors_ms": {
+        "right": 31.256710052490234,
+        "front": 26.715343475341797,
+        "left": 31.32477378845215,
+        "rear": 22.106843948364258
+      },
+      "ring_2_4_sectors_ms": {
+        "right": 21.32493782043457,
+        "front": 27.533287048339844,
+        "left": 22.341503143310547,
+        "rear": 19.026357650756836
+      },
+      "weakest_sector_over_mean": 0.8185330336388914,
+      "spots_bed_plus_0p1_ms": {
+        "rear": 19.499099731445312,
+        "front": 27.2188663482666
+      },
+      "nozzle_tip_ms": 25.60028548055947,
+      "nozzle_cone_ms": 20.40894668350229,
+      "sock_ms": 14.759863322676326,
+      "bare_nozzle_loss_w": 2.632542650699099,
+      "scores": {
+        "delivery": 0.45094900387138054,
+        "uniformity": 0.9598585107526036,
+        "lift_off": 0.726451973900049,
+        "nozzle_heat": 0.40253296259791366
+      },
+      "weighted_score": 0.6098186178412932
     }
   },
   "nozzle_model": {
@@ -478,8 +562,8 @@
     "pr": 0.69,
     "note": "Bare nozzle only; sock speed reported but not scored (silicone insulated)."
   },
-  "image_sha256": "e8a87629bc69d714b86fbbd34651ef2a789d74222ac612b7e104211bdbab9f14",
-  "generator_sha256": "e1af27b8d9ad7237fea1f85d10b196565a9a493519c2bf28f3998a17238c4b61",
+  "image_sha256": "b859f6cb1d0164a6456b9ceae033810374983d9867127f71224a6c040288696e",
+  "generator_sha256": "12e8eabc62165b71def1ea026fab583cb770527b9eebcfb63828f69d08c4ce4a",
   "caution": "Airflow, not temperature. Weights are a judgement; the ranking of the leader is unchanged by any single weight moving +-10 points (checked in sensitivity).",
   "sensitivity_leader": {
     "delivery-0.1": "A",

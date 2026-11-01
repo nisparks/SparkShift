@@ -117,6 +117,8 @@ CASES = {   # name: (label, design)
     # the side jets over the long-jet window.
     "r43auditAFTCfine": ("Design A with side openings moved aft, 45-degree self-supporting pocket, Bambu", "long"),
     "r43auditAFTFfine": ("Design A with side openings moved aft, flat pocket with a vertical aft wall, Bambu", "long"),
+    "r43auditWIDECfine": ("Design A with side openings extended aft, front edge kept, 45-degree pocket, Bambu", "long"),
+    "r43auditWIDEFfine": ("Design A with side openings extended aft, front edge kept, flat pocket, Bambu", "long"),
 }
 N_EXP = 1.983                                    # dP ~ Q^n (revision 41's fit), for single-flow cases
 

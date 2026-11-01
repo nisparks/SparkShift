@@ -98,8 +98,8 @@ def build(name, floor, y_aft, inner_y, exit_y, source_name):
         raise ValueError("Use a new review_* name and a source folder name")
     if not (15.5 <= y_aft <= 20.0):
         raise ValueError("y-aft bounded to 15.5-20 mm")
-    lean = math.degrees(math.atan2(exit_y - inner_y, X_OUT - (X0 - .05)))
-    if not (20.0 <= inner_y < exit_y <= 27.6) or lean > 45.5:
+    lean = 0.0 if inner_y is None else math.degrees(math.atan2(exit_y - inner_y, X_OUT - (X0 - .05)))
+    if inner_y is not None and (not (20.0 <= inner_y < exit_y <= 27.6) or lean > 45.5):
         raise ValueError(f"Front rake must lean forward inboard at <= 45 degrees ({lean:.1f})")
     root = acc.WORK / "swept_feed"
     out, source, baseline = root / name, root / source_name, root / "userP21_flow_neutral_v5d"
@@ -112,8 +112,11 @@ def build(name, floor, y_aft, inner_y, exit_y, source_name):
 
     air, fill = pocket_and_fill(p22, floor, y_aft)
     stage = fuse(p22, fill, fill.mirror("YZ")).cut(air.copy()).cut(air.mirror("YZ")).clean()
-    right, left = rake(stage, inner_y, exit_y)
-    candidate = M.checked(fuse(stage, right, left), name)
+    if inner_y is None:
+        candidate = M.checked(stage, name)  # keep the source's front edge; the opening only grows aft
+    else:
+        right, left = rake(stage, inner_y, exit_y)
+        candidate = M.checked(fuse(stage, right, left), name)
     if len(candidate.Shells()) != 1:
         raise ValueError("Candidate is not one closed shell")
 
@@ -190,8 +193,10 @@ if __name__ == "__main__":
     parser.add_argument("name")
     parser.add_argument("--floor", choices=("chamfer", "flat"), required=True)
     parser.add_argument("--y-aft", type=float, required=True)
-    parser.add_argument("--inner-y", type=float, required=True)
-    parser.add_argument("--exit-y", type=float, required=True)
+    parser.add_argument("--inner-y", type=float, help="front rake start; omit with --exit-y for no rake")
+    parser.add_argument("--exit-y", type=float)
     parser.add_argument("--source", default="review_fr1_rc24m")
     a = parser.parse_args()
+    if (a.inner_y is None) != (a.exit_y is None):
+        parser.error("give both --inner-y and --exit-y, or neither")
     build(a.name, a.floor, a.y_aft, a.inner_y, a.exit_y, a.source)
