@@ -212,6 +212,31 @@ off before the nozzle.
   fills that layer.
 - A thermal A/B print, not more airflow tuning, is the next useful test.
 
+### Converging rear outlet: the two halves merge at the nozzle
+
+The rear slot's ends were filled with solid end walls (no vanes) so the edge air turns inward and the two halves
+meet on the centreline. A true 120/240-degree approach is not reachable: the slot spans only X +-9, so the
+steepest approach from its ends is about 149/211 degrees. Builder: `build_rear_converge_r43.py` on FR1; both
+variants keep every hotend, probe and withdrawal gap ([design](images/r43_rear_converge_design.png)).
+
+| Fine mesh, scaled to blower | FR1 | A: 24.4 deg, merge at nozzle | B: 36 deg, merge at Y 20 |
+|---|---:|---:|---:|
+| Centre share of outlet air | 48% | 37% | 43% |
+| Below-tip ring r 2-4 mm, mean / rear (m/s) | 19.7 / 9.2 | **30.2 / 20.3** | 19.7 / 11.6 |
+| Rear / front low-speed spot at bed +0.1 mm (m/s) | 9.3 / 17.9 | **20.3 / 31.7** | 11.6 / 24.5 |
+| Air onto print r 2-5 mm, down / up (L/min) | 13.5 / 10.5 | **15.6 / 3.8** | 7.8 / 4.3 |
+| Nozzle tip to 1 mm / cone / sock (m/s) | 19.2 / 15.9 / 12.8 | 39.9 / 26.2 / 13.3 | 30.9 / 22.8 / 14.1 |
+
+([figure](images/r43_cooling_review_cfd_rear_converge.png),
+[data](verification_cooling_review_r43_rear_converge.json))
+
+**Outcome: A is the best print-side airflow so far; B is not adopted.**
+- A clears both low-speed spots, gives the most downward air on the print and cuts lift-off by about two thirds.
+- Its cost is air on the nozzle: tip and cone speeds roughly double. The sock and heater block see no change.
+- B's earlier merge does not fill the gap: the merged jet lifts at Y 20 and less air reaches the print.
+- Airflow, not temperature. A thermal A/B print of FR1 versus A (nozzle temperature hold and overhang/bridge
+  quality) decides whether the extra nozzle air matters.
+
 ## Aiming at the bead within the hotend clearance limits
 
 **Screening round, 2026-10-31.** The question was how to make the air average just below the nozzle tip without
