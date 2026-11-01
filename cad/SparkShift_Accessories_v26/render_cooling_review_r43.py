@@ -127,7 +127,7 @@ def sample_plan(g, factor):
     return x, y, speed, vx, vy, metrics
 
 
-def flow(specs):
+def flow(specs, tag=None):
     rows = [s.split("=", 1) for s in specs]
     settings = [json.loads((C.results_dir(case) / "stages.json").read_text()) for _, case in rows]
     if any(s != settings[0] for s in settings[1:]):
@@ -200,14 +200,17 @@ def flow(specs):
     fig.suptitle("AUDITED AIRFLOW | complete rear-outlet accounting, own-side below-tip targets\n"
                  "Steady RANS at 180 L/min, velocities scaled to estimated blower points. Lines are in-plane "
                  "projections; not heat-transfer results.", color=R.TEXT, fontsize=14)
-    out = ROOT / "images" / "r43_cooling_review_cfd.png"
+    if tag is not None and (not tag or any(c not in "abcdefghijklmnopqrstuvwxyz0123456789_" for c in tag)):
+        raise ValueError("Use a lower-case tag of letters, digits and underscores")
+    suffix = f"_{tag}" if tag else ""
+    out = ROOT / "images" / f"r43_cooling_review_cfd{suffix}.png"
     fig.savefig(out, facecolor=R.BG)
     result = {"cases": summaries, "matched_solver_and_mesh_settings": True, "settings": settings[0],
               "image_sha256": V.digest(out), "renderer_sha256": V.digest(Path(__file__)),
               "cautions": ["The target is clipped by the modeled bed 0.2 mm below the tip.",
                            "A low velocity stagnation region is not proof of poor heat transfer.",
                            "Scaled velocities assume similar flow topology at the estimated blower point."]}
-    (ROOT / "verification_cooling_review_r43.json").write_text(json.dumps(result, indent=2) + "\n")
+    (ROOT / f"verification_cooling_review_r43{suffix}.json").write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({k: {n: v[n] for n in ("case", "blower_estimate_lpm", "outlets_estimate_lpm",
                                            "circled_pocket_mean_ms", "below_tip_ring_speed")}
                       for k, v in summaries.items()}, indent=2), flush=True)
@@ -219,8 +222,9 @@ if __name__ == "__main__":
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--geometry")
     group.add_argument("--flow", nargs="+")
+    parser.add_argument("--tag", help="write images/r43_cooling_review_cfd_TAG.png and its own verification JSON")
     args = parser.parse_args()
     if args.geometry:
         geometry(args.geometry)
     else:
-        flow(args.flow)
+        flow(args.flow, args.tag)

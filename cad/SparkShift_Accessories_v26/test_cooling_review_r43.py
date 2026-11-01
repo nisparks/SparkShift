@@ -58,6 +58,15 @@ class CoolingReviewTests(unittest.TestCase):
             V.require_current({"grid": "old"}, {"grid": "new"}, "cache")
         V.require_current({"grid": "same"}, {"grid": "same"}, "cache")
 
+    def test_source_digest_ignores_line_endings_but_data_digest_does_not(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            lf, crlf = Path(tmp, "lf.py"), Path(tmp, "crlf.py")
+            lf.write_bytes(b"a = 1\nb = 2\n")
+            crlf.write_bytes(b"a = 1\r\nb = 2\r\n")
+            self.assertEqual(V.digest(lf), V.digest(crlf))
+            lf_data, crlf_data = lf.rename(Path(tmp, "lf.json")), crlf.rename(Path(tmp, "crlf.json"))
+            self.assertNotEqual(V.digest(lf_data), V.digest(crlf_data))
+
     def test_own_side_below_tip_is_a_hit(self):
         p = np.array([[-10, Z.NY, Z.BED_Z + 3], [-2, Z.NY, Z.BED_Z + .1]])
         self.assertEqual(Z.classify("left", p, 4), ("hit", 0))

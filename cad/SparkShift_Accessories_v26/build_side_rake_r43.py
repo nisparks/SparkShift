@@ -40,7 +40,7 @@ def rake(p22, inner_y, exit_y):
     return body, body.mirror("YZ")
 
 
-def build(name, inner_y, exit_y):
+def build(name, inner_y, exit_y, source_name=SOURCE):
     if Path(name).name != name or not name.startswith("review_"):
         raise ValueError("Use a new review_* experiment name")
     if not (20.0 <= inner_y < exit_y <= 27.6):
@@ -52,7 +52,9 @@ def build(name, inner_y, exit_y):
     out = root / name
     if out.exists():
         raise FileExistsError(out)
-    source, baseline = root / SOURCE, root / "userP21_flow_neutral_v5d"
+    if Path(source_name).name != source_name:
+        raise ValueError("Source must be an experiment folder name")
+    source, baseline = root / source_name, root / "userP21_flow_neutral_v5d"
     p22 = cq.Shape.importBrep(str(source / "p22.brep"))
     released = cq.Shape.importBrep(str(baseline / "p22.brep"))
     p21 = cq.Shape.importBrep(str(source / "p21.brep"))
@@ -64,10 +66,15 @@ def build(name, inner_y, exit_y):
         raise ValueError(f"Fill did not fuse cleanly: added {added}, grew {grown}")
     symmetry = difference(candidate, candidate.mirror("YZ"))
     bb = candidate.BoundingBox()
-    inboard = candidate.copy().intersect(M.box(-X0 + 1e-3, X0 - 1e-3, 14.0, 30.0, -79.0, -70.0))
-    if bb.zmin < -77.851 or symmetry > .02 or difference(inboard, p22.copy().intersect(
-            M.box(-X0 + 1e-3, X0 - 1e-3, 14.0, 30.0, -79.0, -70.0))) > .01:
-        raise ValueError(f"Limit failure: zmin {bb.zmin}, symmetry {symmetry}")
+    inboard_box = M.box(-X0 + 1e-3, X0 - 1e-3, 14.0, 30.0, -79.0, -70.0)
+    inboard, inboard_src = candidate.copy().intersect(inboard_box.copy()), p22.copy().intersect(inboard_box.copy())
+    if inboard.Solids() and inboard_src.Solids():
+        inboard_change = difference(inboard, inboard_src)
+    else:
+        # An empty intersection makes the boolean cut null; then both sides must be empty.
+        inboard_change = sum(s.Volume() for s in inboard.Solids()) + sum(s.Volume() for s in inboard_src.Solids())
+    if bb.zmin < -77.851 or symmetry > .02 or inboard_change > .01:
+        raise ValueError(f"Limit failure: zmin {bb.zmin}, symmetry {symmetry}, inboard change {inboard_change}")
     scene_path = acc.WORK / "r43_scene" / "manifest.json"
     scene = json.loads(scene_path.read_text())
     tools = {n: cq.Shape.importBrep(str(scene_path.parent / f)) for n, f in scene["variants"]["Bambu"]["parts"]}
@@ -94,7 +101,7 @@ def build(name, inner_y, exit_y):
         opening[side] = {"before_mm2": plane.copy().cut(p22.copy()).Volume() / .02,
                          "after_mm2": plane.copy().cut(candidate.copy()).Volume() / .02}
     report = {
-        "status": "GEOMETRY_SCREENED_SEPARATE_CFD_CANDIDATE", "source": SOURCE,
+        "status": "GEOMETRY_SCREENED_SEPARATE_CFD_CANDIDATE", "source": source_name,
         "side_rake": {"inner_y_at_x12p65": inner_y, "exit_y_at_slot_face": exit_y, "lean_deg": lean},
         "rear_slot": json.loads((source / "checks.json").read_text()).get("rear_slot",
                                                                           {"mouth_height_mm": 2.0, "angle_deg": 28,
@@ -129,5 +136,6 @@ if __name__ == "__main__":
     parser.add_argument("name")
     parser.add_argument("--inner-y", type=float, required=True)
     parser.add_argument("--exit-y", type=float, required=True)
+    parser.add_argument("--source", default=SOURCE, help="Source experiment folder, e.g. a review_* rear-slot build")
     a = parser.parse_args()
-    build(a.name, a.inner_y, a.exit_y)
+    build(a.name, a.inner_y, a.exit_y, a.source)

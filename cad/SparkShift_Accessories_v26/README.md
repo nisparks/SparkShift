@@ -51,6 +51,9 @@ Side air was not flowing backward. Raking each side passage's front wall forward
 4% blower flow and needs no extra support. Recommended review part:
 `step/P22_C28_Bambu_Forward_Rake_FR1_REVIEW.step` (airflow and slicer screened, not print or thermal qualified).
 A true aft shift of the side outlets needs a feed-chamber redesign (future change).
+The [two slow spots under the nozzle](./R43_SWEPT_FEED_REVIEW.md#the-two-low-speed-spots-under-the-nozzle) are
+the rear jet's stagnation line and the nozzle wake. Narrower 1.4 and 0.9 mm rear slots on FR1 did not clear them,
+so FR1 is kept and a thermal A/B print is the next test.
 
 **Audit:** [R&D audit and design review](./R43_SWEPT_FEED_REVIEW.md#rd-audit-and-design-review).
 The earlier RVM/RVMS ranking was re-evaluated. The rear-outlet analysis clipped every case against a

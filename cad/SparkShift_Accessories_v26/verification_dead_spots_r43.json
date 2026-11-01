@@ -1,0 +1,357 @@
+{
+  "question": "User-circled low-speed spots in the plan 0.1 mm below the tip: behind (X+-2, Y19-21) and in front (X+-1.5, Y23.5-26.5) of the nozzle",
+  "analyser_sha256": "68775efd3301eaf6e48ee403a3fae217c62035fb4053a200cdcaaceaded0f598",
+  "cases": {
+    "RVMS (control)": {
+      "case": "r43auditRVMS28fine_bambu_bed",
+      "velocity_scale": 1.2627777777777778,
+      "bed_z_mm": -79.08,
+      "spots": {
+        "rear": {
+          "box_xy_mm": [
+            -2.0,
+            2.0,
+            19.0,
+            21.0
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 8.183978080749512,
+              "p10_ms": 4.593342304229736,
+              "below_5ms_pct": 12.418300653594772
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 8.32479476928711,
+              "p10_ms": 4.652964115142822,
+              "below_5ms_pct": 13.071895424836603
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 8.258098602294922,
+              "p10_ms": 4.321576118469238,
+              "below_5ms_pct": 18.954248366013072
+            }
+          }
+        },
+        "front": {
+          "box_xy_mm": [
+            -1.5,
+            1.5,
+            23.5,
+            26.5
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 12.777782440185547,
+              "p10_ms": 8.020895004272461,
+              "below_5ms_pct": 1.183431952662722
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 15.813526153564453,
+              "p10_ms": 11.148797988891602,
+              "below_5ms_pct": 0.0
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 17.712087631225586,
+              "p10_ms": 11.714194297790527,
+              "below_5ms_pct": 0.591715976331361
+            }
+          }
+        }
+      },
+      "limitations": "Air speed only, 0.1 mm off a no-slip bed is partly boundary layer; not temperature."
+    },
+    "RVM (0.9 mm rear)": {
+      "case": "r43auditRVMfineV2_bambu_bed",
+      "velocity_scale": 1.1422222222222222,
+      "bed_z_mm": -79.08,
+      "spots": {
+        "rear": {
+          "box_xy_mm": [
+            -2.0,
+            2.0,
+            19.0,
+            21.0
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 30.302000045776367,
+              "p10_ms": 15.065804481506348,
+              "below_5ms_pct": 0.0
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 32.659629821777344,
+              "p10_ms": 18.55274772644043,
+              "below_5ms_pct": 0.0
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 31.634292602539062,
+              "p10_ms": 19.27066421508789,
+              "below_5ms_pct": 0.0
+            }
+          }
+        },
+        "front": {
+          "box_xy_mm": [
+            -1.5,
+            1.5,
+            23.5,
+            26.5
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 17.18880271911621,
+              "p10_ms": 7.699244022369385,
+              "below_5ms_pct": 2.366863905325444
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 20.445737838745117,
+              "p10_ms": 12.079355239868164,
+              "below_5ms_pct": 1.7751479289940828
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 23.63054656982422,
+              "p10_ms": 13.981156349182129,
+              "below_5ms_pct": 1.183431952662722
+            }
+          }
+        }
+      },
+      "limitations": "Air speed only, 0.1 mm off a no-slip bed is partly boundary layer; not temperature."
+    },
+    "FR1 (adopted, 2.0 mm rear)": {
+      "case": "r43auditFR1fine_bambu_bed",
+      "velocity_scale": 1.211111111111111,
+      "bed_z_mm": -79.08,
+      "spots": {
+        "rear": {
+          "box_xy_mm": [
+            -2.0,
+            2.0,
+            19.0,
+            21.0
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 9.310393333435059,
+              "p10_ms": 5.875793933868408,
+              "below_5ms_pct": 7.8431372549019605
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 9.095548629760742,
+              "p10_ms": 4.993049621582031,
+              "below_5ms_pct": 10.457516339869281
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 8.858244895935059,
+              "p10_ms": 4.053239345550537,
+              "below_5ms_pct": 17.647058823529413
+            }
+          }
+        },
+        "front": {
+          "box_xy_mm": [
+            -1.5,
+            1.5,
+            23.5,
+            26.5
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 17.942291259765625,
+              "p10_ms": 5.267598628997803,
+              "below_5ms_pct": 9.467455621301776
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 23.07101821899414,
+              "p10_ms": 7.519929885864258,
+              "below_5ms_pct": 7.6923076923076925
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 26.377906799316406,
+              "p10_ms": 10.707503318786621,
+              "below_5ms_pct": 3.5502958579881656
+            }
+          }
+        }
+      },
+      "limitations": "Air speed only, 0.1 mm off a no-slip bed is partly boundary layer; not temperature."
+    },
+    "FR2": {
+      "case": "r43auditFR2fine_bambu_bed",
+      "velocity_scale": 1.1122222222222222,
+      "bed_z_mm": -79.08,
+      "spots": {
+        "rear": {
+          "box_xy_mm": [
+            -2.0,
+            2.0,
+            19.0,
+            21.0
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 10.676482200622559,
+              "p10_ms": 6.5811848640441895,
+              "below_5ms_pct": 5.88235294117647
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 10.751090049743652,
+              "p10_ms": 5.73601770401001,
+              "below_5ms_pct": 7.18954248366013
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 11.297687530517578,
+              "p10_ms": 4.835362434387207,
+              "below_5ms_pct": 11.11111111111111
+            }
+          }
+        },
+        "front": {
+          "box_xy_mm": [
+            -1.5,
+            1.5,
+            23.5,
+            26.5
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 20.88128089904785,
+              "p10_ms": 10.07726001739502,
+              "below_5ms_pct": 0.0
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 26.1046142578125,
+              "p10_ms": 13.135663986206055,
+              "below_5ms_pct": 0.0
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 26.65375328063965,
+              "p10_ms": 10.88173770904541,
+              "below_5ms_pct": 1.7751479289940828
+            }
+          }
+        }
+      },
+      "limitations": "Air speed only, 0.1 mm off a no-slip bed is partly boundary layer; not temperature."
+    },
+    "FR1 + 1.4 mm rear": {
+      "case": "r43auditFR1H14fine_bambu_bed",
+      "geometry": "swept_feed/review_fr1_h14 (source review_rear_h14)",
+      "velocity_scale": 1.1388888888888888,
+      "bed_z_mm": -79.08,
+      "spots": {
+        "rear": {
+          "box_xy_mm": [
+            -2.0,
+            2.0,
+            19.0,
+            21.0
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 9.485356330871582,
+              "p10_ms": 2.4648449420928955,
+              "below_5ms_pct": 23.52941176470588
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 12.238436698913574,
+              "p10_ms": 4.785452842712402,
+              "below_5ms_pct": 11.76470588235294
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 15.601344108581543,
+              "p10_ms": 9.507596969604492,
+              "below_5ms_pct": 0.6535947712418301
+            }
+          }
+        },
+        "front": {
+          "box_xy_mm": [
+            -1.5,
+            1.5,
+            23.5,
+            26.5
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 16.739152908325195,
+              "p10_ms": 4.847184658050537,
+              "below_5ms_pct": 11.242603550295858
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 21.70174217224121,
+              "p10_ms": 5.408819198608398,
+              "below_5ms_pct": 7.6923076923076925
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 23.934972763061523,
+              "p10_ms": 8.563202857971191,
+              "below_5ms_pct": 0.591715976331361
+            }
+          }
+        }
+      },
+      "limitations": "Air speed only, 0.1 mm off a no-slip bed is partly boundary layer; not temperature."
+    },
+    "FR1 + 0.9 mm rear": {
+      "case": "r43auditFR1H09fine_bambu_bed",
+      "geometry": "swept_feed/review_fr1_h09 (source review_rear_h09)",
+      "velocity_scale": 1.0588888888888888,
+      "bed_z_mm": -79.08,
+      "spots": {
+        "rear": {
+          "box_xy_mm": [
+            -2.0,
+            2.0,
+            19.0,
+            21.0
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 10.589365005493164,
+              "p10_ms": 3.6154353618621826,
+              "below_5ms_pct": 20.26143790849673
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 10.35876750946045,
+              "p10_ms": 3.89528226852417,
+              "below_5ms_pct": 16.33986928104575
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 8.36755657196045,
+              "p10_ms": 3.0218634605407715,
+              "below_5ms_pct": 27.450980392156865
+            }
+          }
+        },
+        "front": {
+          "box_xy_mm": [
+            -1.5,
+            1.5,
+            23.5,
+            26.5
+          ],
+          "heights": {
+            "bed_plus_0.1mm": {
+              "mean_ms": 17.793777465820312,
+              "p10_ms": 4.519202709197998,
+              "below_5ms_pct": 14.201183431952662
+            },
+            "bed_plus_0.2mm": {
+              "mean_ms": 24.263418197631836,
+              "p10_ms": 6.022395133972168,
+              "below_5ms_pct": 9.467455621301776
+            },
+            "bed_plus_0.4mm": {
+              "mean_ms": 29.381038665771484,
+              "p10_ms": 11.306987762451172,
+              "below_5ms_pct": 3.5502958579881656
+            }
+          }
+        }
+      },
+      "limitations": "Air speed only, 0.1 mm off a no-slip bed is partly boundary layer; not temperature."
+    }
+  },
+  "outcome": "Narrower rear slots on FR1 do not clear either spot; RVM clears the rear spot only by driving its rear jet into the nozzle tip (27 m/s tip-to-1 mm). FR1 kept."
+}

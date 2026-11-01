@@ -173,6 +173,45 @@ Watch-outs for the thermal A/B print:
 
 Evidence: [collaborative-outlet study](verification_cooling_collaborative_r43.json).
 
+### The two low-speed spots under the nozzle
+
+The plan 0.1 mm below the tip shows two slow spots, one behind and one in front of the nozzle.
+`cfd_dead_spots_r43.py` samples them on a 0.25 mm grid. Speeds are at each design's own blower point (mean / 10th
+percentile, m/s):
+
+| Design | Blower | Behind, X ±2, Y 19-21: bed +0.1 / +0.4 mm | In front, X ±1.5, Y 23.5-26.5: +0.1 / +0.4 mm | Tip to 1 mm | Below-tip target |
+|---|---|---|---|---|---|
+| RVMS | 227 L/min | 8.2 / 8.3 | 12.8 / 17.7 | 11.1 m/s | 3.19 L/min |
+| RVM (0.9 mm rear) | 206 L/min | 30.3 / 31.6 | 17.2 / 23.6 | **26.8 m/s** | 4.99 L/min |
+| **FR1** (2.0 mm rear) | 218 L/min | 9.3 / 8.9 | 17.9 / 26.4 | 19.2 m/s | **5.12 L/min** |
+| FR2 | 200 L/min | 10.7 / 11.3 | 20.9 / 26.7 | 23.1 m/s | 3.70 L/min |
+| FR1 + 1.4 mm rear | 205 L/min | 9.5 / 15.6 | 16.7 / 23.9 | 8.4 m/s | 5.11 L/min |
+| FR1 + 0.9 mm rear | 191 L/min | 10.6 / 8.4 | 17.8 / 29.4 | 15.1 m/s | 4.40 L/min |
+
+**Cause.**
+- **Behind (Y ~20):** a stagnation line. The rear jet lands at Y ~17 and splits: part runs back along the bed at
+  13-34 m/s, and the rest lifts 1-2 mm over the side jets' ~1.35 kPa pressure pad instead of hugging the bed.
+- **In front (Y 24-26):** the nozzle and sock wake, plus air coming down off the front of the heater. The side jets
+  pass at X ±1.5-3 at about 30 m/s and leave the centreline empty.
+
+**Tried: a faster, narrower rear jet on FR1.** RVM's 0.9 mm slot is the only design with no rear spot. The rear slot
+was narrowed to 1.4 mm and 0.9 mm with `build_rvms_review_r43.py`, then FR1's rake was applied with
+`build_side_rake_r43.py --source`. Both pass every geometry check, but **neither clears either spot.** The 1.4 mm
+slot drops the below-tip ring to 7.5 m/s (rear sector 2.7 m/s), and the 0.9 mm slot loses 27 L/min of blower flow.
+
+The centre sections ([figure](images/r43_cooling_review_cfd_rear_slot_fr1.png),
+[data](verification_cooling_review_r43_rear_slot_fr1.json), [spots](verification_dead_spots_r43.json)) show why RVM
+looks clean: its rear jet runs straight into the nozzle tip. With FR1's side jets the narrower rear jet still lifts
+off before the nozzle.
+
+**Outcome: FR1 is kept; the narrower slots are not adopted.**
+- Within the constraints (no material inboard of |X| 10.2 or below Z -77.85, no vanes, unchanged hotend gaps),
+  filling either spot means aiming air within ~2 mm of the nozzle axis at bed level, which is the nozzle tip.
+  The earlier toe-in trials (RFT/RVMT) showed the same trade: 42 m/s on the nozzle cone.
+- These spots are 0.1 mm off a no-slip bed, so part of the low speed is the boundary layer. In a print the bead
+  fills that layer.
+- A thermal A/B print, not more airflow tuning, is the next useful test.
+
 ## Aiming at the bead within the hotend clearance limits
 
 **Screening round, 2026-10-31.** The question was how to make the air average just below the nozzle tip without

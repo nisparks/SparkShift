@@ -1977,7 +1977,7 @@
     }
   },
   "image_sha256": "e90c096eb8dafc49c8eace980306edce187c244f376339805bed4f659af61b72",
-  "renderer_sha256": "5e93f4fbeb3e3b9c4ffe1e6ac01df152973dc9b5ae74e536a42ff8b5d8b9dbbb",
+  "renderer_sha256": "7e1c2b2c57a498e5f5235ba31edde448777ba9ba86eef4bdd5eb5b6e0fa61eed",
   "cautions": [
     "The target is clipped by the modeled bed 0.2 mm below the tip.",
     "A low velocity stagnation region is not proof of poor heat transfer.",
