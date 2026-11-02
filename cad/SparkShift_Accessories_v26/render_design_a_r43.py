@@ -1,11 +1,13 @@
 """Shaded 3D views of the chosen part cooler A (FR1 + converging rear outlet) around the Bambu hotend.
 
 python render_design_a_r43.py [--geom review_fr1_rc24m]
+python render_design_a_r43.py --geom review_a_aftf --label "Aft F" --output r43_design_aft_f_views.png
 Writes images/r43_design_a_views.png (VTK offscreen). Geometry only; airflow is in
 images/r43_cooling_review_cfd_rear_converge.png.
 """
 import argparse
 import json
+from pathlib import Path
 
 import cadquery as cq
 import matplotlib
@@ -112,11 +114,14 @@ def snap(actors, pos, focal, up, scale, size=(1100, 900)):
     return arr
 
 
-def main(geom):
+def main(geom, label="A", output="r43_design_a_views.png"):
     root = acc.WORK / "swept_feed"
     checks = json.loads((root / geom / "checks.json").read_text())
     p22 = cq.Shape.importBrep(str(root / geom / "p22.brep"))
-    src = cq.Shape.importBrep(str(root / checks["source"] / "p22.brep"))
+    source_checks = checks
+    if "side_aft" in checks:
+        source_checks = json.loads((root / checks["source"] / "checks.json").read_text())
+    src = cq.Shape.importBrep(str(root / source_checks["source"] / "p22.brep"))
     rc = checks["rear_converge"]
     right, left = RC.fill(src, checks["rear_slot"], rc["exit_abs_x_mm"], rc["yaw_deg"])
     scene = acc.WORK / "r43_scene"
@@ -148,11 +153,14 @@ def main(geom):
         ax.imshow(snap(actors, pos, focal, up, scale))
         ax.set_title(title, fontsize=13)
         ax.axis("off")
-    fig.suptitle(f"Design A = FR1 side jets + converging rear outlet. Blue: duct. Orange: new rear end walls "
+    sides = "aft-shifted side jets" if "side_aft" in checks else "FR1 side jets"
+    fig.suptitle(f"Design {label} = {sides} + converging rear outlet. Blue: duct. Orange: rear end walls "
                  f"({rc['yaw_deg']} deg yaw, merge at the nozzle).\nGrey: Bambu hotend. Yellow: nozzle tip. "
-                 "Geometry only; see r43_cooling_review_cfd_rear_converge.png for airflow.", fontsize=14)
+                 "Geometry only; not an airflow or temperature plot.", fontsize=14)
     fig.subplots_adjust(left=.01, right=.99, bottom=.01, top=.92, wspace=.02, hspace=.07)
-    out = ROOT / "images" / "r43_design_a_views.png"
+    if output != Path(output).name or not output.endswith(".png"):
+        raise ValueError("Output must be a PNG filename")
+    out = ROOT / "images" / output
     fig.savefig(out, facecolor="white")
     print(out)
 
@@ -160,4 +168,7 @@ def main(geom):
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--geom", default="review_fr1_rc24m")
-    main(p.parse_args().geom)
+    p.add_argument("--label", default="A")
+    p.add_argument("--output", default="r43_design_a_views.png")
+    args = p.parse_args()
+    main(args.geom, args.label, args.output)

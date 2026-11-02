@@ -448,6 +448,47 @@ the script help and module docstring describe the case names and optional
 larger remote volume. Raw meshes and fields remain in session artifacts,
 not the repository.
 
+### Completed challengers: A aft C and A wide C
+
+The two strongest untested airflow candidates were run with the identical
+thermal setup. **Neither beats A aft F on immediate bead cooling or fixes
+its front-side outer-ring weakness.**
+
+[Challenger thermal comparison](images/r43_thermal_challengers.png) |
+[Results](verification_thermal_r43_challengers.json) |
+[Aft F geometry views](images/r43_design_aft_f_views.png)
+
+| Design | Bead heat (W) | Weakest bead sector / mean | r 2-5 mm heat (W) | Front r 2-5 mm h (W/m2K) | Nozzle loss (W) |
+|---|---:|---:|---:|---:|---:|
+| A | 0.994 | 60% | 2.261 | 55.8 | 5.061 |
+| A aft F | 1.369 | 72% | 2.784 | 42.6 | 5.333 |
+| A aft C | 0.959 | 63% | 2.345 | 26.2 | 5.107 |
+| A wide C | 0.927 | 59% | 2.081 | 7.6 | 5.026 |
+
+A aft F removes 43% more bead-zone heat than aft C and 48% more than wide C.
+Compared with aft C, it also removes 19% more heat in the surrounding ring
+for 4% more nozzle loss. Aft C remains easier to print because of its
+chamfered pocket, but its hypothesized thermal compromise did not materialize.
+Wide C's good airflow-sector balance did not translate to good thermal
+coverage: its front-sector effective h in the outer ring is particularly low.
+These sector averages describe weak cooling, not zero flow everywhere.
+
+The challengers' whole-bed window means are 15.04 W (aft C) and 14.50 W
+(wide C), with standard deviations 0.17 W each. Final-200-iteration mean
+offsets are +0.033 and +0.027 W respectively. The same model and validation
+limitations above apply; this comparison does not establish hardware
+performance or a thermally mesh-independent optimum.
+
+**Selection:** retain A aft F as the immediate-bead thermal leader among
+the six completed thermal candidates. Retain A as the reference for its
+stronger front outer-ring cooling. Do not rank using whole-bed heat,
+downward flow or velocity uniformity alone: flow reaching and renewing the
+hot surface matters, and upward exhaust after surface contact is not
+automatically wasted. Four thermal cases suggested this screening revision;
+the two challengers now show why it is not a universal velocity-to-heat rule.
+All thermal runs use nominal 180 L/min, whereas the airflow scorecard
+scales to individual estimated blower operating points.
+
 ## Aiming at the bead within the hotend clearance limits
 
 **Screening round, 2026-10-31.** The question was how to make the air average just below the nozzle tip without

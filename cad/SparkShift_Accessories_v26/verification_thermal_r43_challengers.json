@@ -1,0 +1,232 @@
+{
+  "tag": "challengers",
+  "boundary_conditions": {
+    "air_c": 35.0,
+    "nozzle_c": 250.0,
+    "bead_c": 210.0,
+    "old_print_c": 60.0,
+    "bead_radius_mm": 2,
+    "ramp_to_mm": 5,
+    "other_walls": "adiabatic (sock included)",
+    "solver": "buoyantSimpleFoam v2512, kOmegaSST, alphatJayatillekeWallFunction Prt 0.85, Sutherland air, hConst Cp 1007, gravity on",
+    "averaging": "iterations 800-1400"
+  },
+  "cases": {
+    "A": {
+      "case": "r43auditRC24fine_bambu_bed",
+      "thermal_case": "r43therm_RC24fine",
+      "bead r 0.6-2 mm": {
+        "heat_removed_w": 0.9942853087227447,
+        "h_mean_w_m2k": 498.11551738904535,
+        "h_sectors_front_right_rear_left": [
+          299.35206931264247,
+          471.1196677871342,
+          657.6920900338474,
+          562.7203498129221
+        ],
+        "h_weakest_over_mean": 0.6014454738833958
+      },
+      "print r 2-5 mm": {
+        "heat_removed_w": 2.2611888144911783,
+        "h_mean_w_m2k": 351.1896212184207,
+        "h_sectors_front_right_rear_left": [
+          55.80169528180981,
+          389.9145909718991,
+          565.9458857307355,
+          393.07095555361605
+        ],
+        "h_weakest_over_mean": 0.15889621790185307
+      },
+      "print r 5-10 mm": {
+        "heat_removed_w": 1.9264065133070591,
+        "h_mean_w_m2k": 327.3907368254297,
+        "h_sectors_front_right_rear_left": [
+          155.45327538116595,
+          362.949871524432,
+          431.9309519150823,
+          360.092572238937
+        ],
+        "h_weakest_over_mean": 0.474511939704236
+      },
+      "nozzle": {
+        "heat_loss_w": 5.060582447372422,
+        "area_mm2": 58.938450167104996,
+        "other_walls_w": 0.0
+      },
+      "air 0.5 mm above bead r 0.6-2 mm mean C": 65.08523559570312,
+      "air 0.5 mm above print r 2-5 mm mean C": 40.325103759765625,
+      "walls_total_w_avg_window": {
+        "mean": 5.0438410884026625,
+        "std": 0.056376147343510735,
+        "drift_last_200_vs_window": -0.019893721252662644
+      },
+      "bed_total_w_avg_window": {
+        "mean": 15.897393839101499,
+        "std": 0.25492230896353596,
+        "drift_last_200_vs_window": -0.11899074060150028
+      }
+    },
+    "Aft F": {
+      "case": "r43auditAFTFfine",
+      "thermal_case": "r43therm_AFTFfine",
+      "bead r 0.6-2 mm": {
+        "heat_removed_w": 1.3687013449101175,
+        "h_mean_w_m2k": 685.6898853035655,
+        "h_sectors_front_right_rear_left": [
+          490.1873636673164,
+          649.8309410300684,
+          859.8104238979931,
+          741.3553232405517
+        ],
+        "h_weakest_over_mean": 0.7152928871580287
+      },
+      "print r 2-5 mm": {
+        "heat_removed_w": 2.784220549877409,
+        "h_mean_w_m2k": 429.59570052999175,
+        "h_sectors_front_right_rear_left": [
+          42.62463606257773,
+          464.96824882782886,
+          713.1880121800189,
+          497.5654834402395
+        ],
+        "h_weakest_over_mean": 0.09922245374046268
+      },
+      "print r 5-10 mm": {
+        "heat_removed_w": 1.9079362922728271,
+        "h_mean_w_m2k": 324.25174005837425,
+        "h_sectors_front_right_rear_left": [
+          94.74952484334933,
+          387.2322529859659,
+          428.1954361866609,
+          387.74745371141955
+        ],
+        "h_weakest_over_mean": 0.2920031561130624
+      },
+      "nozzle": {
+        "heat_loss_w": 5.332547200356299,
+        "area_mm2": 58.99873700909254,
+        "other_walls_w": 0.0
+      },
+      "air 0.5 mm above bead r 0.6-2 mm mean C": 68.02041625976562,
+      "air 0.5 mm above print r 2-5 mm mean C": 43.39453125,
+      "walls_total_w_avg_window": {
+        "mean": 5.314101329600666,
+        "std": 0.11647834479313472,
+        "drift_last_200_vs_window": -0.036241769850666294
+      },
+      "bed_total_w_avg_window": {
+        "mean": 15.003342037271214,
+        "std": 0.26395650242059177,
+        "drift_last_200_vs_window": -0.23343216777121611
+      }
+    },
+    "Aft C": {
+      "case": "r43auditAFTCfine",
+      "thermal_case": "r43therm_AFTCfine",
+      "bead r 0.6-2 mm": {
+        "heat_removed_w": 0.9590534609648861,
+        "h_mean_w_m2k": 480.4651206508104,
+        "h_sectors_front_right_rear_left": [
+          304.38055062696526,
+          542.55608714661,
+          652.8384582309332,
+          420.6451060694299
+        ],
+        "h_weakest_over_mean": 0.633987395671536
+      },
+      "print r 2-5 mm": {
+        "heat_removed_w": 2.344512214107196,
+        "h_mean_w_m2k": 371.47642458017975,
+        "h_sectors_front_right_rear_left": [
+          26.20374936111509,
+          436.27562608926274,
+          592.7336131751508,
+          430.705394654041
+        ],
+        "h_weakest_over_mean": 0.07053886581113777
+      },
+      "print r 5-10 mm": {
+        "heat_removed_w": 1.8589175072872026,
+        "h_mean_w_m2k": 315.921046663432,
+        "h_sectors_front_right_rear_left": [
+          108.55507911842196,
+          361.1322178529255,
+          449.5522812183402,
+          345.53620362642977
+        ],
+        "h_weakest_over_mean": 0.34331801945968793
+      },
+      "nozzle": {
+        "heat_loss_w": 5.107283937721398,
+        "area_mm2": 58.913739371689104,
+        "other_walls_w": 0.0
+      },
+      "air 0.5 mm above bead r 0.6-2 mm mean C": 67.83035278320312,
+      "air 0.5 mm above print r 2-5 mm mean C": 42.240997314453125,
+      "walls_total_w_avg_window": {
+        "mean": 5.089407635024958,
+        "std": 0.06376887676162107,
+        "drift_last_200_vs_window": 0.002301711625041669
+      },
+      "bed_total_w_avg_window": {
+        "mean": 15.037163121464227,
+        "std": 0.1650384487990457,
+        "drift_last_200_vs_window": 0.03263603153577144
+      }
+    },
+    "Wide C": {
+      "case": "r43auditWIDECfine",
+      "thermal_case": "r43therm_WIDECfine",
+      "bead r 0.6-2 mm": {
+        "heat_removed_w": 0.9269765770417979,
+        "h_mean_w_m2k": 464.39529320315086,
+        "h_sectors_front_right_rear_left": [
+          272.45660285363067,
+          463.47844944717235,
+          659.251074126981,
+          460.81556020043536
+        ],
+        "h_weakest_over_mean": 0.5871904208203603
+      },
+      "print r 2-5 mm": {
+        "heat_removed_w": 2.081177348431728,
+        "h_mean_w_m2k": 328.58725328257407,
+        "h_sectors_front_right_rear_left": [
+          7.642705046922922,
+          386.868108092736,
+          542.643505403879,
+          377.19455770760993
+        ],
+        "h_weakest_over_mean": 0.023259288869244003
+      },
+      "print r 5-10 mm": {
+        "heat_removed_w": 1.7543666676040233,
+        "h_mean_w_m2k": 298.1527433025673,
+        "h_sectors_front_right_rear_left": [
+          90.66880365990588,
+          330.3669534493621,
+          435.55320661285464,
+          337.13862614613
+        ],
+        "h_weakest_over_mean": 0.3038174016566465
+      },
+      "nozzle": {
+        "heat_loss_w": 5.02570451217008,
+        "area_mm2": 58.99105517590449,
+        "other_walls_w": 0.0
+      },
+      "air 0.5 mm above bead r 0.6-2 mm mean C": 68.5330810546875,
+      "air 0.5 mm above print r 2-5 mm mean C": 43.095062255859375,
+      "walls_total_w_avg_window": {
+        "mean": 5.008582152778701,
+        "std": 0.1015255602345725,
+        "drift_last_200_vs_window": -0.059954502178701574
+      },
+      "bed_total_w_avg_window": {
+        "mean": 14.495443383194678,
+        "std": 0.16718239586370748,
+        "drift_last_200_vs_window": 0.026889869805323485
+      }
+    }
+  }
+}
