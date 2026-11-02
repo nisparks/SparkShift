@@ -383,6 +383,71 @@ Fine CFD, matched settings ([figure](images/r43_cooling_review_cfd_side_combo.pn
 - A stays the chosen design under every weighting tested. Within these limits, the jet trades speed at the tip
   for delivery onto the print; it cannot have both by adding area.
 
+## Temperature analysis: A, FR1, FR2 and A aft F
+
+The completed thermal comparison changes the airflow-only selection: **A aft F is
+the leading candidate for immediate bead heat extraction, not an unconditional
+overall winner.** No released geometry or Fusion document was changed.
+
+[Thermal comparison](images/r43_thermal_compare.png) |
+[Boundary conditions and results](verification_thermal_r43_compare.json)
+
+Each fine airflow case restarts at its nominal 180 L/min inlet condition and
+solves air momentum and energy with OpenFOAM v2512 `buoyantSimpleFoam`,
+k-omega SST, Sutherland transport and Jayatilleke thermal wall functions
+(turbulent Prandtl number 0.85). Air enters at 35 C. Exposed nozzle walls below
+Z -75.45 mm and within 4 mm of the nozzle axis are held at 250 C; all other
+walls, including the sock, are adiabatic. The flat print surface is held at
+210 C within radius 2 mm, ramps linearly to 60 C at radius 5 mm, and remains
+at 60 C farther out. Results average iterations 800-1400.
+
+| Design | Bead r 0.6-2 mm heat (W) | Bead h (W/m2K) | Weakest bead sector / mean | r 2-5 mm heat (W) | Weakest r 2-5 sector / mean | Nozzle loss (W) |
+|---|---:|---:|---:|---:|---:|---:|
+| A | 0.994 | 498 | 60% | 2.261 | 16% | 5.061 |
+| FR1 | 0.668 | 335 | 36% | 2.548 | 36% | 3.616 |
+| FR2 | 0.826 | 414 | 36% | 2.552 | 29% | 4.192 |
+| A aft F | 1.369 | 686 | 72% | 2.784 | 10% | 5.333 |
+
+Heat is positive from the prescribed hot surface into the air. Sector balance
+uses four 90-degree sectors (front, right, rear, left), not a minimum over every
+individual face. The coefficient h uses surface temperature minus inlet
+temperature, so it is an effective comparison coefficient, not a local
+air-temperature-based material property.
+
+A aft F extracts 38% more heat from the immediate bead annulus than A, with
+better balance there, for 5% more nozzle heat loss. Its weakest bead-sector h
+is approximately 491 versus A's 299 W/m2K. However, the surrounding 2-5 mm ring
+has a worse directional weak spot. FR1 and FR2 reduce nozzle cooling and
+improve balance in that outer ring, but neither matches A or A aft F in
+immediate bead heat extraction. Total bed heat alone would have hidden this:
+the whole-bed averages are A 15.90, FR1 16.02, FR2 16.21 and A aft F 15.00 W.
+The earlier airflow scorecard remains an airflow-only result; it is not proof
+that A is the best thermal design.
+
+The standard deviations of whole-bed heat over the averaging window are
+0.25, 0.12, 0.08 and 0.26 W respectively. The final 200-iteration mean differs
+from the window mean by -0.12, -0.04, -0.08 and -0.23 W. This indicates modest
+remaining drift, particularly for A aft F, not a thermal mesh-independence or
+absolute-accuracy validation. A's simulated nozzle loss of 5.06 W also differs
+from the earlier 3.00 W correlation estimate; the two methods should not be
+treated as interchangeable.
+
+**Limitations:** this is a fixed-temperature air-side comparison, not a moving
+filament or conjugate solid heat-transfer model. The hot annulus is a flat
+prescribed patch, not an actual extruded line. There is no polymer conduction,
+crystallization, radiation, heater-control model or real sock conduction.
+Consequently these watts do not establish an extrusion-rate limit, cooling
+time, layer strength, percentage of ideal performance, or superiority to a
+stock Bambu printer. Delivered airflow and assumed temperatures need hardware
+confirmation. The next design decision should retain A and A aft F as the
+principal comparison pair, with attention to the front-side outer-ring weak
+spot and four-direction printing behavior.
+
+Reproduce with `cfd_thermal_r43.py prepare`, `run`, `analyse` and `render`;
+the script help and module docstring describe the case names and optional
+larger remote volume. Raw meshes and fields remain in session artifacts,
+not the repository.
+
 ## Aiming at the bead within the hotend clearance limits
 
 **Screening round, 2026-10-31.** The question was how to make the air average just below the nozzle tip without
